@@ -1,0 +1,3 @@
+# Hello VuePress
+
+[Guide](guide)
