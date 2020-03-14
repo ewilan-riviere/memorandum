@@ -1,6 +1,6 @@
 module.exports = {
-  title: 'VuePress Experiment',
-  description: 'VuePress project to experiment it!',
+  title: 'Memorandum',
+  description: 'Find what you want!',
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
@@ -8,6 +8,11 @@ module.exports = {
       { text: 'External', link: 'https://google.com' },
     ],
     sidebar: 'auto'
-}
+    // sidebar: {
+    //   '/guides/': [
+    //     'auto'
+    //   ]
+    // }
+  }
 }
 
