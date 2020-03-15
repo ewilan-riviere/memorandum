@@ -1,4 +1,4 @@
-# Raspberry as media center
+# 🍇 Raspberry as media center
 
 ## 1. Download and install OSMC
 

@@ -1,6 +1,12 @@
 {
   "name": "memorandum",
   "displayName": "Memorandum",
+  "description": "Memorandum application",
+  "keywords": [
+    "documentation",
+    "vue",
+    "glossary"
+  ],
   "version": "0.1",
   "private": true,
   "homepage": "http://vuepress.ewilan-riviere.com/",
@@ -14,8 +20,13 @@
     "url": "git+https://github.com/ewilan-riviere/vuepress"
   },
   "scripts": {
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs"
+    "build": "vuepress build docs --temp .temp",
+    "dev": "vuepress dev docs --temp .temp",
+    "lint-md": "yarn lint-md:style && yarn lint-md:wording",
+    "lint-md:style": "remark --quiet --frail .",
+    "lint-md:wording": "textlint ./docs/**/*.md",
+    "show-help": "vuepress --help",
+    "view-info": "vuepress view-info docs --temp .temp"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
@@ -25,13 +36,34 @@
     "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^4.13.1",
     "sass-loader": "^8.0.2",
-    "vuepress": "^1.3.1"
-  },
-  "dependencies": {
+
     "@vuepress/plugin-active-header-links": "^1.3.1",
     "global": "^4.4.0",
     "markdown-it": "^10.0.0",
     "markdown-it-emoji": "^1.4.0",
-    "markdown-it-katex": "^2.0.3"
+    "markdown-it-katex": "^2.0.3",
+
+    "@textlint-rule/textlint-rule-no-unmatched-pair": "^1.0.7",
+    "@vuepress/plugin-back-to-top": "^1.3.1",
+    "@vuepress/plugin-google-analytics": "^1.3.1",
+    "@vuepress/plugin-medium-zoom": "^1.3.1",
+    "@vuepress/plugin-pwa": "^1.3.1",
+    "@vuepress/theme-vue": "^1.3.1",
+    "remark-cli": "^7.0.0",
+    "remark-lint": "^6.0.5",
+    "remark-preset-lint-consistent": "^2.0.3",
+    "remark-preset-lint-recommended": "^3.0.3",
+    "textlint": "^11.3.1",
+    "textlint-filter-rule-comments": "^1.2.2",
+    "textlint-rule-apostrophe": "^1.0.0",
+    "textlint-rule-common-misspellings": "^1.0.1",
+    "textlint-rule-diacritics": "^1.0.0",
+    "textlint-rule-en-capitalization": "^2.0.2",
+    "textlint-rule-stop-words": "^1.0.17",
+    "textlint-rule-terminology": "^1.1.30",
+    "textlint-rule-write-good": "^1.6.2",
+    "vue-toasted": "^1.1.25",
+    "vuepress": "^1.3.1",
+    "vuepress-plugin-flowchart": "^1.4.2"
   }
 }

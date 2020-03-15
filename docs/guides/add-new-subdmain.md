@@ -1,4 +1,4 @@
-# Add new subdomain
+# 🌐 Add new subdomain
 
 ## 1. Create subdomain
 

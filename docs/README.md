@@ -2,8 +2,8 @@
 home: true
 title: Home
 lang: en-US
-heroImage: './jack.png'
-actionText: Discover →
+heroImage: './logo.png'
+actionText: Discover Memorandum →
 actionLink: /guides/
 features:
 - title: Simplicity First
@@ -13,5 +13,5 @@ features:
 - title: Performant
   link: 'a'
   details: VuePress generates pre-rendered static HTML for each page, and runs as an SPA once a page is loaded.
-footer: MIT Licensed
+footer: MIT Licensed · Ewilan Rivière
 ---

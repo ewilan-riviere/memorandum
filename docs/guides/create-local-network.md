@@ -1,4 +1,4 @@
-# Add local server between two computer
+# 🖧 Local network between computers
 
 **Goal** : explain how to establish a local network between to computers with Python
 
