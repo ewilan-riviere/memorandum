@@ -112,10 +112,10 @@ function getGuideSidebar (groupA, groupB) {
       title: groupB,
       collapsable: false,
       children: [
-        'frontmatter',
-        'permalinks',
-        'markdown-slot',
-        'global-computed'
+        // 'frontmatter',
+        // 'permalinks',
+        // 'markdown-slot',
+        // 'global-computed'
       ]
     }
   ]
