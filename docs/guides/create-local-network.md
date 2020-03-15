@@ -1,18 +1,26 @@
 # 🖧 Networking: share directory
 
-**Goal** : explain how to establish a local network between to computers with Python
+<img src="/images/python.jpg" class="cover-img" />
 
-## 1. Create network
+How to establish a local network between two computers with Python.
 
-This will share `Documents/` directory on network:
+## 1. On host computer
+
+### 1. a. Create network
+
+This will share `my-directory/` directory on network:
 
 ```bash
-cd Documents/
+cd my-directory/
 
 python3 -m http.server
 ```
 
-## 2. Check IP
+:::tip
+You can use `python -m SimpleHTTPServer` if you haven't Python 3.
+:::
+
+### 2. b. Check IP of machine
 
 ```bash
 ip a
@@ -44,6 +52,6 @@ You will have this output with some variations:
 
 The url of your network depending of your connection type. If you use ethernet, take ethernet IP and if you use wifi, take wifi IP.
 
-## 3. Access to network
+## 2. On guest computer
 
 In any browser, just try to access to `192.168.1.36:8000` (for this example) and you will see list of files into shared directory. When you click on any file, you will can download it.
