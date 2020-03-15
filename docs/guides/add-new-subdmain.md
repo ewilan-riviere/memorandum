@@ -1,4 +1,4 @@
-# 🌐 Add new subdomain
+# 🌐 Nginx: add new subdomain
 
 ## 1. Create subdomain
 

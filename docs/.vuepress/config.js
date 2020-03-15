@@ -102,10 +102,11 @@ function getGuideSidebar (groupA, groupB) {
         '',
         'add-new-subdmain',
         'create-local-network',
-        'television-config',
         'raspberry-as-media-center',
+        'raspberry-manipulation',
         'digital-ocean-init',
-        'windows-new-terminal'
+        'windows-new-terminal',
+        'important-links'
       ]
     },
     {

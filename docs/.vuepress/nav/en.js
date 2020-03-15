@@ -3,10 +3,10 @@ module.exports = [
     text: 'Guides',
     link: '/guides/'
   },
-  {
-    text: 'Config Reference',
-    link: '/config/'
-  },
+  // {
+  //   text: 'Config Reference',
+  //   link: '/config/'
+  // },
   // {
   //   text: 'Plugin',
   //   link: '/plugin/'

@@ -1,8 +1,6 @@
 # 💧 Digital Ocean: droplet init
 
-<img src="/images/digital-ocean-droplet-init.png" class="cover-img" />
-
-[[toc]]
+<img src="/images/digital-ocean-droplet-init.jpg" class="cover-img" />
 
 ## 1. Server configuration
 

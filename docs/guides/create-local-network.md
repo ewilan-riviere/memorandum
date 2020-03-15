@@ -1,4 +1,4 @@
-# 🖧 Local network between computers
+# 🖧 Networking: share directory
 
 **Goal** : explain how to establish a local network between to computers with Python
 
