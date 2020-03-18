@@ -37,7 +37,7 @@ module.exports = ctx => ({
         sidebar: {
           // '/api/': getApiSidebar(),
           '/guides/': getGuideSidebar('Guides', 'Web Server','Raspberry & NAS'),
-          // '/plugin/': getPluginSidebar('Plugin', 'Introduction', 'Official Plugins'),
+          '/games/': getGamesSidebar('Games', 'Oxygen Not Included'),
           // '/theme/': getThemeSidebar('Theme', 'Introduction')
         }
       },
@@ -108,6 +108,24 @@ function getGuideSidebar (main, webServer, raspberry) {
       children: [
         'raspberry-as-media-center',
         'raspberry-manipulation',
+      ]
+    }
+  ]
+}
+function getGamesSidebar (main, oxygenNotIncluded) {
+  return [
+    {
+      title: main,
+      collapsable: false,
+      children: [
+        ''
+      ]
+    },
+    {
+      title: oxygenNotIncluded,
+      collapsable: true,
+      children: [
+        'oni-useful-links'
       ]
     }
   ]
