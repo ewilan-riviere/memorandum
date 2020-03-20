@@ -36,7 +36,7 @@ module.exports = ctx => ({
         nav: require('./nav/en'),
         sidebar: {
           // '/api/': getApiSidebar(),
-          '/guides/': getGuideSidebar('Guides', 'Web Server','Raspberry & NAS'),
+          '/guides/': getGuideSidebar('Guides', 'Web Server','Raspberry & NAS', 'Git', 'Laravel'),
           '/games/': getGamesSidebar('Games', 'Oxygen Not Included'),
           // '/theme/': getThemeSidebar('Theme', 'Introduction')
         }
@@ -81,7 +81,7 @@ module.exports = ctx => ({
   }
 })
 
-function getGuideSidebar (main, webServer, raspberry) {
+function getGuideSidebar (main, webServer, raspberry, git, laravel) {
   return [
     {
       title: main,
@@ -98,8 +98,22 @@ function getGuideSidebar (main, webServer, raspberry) {
       title: webServer,
       collapsable: true,
       children: [
+        'git-conflict-end-of-file'
+      ]
+    },
+    {
+      title: git,
+      collapsable: true,
+      children: [
         'web-server-new-subdomain',
         'web-server-laravel'
+      ]
+    },
+    {
+      title: laravel,
+      collapsable: true,
+      children: [
+        'laravel-cors-error'
       ]
     },
     {
