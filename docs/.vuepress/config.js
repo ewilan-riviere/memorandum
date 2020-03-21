@@ -87,7 +87,8 @@ function getGuideSidebar (main, webServer, raspberry, git, laravel) {
         'create-local-network',
         'digital-ocean-init',
         'windows-new-terminal',
-        'important-links'
+        'important-links',
+        'server-auto-deploy'
       ]
     },
     {
