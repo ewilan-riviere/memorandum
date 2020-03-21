@@ -4,6 +4,4 @@
 
 ![memorandum](docs/.vuepress/public/logo.png)
 
-git 4
-
 List some important infos with [**VuePress**](https://vuepress.vuejs.org/) documentation framework.
