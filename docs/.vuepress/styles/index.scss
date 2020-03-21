@@ -7,3 +7,11 @@
     object-fit: cover;
     height: 20rem;
 }
+
+.word-wraping {
+    text-align: justify !important;
+    -webkit-hyphens: auto !important;
+    -moz-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    hyphens: auto !important;
+}

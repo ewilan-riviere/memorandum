@@ -87,8 +87,7 @@ function getGuideSidebar (main, webServer, raspberry, git, laravel) {
         'create-local-network',
         'digital-ocean-init',
         'windows-new-terminal',
-        'important-links',
-        'server-auto-deploy'
+        'important-links'
       ]
     },
     {
@@ -96,7 +95,8 @@ function getGuideSidebar (main, webServer, raspberry, git, laravel) {
       collapsable: true,
       children: [
         'web-server-laravel',
-        'web-server-new-subdomain'
+        'web-server-new-subdomain',
+        'server-auto-deploy'
       ]
     },
     {
