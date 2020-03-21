@@ -105,8 +105,7 @@ function getGuideSidebar (main, webServer, raspberry, git, laravel) {
       title: git,
       collapsable: true,
       children: [
-        'web-server-new-subdomain',
-        'web-server-laravel'
+        'git-conflict-end-of-file'
       ]
     },
     {
