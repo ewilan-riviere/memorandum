@@ -58,11 +58,7 @@ module.exports = ctx => ({
     }
   },
   plugins: [
-    ['@vuepress/back-to-top', true],
-    ['@vuepress/pwa', {
-      serviceWorker: true,
-      updatePopup: true
-    }],
+    ['@vuepress/back-to-top', true]
   ],
   extraWatchFiles: [
     '.vuepress/nav/en.js',
