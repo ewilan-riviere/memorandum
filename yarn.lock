@@ -782,6 +782,11 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@dovyp/vuepress-plugin-clipboard-copy@^1.0.0-alpha.7":
+  version "1.0.0-alpha.7"
+  resolved "https://registry.yarnpkg.com/@dovyp/vuepress-plugin-clipboard-copy/-/vuepress-plugin-clipboard-copy-1.0.0-alpha.7.tgz#2ddb29e05ccd3cd411b85133b54a663ec2f90042"
+  integrity sha512-K+hgi4+tgQwz2ZlqpYTik5AFgDFZ1CcSYrMCqhicR1AwZ9kDsfbU+iD+NYSrsKXVTJJke/kzQIDsBFzcmC4Fkg==
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"

@@ -1,137 +1,158 @@
-# Manage NodeJS apps with PM2
+# Auto-deploy
 
-<div class="word-wraping" lang="en">
+When you push some modifications on your repo, your server not update automatically. If you use **webhooks**, you can send **push event** to your server execute `git pull` on your repo. But we need to receive this push event, it's call a **payload**, we have to configure server to receive it and update repository.
 
-Unlike PHP app, which just need to have Nginx/Apache configuration, a NodeJS app can have two production options : **generate static project** or **launch server**. With the first, you compile your project into *html*, *js* and *css* files, and you can host it with a basic Nginx/Apache config like PHP app. It's easy but if you want to update infos of your app with a back-office via an API, infos won't update on your app because it's static app (you will have to re generate your app each time...). The solution is the second option, build a server, it will update infos of your app if you change it with a back-office. To manage a NodeJS app like this, you need a manager to keep live your app and **PM2** is here for it.
+## 1. Setup drone to watch push events
 
-</div>
+Git clone [**drone**](https://gitlab.com/EwieFairy/drone) on your server, where you want, here I choose to clone it to `/home/user/deploy`. It's NodeJS app, so use [PM2](/guides/server-nodejs-pm2.html) to manage it, just define config like it:
 
-> **In this example, we take a repository called `portfolio-front`, a NuxtJS app**  
-> You can find it here [GitHub](https://github.com/ewilan-riviere/portfolio-front)  
-> I choose to define Nginx directory to /home/user/www/
-
-## 1. Create Nginx configuration
-
-You need to have a **domain** and **Nginx**. The configuration of Nginx is light but necessary to allow **PM2** to serve it on this domain.
-
-```nginx{3,7}
-# /etc/nginx/sites-available/portfolio
-server {
-    server_name portfolio.ewilan-riviere.com;
-
-    location / {
-        include proxy_params;
-        proxy_pass http://localhost:3001;
-    }
-}
-```
-
-:::tip
-```bash
-# activate new nginx config
-sudo ln -s /etc/nginx/sites-available/portfolio /etc/nginx/sites-enabled
-```
-
-```bash
-# check nginx config
-sudo nginx -t
-```
-
-If you have this output, everything is fine, otherwise you will have some infos to fix it:
-
-> nginx: the configuration file /etc/nginx/nginx.conf syntax is ok  
-> nginx: configuration file /etc/nginx/nginx.conf test is successful
-
-```bash
-# reload nginx
-sudo service nginx reload
-```
-:::
-
-With this config, `server_name` is the domain to host project and `proxy_pass` have a specific port will be used by PM2.
-
-## 2. Install and config PM2
-
-Use NPM globally:
-
-```bash
-npm install pm2@latest -g
-```
-
-### 2. a. PM2 ecosystem
-
-PM2 is now available on your server, you can use it on different ways but here, we use *ecosystem* solution. With this, it's easy to maintain a lot of NodeJS app with just JSON. You have just to create `ecosystem.config.js` anywhere on your server:
-
-```js{9,10,11,12,14}
-// /home/ewilan/ecosystem.config.js
+<code-heading type="js" path="/home/user/ecosystem.config.js"></code-heading>
+```js
 module.exports = {
-  /**
-   * Application configuration section
-   * http://pm2.keymetrics.io/docs/usage/application-declaration/
-0   */
   apps : [
     {
-      name: 'portfolio',
-      script: 'npm',
-      cwd: '/home/ewilan/www/portfolio-front',
-      args: 'start',
-      env: {
-        PORT: 3001
-      },
+      name: 'deploy',
+      script: 'index.js',
+      cwd: '/home/user/deploy'
+    },
+    {
+      // some project
     }
   ]
 };
 ```
 
-- `name` is PM2 id for this app
-- `script` is the package manager used by PM2 to serve this app
-- `cwd` is the absolute path of your project
-- `args` is the action of script from *package.json* for classic app and `env` define port for this app (you can't serve multiple app on same port).
+Then configure `.env` file, just copy `.env.example` to `.env` and fill it with infos:
 
-In this example, portfolio-front is a NuxtJS app with theses scripts into package.json:
+<code-heading type="env" path="/home/user/deploy/.env"></code-heading>
+```env
+PORT=3000
+WEBHOOK_PATH=/deploy
+WEBSCRIPT_PATH=
+SCRIPT_KEY=
+PROJECTS_ROOT=/home/user/www/
+```
 
+- `PORT`: port to deploy drone, 3000 by default
+- `WEBHOOK_PATH`: url where drone listen, when we will configure Nginx, we use `dev.ewilan-riviere.com`, so listen url will be `dev.ewilan-riviere.com/deploy`
+- `PROJECTS_ROOT`: absolute path where repositories cloned
+
+Then create `repositories.json` into repo. It will useful only if remote have different name of cloned repo. But you need to have this file, even it's empty file.
+
+<code-heading type="json" path="/home/user/deploy/repositories.json"></code-heading>
 ```json
-// /home/ewilan/www/portfolio-front/package.json
 {
-    "scripts": {
-        "dev": "nuxt",
-        "build": "nuxt build",
-        "start": "nuxt start",
-        "generate": "nuxt generate"
-    },
+    "remote-repo": [
+            "local-repo"
+    ]
 }
 ```
 
-### 2. b. Link PM2 with ecosystem
+Then configure Nginx like it:
 
-In the directory where you create *ecosystem.config.js*, execute this command:
+- `root`: default root with just `index.php`
+- `server_name`: example url `dev.ewilan-riviere.com`
+- `location /deploy`: like **WEBHOOK_PATH** define in `.env` file
+- `proxy_pass`: **3000** is the **PORT** define in `.env` file
 
-```bash
-pm2 start ecosystem.config.js
+Don't forget to enable this config.  
+TODO link to Nginx
+
+<code-heading type="nginx" path="/etc/nginx/sites-available/default"></code-heading>
+```nginx{2,6,17,18}
+server {
+    root /home/user/www/html;
+
+    index index.html index.htm index.nginx-debian.html index.php;
+
+    server_name dev.ewilan-riviere.com;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php7.1-fpm.sock;
+    }
+
+    location /deploy {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+    location ~ ^/(status56|ping56) {
+        access_log off;
+        allow 127.0.0.1;
+        deny all;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_pass unix:/run/php/php5.6-fpm.sock;
+    }
+
+    location ~ ^/(status70|ping70) {
+        access_log off;
+        allow 127.0.0.1;
+        deny all;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+    }
+
+    location ~ ^/(status71|ping71) {
+        access_log off;
+        allow 127.0.0.1;
+        deny all;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_pass unix:/run/php/php7.1-fpm.sock;
+    }
+
+    location ~ ^/(status72|ping72) {
+        access_log off;
+        allow 127.0.0.1;
+        deny all;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_pass unix:/run/php/php7.2-fpm.sock;
+    }
+
+    location ~ ^/(status73|ping73) {
+        access_log off;
+        allow 127.0.0.1;
+        deny all;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_pass unix:/run/php/php7.3-fpm.sock;
+    }
+
+    location /nginx_status {
+        access_log off;
+        allow 127.0.0.1;
+        deny all;
+        stub_status;
+    }
+}
 ```
 
-You can save this config to restart automatically apps with `pm2 save` when server reboot.
+## 2. Setup repository webhook
 
-Now you can list apps with this command:
+GitHub example, webhooks are available into **Settings/Webhooks**. If you haven't configure HTTPS on your Nginx config disable **SSL verification**.
 
-```bash
-pm2 ls
+<img src="/images/webhook-config.jpg" class="covver-img" />
+
+## 3. Git hooks
+
+When repo is updated, you need to execute some commands like `npm install` or `npm build` for example. To do this, you can use **git hooks**, it's script that you can configure when git event triggered. Check `repo/.git/hooks/` directory, it's available on all repositories and not gittable. If you want to execute commands after `git pull`, create a new script and name it `post-merge`.
+
+<code-heading type="sh" path="/home/user/www/portfolio-front/.git/hooks/post-merge"></code-heading>
+```sh
+#!/bin/bash
+npm install && npm run build
 ```
 
-You have to see this output:
-
-```bash
-┌────┬────────────────────┬──────────┬──────┬───────────┬──────────┬──────────┐
-│ id │ name               │ mode     │ ↺    │ status    │ cpu      │ memory   │
-├────┼────────────────────┼──────────┼──────┼───────────┼──────────┼──────────┤
-│ 0  │ portfolio          │ fork     │ 7    │ online    │ 0.3%     │ 47.2mb   │
-└────┴────────────────────┴──────────┴──────┴───────────┴──────────┴──────────┘
-```
-
-TODO: add basic PM2 commands
-
-# Server: auto-deploy
-
-[Drone](https://gitlab.com/EwieFairy/drone)
-
-TODO: auto deploy
+All commands in this scripts will be executed after *git pull*.

@@ -1,4 +1,10 @@
-# Laravel configuration
+# Nginx
+
+List virtual hosts with Nginx
+
+```bash
+grep server_name /etc/nginx/sites-enabled/* -RiI
+```
 
 Configuration for [Laravel](https://laravel.com/) application.
 

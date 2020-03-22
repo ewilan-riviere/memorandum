@@ -58,7 +58,8 @@ module.exports = ctx => ({
     }
   },
   plugins: [
-    ['@vuepress/back-to-top', true]
+    ['@vuepress/back-to-top', true],
+    ['@dovyp/vuepress-plugin-clipboard-copy', true]
   ],
   extraWatchFiles: [
     '.vuepress/nav/en.js',
@@ -96,6 +97,7 @@ function getGuideSidebar (main, webServer, raspberry, git, laravel) {
       children: [
         'web-server-laravel',
         'web-server-new-subdomain',
+        'server-nodejs-pm2',
         'server-auto-deploy'
       ]
     },
