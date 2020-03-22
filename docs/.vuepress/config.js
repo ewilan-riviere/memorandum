@@ -36,7 +36,7 @@ module.exports = ctx => ({
         nav: require('./nav/en'),
         sidebar: {
           // '/api/': getApiSidebar(),
-          '/guides/': getGuideSidebar('Guides', 'Web Server','Raspberry & NAS', 'Git', 'Laravel'),
+          '/guides/': getGuideSidebar('Guides', 'Web Server & VHost', 'Server','Raspberry & NAS', 'Git', 'Laravel'),
           '/games/': getGamesSidebar('Games', 'Oxygen Not Included'),
           // '/theme/': getThemeSidebar('Theme', 'Introduction')
         }
@@ -78,7 +78,7 @@ module.exports = ctx => ({
   }
 })
 
-function getGuideSidebar (main, webServer, raspberry, git, laravel) {
+function getGuideSidebar (main, webServer, server, raspberry, git, laravel) {
   return [
     {
       title: main,
@@ -92,13 +92,20 @@ function getGuideSidebar (main, webServer, raspberry, git, laravel) {
       ]
     },
     {
+      title: server,
+      collapsable: true,
+      children: [
+        'server-nodejs-pm2',
+        'server-auto-deploy'
+      ]
+    },
+    {
       title: webServer,
       collapsable: true,
       children: [
-        'web-server-laravel',
-        'web-server-new-subdomain',
-        'server-nodejs-pm2',
-        'server-auto-deploy'
+        'web-server-nginx',
+        'web-server-nginx-new-subdomain',
+        'web-server-apache'
       ]
     },
     {

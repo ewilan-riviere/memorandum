@@ -60,7 +60,7 @@ export default {
         background-color: #269539;
 
         &::before {
-            content: "Nginx";
+            content: "NGINX";
         }
     }
 
@@ -94,6 +94,14 @@ export default {
 
         &::before {
             content: "SH";
+        }
+    }
+
+    &__apache {
+        background-color: #D22128;
+
+        &::before {
+            content: "APACHE";
         }
     }
 
