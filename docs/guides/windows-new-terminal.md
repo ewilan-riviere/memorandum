@@ -7,9 +7,6 @@ Windows terminal is the newest terminal from Microsoft and it is better than ***
 **Features**:
 - *Multi-tabs*
 - *Easy configuration with JSON*
-  - *Colors*
-  - *Fonts*
-  - *Design*
 - *Select shells with profiles*
 - *Keybindings*
 
@@ -19,12 +16,20 @@ On **Windows Store**, search `windows terminal` and you will find [Windows termi
 
 <img src="/images/windows-terminal.jpg" class="cover-img" />
 
+### 1. a. Alternative with Chocolatey
+
+If you don't have access to Windows Store, you can use [Chocolatey](https://chocolatey.org/) with this command (PowerShell admin):
+
+```bash
+choco install microsoft-windows-terminal
+```
+
 ## 2. Configuration
 
 [microsoft/terminal: documentation](https://github.com/microsoft/terminal/blob/master/doc/user-docs/index.md)  
 [microsoft/terminal: JSON documentation](https://github.com/microsoft/terminal/blob/master/doc/cascadia/SettingsSchema.md)
 
-You will discover the new Windows terminal with tabs, you can configure it with the **arrow button** **&#8964;**, just next to **plus button** **&#43;**, and select **Settings**. It's will open JSON file, any change will be applied automatically.
+You will discover the new Windows terminal with tabs, you can configure it with <kbd>⌵</kbd> button, just next to <kbd>+</kbd> button, and select **Settings**. It's will open JSON file, any change will be applied automatically.
 
 ```json
 

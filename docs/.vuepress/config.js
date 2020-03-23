@@ -119,7 +119,8 @@ function getGuideSidebar (main, webServer, server, raspberry, git, laravel) {
       title: laravel,
       collapsable: true,
       children: [
-        'laravel-cors-error'
+        'laravel-cors-error',
+        'laravel-backpack'
       ]
     },
     {
