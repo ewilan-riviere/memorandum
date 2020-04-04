@@ -17,5 +17,12 @@
 }
 
 pre {
-    min-height: 1.6rem;
+    min-height: 1.6rem !important;
+    color: white !important;
+    white-space: pre-wrap !important;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out !important;
+    &:hover {
+        background-color: #373b44 !important;
+    }
 }

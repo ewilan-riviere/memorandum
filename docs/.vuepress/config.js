@@ -19,7 +19,7 @@ module.exports = ctx => ({
   theme: '@vuepress/vue',
   themeConfig: {
     repo: 'ewilan-riviere/memorandum',
-    editLinks: true,
+    editLinks: false,
     // #697 Provided by the official algolia team.
     // algolia: ctx.isProd ? ({
     //   apiKey: '3a539aab83105f01761a137c61004d85',
@@ -38,6 +38,7 @@ module.exports = ctx => ({
           // '/api/': getApiSidebar(),
           '/guides/': getGuideSidebar('Guides', 'Web Server & VHost', 'Server','Raspberry & NAS', 'Git', 'Laravel'),
           '/games/': getGamesSidebar('Games', 'Oxygen Not Included'),
+          '/safe/': getSafeSidebar('Safe', 'SSH'),
           // '/theme/': getThemeSidebar('Theme', 'Introduction')
         }
       },
@@ -147,6 +148,24 @@ function getGamesSidebar (main, oxygenNotIncluded) {
       collapsable: true,
       children: [
         'oni-useful-links'
+      ]
+    }
+  ]
+}
+function getSafeSidebar (main, ssh) {
+  return [
+    {
+      title: main,
+      collapsable: false,
+      children: [
+        ''
+      ]
+    },
+    {
+      title: ssh,
+      collapsable: true,
+      children: [
+        'ssh-keys'
       ]
     }
   ]

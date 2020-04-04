@@ -1,9 +1,9 @@
 <template>
   <div class="login-form">
     <form @submit.prevent="login">
-      <div class="form-header">User Name</div>
+      <div class="form-header">E-mail</div>
       <div>
-        <input type="text" class="form-control" v-model="username">
+        <input type="mail" class="form-control" name="email" v-model="email">
       </div>
       <div class="form-header">Password</div>
       <div>
@@ -11,7 +11,7 @@
       </div>
 
       <div class="btn-row">
-        <button class="btn" type="submit">
+        <button class="btn btn-login" type="submit">
           Sign in
         </button>
       </div>
@@ -21,27 +21,32 @@
 
 <script>
 import { STORAGE_KEY } from './helper'
+import Alert from './Alert'
+import { authInfo } from '../env'
 
 export default {
   data () {
     return {
-      username: '',
+      email: '',
       password: ''
     }
   },
   methods: {
     login () {
-      if (this.username === 'ewilan' && this.password === 'password') {
+      if (this.email === authInfo.mail && this.password === authInfo.password) {
         const data = JSON.stringify({
-          name: this.username,
+          email: this.email,
           time: new Date().getTime()
         })
-        // window.localStorage.setItem(STORAGE_KEY, data)
+        window.sessionStorage.setItem(STORAGE_KEY, data)
         this.$emit('close', true)
       } else {
-        this.$dlg.alert('Please complete the content', {
+        this.$dlg.alert('Incorrect identification information.', {
+          language: 'en',
           messageType: 'warning'
         })
+        // this.$dlg.alert(`Received message:`)
+        // this.$dlg.alert('message', { messageType: 'title', , closeButton: true })
       }
     }
   }
@@ -49,6 +54,9 @@ export default {
 </script>
 
 <style lang="stylus">
+.v-dialog-header
+  background-color #218838
+  color white
 .login-form
   padding: 1rem
   display flex
@@ -59,9 +67,14 @@ export default {
   .btn
     padding 0.6rem 2rem
     outline none
-    background-color #60C084
     color white
     border 0
+    color white
+    background-color #218838
+    cursor pointer
+    font-weight bold
+    &:hover
+      background-color #1e7e34
   .form-header
     color #666
     margin-bottom 0.5rem

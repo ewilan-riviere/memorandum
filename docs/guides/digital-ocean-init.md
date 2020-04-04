@@ -190,7 +190,7 @@ sudo apt install phpmyadmin
 
 ::: danger
 Don't select anything because it's Nginx.  
-Just press <kbd>&nbsp;&#8633;&nbsp;</kbd> to select `OK`
+Just press <kbd>&nbsp;&#8633;&nbsp;</kbd> to select `OK` with <kbd>&nbsp;Enter&nbsp;</kbd>
 :::
 
 ```bash
@@ -216,6 +216,3 @@ $cfg['Servers'][$i]['AllowRoot'] = false;
 ?>
 EOF
 ```
-
-
-

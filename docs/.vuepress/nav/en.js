@@ -7,6 +7,10 @@ module.exports = [
     text: 'Games',
     link: '/games/'
   },
+  {
+    text: 'Safe',
+    link: '/safe/'
+  },
   // {
   //   text: 'Plugin',
   //   link: '/plugin/'
