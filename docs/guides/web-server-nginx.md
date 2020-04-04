@@ -110,3 +110,10 @@ List virtual hosts with Nginx
 ```bash
 grep server_name /etc/nginx/sites-enabled/* -RiI
 ```
+
+Uninstall NGINX
+
+```bash
+sudo apt-get purge nginx nginx-common
+sudo apt-get autoremove
+```
