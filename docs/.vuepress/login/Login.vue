@@ -21,7 +21,6 @@
 
 <script>
 import { STORAGE_KEY } from './helper'
-import Alert from './Alert'
 import { authInfo } from '../env'
 
 export default {
