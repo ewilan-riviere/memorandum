@@ -1,7 +1,7 @@
 <template>
     <div :class="[ 'code-heading', colorClass ]">
         <slot/>
-        <span>
+        <span v-if="path">
             <span class="expand">·</span><i>{{ path }}</i>
         </span>
     </div>
@@ -94,6 +94,14 @@ export default {
 
         &::before {
             content: "SH";
+        }
+    }
+
+    &__sh-output {
+        background-color: #000000;
+
+        &::before {
+            content: "COMMAND OUTPUT";
         }
     }
 

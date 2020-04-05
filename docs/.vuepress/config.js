@@ -97,7 +97,9 @@ function getGuideSidebar (main, webServer, server, raspberry, git, laravel) {
       collapsable: true,
       children: [
         'server-nodejs-pm2',
-        'server-auto-deploy'
+        'server-auto-deploy',
+        'ssh-management',
+        'php'
       ]
     },
     {
