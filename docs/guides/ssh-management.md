@@ -31,3 +31,19 @@ I haven't ethernet cable, so **`enp3s0` is empty**, so I check just **`wlp4s0`**
 ```bash
 username@192.168.1.30
 ```
+
+## Copy file with SSH: SCP command
+
+[Tutorial](https://haydenjames.io/linux-securely-copy-files-using-scp/)
+
+From server to personal computer
+
+```bash
+scp username@from_host:file.txt /local/directory/
+```
+
+From personal computer to server
+
+```bash
+scp file.txt username@to_host:/remote/directory/
+```
