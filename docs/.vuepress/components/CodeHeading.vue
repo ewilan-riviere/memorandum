@@ -81,6 +81,14 @@ export default {
         }
     }
 
+    &__php {
+        background-color: #777BB4;
+
+        &::before {
+            content: "PHP";
+        }
+    }
+
     &__env {
         background-color: #000000;
 

@@ -216,3 +216,119 @@ $cfg['Servers'][$i]['AllowRoot'] = false;
 ?>
 EOF
 ```
+
+### A. Update phpMyAdmin
+
+```bash
+# backup old version
+sudo mv /usr/share/phpmyadmin/ /usr/share/phpmyadmin.bak
+# recreate phpmyadmin folder
+sudo mkdir /usr/share/phpmyadmin/
+# create tmp directory for phpmyadmin
+sudo mkdir /usr/share/phpmyadmin/tmp
+# rights on tmp directory
+sudo chown www-data:www-data /usr/share/phpmyadmin/tmp
+# move to the directory
+cd /usr/share/phpmyadmin/
+```
+
+An example for **5.0.2** phpMyAdmin version
+
+```bash
+# download phpmyadmin
+sudo wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-languages.tar.gz
+```
+
+```bash
+# extract content of downloded .tar.gz
+sudo tar xzf phpMyAdmin-*-all-languages.tar.gz
+# move files to phpmyadmin directory
+sudo mv phpMyAdmin-*-all-languages/* /usr/share/phpmyadmin
+```
+
+Check phpMyAdmin on `localhost/phpmyadmin` if you have default config. If you can access to it, you can delete save.
+
+```bash
+sudo rm -rf /usr/share/phpmyadmin.bak
+```
+
+You have to configure a new file for this version.
+
+```bash
+sudo nano /etc/phpmyadmin/conf.d/pma_secure.php
+```
+
+<code-heading type="php" path="/etc/phpmyadmin/conf.d/pma_secure.php"></code-heading>
+
+```php
+<?php
+
+# PhpMyAdmin Settings
+# This should be set to a random string of at least 32 chars
+$cfg['blowfish_secret'] = '3!#32@3sa(+=_4?),5XP_:U%%8\34sdfSdg43yH#{o';
+
+$i=0;
+$i++;
+
+$cfg['Servers'][$i]['auth_type'] = 'cookie';
+$cfg['Servers'][$i]['AllowNoPassword'] = false;
+$cfg['Servers'][$i]['AllowRoot'] = false;
+
+?>
+```
+
+:::warning
+This configuration will disable root login, you have to create user
+:::
+
+### B. Errors
+
+#### *Trying to access array offset on value of type bool*
+
+Update phpMyAdmin version to the lastest.
+
+#### Error 404
+
+Link phpMyAdmin from `/usr/share/` to `/var/www/html/` (default VHost) with symbolic link called **phpmyadmin**.
+
+```bash
+sudo ln -s /usr/share/phpmyadmin/ /var/www/html/phpmyadmin
+```
+
+With this config, you can access to phpMyAdmin with `localhost/phpmyadmin` url into your browser.
+
+#### Error 403
+
+Cause by an error with php version, just check **default** config in `/etc/nginx/sites-availables/default`:
+
+```bash{12,13}
+server {
+        listen 80;
+        root /var/www/html;
+        index index.php index.html index.htm index.nginx-debian.html;
+        server_name localhost;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+        }
+
+        location ~ /\.ht {
+                deny all;
+        }
+}
+```
+
+You have to config **php-fpm version** with **php current version**. Here, the php version is **7.4**, so php-fpm have to be 7.4 too. If your php current version is different, change php-fpm version.
+
+:::tip
+Check your php version:
+
+```bash
+php -v
+```
+:::
