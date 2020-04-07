@@ -283,6 +283,12 @@ This configuration will disable root login, you have to create user
 
 ### B. Errors
 
+#### Reconfigure phpMyAdmin
+
+```bash
+sudo dpkg-reconfigure phpmyadmin
+```
+
 #### *Trying to access array offset on value of type bool*
 
 Update phpMyAdmin version to the lastest.
