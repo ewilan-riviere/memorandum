@@ -155,4 +155,36 @@ When repo is updated, you need to execute some commands like `npm install` or `n
 npm install && npm run build
 ```
 
+Change rights on this file with this command:
+```bash
+sudo chmod 775 post-merge
+```
+
 All commands in this scripts will be executed after *git pull*.
+
+:::tip
+**Laravel**
+
+```bash
+#!/bin/sh
+
+php artisan cache:clear
+php artisan config:clear
+php artisan view:clear
+
+composer install
+php artisan migrate:fresh --seed --force
+php artisan config:cache
+php artisan view:cache
+
+yarn && yarn prod
+```
+
+**VueJS with Yarn**
+
+```bash
+#!/bin/sh
+
+yarn && yarn build
+```
+:::
