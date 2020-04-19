@@ -4,6 +4,10 @@ This guide has been set for Ubuntu 18.04, if you have another distribution use i
 
 ## 1. Useful packages
 
+```bash
+sudo apt install -y exfat-utils exfat-fuse curl git gimp chromium-browser nethogs vim ssh fonts-firacode
+```
+
 :::tip
 - `exfat-utils exfat-fuse` packages allow to use `exFAT` disks ([**wiki**](https://doc.ubuntu-fr.org/exfat))
 - `curl` allow to get free resources with protocol
@@ -16,9 +20,11 @@ This guide has been set for Ubuntu 18.04, if you have another distribution use i
 - `fonts-firacode` package to install [**fira code fonts**](https://github.com/tonsky/FiraCode)
 :::
 
+Configure Vim:
+
 ```bash
-sudo apt install -y exfat-utils exfat-fuse curl git gimp chromium-browser nethogs vim ssh fonts-firacode
 sudo apt install -y vim && cp /usr/share/vim/vimrc ~/ && mv ~/vimrc .vimrc && ~/.vimrc
+sudo vim ~/.vimrc
 ```
 
 Copy this at the end of `.vimrc` to enable basics features.
@@ -49,7 +55,21 @@ curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.35.3/install.sh -o 
 ### ZSH & Oh my ZSH
 
 ```bash
-sudo apt install -y zsh && sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" && git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" && ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+sudo apt install -y zsh && sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+##### Add a new theme: Spaceship prompt
+
+[**GitHub**](https://github.com/denysdovhan/spaceship-prompt)
+
+```bash
+git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" && ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+```
+
+Edit this line of `~/.zshrc`
+
+```
+ZSH_THEME="spaceship"
 ```
 
 :::tip
