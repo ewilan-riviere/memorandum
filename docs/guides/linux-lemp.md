@@ -83,7 +83,7 @@ server {
 ```
 
 ```bash
-sudo chown -R ewilan:ewilan /var/www
+sudo chown -R user:user /var/www
 sudo mkdir /var/www/my-domain && sudo touch /var/www/my-domain/index.php
 sudo vim /var/www/my-domain/index.php
 ```
@@ -97,7 +97,13 @@ sudo vim /var/www/my-domain/index.php
     <title>My Domain</title>
 </head>
 <body>
-    THis is my new domain!
+    <div style="text-align: center; font-weight: bold; font-family: sans-serif; margin: 5rem 0">
+        This is my new domain!
+        <br/>
+        <?php
+            echo $_SERVER['SERVER_SOFTWARE'];
+        ?>
+    </div>
 </body>
 </html>
 ```
@@ -150,6 +156,12 @@ $cfg['Servers'][$i]['AllowNoPassword'] = false;
 $cfg['Servers'][$i]['AllowRoot'] = false;
 
 ?>
+```
+
+Fix phpMyAdmin error:
+
+```bash
+sudo sed -i "s/|\s*\((count(\$analyzed_sql_results\['select_expr'\]\)/| (\1)/g" /usr/share/phpmyadmin/libraries/sql.lib.php
 ```
 
 ### A. Update phpMyAdmin

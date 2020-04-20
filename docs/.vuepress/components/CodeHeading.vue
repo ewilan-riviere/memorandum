@@ -2,7 +2,7 @@
     <div :class="[ 'code-heading', colorClass ]">
         <slot/>
         <span v-if="path">
-            <span class="expand">·</span><i>{{ path }}</i>
+            <span class="expand" v-if="type">·</span><i>{{ path }}</i>
         </span>
     </div>
 </template>

@@ -1,18 +1,9 @@
 const { fs, path } = require('@vuepress/shared-utils')
 
 module.exports = ctx => ({
-  locales: {
-    '/': {
-      lang: 'en-US',
-      title: 'Memorandum',
-      description: 'Keep knowledge safe'
-    },
-    // '/fr/': {
-    //   lang: 'fr-FR',
-    //   title: 'Memorandum',
-    //   description: 'Génrateur de sites statiques grâce à Vue'
-    // }
-  },
+  lang: 'en-US',
+  title: 'Memorandum',
+  description: 'Keep knowledge safe',
   head: [
     ['link', { rel: 'icon', href: `/favicon.ico` }],
   ],
@@ -20,42 +11,19 @@ module.exports = ctx => ({
   themeConfig: {
     repo: 'ewilan-riviere/memorandum',
     editLinks: false,
-    // #697 Provided by the official algolia team.
-    // algolia: ctx.isProd ? ({
-    //   apiKey: '3a539aab83105f01761a137c61004d85',
-    //   indexName: 'vuepress'
-    // }) : null,
     smoothScroll: true,
-    locales: {
-      '/': {
-        label: 'English',
-        selectText: 'Languages',
-        ariaLabel: 'Select language',
-        editLinkText: 'Edit this page on GitHub',
-        lastUpdated: 'Last Updated',
-        nav: require('./nav/en'),
-        sidebar: {
-          // '/api/': getApiSidebar(),
-          '/guides/': getGuideSidebar('Guides', 'Web Server & VHost', 'Server','Linux','Raspberry & NAS', 'Git', 'Laravel'),
-          '/games/': getGamesSidebar('Games', 'Oxygen Not Included'),
-          '/safe/': getSafeSidebar('Safe', 'SSH'),
-          // '/theme/': getThemeSidebar('Theme', 'Introduction')
-        }
-      },
-      // '/fr/': {
-        // label: 'Français',
-        // selectText: 'Français',
-        // ariaLabel: '选择语言',
-        // editLinkText: '在 GitHub 上编辑此页',
-        // lastUpdated: '上次更新',
-        // nav: require('./nav/zh'),
-        // sidebar: {
-          // '/zh/api/': getApiSidebar(),
-          // '/zh/guide/': getGuideSidebar('指南', '深入'),
-          // '/zh/plugin/': getPluginSidebar('插件', '介绍', '官方插件'),
-          // '/zh/theme/': getThemeSidebar('主题', '介绍')
-        // }
-      // }
+    label: 'English',
+    selectText: 'Languages',
+    ariaLabel: 'Select language',
+    editLinkText: 'Edit this page on GitHub',
+    lastUpdated: 'Last Updated',
+    nav: require('./nav/en'),
+    sidebar: {
+      // '/api/': getApiSidebar(),
+      '/guides/': getGuideSidebar('Guides', 'Web Server & VHost', 'Server','Linux','Raspberry & NAS', 'Git', 'Laravel'),
+      '/games/': getGamesSidebar('Games', 'Oxygen Not Included'),
+      '/safe/': getSafeSidebar('Safe', 'SSH'),
+      // '/theme/': getThemeSidebar('Theme', 'Introduction')
     }
   },
   plugins: [
@@ -105,7 +73,7 @@ function getGuideSidebar (main, webServer, server, linux, raspberry, git, larave
       title: linux,
       collapsable: true,
       children: [
-        'linux-basics',
+        'linux-installation-basics',
         'linux-lemp',
         'linux-php'
       ]
