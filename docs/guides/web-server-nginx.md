@@ -39,17 +39,17 @@ Configuration for [Laravel](https://laravel.com/) application, this app need a s
 ```nginx{3,5,7,10,13}
 server {
     listen 80;
-    root /var/www/my-repository-name/public;
+    root /var/www/repository-name/public;
     index index.php index.html index.htm index.nginx-debian.html;
-    server_name my-domain.com;
+    server_name domain.localhost;
     
-    error_log logs/my-repository-name.log warn;
+    error_log /var/log/nginx/repository-name.log warn;
 
     location / {
         try_files $uri $uri/ /index.php$is_args$args;
     }
     location /.* {
-        root /var/www/my-repository-name/storage/app/public;
+        root /var/www/repository-name/storage/app/public;
         autoindex on;
     }
 
@@ -62,6 +62,7 @@ server {
         deny all;
     }
 }
+
 ```
 
 ## 2. Activate configuration
