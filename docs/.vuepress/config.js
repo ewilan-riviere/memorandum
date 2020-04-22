@@ -99,7 +99,8 @@ function getGuideSidebar (main, webServer, server, linux, raspberry, git, larave
       collapsable: true,
       children: [
         'laravel-cors-error',
-        'laravel-backpack'
+        'laravel-backpack',
+        'laravel-translations'
       ]
     },
     {

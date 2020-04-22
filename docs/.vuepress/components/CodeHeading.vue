@@ -121,6 +121,14 @@ export default {
         }
     }
 
+    &__apache {
+        background-color: #4FC08D;
+
+        &::before {
+            content: "VUE";
+        }
+    }
+
     &__default {
         background-color: #4e6e8e;
     }
