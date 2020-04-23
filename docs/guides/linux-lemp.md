@@ -193,6 +193,32 @@ sudo tar xzf phpMyAdmin-*-all-languages.tar.gz
 sudo mv phpMyAdmin-*-all-languages/* /usr/share/phpmyadmin
 ```
 
+**Blowfish secret**
+
+Create config file from sample:
+
+```bash
+sudo mv /usr/share/phpmyadmin/config.sample.inc.php /usr/share/phpmyadmin/config.inc.php
+```
+
+Generate blowfish secret and copy it:
+
+```bash
+openssl rand -base64 32
+```
+
+Edit config and paste blowfish secret:
+
+```bash
+sudo vim /usr/share/phpmyadmin/config.inc.php
+```
+
+```php
+<?php
+// ...
+$cfg['blowfish_secret'] = ''; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
+```
+
 Check phpMyAdmin on `localhost/phpmyadmin` if you have default config. If you can access to it, you can delete save.
 
 ```bash

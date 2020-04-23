@@ -75,7 +75,8 @@ function getGuideSidebar (main, webServer, server, linux, raspberry, git, larave
       children: [
         'linux-installation-basics',
         'linux-lemp',
-        'linux-php'
+        'linux-php',
+        'js/eslint'
       ]
     },
     {

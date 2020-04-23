@@ -2,7 +2,7 @@
 
 ## **Get Laravel translations into VueJS**
 
-Use [**tohidplus / laravel-vue-translation**](https://github.com/tohidplus/laravel-vue-translation) PHP package, just add it with **Composer** and publish it:
+Use [**tohidplus/laravel-vue-translation**](https://github.com/tohidplus/laravel-vue-translation) PHP package, just add it with **Composer** and publish it:
 
 ```bash
 composer require tohidplus/laravel-vue-translation
