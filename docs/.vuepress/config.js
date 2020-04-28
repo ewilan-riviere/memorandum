@@ -6,6 +6,7 @@ module.exports = ctx => ({
   description: 'Keep knowledge safe',
   head: [
     ['link', { rel: 'icon', href: `/favicon.ico` }],
+    ['link', { href: 'https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/0.7.4/tailwind.min.css' }]
   ],
   theme: '@vuepress/vue',
   themeConfig: {
@@ -101,7 +102,8 @@ function getGuideSidebar (main, webServer, server, linux, raspberry, git, larave
       children: [
         'laravel-cors-error',
         'laravel-backpack',
-        'laravel-translations'
+        'laravel-translations',
+        'laravel-vuejs-mail'
       ]
     },
     {
