@@ -1,5 +1,23 @@
 # Laravel: Backpack
 
+## Create new Model
+
+- Create **migration** (in case you're starting from scratch)
+```bash
+php artisan make:migration:schema create_tags_table --model=0 --schema="name:string:unique"
+php artisan migrate
+```
+
+- Create a **Model** with **Request** and **Controller** for the admin panel
+```bash
+php artisan backpack:crud tag
+```
+
+- Add a **route** for this admin panel to `routes/backpack/custom.php`
+```bash
+php artisan backpack:add-custom-route "Route::crud('tag', 'TagCrudController');"
+```
+
 ## Backpack errors
 
 When you install **Backpack** with **Laravel elfinder***.
