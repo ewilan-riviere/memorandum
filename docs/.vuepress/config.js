@@ -67,7 +67,8 @@ function getGuideSidebar (main, webServer, server, linux, raspberry, git, larave
       children: [
         'server-nodejs-pm2',
         'server-auto-deploy',
-        'ssh-management'
+        'ssh-management',
+        'server-yarn'
       ]
     },
     {
