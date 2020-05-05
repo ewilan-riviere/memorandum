@@ -1,0 +1,130 @@
+{
+    "PHP": {
+        "language": "PHP",
+        "logo": "php",
+        "link": "https://www.php.net",
+        "version": "7.2",
+        "color": "777bb4",
+        "colorIcon": "777bb4"
+    },
+    "MySQL": {
+        "language": "MySQL",
+        "logo": "mysql",
+        "link": "https://www.mysql.com/fr/",
+        "version": "5.7",
+        "color": "2C8EBB",
+        "colorIcon": "56a4c8"
+    },
+    "NodeJS": {
+        "language": "NodeJS",
+        "logo": "node.js",
+        "link": "https://nodejs.org/en",
+        "version": "11.15",
+        "color": "339933",
+        "colorIcon": "339933"
+    },
+    "Apache": {
+        "language": "Apache",
+        "logo": "apache",
+        "link": "https://apache.org/",
+        "version": "2.4",
+        "color": "D22128",
+        "colorIcon": "D22128"
+    },
+    "Composer": {
+        "language": "Composer",
+        "logo": "composer",
+        "link": "https://getcomposer.org",
+        "version": "1.8",
+        "color": "885630",
+        "colorIcon": "9f7759"
+    },
+    "Yarn": {
+        "language": "Yarn",
+        "logo": "yarn",
+        "link": "https://yarnpkg.com/lang/en/",
+        "version": "1.8",
+        "color": "2C8EBB",
+        "colorIcon": "2C8EBB"
+    },
+    "Laravel": {
+        "language": "Laravel",
+        "logo": "laravel",
+        "link": "https://laravel.com/",
+        "version": "6.0",
+        "color": "ff2d20",
+        "colorIcon": "ff2d20"
+    },
+    "VueJS": {
+        "language": "VueJS",
+        "logo": "vue.js",
+        "link": "https://vuejs.org/",
+        "version": "2.6",
+        "color": "4fc08d",
+        "colorIcon": "4fc08d"
+    },
+    "Bootstrap": {
+        "language": "Bootstrap",
+        "logo": "bootstrap",
+        "link": "https://getbootstrap.com/",
+        "version": "4.3.1",
+        "color": "563D7C",
+        "colorIcon": "443063"
+    },
+    "BootstrapVue": {
+        "language": "BootstrapVue",
+        "logo": "bootstrap",
+        "link": "https://bootstrap-vue.js.org/",
+        "version": "2.0.4",
+        "color": "4fc08d",
+        "colorIcon": "4fc08d"
+    },
+    "Sass": {
+        "language": "Sass",
+        "logo": "sass",
+        "link": "https://sass-lang.com/",
+        "version": "1.26",
+        "color": "cc6699",
+        "colorIcon": "cc6699"
+    },
+    "ESLint": {
+        "language": "ESLint",
+        "logo": "eslint",
+        "link": "https://eslint.org/",
+        "version": "6.8",
+        "color": "4B32C3",
+        "colorIcon": "4B32C3"
+    },
+    "Backpack": {
+        "language": "Backpack",
+        "logo": "null",
+        "link": "https://backpackforlaravel.com/",
+        "version": "4.0",
+        "color": "7c69ef",
+        "colorIcon": "7c69ef"
+    },
+    "NuxtJS": {
+        "language": "NuxtJS",
+        "logo": "nuxt.js",
+        "link": "https://nuxtjs.org/",
+        "version": "2.11",
+        "color": "00C58E",
+        "colorIcon": "00C58E"
+    },
+    "AdobeXD": {
+        "language": "AdobeXD",
+        "logo": "adobe-xd",
+        "link": "https://www.adobe.com/products/xd.html",
+        "version": "28",
+        "color": "FF26BE",
+        "colorIcon": "FF26BE"
+    },
+    "Vuetify": {
+        "language": "Vuetify",
+        "logo": "vuetify",
+        "link": "https://vuetifyjs.com/",
+        "version": "1.11",
+        "color": "1867C0",
+        "colorIcon": "1867C0"
+    }
+}

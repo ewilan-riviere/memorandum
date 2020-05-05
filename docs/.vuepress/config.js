@@ -1,4 +1,5 @@
 const { fs, path } = require('@vuepress/shared-utils')
+const sidebar = require('./nav/sidebar')
 
 module.exports = ctx => ({
   lang: 'en-US',
@@ -18,13 +19,12 @@ module.exports = ctx => ({
     ariaLabel: 'Select language',
     editLinkText: 'Edit this page on GitHub',
     lastUpdated: 'Last Updated',
-    nav: require('./nav/en'),
+    nav: require('./nav/nav'),
     sidebar: {
-      // '/api/': getApiSidebar(),
-      '/guides/': getGuideSidebar('Guides', 'Web Server & VHost', 'Server','Linux','Raspberry & NAS', 'Git', 'Laravel'),
-      '/games/': getGamesSidebar('Games', 'Oxygen Not Included'),
-      '/safe/': getSafeSidebar('Safe', 'SSH'),
-      // '/theme/': getThemeSidebar('Theme', 'Introduction')
+      '/guides/': sidebar.getGuideSidebar('Guides', 'Web Server & VHost', 'Server','Linux','Raspberry & NAS', 'Git', 'Laravel'),
+      '/games/': sidebar.getGamesSidebar('Games', 'Oxygen Not Included'),
+      '/safe/': sidebar.getSafeSidebar('Safe', 'SSH'),
+      '/projects/': sidebar.getProjectSidebar('Projects', 'Portfolio'),
     }
   },
   plugins: [
@@ -32,8 +32,8 @@ module.exports = ctx => ({
     ['@dovyp/vuepress-plugin-clipboard-copy', true]
   ],
   extraWatchFiles: [
-    '.vuepress/nav/en.js',
-    '.vuepress/nav/fr.js'
+    '.vuepress/nav/nav.js',
+    '.vuepress/nav/sidebar.js'
   ],
   configureWebpack: {
     resolve: {
@@ -47,109 +47,3 @@ module.exports = ctx => ({
     anchor: { permalink: false }
   }
 })
-
-function getGuideSidebar (main, webServer, server, linux, raspberry, git, laravel) {
-  return [
-    {
-      title: main,
-      collapsable: false,
-      children: [
-        '',
-        'create-local-network',
-        'digital-ocean-init',
-        'windows-new-terminal',
-        'important-links'
-      ]
-    },
-    {
-      title: server,
-      collapsable: true,
-      children: [
-        'server-nodejs-pm2',
-        'server-auto-deploy',
-        'ssh-management'
-      ]
-    },
-    {
-      title: linux,
-      collapsable: true,
-      children: [
-        'linux-installation-basics',
-        'linux-lemp',
-        'linux-php',
-        'js/eslint'
-      ]
-    },
-    {
-      title: webServer,
-      collapsable: true,
-      children: [
-        'web-server-nginx',
-        'web-server-nginx-new-subdomain',
-        'web-server-apache'
-      ]
-    },
-    {
-      title: git,
-      collapsable: true,
-      children: [
-        'git-conflict-end-of-file'
-      ]
-    },
-    {
-      title: laravel,
-      collapsable: true,
-      children: [
-        'laravel-cors-error',
-        'laravel-backpack',
-        'laravel-translations',
-        'laravel-vuejs-mail'
-      ]
-    },
-    {
-      title: raspberry,
-      collapsable: true,
-      children: [
-        'raspberry-as-media-center',
-        'raspberry-manipulation',
-      ]
-    }
-  ]
-}
-function getGamesSidebar (main, oxygenNotIncluded) {
-  return [
-    {
-      title: main,
-      collapsable: false,
-      children: [
-        ''
-      ]
-    },
-    {
-      title: oxygenNotIncluded,
-      collapsable: true,
-      children: [
-        'oni-useful-links'
-      ]
-    }
-  ]
-}
-function getSafeSidebar (main, ssh) {
-  return [
-    {
-      title: main,
-      collapsable: false,
-      children: [
-        ''
-      ]
-    },
-    {
-      title: ssh,
-      collapsable: true,
-      children: [
-        'ssh-keys'
-      ]
-    }
-  ]
-}
-

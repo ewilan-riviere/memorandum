@@ -11,10 +11,10 @@ module.exports = [
     text: 'Safe',
     link: '/safe/'
   },
-  // {
-  //   text: 'Plugin',
-  //   link: '/plugin/'
-  // },
+  {
+    text: 'Projects',
+    link: '/projects/'
+  },
   // {
   //   text: 'Theme',
   //   link: '/theme/'
