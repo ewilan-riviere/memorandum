@@ -18,7 +18,8 @@ module.exports = {
                 children: [
                 'server-nodejs-pm2',
                 'server-auto-deploy',
-                'ssh-management'
+                'ssh-management',
+                'server-yarn'
                 ]
             },
             {

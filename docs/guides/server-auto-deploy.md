@@ -4,6 +4,8 @@ When you push some modifications on your repo, your server not update automatica
 
 ## 1. Setup drone to watch push events
 
+> Drone project is designed by [**adr1enbe4udou1n**](https://github.com/adr1enbe4udou1n), I just clone his project, thanks to him!
+
 To watch **payloads**, we need to have a tool to receive it. It's goal of [**drone project**](https://gitlab.com/EwieFairy/drone), just clone it on your server, where you want, here I choose to clone it to `/home/user/deploy`. It's NodeJS app, so use [PM2](/guides/server-nodejs-pm2.html) to manage it, just define config like it:
 
 <code-heading type="js" path="/home/user/ecosystem.config.js"></code-heading>
