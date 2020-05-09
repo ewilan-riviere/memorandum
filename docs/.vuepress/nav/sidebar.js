@@ -9,7 +9,8 @@ module.exports = {
                 'create-local-network',
                 'digital-ocean-init',
                 'windows-new-terminal',
-                'important-links'
+                'important-links',
+                'windows-linux'
                 ]
             },
             {
