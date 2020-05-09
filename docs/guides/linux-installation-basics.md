@@ -85,7 +85,7 @@ export NVM_DIR="$HOME/.nvm"
 Yarn is package manager which use NodeJS packages like NPM but it's really more powerful and it's a excellent alternative to NPM. You can use it like NPM, just type `yarn` and the command.
 
 ```bash
-sudo npm install -g yarn
+npm install -g yarn
 ```
 
 ## 3. ZSH & Oh my ZSH
@@ -136,4 +136,19 @@ You have just to copy installation instructions and composer will be download, t
 ```bash
 sudo mv composer.phar /usr/local/bin/composer
 sudo chown -R $USER ~/.config/composer/
+composer global require laravel/installer
+```
+
+## 5. Errors
+
+### Paths errors
+
+Add this to /home/$USER/.zshrc
+
+```bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="$PATH:$(yarn global bin)"
+export PATH=~/.config/composer/vendor/bin:$PATH
 ```

@@ -57,7 +57,7 @@ It's will install PHP-fpm 7.2 when this guide is writed. You can update it after
 ### 4. d. Virtual Host
 
 ```bash
-sudo vim /etc/nginx/sites-available/my-domain.localhost
+sudo vim /etc/nginx/sites-available/my-domain
 ```
 
 ```nginx
@@ -83,7 +83,7 @@ server {
 ```
 
 ```bash
-sudo chown -R user:user /var/www
+sudo chown -R $USER:$USER /var/www
 sudo mkdir /var/www/my-domain && sudo touch /var/www/my-domain/index.php
 sudo vim /var/www/my-domain/index.php
 ```
@@ -109,7 +109,7 @@ sudo vim /var/www/my-domain/index.php
 ```
 
 ```bash
-sudo ln -s /etc/nginx/sites-available/my-domain.localhost /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/my-domain /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl reload nginx
 ```
@@ -311,3 +311,20 @@ Check your php version:
 php -v
 ```
 :::
+
+##### Error 502
+
+Check your PHP version, the PHP-FPM version into /etc/nginx/sites-available/default and check if you have PHP-FPM version installed which is same that your PHP version. For example, if you have PHP 7.4 and PHP-FPM 7.4 into default config, you can install PHP-FPM 7.4 with:
+
+```
+sudo apt install php7.4-fpm
+```
+
+#### Into phpMyAdmin: Deprecation Notice in ./js/get_image.js.php#72
+
+```
+Deprecation Notice in ./js/get_image.js.php#72
+implode(): Passing glue string after array is deprecated. Swap the parameters
+```
+
+Upgrade your **phpMyAdmin** version with guide. *TODO link*
