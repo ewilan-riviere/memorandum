@@ -1,6 +1,6 @@
 <template>
     <div v-if="isDisplay">
-        <div v-for="(sshKey,ssKeyId) in sshKeys" :key="ssKeyId">
+        <!-- <div v-for="(sshKey,ssKeyId) in sshKeys" :key="ssKeyId">
             <h2>{{ sshKey.computerName }}</h2>
             <pre
                 class="ssh-key"
@@ -9,12 +9,12 @@
                 v-clipboard:success="onCopy"
                 v-clipboard:error="onError"
             ></pre>
-        </div>
+        </div> -->
     </div>
 </template>
 
 <script>
-import { sshKeys } from '../env'
+// import { sshKeys } from '../env'
 import { checkAuthValid } from '../login/helper'
 
 export default {

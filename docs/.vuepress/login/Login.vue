@@ -21,7 +21,7 @@
 
 <script>
 import { STORAGE_KEY } from './helper'
-import { authInfo } from '../env'
+// import { authInfo } from '../env'
 
 export default {
   data () {
@@ -32,21 +32,21 @@ export default {
   },
   methods: {
     login () {
-      if (this.email === authInfo.mail && this.password === authInfo.password) {
-        const data = JSON.stringify({
-          email: this.email,
-          time: new Date().getTime()
-        })
-        window.sessionStorage.setItem(STORAGE_KEY, data)
-        this.$emit('close', true)
-      } else {
-        this.$dlg.alert('Incorrect identification information.', {
-          language: 'en',
-          messageType: 'warning'
-        })
-        // this.$dlg.alert(`Received message:`)
-        // this.$dlg.alert('message', { messageType: 'title', , closeButton: true })
-      }
+      // if (this.email === authInfo.mail && this.password === authInfo.password) {
+      //   const data = JSON.stringify({
+      //     email: this.email,
+      //     time: new Date().getTime()
+      //   })
+      //   window.sessionStorage.setItem(STORAGE_KEY, data)
+      //   this.$emit('close', true)
+      // } else {
+      //   this.$dlg.alert('Incorrect identification information.', {
+      //     language: 'en',
+      //     messageType: 'warning'
+      //   })
+      //   // this.$dlg.alert(`Received message:`)
+      //   // this.$dlg.alert('message', { messageType: 'title', , closeButton: true })
+      // }
     }
   }
 }

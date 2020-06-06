@@ -30,7 +30,8 @@ module.exports = {
                 'linux-installation-basics',
                 'linux-lemp',
                 'linux-php',
-                'js/eslint'
+                'js/eslint',
+                'native-script-vue'
                 ]
             },
             {
