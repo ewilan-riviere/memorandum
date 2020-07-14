@@ -5,4 +5,6 @@
 > Welcome to **Memorandum**, I'm **Memo**, the AI of this documentation.  
 > What do you want today ?
 
-<translation />
+<div class="text-red-500">
+  bouh
+</div>

@@ -1389,7 +1389,7 @@
     vuepress-plugin-container "^2.0.2"
     vuepress-plugin-smooth-scroll "^0.0.3"
 
-"@vuepress/theme-vue@1.5.2":
+"@vuepress/theme-vue@^1.5.2":
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/@vuepress/theme-vue/-/theme-vue-1.5.2.tgz#4cab69fd79ca261232cb775737876e3206f08fc3"
   integrity sha512-3nmQZZ71Qusfdu5BDiSQO4G0w7ASn+2GPI/Z1llFRcUDO7q/F/8lQkAP3iKFATbJpqQkzkt9PI2qQfGLs5Xswg==
@@ -10563,6 +10563,11 @@ vm-browserify@^1.0.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
+
+vue-dependencies-badges@^0.0.22:
+  version "0.0.22"
+  resolved "https://registry.yarnpkg.com/vue-dependencies-badges/-/vue-dependencies-badges-0.0.22.tgz#f1190000f8f741da62870537428663b345bc842b"
+  integrity sha512-b9u8pq8bCCwkKTKiqL23ywtYZ59Hcg0lx09iJMo8BrEqgOz4HYCc+xw5DGgOV6Assla05WTkIQdiJegc6i5d4A==
 
 vue-eslint-parser@^7.0.0:
   version "7.1.0"

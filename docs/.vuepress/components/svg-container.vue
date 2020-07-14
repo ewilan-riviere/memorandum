@@ -1,6 +1,6 @@
 <template>
   <div class="svg-container">
-    <slot />
+    <slot></slot>
   </div>
 </template>
 

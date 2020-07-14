@@ -1,23 +1,24 @@
 {
-  "name": "docs",
-  "version": "1.5.2",
-  "private": true,
-  "description": "docs of VuePress",
+  "name": "memorandum",
+  "displayName": "Memorandum",
+  "description": "Memorandum application",
+  "version": "0.0.2",
   "keywords": [
     "documentation",
-    "generator",
-    "vue"
+    "vue",
+    "glossary"
   ],
-  "homepage": "https://github.com/vuejs/vuepress#readme",
-  "bugs": {
-    "url": "https://github.com/vuejs/vuepress/issues"
+  "private": true,
+  "homepage": "http://memorandum.ewilan-riviere.com/",
+  "license": "MIT",
+  "author": {
+    "name": "Ewilan Rivière",
+    "email": "ewilan@dotslashplay.it"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vuejs/vuepress.git"
+    "url": "git+https://github.com/ewilan-riviere/memorandum"
   },
-  "license": "MIT",
-  "author": "Evan You",
   "scripts": {
     "build": "vuepress build docs --temp .temp",
     "dev": "vuepress dev docs --temp .temp",
@@ -35,7 +36,7 @@
     "@vuepress/plugin-google-analytics": "1.5.2",
     "@vuepress/plugin-medium-zoom": "1.5.2",
     "@vuepress/plugin-pwa": "1.5.2",
-    "@vuepress/theme-vue": "1.5.2",
+    "@vuepress/theme-vue": "^1.5.2",
     "autoprefixer": "^9.8.5",
     "eslint": "^7.4.0",
     "eslint-config-standard": "^14.1.1",
@@ -63,6 +64,7 @@
     "textlint-rule-stop-words": "^2.0.5",
     "textlint-rule-terminology": "^2.1.4",
     "textlint-rule-write-good": "^1.6.2",
+    "vue-dependencies-badges": "^0.0.22",
     "vue-svg-loader": "^0.16.0",
     "vue-toasted": "^1.1.25",
     "vuepress": "1.5.2",

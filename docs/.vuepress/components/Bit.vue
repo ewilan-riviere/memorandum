@@ -9,7 +9,7 @@
       <img
         alt="bit"
         src="https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/bit.png"
-      >
+      />
     </a>
   </p>
 </template>

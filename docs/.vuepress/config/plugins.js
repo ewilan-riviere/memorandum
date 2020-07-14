@@ -11,7 +11,7 @@ module.exports = [
   [
     '@vuepress/google-analytics',
     {
-      ga: 'UA-128189152-1',
+      // ga: 'UA-128189152-1',
     },
   ],
   [
@@ -39,12 +39,5 @@ module.exports = [
       notFoundPath: '/404.html',
     },
   ],
-  [
-    '@vuepress/last-updated',
-    {
-      dateOptions: {
-        hour12: false,
-      },
-    },
-  ],
+  ['@vuepress/last-updated'],
 ]

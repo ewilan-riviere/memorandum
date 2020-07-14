@@ -6,4 +6,8 @@ module.exports = {
 
   // header nav
   guides: 'Guides',
+  // sidebar nav
+  'web-server': 'Web server',
+  nginx: 'NGINX',
+  apache: 'Apache2',
 }

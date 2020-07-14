@@ -6,10 +6,10 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      msg: 'Hello this is <demo-1>'
+      msg: 'Hello this is <demo-1>',
     }
-  }
+  },
 }
 </script>

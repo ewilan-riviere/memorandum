@@ -1,10 +1,11 @@
-const { fs, path } = require('@vuepress/shared-utils')
 const sidebarNav = require('./nav/sidebar')
 const headerNav = require('./nav/header')
 
 module.exports = {
   repo: 'ewilan-riviere/memorandum',
   editLinks: false,
+  prevLinks: false,
+  nextLinks: false,
   docsDir: 'packages/docs/docs',
   smoothScroll: true,
   logo: '/favicon.ico',
