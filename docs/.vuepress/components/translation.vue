@@ -5,8 +5,8 @@
 <script>
 export default {
   mounted() {
-    console.log(this.$lang)
-    console.log(this.$themeLocaleConfig)
+    console.log(this.$t('currentLang'));
+
   },
 }
 </script>

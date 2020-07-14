@@ -1,84 +1,35 @@
+const sidebarMethods  = require('./sidebarMethods')
+
 module.exports = {
-  getApiSidebar: () => {
-    return [
-      'cli',
-      'node'
-    ]
-  },
+  getSidebar: (lang) => {
+    let sidebar = {
+      // '/api/': getApiSidebar(),
+      '/guides/': sidebarMethods.getGuideSidebar('guides', 'advanced', 'vue'),
+      // '/plugin/': getPluginSidebar('Plugin', 'Introduction', 'Official Plugins'),
+      // '/theme/': getThemeSidebar('Theme', 'Introduction')
+    }
+    if (lang !== undefined) {
+      renameKeys = (keysMap, obj) =>
+        Object.keys(obj).reduce(
+          (acc, key) => ({
+            ...acc,
+            ...{ [keysMap[key] || key]: obj[key] }
+          }),
+          {}
+        );
+        let rename = renameKeys(sidebar, { 'fr/guide': 'data' })
+        console.log(rename);
 
-  getGuideSidebar: (groupA, groupB) => {
-    return [
-      {
-        title: groupA,
-        collapsable: false,
-        children: [
-          '',
-          // 'getting-started',
-          // 'directory-structure',
-          // 'basic-config',
-          // 'assets',
-          // 'markdown',
-          // 'using-vue',
-          // 'i18n',
-          // 'deploy'
-        ]
-      },
-      {
-        title: groupB,
-        collapsable: false,
-        children: [
-          // 'frontmatter',
-          // 'permalinks',
-          // 'markdown-slot',
-          // 'global-computed'
-        ]
+
+      for (const link in sidebar) {
+        console.log(link)
       }
-    ]
-  },
 
-  // const officalPlugins = fs
-  //   .readdirSync(path.resolve(__dirname, '../plugin/official'))
-  //   .map(filename => 'official/' + filename.slice(0, -3))
-  //   .sort()
-
-  getPluginSidebar: (pluginTitle, pluginIntro, officialPluginTitle) => {
-    return [
-      {
-        title: pluginTitle,
-        collapsable: false,
-        children: [
-          ['', pluginIntro],
-          'using-a-plugin',
-          'writing-a-plugin',
-          'life-cycle',
-          'option-api',
-          'context-api'
-        ]
-      },
-      // {
-      //   title: officialPluginTitle,
-      //   collapsable: false,
-      //   children: officalPlugins
-      // }
-    ]
-  },
-
-  getThemeSidebar: (groupA, introductionA) => {
-    return [
-      {
-        title: groupA,
-        collapsable: false,
-        sidebarDepth: 2,
-        children: [
-          ['', introductionA],
-          'using-a-theme',
-          'writing-a-theme',
-          'option-api',
-          'default-theme-config',
-          'blog-theme',
-          'inheritance'
-        ]
-      }
-    ]
+      // headerNav.forEach(navLink => {
+      //   navLink.link = `/${lang}${navLink.link}`
+      //   console.log(navLink);
+      // });
+    }
+    return sidebar
   }
 }

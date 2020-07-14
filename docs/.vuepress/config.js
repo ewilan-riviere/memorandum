@@ -1,4 +1,4 @@
-const locales = require('./config/locales')
+const locales = require('./config/available-locales')
 const head = require('./config/head')
 const themeConfig = require('./config/themeConfig')
 const plugins = require('./config/plugins')
@@ -7,7 +7,8 @@ module.exports = ctx => ({
   dest: '../../vuepress',
   locales,
   head,
-  theme: '@vuepress/vue',
+  // theme: '@vuepress/vue',
+  extend: '@vuepress/theme-default',
   themeConfig,
   plugins,
   extraWatchFiles: [
@@ -21,5 +22,15 @@ module.exports = ctx => ({
    */
   postcss: {
     plugins: [require('tailwindcss'), require('autoprefixer')],
+  },
+  /**
+   * ====================================
+   *  SVG loader for icon-base component
+   * ====================================
+   */
+  chainWebpack: (config) => {
+    const svgRule = config.module.rule('svg')
+    svgRule.uses.clear()
+    svgRule.use('vue-svg-loader').loader('vue-svg-loader')
   },
 })

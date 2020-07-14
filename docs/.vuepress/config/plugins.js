@@ -20,6 +20,14 @@ module.exports = [
   }],
   ['flowchart'],
   [
+    'vuepress-plugin-clean-urls',
+    {
+      normalSuffix: '/',
+      indexSuffix: '/',
+      notFoundPath: '/404.html',
+    },
+  ],
+  [
     '@vuepress/last-updated',
     {
       dateOptions:{

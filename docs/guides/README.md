@@ -1,4 +1,4 @@
-# Introduction
+# Welcome
 
 ![memorandum](/images/memo.png)
 
