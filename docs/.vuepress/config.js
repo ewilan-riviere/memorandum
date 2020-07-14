@@ -3,7 +3,7 @@ const head = require('./config/head')
 const themeConfig = require('./config/themeConfig')
 const plugins = require('./config/plugins')
 
-module.exports = ctx => ({
+module.exports = (ctx) => ({
   dest: '../../vuepress',
   locales,
   head,
@@ -11,10 +11,7 @@ module.exports = ctx => ({
   extend: '@vuepress/theme-default',
   themeConfig,
   plugins,
-  extraWatchFiles: [
-    '.vuepress/config/nav/en.js',
-    '.vuepress/config/nav/fr.js'
-  ],
+  extraWatchFiles: ['.vuepress/config/nav/en.js', '.vuepress/config/nav/fr.js'],
   /**
    * ==============
    *  Tailwind CSS

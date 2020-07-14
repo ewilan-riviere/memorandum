@@ -1,4 +1,4 @@
-const sidebarMethods  = require('./sidebarMethods')
+const sidebarMethods = require('./sidebarMethods')
 
 module.exports = {
   getSidebar: (lang) => {
@@ -13,13 +13,12 @@ module.exports = {
         Object.keys(obj).reduce(
           (acc, key) => ({
             ...acc,
-            ...{ [keysMap[key] || key]: obj[key] }
+            ...{ [keysMap[key] || key]: obj[key] },
           }),
           {}
-        );
-        let rename = renameKeys(sidebar, { 'fr/guide': 'data' })
-        console.log(rename);
-
+        )
+      let rename = renameKeys(sidebar, { 'fr/guide': 'data' })
+      console.log(rename)
 
       for (const link in sidebar) {
         console.log(link)
@@ -31,5 +30,5 @@ module.exports = {
       // });
     }
     return sidebar
-  }
+  },
 }

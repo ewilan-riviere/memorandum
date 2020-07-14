@@ -11,21 +11,21 @@ module.exports = {
   locales: {
     '/': {
       label: 'English',
-      selectText: 'Lang',
+      selectText: 'English',
       ariaLabel: 'Select language',
       editLinkText: 'Edit this page on GitHub',
       lastUpdated: 'Last Updated',
       nav: headerNav.getHeaderNav(),
-      sidebar: sidebarNav.getSidebar()
+      sidebar: sidebarNav.getSidebar(),
     },
     '/fr/': {
       label: 'Français',
-      selectText: 'Lang',
+      selectText: 'Français',
       ariaLabel: 'Sélectionner une langue',
       editLinkText: 'Editer cette page sur GitHub',
       lastUpdated: 'Dernière mise à jour',
       nav: headerNav.getHeaderNav('fr'),
-      sidebar: sidebarNav.getSidebar('fr')
-    }
-  }
+      sidebar: sidebarNav.getSidebar('fr'),
+    },
+  },
 }

@@ -1,7 +1,7 @@
 module.exports = [
   {
     text: 'Guides',
-    link: '/fr/guides/'
+    link: '/fr/guides/',
   },
   // {
   //   text: '配置',

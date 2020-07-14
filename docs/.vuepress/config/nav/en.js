@@ -1,7 +1,7 @@
 module.exports = [
   {
     text: 'Guides',
-    link: '/guides/'
+    link: '/guides/',
   },
   // {
   //   text: 'Config Reference',
