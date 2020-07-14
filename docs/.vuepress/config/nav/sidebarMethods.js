@@ -8,22 +8,43 @@ module.exports = {
       '',
       'git',
       {
-        title: 'web-server',
+        title: 'vue',
         collapsable: true,
         children: [
+          'vue/welcome',
           {
-            title: 'apache',
+            title: 'vuepress',
             collapsable: true,
-            children: ['web-server/apache/README', 'web-server/apache/apache'],
+            children: ['vue/vuepress/inheritance'],
           },
+        ],
+      },
+      {
+        title: 'server',
+        collapsable: false,
+        children: [
+          'server/auto-deploy',
+          'server/nodejs-pm2',
+          'server/ssh-management',
           {
-            title: 'nginx',
+            title: 'web-server',
             collapsable: true,
             children: [
-              'web-server/nginx/README',
-              'web-server/nginx/setup',
-              'web-server/nginx/add-new-subdomain',
-              'web-server/nginx/boiler-plates',
+              'server/web-server/welcome',
+              {
+                title: 'apache',
+                collapsable: true,
+                children: ['server/web-server/apache/apache'],
+              },
+              {
+                title: 'nginx',
+                collapsable: true,
+                children: [
+                  'server/web-server/nginx/setup',
+                  'server/web-server/nginx/add-new-subdomain',
+                  'server/web-server/nginx/boiler-plates',
+                ],
+              },
             ],
           },
         ],
