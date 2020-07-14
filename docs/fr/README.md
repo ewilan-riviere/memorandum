@@ -2,7 +2,7 @@
 home: true
 heroImage: images/memo.png
 actionText: Discover →
-actionLink: /guides/
+actionLink: /fr/guides/
 footer: MIT Licensed | Copyright © 2018-present Evan You
 ---
 
