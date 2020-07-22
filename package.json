@@ -20,7 +20,7 @@
     "url": "git+https://github.com/ewilan-riviere/memorandum"
   },
   "scripts": {
-    "build": "vuepress build docs --temp .temp",
+    "build": "vuepress build docs",
     "dev": "vuepress dev docs --temp .temp",
     "lint-md": "yarn lint-md:style && yarn lint-md:wording",
     "lint-md:style": "remark --quiet --frail .",
