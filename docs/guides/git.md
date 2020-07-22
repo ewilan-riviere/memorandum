@@ -64,3 +64,11 @@ With another branch
 ```bash
 git reset --hard origin/branch_name
 ```
+
+## “Pulling without specifying...”
+
+> “Pulling without specifying how to reconcile divergent branches is discouraged”
+
+```bash
+git config --global pull.ff only
+```

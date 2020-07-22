@@ -3,7 +3,7 @@ module.exports = {
     return ['cli', 'node']
   },
 
-  getGuideSidebar: () => {
+  getGuides: () => {
     return [
       '',
       'git',
@@ -89,6 +89,17 @@ module.exports = {
       // 'deploy'
       // ]
       // },
+    ]
+  },
+
+  getGames: () => {
+    return [
+      '',
+      {
+        title: 'Guild Wars',
+        collapsable: true,
+        children: ['guild-wars/welcome', 'guild-wars/maps'],
+      },
     ]
   },
 

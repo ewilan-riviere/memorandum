@@ -5,6 +5,10 @@ module.exports = {
         text: 'guides',
         link: '/guides/',
       },
+      {
+        text: 'games',
+        link: '/games/',
+      },
       // {
       //   text: 'Config Reference',
       //   link: '/config/'
