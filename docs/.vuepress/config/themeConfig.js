@@ -19,14 +19,14 @@ module.exports = {
       nav: headerNav.getHeaderNav(),
       sidebar: sidebarNav.getSidebar(),
     },
-    '/fr/': {
-      label: 'Français',
-      selectText: 'Français',
-      ariaLabel: 'Sélectionner une langue',
-      editLinkText: 'Editer cette page sur GitHub',
-      lastUpdated: 'Dernière mise à jour',
-      nav: headerNav.getHeaderNav('fr'),
-      sidebar: sidebarNav.getSidebar('fr'),
-    },
+    // '/fr/': {
+    //   label: 'Français',
+    //   selectText: 'Français',
+    //   ariaLabel: 'Sélectionner une langue',
+    //   editLinkText: 'Editer cette page sur GitHub',
+    //   lastUpdated: 'Dernière mise à jour',
+    //   nav: headerNav.getHeaderNav('fr'),
+    //   sidebar: sidebarNav.getSidebar('fr'),
+    // },
   },
 }
