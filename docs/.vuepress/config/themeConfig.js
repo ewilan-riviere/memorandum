@@ -17,7 +17,7 @@ module.exports = {
   searchPlaceholder: 'Search...',
   algolia: {
     apiKey: '<API_KEY>',
-    indexName: '<INDEX_NAME>'
+    indexName: '<INDEX_NAME>',
   },
   nav: headerNav.getHeaderNav(),
   sidebar: sidebarNav.getSidebar(),
