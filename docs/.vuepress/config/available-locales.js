@@ -2,11 +2,11 @@ module.exports = {
   '/': {
     lang: 'en-US',
     title: 'Memorandum',
-    description: 'Vue-powered Static Site Generator',
+    description: 'Keep knowledge safe',
   },
-  '/fr/': {
-    lang: 'fr-FR',
-    title: 'Memorandum',
-    description: 'Vue 驱动的静态网站生成器',
-  },
+  // '/fr/': {
+  //   lang: 'fr-FR',
+  //   title: 'Memorandum',
+  //   description: 'Garder le savoir en sécurité',
+  // },
 }

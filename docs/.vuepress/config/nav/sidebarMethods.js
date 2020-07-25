@@ -32,35 +32,68 @@ module.exports = {
         ],
       },
       {
-        title: 'server',
-        collapsable: false,
+        title: 'visual-studio-code',
+        collapsable: true,
         children: [
-          'server/auto-deploy',
-          'server/nodejs-pm2',
-          'server/ssh-management',
+          'visual-studio-code/',
+          'visual-studio-code/configuration',
+          'visual-studio-code/eslint'
+        ],
+      },
+      {
+        title: 'laravel',
+        collapsable: true,
+        children: [
+          'laravel/',
+        ],
+      },
+      {
+        title: 'css',
+        collapsable: true,
+        children: [
+          'css/',
           {
-            title: 'web-server',
+            title: 'tailwind-css',
             collapsable: true,
             children: [
-              'server/web-server/welcome',
-              {
-                title: 'apache',
-                collapsable: true,
-                children: ['server/web-server/apache/apache'],
-              },
-              {
-                title: 'nginx',
-                collapsable: true,
-                children: [
-                  'server/web-server/nginx/setup',
-                  'server/web-server/nginx/add-new-subdomain',
-                  'server/web-server/nginx/boiler-plates',
-                ],
-              },
+              'tailwind-css/',
+              'tailwind-css/default-config',
+              'tailwind-css/libraries'
             ],
           },
         ],
       },
+      {
+        title: 'server',
+        collapsable: true,
+        children: [
+          'server/auto-deploy',
+          'server/nodejs-pm2',
+          'server/ssh-management',
+        ],
+      },
+      {
+        title: 'web-server',
+        collapsable: true,
+        children: [
+          'server/web-server/welcome',
+          {
+            title: 'apache',
+            collapsable: true,
+            children: ['server/web-server/apache/apache'],
+          },
+          {
+            title: 'nginx',
+            collapsable: true,
+            children: [
+              'server/web-server/nginx/setup',
+              'server/web-server/nginx/add-new-subdomain',
+              'server/web-server/nginx/boiler-plates',
+            ],
+          },
+        ],
+      },
+      'work-in-progress'
       // 'vue',
       // 'vue/vuepress',
       // 'vue/vuepress/inheritance',

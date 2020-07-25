@@ -4,7 +4,7 @@ const themeConfig = require('./config/themeConfig')
 const plugins = require('./config/plugins')
 
 module.exports = (ctx) => ({
-  dest: '../../vuepress',
+  dest: '',
   locales,
   head,
   // theme: '@vuepress/vue',

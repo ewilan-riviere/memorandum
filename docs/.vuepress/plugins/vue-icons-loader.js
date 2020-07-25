@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-const components = require.context('../icons/.?inline', false, /\.svg$/)
+const components = require.context('../vue-icons/.?inline', false, /\.svg$/)
 
 components.keys().forEach((fileName) => {
   const componentConfig = components(fileName)

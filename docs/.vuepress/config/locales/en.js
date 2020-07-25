@@ -8,6 +8,12 @@ module.exports = {
   guides: 'Guides',
   games: 'Games',
   // sidebar nav
+  linux: 'Linux',
+  css: 'CSS',
+  'tailwind-css': 'Tailwind CSS',
+  laravel: 'Laravel',
+  'visual-studio-code': 'Visual Studio Code',
+  'server': 'Server',
   'web-server': 'Web server',
   nginx: 'NGINX',
   apache: 'Apache2',
