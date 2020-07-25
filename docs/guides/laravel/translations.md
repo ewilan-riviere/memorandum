@@ -1,4 +1,4 @@
-# Translations
+# Localization
 
 ## **Get Laravel translations into VueJS**
 

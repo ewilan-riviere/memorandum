@@ -45,6 +45,11 @@ module.exports = {
         collapsable: true,
         children: [
           'laravel/',
+          'laravel/backpack',
+          'laravel/cors-errors',
+          'laravel/setup-project',
+          'laravel/translations',
+          'laravel/vuejs-mail',
         ],
       },
       {
@@ -56,9 +61,9 @@ module.exports = {
             title: 'tailwind-css',
             collapsable: true,
             children: [
-              'tailwind-css/',
-              'tailwind-css/default-config',
-              'tailwind-css/libraries'
+              'css/tailwind-css/',
+              'css/tailwind-css/default-config',
+              'css/tailwind-css/libraries'
             ],
           },
         ],

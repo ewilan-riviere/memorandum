@@ -1,4 +1,4 @@
-# Laravel: Backpack
+# Backpack
 
 ## Create new Model
 

@@ -1,4 +1,4 @@
-# Laravel Mail with VueJS form
+# Mail with VueJS form
 
 ```bash
 composer require google/recaptcha

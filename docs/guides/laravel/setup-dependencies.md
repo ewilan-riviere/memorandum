@@ -1,4 +1,4 @@
-# Laravel: setup project
+# Setup dependencies
 
 ## PHP CS Fixer
 
