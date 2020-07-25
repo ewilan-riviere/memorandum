@@ -8,6 +8,18 @@ module.exports = {
       '',
       'git',
       {
+        title: 'linux',
+        collapsable: true,
+        children: [
+          'linux/welcome',
+          {
+            title: 'kde',
+            collapsable: true,
+            children: ['linux/kde/switch-hdmi'],
+          },
+        ],
+      },
+      {
         title: 'vue',
         collapsable: true,
         children: [
