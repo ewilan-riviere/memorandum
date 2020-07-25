@@ -4,7 +4,8 @@ module.exports = {
   getSidebar: (lang) => {
     let sidebar = {
       // '/api/': getApiSidebar(),
-      '/guides/': sidebarMethods.getGuideSidebar(),
+      '/guides/': sidebarMethods.getGuides(),
+      '/games/': sidebarMethods.getGames(),
       // '/plugin/': getPluginSidebar('Plugin', 'Introduction', 'Official Plugins'),
       // '/theme/': getThemeSidebar('Theme', 'Introduction')
     }

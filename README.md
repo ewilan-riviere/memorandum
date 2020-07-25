@@ -13,14 +13,14 @@ List some important infos with [**VuePress**](https://vuepress.vuejs.org/) docum
 
 ## **Setup**
 
-*Download dependencies*
+_Download dependencies_
 
 ```bash
 yarn
 yarn dev
 ```
 
-*Production mode*
+_Production mode_
 
 ```bash
 yarn build
@@ -31,7 +31,7 @@ yarn build
 <https://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin>  
 <https://stackoverflow.com/questions/52704/how-do-i-discard-unstaged-changes-in-git>  
 <https://stackoverflow.com/questions/9529078/how-do-i-use-git-reset-hard-head-to-revert-to-a-previous-commit>  
-<https://stackoverflow.com/questions/9529078/how-do-i-use-git-reset-hard-head-to-revert-to-a-previous-commit>  
+<https://stackoverflow.com/questions/9529078/how-do-i-use-git-reset-hard-head-to-revert-to-a-previous-commit>
 
 <https://www.polygon.com/zelda-breath-of-the-wild-guide-walkthrough/2017/6/1/15723316/botw-shrine-map-location>
 <https://zelda.fandom.com/wiki/Armor>
@@ -45,3 +45,9 @@ yarn build
 <https://www.animedigitalnetwork.fr/video/bleach>
 <https://fandemanga.com/blogs/streaming-manga/bleach-episode-111-vostfr?_pos=3&_sid=d2ed16d71&_ss=r>
 <https://fr.wikipedia.org/wiki/Liste_des_%C3%A9pisodes_de_Bleach#Saison_4>
+
+mysql -u user -p
+use my_databasa
+source file.sql
+
+mysql -u username -p password db_name < file.sql

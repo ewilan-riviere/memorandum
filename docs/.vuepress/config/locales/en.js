@@ -6,6 +6,7 @@ module.exports = {
 
   // header nav
   guides: 'Guides',
+  games: 'Games',
   // sidebar nav
   'web-server': 'Web server',
   nginx: 'NGINX',
