@@ -26,6 +26,6 @@ module.exports = {
       },
     ],
     'block-no-empty': null,
-    'unit-whitelist': ['em', 'rem', 's'],
+    'unit-whitelist': ['em', 'rem', 's', '%', 'px'],
   },
 }

@@ -86,43 +86,44 @@ export default {
 </script>
 
 <style lang="stylus">
-.not-reachable
-  position absolute
-  z-index 4
-  top 0
-  left 0
-  right 0
-  bottom 0
+.not-reachable {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0
+}
 .copy-it {
-    position absolute
-    display flex
-    top: 0rem
-    right 0
-    color white
-    z-index 3
-    height 3rem
-    width 3rem
-    transition background-color 0.3s
-    cursor pointer
-    &:hover {
-        background-color rgba(0, 0, 0, .5)
-        svg {
-          fill red !important
-        }
-    }
+    position: absolute;
+    display: flex;
+    top: 0rem;
+    right: 0;
+    color: white;
+    z-index: 3;
+    height: 3rem;
+    width: 3rem;
+    transition: background-color 0.3s;
+    cursor: pointer;
     span {
-      position absolute
-      z-index 2
-      margin auto
+      position: absolute;
+      z-index: 2;
+      margin: auto;
       svg {
-        color white
-        transition fill 0.3s
+        color: white;
+        transition: fill 0.3s;
       }
+    }
+    &:hover {
+        background-color: rgba(0, 0, 0, .5);
+        svg {
+          fill: red !important;
+        }
     }
 }
 .code-heading {
-    position relative
-    z-index 3
+    position: relative;
+    z-index: 3;
     width: 100%;
     height: 45px;
     line-height: 40px;
