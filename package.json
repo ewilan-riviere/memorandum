@@ -2,7 +2,6 @@
   "name": "memorandum",
   "displayName": "Memorandum",
   "description": "Memorandum application",
-  "version": "0.0.2",
   "keywords": [
     "documentation",
     "vue",
@@ -21,12 +20,7 @@
   },
   "scripts": {
     "build": "vuepress build docs",
-    "dev": "vuepress dev docs",
-    "lint-md": "yarn lint-md:style && yarn lint-md:wording",
-    "lint-md:style": "remark --quiet --frail .",
-    "lint-md:wording": "textlint ./docs/**/*.md",
-    "show-help": "vuepress --help",
-    "view-info": "vuepress view-info docs"
+    "dev": "vuepress dev docs"
   },
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "1.5.2",
