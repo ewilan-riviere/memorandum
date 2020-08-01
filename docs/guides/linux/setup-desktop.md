@@ -54,44 +54,7 @@ set showcmd
 set mouse=a
 ```
 
-## 2. NodeJS: NVM
-
-You can install basic **NPM** package but with **NVM**, you can change NodeJS version when you want. Check last version on [**NVM GitHub**](https://github.com/nvm-sh/nvm) and change it if you want latest. Here, the **NVM** version is **`0.35.3`** and **NodeJS** version is **`12.16.1`** LTS.
-
-```bash
-curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.35.3/install.sh -o install_nvm.sh
-bash install_nvm.sh
-rm install_nvm.sh
-source ~/.profile
-nvm ls-remote
-nvm install 12.16.2
-nvm use 12.16.2
-node -v
-nvm ls
-nvm alias default 12.16.2
-nvm use default
-```
-
-:::tip
-Add this to `~/.zshrc` to keep NVM global command and execute `source ~/.zshrc` to reload profile
-
-```bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-```
-
-:::
-
-### 2. A. Yarn
-
-Yarn is package manager which use NodeJS packages like NPM but it's really more powerful and it's a excellent alternative to NPM. You can use it like NPM, just type `yarn` and the command.
-
-```bash
-npm install -g yarn
-```
-
-## 3. ZSH & Oh my ZSH
+## 2. ZSH & Oh my ZSH
 
 ZSH is a powerful command interpreter, better than bash. If you use it, you can improve it with [*Oh my ZSH*](https://ohmyz.sh/) which is configuration for ZSH.
 
@@ -123,8 +86,39 @@ Edit this line of `~/.zshrc`
 ```
 ZSH_THEME="spaceship"
 ```
-
 :::
+
+## 3. NodeJS: NVM
+
+You can install basic **NPM** package but with **NVM**, you can change NodeJS version when you want. Check last version on [**NVM GitHub**](https://github.com/nvm-sh/nvm) and change it if you want latest. Here, the **NVM** version is **`0.35.3`** and **NodeJS** version is **`12.16.3`** LTS.
+
+Download NVM
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+```
+
+Add this into ~/.zshrc
+
+```bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+```
+
+Install Node.js v12.18.3 and config NVM to use it
+
+```bash
+source ~/.zshrc && nvm ls-remote && nvm install 12.18.3 && nvm use 12.18.3 && nvm alias default 12.16.3 && nvm use default && nvm ls && node -v
+```
+
+### 3. A. Yarn
+
+Yarn is package manager which use NodeJS packages like NPM but it's really more powerful and it's a excellent alternative to NPM. You can use it like NPM, just type `yarn` and the command.
+
+```bash
+npm install -g yarn
+```
 
 ## 4. PHP
 

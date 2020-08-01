@@ -16,7 +16,48 @@ For example, if I have PHP 7.2 and I want PHP 7.3, I install new PHP version wit
 ```bash
 sudo add-apt-repository -y ppa:ondrej/php
 sudo apt update
+```
+
+Install new PHP version like this:
+
+For Apache:
+
+```bash
 sudo apt install php7.3
+```
+
+For NGINX:
+
+```bash
+sudo apt install php7.3-fpm
+```
+
+If you change PHP version, you will need some dependencies. For example, if you want to use PHP 7.4 instead PHP 7.2 for phpMyAdmin, you will need to update `/etc/nginx/sites-availables/default`:
+
+```nginx {5}
+{
+  # ...
+  location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+	}
+}
+```
+
+```nginx {5}
+{
+  # ...
+  location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+	}
+}
+```
+
+Reload NGINX with `sudo service nginx restart`. If you open phpMyAdmin, you will have some error about some dependencies, you will have just to install it like:
+
+```bash
+sudo apt install php7.4-mbstring php7.4-mysql
 ```
 
 If I have some problems of dependencies, I can install these for this PHP version:

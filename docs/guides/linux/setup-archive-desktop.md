@@ -6,34 +6,7 @@
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg && sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/ && sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list' && sudo apt-get install apt-transport-https && sudo apt-get update && sudo apt-get install code && rm packages.microsoft.gpg
 ```
 
-```json
-{
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Monokai",
-    "window.zoomLevel": 1,
-    "explorer.confirmDragAndDrop": false,
-    "files.autoSave": "off",
-    "explorer.confirmDelete": false,
-    "gitlens.advanced.messages": {
-        "suppressLineUncommittedWarning": true
-    },
-    "eslint.validate": [
-        "vue",
-        "html",
-        "javascript",
-        "typescript",
-        "javascriptreact",
-        "typescriptreact"
-    ],
-    "editor.fontFamily": "'Fira Code",
-    "editor.fontLigatures": true,
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    },
-    "extensions.ignoreRecommendations": false,
-
-}
-```
+Look at this configuration: [**code.visualstudio.com**](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc)
 
 # Vue and Angular
 

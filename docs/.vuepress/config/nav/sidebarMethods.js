@@ -17,6 +17,7 @@ module.exports = {
           'linux/setup-archive-desktop',
           'linux/php',
           'linux/lemp',
+          'linux/phpmyadmin',
           'linux/install-os-troubles',
           'linux/ssh-management',
           {
