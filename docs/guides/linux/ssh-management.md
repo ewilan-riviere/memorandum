@@ -1,4 +1,4 @@
-# SSH Management
+# 🔑 SSH Management
 
 ## Connection to server
 

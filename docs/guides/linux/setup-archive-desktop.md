@@ -1,4 +1,4 @@
-
+# 📦 Setup desktop: archives
 
 # Code
 
@@ -22,7 +22,7 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > package
         "html",
         "javascript",
         "typescript",
-        "javascriptreact", 
+        "javascriptreact",
         "typescriptreact"
     ],
     "editor.fontFamily": "'Fira Code",
@@ -31,10 +31,9 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > package
         "source.fixAll.eslint": true
     },
     "extensions.ignoreRecommendations": false,
-    
+
 }
 ```
-
 
 # Vue and Angular
 
@@ -87,11 +86,15 @@ sudo apt remove -y pim-data-exporter gnome-mines gnome-sudoku aisleriot gnome-ma
 ```
 
 # Web server
+
 sudo chown -R ewilan:ewilan /var/www
 
 # Install LAMP
-# Complete instruction here:
-# https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04
+
+# Complete instruction here
+
+# <https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04>
+
 sudo apt update && sudo apt install -y apache2 && sudo ufw allow in "Apache Full" && sudo apt install -y mysql-server
 
 sudo mysql
@@ -102,13 +105,15 @@ sudo apt install -y php libapache2-mod-php php-mysql && sudo nano /etc/apache2/m
 
 sudo mkdir /var/www/dev && sudo chown -R $USER:$USER /var/www/dev && sudo chmod -R 755 /var/www/dev && sudo cp apache2/index.html /var/www/dev && sudo cp apache2/dev.conf /etc/apache2/sites-available/ && sudo a2ensite dev && sudo apache2ctl configtest && sudo systemctl restart apache2 && sudo cp apache2/info.php /var/www/html/
 
-
 # Install phpMyAdmin
-# Complete instructions here:
-# https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04
+
+# Complete instructions here
+
+# <https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04>
+
 sudo apt update && sudo apt install -y phpmyadmin php-mbstring php-gettext && sudo phpenmod mbstring && sudo systemctl restart apache2
 
-sudo chmod -R 775 /var/www/* && sudo chown -R $USER:$USER /var/www/*
+sudo chmod -R 775 /var/www/*&& sudo chown -R $USER:$USER /var/www/*
 sudo a2enmod rewrite
 
 mysql -u root -p
@@ -117,23 +122,28 @@ GRANT ALL PRIVILEGES ON *.* TO 'ewilan'@'localhost' WITH GRANT OPTION;
 exit;
 
 # Secure phpMyAdmin instance with authentification
+
 sudo rm /etc/apache2/conf-available/phpmyadmin.conf && sudo cp ./phpmyadmin.conf /etc/apache2/conf-available/
 
 sudo cp ./.htaccess /usr/share/phpmyadmin/ && sudo htpasswd -c /etc/phpmyadmin/.htpasswd ewilan
 
 # Composer
+
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && php -r "if (hash_file('sha384', 'composer-setup.php') === 'e0012edf3e80b6978849f5eff0d4b4e4c79ff1609dd1e613307e16318854d24ae64f26d17af3ef0bf7cfb710ca74755a') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" && php composer-setup.php && php -r "unlink('composer-setup.php');" && sudo mv composer.phar /usr/local/bin/composer && sudo chown -R $USER ~/.config/composer/
 
 echo 'export PATH=~/.composer/vendor/bin:$PATH\nalias update-upgrade="sudo apt update && sudo apt -y upgrade && sudo snap refresh && sudo apt autoremove"\nalias install-app="sudo apt -y install"\nalias apache="cd /var/www/html/"\nalias touchpad="xinput disable 12 && xinput enable 12"\nalias ssh-ewilan-riviere="ssh -p 65002 u617196699@194.5.156.43"\nalias cp-v="rsync --info=progress2"' >> ~/.zshrc
 
 # KDE alt
+
 # system settings > window behaviour > window behaviour (again) > window actions tab
 
 # Laravel
+
 composer global require laravel/installer
 sudo chown -R $USER ~/.composer/
 
 # Install LEMP
-# https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04
+
+# <https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04>
 
 sudo apt autoremove -y

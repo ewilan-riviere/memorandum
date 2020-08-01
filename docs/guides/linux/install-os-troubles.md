@@ -1,9 +1,10 @@
-# Windows Linux
+# Troubles with installation of Linux
 
 - Prepare boot useb key with Rufus on Windows, just use windows.iso
 - Install Windows
 
 :::tip
+
 - In Windows, run Command Prompt as admin
 - Invoke a Safe Mode boot with the command: `bcdedit /set {current} safeboot minimal`
 - Restart the PC and enter your BIOS during bootup.
@@ -15,6 +16,7 @@
 :::
 
 Machine: Dell 15 5584
+
 - Delete any program for Intel Storage Rapid
 - Right click on Windows logo, choose execute, type `msconfig`
 - Go to Startup tab, select safe boot and accept reboot

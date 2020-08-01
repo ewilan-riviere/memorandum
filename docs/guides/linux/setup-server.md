@@ -1,4 +1,4 @@
-# 💧 Digital Ocean: droplet init
+# 👩‍💻 Setup server
 
 <img src="/images/digital-ocean-droplet-init.jpg" class="cover-img" />
 
@@ -371,4 +371,5 @@ Check your php version:
 ```bash
 php -v
 ```
+
 :::

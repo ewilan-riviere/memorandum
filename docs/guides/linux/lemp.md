@@ -1,4 +1,4 @@
-## LEMP: Linux, Nginx, MySQL, PHP
+## 🔋 LEMP: Linux, Nginx, MySQL, PHP
 
 [Digital Ocean: LEMP](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04)
 
@@ -310,6 +310,7 @@ Check your php version:
 ```bash
 php -v
 ```
+
 :::
 
 ##### Error 502

@@ -3,6 +3,7 @@ module.exports = {
 
   advanced: 'Avancé',
   vue: 'Vue.js',
+  kde: 'KDE',
 
   // header nav
   guides: 'Guides',

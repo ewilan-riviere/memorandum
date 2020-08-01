@@ -12,6 +12,13 @@ module.exports = {
         collapsable: true,
         children: [
           'linux/welcome',
+          'linux/setup-server',
+          'linux/setup-desktop',
+          'linux/setup-archive-desktop',
+          'linux/php',
+          'linux/lemp',
+          'linux/install-os-troubles',
+          'linux/ssh-management',
           {
             title: 'kde',
             collapsable: true,
@@ -37,7 +44,7 @@ module.exports = {
         children: [
           'visual-studio-code/',
           'visual-studio-code/configuration',
-          'visual-studio-code/eslint'
+          'visual-studio-code/eslint',
         ],
       },
       {
@@ -47,7 +54,7 @@ module.exports = {
           'laravel/',
           'laravel/backpack',
           'laravel/cors-errors',
-          'laravel/setup-project',
+          'laravel/setup-dependencies',
           'laravel/translations',
           'laravel/vuejs-mail',
         ],
@@ -63,7 +70,7 @@ module.exports = {
             children: [
               'css/tailwind-css/',
               'css/tailwind-css/default-config',
-              'css/tailwind-css/libraries'
+              'css/tailwind-css/libraries',
             ],
           },
         ],
@@ -98,7 +105,7 @@ module.exports = {
           },
         ],
       },
-      'work-in-progress'
+      'work-in-progress',
       // 'vue',
       // 'vue/vuepress',
       // 'vue/vuepress/inheritance',

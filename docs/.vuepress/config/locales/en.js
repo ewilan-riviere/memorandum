@@ -3,6 +3,7 @@ module.exports = {
 
   advanced: 'Advanced',
   vue: 'Vue.js',
+  kde: 'KDE',
 
   // header nav
   guides: 'Guides',
@@ -13,7 +14,7 @@ module.exports = {
   'tailwind-css': 'Tailwind CSS',
   laravel: 'Laravel',
   'visual-studio-code': 'Visual Studio Code',
-  'server': 'Server',
+  server: 'Server',
   'web-server': 'Web server',
   nginx: 'NGINX',
   apache: 'Apache2',

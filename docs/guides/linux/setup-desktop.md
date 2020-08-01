@@ -1,4 +1,4 @@
-# Installation: basics
+# 💻 Setup desktop
 
 This guide has been set for [**Ubuntu 18.04**](https://ubuntu.com/#download), if you have another distribution use it carefully.
 
@@ -9,6 +9,7 @@ sudo apt install -y exfat-utils exfat-fuse curl git gimp chromium-browser nethog
 ```
 
 :::tip
+
 - `exfat-utils` and `exfat-fuse` packages allow to use `exFAT` disks ([**see wiki**](https://doc.ubuntu-fr.org/exfat))
 - `curl` package allow to get resources with protocol
 - `git` package to use git commands
@@ -37,6 +38,7 @@ vim ~/.vimrc
 ```
 
 <code-heading path="/home/user/.vimrc"></code-heading>
+
 ```vim
 set nocompatible
 set number
@@ -78,6 +80,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 ```
+
 :::
 
 ### 2. A. Yarn
@@ -120,8 +123,8 @@ Edit this line of `~/.zshrc`
 ```
 ZSH_THEME="spaceship"
 ```
-:::
 
+:::
 
 ## 4. PHP
 
