@@ -7,7 +7,7 @@ yarn add sweetalert2 vue-recaptcha
 
 <collapsable></collapsable>
 
-<code-heading type="php" path="resources/views/vendor/notifications/email.blade.php"></code-heading>
+<code-block ext="php" path="resources/views/vendor/notifications/email.blade.php"></code-block>
 ```php
 @component('mail::message')
 {{-- Greeting --}}
@@ -54,7 +54,7 @@ yarn add sweetalert2 vue-recaptcha
 @endcomponent
 ```
 
-<code-heading type="php" path="resources/views/vendor/notifications/email.blade.php"></code-heading>
+<code-block ext="php" path="resources/views/vendor/notifications/email.blade.php"></code-block>
 config/recaptcha.php
 ```php
 <?php
@@ -65,7 +65,7 @@ return [
 ];
 ```
 
-<code-heading type="php" path="resources/views/vendor/notifications/email.blade.php"></code-heading>
+<code-block ext="php" path="resources/views/vendor/notifications/email.blade.php"></code-block>
 contact.blade.php
 ```php
 @extends('layouts.website')
@@ -86,7 +86,7 @@ contact.blade.php
 @endsection
 ```
 
-<code-heading type="php" path="resources/views/vendor/notifications/email.blade.php"></code-heading>
+<code-block ext="php" path="resources/views/vendor/notifications/email.blade.php"></code-block>
 ```php
 <?php
 
@@ -140,7 +140,7 @@ class NewContact extends Mailable
 }
 ```
 
-<code-heading type="php" path="resources/views/vendor/notifications/email.blade.php"></code-heading>
+<code-block ext="php" path="resources/views/vendor/notifications/email.blade.php"></code-block>
 ```vue
 <template>
   <form @submit.prevent="onSubmit">
@@ -303,7 +303,7 @@ export default {
 </script>
 ```
 
-<code-heading type="php" path="resources/views/vendor/notifications/email.blade.php"></code-heading>
+<code-block ext="php" path="resources/views/vendor/notifications/email.blade.php"></code-block>
 ```php
 <?php
 
@@ -352,7 +352,7 @@ class MailController extends Controller
 }
 ```
 
-<code-heading type="php" path="resources/views/vendor/notifications/email.blade.php"></code-heading>
+<code-block ext="php" path="resources/views/vendor/notifications/email.blade.php"></code-block>
 ```js
 import Vue from 'vue'
 import axios from 'axios'
@@ -383,7 +383,7 @@ const app = new Vue({
 })
 ```
 
-<code-heading type="php" path="resources/views/vendor/notifications/email.blade.php"></code-heading>
+<code-block ext="php" path="resources/views/vendor/notifications/email.blade.php"></code-block>
 ```php
 <?php
 

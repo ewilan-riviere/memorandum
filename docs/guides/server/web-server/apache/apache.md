@@ -2,7 +2,7 @@
 
 ## 1. Basic configuration
 
-<code-heading type="apache" path="/etc/nginx/sites-available/my-domain.conf"></code-heading>
+<code-block ext="apache" path="/etc/nginx/sites-available/my-domain.conf"></code-block>
 ```apacheconf
 <VirtualHost *:80>
     ServerAdmin webmaster@my-domain.com

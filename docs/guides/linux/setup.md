@@ -1,6 +1,21 @@
-# 💻 Setup desktop
+# 💻 Setup
 
 This guide has been set for [**Ubuntu 18.04**](https://ubuntu.com/#download), if you have another distribution use it carefully.
+
+```bash
+sudo apt install -y ufw && sudo ufw app list && sudo ufw allow OpenSSH && sudo ufw enable && sudo ufw status
+```
+
+```bash
+sudo adduser ewilan
+sudo usermod -aG sudo ewilan
+```
+
+```bash
+sudo ufw app list
+sudo ufw allow OpenSSH
+sudo ufw enable
+```
 
 ## 1. Useful packages
 
@@ -21,7 +36,8 @@ sudo apt install -y exfat-utils exfat-fuse curl git gimp chromium-browser nethog
 - `fonts-firacode` package to install [**fira code fonts**](https://github.com/tonsky/FiraCode)
 :::
 
-### 1. A. Vim
+
+### 1. a. Vim
 
 Get basic configuration and copy it to user directory
 
@@ -37,7 +53,7 @@ Edit `~/.vimrc` and copy this at the end of file to enable basics features.
 vim ~/.vimrc
 ```
 
-<code-heading path="/home/user/.vimrc"></code-heading>
+<code-block path="/home/user/.vimrc"></code-block>
 
 ```vim
 set nocompatible

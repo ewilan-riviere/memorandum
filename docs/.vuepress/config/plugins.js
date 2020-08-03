@@ -31,6 +31,8 @@ module.exports = [
     },
   ],
   ['flowchart'],
+  ['vuepress-plugin-code-copy', true],
+  ['vuepress-plugin-mermaidjs'],
   [
     'vuepress-plugin-clean-urls',
     {

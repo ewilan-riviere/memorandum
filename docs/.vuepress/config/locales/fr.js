@@ -4,6 +4,7 @@ module.exports = {
   advanced: 'Avancé',
   vue: 'Vue.js',
   kde: 'KDE',
+  php: '🐘 PHP',
 
   // header nav
   guides: 'Guides',

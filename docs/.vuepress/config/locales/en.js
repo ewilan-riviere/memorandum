@@ -18,4 +18,5 @@ module.exports = {
   'web-server': 'Web server',
   nginx: 'NGINX',
   apache: 'Apache2',
+  php: '🐘 PHP',
 }

@@ -12,13 +12,12 @@ module.exports = {
         collapsable: true,
         children: [
           'linux/welcome',
-          'linux/setup-server',
-          'linux/setup-desktop',
-          'linux/setup-archive-desktop',
-          'linux/php',
+          'linux/setup',
+          'linux/setup-apps',
+          'linux/lamp',
           'linux/lemp',
           'linux/phpmyadmin',
-          'linux/install-os-troubles',
+          'linux/setup-troubles',
           'linux/ssh-management',
           {
             title: 'kde',
@@ -49,10 +48,16 @@ module.exports = {
         ],
       },
       {
+        title: 'php',
+        collapsable: true,
+        children: ['php/', 'php/cheatsheet', 'php/manage-array'],
+      },
+      {
         title: 'laravel',
         collapsable: true,
         children: [
           'laravel/',
+          'laravel/relationships',
           'laravel/backpack',
           'laravel/cors-errors',
           'laravel/setup-dependencies',

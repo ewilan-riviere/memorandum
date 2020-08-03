@@ -10,11 +10,11 @@ This guide not follow all the NativeScript documentation but if you have problem
 
 Install NativeScript CLI to have `tns` command
 
-<code-heading type="sh">
+<code-block ext="sh">
 ```bash
 npm install -g nativescript@latest
 ```
-</code-heading>
+</code-block>
 
 Install dependencies and OpenJDK 8
 

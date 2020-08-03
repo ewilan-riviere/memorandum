@@ -11,6 +11,9 @@ module.exports = (ctx) => ({
   extend: '@vuepress/theme-default',
   themeConfig,
   plugins,
+  markdown: {
+    lineNumbers: true,
+  },
   extraWatchFiles: ['.vuepress/config/nav/en.js', '.vuepress/config/nav/fr.js'],
   /**
    * ==============

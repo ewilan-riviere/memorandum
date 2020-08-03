@@ -20,7 +20,8 @@
   },
   "scripts": {
     "build": "vuepress build docs",
-    "dev": "vuepress dev docs"
+    "dev": "vuepress dev docs",
+    "start": "nodemon --ext md,vue,js --watch .vuepress --watch . --exec vuepress dev docs"
   },
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "1.5.2",
@@ -28,22 +29,27 @@
     "@vuepress/plugin-medium-zoom": "1.5.2",
     "@vuepress/plugin-pwa": "1.5.2",
     "@vuepress/theme-vue": "^1.5.2",
-    "autoprefixer": "^9.8.5",
+    "autoprefixer": "^9.8.6",
     "axios": "^0.19.2",
     "eslint": "^6.8.0",
     "eslint-config-vuepress": "^2.2.0",
+    "nodemon": "^2.0.4",
     "prettier": "^2.0.5",
     "prettier-config-vuepress": "^1.0.0",
     "stylelint": "^13.6.1",
     "stylelint-plugin-stylus": "^0.9.0",
-    "tailwindcss": "^1.6",
-    "vue-clipboard2": "^0.3.1",
-    "vue-dependencies-badges": "^0.0.22",
+    "tailwindcss": "^1.6.1",
+    "vue-code-block": "^0.2.23",
+    "vue-dependencies-badges": "^0.0.31",
     "vue-svg-loader": "^0.16.0",
     "vue-template-compiler": "^2.6.11",
     "vue-toasted": "^1.1.25",
     "vuepress": "1.5.2",
     "vuepress-plugin-clean-urls": "^1.1.1",
-    "vuepress-plugin-flowchart": "^1.4.2"
+    "vuepress-plugin-flowchart": "^1.4.2",
+    "vuepress-plugin-mermaidjs": "^1.6.0"
+  },
+  "dependencies": {
+    "vuepress-plugin-code-copy": "^1.0.6"
   }
 }

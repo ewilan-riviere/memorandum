@@ -32,7 +32,7 @@ php artisan backpack:install
 
 You can have this output error:
 
-<code-heading type="sh-output"></code-heading>
+<code-block ext="sh-output"></code-block>
 
 ```bash
 Symfony\Component\Process\Exception\ProcessTimedOutException  : The process "composer require barryvdh/laravel-elfinder" exceeded the timeout of 300 seconds.
@@ -48,7 +48,7 @@ composer config --global process-timeout 2000
 
 With **Nuxt** and **Laravel** on same url, **Nuxt** crush `public` directory of **Laravel**. If you want to load *CSS* and *JS* from public directory off **Laravel**, you can add it to `location` into first configuration (here, l.10), like this, here *CSS* is present and `public/css/app.css` can be loaded into back-office. Check **Network** in your dev tools if you can't find any error, *404 is the proof of problems with NGINX config*!
 
-<code-heading type="nginx"></code-heading>
+<code-block ext="nginx"></code-block>
 
 ```nginx{10}
 server {
