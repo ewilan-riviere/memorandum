@@ -6,7 +6,7 @@ Nginx is a powerful web server, it's really fastest if we compare it to Apache. 
 
 &nbsp;
 
-<code-block ext="nginx" path="/etc/nginx/sites-available/my-domain"></code-block>
+<code-info ext="nginx" path="/etc/nginx/sites-available/my-domain"></code-info>
 ```nginx{3,5,7}
 server {
     listen 80;
@@ -35,7 +35,7 @@ server {
 
 Configuration for [Laravel](https://laravel.com/) application, this app need a specific configuration for `storage` directory if you use it.
 
-<code-block ext="nginx" path="/etc/nginx/sites-available/my-laravel-domain"></code-block>
+<code-info ext="nginx" path="/etc/nginx/sites-available/my-laravel-domain"></code-info>
 ```nginx{3,5,7,10,13}
 server {
     listen 80;

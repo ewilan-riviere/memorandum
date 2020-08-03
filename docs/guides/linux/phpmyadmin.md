@@ -164,7 +164,7 @@ If not exist, you have to configure a new file for this version.
 sudo nano /etc/phpmyadmin/conf.d/pma_secure.php
 ```
 
-<code-block ext="php" path="/etc/phpmyadmin/conf.d/pma_secure.php"></code-block>
+<code-info ext="php" path="/etc/phpmyadmin/conf.d/pma_secure.php"></code-info>
 
 ```php
 <?php

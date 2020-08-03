@@ -53,7 +53,7 @@ Edit `~/.vimrc` and copy this at the end of file to enable basics features.
 vim ~/.vimrc
 ```
 
-<code-block path="/home/user/.vimrc"></code-block>
+<code-info path="/home/user/.vimrc"></code-info>
 
 ```vim
 set nocompatible

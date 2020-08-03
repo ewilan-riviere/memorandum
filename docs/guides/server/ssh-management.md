@@ -14,7 +14,7 @@ ip a
 
 I have large output with these informations:
 
-<code-block ext="sh-output"></code-block>
+<code-info ext="sh-output"></code-info>
 
 ```bash{7}
 2: enp3s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN group default qlen 1000

@@ -8,7 +8,7 @@
 
 Laravel has ORM system called Eloquent, an ORM is an Object Relationships Mapping. In one way, we have *migrations* to create database tables in MySQL for example. In other way, we have *models* to represent each entity in a PHP object. In a Controller, we call model if we want to get database content and not directly table.
 
-<code-block ext="php" path="app/Http/Controllers/AnyController.php">
+<code-info ext="php" path="app/Http/Controllers/AnyController.php">
 ```php {13, 17}
 <?php
 
@@ -31,12 +31,12 @@ class AnyController extends Controller
   }
 }
 ```
-</code-block>
+</code-info>
 
 At l. 13, we call directly table `users` from database and we bypass ORM system, like old PHP apps before ORM. But the real interest to use Laravel is to call Model **User**, l. 17, which is a class object in PHP, that we define before setup controllers, to define each attribute which in the `users` table.
 
 :::details Example of User model
-<code-block ext="php" path="app/Models/User.php">
+<code-info ext="php" path="app/Models/User.php">
 ```php
 <?php
 
@@ -58,11 +58,11 @@ class User extends Model
   ];
 }
 ```
-</code-block>
+</code-info>
 :::
 
 :::details Example of users table
-<code-block ext="php" path="database/migrations/2020_05_24_174020_create_users_table.php">
+<code-info ext="php" path="database/migrations/2020_05_24_174020_create_users_table.php">
 ```php
 <?php
 
@@ -101,7 +101,7 @@ class CreateUsersTable extends Migration
   }
 }
 ```
-</code-block>
+</code-info>
 :::
 
 **Why?**
@@ -190,7 +190,7 @@ Schema::create('franchises', function (Blueprint $table): void {
 ```
 
 :::details Complete migration for franchises table
-<code-block ext="php" path="database/migrations/2020_04_07_053742_create_franchises_table.php">
+<code-info ext="php" path="database/migrations/2020_04_07_053742_create_franchises_table.php">
 ```php
 <?php
 
@@ -222,7 +222,7 @@ class CreateFranchisesTable extends Migration {
 	}
 }
 ```
-</code-block>
+</code-info>
 :::
 
 ### 2. b. `games` table: main table
@@ -247,7 +247,7 @@ Schema::create('games', function (Blueprint $table): void {
 ```
 
 :::details Complete migration for games table
-<code-block ext="php" path="database/migrations/2020_05_08_200000_create_games_images_table.php">
+<code-info ext="php" path="database/migrations/2020_05_08_200000_create_games_images_table.php">
 ```php
 <?php
 
@@ -288,7 +288,7 @@ class CreateGamesTable extends Migration {
 	}
 }
 ```
-</code-block>
+</code-info>
 :::
 
 ### 2. c. `tags` table: ManyToMany Relationship
@@ -303,7 +303,7 @@ Schema::create('tags', function (Blueprint $table): void {
 ```
 
 :::details Complete migration for tags table
-<code-block ext="php" path="database/migrations/2020_07_18_053809_create_tags_table.php">
+<code-info ext="php" path="database/migrations/2020_07_18_053809_create_tags_table.php">
 ```php
 <?php
 
@@ -334,7 +334,7 @@ class CreateTagsTable extends Migration {
 	}
 }
 ```
-</code-block>
+</code-info>
 :::
 
 And `game_tag` table, pivot table between with `games`
@@ -355,7 +355,7 @@ Schema::create('game_tag', function (Blueprint $table): void {
 ```
 
 :::details Complete migration for game_tag table
-<code-block ext="php" path="database/migrations/2020_07_18_053856_add_relationship_between_games_and_tags.php">
+<code-info ext="php" path="database/migrations/2020_07_18_053856_add_relationship_between_games_and_tags.php">
 ```php
 <?php
 
@@ -394,7 +394,7 @@ class AddRelationshipBetweenGamesAndTags extends Migration {
 	}
 }
 ```
-</code-block>
+</code-info>
 :::
 
 ### 2. d. `hardware` table: OneToOne Relationship
@@ -417,7 +417,7 @@ Schema::create('hardware', function (Blueprint $table): void {
 ```
 
 :::details Complete migration for hardware table
-<code-block ext="php" path="database/migrations/2020_07_18_053823_create_hardware_table.php">
+<code-info ext="php" path="database/migrations/2020_07_18_053823_create_hardware_table.php">
 ```php
 <?php
 
@@ -458,7 +458,7 @@ class CreateHardwareTable extends Migration {
 	}
 }
 ```
-</code-block>
+</code-info>
 :::
 
 ---
@@ -554,7 +554,7 @@ class Game extends Model {
 ```
 
 :::details Complete model for Game
-<code-block ext="php" path="app/Models/Game.php">
+<code-info ext="php" path="app/Models/Game.php">
 ```php
 <?php
 
@@ -619,7 +619,7 @@ class Game extends Model {
 	}
 }
 ```
-</code-block>
+</code-info>
 :::
 
 ### 3. b. Hardware Model
@@ -646,7 +646,7 @@ class Hardware extends Model {
 ```
 
 :::details Complete model for Hardware
-<code-block ext="php" path="app/Models/Hardware.php">
+<code-info ext="php" path="app/Models/Hardware.php">
 ```php
 <?php 
 
@@ -680,7 +680,7 @@ class Hardware extends Model {
 	}
 }
 ```
-</code-block>
+</code-info>
 :::
 
 ### 3. c. Franchise Model
@@ -704,7 +704,7 @@ class Franchise extends Model {
 ```
 
 :::details Complete model for Franchise
-<code-block ext="php" path="app/Models/Franchise.php">
+<code-info ext="php" path="app/Models/Franchise.php">
 ```php
 <?php
 
@@ -748,7 +748,7 @@ class Franchise extends Model {
 	}
 }
 ```
-</code-block>
+</code-info>
 :::
 
 ### 3. d. Tag Model
@@ -771,7 +771,7 @@ class Tag extends Model {
 ```
 
 :::details Complete model for Tag
-<code-block ext="php" path="app/Models/Tag.php">
+<code-info ext="php" path="app/Models/Tag.php">
 ```php
 <?php
 
@@ -814,7 +814,7 @@ class Tag extends Model {
 	}
 }
 ```
-</code-block>
+</code-info>
 :::
 
 ---

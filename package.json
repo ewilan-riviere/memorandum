@@ -39,12 +39,12 @@
     "stylelint": "^13.6.1",
     "stylelint-plugin-stylus": "^0.9.0",
     "tailwindcss": "^1.6.1",
-    "vue-code-block": "^0.2.24",
     "vue-dependencies-badges": "^0.0.31",
     "vue-svg-loader": "^0.16.0",
     "vue-template-compiler": "^2.6.11",
     "vue-toasted": "^1.1.25",
     "vuepress": "1.5.2",
+    "vuepress-code-info": "^0.3.0",
     "vuepress-plugin-clean-urls": "^1.1.1",
     "vuepress-plugin-flowchart": "^1.4.2",
     "vuepress-plugin-mermaidjs": "^1.6.0"

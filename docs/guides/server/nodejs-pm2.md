@@ -17,7 +17,7 @@ Unlike PHP app, which just need to have Nginx/Apache configuration, a NodeJS app
 
 You need to have a **domain** and **Nginx**. The configuration of Nginx is light but necessary to allow **PM2** to serve it on this domain.
 
-<code-block ext="nginx" path="/etc/nginx/sites-available/portfolio"></code-block>
+<code-info ext="nginx" path="/etc/nginx/sites-available/portfolio"></code-info>
 ```nginx{2,6}
 server {
     server_name portfolio.ewilan-riviere.com;
@@ -65,7 +65,7 @@ npm install pm2@latest -g
 
 PM2 is now available on your server, you can use it on different ways but here, we use *ecosystem* solution. With this, it's easy to maintain a lot of NodeJS app with just JSON. You have just to create `ecosystem.config.js` anywhere on your server:
 
-<code-block ext="js" path="/home/user/ecosystem.config.js"></code-block>
+<code-info ext="js" path="/home/user/ecosystem.config.js"></code-info>
 ```js
 module.exports = {
   apps : [
@@ -89,7 +89,7 @@ module.exports = {
 
 In this example, portfolio-front is a NuxtJS app with theses scripts into package.json:
 
-<code-block ext="json" path="/home/user/www/portfolio-front/package.json"></code-block>
+<code-info ext="json" path="/home/user/www/portfolio-front/package.json"></code-info>
 ```json
 {
   //...
