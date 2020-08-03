@@ -9779,10 +9779,10 @@ vm-browserify@^1.0.1:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
-vue-code-block@^0.2.23:
-  version "0.2.23"
-  resolved "https://registry.yarnpkg.com/vue-code-block/-/vue-code-block-0.2.23.tgz#710f7158afd419e74a16e50cc1ab7edea3bd8cc0"
-  integrity sha512-r9TP6eXPPiNexpdNB0uaxplaqUH7VIbudNf/rkw3gblFsxBDbpi/MwDDykZMBKrAM27an0W44p4tQsM/a1AcMg==
+vue-code-block@^0.2.24:
+  version "0.2.24"
+  resolved "https://registry.yarnpkg.com/vue-code-block/-/vue-code-block-0.2.24.tgz#3e8fc9306658464ad76c12ece50791fee895ce22"
+  integrity sha512-oJ3GiTjYnSkvu61gEB4x2LgYzHTqI5lFFfM1upfE1DWAEZxQ0wd/qvS/uF0hpzKLuaMDAl8UVpSGPBuLjYHFYA==
 
 vue-dependencies-badges@^0.0.31:
   version "0.0.31"

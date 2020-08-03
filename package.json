@@ -39,7 +39,7 @@
     "stylelint": "^13.6.1",
     "stylelint-plugin-stylus": "^0.9.0",
     "tailwindcss": "^1.6.1",
-    "vue-code-block": "^0.2.23",
+    "vue-code-block": "^0.2.24",
     "vue-dependencies-badges": "^0.0.31",
     "vue-svg-loader": "^0.16.0",
     "vue-template-compiler": "^2.6.11",
