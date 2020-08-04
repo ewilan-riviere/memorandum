@@ -33,7 +33,6 @@
     "axios": "^0.19.2",
     "eslint": "^6.8.0",
     "eslint-config-vuepress": "^2.2.0",
-    "nodemon": "^2.0.4",
     "prettier": "^2.0.5",
     "prettier-config-vuepress": "^1.0.0",
     "stylelint": "^13.6.1",
