@@ -1,30 +1,31 @@
-# Oxygen Not Included
+# Welcome
 
-### Base de données de "Seeds"
+## Asteroids seeds
 
 [toolsnotincluded.net](https://toolsnotincluded.net/)
 
-### Base de données du jeu
+## Game database
+
 [oni-db.com](http://www.oni-db.com/)
 
-### Calculateur de débit des geysers, fumerolles et volcans
+## Geyser calculator
 
 [onical.ga](https://onical.ga/)
 
-### Calculateur de transfère thermique
+## Heat transfer calculator
 
 [oni-heat-calc.cba.pl](http://www.oni-heat-calc.cba.pl/)
 
-### Simulateur de fusées (calcul des distances parcourables)
+## Rocket simulator
 
 [oni-assistant.herokuapp.com](https://oni-assistant.herokuapp.com/)
 
-### "Blue print" (Schéma) des différents setups du jeu
+## Blueprints
 
 [blueprints-not-included.com](https://blueprints-not-included.com/)  
 [blueprintnotincluded.com](http://blueprintnotincluded.com/)  
 [oniarchitecte.com](https://www.oniarchitecte.com)
 
-### Editeur de sauvegarde (un peu cheaty), permet de modifier ses geysers/duplicants et des choses utiles comme le nom de la map, sa difficulté
+## Save editor
 
 [robophred.github.io/oni-duplicity/](https://robophred.github.io/oni-duplicity/#/)
