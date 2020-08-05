@@ -20,6 +20,7 @@ http://fanfox.net/manga/bleach/v10/c081/1.html#ipg7
 https://www.animedigitalnetwork.fr/video/bleach
 https://fandemanga.com/blogs/streaming-manga/bleach-episode-111-vostfr?_pos=3&_sid=d2ed16d71&_ss=r
 https://fr.wikipedia.org/wiki/Liste_des_%C3%A9pisodes_de_Bleach#Saison_4
+https://stackoverflow.com/questions/42950501/delete-node-modules-folder-recursively-from-a-specified-path-using-command-line
 
 mysql -u user -p
 use my_databasa
