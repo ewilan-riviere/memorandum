@@ -10,6 +10,12 @@ git config --global core.autocrlf false
 
 And re-clone repository
 
+## Change git editor
+
+```bash
+git config --global core.editor "vim"
+```
+
 ## Erase a branch with another
 
 Erase a branch with another

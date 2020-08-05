@@ -48,6 +48,11 @@ module.exports = {
         ],
       },
       {
+        title: 'flutter',
+        collapsable: true,
+        children: ['flutter/', 'flutter/setup'],
+      },
+      {
         title: 'php',
         collapsable: true,
         children: ['php/', 'php/cheatsheet', 'php/manage-array'],
@@ -111,47 +116,6 @@ module.exports = {
           },
         ],
       },
-      'work-in-progress',
-      // 'vue',
-      // 'vue/vuepress',
-      // 'vue/vuepress/inheritance',
-      // {
-
-      // {
-      //   title: 'vuepress',
-      //   collapsable: false,
-      //   children: [
-      //   ]
-      // }
-
-      // {
-      //   title: 'vuepress',
-      //   collapsable: false,
-      //   children: [
-      //     'vue/vuepress/',
-      //     'vue/vuepress/inheritance',
-      //   ]
-      // }
-
-      // 'vue',
-      // {
-      //   title: vue,
-      //   collapsable: true,
-      //   children: [
-      //     'vue/vuepress/',
-      //     'vue/vuepress/inheritance'
-      //   ],
-      // },
-      // 'getting-started',
-      // 'directory-structure',
-      // 'basic-config',
-      // 'assets',
-      // 'markdown',
-      // 'using-vue',
-      // 'i18n',
-      // 'deploy'
-      // ]
-      // },
     ]
   },
 

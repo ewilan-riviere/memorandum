@@ -1,5 +1,23 @@
 # Backpack
 
+- <https://backpackforlaravel.com/docs/4.1/installation>
+- <https://github.com/Laravel-Backpack/FileManager>
+- <https://github.com/Laravel-Backpack/Settings>
+
+## Installation
+
+```bash
+composer require backpack/crud:"4.1.*"
+```
+
+```bash
+composer require backpack/generators --dev && laracasts/generators --dev
+```
+
+```bash
+php artisan backpack:install
+```
+
 ## Create new Model
 
 - Create **migration** (in case you're starting from scratch)
@@ -19,6 +37,117 @@ php artisan backpack:add-custom-route "Route::crud('tag', 'TagCrudController');"
 
 ## Auth form fill in local
 
+`resources/views/vendor/backpack/base/auth/login.blade.php`
+
+:::details
+<<< @/docs/guides/laravel/backpack/login.blade.php
+:::
+
+`.env`
+
+:::details
+```js
+BP_ADMIN_MAIL=ewilan@dotslashplay.it
+BP_ADMIN_PASSWORD=password
+```
+:::
+
+`config/app.php`
+
+:::details
+```php
+'admin_mail'     => env('BP_ADMIN_MAIL'),
+'admin_password' => env('BP_ADMIN_PASSWORD'),
+```
+:::
+
+## Backpack customizations
+
+`config/backpack/base.php`
+
+:::details
+<<< @/docs/guides/laravel/backpack/config-backpack-base.php
+:::
+
+With some details
+
+```php
+'mix_styles' => [ // file_path => manifest_directory_path
+  'css/app.css' => '',
+],
+
+// ...
+
+'project_logo'   => '<img src="'.config('app.url').'/css/avatar.jpg" alt="EwieFairy Diary logo" class="header-logo"> <span class="header-title">EwieFairy’s Diary</span>',
+```
+
+`config/backpack/crud.php`
+
+```php
+'create' => [
+  'contentClass'   => 'col-xl-8 bold-labels',
+]
+
+'update' => [
+  'contentClass'   => 'col-xl-8 bold-labels',
+]
+```
+
+`resources/sass/classic-backpack.scss`
+
+:::details 
+<<< @/docs/guides/laravel/backpack/classic-backpack.scss
+:::
+
+`resources/sass/app.scss`
+
+:::details 
+<<< @/docs/guides/laravel/backpack/app.scss
+:::
+
+## Sidebar
+
+`resources/views/vendor/backpack/base/inc/sidebar-item.blade.php`
+
+```php
+<li class="nav-item">
+    <a class="nav-link" href="{{ $url }}">
+        <i class="{{ $icon }} nav-icon"></i> 
+        {{ $label }}
+    </a>
+</li>
+```
+
+`resources/views/vendor/backpack/base/inc/sidebar_content.blade.php`
+
+```php
+@include('vendor.backpack.base.inc.sidebar-item', [
+    'icon' => 'fas fa-tachometer-alt',
+    'url' => backpack_url('dashboard'),
+    'label' => 'Tableau de bord'
+])
+```
+
+```php
+<li class="nav-title">
+    Category
+</li>
+```
+
+```php
+<li class='nav-item nav-dropdown'>
+    <a
+        class='nav-link nav-dropdown-toggle'
+        href="#"
+    >
+        <i class='nav-icon fas fa-blog'></i>
+        Dropdown
+    </a>
+    <ul class="nav-dropdown-items">
+
+    </ul>
+</li>
+```
 
 
 ## Backpack errors
