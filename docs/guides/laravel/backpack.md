@@ -4,8 +4,7 @@
 
 - Create **migration** (in case you're starting from scratch)
 ```bash
-php artisan make:migration:schema create_tags_table --model=0 --schema="name:string:unique"
-php artisan migrate
+php artisan make:migration:schema create_tags_table --model=0 --schema="name:string:unique" && php artisan migrate
 ```
 
 - Create a **Model** with **Request** and **Controller** for the admin panel
@@ -17,6 +16,10 @@ php artisan backpack:crud tag
 ```bash
 php artisan backpack:add-custom-route "Route::crud('tag', 'TagCrudController');"
 ```
+
+## Auth form fill in local
+
+
 
 ## Backpack errors
 
