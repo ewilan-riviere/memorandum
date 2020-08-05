@@ -163,6 +163,11 @@ module.exports = {
         collapsable: true,
         children: ['guild-wars/welcome', 'guild-wars/maps'],
       },
+      {
+        title: 'Oxygen Not Included',
+        collapsable: true,
+        children: ['oni/', 'oni/asteroids'],
+      },
     ]
   },
 
