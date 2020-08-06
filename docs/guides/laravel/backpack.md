@@ -71,14 +71,25 @@ BP_ADMIN_PASSWORD=password
 
 With some details
 
+*Load order is important
+
 ```php
 'mix_styles' => [ // file_path => manifest_directory_path
-  'css/app.css' => '',
+  'css/classic-backpack.css' => '',
+  'css/app.css' => ''
 ],
 
 // ...
 
 'project_logo'   => '<img src="'.config('app.url').'/css/avatar.jpg" alt="EwieFairy Diary logo" class="header-logo"> <span class="header-title">EwieFairy’s Diary</span>',
+```
+
+`webpack.mix.js`
+
+```js
+mix.js('resources/js/app.js', 'public/js')
+  .sass('resources/sass/app.scss', 'public/css')
+  .sass('resources/sass/classic-backpack.scss', 'public/css');
 ```
 
 `config/backpack/crud.php`

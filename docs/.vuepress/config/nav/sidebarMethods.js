@@ -63,6 +63,7 @@ module.exports = {
         children: [
           'laravel/',
           'laravel/relationships',
+          'laravel/image-cache',
           'laravel/backpack',
           'laravel/cors-errors',
           'laravel/setup-dependencies',

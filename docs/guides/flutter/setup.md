@@ -29,6 +29,13 @@ hardware acceleration for emulator
 https://developer.android.com/studio/run/emulator-acceleration?utm_source=android-studio#vm-linux
 download dependencies
 
+create new project
+open avd manager (double shift and research)
+create new phone
+ex: pixel 2 with oreo 8.1 (with play store)
+download android system image
+
+
 flutter doctor --android-licenses
 ```
 
