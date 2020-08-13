@@ -21,10 +21,7 @@ sudo mysql_secure_installation
 ```
 
 :::tip
-Choose password level:
-- If you setup server, select **STRONG level**
-- If you setup just local desktop, select **LOW level**
-
+Choose password level, I advice `LOW` to avoid problems with password.
 And define password, select `Yes` for all questions after this.
 :::
 
@@ -42,6 +39,13 @@ Now redefine `root` `password` (change it, if you want strong password) and crea
 ```sql {3,4}
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 FLUSH PRIVILEGES;
+CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'user'@'localhost' WITH GRANT OPTION;
+exit
+```
+
+```bash
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
 CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON *.* TO 'user'@'localhost' WITH GRANT OPTION;
 exit
@@ -85,7 +89,7 @@ Following steps talks about VHost, if you don't know how it's works, read [*4. V
 If you want to update a VHost NGINX conf, check it in `/etc/nginx/sites-available/` and edit it, like:
 
 ```bash
-sudo vim my-domain
+sudo vim /etc/nginx/sites-available/my-domain
 ```
 
 You will have some infos but search this line

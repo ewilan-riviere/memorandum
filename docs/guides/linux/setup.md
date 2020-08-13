@@ -156,7 +156,7 @@ export NVM_DIR="$HOME/.nvm"
 Install Node.js v12.18.3 and config NVM to use it
 
 ```bash
-source ~/.zshrc && nvm ls-remote && nvm install 12.18.3 && nvm use 12.18.3 && nvm alias default 12.16.3 && nvm use default && nvm ls && node -v
+source ~/.zshrc && nvm ls-remote && nvm install 12.18.3 && nvm use 12.18.3 && nvm alias default 12.18.3 && nvm use default && nvm ls && node -v
 ```
 
 ### 3. A. Yarn
@@ -195,4 +195,18 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="$PATH:$(yarn global bin)"
 export PATH=~/.config/composer/vendor/bin:$PATH
+```
+
+### Locale error
+
+Add this to `.zshrc` or similar
+
+```bash
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US.UTF-8"
+```
+
+```bash
+source .zshrc && locale
 ```

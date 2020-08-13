@@ -155,7 +155,7 @@ $cfg['blowfish_secret'] = ''; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
 Check phpMyAdmin on [**http://localhost/phpmyadmin**](http://localhost/phpmyadmin) if you have default config. If you can access to it, you can delete save.
 
 ```bash
-sudo rm -rf /usr/share/phpmyadmin.bak && sudo rm phpMyAdmin*.tar.gz
+sudo rm -rf /usr/share/phpmyadmin.bak && sudo rm /usr/share/phpMyAdmin*.tar.gz
 ```
 
 If not exist, you have to configure a new file for this version.
@@ -194,7 +194,7 @@ This configuration will disable root login, you have to create user
 If you want for some reasons, change PHP version use by phpMyAdmin, you need to update NGINX `default`. Open it:
 
 ```bash
-sudo vim /etc/nginx/sites-availables/default
+sudo vim /etc/nginx/sites-available/default
 ```
 
 Content of `default` conf (if not, check [*configure NGINX*](/guides/linux/phpmyadmin/#_1-configure-nginx))

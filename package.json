@@ -20,7 +20,7 @@
   },
   "scripts": {
     "build": "vuepress build docs",
-    "dev": "vuepress dev docs --open",
+    "dev": "vuepress dev docs",
     "start": "nodemon --ext md,vue,js --watch .vuepress --watch . --exec vuepress dev docs"
   },
   "devDependencies": {

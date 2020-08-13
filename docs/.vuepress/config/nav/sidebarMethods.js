@@ -88,6 +88,11 @@ module.exports = {
         ],
       },
       {
+        title: 'strapi',
+        collapsable: true,
+        children: ['strapi/deployment'],
+      },
+      {
         title: 'server',
         collapsable: true,
         children: [
