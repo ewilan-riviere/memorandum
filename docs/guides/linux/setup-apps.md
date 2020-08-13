@@ -78,7 +78,7 @@ sudo apt install -y libatomic1 libappindicator1 libc++1 libsecret-1-dev gconf2 &
 [**Mailspring**](https://getmailspring.com/)
 
 ```bash
-curl -L  https://updates.getmailspring.com/download\?platform\=linuxDeb -o mailspring.deb && sudo dpkg -i mailspring.deb
+curl -L https://updates.getmailspring.com/download\?platform\=linuxDeb -o mailspring.deb && sudo dpkg -i mailspring.deb
 ```
 
 ## 6. Discord
@@ -86,7 +86,7 @@ curl -L  https://updates.getmailspring.com/download\?platform\=linuxDeb -o mails
 [**Discord**](https://discord.com/new)
 
 ```bash
-curl -L  https://discord.com/api/download?platform=linux&format=deb -o discord.deb && sudo dpkg -i discord.deb
+curl -L https://discord.com/api/download?platform=linux&format=deb -o discord.deb && sudo dpkg -i discord.deb
 ```
 
 ## 7. GitKraken
@@ -94,12 +94,33 @@ curl -L  https://discord.com/api/download?platform=linux&format=deb -o discord.d
 [**GitKraken**](https://www.gitkraken.com/)
 
 ```bash
-curl -L  https://www.gitkraken.com/download/linux-deb -o gitkraken.deb && sudo dpkg -i gitkraken.deb
+curl -L https://www.gitkraken.com/download/linux-deb -o gitkraken.deb && sudo dpkg -i gitkraken.deb
 ```
 
 ## 8. Video player
 
 [**Video players**](https://itsfoss.com/video-players-linux/)
+
+
+---
+
+## 9. Chromium & Chrome
+
+### Chromium
+
+```bash
+sudo apt install -y chromium-browser
+```
+
+### Google Chrome
+
+```bash
+sudo sh -c 'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list' && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - && sudo apt-get update
+```
+
+```bash
+sudo apt install -y google-chrome-stable
+```
 
 ---
 

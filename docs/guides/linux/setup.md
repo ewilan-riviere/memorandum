@@ -2,6 +2,37 @@
 
 This guide has been set for [**Ubuntu 18.04**](https://ubuntu.com/#download), if you have another distribution use it carefully.
 
+:::tip SSH
+If it's setup of server, you have to disable ssh with root and allow it with a custom user.
+
+First time connection
+
+```bash
+ssh root@ip-address
+```
+
+```bash
+apt update && apt upgrade && adduser ewilan && usermod -aG sudo ewilan
+```
+
+```bash
+mkdir /home/ewilan/.ssh/ && cp /root/.ssh/authorized_keys /home/ewilan/.ssh/ && chown -R ewilan:ewilan /home/ewilan/.ssh/ && chmod -R 700 /home/ewilan/.ssh/
+```
+
+Check if ssh works with new user and disallow ssh connection with root.
+
+```bash
+vim /etc/ssh/sshd_config
+```
+
+Find `PermitRootLogin` line and replace `yes` to `no` and restart sshd daemon. Disconnect yourself with `exit` and you won't able to connect with `root`, connect with custom user now.
+
+```bash
+systemctl restart sshd.service
+```
+
+:::
+
 ```bash
 sudo apt install -y ufw && sudo ufw app list && sudo ufw allow OpenSSH && sudo ufw enable && sudo ufw status
 ```
@@ -20,7 +51,7 @@ sudo ufw enable
 ## 1. Useful packages
 
 ```bash
-sudo apt install -y exfat-utils exfat-fuse curl git gimp chromium-browser nethogs vim ssh fonts-firacode
+sudo apt install -y exfat-utils exfat-fuse curl git gimp nethogs vim ssh fonts-firacode
 ```
 
 :::tip
