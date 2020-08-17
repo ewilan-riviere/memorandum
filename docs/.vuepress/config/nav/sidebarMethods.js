@@ -93,6 +93,16 @@ module.exports = {
         children: ['strapi/deployment'],
       },
       {
+        title: 'c-sharp',
+        collapsable: true,
+        children: ['c-sharp/'],
+      },
+      {
+        title: 'windows',
+        collapsable: true,
+        children: ['windows/', 'windows/wsl'],
+      },
+      {
         title: 'server',
         collapsable: true,
         children: [
