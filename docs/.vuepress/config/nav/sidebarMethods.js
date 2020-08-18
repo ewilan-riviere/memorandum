@@ -83,7 +83,7 @@ module.exports = {
       {
         title: 'flutter',
         collapsable: true,
-        children: ['flutter/', 'flutter/setup'],
+        children: getAllFiles('flutter/'),
       },
       {
         title: 'laravel',

@@ -51,7 +51,7 @@ sudo ufw enable
 ## 1. Useful packages
 
 ```bash
-sudo apt install -y exfat-utils exfat-fuse curl git gimp nethogs vim ssh vlc fonts-firacode
+sudo apt install -y exfat-utils exfat-fuse curl git gimp nethogs vim ssh vlc fonts-firacode speedtest-cli
 ```
 
 :::tip
@@ -66,6 +66,18 @@ sudo apt install -y exfat-utils exfat-fuse curl git gimp nethogs vim ssh vlc fon
 - `ssh` package to use SSH transfers
 - `fonts-firacode` package to install [**fira code fonts**](https://github.com/tonsky/FiraCode)
 :::
+
+Setup `nethogs` to use it without `sudo`
+
+```bash
+sudo setcap "cap_net_admin,cap_net_raw=ep" /usr/sbin/nethogs\n
+```
+
+You can check your bandswidth with
+
+```bash
+speedtest
+```
 
 ### 1. a. Vim
 
@@ -189,6 +201,12 @@ npm install -g yarn
 
 ## 4. PHP
 
+### A. Installation
+
+Install **NGINX** or **Apache2** to have VHost, check these guides
+- [**NGINX: LEMP**](/guides/linux/lemp/)
+- [**Apache2: LAMP**](/guides/linux/lamp/)
+
 ### B. Composer
 
 Use command line instructions of [**Composer website**](https://getcomposer.org/download/) to download and install latest version of Composer
@@ -209,7 +227,17 @@ Add this to `.zshrc`
 export PATH=~/.config/composer/vendor/bin:$PATH
 ```
 
-## 5. Errors
+## 5. Graphics drivers
+
+```bash
+lspci -vnn | grep -A 12 '\''[030[02]\]' | grep -Ei "vga|3d|display|kernel"
+```
+
+```bash
+sudo apt install -y xserver-xorg-core xserver-xorg-video-nouveau
+```
+
+## Errors
 
 ### Paths errors
 

@@ -53,7 +53,7 @@ exit
 
 ## 3. PHP
 
-TODO add link to php
+This will install LTS version of PHP, if you want to upgrade it, check [**this guide**](/guides/linux/php/setup/)
 
 ```bash
 sudo apt install -y php-fpm php-mysql
