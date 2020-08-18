@@ -29,6 +29,7 @@ If you want to change phpMyAdmin URL location:
 ```bash
 sudo mv /var/www/html/phpmyadmin /var/www/html/other-location
 ```
+
 :::
 
 ## 1. Configure NGINX
@@ -40,30 +41,35 @@ sudo vim /etc/nginx/sites-available/default
 ```
 
 Replace content with this config:
+
 - `autoindex on` allow to display phpMyAdmin from `html` folder in `/var/www`
 - if you want to use different PHP version for phpMyAdmin, you can change this line `fastcgi_pass unix:/var/run/php/php7.2-fpm.sock`
 
 ```nginx {9,14}
 server {
-	listen 80;
-	root /var/www/html;
-	index index.php index.html index.htm index.nginx-debian.html;
-	server_name localhost;
+ listen 80;
+ root /var/www/html;
+ index index.php index.html index.htm index.nginx-debian.html;
+ server_name localhost;
 
-	location / {
-		try_files $uri $uri/ =404;
-		autoindex on;
-	}
+ location / {
+  try_files $uri $uri/ =404;
+  autoindex on;
+ }
 
-	location ~ \.php$ {
-		include snippets/fastcgi-php.conf;
-		fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
-	}
+ location ~ \.php$ {
+  include snippets/fastcgi-php.conf;
+  fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+ }
 
-	location ~ /\.ht {
-		deny all;
-	}
+ location ~ /\.ht {
+  deny all;
+ }
 }
+```
+
+```bash
+sudo service nginx reload
 ```
 
 And phpMyAdmin is available on [**http://localhost/phpmyadmin**](http://localhost/phpmyadmin) or another URL if you change folder in `html` folder. Now you can fix commons phpMyAdmin errors.
@@ -327,6 +333,7 @@ Check your php version:
 ```bash
 php -v
 ```
+
 :::
 
 ### Error 404
@@ -346,5 +353,3 @@ Check your PHP version, the PHP-FPM version into /etc/nginx/sites-available/defa
 ```
 sudo apt install php7.4-fpm
 ```
-
-

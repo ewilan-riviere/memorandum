@@ -51,7 +51,7 @@ sudo ufw enable
 ## 1. Useful packages
 
 ```bash
-sudo apt install -y exfat-utils exfat-fuse curl git gimp nethogs vim ssh fonts-firacode
+sudo apt install -y exfat-utils exfat-fuse curl git gimp nethogs vim ssh vlc fonts-firacode
 ```
 
 :::tip
@@ -67,10 +67,17 @@ sudo apt install -y exfat-utils exfat-fuse curl git gimp nethogs vim ssh fonts-f
 - `fonts-firacode` package to install [**fira code fonts**](https://github.com/tonsky/FiraCode)
 :::
 
-
 ### 1. a. Vim
 
 Get basic configuration and copy it to user directory
+
+```bash
+sudo vim /etc/vim/vimrc
+```
+
+:::tip
+
+For custom config for user
 
 ```bash
 sudo apt install -y vim
@@ -83,6 +90,8 @@ Edit `~/.vimrc` and copy this at the end of file to enable basics features.
 ```bash
 vim ~/.vimrc
 ```
+
+:::
 
 <code-info path="/home/user/.vimrc"></code-info>
 
@@ -105,10 +114,15 @@ set mouse=a
 
 ZSH is a powerful command interpreter, better than bash. If you use it, you can improve it with [*Oh my ZSH*](https://ohmyz.sh/) which is configuration for ZSH.
 
+*Install zsh*
+
 ```bash
-# install zsh
 sudo apt install -y zsh
-# install oh-my-zsh
+```
+
+*Install oh-my-zsh*
+
+```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
@@ -121,10 +135,15 @@ If you accept to use ZSH, you need to logout to enable it.
 
 With *Oh my ZSH*, you can use themes to have beautiful terminal. I advice you to use [**Spaceship prompt**](https://github.com/denysdovhan/spaceship-prompt).
 
+*Clone theme*
+
 ```bash
-# clone theme
 git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
-# symbolic link for theme
+```
+
+*Symbolic link for theme*
+
+```bash
 ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 ```
 
@@ -133,6 +152,7 @@ Edit this line of `~/.zshrc`
 ```
 ZSH_THEME="spaceship"
 ```
+
 :::
 
 ## 3. NodeJS: NVM
@@ -181,6 +201,12 @@ You have just to copy installation instructions and composer will be download, t
 sudo mv composer.phar /usr/local/bin/composer
 sudo chown -R $USER ~/.config/composer/
 composer global require laravel/installer
+```
+
+Add this to `.zshrc`
+
+```bash
+export PATH=~/.config/composer/vendor/bin:$PATH
 ```
 
 ## 5. Errors

@@ -18,7 +18,6 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > package
 
 Look at this configuration: [**code.visualstudio.com**](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc)
 
-
 ## 3. Spotify
 
 [**Spotify**](https://www.spotify.com)
@@ -50,7 +49,7 @@ Name=Postman
 Exec=postman
 # Before v6.1.2
 # Icon=/opt/Postman/resources/app/assets/icon.png
-Icon=/opt/Postman/app/resources/app/assets/icon.png 
+Icon=/opt/Postman/app/resources/app/assets/icon.png
 Terminal=false
 Type=Application
 Categories=Development;
@@ -71,6 +70,7 @@ If you want to install next apps, you need some dependencies
 ```bash
 sudo apt install -y libatomic1 libappindicator1 libc++1 libsecret-1-dev gconf2 && sudo apt --fix-broken install
 ```
+
 :::
 
 ## 5. Mailspring
@@ -86,7 +86,7 @@ curl -L https://updates.getmailspring.com/download\?platform\=linuxDeb -o mailsp
 [**Discord**](https://discord.com/new)
 
 ```bash
-curl -L https://discord.com/api/download?platform=linux&format=deb -o discord.deb && sudo dpkg -i discord.deb
+wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=deb" && sudo dpkg -i discord.deb
 ```
 
 ## 7. GitKraken
@@ -100,7 +100,6 @@ curl -L https://www.gitkraken.com/download/linux-deb -o gitkraken.deb && sudo dp
 ## 8. Video player
 
 [**Video players**](https://itsfoss.com/video-players-linux/)
-
 
 ---
 
