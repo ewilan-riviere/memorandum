@@ -33,6 +33,9 @@ Configure Desktop
 Choose image
 "Scale, Keep Proportions"
 
+Account Details -> User Manager
+Click on avatar, `Load from file...`
+
 ---
 
 GIMP
