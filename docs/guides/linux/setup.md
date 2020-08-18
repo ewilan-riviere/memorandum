@@ -51,7 +51,7 @@ sudo ufw enable
 ## 1. Useful packages
 
 ```bash
-sudo apt install -y exfat-utils exfat-fuse curl git gimp nethogs vim ssh vlc fonts-firacode speedtest-cli
+sudo apt install -y exfat-utils exfat-fuse curl git gimp nethogs vim ssh vlc fonts-firacode net-tools florence speedtest-cli
 ```
 
 :::tip

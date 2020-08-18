@@ -129,3 +129,9 @@ May crash if `flutter run` take already the DevTools port
 ```bash
 flutter pub global run devtools
 ```
+
+## 4. Upgrade
+
+```bash
+flutter upgrade
+```

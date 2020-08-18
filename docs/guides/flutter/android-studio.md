@@ -75,7 +75,10 @@ If you have this error in AVD Manager
 Setup KVM with this
 
 ```bash
-sudo apt install qemu-kvm && ls -al /dev/kvm\n && grep kvm /etc/group\n && sudo adduser $USER kvm
+sudo apt install qemu-kvm && ls -al /dev/kvm\n && grep kvm /etc/group\n
+```
+```bash
+sudo adduser $USER kvm
 ```
 
 Restart / Logout
