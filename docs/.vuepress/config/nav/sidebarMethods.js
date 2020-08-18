@@ -60,6 +60,11 @@ module.exports = {
         children: getAllFiles('linux/'),
       },
       {
+        title: 'mail',
+        collapsable: true,
+        children: getAllFiles('mail/'),
+      },
+      {
         title: 'vue',
         collapsable: true,
         children: [

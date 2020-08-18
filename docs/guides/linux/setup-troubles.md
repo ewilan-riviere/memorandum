@@ -24,3 +24,14 @@ Machine: Dell 15 5584
 - Reboot, if system boot on Linux, use Boot-repair to repair boot, if not, boot on LiveUSB and use Boot-repair
 - On Windows, you can login with password of Microsoft account (and not with secret code). If you have problems, keep *shift* and select *reboot* at the bottom right to trigger safe mode options
 - When you are login, disable safe mode and reboot, your system will be repaired now!
+
+---
+
+With MSI XPG X570 motherboard
+
+- make sure in UEFI settings to select USB key to boot on it
+- install linux (keep uefi install on nvme, choose any disk for root)
+- restart computer
+- if grub not work, got to uefi and select linux disk in priorities boot
+- repair grub if not work
+- grub have to work now
