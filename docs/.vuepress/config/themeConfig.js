@@ -15,10 +15,10 @@ module.exports = {
   editLinkText: 'Edit this page on GitHub',
   lastUpdated: 'Last Updated',
   searchPlaceholder: 'Search...',
-  algolia: {
-    apiKey: '<API_KEY>',
-    indexName: '<INDEX_NAME>',
-  },
+  // algolia: {
+  //   apiKey: '<API_KEY>',
+  //   indexName: '<INDEX_NAME>',
+  // },
   nav: headerNav.getHeaderNav(),
   sidebar: sidebarNav.getSidebar(),
   // locales: {

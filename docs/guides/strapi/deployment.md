@@ -68,7 +68,7 @@ module.exports = {
   ]
 };
 ```
-```nignx
+```nginx
 server {
     # Listen HTTP
     listen 80;

@@ -29,35 +29,37 @@ export default {
 
   props: {
     item: {
-      required: true
-    }
+      required: true,
+    },
   },
 
   computed: {
-    link () {
+    link() {
       return ensureExt(this.item.link)
     },
 
-    exact () {
+    exact() {
       if (this.$site.locales) {
-        return Object.keys(this.$site.locales).some(rootLink => rootLink === this.link)
+        return Object.keys(this.$site.locales).some(
+          (rootLink) => rootLink === this.link
+        )
       }
       return this.link === '/'
     },
 
-    isNonHttpURI () {
+    isNonHttpURI() {
       return isMailto(this.link) || isTel(this.link)
     },
 
-    isBlankTarget () {
+    isBlankTarget() {
       return this.target === '_blank'
     },
 
-    isInternal () {
+    isInternal() {
       return !isExternal(this.link) && !this.isBlankTarget
     },
 
-    target () {
+    target() {
       if (this.isNonHttpURI) {
         return null
       }
@@ -67,7 +69,7 @@ export default {
       return isExternal(this.link) ? '_blank' : ''
     },
 
-    rel () {
+    rel() {
       if (this.isNonHttpURI) {
         return null
       }
@@ -75,13 +77,13 @@ export default {
         return this.item.rel
       }
       return this.isBlankTarget ? 'noopener noreferrer' : ''
-    }
+    },
   },
 
   methods: {
-    focusoutAction () {
+    focusoutAction() {
       this.$emit('focusout')
-    }
-  }
+    },
+  },
 }
 </script>

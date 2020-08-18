@@ -1,3 +1,50 @@
+const dirTree = require('directory-tree')
+const path = require('path')
+
+// const fs = require('fs')
+
+const getAllFiles = (guidePath) => {
+  const dir = dirTree(path.join(__dirname, '../../../guides/' + guidePath), {
+    extensions: /\.md/,
+  })
+  const files = []
+  const directories = []
+  dir.children.forEach((children) => {
+    if (children.type === 'directory') {
+      console.log(children.children)
+      const subDirChildren = []
+      children.children.forEach((subChildren) => {
+        subDirChildren.push(
+          path.parse(subChildren.name).name !== 'README'
+            ? guidePath +
+                children.name +
+                '/' +
+                path.parse(subChildren.name).name
+            : guidePath + children.name + '/'
+        )
+      })
+      const subDir = {
+        title: children.name,
+        collapsable: true,
+        children: subDirChildren,
+      }
+      directories.push(subDir)
+    } else {
+      files.push(
+        path.parse(children.name).name !== 'README'
+          ? guidePath + path.parse(children.name).name
+          : guidePath
+      )
+    }
+  })
+  directories.forEach((directory) => {
+    files.push(directory)
+    console.log(directory)
+  })
+  console.log(files)
+  return files
+}
+
 module.exports = {
   getApiSidebar: () => {
     return ['cli', 'node']
@@ -10,30 +57,7 @@ module.exports = {
       {
         title: 'linux',
         collapsable: true,
-        children: [
-          'linux/welcome',
-          'linux/setup',
-          'linux/setup-apps',
-          'linux/lamp',
-          'linux/lemp',
-          'linux/phpmyadmin',
-          'linux/setup-troubles',
-          'linux/ssh-management',
-          {
-            title: 'php',
-            collapsable: true,
-            children: [
-              'linux/php/',
-              'linux/php/cheatsheet',
-              'linux/php/manage-array',
-            ],
-          },
-          {
-            title: 'kde',
-            collapsable: true,
-            children: ['linux/kde/switch-hdmi'],
-          },
-        ],
+        children: getAllFiles('linux/'),
       },
       {
         title: 'vue',
