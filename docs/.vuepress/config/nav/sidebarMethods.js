@@ -20,6 +20,15 @@ module.exports = {
           'linux/setup-troubles',
           'linux/ssh-management',
           {
+            title: 'php',
+            collapsable: true,
+            children: [
+              'linux/php/',
+              'linux/php/cheatsheet',
+              'linux/php/manage-array',
+            ],
+          },
+          {
             title: 'kde',
             collapsable: true,
             children: ['linux/kde/switch-hdmi'],
@@ -51,11 +60,6 @@ module.exports = {
         title: 'flutter',
         collapsable: true,
         children: ['flutter/', 'flutter/setup'],
-      },
-      {
-        title: 'php',
-        collapsable: true,
-        children: ['php/', 'php/cheatsheet', 'php/manage-array'],
       },
       {
         title: 'laravel',

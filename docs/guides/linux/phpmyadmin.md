@@ -36,7 +36,7 @@ sudo mv /var/www/html/phpmyadmin /var/www/html/other-location
 Update NGINX `default` config:
 
 ```bash
-sudo vim /etc/nginx/sites-availables/default
+sudo vim /etc/nginx/sites-available/default
 ```
 
 Replace content with this config:
@@ -295,7 +295,7 @@ sudo apt install php7.4-common php7.4-mysql php7.4-xml php7.4-xmlrpc php7.4-curl
 
 ### Error 403
 
-Cause by an error with php version, just check **default** config in `/etc/nginx/sites-availables/default`:
+Cause by an error with php version, just check **default** config in `/etc/nginx/sites-available/default`:
 
 ```bash{12,13}
 server {

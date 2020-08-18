@@ -14,7 +14,7 @@ server {
     index index.php index.html index.htm index.nginx-debian.html;
     server_name my-domain.com;
     
-    error_log logs/my-repository-name.log warn;
+    error_log /var/log/nginx/my-repository-name.log warn;
 
     location / {
         try_files $uri $uri/ =404;

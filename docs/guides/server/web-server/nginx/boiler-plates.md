@@ -1,5 +1,51 @@
 # *Boiler plates*
 
+## Basic for Laravel
+
+```nginx
+server {
+    listen 80;
+    root /var/www/laravel/public;
+    index index.php index.html index.htm index.nginx-debian.html;
+    server_name laravel.localhost;
+    
+    error_log /var/log/nginx/laravel.log warn;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+}
+```
+
+## Vue CLI App
+
+```nginx
+server {
+  listen 80;
+  server_name my-app.localhost;
+  root /var/www/vue-cli/dist;
+
+  location / {
+    rewrite ^/(.*)/$ /$1 permanent;
+    try_files $uri $uri/index.html;
+  }
+
+  location ~* \.(js|css|png|jpg|jpeg|gif|ico|eot|svg|ttf|woff|woff2)$ {
+    access_log off;
+    expires max;
+  }
+}
+```
+
 ## Two apps on same domain
 
 *Config to use differents `root` with differents URL. Here, this example display Vue.js SPA at `/` of website and display api from Laravel app at `api/`*
