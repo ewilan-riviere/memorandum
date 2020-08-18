@@ -42,7 +42,7 @@ In `.conkyrc`, you have to replace `enp3s0` and `wlp4s0` with your infos.
 ## 2. Autostart
 
 ```bash
-vim .config/autostart/conky
+vim ~/.config/autostart/conky
 ```
 
 ```bash
@@ -51,7 +51,7 @@ conky -b
 ```
 
 ```bash
-sudo chmod 775 conky
+sudo chmod 775 ~/.config/autostart/conky
 ```
 
 restart or execute
