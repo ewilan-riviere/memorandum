@@ -33,3 +33,10 @@ mysql -u username -p password db_name < file.sql
 
 mysql> CREATE DATABASE menagerie;
 ```
+
+https://askubuntu.com/questions/235347/what-is-the-best-way-to-uninstall-nginx
+https://stackoverflow.com/questions/40794047/uninstall-php-fpm-7-0-ubuntu-or-reset-configuration
+https://askubuntu.com/questions/176964/permanently-removing-apache2
+https://askubuntu.com/questions/59886/how-to-completely-remove-php
+https://stackoverflow.com/questions/5050296/completely-removing-phpmyadmin
+https://stackoverflow.com/questions/43094726/your-password-does-not-satisfy-the-current-policy-requirements
