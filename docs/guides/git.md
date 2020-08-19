@@ -78,3 +78,9 @@ git reset --hard origin/branch_name
 ```bash
 git config --global pull.ff only
 ```
+
+## CHange default editor
+
+```bash
+git config --global core.editor "vim"
+```
