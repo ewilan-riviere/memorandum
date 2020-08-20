@@ -41,4 +41,26 @@ Click on avatar, `Load from file...`
 GIMP
 Windows -> Single window mode
 
+## Remove `snap`
 
+You will see snap here
+
+```bash
+lsblk -p
+```
+
+```bash
+snap list
+```
+
+Example:
+
+```bash
+sudo snap remove gnome-3-26-1604 gnome-calculator gnome-characters gnome-logs gnome-system-monitor
+```
+```bash
+sudo umount /snap/core/6350
+```
+```bash
+sudo apt purge snapd
+```

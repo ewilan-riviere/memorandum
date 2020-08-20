@@ -60,6 +60,11 @@ module.exports = {
         children: getAllFiles('linux/'),
       },
       {
+        title: 'raspberry',
+        collapsable: true,
+        children: getAllFiles('raspberry/'),
+      },
+      {
         title: 'mail',
         collapsable: true,
         children: getAllFiles('mail/'),
