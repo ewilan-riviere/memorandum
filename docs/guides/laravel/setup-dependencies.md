@@ -96,6 +96,38 @@ php artisan l5-swagger:generate
 composer require laravel/ui
 ```
 
+## Vue.js
+
+:::tip
+[**laravel.com/docs/7.x/frontend**](https://laravel.com/docs/7.x/frontend)
+:::
+:::warning
+The UI package offer to install Bootstrap, Vue.js or React.js.
+:::
+
+Get UI for Laravel to publish Vue.js
+
+```bash
+composer require laravel/ui
+```
+
+Publish Vue.js basic
+
+```bash
+php artisan ui vue
+```
+
+:::tip Publish with Auth views
+
+```bash
+php artisan ui vue --auth
+```
+:::
+
+```bash
+yarn && yarn dev
+```
+
 ## Laravel Tailwind CSS
 
 :::tip GitHub
@@ -110,9 +142,11 @@ composer require laravel-frontend-presets/tailwindcss --dev
 php artisan ui tailwindcss
 ```
 
+:::tip with Auth
 ```bash
 php artisan ui tailwindcss --auth
 ```
+:::
 
 ```bash
 yarn && yarn dev
