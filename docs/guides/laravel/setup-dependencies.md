@@ -9,7 +9,7 @@
 Add this dependency to this project
 
 ```bash
-composer require friendsofphp/php-cs-fixer
+composer require --dev friendsofphp/php-cs-fixer
 ```
 
 Create the file `.php_cs.dist`
