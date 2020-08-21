@@ -126,7 +126,7 @@ Fill `index.php` with basic infos
 Make symbolic link with NGINX conf and `sites-enabled` to enable this conf, check NGINX configuration and reload NGINX to refresh web server
 
 ```bash
-sudo ln -s /etc/nginx/sites-available/my-domain.locahost /etc/nginx/sites-enabled && sudo nginx -t && sudo service nginx reload
+sudo ln -s /etc/nginx/sites-available/my-domain.localhost /etc/nginx/sites-enabled && sudo nginx -t && sudo service nginx reload
 ```
 
 And now, you can access to you domain to [**http://my-domain.localhost**](http://my-domain.localhost)

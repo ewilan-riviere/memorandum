@@ -31,6 +31,10 @@ Connect your SD Card to your computer and list disks with
 lsblk -p
 ```
 
+:::tip
+Erase SD Card and create new partition with any package like with `gnome-disks`
+:::
+
 For example I have this output.
 
 ![alt](/images/raspberry/lsblk.jpg)
@@ -74,6 +78,10 @@ ssh pi@raspberrypi.local
 
 The default password is `raspberry`. If everything works, you will connect to your Raspberry and you can setup it.
 
+```bash
+sudo raspi-config
+```
+
 ---
 
 ## Links
@@ -82,3 +90,74 @@ The default password is `raspberry`. If everything works, you will connect to yo
 - [Install OS on Mac](https://www.raspberrypi.org/documentation/installation/installing-images/mac.md)
 - [instructables.com guide: enable WiFi with Raspberry Lite](https://www.instructables.com/id/Install-and-Setup-Raspbian-Lite-on-Raspberry-Pi-3/)
 - [randomnerdtutorials.com guide](https://randomnerdtutorials.com/installing-raspbian-lite-enabling-and-connecting-with-ssh/)
+
+---
+
+## More infos
+
+<https://raspberrypihq.com/how-to-connect-your-raspberry-pi-to-wifi/>
+
+```bash
+sudo apt install -y exfat-utils exfat-fuse curl git nethogs vim net-tools
+```
+
+### Locales
+
+```bash
+sudo dpkg-reconfigure locales
+```
+
+Choose `en_US.UTF-8` in the list and validate
+
+```bash
+locale
+```
+
+Any error ?  
+Add this to `.zshrc`
+
+```bash
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US.UTF-8"
+```
+
+### Setup
+
+Define password for root
+
+```bash
+passwd
+```
+
+Edit sshd daemon config
+
+```bash
+sudo vim /etc/ssh/sshd_config
+```
+
+Add `PermitRootLogin yes`
+
+```bash
+sudo /etc/init.d/ssh restart
+```
+
+Logout SSH and SSH with `root`
+
+```bash
+ssh root@raspberrypi.local
+```
+
+Delete `pi` and create new user
+
+```bash
+userdel pi && useradd -m newuser && passwd newuser && usermod -aG sudo newuser
+```
+
+Logout SSH and SSH with `newuser`
+
+```bash
+ssh newuser@raspberrypi.local
+```
+
+Remove `PermitRootLogin yes` from `/etc/ssh/sshd_config`
