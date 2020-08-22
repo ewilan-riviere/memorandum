@@ -9,7 +9,7 @@ module.exports = {
   guides: 'Guides',
   games: 'Games',
   // sidebar nav
-  linux: 'Linux',
+  linux: '🐧 Linux',
   css: 'CSS',
   'tailwind-css': 'Tailwind CSS',
   laravel: 'Laravel',
