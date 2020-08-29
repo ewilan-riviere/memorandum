@@ -1,6 +1,6 @@
 # Git
 
-## Git: conflicts with end of file
+## Conflicts with end of file
 
 It's cause of Windows end of file (CRLF) conflict with Linux end of file  (LF), just udpate global git core
 
@@ -9,12 +9,6 @@ git config --global core.autocrlf false
 ```
 
 And re-clone repository
-
-## Change git editor
-
-```bash
-git config --global core.editor "vim"
-```
 
 ## Erase a branch with another
 
@@ -42,16 +36,47 @@ git checkout other_branch
 git stash pop
 ```
 
-## Cheatsheet
+## unstage all files
 
 ```bash
-# unstage all files
 git reset
-# add all modified files and commit
+```
+
+## Add files and commit
+
+```bash
 git commit -am
 ```
 
-## Git pull to overwrite local files
+## Update & upgrade
+
+### yarn
+
+```bash
+yarn upgrade --lastest
+```
+
+### npm
+
+Install globally `npm-check-updates`
+
+```bash
+npm i -g npm-check-updates
+```
+
+Check updates
+
+```bash
+ncu -u
+```
+
+Execute updates
+
+```bash
+npm install
+```
+
+## Pull to overwrite local files
 
 *Source : [stackoverflow.com](https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files)*
 
@@ -79,7 +104,7 @@ git reset --hard origin/branch_name
 git config --global pull.ff only
 ```
 
-## CHange default editor
+## Change default editor
 
 ```bash
 git config --global core.editor "vim"
