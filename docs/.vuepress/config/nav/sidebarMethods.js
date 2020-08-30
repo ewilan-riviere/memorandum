@@ -75,6 +75,11 @@ module.exports = {
         children: getAllFiles('mail/'),
       },
       {
+        title: 'js',
+        collapsable: true,
+        children: getAllFiles('js/'),
+      },
+      {
         title: 'vue',
         collapsable: true,
         children: [

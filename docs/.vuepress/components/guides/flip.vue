@@ -1,0 +1,49 @@
+<template>
+  <div class="my-4 flip">
+    <div>
+      <span>{{ demoText }}</span>
+    </div>
+    <div>
+      <span class="flip_H">{{ demoText }}</span>
+    </div>
+    <div>
+      <span class="flip_V">{{ demoText }}</span>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Flip',
+  data() {
+    return {
+      demoText: `Demo text ${this.decodeHTMLEntities('&#9986;')}`,
+    }
+  },
+  methods: {
+    decodeHTMLEntities(text) {
+      var textArea = document.createElement('textarea')
+      textArea.innerHTML = text
+      return textArea.value
+    },
+    encodeHTMLEntities(text) {
+      var textArea = document.createElement('textarea')
+      textArea.innerText = text
+      return textArea.innerHTML
+    },
+  },
+}
+</script>
+
+<style scoped>
+.flip span {
+  display: inline-block;
+  font-size: 3rem;
+}
+.flip_H {
+  transform: scale(-1, 1);
+}
+.flip_V {
+  transform: scale(1, -1);
+}
+</style>
