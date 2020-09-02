@@ -8,7 +8,7 @@ server {
     root /var/www/laravel/public;
     index index.php index.html index.htm index.nginx-debian.html;
     server_name laravel.localhost;
-    
+
     error_log /var/log/nginx/laravel.log warn;
 
     location / {
@@ -29,14 +29,24 @@ server {
 ## Vue CLI App
 
 ```nginx
+ location / {
+    # rewrite ^/(.*)/$ /$1 permanent;
+    # try_files $uri $uri/index.html;
+        # root   /path/to/your/project/html;
+    # index  index.html index.htm;
+    # include  /etc/nginx/mime.types;
+    try_files $uri $uri/ /index.html;
+  }
+```
+
+```nginx
 server {
   listen 80;
   server_name my-app.localhost;
   root /var/www/vue-cli/dist;
 
   location / {
-    rewrite ^/(.*)/$ /$1 permanent;
-    try_files $uri $uri/index.html;
+    try_files $uri $uri/ /index.html;
   }
 
   location ~* \.(js|css|png|jpg|jpeg|gif|ico|eot|svg|ttf|woff|woff2)$ {
