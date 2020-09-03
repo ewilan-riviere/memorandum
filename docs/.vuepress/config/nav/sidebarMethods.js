@@ -140,11 +140,11 @@ module.exports = {
         collapsable: true,
         children: ['strapi/deployment'],
       },
-      {
-        title: 'c-sharp',
-        collapsable: true,
-        children: ['c-sharp/'],
-      },
+      // {
+      //   title: 'c-sharp',
+      //   collapsable: true,
+      //   children: ['c-sharp/'],
+      // },
       {
         title: 'windows',
         collapsable: true,
@@ -176,6 +176,7 @@ module.exports = {
               'server/web-server/nginx/setup',
               'server/web-server/nginx/add-new-subdomain',
               'server/web-server/nginx/boiler-plates',
+              'server/web-server/nginx/troubles',
             ],
           },
         ],
