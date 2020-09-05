@@ -157,6 +157,7 @@ module.exports = {
           'server/auto-deploy',
           'server/nodejs-pm2',
           'server/ssh-management',
+          'server/create-local-network',
         ],
       },
       {
