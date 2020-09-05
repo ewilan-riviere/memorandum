@@ -1,12 +1,11 @@
 # Welcome
 
-- <https://flutter.dev/docs/get-started/install/linux>
-- <https://developer.android.com/studio>
+Flutter is a framework to develop applications for smartphones (Android & iOS). It's can be complicated to install it because you need to install Flutter but Android Studio is very useful too, so it's a guide about installation
+
+- [**Install Flutter on Linux**](https://flutter.dev/docs/get-started/install/linux)
+- [**Android Studio**](https://developer.android.com/studio)
 - <https://doc.ubuntu-fr.org/android_sdk>
-- <https://doc.ubuntu-fr.org/snap>
-
 - <https://developer.android.com/studio/run/emulator-acceleration?utm_source=android-studio#vm-linux>
-
 - <https://stackoverflow.com/questions/50652071/flutter-command-not-found>
 
 ```

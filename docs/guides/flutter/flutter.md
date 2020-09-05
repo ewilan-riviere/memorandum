@@ -16,10 +16,7 @@ wget -O flutter_linux_1.20.1-stable.tar.xz "https://storage.googleapis.com/flutt
 ```
 
 ```bash
-mv flutter_linux*.tar.xz ~/Android
-```
-```bash
-tar xf ~/Android/flutter_linux*.tar.xz
+mv flutter_linux*.tar.xz ~/Android && tar xf ~/Android/flutter_linux*.tar.xz ~/Android
 ```
 
 Add this `.profile`, `.bashrc` or `.zshrc`
