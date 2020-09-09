@@ -8,12 +8,12 @@ module.exports = [
     },
   ],
   ['@vuepress/medium-zoom', true],
-  // [
-  //   '@vuepress/google-analytics',
-  //   {
-  //     ga: 'UA-128189152-1',
-  //   },
-  // ],
+  [
+    '@vuepress/google-analytics',
+    {
+      ga: '',
+    },
+  ],
   [
     'container',
     {

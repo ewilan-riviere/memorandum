@@ -1,6 +1,6 @@
 module.exports = {
   getHeaderNav: (lang) => {
-    let headerNav = [
+    const headerNav = [
       {
         text: 'guides',
         link: '/guides/',

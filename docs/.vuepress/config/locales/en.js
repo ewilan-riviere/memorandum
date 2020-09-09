@@ -19,4 +19,11 @@ module.exports = {
   nginx: 'NGINX',
   apache: 'Apache2',
   php: '🐘 PHP',
+  js: 'JavaScript',
+  mail: 'E-mail',
+  wip: 'Work In Progress',
+  raspberry: 'Raspberry',
+  flutter: 'Flutter',
+  strapi: 'Strapi',
+  windows: 'Windows',
 }

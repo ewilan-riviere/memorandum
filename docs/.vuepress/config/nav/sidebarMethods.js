@@ -53,7 +53,7 @@ module.exports = {
   getGuides: () => {
     return [
       '',
-      'git',
+      'git/git',
       {
         title: 'linux',
         collapsable: true,
@@ -82,23 +82,12 @@ module.exports = {
       {
         title: 'vue',
         collapsable: true,
-        children: [
-          'vue/welcome',
-          {
-            title: 'vuepress',
-            collapsable: true,
-            children: ['vue/vuepress/inheritance'],
-          },
-        ],
+        children: getAllFiles('vue/'),
       },
       {
         title: 'visual-studio-code',
         collapsable: true,
-        children: [
-          'visual-studio-code/',
-          'visual-studio-code/configuration',
-          'visual-studio-code/eslint',
-        ],
+        children: getAllFiles('visual-studio-code/'),
       },
       {
         title: 'flutter',
@@ -108,37 +97,17 @@ module.exports = {
       {
         title: 'laravel',
         collapsable: true,
-        children: [
-          'laravel/',
-          'laravel/relationships',
-          'laravel/image-cache',
-          'laravel/backpack',
-          'laravel/cors-errors',
-          'laravel/setup-dependencies',
-          'laravel/translations',
-          'laravel/vuejs-mail',
-        ],
+        children: getAllFiles('laravel/'),
       },
       {
         title: 'css',
         collapsable: true,
-        children: [
-          'css/',
-          {
-            title: 'tailwind-css',
-            collapsable: true,
-            children: [
-              'css/tailwind-css/',
-              'css/tailwind-css/default-config',
-              'css/tailwind-css/libraries',
-            ],
-          },
-        ],
+        children: getAllFiles('css/'),
       },
       {
         title: 'strapi',
         collapsable: true,
-        children: ['strapi/deployment'],
+        children: getAllFiles('strapi/'),
       },
       // {
       //   title: 'c-sharp',
@@ -148,39 +117,17 @@ module.exports = {
       {
         title: 'windows',
         collapsable: true,
-        children: ['windows/', 'windows/wsl'],
+        children: getAllFiles('windows/'),
       },
       {
         title: 'server',
         collapsable: true,
-        children: [
-          'server/auto-deploy',
-          'server/nodejs-pm2',
-          'server/ssh-management',
-          'server/create-local-network',
-        ],
+        children: getAllFiles('server/'),
       },
       {
         title: 'web-server',
         collapsable: true,
-        children: [
-          'server/web-server/welcome',
-          {
-            title: 'apache',
-            collapsable: true,
-            children: ['server/web-server/apache/apache'],
-          },
-          {
-            title: 'nginx',
-            collapsable: true,
-            children: [
-              'server/web-server/nginx/setup',
-              'server/web-server/nginx/add-new-subdomain',
-              'server/web-server/nginx/boiler-plates',
-              'server/web-server/nginx/troubles',
-            ],
-          },
-        ],
+        children: getAllFiles('web-server/'),
       },
     ]
   },
@@ -191,12 +138,12 @@ module.exports = {
       {
         title: 'Guild Wars',
         collapsable: true,
-        children: ['guild-wars/welcome', 'guild-wars/maps'],
+        children: getAllFiles('guild-wars/'),
       },
       {
         title: 'Oxygen Not Included',
         collapsable: true,
-        children: ['oni/', 'oni/asteroids'],
+        children: getAllFiles('oni/'),
       },
     ]
   },
