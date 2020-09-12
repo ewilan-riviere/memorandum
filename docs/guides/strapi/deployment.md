@@ -1,5 +1,10 @@
 # Deployment
 
+:::tip GITHUB
+- [**github.com/strapi/strapi-starter-nuxt-blog**](https://github.com/strapi/strapi-starter-nuxt-blog)
+- [**github.com/strapi/strapi-starter-blog**](https://github.com/strapi/strapi-starter-blog)
+:::
+
 - [**strapi.io: documentation/deployment => main doc**](https://strapi.io/documentation/3.0.0-beta.x/getting-started/deployment.html#hosting-provider-guides)
 - [**strapi.io: documentation/deployment => DigitalOcean configuration**](https://strapi.io/documentation/3.0.0-beta.x/deployment/digitalocean.html)
 - [**strapi.io: documentation/deployment => NGINX configuration**](https://strapi.io/documentation/3.0.0-beta.x/deployment/nginx-proxy.html)
