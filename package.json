@@ -45,7 +45,7 @@
     "vue-template-compiler": "^2.6.12",
     "vue-toasted": "^1.1.25",
     "vuepress": "1.5.3",
-    "vuepress-code-info": "^0.3.0",
+    "vuepress-code-info": "^0.3.2",
     "vuepress-plugin-clean-urls": "^1.1.1",
     "vuepress-plugin-flowchart": "^1.4.2",
     "vuepress-plugin-mermaidjs": "^1.7.1"

@@ -9878,10 +9878,10 @@ vuepress-bar@^0.3.1:
     markdown-it-meta "0.0.1"
     transliteration "^2.1.8"
 
-vuepress-code-info@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/vuepress-code-info/-/vuepress-code-info-0.3.0.tgz#ea907c4da697a6bd4da127f69894b94a150488a2"
-  integrity sha512-LFJMzhlIFbjPXCuvHkpBWyDTPM1k5b88VP+DsTDtjtaFtCnxo/advlq5XMsBf/QouL5vmxjeO32u1o+3JFZUfg==
+vuepress-code-info@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/vuepress-code-info/-/vuepress-code-info-0.3.2.tgz#acf2b36bcd7bca731b6f18172ce42801236fe918"
+  integrity sha512-dq1klozrKwYL/uos1FKt7omdyP7zvF2ecT+wTNKelyCUWvjXOBhLGGfrUPDKUkE5yTPc0LOGY4ZCKPETQRQ1rg==
 
 vuepress-html-webpack-plugin@^3.2.0:
   version "3.2.0"
