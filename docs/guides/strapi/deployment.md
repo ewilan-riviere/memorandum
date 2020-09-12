@@ -42,33 +42,33 @@ module.exports = {
             PORT: 3001
         },
     },
-    {
-        name: 'erotica-back',
-        script: 'npm',
-        cwd: '/home/ewilan/www/erotica-back',
-        args: 'start config/server.js',
-        env: {
-            PORT: 1337
-        },
-    },
-    {
-      name: 'strapi',
-      cwd: '/home/ewilan/www/erotica-back',
-      script: 'npm',
-      args: 'start',
-      env: {
-        NODE_ENV: 'production',
-        DATABASE_HOST: 'localhost', // database endpoint
-        DATABASE_PORT: '5432',
-        DATABASE_NAME: 'strapi', // DB name
-        DATABASE_USERNAME: 'ewilan', // your username for psql
-        DATABASE_PASSWORD: 'password', // your password for psql
-      },
-    },
+    // {
+    //     name: 'erotica-back',
+    //     script: 'npm',
+    //     cwd: '/home/ewilan/www/erotica-back',
+    //     args: 'start config/server.js',
+    //     env: {
+    //         PORT: 1337
+    //     },
+    // },
+    // {
+    //   name: 'strapi',
+    //   cwd: '/home/ewilan/www/erotica-back',
+    //   script: 'npm',
+    //   args: 'start',
+    //   env: {
+    //     NODE_ENV: 'production',
+    //     DATABASE_HOST: 'localhost', // database endpoint
+    //     DATABASE_PORT: '5432',
+    //     DATABASE_NAME: 'strapi', // DB name
+    //     DATABASE_USERNAME: 'ewilan', // your username for psql
+    //     DATABASE_PASSWORD: 'password', // your password for psql
+    //   },
+    // },
   ]
 };
 ```
-```nginx
+<!-- ```nginx
 server {
     # Listen HTTP
     listen 80;
@@ -83,4 +83,4 @@ server {
         proxy_cache_bypass $http_upgrade;
     }
 }
-```
+``` -->
