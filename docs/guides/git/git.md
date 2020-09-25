@@ -48,34 +48,6 @@ git reset
 git commit -am
 ```
 
-## Update & upgrade
-
-### yarn
-
-```bash
-yarn upgrade --lastest
-```
-
-### npm
-
-Install globally `npm-check-updates`
-
-```bash
-npm i -g npm-check-updates
-```
-
-Check updates
-
-```bash
-ncu -u
-```
-
-Execute updates
-
-```bash
-npm install
-```
-
 ## Pull to overwrite local files
 
 *Source : [stackoverflow.com](https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files)*

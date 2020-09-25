@@ -1,13 +1,13 @@
-module.exports = {
-  extends: ['stylelint-plugin-stylus'],
-  rules: {
-    'at-rule-no-unknown': [
-      true,
-      {
-        ignoreAtRules: ['extends', 'tailwind']
-      }
-    ],
-    'block-no-empty': null,
-    'unit-whitelist': ['em', 'rem', 's', 'px', '%']
-  }
-}
+// module.exports = {
+//   extends: ['stylelint-plugin-stylus'],
+//   rules: {
+//     'at-rule-no-unknown': [
+//       true,
+//       {
+//         ignoreAtRules: ['extends', 'tailwind']
+//       }
+//     ],
+//     'block-no-empty': null,
+//     'unit-whitelist': ['em', 'rem', 's', 'px', '%']
+//   }
+// }
