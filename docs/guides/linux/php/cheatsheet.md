@@ -15,3 +15,23 @@ $basic = "lists/".$list_test_id."/contacts"
 
 $improved = "lists/${list_test_id}/contacts"
 ```
+
+## Errors
+
+Error on function where everything is okay about syntax.
+
+### Type declaration
+
+Check return data like:
+
+```php
+<?php
+
+public function getData : Collection
+{
+    $data = Data::all();
+    return $data;
+}
+```
+
+It will works only with PHP 7.3, maybe NGINX VHost use a PHP version too old.
