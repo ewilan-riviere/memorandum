@@ -26,4 +26,6 @@ module.exports = {
   flutter: 'Flutter',
   strapi: 'Strapi',
   windows: 'Windows',
+  'package-manager': 'Package manager',
+  'npm-yarn': 'NPM & Yarn',
 }

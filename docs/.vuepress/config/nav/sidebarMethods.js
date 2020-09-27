@@ -75,6 +75,11 @@ module.exports = {
         children: getAllFiles('mail/'),
       },
       {
+        title: 'package-manager',
+        collapsable: true,
+        children: getAllFiles('package-manager/'),
+      },
+      {
         title: 'js',
         collapsable: true,
         children: getAllFiles('js/'),
