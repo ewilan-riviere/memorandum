@@ -63,6 +63,10 @@ sudo apt install -y php-fpm php-mysql
 
 ## 4. Virtual Host
 
+```bash
+sudo usermod -a -G www-data $USER
+```
+
 NGINX is setup but now, we have to setup Virtual hosts (or VHost). We take a basic example with just PHP 7.2 and an `index.php`, but it's same concept for any PHP app like Laravel or Symfony.
 
 Create NGINX conf for this app

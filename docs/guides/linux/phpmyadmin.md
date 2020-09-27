@@ -6,8 +6,25 @@
 [[toc]]
 
 ```bash
+mysql -u root -p
+```
+
+```mysql
+UNINSTALL COMPONENT "file://component_validate_password";
+exit
+```
+
+```bash
 sudo apt update
 sudo apt install phpmyadmin
+```
+
+```bash
+mysql -u root -p
+```
+
+```mysql
+INSTALL COMPONENT "file://component_validate_password";
 ```
 
 ::: danger
@@ -45,26 +62,26 @@ Replace content with this config:
 - `autoindex on` allow to display phpMyAdmin from `html` folder in `/var/www`
 - if you want to use different PHP version for phpMyAdmin, you can change this line `fastcgi_pass unix:/var/run/php/php7.2-fpm.sock`
 
-```nginx {9,14}
+```nginx
 server {
- listen 80;
- root /var/www/html;
- index index.php index.html index.htm index.nginx-debian.html;
- server_name localhost;
+	listen 80 default_server;
+	listen [::]:80 default_server;
 
- location / {
-  try_files $uri $uri/ =404;
-  autoindex on;
- }
+	root /var/www/html;
 
- location ~ \.php$ {
-  include snippets/fastcgi-php.conf;
-  fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
- }
+	index index.php index.html index.htm index.nginx-debian.html;
 
- location ~ /\.ht {
-  deny all;
- }
+	server_name _;
+
+	location / {
+		try_files $uri $uri/ =404;
+		autoindex on;
+	}
+
+	location ~ \.php$ {
+  		include snippets/fastcgi-php.conf;
+  		fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+ 	}
 }
 ```
 

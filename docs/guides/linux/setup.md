@@ -70,7 +70,7 @@ sudo apt install -y exfat-utils exfat-fuse curl git gimp nethogs vim ssh vlc fon
 Setup `nethogs` to use it without `sudo`
 
 ```bash
-sudo setcap "cap_net_admin,cap_net_raw=ep" /usr/sbin/nethogs\n
+sudo chmod u+s $(which nethogs)
 ```
 
 You can check your bandswidth with
