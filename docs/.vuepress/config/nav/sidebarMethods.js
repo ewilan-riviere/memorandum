@@ -85,6 +85,11 @@ module.exports = {
         children: getAllFiles('js/'),
       },
       {
+        title: 'nuxtjs',
+        collapsable: true,
+        children: getAllFiles('nuxtjs/'),
+      },
+      {
         title: 'vue',
         collapsable: true,
         children: getAllFiles('vue/'),

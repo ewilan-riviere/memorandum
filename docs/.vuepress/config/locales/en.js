@@ -28,4 +28,5 @@ module.exports = {
   windows: 'Windows',
   'package-manager': 'Package manager',
   'npm-yarn': 'NPM & Yarn',
+  nuxtjs: 'NuxtJS',
 }
