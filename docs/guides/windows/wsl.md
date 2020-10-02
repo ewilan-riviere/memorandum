@@ -1,8 +1,8 @@
 # Windows Subsytem for Linux
 
-- [**blog.eleven-labs.com/developpement-sous-linux-depuis-windows-avec-wsl*](https://blog.eleven-labs.com/fr/le-developpement-sous-linux-depuis-windows-10-avec-wsl-2/)
+- [**blog.eleven-labs.com/developpement-sous-linux-depuis-windows-avec-wsl**](https://blog.eleven-labs.com/fr/le-developpement-sous-linux-depuis-windows-10-avec-wsl-2/)
 - [**korben.info/installer-wsl2-windows-linux**](https://korben.info/installer-wsl2-windows-linux.html)
-- [**korben.info/linux-wsl-gui-interface-graphique-windows*](https://korben.info/linux-wsl-gui-interface-graphique-windows-10.html)
+- [**korben.info/linux-wsl-gui-interface-graphique-windows**](https://korben.info/linux-wsl-gui-interface-graphique-windows-10.html)
 
 List all distros with *state* adn *version*
 
@@ -68,3 +68,62 @@ wsl --set-version ubuntu 2
 ```
 
 :::
+
+## **Internet connection troubles**
+
+Guide from [**github.com/microsoft/WSL/issues/5336**](https://github.com/microsoft/WSL/issues/5336#issuecomment-653881695)
+
+- Open `cmd` as admin
+
+```cmd
+wsl --shutdown ; netsh winsock reset ; netsh int ip reset all ; netsh winhttp reset proxy ; ipconfig /flushdns
+```
+
+- Search `Network Reset` in Windows Search and enable it
+- Restart Windows
+
+If doesn't work :
+
+- On WSL terminal
+
+```bash
+sudo rm /etc/resolv.conf || true
+sudo rm /etc/wsl.conf || true
+```
+
+Open wsl.conf to edit it:
+
+```bash
+sudo vim /etc/wsl.conf
+```
+
+```bash
+[network]
+generateResolvConf = false
+
+[automount]
+enabled = true
+options = "metadata"
+mountFsTab = false
+```
+
+Open resolv.conf to edit it:
+
+```bash
+sudo vim /etc/resolv.conf
+```
+
+```bash
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+```
+
+Exit WSL and in `cmd` admin
+
+```bash
+wsl --shutdown
+```
+
+If doesn't work too:
+
+- Disable Hyper-V feature
