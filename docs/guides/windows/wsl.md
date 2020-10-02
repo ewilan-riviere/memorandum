@@ -73,18 +73,21 @@ wsl --set-version ubuntu 2
 
 Guide from [**github.com/microsoft/WSL/issues/5336**](https://github.com/microsoft/WSL/issues/5336#issuecomment-653881695)
 
-- Open `cmd` as admin
+### ***Reset network***
+
+Open `cmd` as admin
 
 ```cmd
 wsl --shutdown ; netsh winsock reset ; netsh int ip reset all ; netsh winhttp reset proxy ; ipconfig /flushdns
 ```
 
-- Search `Network Reset` in Windows Search and enable it
-- Restart Windows
+Search `Network Reset` in Windows Search, enable it and restart Windows.
 
-If doesn't work :
+If doesn't work go to next step.
 
-- On WSL terminal
+### ***WSL reset network config***
+
+On WSL terminal
 
 ```bash
 sudo rm /etc/resolv.conf || true
@@ -124,6 +127,8 @@ Exit WSL and in `cmd` admin
 wsl --shutdown
 ```
 
-If doesn't work too:
+If doesn't work go to next step.
+
+### ***Misc***
 
 - Disable Hyper-V feature
