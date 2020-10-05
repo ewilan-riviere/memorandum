@@ -53,7 +53,7 @@ module.exports = {
   getGuides: () => {
     return [
       '',
-      'git/git',
+      'git/cheatsheet',
       {
         title: 'linux',
         collapsable: true,
@@ -94,7 +94,7 @@ module.exports = {
         collapsable: true,
         children: getAllFiles('vue/'),
       },
-      'mysql/mysql',
+      'mysql/cheatsheet',
       {
         title: 'visual-studio-code',
         collapsable: true,
