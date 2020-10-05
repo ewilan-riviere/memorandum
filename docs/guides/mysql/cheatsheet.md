@@ -2,6 +2,10 @@
 
 ## Database importation
 
+:::tip About Windows
+Don't use `PowerShell` to execute below commands, use `cmd` if you want to import database with correct encoding.
+:::
+
 ```bash
 mysql -u user -p
 ```
@@ -23,10 +27,10 @@ source file.sql
 
 **Import database directly**
 
-:::tip About Windows
-Don't use `PowerShell` to execute below command, use `cmd` if you want to import database with correct encoding.
-:::
+`-u` specify user and `-p` specify connection with password, this one will be asked when command is executed.
+
+In this example, prompt is in same directory of `file.sql`, of course it's necessary to give the relative path of SQL file with this command.
 
 ```bash
-mysql -u username -p password db_name < file.sql
+mysql -u username -p db_name < file.sql
 ```
