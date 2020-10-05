@@ -2,7 +2,7 @@
 
 ## Flip horizontally / vertically
 
-<flip />
+<!-- <flip /> -->
 
 ```css
 span {
