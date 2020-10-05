@@ -78,6 +78,8 @@ git config --global pull.ff only
 
 ## Change default editor
 
+Example to change to vim editor
+
 ```bash
 git config --global core.editor "vim"
 ```
