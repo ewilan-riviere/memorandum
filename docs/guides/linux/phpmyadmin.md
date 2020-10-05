@@ -1,6 +1,6 @@
 # ⛵ phpMyAdmin for NGINX
 
-[Digital Ocean: phpMyAdmin with Apache](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04)  
+[Digital Ocean: phpMyAdmin with Apache](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04)
 [Digital Ocean: phpMyAdmin with Nginx](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-with-nginx-on-an-ubuntu-18-04-server)
 
 [[toc]]
@@ -28,8 +28,8 @@ INSTALL COMPONENT "file://component_validate_password";
 ```
 
 ::: danger
-After installing, you will see dialog with choices about server, don't select anything because it's Nginx.  
-Just press <kbd>&nbsp;&#8633;&nbsp;</kbd> to select `OK` with <kbd>&nbsp;Enter&nbsp;</kbd>  
+After installing, you will see dialog with choices about server, don't select anything because it's Nginx.
+Just press <kbd>&nbsp;&#8633;&nbsp;</kbd> to select `OK` with <kbd>&nbsp;Enter&nbsp;</kbd>
 
 Select `Yes` for all questions and enter MySQL password you defined.
 :::
@@ -187,7 +187,7 @@ If not exist, you have to configure a new file for this version.
 sudo nano /etc/phpmyadmin/conf.d/pma_secure.php
 ```
 
-<code-info ext="php" path="/etc/phpmyadmin/conf.d/pma_secure.php"></code-info>
+<vue-code-info ext="php" path="/etc/phpmyadmin/conf.d/pma_secure.php"></vue-code-info>
 
 ```php
 <?php

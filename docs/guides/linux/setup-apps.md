@@ -18,7 +18,7 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > package
 
 Look at this configuration: [**code.visualstudio.com**](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc)
 
-:::tip "Visual Studio Code is unable to watch for file changes in this large workspace" 
+:::tip "Visual Studio Code is unable to watch for file changes in this large workspace"
 
 ```bash
 cat /proc/sys/fs/inotify/max_user_watches
@@ -30,13 +30,13 @@ sudo vim /etc/sysctl.conf
 
 Add this line to the end
 
-<code-info ext="conf" path="/etc/sysctl.conf">
+<vue-code-info ext="conf" path="/etc/sysctl.conf">
 
 ```bash
 fs.inotify.max_user_watches=524288
 ```
 
-</code-info>
+</vue-code-info>
 
 ```bash
 sudo sysctl -p

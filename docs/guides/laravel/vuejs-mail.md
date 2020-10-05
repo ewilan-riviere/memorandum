@@ -7,7 +7,7 @@ yarn add sweetalert2 vue-recaptcha
 
 <collapsable></collapsable>
 
-<code-info ext="php" path="resources/views/vendor/notifications/email.blade.php"></code-info>
+<vue-code-info ext="php" path="resources/views/vendor/notifications/email.blade.php"></vue-code-info>
 ```php
 @component('mail::message')
 {{-- Greeting --}}
@@ -54,7 +54,7 @@ yarn add sweetalert2 vue-recaptcha
 @endcomponent
 ```
 
-<code-info ext="php" path="resources/views/vendor/notifications/email.blade.php"></code-info>
+<vue-code-info ext="php" path="resources/views/vendor/notifications/email.blade.php"></vue-code-info>
 config/recaptcha.php
 ```php
 <?php
@@ -65,7 +65,7 @@ return [
 ];
 ```
 
-<code-info ext="php" path="resources/views/vendor/notifications/email.blade.php"></code-info>
+<vue-code-info ext="php" path="resources/views/vendor/notifications/email.blade.php"></vue-code-info>
 contact.blade.php
 ```php
 @extends('layouts.website')
@@ -76,7 +76,7 @@ contact.blade.php
             Contact
         </div>
         <div>
-            <contact-form 
+            <contact-form
                 url="{{ route('contact.send') }}"
                 site-key="{{ config('google.recaptcha_site') }}"
                 env="{{ config('app.env') }}">
@@ -86,7 +86,7 @@ contact.blade.php
 @endsection
 ```
 
-<code-info ext="php" path="resources/views/vendor/notifications/email.blade.php"></code-info>
+<vue-code-info ext="php" path="resources/views/vendor/notifications/email.blade.php"></vue-code-info>
 ```php
 <?php
 
@@ -121,13 +121,13 @@ class NewContact extends Mailable
     public function build()
     {
         $greeting = "Bonjour,";
-        $explain = 
-            "Vous avez reçu une demande de contact depuis votre site web. 
+        $explain =
+            "Vous avez reçu une demande de contact depuis votre site web.
             Vous trouverez ci-dessous le contenu de ce message.";
         $subject = "[Domain] Demande de contact";
-        $salutation = 
-            "Ceci est un e-mail automatique de votre site web, 
-            si vous souhaitez répondre à cette personne, 
+        $salutation =
+            "Ceci est un e-mail automatique de votre site web,
+            si vous souhaitez répondre à cette personne,
             veuillez utiliser son e-mail (" . $this->request['email'] . ").";
         return $this->subject($subject)->markdown('vendor.notifications.email')
             ->with([
@@ -140,7 +140,7 @@ class NewContact extends Mailable
 }
 ```
 
-<code-info ext="php" path="resources/views/vendor/notifications/email.blade.php"></code-info>
+<vue-code-info ext="php" path="resources/views/vendor/notifications/email.blade.php"></vue-code-info>
 ```vue
 <template>
   <form @submit.prevent="onSubmit">
@@ -303,7 +303,7 @@ export default {
 </script>
 ```
 
-<code-info ext="php" path="resources/views/vendor/notifications/email.blade.php"></code-info>
+<vue-code-info ext="php" path="resources/views/vendor/notifications/email.blade.php"></vue-code-info>
 ```php
 <?php
 
@@ -318,7 +318,7 @@ class MailController extends Controller
 {
     /**
      * Display contact page.
-     * 
+     *
      * @return View
      */
     public function index()
@@ -333,7 +333,7 @@ class MailController extends Controller
      * @return array
      */
     public function send(Request $request)
-    {   
+    {
         $this->validate($request, [
             'lastname' => 'required',
             'firstname' => 'required',
@@ -352,7 +352,7 @@ class MailController extends Controller
 }
 ```
 
-<code-info ext="php" path="resources/views/vendor/notifications/email.blade.php"></code-info>
+<vue-code-info ext="php" path="resources/views/vendor/notifications/email.blade.php"></vue-code-info>
 ```js
 import Vue from 'vue'
 import axios from 'axios'
@@ -383,7 +383,7 @@ const app = new Vue({
 })
 ```
 
-<code-info ext="php" path="resources/views/vendor/notifications/email.blade.php"></code-info>
+<vue-code-info ext="php" path="resources/views/vendor/notifications/email.blade.php"></vue-code-info>
 ```php
 <?php
 

@@ -2,7 +2,7 @@
 
 ## 1. Basic configuration
 
-<code-info ext="apache" path="/etc/nginx/sites-available/my-domain.conf"></code-info>
+<vue-code-info ext="apache" path="/etc/nginx/sites-available/my-domain.conf"></vue-code-info>
 ```apacheconf
 <VirtualHost *:80>
     ServerAdmin webmaster@my-domain.com
@@ -16,7 +16,7 @@
     # On linux only
     ErrorLog ${APACHE_LOG_DIR}/laravel-app-error.log
     CustomLog ${APACHE_LOG_DIR}/laravel-app-access.log combined
-    
+
     <Directory /var/www/laravel-app>
         Options Indexes FollowSymLinks MultiViews
         AllowOverride All

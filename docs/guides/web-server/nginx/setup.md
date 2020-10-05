@@ -6,14 +6,14 @@ Nginx is a powerful web server, it's really fastest if we compare it to Apache. 
 
 &nbsp;
 
-<code-info ext="nginx" path="/etc/nginx/sites-available/my-domain"></code-info>
+<vue-code-info ext="nginx" path="/etc/nginx/sites-available/my-domain"></vue-code-info>
 ```nginx{3,5,7}
 server {
     listen 80;
     root /var/www/my-repository-name;
     index index.php index.html index.htm index.nginx-debian.html;
     server_name my-domain.com;
-    
+
     error_log /var/log/nginx/my-repository-name.log warn;
 
     location / {
@@ -35,14 +35,14 @@ server {
 
 Configuration for [Laravel](https://laravel.com/) application, this app need a specific configuration for `storage` directory if you use it.
 
-<code-info ext="nginx" path="/etc/nginx/sites-available/my-laravel-domain"></code-info>
+<vue-code-info ext="nginx" path="/etc/nginx/sites-available/my-laravel-domain"></vue-code-info>
 ```nginx{3,5,7,10,13}
 server {
     listen 80;
     root /var/www/repository-name/public;
     index index.php index.html index.htm index.nginx-debian.html;
     server_name domain.localhost;
-    
+
     error_log /var/log/nginx/repository-name.log warn;
 
     location / {
@@ -81,7 +81,7 @@ sudo nginx -t
 
 You have to see an output like this:
 
-> nginx: the configuration file /etc/nginx/nginx.conf syntax is ok  
+> nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
 > nginx: configuration file /etc/nginx/nginx.conf test is successful
 
 NGINX can print **warning** about some configurations but if this output is print at the end, it will work. If you have any **error**, this command will give you infos to fix. If config is OK, execute this command to reload NGINX:
@@ -94,14 +94,14 @@ Your **subdomain is now available** and **your project is deploy** !
 
 ## 3. Add HTTPS
 
-Today, it's really important to have HTTPS website, it's a trust mark, and it's now really easy to obtain it thanksful to [Let's Encrypt](https://letsencrypt.org/) which provides TLS certificate freely. You have some other projects like [SSL For Free](https://www.sslforfree.com/).  
+Today, it's really important to have HTTPS website, it's a trust mark, and it's now really easy to obtain it thanksful to [Let's Encrypt](https://letsencrypt.org/) which provides TLS certificate freely. You have some other projects like [SSL For Free](https://www.sslforfree.com/).
 With Shell access, you can use [Certbot](https://certbot.eff.org/) to install Certbot on your server to create and renew certificates. Just follow [steps](https://certbot.eff.org/instructions), enter software and sytem and you will obtain some commands to install this amazing tool. When it's installed on your server, you can create or renew certificates with this command (for NGINX):
 
 ```bash
 sudo certbot --nginx
 ```
 
-You have to select websites and you will can choose if you want an automatic redirection to HTTPS (it's a good idea). If you add any website after this, just execute command again. Certificates have a lifetime, you have to renew it after some weeks with just same command.  
+You have to select websites and you will can choose if you want an automatic redirection to HTTPS (it's a good idea). If you add any website after this, just execute command again. Certificates have a lifetime, you have to renew it after some weeks with just same command.
 Certbot will update NGINX configuration for all selected websites, it will add HTTPS management, careful if you modify it after. But if you broke HTTPS config, remove all which Certbot add and re execute certbot command.
 
 ## 4. Cheatsheet

@@ -11,7 +11,7 @@
 - [**strapi.io: documentation/deployment => another doc**](https://strapi.io/blog/how-to-deploy-a-strapi-application)
 
 
-<code-info ext="js" path="ecosystem.config.js">
+<vue-code-info ext="js" path="ecosystem.config.js">
 
 ```js
 module.exports = {
@@ -42,9 +42,9 @@ module.exports = {
   ]
 };
 ```
-</code-info>
+</vue-code-info>
 
-<code-info ext="nginx" path="strapi">
+<vue-code-info ext="nginx" path="strapi">
 
 ```nginx
 server {
@@ -78,7 +78,7 @@ server {
   }
 }
 ```
-</code-info>
+</vue-code-info>
 
 ---
 

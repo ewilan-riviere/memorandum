@@ -6,8 +6,8 @@ Unlike PHP app, which just need to have Nginx/Apache configuration, a NodeJS app
 
 </div>
 
-> **In this example, we take a repository called `portfolio-front`, a NuxtJS app**  
-> You can find it here [GitHub](https://github.com/ewilan-riviere/portfolio-front)  
+> **In this example, we take a repository called `portfolio-front`, a NuxtJS app**
+> You can find it here [GitHub](https://github.com/ewilan-riviere/portfolio-front)
 > I choose to define Nginx directory to /home/user/www/
 
 
@@ -17,7 +17,7 @@ Unlike PHP app, which just need to have Nginx/Apache configuration, a NodeJS app
 
 You need to have a **domain** and **Nginx**. The configuration of Nginx is light but necessary to allow **PM2** to serve it on this domain.
 
-<code-info ext="nginx" path="/etc/nginx/sites-available/portfolio"></code-info>
+<vue-code-info ext="nginx" path="/etc/nginx/sites-available/portfolio"></vue-code-info>
 ```nginx{2,6}
 server {
     server_name portfolio.ewilan-riviere.com;
@@ -44,7 +44,7 @@ sudo nginx -t
 
 If you have this output, everything is fine, otherwise you will have some infos to fix it:
 
-> nginx: the configuration file /etc/nginx/nginx.conf syntax is ok  
+> nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
 > nginx: configuration file /etc/nginx/nginx.conf test is successful
 
 ```bash
@@ -65,7 +65,7 @@ npm install pm2@latest -g
 
 PM2 is now available on your server, you can use it on different ways but here, we use *ecosystem* solution. With this, it's easy to maintain a lot of NodeJS app with just JSON. You have just to create `ecosystem.config.js` anywhere on your server:
 
-<code-info ext="js" path="/home/user/ecosystem.config.js"></code-info>
+<vue-code-info ext="js" path="/home/user/ecosystem.config.js"></vue-code-info>
 ```js
 module.exports = {
   apps : [
@@ -89,7 +89,7 @@ module.exports = {
 
 In this example, portfolio-front is a NuxtJS app with theses scripts into package.json:
 
-<code-info ext="json" path="/home/user/www/portfolio-front/package.json"></code-info>
+<vue-code-info ext="json" path="/home/user/www/portfolio-front/package.json"></vue-code-info>
 ```json
 {
   //...

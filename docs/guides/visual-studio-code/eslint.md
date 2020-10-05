@@ -22,7 +22,7 @@ Download [**ESLint extension**](https://github.com/Microsoft/vscode-eslint) for 
 
 Use shortcut <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>P</kbd> and search `JSON` to select `Preferences: Open Settings(JSON)`. This will open JSON configuration of Visual Studo Code, you have just to add this on your current config:
 
-<code-info ext="json" path="settings.json">
+<vue-code-info ext="json" path="settings.json">
 ```json
 {
     // ...
@@ -31,17 +31,17 @@ Use shortcut <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>P</kbd> and search `JSON` t
         "html",
         "javascript",
         "typescript",
-        "javascriptreact", 
+        "javascriptreact",
         "typescriptreact"
     ],
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
     },
     // ...
-    
+
 }
 ```
-</code-info>
+</vue-code-info>
 
 ## III. Configure your VueJS project (v2.6)
 
@@ -83,7 +83,7 @@ After this, you have to create somes files at root of your project:
  ┣ 📜 package.json
  ```
 
-<code-info ext="js" path=".eslintrc.js">
+<vue-code-info ext="js" path=".eslintrc.js">
 ```js
 module.exports = {
   root: true,
@@ -100,9 +100,9 @@ module.exports = {
   }
 };
 ```
-</code-info>
+</vue-code-info>
 
-<code-info path=".prettierrc">
+<vue-code-info path=".prettierrc">
 ```
 {
   "semi": false,
@@ -110,27 +110,27 @@ module.exports = {
   "singleQuote": true
 }
 ```
-</code-info>
+</vue-code-info>
 
-<code-info path=".browserslistrc">
+<vue-code-info path=".browserslistrc">
 ```
 > 1%
 last 2 versions
 not dead
 ```
-</code-info>
+</vue-code-info>
 
-<code-info ext="js" path="babel.config.js">
+<vue-code-info ext="js" path="babel.config.js">
 ```js
 module.exports = {
   presets: ['@vue/cli-plugin-babel/preset']
 }
 ```
-</code-info>
+</vue-code-info>
 
 When you create these files: `.eslintrc.js`, `.prettierrc`, `.browserslistrc`, `babel.config.js`, you can remove any info about these entry into `package.json`. So clean your `package.json` if it's needed:
 
-<code-info ext="json" path="package.json">
+<vue-code-info ext="json" path="package.json">
 ```json
 {
   "name": "my-app-classic",
@@ -159,7 +159,7 @@ When you create these files: `.eslintrc.js`, `.prettierrc`, `.browserslistrc`, `
   }
 }
 ```
-</code-info>
+</vue-code-info>
 
 If your `package.json` have some differences with this, it's not very important.
 
@@ -167,7 +167,7 @@ If your `package.json` have some differences with this, it's not very important.
 
 Now, you can create another new file: `.editorconfig`. It config file used for keep same indent into all files for all developers on project. This is an example:
 
-<code-info path=".editorconfig">
+<vue-code-info path=".editorconfig">
 ```
 root = true
 
@@ -193,4 +193,4 @@ indent_size = 2
 ```bash
 yarn add -D @vue/eslint-config-prettier eslint eslint-config-standard eslint-config-vuepress eslint-plugin-import eslint-plugin-node eslint-plugin-prettier eslint-plugin-promise eslint-plugin-standard eslint-plugin-vue lint-staged prettier prettier-config-vuepress @vue/cli-plugin-eslint prettier-config-vuepress
 ```
-</code-info>
+</vue-code-info>

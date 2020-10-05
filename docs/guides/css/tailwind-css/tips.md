@@ -21,7 +21,7 @@ tailwind.config.js
 
 Add font with `@font-face` to your `tailwind.css` for example
 
-<code-info ext="css" path="~/assets/css/tailwind.css">
+<vue-code-info ext="css" path="~/assets/css/tailwind.css">
 
 ```css
 @font-face {
@@ -30,11 +30,11 @@ Add font with `@font-face` to your `tailwind.css` for example
 }
 ```
 
-</code-info>
+</vue-code-info>
 
 Add the font to `theme.fontFamily` to `tailwind.config.js`
 
-<code-info ext="js" path="tailwind.config.js">
+<vue-code-info ext="js" path="tailwind.config.js">
 
 ```js
 module.exports = {
@@ -45,11 +45,11 @@ module.exports = {
 }
 ```
 
-</code-info>
+</vue-code-info>
 
 And you will be able to use `font-dancing-script` auto-generate tailwind class, you can use snippets with [bradlc.vscode-tailwindcss](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
 
-<code-info ext="vue" path="pages/index.vue">
+<vue-code-info ext="vue" path="pages/index.vue">
 
 ```vue
 <template>
@@ -61,4 +61,4 @@ And you will be able to use `font-dancing-script` auto-generate tailwind class, 
 </template>
 ```
 
-<code-info>
+<vue-code-info>

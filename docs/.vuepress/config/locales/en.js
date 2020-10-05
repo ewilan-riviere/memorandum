@@ -29,4 +29,5 @@ module.exports = {
   'package-manager': 'Package manager',
   'npm-yarn': 'NPM & Yarn',
   nuxtjs: 'NuxtJS',
+  mysql: 'MySQL',
 }

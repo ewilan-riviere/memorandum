@@ -24,19 +24,11 @@ http://fanfox.net/manga/bleach/v10/c081/1.html#ipg7
 https://www.animedigitalnetwork.fr/video/bleach
 https://fandemanga.com/blogs/streaming-manga/bleach-episode-111-vostfr?_pos=3&_sid=d2ed16d71&_ss=r
 https://fr.wikipedia.org/wiki/Liste_des_%C3%A9pisodes_de_Bleach#Saison_4
-
-mysql -u user -p
-use my_databasa
-source file.sql
-
-mysql -u username -p password db_name < file.sql
-
-mysql> CREATE DATABASE menagerie;
 ```
 
-https://askubuntu.com/questions/235347/what-is-the-best-way-to-uninstall-nginx
-https://stackoverflow.com/questions/40794047/uninstall-php-fpm-7-0-ubuntu-or-reset-configuration
-https://askubuntu.com/questions/176964/permanently-removing-apache2
-https://askubuntu.com/questions/59886/how-to-completely-remove-php
-https://stackoverflow.com/questions/5050296/completely-removing-phpmyadmin
-https://stackoverflow.com/questions/43094726/your-password-does-not-satisfy-the-current-policy-requirements
+<https://askubuntu.com/questions/235347/what-is-the-best-way-to-uninstall-nginx>
+<https://stackoverflow.com/questions/40794047/uninstall-php-fpm-7-0-ubuntu-or-reset-configuration>
+<https://askubuntu.com/questions/176964/permanently-removing-apache2>
+<https://askubuntu.com/questions/59886/how-to-completely-remove-php>
+<https://stackoverflow.com/questions/5050296/completely-removing-phpmyadmin>
+<https://stackoverflow.com/questions/43094726/your-password-does-not-satisfy-the-current-policy-requirements>

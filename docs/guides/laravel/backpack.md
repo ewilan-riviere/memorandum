@@ -106,13 +106,13 @@ mix.js('resources/js/app.js', 'public/js')
 
 `resources/sass/classic-backpack.scss`
 
-:::details 
+:::details
 <<< @/docs/guides/laravel/backpack/classic-backpack.scss
 :::
 
 `resources/sass/app.scss`
 
-:::details 
+:::details
 <<< @/docs/guides/laravel/backpack/app.scss
 :::
 
@@ -123,7 +123,7 @@ mix.js('resources/js/app.js', 'public/js')
 ```php
 <li class="nav-item">
     <a class="nav-link" href="{{ $url }}">
-        <i class="{{ $icon }} nav-icon"></i> 
+        <i class="{{ $icon }} nav-icon"></i>
         {{ $label }}
     </a>
 </li>
@@ -175,7 +175,7 @@ php artisan backpack:install
 
 You can have this output error:
 
-<code-info ext="sh-output"></code-info>
+<vue-code-info ext="sh-output"></vue-code-info>
 
 ```bash
 Symfony\Component\Process\Exception\ProcessTimedOutException  : The process "composer require barryvdh/laravel-elfinder" exceeded the timeout of 300 seconds.
@@ -191,7 +191,7 @@ composer config --global process-timeout 2000
 
 With **Nuxt** and **Laravel** on same url, **Nuxt** crush `public` directory of **Laravel**. If you want to load *CSS* and *JS* from public directory off **Laravel**, you can add it to `location` into first configuration (here, l.10), like this, here *CSS* is present and `public/css/app.css` can be loaded into back-office. Check **Network** in your dev tools if you can't find any error, *404 is the proof of problems with NGINX config*!
 
-<code-info ext="nginx"></code-info>
+<vue-code-info ext="nginx"></vue-code-info>
 
 ```nginx{10}
 server {
@@ -285,7 +285,7 @@ public function applications()
 }
 ```
 
-**application table migration**  
+**application table migration**
 *It have to be after editors table migration*
 
 ```php
@@ -302,7 +302,7 @@ Schema::table('applications', function (Blueprint $table) {
 protected function setupListOperation()
 {
     //...
-    
+
     $this->crud->addColumn([
         // 1-n relationship
         'label'     => 'Éditeur', // Table column heading

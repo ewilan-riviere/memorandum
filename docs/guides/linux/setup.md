@@ -105,7 +105,7 @@ vim ~/.vimrc
 
 :::
 
-<code-info path="/home/user/.vimrc"></code-info>
+<vue-code-info path="/home/user/.vimrc"></vue-code-info>
 
 ```vim
 set nocompatible

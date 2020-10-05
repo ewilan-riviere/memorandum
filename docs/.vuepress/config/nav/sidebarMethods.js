@@ -94,6 +94,7 @@ module.exports = {
         collapsable: true,
         children: getAllFiles('vue/'),
       },
+      'mysql/mysql',
       {
         title: 'visual-studio-code',
         collapsable: true,

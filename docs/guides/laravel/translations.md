@@ -12,7 +12,7 @@ php artisan vendor:publish --provider="Tohidplus\Translation\TranslationServiceP
 
 And into the `config/app.php`:
 
-<code-info ext="php" path="config/app.php"></code-info>
+<vue-code-info ext="php" path="config/app.php"></vue-code-info>
 
 ```php
 <?php
@@ -24,7 +24,7 @@ And into the `config/app.php`:
 ];
 ```
 
-<code-info ext="js" path="resources/js/app.js"></code-info>
+<vue-code-info ext="js" path="resources/js/app.js"></vue-code-info>
 
 ```js
 window.Vue = require('vue');
@@ -44,7 +44,7 @@ php artisan VueTranslation:generate --watch=1
 
 ### *Into VueJS component*
 
-<code-info ext="vue" path="/resources/js/components/my-component.vue"></code-info>
+<vue-code-info ext="vue" path="/resources/js/components/my-component.vue"></vue-code-info>
 
 ```vue
 <template>
