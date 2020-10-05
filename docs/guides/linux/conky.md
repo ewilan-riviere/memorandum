@@ -10,7 +10,7 @@ sudo apt install -y conky-all lm-sensors
 vim ~/.conkyrc
 ```
 
-:::details Add this config in `.conkyrc`
+:::details Add this config in .conkyrc
 <<< docs/guides/linux/.conkyrc
 :::
 
@@ -31,7 +31,7 @@ You will have output like this
     link/ether ec:5c:68:48:9f:fb brd ff:ff:ff:ff:ff:ff
     inet 192.168.1.25/24 brd 192.168.1.255 scope global dynamic noprefixroute wlp4s0
        valid_lft 83269sec preferred_lft 83269sec
-    inet6 fe80::8582:de49:523c:5488/64 scope link noprefixroute 
+    inet6 fe80::8582:de49:523c:5488/64 scope link noprefixroute
        valid_lft forever preferred_lft forever
 ```
 

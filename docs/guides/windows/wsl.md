@@ -77,7 +77,7 @@ Guide from [**github.com/microsoft/WSL/issues/5336**](https://github.com/microso
 
 Open `cmd` as admin
 
-```cmd
+```ps
 wsl --shutdown ; netsh winsock reset ; netsh int ip reset all ; netsh winhttp reset proxy ; ipconfig /flushdns
 ```
 

@@ -9,7 +9,7 @@
 mysql -u root -p
 ```
 
-```mysql
+```sql
 UNINSTALL COMPONENT "file://component_validate_password";
 exit
 ```
@@ -23,7 +23,7 @@ sudo apt install phpmyadmin
 mysql -u root -p
 ```
 
-```mysql
+```sql
 INSTALL COMPONENT "file://component_validate_password";
 ```
 
@@ -64,24 +64,24 @@ Replace content with this config:
 
 ```nginx
 server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
+ listen 80 default_server;
+ listen [::]:80 default_server;
 
-	root /var/www/html;
+ root /var/www/html;
 
-	index index.php index.html index.htm index.nginx-debian.html;
+ index index.php index.html index.htm index.nginx-debian.html;
 
-	server_name _;
+ server_name _;
 
-	location / {
-		try_files $uri $uri/ =404;
-		autoindex on;
-	}
+ location / {
+  try_files $uri $uri/ =404;
+  autoindex on;
+ }
 
-	location ~ \.php$ {
-  		include snippets/fastcgi-php.conf;
-  		fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
- 	}
+ location ~ \.php$ {
+    include snippets/fastcgi-php.conf;
+    fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+  }
 }
 ```
 
