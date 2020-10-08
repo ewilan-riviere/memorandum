@@ -1,0 +1,180 @@
+{
+    "members": {
+        "developers": [
+            {
+                "name": {
+                  "firstname": "Ewilan",
+                  "lastname": "Rivière"
+                },
+                "gender": "female",
+                "from": "2019-10-01",
+                "type": "developer-junior-voc",
+                "extras": {
+                    "techs": [
+                        "js",
+                        "vuejs"
+                    ]
+                },
+                "citations": [
+                  "Si c'est fait en Markdown, je suis d'accord.",
+                  "Mais y'a pas de badges dans ton readme !"
+                ]
+            },
+            {
+                "name": {
+                  "firstname": "Adrien",
+                  "lastname": "Beaudouin"
+                },
+                "gender": "male",
+                "from": "",
+                "type": "developer-lead",
+                "extras": {
+                    "techs": []
+                },
+                "citations": [
+                    "Attends, tu as utilisé du Sass avec Tailwind ?!"
+                ]
+            },
+            {
+                "name": {
+                  "firstname": "Mathieu",
+                  "lastname": "Monnier"
+                },
+                "gender": "male",
+                "from": "",
+                "type": "developer",
+                "extras": {
+                    "techs": []
+                },
+                "citations": [
+                  "Une mise en prod un vendredi après-midi à 17h ?<br/>Qu'est-ce qui pourrait mal tourner, hein ?"
+                ]
+            },
+            {
+                "name": {
+                  "firstname": "Laure",
+                  "lastname": "Coussout"
+                },
+                "gender": "female",
+                "from": "",
+                "type": "developer-junior",
+                "extras": {
+                    "techs": []
+                },
+                "citations": [
+                  "Donc après avoir travaillé sur Prestashop 1.6, je dois bosser sur un WordPress multi-site ?<br/>Tout.va.bien"
+                ]
+            },
+            {
+                "name": {
+                  "firstname": "Laurent",
+                  "lastname": "Chevalier"
+                },
+                "gender": "male",
+                "from": "",
+                "type": "developer-lead",
+                "extras": {
+                    "techs": []
+                },
+                "citations": [
+                  "J'ai rien contre cette techno, c'est pas du Java, c'est tout."
+                ]
+            },
+            {
+                "name": {
+                  "firstname": "Mathys",
+                  "lastname": "Allain"
+                },
+                "gender": "male",
+                "from": "",
+                "type": "developer-junior",
+                "extras": {
+                    "techs": []
+                },
+                "citations": [
+                    "Du Ionic ?! Moi vivant, jamais !"
+                ]
+            }
+        ],
+        "commercials": [
+            {
+                "name": {
+                  "firstname": "Michel",
+                  "lastname": "Trauth"
+                },
+                "gender": "male",
+                "from": "",
+                "type": "manager",
+                "citations": [
+                  "Je n'ai rien contre une techno cool, tant qu'elle permet la productivité.",
+                  "Non, les clients ne veulent pas écrire des articles en Markdown."
+                ]
+            },
+            {
+                "name": {
+                  "firstname": "Julie",
+                  "lastname": "Urbaniack"
+                },
+                "gender": "female",
+                "from": "",
+                "type": "commercial-business",
+                "citations": [
+                  "J'ai appelé le client hier, j'ai rendez-vous avec lui à 16h, le dossier est en béton.<br/>Tu as des questions ?"
+                ]
+            },
+            {
+                "name": {
+                  "firstname": "Nina",
+                  "lastname": "Vaillant"
+                },
+                "gender": "female",
+                "from": "",
+                "type": "seo-expert",
+                "citations": [
+                  "Tu es au courant qu'il n'y a pas de balise h1 sur cette page ?"
+                ]
+            },
+            {
+                "name": {
+                  "firstname": "Adèle",
+                  "lastname": "Fougère"
+                },
+                "gender": "female",
+                "from": "",
+                "type": "management-assistant"
+            },
+            {
+                "name": {
+                  "firstname": "Camille",
+                  "lastname": "Boniface"
+                },
+                "gender": "female",
+                "from": "",
+                "type": "webdesigner",
+                "citations": [
+                  "J'ai une annonce importante à faire : est-ce que quelqu'un aurait un taille-crayon s'il vous plaît ?"
+                ]
+            },
+            {
+                "name": {
+                  "firstname": "Aurélien",
+                  "lastname": "Page"
+                },
+                "gender": "male",
+                "from": "",
+                "type": "content-manager"
+            }
+        ],
+        "directors": [
+            {
+                "name": {
+                  "firstname": "Michael",
+                  "lastname": "Hyot"
+                },
+                "gender": "male",
+                "from": "",
+                "type": "director"
+            }
+        ]
+    }
+}

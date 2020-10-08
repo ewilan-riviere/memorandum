@@ -1,0 +1,64 @@
+{
+  // ...
+
+  "defaultProfile": "{79285a8e-036c-446f-8a9c-78994e34bf78}",
+
+  "profiles": [
+    // ...
+    {
+      "acrylicOpacity": 0.8,
+      "background": "#000000",
+      "backgroundImage": "C:/background-img-path",
+      "backgroundImageOpacity": 0.7,
+      "backgroundImageStretchMode": "uniformToFill",
+      "closeOnExit": false,
+      "colorScheme": "Konsole",
+      "commandline": "powershell.exe",
+      "cursorColor": "#00FF00",
+      "cursorHeight": 25,
+      "cursorShape": "vintage",
+      "fontFace": "Fira Code",
+      "fontSize": 12,
+      "guid": "{79285a8e-036c-446f-8a9c-78994e34bf78}",
+      "historySize": 9001,
+      "icon": "C:/icon-img-path",
+      "name": "Name of profile",
+      "padding": "0, 0, 0, 0",
+      "snapOnInput": true,
+      "startingDirectory": "%USERPROFILE%/Documents/workspace/",
+      "useAcrylic": true
+    }
+  ],
+
+  // Add custom color schemes to this array
+  "schemes": [
+    {
+      "background": "#33FF00",
+      "black": "#33FF00",
+      "blue": "#3465A4",
+      "brightBlack": "#5bac0b",
+      "brightBlue": "#729FCF",
+      "brightCyan": "#34E2E2",
+      "brightGreen": "#8AE234",
+      "brightPurple": "#AD7FA8",
+      "brightRed": "#EF2929",
+      "brightWhite": "#b1b1b1",
+      "brightYellow": "#FCE94F",
+      "cyan": "#06989A",
+      "foreground": "#33FF00",
+      "green": "#b6b6b6",
+      "name": "Konsole",
+      "purple": "#75507B",
+      "red": "#CC0000",
+      "white": "#219b02",
+      "yellow": "#C4A000"
+    }
+  ],
+
+  // Add any keybinding overrides to this array.
+  // To unbind a default keybinding, set the command to "unbound"
+  "keybindings": [
+    { "command": "closePane", "keys": ["ctrl+w"] },
+    { "command": "newTab", "keys": ["ctrl+t"] }
+  ]
+}

@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind screens;
+
+@responsive {
+  .word-wraping {
+    text-align: justify !important;
+    -webkit-hyphens: auto !important;
+    -moz-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    hyphens: auto !important;
+  }
+  .w-max-content {
+    width: max-content;
+  }
+  .center-it {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+.container {
+  @apply px-5;
+}
+.badges-section img {
+  @apply inline my-1 !important;
+}
+.badges-section a {
+  @apply border-transparent !important;
+}
+.badges-section a:hover {
+  @apply bg-transparent border-transparent !important;
+}
+body {
+  @apply overflow-x-hidden;
+}
+
+@font-face {
+  font-family: "Roboto-Medium";
+  src: url("../fonts/roboto/Roboto-Medium.ttf");
+}
+@font-face {
+  font-family: "PTSans-Regular";
+  src: url("../fonts/pt-sans/PTSans-Regular.ttf");
+}
+@font-face {
+  font-family: "Quicksand";
+  src: url("../fonts/quicksand/Quicksand-VariableFont_wght.ttf");
+}
+
+[v-cloak] { display:none; }
