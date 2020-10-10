@@ -1,5 +1,6 @@
 import Vue from 'vue'
 
+import translation from '~/static/locales/en'
 import { statusTranslations } from '~/static/utils/team'
 
 // slugify text
@@ -52,3 +53,9 @@ const formatUser = (user) => {
 }
 
 Vue.prototype.$formatUser = formatUser
+
+const translate = (key) => {
+  return translation[key] || key
+}
+
+Vue.prototype.$t = translate

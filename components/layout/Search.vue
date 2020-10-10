@@ -46,8 +46,7 @@
           :to="'/'"
           class="flex items-center px-4 py-2 leading-5 transition duration-150 ease-in-out"
           :class="{
-            'text-primary-500 bg-gray-200 dark:bg-gray-800':
-              focusIndex === index,
+            'text-green-500 bg-gray-200 dark:bg-gray-800': focusIndex === index,
           }"
           @click="focus = false"
         >

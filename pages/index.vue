@@ -1,61 +1,139 @@
 <template>
-  <div class="container mx-auto">
-    <div class="grid grid-cols-5">
-      <div class="col-span-1 pt-6 border-r border-gray-300">
-        <div class="fixed">
-          <div v-for="(guide, guideId) in welcome" :key="guideId">
-            {{ guide.title }}
-          </div>
-        </div>
-      </div>
-      <div class="col-span-3 px-8 pt-6">
-        {{ welcome.title }}
-        <img
-          :src="`/images/posts/covers/${welcome.image}`"
-          :alt="welcome.title"
-          class=""
-        />
-        <div class="mt-3">
-          <div v-for="bullet in bullets" :key="bullet" class="block my-2">
-            <div class="flex">
-              <svg
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                class="flex-shrink-0 w-6 h-6 mt-px mr-3 text-green-500"
+  <div>
+    <main-layout>
+      <div slot="aside">
+        <li
+          v-for="(category, categoryId) in $store.state.content"
+          :key="categoryId"
+          class="mb-4"
+        >
+          <category-collapse :expanded="categoryId === 0">
+            <h3
+              slot="title"
+              class="text-sm font-bold tracking-wider text-gray-500 uppercase lg:text-xs"
+            >
+              {{ $t(category.label) }}
+            </h3>
+            <ul slot="list" class="ml-2">
+              <li
+                v-for="guide in category.guides"
+                :key="guide.id"
+                class="text-gray-700 transition-colors duration-300 rounded-md dark:text-gray-300 hover:bg-green-200 hover:bg-opacity-50"
               >
-                <path
-                  d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-                ></path>
-              </svg>
-              {{ bullet }}
+                <nuxt-link
+                  :to="{
+                    name: 'guides',
+                  }"
+                  class="flex items-center justify-between px-2 py-1 font-medium rounded hover:text-primary-500"
+                >
+                  {{ $t(guide.label) }}
+                </nuxt-link>
+              </li>
+            </ul>
+          </category-collapse>
+        </li>
+      </div>
+      <article slot="main" class="max-w-none lg:px-8">
+        <h1 class="flex items-center justify-between">
+          <div class="text-4xl font-quicksand title">Welcome</div>
+        </h1>
+        <div class="my-10 nuxt-content-container">
+          <div class="my-4 text-gray-400">
+            <img
+              src="/icon-fit.png"
+              alt=""
+              class="object-cover w-2/5 my-1 text-sm"
+            />
+            <div class="flex items-center">
+              <icon name="camera" :size="25" />
+              <div class="ml-1">Memo, AI of Memorandum</div>
             </div>
           </div>
+          <div
+            class="prose nuxt-content md:word-wraping dark:prose-dark"
+            lang="en"
+          >
+            Memorandum is a personal documentation about my projects and
+            languages I like, I propose topics with examples, copy/paste code,
+            boiler plates... all organized by your servant, Memo.
+          </div>
+          <list :items="bullets" class="mt-5"></list>
+          <div class="mt-5 text-xl font-handlee-regular">
+            <div class="ml-auto w-max-content">Ewilan Rivière</div>
+          </div>
         </div>
-        <div class="flex mt-3">
-          <icon name="bullet-point" :size="50" class="text-green-600" />
-          Blazing fast hot reload in development
-        </div>
-        <nuxt-content :document="welcome" />
-      </div>
-      <div class="col-span-1 pt-6 border-l border-gray-300">
-        <div class="fixed">toc</div>
-      </div>
-    </div>
+      </article>
+    </main-layout>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'HomeIndex',
-  async asyncData({ $content }) {
-    const welcome = await $content('welcome').fetch()
+import MainLayout from '@/components/layout/MainLayout.vue'
 
-    return {
-      welcome,
+export default {
+  name: 'Home',
+  components: {
+    MainLayout,
+  },
+  async asyncData({ $content, store }) {
+    // eslint-disable-next-line no-unused-vars
+    let contentCategory = []
+    if (store.state.content && store.state.content.length < 1) {
+      console.log(process.env.npm_package_name)
+      const content = await $content('documentation', { deep: true })
+        .only([
+          'title',
+          'description',
+          'image',
+          'slug',
+          'author',
+          'date',
+          'tags',
+        ])
+        .sortBy('date', 'desc')
+        .fetch()
+
+      // setup categories with first part of path
+      let subCategories = []
+      content.forEach((guide) => {
+        const path = guide.path.replace('/documentation/', '').split('/')
+        const Category = {
+          label: path[0],
+          guides: [],
+        }
+        const SubCategory = {
+          label: path[1],
+          category: path[0],
+        }
+        contentCategory.push(Category)
+        subCategories.push(SubCategory)
+      })
+      // delete duplicates
+      contentCategory = contentCategory.filter(
+        (v, i, a) => a.findIndex((t) => t.label === v.label) === i
+      )
+      // alphabetic sorting
+      contentCategory.sort((a, b) => (a.label > b.label ? 1 : -1))
+
+      // delete duplicates
+      subCategories = subCategories.filter(
+        (v, i, a) => a.findIndex((t) => t.label === v.label) === i
+      )
+      // alphabetic sorting
+      subCategories.sort((a, b) => (a.label > b.label ? 1 : -1))
+
+      // add subcategory to category
+      subCategories.forEach((subCategory) => {
+        for (let i = 0; i < contentCategory.length; i++) {
+          const category = contentCategory[i]
+          if (category.label === subCategory.category) {
+            category.guides.push(subCategory)
+          }
+        }
+      })
+      console.log(contentCategory)
+
+      store.commit('setContent', contentCategory)
     }
   },
   data() {
@@ -64,7 +142,7 @@ export default {
         'Explicit topics with examples',
         'Copy and paste code',
         'Boiler plates',
-        'Organized by Memo',
+        'Built with NuxtJS',
       ],
     }
   },

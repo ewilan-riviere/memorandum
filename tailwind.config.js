@@ -15,17 +15,21 @@ module.exports = {
     ],
   },
   theme: {
+    container: {
+      center: true,
+    },
     fontFamily: {
       'roboto-medium': ['Roboto-Medium'],
       'ptsans-regular': ['PTSans-regular'],
       quicksand: ['Quicksand'],
+      'handlee-regular': ['Handlee-Regular'],
     },
     extend: {
       screens: {
-        xl: '1500px',
-        lg: '1100px',
-        md: '900px',
-        sm: '400px',
+        xl: '1280px',
+        lg: '1050px',
+        md: '750px',
+        sm: '450px',
       },
       colors: {
         'blue-useweb-light': '#5c8dc3',

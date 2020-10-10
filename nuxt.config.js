@@ -47,6 +47,8 @@ export default {
     { src: '~/plugins/vue-code-info', ssr: false },
     // https://michalsnik.github.io/aos/
     { src: '~/plugins/aos', ssr: false },
+    // https://github.com/mercs600/vue2-perfect-scrollbar
+    { src: '~/plugins/vue-perfect-scrollbar', ssr: false },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -66,6 +68,8 @@ export default {
     '@nuxtjs/moment',
     // Doc: https://github.com/nuxt-community/router-module
     '@nuxtjs/router',
+    // https://color-mode.nuxtjs.org/
+    '@nuxtjs/color-mode',
   ],
 
   tailwindcss: {
@@ -79,6 +83,23 @@ export default {
       matchZones: /Europe\/(Belfast|London|Paris|Athens)/,
       startYear: 2000,
       endYear: 2030,
+    },
+  },
+
+  colorMode: {
+    preference: 'system', // default value of $colorMode.preference
+    fallback: 'light', // fallback value if not system preference found
+    hid: 'nuxt-color-mode-script',
+    globalName: '__NUXT_COLOR_MODE__',
+    componentName: 'ColorScheme',
+    classPrefix: '',
+    classSuffix: '-mode',
+    cookie: {
+      key: 'nuxt-color-mode',
+      // options: {
+      //   path: nuxt.options.router.base, // https://nuxtjs.org/api/configuration-router#base
+      //   sameSite: 'lax', // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite
+      // },
     },
   },
 
@@ -159,6 +180,10 @@ export default {
     // hideBadge: true,
     // siteKey: process.env.RECAPTCHA_SITE_KEY,
     // version: 3,
+  },
+
+  storybook: {
+    // Options
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

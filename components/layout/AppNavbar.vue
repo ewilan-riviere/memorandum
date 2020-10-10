@@ -1,84 +1,145 @@
 <template>
-  <div>
-    <!--
-  Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
-  Read the documentation to get started: https://tailwindui.com/documentation
--->
-    <nav
-      class="transition duration-300 bg-white border-b border-gray-200"
-      :class="{ shadow: scrolling }"
-    >
-      <div class="container h-16 mx-auto">
-        <div class="grid h-full grid-cols-5">
-          <div class="col-span-1 my-auto">
-            <div class="flex items-center flex-shrink-0">
-              <nuxt-link class="flex group" :to="{ name: 'home' }">
-                <icon name="logo-light" :width="160" />
-              </nuxt-link>
+  <nav
+    class="fixed top-0 z-40 w-full bg-white border-b dark:border-gray-800 dark:bg-gray-900"
+  >
+    <div class="container flex-1 px-4 mx-auto lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center pr-4 lg:w-1/5">
+          <nuxt-link
+            :to="{ name: 'home' }"
+            aria-current="page"
+            aria-label="Nuxt Content Logo"
+            class="flex-1 flex-shrink-0 text-xl font-bold nuxt-link-exact-active nuxt-link-active"
+          >
+            <div class="h-8">
+              <LogoMemo></LogoMemo>
+              <!-- <img
+                src="/logo-light.svg"
+                alt="Nuxt Content"
+                class="h-8 max-w-full light-img"
+              />
+              <img
+                src="/logo-dark.svg"
+                alt="Nuxt Content"
+                class="h-8 max-w-full dark-img"
+              /> -->
             </div>
-          </div>
-          <div class="col-span-3 my-auto">
-            <search></search>
-          </div>
-          <div class="col-span-1 my-auto">links</div>
+          </nuxt-link>
         </div>
-        <!-- <div class="flex ">
-          
-          <div class="flex w-full ml-10">
-            <nuxt-link
-              v-for="route in $store.state.routes"
-              :key="route.id"
-              :to="{ name: route.routeName }"
-              class="inline-flex items-center px-1 pt-1 mr-5 text-lg font-medium leading-5 text-gray-900 transition duration-150 ease-in-out border-b-2 border-transparent focus:outline-none focus:border-blue-useweb font-quicksand hover:border-blue-useweb-light"
+        <div class="justify-center flex-1 hidden w-4/6 lg:flex">
+          <div class="relative flex flex-col justify-between w-full">
+            <div class="relative w-full">
+              <label for="search" class="sr-only">Search</label>
+              <div class="relative">
+                <div
+                  class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+                >
+                  <svg
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    class="w-5 h-5 text-gray-500"
+                  >
+                    <path
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <input
+                  id="search"
+                  placeholder="Ask to Memo..."
+                  type="search"
+                  autocomplete="off"
+                  value=""
+                  class="block w-full py-2 pl-10 pr-3 leading-5 text-gray-700 placeholder-gray-500 truncate bg-gray-200 border border-transparent rounded-md dark:text-white dark-focus:text-white focus:border-gray-300 dark-focus:border-gray-700 focus:outline-none focus:bg-white dark-focus:bg-gray-900 dark:bg-gray-800"
+                />
+              </div>
+            </div>
+            <ul
+              class="absolute top-0 z-10 flex-1 w-full overflow-hidden bg-white border border-gray-300 rounded-md dark:bg-gray-900 dark:border-gray-700"
+              style="margin-top: 37px; display: none"
             >
-              {{ route.label }}
-            </nuxt-link>
+              <!---->
+            </ul>
           </div>
         </div>
-        <div class="flex items-center">
-          <div class="flex-shrink-0"></div>
-        </div> -->
+        <div class="flex items-center justify-between pl-8 lg:w-1/5">
+          <a
+            href="/releases"
+            class="mr-4 text-base font-semibold leading-none text-gray-700 dark:text-gray-300 hover:text-primary-500 dark-hover:text-primary-500"
+            >v1.9.0</a
+          >
+          <div class="flex items-center">
+            <a
+              href="https://twitter.com/@nuxt_js"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Twitter"
+              name="Twitter"
+              class="hidden ml-4 text-gray-700 dark:text-gray-300 hover:text-primary-500 dark-hover:text-primary-500 lg:block"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5 feather feather-twitter"
+              >
+                <path
+                  d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+                ></path></svg
+            ></a>
+            <a
+              href="https://github.com/nuxt/content"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Github"
+              name="Github"
+              class="hidden ml-4 text-gray-700 dark:text-gray-300 hover:text-primary-500 dark-hover:text-primary-500 lg:block"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5 feather feather-github"
+              >
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                ></path></svg
+            ></a>
+            <button
+              aria-label="Menu"
+              class="p-2 -mr-2 text-gray-700 rounded-md lg:hidden dark:text-gray-300 focus:outline-none"
+            >
+              <svg
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                class="w-5 h-5"
+              >
+                <path d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
-    </nav>
-  </div>
+    </div>
+  </nav>
 </template>
 
 <script>
-import Search from '@/components/layout/Search.vue'
-
-export default {
-  name: 'AppNavbar',
-  components: {
-    Search,
-  },
-  data() {
-    return {
-      scrolling: false,
-    }
-  },
-  beforeMount() {
-    window.addEventListener('scroll', this.handleScroll)
-  },
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.handleScroll)
-  },
-  methods: {
-    handleScroll() {
-      if (window.scrollY > 50) {
-        this.scrolling = true
-      } else {
-        this.scrolling = false
-      }
-    },
-  },
-}
+export default {}
 </script>
 
-<style scoped>
-.router-link-exact-active {
-  @apply border-blue-useweb;
-}
-.router-link-active {
-  @apply border-blue-useweb;
-}
-</style>
+<style lang="scss" scoped></style>

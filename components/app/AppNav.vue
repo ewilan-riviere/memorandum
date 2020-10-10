@@ -30,14 +30,14 @@
             >
               <NuxtLink
                 :to="'/'"
-                class="flex items-center justify-between px-2 py-1 font-medium rounded hover:text-primary-500"
-                exact-active-class="text-primary-500 bg-primary-100 hover:text-primary-500 dark:bg-primary-900"
+                class="flex items-center justify-between px-2 py-1 font-medium rounded hover:text-green-500"
+                exact-active-class="text-green-500 bg-green-100 hover:text-green-500 dark:bg-green-900"
               >
                 {{ doc.menuTitle || doc.title }}
                 <client-only>
                   <span
                     v-if="isNew(doc)"
-                    class="w-2 h-2 rounded-full opacity-75 animate-pulse bg-primary-500"
+                    class="w-2 h-2 rounded-full opacity-75 animate-pulse bg-green-500"
                   />
                 </client-only>
               </NuxtLink>
@@ -58,7 +58,7 @@
               rel="noopener noreferrer"
               title="Twitter"
               name="Twitter"
-              class="inline-flex mr-4 text-gray-700 dark:text-gray-300 hover:text-primary-500"
+              class="inline-flex mr-4 text-gray-700 dark:text-gray-300 hover:text-green-500"
             >
               <IconTwitter class="w-5 h-5" />
             </a>
@@ -69,7 +69,7 @@
               rel="noopener noreferrer"
               title="Github"
               name="Github"
-              class="inline-flex mr-4 text-gray-700 dark:text-gray-300 hover:text-primary-500"
+              class="inline-flex mr-4 text-gray-700 dark:text-gray-300 hover:text-green-500"
             >
               <IconGithub class="w-5 h-5" />
             </a>

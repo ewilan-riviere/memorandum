@@ -15,6 +15,11 @@
 </template>
 
 <script>
+// fill="none"
+// stroke="currentColor"
+// stroke-width="2"
+// stroke-linecap="round"
+// stroke-linejoin="round"
 export default {
   name: 'Icon',
   props: {
@@ -33,6 +38,22 @@ export default {
     },
     size: {
       type: [Number, String],
+      default: null,
+    },
+    stroke: {
+      type: String,
+      default: null,
+    },
+    strokeOpacity: {
+      type: Number,
+      default: null,
+    },
+    fill: {
+      type: String,
+      default: null,
+    },
+    fillOpacity: {
+      type: Number,
       default: null,
     },
     svgClass: {

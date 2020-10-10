@@ -56,5 +56,9 @@ body {
   font-family: "Quicksand";
   src: url("../fonts/quicksand/Quicksand-VariableFont_wght.ttf");
 }
+@font-face {
+  font-family: "Handlee-Regular";
+  src: url("../fonts/handlee/Handlee-Regular.ttf");
+}
 
 [v-cloak] { display:none; }

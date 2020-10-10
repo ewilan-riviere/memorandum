@@ -1,0 +1,10 @@
+{
+  "title": "Memorandum",
+  "url": "http://memorandum.ewilan-riviere.com",
+  "logo": {
+    "light": "/small-icon.png",
+    "dark": "/small-icon.png"
+  },
+  "github": "ewilan-riviere",
+  "twitter": "@ewieSwitch"
+}

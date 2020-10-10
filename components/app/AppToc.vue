@@ -17,7 +17,7 @@
         </h3>
         <scrollactive
           highlight-first-item
-          active-class="text-primary-500"
+          active-class="text-green-500"
           :offset="0"
           tag="ul"
         >

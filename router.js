@@ -23,7 +23,7 @@ export function createRouter() {
       },
       {
         name: 'guides-slug',
-        path: '/guides/:slug',
+        path: '/guides/:category/:subCategory',
         component: GuidesSlug,
       },
     ],

@@ -9,7 +9,7 @@
     <NuxtLink
       v-if="prev"
       :to="'/'"
-      class="flex items-center justify-start font-bold text-primary-500 hover:underline"
+      class="flex items-center justify-start font-bold text-green-500 hover:underline"
     >
       <IconArrowLeft class="flex-shrink-0 w-4 h-4 mr-1" />
       <span class="truncate">{{ prev.title }}</span>
@@ -19,7 +19,7 @@
     <NuxtLink
       v-if="next"
       :to="'/'"
-      class="flex items-center justify-end font-bold text-primary-500 hover:underline"
+      class="flex items-center justify-end font-bold text-green-500 hover:underline"
     >
       <span class="truncate">{{ next.title }}</span>
       <IconArrowRight class="flex-shrink-0 w-4 h-4 ml-1" />

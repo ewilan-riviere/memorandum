@@ -1,9 +1,7 @@
 <template>
-  <!--
-  Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
-  Read the documentation to get started: https://tailwindui.com/documentation
--->
-  <footer class="bg-white">
+  <footer
+    class="relative w-full h-16 bg-white border-t dark:border-gray-800 dark:bg-gray-900"
+  >
     <div
       class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8"
     >
@@ -132,6 +130,22 @@
           </svg>
         </a>
       </div>
+      <div class="container w-max-content">
+        <div>
+          {{ $colorMode.preference }}
+        </div>
+        <div class="flex">
+          <div
+            v-for="mode in modes"
+            :key="mode.id"
+            :class="$colorMode.preference === mode ? 'bg-gray-300' : ''"
+            class="p-2 mr-1 transition-colors duration-300 rounded-md cursor-pointer hover:bg-gray-400"
+            @click="changeMode(mode)"
+          >
+            <icon :name="`mode-${mode}`" :size="30" />
+          </div>
+        </div>
+      </div>
       <p class="mt-8 text-base leading-6 text-center text-gray-400">
         &copy; 2020 Workflow, Inc. All rights reserved.
       </p>
@@ -142,5 +156,20 @@
 <script>
 export default {
   name: 'AppFooter',
+  data() {
+    return {
+      modes: ['system', 'light', 'dark', 'sepia'],
+    }
+  },
+  mounted() {
+    this.$colorMode.preference = 'system'
+  },
+  methods: {
+    changeMode(mode) {
+      this.$colorMode.preference = mode
+    },
+  },
 }
 </script>
+
+<style lang="scss" scoped></style>
