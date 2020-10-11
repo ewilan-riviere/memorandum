@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Home from '~/pages/index'
 import DocumentationType from '~/pages/documentation/_type'
 import DocumentationSlug from '~/pages/documentation/_slug'
+import DocumentationMd from '~/pages/documentation/_md'
 import Guides from '~/pages/guides/index'
 import GuidesSlug from '~/pages/guides/_slug'
 
@@ -27,6 +28,11 @@ export function createRouter() {
         name: 'documentation-slug',
         path: '/documentation/:type/:category?/:slug',
         component: DocumentationSlug,
+      },
+      {
+        name: 'documentation-md',
+        path: '/documentation/:type/:category?/:slug/:md',
+        component: DocumentationMd,
       },
       {
         name: 'guides',

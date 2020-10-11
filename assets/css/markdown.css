@@ -16,7 +16,7 @@
     @apply relative;
     /* Style copy button added in `pages/_.vue` */
     & > .copy {
-      @apply absolute bottom-0 right-0 hidden px-2 py-2 mb-3 mr-3 text-sm font-semibold leading-none text-white uppercase bg-gray-800 border border-white rounded-md shadow-lg;
+      @apply absolute top-0 right-0 px-2 py-2 mt-3 mr-3 text-sm font-semibold leading-none text-white uppercase transition-opacity duration-300 bg-gray-800 border border-white rounded-md shadow-lg opacity-0;
 
       &:hover {
         @apply bg-gray-700;
@@ -28,7 +28,7 @@
     }
     &:hover {
       & > .copy {
-        @apply block;
+        @apply opacity-100;
       }
     }
   }
@@ -119,8 +119,6 @@
 }
 .nuxt-content pre {
   @apply rounded-md;
-  /* word-break: break-all !important; */
-  /* white-space: break-spaces !important; */
 }
 .nuxt-content pre::after {
   @apply hidden !important;

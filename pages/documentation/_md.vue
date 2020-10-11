@@ -9,7 +9,7 @@
             {{ $t($route.params.slug) }}
           </h3>
           <ul>
-            <nuxt-link
+            <!-- <nuxt-link
               v-for="(guide, guideId) in guides"
               :key="guideId"
               :class="{
@@ -31,32 +31,30 @@
               >
                 {{ $t(guide.title ? guide.title : guide.slug) }}
               </span>
-            </nuxt-link>
+            </nuxt-link> -->
           </ul>
         </li>
       </div>
       <article slot="main" class="max-w-none lg:px-8">
         <transition name="fade">
-          <div v-if="currentGuide">
+          <div v-if="guide">
             <h1 class="flex items-center justify-between">
               <div class="text-4xl font-quicksand title">
-                {{
-                  currentGuide.title ? currentGuide.title : currentGuide.slug
-                }}
+                {{ guide.title ? guide.title : guide.slug }}
               </div>
             </h1>
 
             <img
-              v-if="currentGuide.image"
-              :src="`/images/documentation/${currentGuide.image}`"
+              v-if="guide.image"
+              :src="`/images/documentation/${guide.image}`"
               class="w-64 mt-10"
             />
             <p
               class="my-10 italic text-gray-500 word-wraping"
-              v-html="currentGuide.description"
+              v-html="guide.description"
             ></p>
             <div class="my-10 nuxt-content-container">
-              <nuxt-content :document="currentGuide" />
+              <nuxt-content :document="guide" />
             </div>
           </div>
         </transition>
@@ -70,7 +68,7 @@
           </h3>
           <ul class="scrollactive-nav">
             <li
-              v-for="link of currentGuide.toc"
+              v-for="link of guide.toc"
               :key="link.id"
               :class="{ toc2: link.depth === 2, toc3: link.depth === 3 }"
               class="text-gray-700 border-t border-dashed dark:text-gray-300 dark:border-gray-800 first:border-t-0"
@@ -93,37 +91,9 @@
 export default {
   name: 'GuidesSlug',
   async asyncData({ $content, params }) {
-    const guides = await $content(
-      `documentation/${params.type}/${params.category}/${params.slug}`,
-      {
-        deep: true,
-      }
-    )
-      .only(['title', 'slug', 'date'])
-      .sortBy('slug')
-      .fetch()
-
-    return { guides }
-  },
-  data() {
-    return {
-      currentGuide: {},
-    }
-  },
-  mounted() {
-    if (this.guides[0] === undefined) {
-      this.currentGuide = this.guides
-    } else {
-      this.currentGuide = this.guides[0]
-    }
-  },
-  methods: {
-    changeGuide(guide) {
-      this.currentGuide = false
-      setTimeout(() => {
-        this.currentGuide = guide
-      }, 250)
-    },
+    const doc = `documentation/${params.type}/${params.category}/${params.slug}/${params.md}`
+    const guide = await $content(doc, { deep: true }).fetch()
+    return { guide }
   },
   head() {
     return {

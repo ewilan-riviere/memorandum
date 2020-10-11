@@ -102,6 +102,7 @@
             v{{ this.$store.state.settings.version }}
           </span>
           <div class="flex items-center">
+            <div>break</div>
             <a
               :href="`https://twitter.com/${this.$store.state.settings.twitter}`"
               target="_blank"
@@ -209,4 +210,12 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style>
+.nuxt-content pre {
+  word-break: break-all !important;
+  white-space: break-spaces !important;
+}
+.nuxt-content code {
+  padding-left: 0;
+}
+</style>
