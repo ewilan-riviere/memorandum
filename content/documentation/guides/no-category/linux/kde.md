@@ -1,4 +1,13 @@
-# Setup
+---
+# image: nuxtjs.jpg
+title: 'KDE'
+# description: "Build your next Vue.js application with confidence using NuxtJS. An open source framework making web development simple and powerful."
+# tags: ['vue', 'js', 'framework']
+# date: 2020-05-03
+# icon: launch
+# ribbon: popular
+# author: 'Ewilan Rivière'
+---
 
 Install KDE Plasma with some basic apps and redshift for blue light management (you can control with a widget in systray)
 
@@ -58,9 +67,25 @@ Example:
 ```bash
 sudo snap remove gnome-3-26-1604 gnome-calculator gnome-characters gnome-logs gnome-system-monitor
 ```
+
 ```bash
 sudo umount /snap/core/6350
 ```
+
 ```bash
 sudo apt purge snapd
 ```
+
+## Switch HDMI
+
+<https://www.simplified.guide/kde/automatically-run-program-on-startup>
+
+disable sleep ->systemtray->disable power management
+
+KDE Settings
+Multimedia->Audio Volume->Advanced
+
+Built-in Audio
+
+- Analog Stereo Output
+- Digital Stereo (HDMI) Output

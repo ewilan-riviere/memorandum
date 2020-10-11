@@ -1,4 +1,7 @@
-# Introduction
+---
+# image: nuxtjs.jpg
+title: 'Tips & tricks'
+---
 
 ## Decode / Encode HTML entities
 

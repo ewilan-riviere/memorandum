@@ -50,12 +50,41 @@
                 </div>
                 <input
                   id="search"
+                  v-model="query"
                   placeholder="Ask to Memo..."
                   type="search"
                   autocomplete="off"
                   value=""
-                  class="block w-full py-2 pl-10 pr-3 leading-5 text-gray-700 placeholder-gray-500 truncate bg-gray-200 border border-transparent rounded-md dark:text-white dark-focus:text-white focus:border-gray-300 dark-focus:border-gray-700 focus:outline-none focus:bg-white dark-focus:bg-gray-900 dark:bg-gray-800"
+                  class="block w-full py-2 pl-10 pr-3 leading-5 text-gray-700 placeholder-gray-500 truncate transition-colors duration-300 bg-gray-200 border border-transparent rounded-md dark:text-white dark-focus:text-white focus:border-gray-300 dark-focus:border-gray-700 focus:outline-none focus:bg-white dark-focus:bg-gray-900 dark:bg-gray-800"
                 />
+                <transition name="fade">
+                  <ul
+                    v-if="articles.length"
+                    v-click-outside="hideSearch"
+                    class="absolute w-full p-3 bg-white border-b-2 border-l-2 border-r-2 border-gray-200 shadow-xl rounded-b-md"
+                  >
+                    <li
+                      v-for="article of articles"
+                      :key="article.slug"
+                      class="my-1 transition-colors duration-300 hover:bg-gray-200"
+                    >
+                      <NuxtLink
+                        :to="{
+                          name: 'blog-slug',
+                          params: { slug: article.slug },
+                        }"
+                        class="flex justify-between p-2"
+                      >
+                        <span>{{
+                          article.title ? article.title : article.slug
+                        }}</span>
+                        <span>{{
+                          article.description ? article.description : '...'
+                        }}</span>
+                      </NuxtLink>
+                    </li>
+                  </ul>
+                </transition>
               </div>
             </div>
             <ul
@@ -67,14 +96,14 @@
           </div>
         </div>
         <div class="flex items-center justify-between pl-8 lg:w-1/5">
-          <a
-            href="/releases"
+          <span
             class="mr-4 text-base font-semibold leading-none text-gray-700 dark:text-gray-300 hover:text-primary-500 dark-hover:text-primary-500"
-            >v1.9.0</a
           >
+            v{{ this.$store.state.settings.version }}
+          </span>
           <div class="flex items-center">
             <a
-              href="https://twitter.com/@nuxt_js"
+              :href="`https://twitter.com/${this.$store.state.settings.twitter}`"
               target="_blank"
               rel="noopener noreferrer"
               title="Twitter"
@@ -95,12 +124,12 @@
                 ></path></svg
             ></a>
             <a
-              href="https://github.com/nuxt/content"
+              :href="`https://github.com/${this.$store.state.settings.github}/${this.$store.state.settings['github-repository']}`"
               target="_blank"
               rel="noopener noreferrer"
               title="Github"
               name="Github"
-              class="hidden ml-4 text-gray-700 dark:text-gray-300 hover:text-primary-500 dark-hover:text-primary-500 lg:block"
+              class="hidden ml-4 text-gray-700 transition-colors duration-300 dark:text-gray-300 hover:text-primary-500 dark-hover:text-primary-500 lg:block"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -139,7 +168,45 @@
 </template>
 
 <script>
-export default {}
+import ClickOutside from 'vue-click-outside'
+
+export default {
+  name: 'AppNavbar',
+  directives: {
+    ClickOutside,
+  },
+  data() {
+    return {
+      query: '',
+      articles: [],
+    }
+  },
+  watch: {
+    async query(query) {
+      if (!query) {
+        this.articles = []
+        return
+      }
+
+      const articles = await this.$content('documentation', { deep: true })
+        .only(['title', 'slug'])
+        .sortBy('createdAt', 'asc')
+        .limit(12)
+        .search(query)
+        .fetch()
+
+      console.log(articles)
+
+      this.articles = articles
+    },
+  },
+  methods: {
+    hideSearch() {
+      this.articles = []
+      this.query = ''
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped></style>

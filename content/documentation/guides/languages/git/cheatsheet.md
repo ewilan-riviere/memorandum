@@ -1,4 +1,7 @@
-# Git
+---
+# image: nuxtjs.jpg
+title: 'Cheatsheet'
+---
 
 ## Conflicts with end of file
 

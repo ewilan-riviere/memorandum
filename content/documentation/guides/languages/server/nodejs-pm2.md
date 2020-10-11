@@ -9,8 +9,6 @@ Unlike PHP app, which just need to have Nginx/Apache configuration, a NodeJS app
 > **In this example, we take a repository called `portfolio-front`, a NuxtJS app**
 > You can find it here [GitHub](https://github.com/ewilan-riviere/portfolio-front)
 > I choose to define Nginx directory to /home/user/www/
-
-
 > The domain used is `ewilan-riviere.com` with some differents subdomains
 
 ## 1. Create Nginx configuration
@@ -18,6 +16,7 @@ Unlike PHP app, which just need to have Nginx/Apache configuration, a NodeJS app
 You need to have a **domain** and **Nginx**. The configuration of Nginx is light but necessary to allow **PM2** to serve it on this domain.
 
 <vue-code-info ext="nginx" path="/etc/nginx/sites-available/portfolio"></vue-code-info>
+
 ```nginx{2,6}
 server {
     server_name portfolio.ewilan-riviere.com;
@@ -32,6 +31,7 @@ server {
 With this config, `server_name` is the domain to host project and `proxy_pass` have a specific port will be used by PM2 (use one specific port by app like *3001*, *3002*...).
 
 :::tip
+
 ```bash
 # activate new nginx config
 sudo ln -s /etc/nginx/sites-available/portfolio /etc/nginx/sites-enabled
@@ -51,6 +51,7 @@ If you have this output, everything is fine, otherwise you will have some infos 
 # reload nginx
 sudo service nginx reload
 ```
+
 :::
 
 ## 2. Install and config PM2
@@ -66,6 +67,7 @@ npm install pm2@latest -g
 PM2 is now available on your server, you can use it on different ways but here, we use *ecosystem* solution. With this, it's easy to maintain a lot of NodeJS app with just JSON. You have just to create `ecosystem.config.js` anywhere on your server:
 
 <vue-code-info ext="js" path="/home/user/ecosystem.config.js"></vue-code-info>
+
 ```js
 module.exports = {
   apps : [
@@ -90,6 +92,7 @@ module.exports = {
 In this example, portfolio-front is a NuxtJS app with theses scripts into package.json:
 
 <vue-code-info ext="json" path="/home/user/www/portfolio-front/package.json"></vue-code-info>
+
 ```json
 {
   //...

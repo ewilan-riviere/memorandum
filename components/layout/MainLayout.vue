@@ -11,18 +11,19 @@
             <perfect-scrollbar>
               <ul class="p-4 lg:py-8 lg:pl-0 lg:pr-8">
                 <transition name="fade">
-                  <li
+                  <h3
                     v-if="$route.name !== 'home'"
-                    class="flex items-center p-2 pl-2 mb-2 font-bold transition-colors duration-300 border-l-2 border-transparent cursor-pointer hover:bg-opacity-25 hover:border-green-400 rounded-tr-md rounded-br-md hover:bg-green-300"
+                    class="flex items-center px-3 py-1 mb-3 text-sm font-bold tracking-wider text-gray-500 uppercase transition-colors duration-300 border-l-2 border-gray-200 cursor-pointer rounded-tr-md rounded-br-md lg:text-xs group hover:border-gray-300 hover:bg-gray-100"
                     @click="$router.back()"
                   >
-                    <h3
-                      class="flex items-center text-sm font-bold tracking-wider text-gray-500 uppercase lg:text-xs"
-                    >
-                      <icon name="arrow-left" :size="15" />
-                      <span class="ml-2">Back</span>
-                    </h3>
-                  </li>
+                    <span>Back</span>
+                    <icon
+                      name="arrow-top"
+                      :size="25"
+                      class="ml-1"
+                      svg-class="transition-transform duration-300 transform group-hover:-translate-y-1"
+                    />
+                  </h3>
                 </transition>
                 <slot name="aside"></slot>
               </ul>
@@ -52,6 +53,9 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import AppCopyButton from '@/components/global/markdown/AppCopyButton'
+
 export default {
   name: 'MainLayout',
   props: {
@@ -59,6 +63,32 @@ export default {
       type: Boolean,
       default: true,
     },
+  },
+  mounted() {
+    // const paragraphs = document.querySelectorAll('p')
+    // paragraphs.forEach((paragraph) => {
+    //   paragraph.setAttribute('lang', 'fr')
+    // })
+    // const titlesH2 = document.querySelectorAll('h2')
+    // const titlesH3 = document.querySelectorAll('h3')
+    // titlesH2.forEach((title) => {
+    //   const id = title.getAttribute('id')
+    //   title.setAttribute('id', `title-${this.$slugify(id)}`)
+    // })
+    // titlesH3.forEach((title) => {
+    //   const id = title.getAttribute('id')
+    //   title.setAttribute('id', `title-${this.$slugify(id)}`)
+    // })
+
+    setTimeout(() => {
+      const blocks = document.getElementsByClassName('nuxt-content-highlight')
+
+      for (const block of blocks) {
+        const CopyButton = Vue.extend(AppCopyButton)
+        const component = new CopyButton().$mount()
+        block.appendChild(component.$el)
+      }
+    }, 100)
   },
 }
 </script>

@@ -4,7 +4,7 @@
 
 For *Sony Bravia* television.
 
-- **1** : 
+- **1** :
 - **2** : *Switch*
 - **3** : *Chromecast*
 - **4** : *Raspberry*

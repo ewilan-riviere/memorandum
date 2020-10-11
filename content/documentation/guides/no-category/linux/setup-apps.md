@@ -1,6 +1,7 @@
-# 📦 Install applications
-
-[[toc]]
+---
+# image: nuxtjs.jpg
+title: '📦 Install applications'
+---
 
 ## 1. NPM: global installations
 

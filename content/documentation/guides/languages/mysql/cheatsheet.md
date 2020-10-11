@@ -1,4 +1,7 @@
-# MySQL
+---
+# image: nuxtjs.jpg
+title: 'MySQL'
+---
 
 ## Database importation
 

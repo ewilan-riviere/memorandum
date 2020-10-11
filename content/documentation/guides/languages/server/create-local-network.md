@@ -33,7 +33,7 @@ You will have this output with some variations:
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
        valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host 
+    inet6 ::1/128 scope host
        valid_lft forever preferred_lft forever
 2: enp3s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN group default qlen 1000
     link/ether 6c:2b:59:70:38:4d brd ff:ff:ff:ff:ff:ff
@@ -41,11 +41,12 @@ You will have this output with some variations:
     link/ether ec:5c:68:48:9f:fb brd ff:ff:ff:ff:ff:ff
     inet 192.168.1.36/24 brd 192.168.1.255 scope global dynamic noprefixroute wlp4s0
        valid_lft 83517sec preferred_lft 83517sec
-    inet6 fe80::c8b6:69c0:eb8f:a11c/64 scope link noprefixroute 
+    inet6 fe80::c8b6:69c0:eb8f:a11c/64 scope link noprefixroute
        valid_lft forever preferred_lft forever
 ```
 
-**About this output**: 
+**About this output**:
+
 - `1: lo:` loopack, it's not important here
 - `2: enp3s0:` ethernet, in this example we can note `NO-CARRIER` because no ethernet cable is connected
 - `3: wlp4s0` wifi, in this example we can note `192.168.1.36`

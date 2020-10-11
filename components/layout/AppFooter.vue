@@ -3,57 +3,16 @@
     class="relative w-full h-16 bg-white border-t dark:border-gray-800 dark:bg-gray-900"
   >
     <div
-      class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8"
+      class="max-w-screen-xl px-4 py-6 mx-auto space-y-2 overflow-hidden sm:px-6 lg:px-8"
     >
-      <nav class="flex flex-wrap justify-center -mx-5 -my-2">
-        <div class="px-5 py-2">
-          <a
-            href="#"
-            class="text-base leading-6 text-gray-500 hover:text-gray-900"
-          >
-            About
-          </a>
-        </div>
-        <div class="px-5 py-2">
-          <a
-            href="#"
-            class="text-base leading-6 text-gray-500 hover:text-gray-900"
-          >
-            Blog
-          </a>
-        </div>
-        <div class="px-5 py-2">
-          <a
-            href="#"
-            class="text-base leading-6 text-gray-500 hover:text-gray-900"
-          >
-            Jobs
-          </a>
-        </div>
-        <div class="px-5 py-2">
-          <a
-            href="#"
-            class="text-base leading-6 text-gray-500 hover:text-gray-900"
-          >
-            Press
-          </a>
-        </div>
-        <div class="px-5 py-2">
-          <a
-            href="#"
-            class="text-base leading-6 text-gray-500 hover:text-gray-900"
-          >
-            Accessibility
-          </a>
-        </div>
-        <div class="px-5 py-2">
-          <a
-            href="#"
-            class="text-base leading-6 text-gray-500 hover:text-gray-900"
-          >
-            Partners
-          </a>
-        </div>
+      <nav class="flex justify-center mx-auto w-max-content">
+        <a
+          v-for="link in footerLinks"
+          :key="link.id"
+          class="px-5 py-2 font-semibold text-gray-400 transition-colors duration-300 rounded-md hover:bg-gray-200 hover:text-gray-800"
+        >
+          {{ link.label }}
+        </a>
       </nav>
       <!-- <div class="flex justify-center mt-8 space-x-6">
         <a href="#" class="text-gray-400 hover:text-gray-500">
@@ -147,41 +106,49 @@
         </div>
       </div> -->
       <div
-        class="flex items-center justify-center mt-8 text-base leading-6 text-center text-gray-400 group"
+        class="flex items-center justify-center text-base text-center text-gray-400"
       >
         <div class="flex items-center w-max-content">
           <a
-            href="https://creativecommons.org/"
+            href="https://creativecommons.org"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center justify-center px-1 py-2 text-base leading-6 text-center text-gray-400 transition-colors duration-300 rounded-md hover:bg-gray-200"
+            class="flex items-center justify-center px-1 py-2 text-base leading-6 text-center text-gray-400 transition-colors duration-300 rounded-md hover:text-gray-600"
           >
             <icon
               v-for="icon in copyrights"
               :key="icon.id"
               :name="icon"
-              :size="16"
+              :size="20"
               class="mr-1"
             />
           </a>
-          <div class="flex items-center ml-1">
-            <a
-              href="https://creativecommons.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex items-center justify-center px-1 py-2 text-base leading-6 text-center text-gray-400 transition-colors duration-300 rounded-md hover:bg-gray-200"
-            >
-              {{ date }} · Ewilan Rivière. MIT License,
-            </a>
-            <a
-              href="https://creativecommons.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex items-center justify-center px-1 py-2 text-base leading-6 text-center text-gray-400 transition-colors duration-300 rounded-md hover:bg-gray-200"
-            >
-              built with NuxtJS.
-            </a>
-          </div>
+          <a
+            :href="license"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center px-1 py-2 text-base leading-6 text-center text-gray-400 transition-colors duration-300 rounded-md hover:text-gray-600"
+          >
+            {{ date }} · {{ $store.state.settings.author }}. MIT License,
+          </a>
+          <a
+            href="https://nuxtjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center px-1 py-2 text-base leading-6 text-center text-gray-400 transition-colors duration-300 rounded-md hover:nuxt-icon group hover:text-gray-600"
+          >
+            built with
+            <icon name="nuxt" :size="20" class="mx-1" />
+            <span class="font-medium font-quicksand">
+              <span
+                class="transition-colors duration-300 group-hover:text-gray-nuxt"
+                >NUXT</span
+              ><span
+                class="transition-colors duration-300 group-hover:text-green-nuxt"
+                >JS</span
+              ></span
+            >.
+          </a>
         </div>
       </div>
     </div>
@@ -194,6 +161,20 @@ export default {
   data() {
     return {
       modes: ['system', 'light', 'dark', 'sepia'],
+      footerLinks: [
+        {
+          label: 'About',
+          route: 'home',
+        },
+        {
+          label: 'Documentation',
+          route: 'home',
+        },
+        {
+          label: 'Articles',
+          route: 'home',
+        },
+      ],
       copyrights: [
         'creative-commons',
         'creative-commons-by',
@@ -202,6 +183,11 @@ export default {
     }
   },
   computed: {
+    license() {
+      console.log()
+      const license = `https://github.com/${this.$store.state.settings.github}/${this.$store.state.settings['github-repository']}/blob/master/LICENSE`
+      return license
+    },
     date() {
       const begin = 2019
       const dateCopy = `2019 - ${new Date().getFullYear()}`
@@ -222,4 +208,19 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+@variants hover {
+  /deep/ path {
+    @apply transition-colors duration-300;
+  }
+  /deep/ .nuxt-icon:hover path:nth-child(1) {
+    fill: #00c58e;
+  }
+  /deep/ .nuxt-icon:hover path:nth-child(2) {
+    fill: #2f495e;
+  }
+  /deep/ .nuxt-icon:hover path:nth-child(3) {
+    fill: #108775;
+  }
+}
+</style>

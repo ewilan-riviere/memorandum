@@ -40,6 +40,7 @@ Use shortcut <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>P</kbd> and search `JSON` t
     // ...
 
 }
+
 ```
 </vue-code-info>
 
@@ -53,6 +54,7 @@ To use `vue` command, install it with:
 ```bash
 yarn global add @vue/cli
 ```
+
 :::
 
 ### III. A. On existing project
@@ -186,6 +188,7 @@ indent_size = 4
 [*.vue]
 indent_style = space
 indent_size = 2
+
 ```
 
 ## Vuepress
@@ -193,4 +196,5 @@ indent_size = 2
 ```bash
 yarn add -D @vue/eslint-config-prettier eslint eslint-config-standard eslint-config-vuepress eslint-plugin-import eslint-plugin-node eslint-plugin-prettier eslint-plugin-promise eslint-plugin-standard eslint-plugin-vue lint-staged prettier prettier-config-vuepress @vue/cli-plugin-eslint prettier-config-vuepress
 ```
+
 </vue-code-info>

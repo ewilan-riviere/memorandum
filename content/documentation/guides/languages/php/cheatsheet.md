@@ -1,4 +1,7 @@
-# Cheatsheet
+---
+# image: nuxtjs.jpg
+title: 'Cheatsheet'
+---
 
 ## Syntax
 

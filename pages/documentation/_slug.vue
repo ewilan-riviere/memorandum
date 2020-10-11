@@ -37,6 +37,16 @@
                 }}
               </div>
             </h1>
+
+            <img
+              v-if="currentGuide.image"
+              :src="`/images/documentation/${currentGuide.image}`"
+              class="w-64 mt-10"
+            />
+            <p
+              class="my-10 italic text-gray-500 word-wraping"
+              v-html="currentGuide.description"
+            ></p>
             <div class="my-10 nuxt-content-container">
               <nuxt-content :document="currentGuide" />
             </div>
@@ -74,7 +84,6 @@
 <script>
 export default {
   name: 'GuidesSlug',
-  // eslint-disable-next-line require-await
   async asyncData({ $content, params }) {
     const guides = await $content(
       `documentation/${params.type}/${params.category}/${params.slug}`,

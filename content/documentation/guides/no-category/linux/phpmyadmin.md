@@ -1,9 +1,10 @@
-# ⛵ phpMyAdmin for NGINX
+---
+# image: nuxtjs.jpg
+title: '⛵ phpMyAdmin for NGINX'
+---
 
 [Digital Ocean: phpMyAdmin with Apache](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04)
 [Digital Ocean: phpMyAdmin with Nginx](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-with-nginx-on-an-ubuntu-18-04-server)
-
-[[toc]]
 
 ```bash
 mysql -u root -p

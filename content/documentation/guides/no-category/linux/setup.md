@@ -1,4 +1,7 @@
-# 💻 Setup
+---
+# image: nuxtjs.jpg
+title: '💻 Setup'
+---
 
 This guide has been set for [**Ubuntu 18.04**](https://ubuntu.com/#download), if you have another distribution use it carefully.
 
@@ -204,6 +207,7 @@ npm install -g yarn
 ### A. Installation
 
 Install **NGINX** or **Apache2** to have VHost, check these guides
+
 - [**NGINX: LEMP**](/guides/linux/lemp/)
 - [**Apache2: LAMP**](/guides/linux/lamp/)
 

@@ -24,9 +24,11 @@ sudo apt-get install lib32z1 lib32ncurses5 libbz2-1.0:i386 libstdc++6:i386 g++ o
 
 :::tip
 With multiple jdk versions use
+
 ```bash
 sudo update-alternatives --config java
 ```
+
 :::
 
 Add this to `~/.bashrc` or `~/.zhsrc` to get access to Java version
@@ -56,6 +58,7 @@ Create an icon to launch it from your applications
 ```bash
 vim ~/.local/share/applications/androidstudio.desktop
 ```
+
 ```bash
 [Desktop Entry]
 Version=1.0
@@ -217,5 +220,5 @@ First time it will take time to download and setup all dependencies, when it wil
 
 ---
 
-- https://medium.com/better-programming/install-android-studio-in-ubuntu-b8aed675849f
-- https://docs.nativescript.org/angular/start/cli-basics
+- <https://medium.com/better-programming/install-android-studio-in-ubuntu-b8aed675849f>
+- <https://docs.nativescript.org/angular/start/cli-basics>

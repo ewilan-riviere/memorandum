@@ -5,6 +5,9 @@
     "light": "/small-icon.png",
     "dark": "/small-icon.png"
   },
+  "author": "Ewilan Rivière",
+  "version": "1.5.0",
+  "github-repository": "memorandum",
   "github": "ewilan-riviere",
   "twitter": "@ewieSwitch"
 }

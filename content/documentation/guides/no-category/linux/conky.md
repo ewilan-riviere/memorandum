@@ -1,4 +1,7 @@
-# Conky
+---
+# image: nuxtjs.jpg
+title: 'Conky'
+---
 
 ## 1. Setup
 

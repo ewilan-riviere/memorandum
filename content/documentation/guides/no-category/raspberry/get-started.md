@@ -1,4 +1,4 @@
-# Setup
+# Get Started
 
 ::: tip Basics To Begin
 
@@ -66,6 +66,7 @@ You will have two partitions `boot` & `rootfs`, you have to enable SSH.
 ```bash
 cd /media/$USER/boot/ && touch ssh
 ```
+
 ```bash
 cd /media/$USER/rootfs/boot/ && touch ssh
 ```

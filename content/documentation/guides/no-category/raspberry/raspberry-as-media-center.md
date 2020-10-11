@@ -13,13 +13,12 @@
 - Choose language, timezone...
 - For wifi configuration, if you have azerty layout, use visual keyboard
 
-
 ## 2. Configure AZERTY Keyboard layout (optional)
 
 ### 2.A. Option #1
 
 Layout for azerty keyboard is not available just after installation. You have to go into console mode. Select `Power` into menu and choose `Sortir` (`Quitter` into french). OS rebooting and when screen show OSMC logo with blue wallpaper, just press on <kbd>escape</kbd> and you will access to TTY1.  
-Now login with `osmc` and the password is `osmc`, you will change it later. Check updates and install additional layouts with: 
+Now login with `osmc` and the password is `osmc`, you will change it later. Check updates and install additional layouts with:
 
 ```bash
 sudo apt -y udpate

@@ -1,4 +1,22 @@
-# PHP FPM
+---
+# image: nuxtjs.jpg
+title: 'Setup'
+---
+
+PHP: *Hypertext Preprocessor*
+
+## PHP (for apache2)
+
+This will install LTS version of PHP
+
+```bash
+sudo apt install php libapache2-mod-php php-mysql
+sed -i 's/DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm/DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm/g' /etc/apache2/mods-enabled/dir.conf
+sudo systemctl restart apache2
+sudo apt install php-cli
+```
+
+## PHP FPM (for NGINX)
 
 When Apache use standard PHP version, NGINX use FPM version.
 
@@ -13,7 +31,7 @@ If not work, add this repository:
 
 It's will install latest **stable** version of PHP-fpm, so you will maybe need a better version. You can upgrade PHP version now and you will be able to switch between different versions.
 
-## 1. Upgrade PHP
+### 3. a. Upgrade PHP
 
 You can check PHP version with `php -v`, if you want to upgrade this version follow next steps. You have to add new source for `apt`
 
@@ -71,7 +89,7 @@ And your app will use new PHP version.
 If you change PHP version, it can be missing some extensions, if your app display an error about extension check this part : [*missing extension*](/guides/linux/phpmyadmin/#missing-extension)
 :::
 
-## 2. Switch between PHP versions
+### 3. b. Switch between PHP versions
 
 *Source: [**stackexchange.com/how-to-switch-between-php-versions-on-ubuntu-nginx**](https://magento.stackexchange.com/questions/272815/how-to-switch-between-php-versions-on-ubuntu-nginx)*
 
@@ -104,7 +122,7 @@ sudo service nginx restart
 sudo service php7.2-fpm restart
 ```
 
-## 3. Allow big files uploading
+### 3. c. Allow big files uploading
 
 NGINX default conf allow 2 Mo files max in upload, if you want to change it follow these steps
 
@@ -148,3 +166,35 @@ sudo service php7.4-fpm restart
 ```
 
 You can check with `phpinfo()`, if you don't setup it, check it here: [*Change phpMyAdmin PHP version*](/guides/linux/phpmyadmin/#_4-change-phpmyadmin-php-version)
+
+*FastCGI Process Manager*
+
+With apt source `universe`, you will have LTS version of PHP, for example (in august 2020), I have PHP 7.2
+
+Install PHP FPM 7.2 with extensions
+
+```bash
+sudo apt install -y php7.2-fpm
+```
+
+```bash
+sudo apt install -y php7.2-mbstring php7.2-common php7.2-mysql php7.2-xml php7.2-xmlrpc php7.2-curl php7.2-gd php7.2-imagick php7.2-cli php7.2-dev php7.2-imap php7.2-mbstring php7.2-opcache php7.2-soap php7.2-zip php7.2-intl -y
+```
+
+With PPA `ondrej/php`, we can install all PHP versions
+
+Add PPA to `apt`
+
+```bash
+sudo add-apt-repository -y ppa:ondrej/php && sudo apt update
+```
+
+Install PHP FPM 7.4 with extensions
+
+```bash
+sudo apt install -y php7.4-fpm
+```
+
+```bash
+sudo apt install -y php7.4-mbstring php7.4-common php7.4-mysql php7.4-xml php7.4-xmlrpc php7.4-curl php7.4-gd php7.4-imagick php7.4-cli php7.4-dev php7.4-imap php7.4-mbstring php7.4-opcache php7.4-soap php7.4-zip php7.4-intl -y
+```

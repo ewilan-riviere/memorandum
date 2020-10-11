@@ -1,4 +1,7 @@
-# 🔑 SSH Management
+---
+# image: nuxtjs.jpg
+title: '🔑 SSH Management'
+---
 
 ## Connection to server
 

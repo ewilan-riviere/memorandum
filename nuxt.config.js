@@ -6,7 +6,7 @@ export default {
     title: 'Memorandum',
     titleTemplate: '%s · Memorandum',
     htmlAttrs: {
-      lang: 'fr',
+      lang: 'en-US',
     },
     meta: [
       { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
@@ -153,6 +153,7 @@ export default {
         inlineNotes: true,
       },
       remarkPlugins: [
+        ['remark-emoji', { emoticon: true }],
         'remark-squeeze-paragraphs',
         'remark-slug',
         'remark-autolink-headings',

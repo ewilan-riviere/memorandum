@@ -54,6 +54,8 @@
     "nuxt-gsap": "^0.1.4",
     "prettier": "^2.1.1",
     "qs": "^6.9.4",
+    "remark-emoji": "^2.1.0",
+    "remark-emoji-to-gemoji": "^1.1.0",
     "tailwindcss": "^1.8.10",
     "vue-badges": "^0.1.2",
     "vue-tailwind-screens-helper": "^0.1.0"

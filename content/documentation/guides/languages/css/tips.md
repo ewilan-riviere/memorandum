@@ -1,8 +1,11 @@
-# Introduction
+---
+# image: nuxtjs.jpg
+title: 'Tips & tricks'
+---
 
 ## Flip horizontally / vertically
 
-<!-- <flip /> -->
+<flip></flip>
 
 ```css
 span {

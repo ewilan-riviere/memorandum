@@ -1,10 +1,19 @@
-# Tips
+---
+image: tailwindcss.jpg
+title: 'Tips & tricks'
+description: "Tips with Tailwind."
+tags: ['css', 'framework']
+# date: 2020-05-03
+# icon: launch
+# ribbon: popular
+# author: 'Ewilan Rivière'
+---
 
 ## Import fonts with Tailwind
 
 From [**tailwindtoolbox.com/guides/adding-fonts-to-tailwind-css**](https://www.tailwindtoolbox.com/guides/adding-fonts-to-tailwind-css)
 
-:::tip
+:::tip Visual Studio Code
 Here, I use Visual Studio Code with extension [bradlc.vscode-tailwindcss](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss). The example use NuxtJS application but it's works with anything.
 :::
 
@@ -25,8 +34,8 @@ Add font with `@font-face` to your `tailwind.css` for example
 
 ```css
 @font-face {
-  font-family: "DancingScript";
-  src: url("../fonts/DancingScript-Medium.ttf");
+    font-family: "DancingScript";
+    src: url("../fonts/DancingScript-Medium.ttf");
 }
 ```
 
@@ -38,9 +47,10 @@ Add the font to `theme.fontFamily` to `tailwind.config.js`
 
 ```js
 module.exports = {
-  theme: {
-    fontFamily: {
-      'dancing-script': ['DancingScript'],
+    theme: {
+        fontFamily: {
+            'dancing-script': ['DancingScript'],
+        }
     }
 }
 ```
@@ -61,4 +71,4 @@ And you will be able to use `font-dancing-script` auto-generate tailwind class, 
 </template>
 ```
 
-<vue-code-info>
+</vue-code-info>

@@ -1,4 +1,7 @@
-# NPM & Yarn
+---
+# image: nuxtjs.jpg
+title: 'NPM & Yarn'
+---
 
 ## Yarn
 
