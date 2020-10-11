@@ -107,5 +107,26 @@ export default {
       }, 250)
     },
   },
+  head() {
+    return {
+      title: `${this.$t(
+        this.$route.params.category.charAt(0).toUpperCase() +
+          this.$route.params.category.slice(1)
+      )}: ${this.$t(
+        this.$route.params.slug.charAt(0).toUpperCase() +
+          this.$route.params.slug.slice(1)
+      )} · Documentation for ${this.$t(
+        this.$route.params.type.charAt(0).toUpperCase() +
+          this.$route.params.type.slice(1)
+      )}`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Ma description personnalisée',
+        },
+      ],
+    }
+  },
 }
 </script>

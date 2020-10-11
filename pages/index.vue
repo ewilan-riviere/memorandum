@@ -3,7 +3,7 @@
     <main-layout>
       <div slot="aside">
         <category-collapse
-          v-for="(category, categoryId) in $store.state.content"
+          v-for="(category, categoryId) in global"
           :key="categoryId"
           :ref="`collapse-${categoryId}`"
           class="mb-4"
@@ -82,57 +82,56 @@ export default {
   },
   async asyncData({ $content, store }) {
     // eslint-disable-next-line no-unused-vars
-    let contentCategory = []
-    if (store.state.content && store.state.content.length < 1) {
-      const content = await $content('documentation', { deep: true })
-        .only(['title', 'slug', 'date'])
-        .sortBy('date', 'desc')
-        .fetch()
+    let contentCategories = []
+    // if (store.state.content && store.state.content.length < 1) {
+    const content = await $content('documentation', { deep: true })
+      .only(['title', 'slug', 'date'])
+      .sortBy('date', 'desc')
+      .fetch()
 
-      // setup categories with first part of path
-      let subCategories = []
-      content.forEach((guide) => {
-        const path = guide.path.replace('/documentation/', '').split('/')
-        const Category = {
-          label: path[0],
-          guides: [],
+    // setup categories with first part of path
+    let subCategories = []
+    content.forEach((guide) => {
+      const path = guide.path.replace('/documentation/', '').split('/')
+      const Category = {
+        label: path[0],
+        guides: [],
+      }
+      const SubCategory = {
+        label: path[1],
+        category: path[0],
+      }
+      contentCategories.push(Category)
+      subCategories.push(SubCategory)
+    })
+    // delete duplicates
+    contentCategories = contentCategories.filter(
+      (v, i, a) => a.findIndex((t) => t.label === v.label) === i
+    )
+    // alphabetic sorting
+    contentCategories.sort((a, b) => (a.label > b.label ? 1 : -1))
+
+    // delete duplicates
+    subCategories = subCategories.filter(
+      (v, i, a) => a.findIndex((t) => t.label === v.label) === i
+    )
+    // alphabetic sorting
+    subCategories.sort((a, b) => (a.label > b.label ? 1 : -1))
+
+    // add subcategory to category
+    subCategories.forEach((subCategory) => {
+      for (let i = 0; i < contentCategories.length; i++) {
+        const category = contentCategories[i]
+        if (category.label === subCategory.category) {
+          category.guides.push(subCategory)
         }
-        const SubCategory = {
-          label: path[1],
-          category: path[0],
-        }
-        contentCategory.push(Category)
-        subCategories.push(SubCategory)
-      })
-      // delete duplicates
-      contentCategory = contentCategory.filter(
-        (v, i, a) => a.findIndex((t) => t.label === v.label) === i
-      )
-      // alphabetic sorting
-      contentCategory.sort((a, b) => (a.label > b.label ? 1 : -1))
-
-      // delete duplicates
-      subCategories = subCategories.filter(
-        (v, i, a) => a.findIndex((t) => t.label === v.label) === i
-      )
-      // alphabetic sorting
-      subCategories.sort((a, b) => (a.label > b.label ? 1 : -1))
-
-      // add subcategory to category
-      subCategories.forEach((subCategory) => {
-        for (let i = 0; i < contentCategory.length; i++) {
-          const category = contentCategory[i]
-          if (category.label === subCategory.category) {
-            category.guides.push(subCategory)
-          }
-        }
-      })
-
-      store.commit('setContent', contentCategory)
-    }
+      }
+    })
+    return { contentCategories }
   },
   data() {
     return {
+      global: [],
       collapseOpened: 0,
       bullets: [
         'Explicit topics with examples',
@@ -142,11 +141,50 @@ export default {
       ],
     }
   },
+  created() {
+    this.global = this.changeOrder()
+  },
   methods: {
+    changeOrder() {
+      const itemArray = this.contentCategories
+      let itemOrder = []
+      let orderedArray = []
+      itemOrder = ['guide', 'packages', 'projects', 'safe', 'games']
+      orderedArray = this.mapOrder(itemArray, itemOrder, 'label')
+
+      return orderedArray
+    },
+    mapOrder(array, order, key) {
+      array.sort(function (a, b) {
+        const A = a[key]
+        const B = b[key]
+
+        if (order.indexOf(A) > order.indexOf(B)) {
+          return 1
+        } else {
+          return -1
+        }
+      })
+
+      return array
+    },
     changeCollapse(categoryId) {
       this.$refs[`collapse-${this.collapseOpened}`][0].toggle()
       this.collapseOpened = categoryId
     },
+  },
+  head() {
+    return {
+      // title: '',
+      titleTemplate: 'Memorandum',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Ma description personnalisée',
+        },
+      ],
+    }
   },
 }
 </script>

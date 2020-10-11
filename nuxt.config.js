@@ -3,8 +3,8 @@ require('dotenv').config()
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'Accueil',
-    titleTemplate: '%s · Useweb Blog tech',
+    title: 'Memorandum',
+    titleTemplate: '%s · Memorandum',
     htmlAttrs: {
       lang: 'fr',
     },

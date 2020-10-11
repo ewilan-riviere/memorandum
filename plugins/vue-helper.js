@@ -59,3 +59,8 @@ const translate = (key) => {
 }
 
 Vue.prototype.$t = translate
+
+// eslint-disable-next-line no-extend-native
+Array.prototype.move = function (from, to) {
+  this.splice(to, 0, this.splice(from, 1)[0])
+}

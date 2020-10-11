@@ -43,6 +43,23 @@
       </div>
       <article slot="main" class="max-w-none lg:px-8">
         <h1 class="flex items-center justify-between">
+          <div class="text-4xl font-quicksand title">
+            {{
+              documentationPresentation.title
+                ? documentationPresentation.title
+                : documentationPresentation.slug
+            }}
+          </div>
+        </h1>
+
+        <img
+          :src="`/images/documentation/${documentationPresentation.image}`"
+          class="w-64 mt-10"
+        />
+        <div class="my-10 nuxt-content-container">
+          <nuxt-content :document="documentationPresentation" />
+        </div>
+        <!-- <h1 class="flex items-center justify-between">
           <div class="text-4xl font-quicksand title">Welcome</div>
         </h1>
         <div class="my-10 nuxt-content-container">
@@ -67,8 +84,7 @@
           </div>
           <div class="mt-5 text-xl font-handlee-regular">
             <div class="ml-auto w-max-content">Ewilan Rivière</div>
-          </div>
-        </div>
+          </div> -->
       </article>
     </main-layout>
   </div>
@@ -92,7 +108,9 @@ export default {
       .sortBy('date', 'desc')
       .fetch()
 
-    console.log(documentation)
+    const documentationPresentation = await $content(
+      `doc-cover/${params.type}`
+    ).fetch()
 
     // setup categories with first part of path
     let subCategories = []
@@ -136,7 +154,7 @@ export default {
     })
 
     // store.commit('setGuides', categories)
-    return { categories }
+    return { categories, documentationPresentation }
     // }
   },
   data() {
@@ -154,6 +172,21 @@ export default {
         this.currentGuide = guide
       }, 250)
     },
+  },
+  head() {
+    return {
+      title: `Documentation for ${this.$t(
+        this.$route.params.type.charAt(0).toUpperCase() +
+          this.$route.params.type.slice(1)
+      )}`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Ma description personnalisée',
+        },
+      ],
+    }
   },
 }
 </script>

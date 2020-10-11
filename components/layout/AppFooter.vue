@@ -55,7 +55,7 @@
           </a>
         </div>
       </nav>
-      <div class="flex justify-center mt-8 space-x-6">
+      <!-- <div class="flex justify-center mt-8 space-x-6">
         <a href="#" class="text-gray-400 hover:text-gray-500">
           <span class="sr-only">Facebook</span>
           <svg
@@ -129,8 +129,8 @@
             />
           </svg>
         </a>
-      </div>
-      <div class="container w-max-content">
+      </div> -->
+      <!-- <div class="container w-max-content">
         <div>
           {{ $colorMode.preference }}
         </div>
@@ -145,10 +145,45 @@
             <icon :name="`mode-${mode}`" :size="30" />
           </div>
         </div>
+      </div> -->
+      <div
+        class="flex items-center justify-center mt-8 text-base leading-6 text-center text-gray-400 group"
+      >
+        <div class="flex items-center w-max-content">
+          <a
+            href="https://creativecommons.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center px-1 py-2 text-base leading-6 text-center text-gray-400 transition-colors duration-300 rounded-md hover:bg-gray-200"
+          >
+            <icon
+              v-for="icon in copyrights"
+              :key="icon.id"
+              :name="icon"
+              :size="16"
+              class="mr-1"
+            />
+          </a>
+          <div class="flex items-center ml-1">
+            <a
+              href="https://creativecommons.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center px-1 py-2 text-base leading-6 text-center text-gray-400 transition-colors duration-300 rounded-md hover:bg-gray-200"
+            >
+              {{ date }} · Ewilan Rivière. MIT License,
+            </a>
+            <a
+              href="https://creativecommons.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center px-1 py-2 text-base leading-6 text-center text-gray-400 transition-colors duration-300 rounded-md hover:bg-gray-200"
+            >
+              built with NuxtJS.
+            </a>
+          </div>
+        </div>
       </div>
-      <p class="mt-8 text-base leading-6 text-center text-gray-400">
-        &copy; 2020 Workflow, Inc. All rights reserved.
-      </p>
     </div>
   </footer>
 </template>
@@ -159,7 +194,22 @@ export default {
   data() {
     return {
       modes: ['system', 'light', 'dark', 'sepia'],
+      copyrights: [
+        'creative-commons',
+        'creative-commons-by',
+        'creative-commons-nc',
+      ],
     }
+  },
+  computed: {
+    date() {
+      const begin = 2019
+      const dateCopy = `2019 - ${new Date().getFullYear()}`
+      if (begin === new Date().getFullYear()) {
+        return begin
+      }
+      return dateCopy
+    },
   },
   mounted() {
     this.$colorMode.preference = 'system'

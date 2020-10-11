@@ -25,7 +25,7 @@ export function createRouter() {
       },
       {
         name: 'documentation-slug',
-        path: '/documentation/:type/:category/:slug',
+        path: '/documentation/:type/:category?/:slug',
         component: DocumentationSlug,
       },
       {
