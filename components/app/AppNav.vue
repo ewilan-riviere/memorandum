@@ -37,7 +37,7 @@
                 <client-only>
                   <span
                     v-if="isNew(doc)"
-                    class="w-2 h-2 rounded-full opacity-75 animate-pulse bg-green-500"
+                    class="w-2 h-2 bg-green-500 rounded-full opacity-75 animate-pulse"
                   />
                 </client-only>
               </NuxtLink>
@@ -117,7 +117,6 @@ export default {
   },
   async created() {
     const categories = await this.getPosts()
-    console.log(categories)
     this.categories = categories
   },
   methods: {

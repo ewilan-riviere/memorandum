@@ -2,30 +2,11 @@
   <div>
     <div
       :class="{
-        'border-l-2 pl-2 bg-green-300 bg-opacity-50 border-green-600': opened,
+        'pl-2 bg-green-300 bg-opacity-50 border-green-600': opened,
       }"
-      class="flex items-center p-2 mb-2 font-bold transition-colors duration-300 cursor-pointer rounded-tr-md rounded-br-md hover:bg-gray-200"
+      class="flex items-center p-2 mb-2 font-bold transition-colors duration-300 bg-gray-100 border-l-2 border-gray-400 cursor-pointer rounded-tr-md rounded-br-md hover:bg-gray-200"
       @click="opened = !opened"
     >
-      <!-- <icon
-        name="arrow-right"
-        :size="20"
-        :class="{ rotate: opened }"
-        class="mr-2 transition-transform duration-300"
-      />
-      <div class="w-full">
-        <span v-if="label" class="flex items-center justify-between">
-          <div>
-            {{ label }}
-          </div>
-          <small>
-            {{ opened ? 'Réduire' : 'Ouvrir' }}
-          </small>
-        </span>
-        <span v-else>
-          {{ opened ? 'Réduire' : 'Ouvrir' }}
-        </span>
-      </div> -->
       <slot name="title"></slot>
     </div>
     <transition-expand>
@@ -56,6 +37,11 @@ export default {
   },
   mounted() {
     this.opened = this.expanded
+  },
+  methods: {
+    toggle() {
+      this.opened = !this.opened
+    },
   },
 }
 </script>

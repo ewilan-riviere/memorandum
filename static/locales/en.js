@@ -6,8 +6,8 @@ module.exports = {
   kde: 'KDE',
 
   // header nav
-  guides: 'Guides',
-  games: 'Games',
+  '1-guides': '1. Guides',
+  '2-games': '2. Games',
 
   // Categories
   frameworks: 'Frameworks',

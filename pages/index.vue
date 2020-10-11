@@ -2,36 +2,41 @@
   <div>
     <main-layout>
       <div slot="aside">
-        <li
+        <category-collapse
           v-for="(category, categoryId) in $store.state.content"
           :key="categoryId"
+          :ref="`collapse-${categoryId}`"
           class="mb-4"
+          :expanded="categoryId === 0"
+          @click.native="changeCollapse(categoryId)"
         >
-          <category-collapse :expanded="categoryId === 0">
-            <h3
-              slot="title"
-              class="text-sm font-bold tracking-wider text-gray-500 uppercase lg:text-xs"
+          <h3
+            slot="title"
+            class="text-sm font-bold tracking-wider text-gray-500 uppercase lg:text-xs"
+          >
+            {{ $t(category.label) }}
+          </h3>
+          <ul slot="list" class="ml-2">
+            <li
+              v-for="guide in category.guides"
+              :key="guide.id"
+              class="text-gray-700 transition-colors duration-300 rounded-md dark:text-gray-300 hover:bg-green-200 hover:bg-opacity-50"
             >
-              {{ $t(category.label) }}
-            </h3>
-            <ul slot="list" class="ml-2">
-              <li
-                v-for="guide in category.guides"
-                :key="guide.id"
-                class="text-gray-700 transition-colors duration-300 rounded-md dark:text-gray-300 hover:bg-green-200 hover:bg-opacity-50"
+              <nuxt-link
+                :to="{
+                  name: 'documentation-type',
+                  params: {
+                    type: guide.category,
+                    link: guide.label,
+                  },
+                }"
+                class="flex items-center justify-between px-2 py-1 font-medium rounded hover:text-primary-500"
               >
-                <nuxt-link
-                  :to="{
-                    name: 'guides',
-                  }"
-                  class="flex items-center justify-between px-2 py-1 font-medium rounded hover:text-primary-500"
-                >
-                  {{ $t(guide.label) }}
-                </nuxt-link>
-              </li>
-            </ul>
-          </category-collapse>
-        </li>
+                {{ $t(guide.label) }}
+              </nuxt-link>
+            </li>
+          </ul>
+        </category-collapse>
       </div>
       <article slot="main" class="max-w-none lg:px-8">
         <h1 class="flex items-center justify-between">
@@ -79,17 +84,8 @@ export default {
     // eslint-disable-next-line no-unused-vars
     let contentCategory = []
     if (store.state.content && store.state.content.length < 1) {
-      console.log(process.env.npm_package_name)
       const content = await $content('documentation', { deep: true })
-        .only([
-          'title',
-          'description',
-          'image',
-          'slug',
-          'author',
-          'date',
-          'tags',
-        ])
+        .only(['title', 'slug', 'date'])
         .sortBy('date', 'desc')
         .fetch()
 
@@ -131,13 +127,13 @@ export default {
           }
         }
       })
-      console.log(contentCategory)
 
       store.commit('setContent', contentCategory)
     }
   },
   data() {
     return {
+      collapseOpened: 0,
       bullets: [
         'Explicit topics with examples',
         'Copy and paste code',
@@ -145,6 +141,12 @@ export default {
         'Built with NuxtJS',
       ],
     }
+  },
+  methods: {
+    changeCollapse(categoryId) {
+      this.$refs[`collapse-${this.collapseOpened}`][0].toggle()
+      this.collapseOpened = categoryId
+    },
   },
 }
 </script>
