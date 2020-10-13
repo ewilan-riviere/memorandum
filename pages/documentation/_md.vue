@@ -9,7 +9,7 @@
             {{ $t($route.params.slug) }}
           </h3>
           <ul>
-            <!-- <nuxt-link
+            <nuxt-link
               v-for="(guide, guideId) in guides"
               :key="guideId"
               :class="{
@@ -31,7 +31,7 @@
               >
                 {{ $t(guide.title ? guide.title : guide.slug) }}
               </span>
-            </nuxt-link> -->
+            </nuxt-link>
           </ul>
         </li>
       </div>

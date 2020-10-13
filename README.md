@@ -1,4 +1,4 @@
-# Blog Tech NuxtJS
+# Memorandum
 
 [![nuxtjs](https://img.shields.io/static/v1?label=NuxtJS&message=v2.14&color=00C58E&style=flat-square&logo=nuxt.js&logoColor=ffffff)](https://nuxtjs.org/)
 [![tailwindCSS](https://img.shields.io/static/v1?label=Tailwind%20CSS&message=v1.8&color=38B2AC&style=flat-square&logo=tailwind-css&logoColor=ffffff)](https://tailwindcss.com/)
@@ -6,12 +6,9 @@
 [![nodejs](https://img.shields.io/static/v1?label=NodeJS&message=v12.16&color=339933&style=flat-square&logo=node.js&logoColor=ffffff)](https://nodejs.org/en)
 [![yarn](https://img.shields.io/static/v1?label=Yarn&message=v1.22&color=2C8EBB&style=flat-square&logo=yarn&logoColor=ffffff)](https://classic.yarnpkg.com/lang/en/)
 
-> Blog tech pour Useweb réalisé en NuxtJS avec nuxt/content pour les articles
+![Memo](static/memo.png)
 
-- 🌐 [**blog.useweb.net**](https://blog.useweb.net) : production
-- [**nuxt/content**](https://content.nuxtjs.org/fr) : documentation
-- [**create a blog with nuxt/content**](https://fr.nuxtjs.org/blog/creating-blog-with-nuxt-content/) : tuto nuxt/content
-- [**manage images content**](https://github.com/nuxt/content/issues/106)
+> Personal documentation with snippets and boiler plates, built with NuxtJS and nuxt/content. Markdown for ever.
 
 ## Setup
 
@@ -36,7 +33,7 @@ $ yarn start
 $ yarn generate
 ```
 
-Pour des explications détaillées sur NuxtJS, voir la [documentation Nuxt.js](https://nuxtjs.org).
+To learn more, check [NuxtJS documentation](https://nuxtjs.org).
 
 ## MD tips
 

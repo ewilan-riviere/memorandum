@@ -92,6 +92,7 @@ export default {
     // setup categories with first part of path
     let subCategories = []
     content.forEach((guide) => {
+      console.log(guide)
       const path = guide.path.replace('/documentation/', '').split('/')
       const Category = {
         label: path[0],
