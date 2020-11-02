@@ -65,8 +65,6 @@ export default {
     '@nuxtjs/global-components',
     // https://github.com/pirony/nuxt-gsap
     'nuxt-gsap',
-    // https://github.com/nuxt-community/moment-module
-    '@nuxtjs/moment',
     // Doc: https://github.com/nuxt-community/router-module
     '@nuxtjs/router',
     // https://color-mode.nuxtjs.org/
@@ -75,16 +73,6 @@ export default {
 
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
-  },
-
-  moment: {
-    defaultLocale: 'fr',
-    locales: ['fr'],
-    timezone: {
-      matchZones: /Europe\/(Belfast|London|Paris|Athens)/,
-      startYear: 2000,
-      endYear: 2030,
-    },
   },
 
   colorMode: {

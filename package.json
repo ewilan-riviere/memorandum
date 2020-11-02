@@ -1,7 +1,18 @@
 {
-  "name": "blog-tech-nuxt",
-  "version": "1.0.0",
+  "name": "memorandum",
+  "version": "2.1.0",
   "private": true,
+  "author": {
+    "name": "Ewilan Rivière",
+    "email": "ewilan.riviere@gmail.com",
+    "url": "https://ewilan-riviere.com"
+  },
+  "license": "MIT",
+  "homepage": "http://memorandum.ewilan-riviere.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ewilan-riviere/memorandum"
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -41,7 +52,6 @@
     "@nuxtjs/eslint-config": "^4.0.0",
     "@nuxtjs/eslint-module": "^3.0.0",
     "@nuxtjs/global-components": "^0.6.1",
-    "@nuxtjs/moment": "^1.6.1",
     "@nuxtjs/storybook": "^3.1.0",
     "@nuxtjs/svg": "^0.1.12",
     "@nuxtjs/tailwindcss": "^3.2.0",
@@ -58,6 +68,7 @@
     "remark-emoji-to-gemoji": "^1.1.0",
     "tailwindcss": "^1.9.6",
     "vue-badges": "^0.1.2",
+    "vue-docgen-web-types": "^0.1.6",
     "vue-tailwind-screens-helper": "^0.1.0"
   }
 }
