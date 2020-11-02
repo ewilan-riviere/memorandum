@@ -3,7 +3,7 @@
     <navigation></navigation>
     <Nuxt class="pt-16" />
     <app-footer></app-footer>
-    <back-to-top />
+    <app-back-to-top />
     <client-only>
       <tailwind-helper />
     </client-only>
@@ -12,7 +12,7 @@
 
 <script>
 import AppFooter from '@/components/layout/AppFooter'
-import BackToTop from '@/components/layout/BackToTop'
+import AppBackToTop from '@/components/layout/AppBackToTop'
 import Navigation from '@/components/layout/Navigation.vue'
 import settings from '~/content/settings.json'
 
@@ -21,7 +21,7 @@ export default {
 
   components: {
     AppFooter,
-    BackToTop,
+    AppBackToTop,
     Navigation,
   },
   data() {

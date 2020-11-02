@@ -1,6 +1,6 @@
 <template>
   <main class="container px-4 mx-auto lg:px-8">
-    <div class="relative flex flex-wrap">
+    <div class="relative flex flex-wrap min-h-screen">
       <aside
         class="fixed inset-0 z-30 hidden w-full mt-16 bg-white lg:w-1/5 lg:block lg:relative lg:mt-0 dark:bg-gray-900 lg:bg-transparent lg:dark:bg-transparent"
       >

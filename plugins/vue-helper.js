@@ -1,8 +1,5 @@
 import Vue from 'vue'
 
-import translation from '~/static/locales/en'
-import { statusTranslations } from '~/static/utils/team'
-
 // slugify text
 const slugify = (text) => {
   return text
@@ -28,39 +25,3 @@ const shuffle = (a) => {
 }
 
 Vue.prototype.$shuffle = shuffle
-
-const formatUser = (user) => {
-  // id
-  const id = `${slugify(user.name.firstname)}-${slugify(user.name.lastname)}`
-  // photo
-  let photo = null
-  try {
-    photo = require(`~/static/images/members/${id}.jpg`)
-  } catch (error) {
-    photo = `https://eu.ui-avatars.com/api/?size=256&name=${user.name.firstname}+${user.name.lastname}`
-  }
-  user.photo = photo
-  // status
-  user.status =
-    statusTranslations[user.profile.type][
-      user.profile.status ? user.profile.status : 'base'
-    ][user.gender]
-
-  // name
-  user.nameComplete = `${user.name.firstname} ${user.name.lastname}`
-
-  return user
-}
-
-Vue.prototype.$formatUser = formatUser
-
-const translate = (key) => {
-  return translation[key] || key
-}
-
-Vue.prototype.$t = translate
-
-// eslint-disable-next-line no-extend-native
-Array.prototype.move = function (from, to) {
-  this.splice(to, 0, this.splice(from, 1)[0])
-}

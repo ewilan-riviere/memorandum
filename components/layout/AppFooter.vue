@@ -6,13 +6,16 @@
       class="max-w-screen-xl px-4 py-6 mx-auto space-y-2 overflow-hidden sm:px-6 lg:px-8"
     >
       <nav class="flex justify-center mx-auto w-max-content">
-        <a
+        <!-- <a
           v-for="link in footerLinks"
           :key="link.id"
           class="px-5 py-2 font-semibold text-gray-400 transition-colors duration-300 rounded-md hover:bg-gray-200 hover:text-gray-800"
         >
           {{ link.label }}
-        </a>
+        </a> -->
+        <nuxt-link to="/">
+          <logo-memo class="text-xl font-bold"></logo-memo>
+        </nuxt-link>
       </nav>
       <!-- <div class="flex justify-center mt-8 space-x-6">
         <a href="#" class="text-gray-400 hover:text-gray-500">
@@ -122,6 +125,18 @@
               :size="20"
               class="mr-1"
             />
+            <span class="ml-1">
+              {{ date(2019) }}
+            </span>
+          </a>
+          <span class="mx-1"> · </span>
+          <a
+            :href="github"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center px-1 py-2 text-base leading-6 text-center text-gray-400 transition-colors duration-300 rounded-md hover:text-gray-600"
+          >
+            {{ $store.state.settings.author }}.
           </a>
           <a
             :href="license"
@@ -129,7 +144,7 @@
             rel="noopener noreferrer"
             class="flex items-center justify-center px-1 py-2 text-base leading-6 text-center text-gray-400 transition-colors duration-300 rounded-md hover:text-gray-600"
           >
-            {{ date }} · {{ $store.state.settings.author }}. MIT License,
+            MIT License,
           </a>
           <a
             href="https://nuxtjs.org"
@@ -183,24 +198,26 @@ export default {
     }
   },
   computed: {
-    license() {
-      console.log()
-      const license = `https://github.com/${this.$store.state.settings.github}/${this.$store.state.settings['github-repository']}/blob/master/LICENSE`
-      return license
+    github() {
+      return `https://github.com/${this.$store.state.settings.github}`
     },
-    date() {
-      const begin = 2019
-      const dateCopy = `2019 - ${new Date().getFullYear()}`
-      if (begin === new Date().getFullYear()) {
-        return begin
-      }
-      return dateCopy
+    license() {
+      return `https://github.com/${this.$store.state.settings.github}/${this.$store.state.settings['github-repository']}/blob/master/LICENSE`
     },
   },
   mounted() {
     this.$colorMode.preference = 'system'
   },
   methods: {
+    date(begin) {
+      begin = parseInt(begin)
+      const current = new Date().getFullYear()
+      const year = `${begin} - ${current}`
+      if (begin === current) {
+        return begin
+      }
+      return year
+    },
     changeMode(mode) {
       this.$colorMode.preference = mode
     },
