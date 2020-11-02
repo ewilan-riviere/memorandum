@@ -68,7 +68,10 @@
     "remark-emoji-to-gemoji": "^1.1.0",
     "tailwindcss": "^1.9.6",
     "vue-badges": "^0.1.2",
-    "vue-docgen-web-types": "^0.1.6",
     "vue-tailwind-screens-helper": "^0.1.0"
-  }
+  },
+  "vetur": {
+    "tags": "./docs/tags.json",
+    "attributes": "./docs/attributes.json"
+  }  
 }

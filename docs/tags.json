@@ -1,0 +1,12 @@
+{
+    "icon": {
+        "description": "Load SVG file like vue component.",
+        "attributes": [
+            "name",
+            "size",
+            "svg",
+            "ratio",
+            "stroke"
+        ]
+    }
+}
