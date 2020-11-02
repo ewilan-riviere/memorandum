@@ -16,17 +16,22 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: 'Blog tech de Useweb',
+        content:
+          'Personal documentation, in nuxt/content, on several languages, frameworks and many other topics in web & mobile development.',
       },
-      { property: 'og:title', content: 'Useweb : Blog tech' },
-      { property: 'og:description', content: 'Blog tech de Useweb' },
-      { property: 'og:image', content: '/icon.png' },
+      { property: 'og:title', content: 'Memorandum' },
+      {
+        property: 'og:description',
+        content:
+          'Personal documentation, in nuxt/content, on several languages, frameworks and many other topics in web & mobile development.',
+      },
+      { property: 'og:image', content: '/logo/preview/preview.png' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
   loading: {
-    color: '#4a81bd',
+    color: '#800080',
     height: '5px',
   },
 
@@ -42,14 +47,12 @@ export default {
     // https://github.com/surmon-china/vue-awesome-swiper
     { src: '~/plugins/vue-awesome-swiper' },
     { src: '~/plugins/vue-scrollto' },
-    // https://github.com/ewilan-riviere/vue-badges
-    { src: '~/plugins/vue-badges', ssr: false },
-    // https://github.com/ewilan-riviere/vue-code-info
-    { src: '~/plugins/vue-code-info', ssr: false },
     // https://michalsnik.github.io/aos/
     { src: '~/plugins/aos', ssr: false },
     // https://github.com/mercs600/vue2-perfect-scrollbar
     { src: '~/plugins/vue-perfect-scrollbar', ssr: false },
+    // https://github.com/Akryum/v-tooltip
+    { src: '~/plugins/v-tooltip', ssr: false },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -69,6 +72,22 @@ export default {
     '@nuxtjs/router',
     // https://color-mode.nuxtjs.org/
     '@nuxtjs/color-mode',
+    // https://github.com/nuxt-community/html-validator-module
+    // '@nuxtjs/html-validator',
+    // https://github.com/daliborgogic/nuxt-vitals
+    [
+      'nuxt-vitals',
+      {
+        // Tracking ID (required) { string }
+        // Replace UA-XXXXXXXX-X by your Google Analytics tracking ID.
+        trackingID: 'G-Y4XJBB2RP7',
+        // Event Category (optional) { string }, default 'Web Vitals'
+        eventCategory: 'Some Category',
+        // Debug (optional) { number } default 0
+        debug: 1,
+        disabled: false,
+      },
+    ],
   ],
 
   tailwindcss: {
@@ -106,8 +125,6 @@ export default {
     '@nuxt/content',
     // https://github.com/nuxt-community/svg-module
     '@nuxtjs/svg',
-    // https://github.com/webcore-it/nuxt-clipboard2
-    'nuxt-clipboard2',
     // https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     // https://github.com/nuxt-community/recaptcha-module
@@ -172,9 +189,7 @@ export default {
     // version: 3,
   },
 
-  storybook: {
-    // Options
-  },
+  // storybook: {},
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},

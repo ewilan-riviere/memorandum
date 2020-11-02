@@ -32,9 +32,9 @@ module.exports = {
         sm: '450px',
       },
       colors: {
-        primary: '#800080',
-        'primary-dark': '#660066',
-        'primary-light': '#993299',
+        'primary-500': '#800080',
+        'primary-700': '#660066',
+        'primary-300': '#993299',
         'blue-useweb-light': '#5c8dc3',
         'blue-useweb': '#4a81bd',
         'blue-useweb-dark': '#4274aa',

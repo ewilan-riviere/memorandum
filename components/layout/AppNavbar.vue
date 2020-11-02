@@ -101,22 +101,26 @@
           </span>
           <div class="flex items-center">
             <a
+              v-tooltip="'Twitter'"
               :href="`https://twitter.com/${this.$store.state.settings.twitter}`"
               target="_blank"
               rel="noopener noreferrer"
               title="Twitter"
               name="Twitter"
-              class="hidden ml-4 text-gray-700 dark:text-gray-300 hover:text-primary-500 dark-hover:text-primary-500 lg:block"
+              class="px-2 text-gray-700 dark:text-gray-300 hover:text-primary-500 dark-hover:text-primary-500"
             >
+              <icon name="twitter-stroke" stroke />
             </a>
             <a
+              v-tooltip="'GitHub'"
               :href="`https://github.com/${this.$store.state.settings.github}/${this.$store.state.settings['github-repository']}`"
               target="_blank"
               rel="noopener noreferrer"
               title="Github"
               name="Github"
-              class="hidden ml-4 text-gray-700 transition-colors duration-300 dark:text-gray-300 hover:text-primary-500 dark-hover:text-primary-500 lg:block"
+              class="px-2 text-gray-700 transition-colors duration-300 dark:text-gray-300 hover:text-primary-500 dark-hover:text-primary-500"
             >
+              <icon name="github-stroke" stroke />
             </a>
             <button
               aria-label="Menu"
