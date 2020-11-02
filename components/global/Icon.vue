@@ -1,13 +1,11 @@
 <template>
   <span :class="`icon-${name}`" class="svg-icon">
     <client-only>
-      <!-- eslint-disable vue/require-component-is -->
       <component
         :is="`icon-${name}`"
-        :width="size ? size : width"
-        :height="size ? size : height ? height : '100%'"
-        :class="svgClass"
-        class="fill-current"
+        :width="size"
+        :height="ratio ? 'unset' : size"
+        :class="[svg, { 'fill-current': !stroke }]"
       >
       </component>
     </client-only>
@@ -15,50 +13,44 @@
 </template>
 
 <script>
-// fill="none"
-// stroke="currentColor"
-// stroke-width="2"
-// stroke-linecap="round"
-// stroke-linejoin="round"
 export default {
   name: 'Icon',
   props: {
+    /**
+     * SVG filename from @/assets/icons/ like 'github' for 'github.svg'
+     */
     name: {
       type: String,
       required: true,
-      default: 'nuxtjs',
+      default: 'github',
     },
-    width: {
+    /**
+     * Size of Icon
+     */
+    size: {
       type: [Number, String],
       default: 18,
     },
-    height: {
-      type: [Number, String],
-      default: null,
-    },
-    size: {
-      type: [Number, String],
-      default: null,
-    },
-    stroke: {
-      type: String,
-      default: null,
-    },
-    strokeOpacity: {
-      type: Number,
-      default: null,
-    },
-    fill: {
-      type: String,
-      default: null,
-    },
-    fillOpacity: {
-      type: Number,
-      default: null,
-    },
-    svgClass: {
+    /**
+     * Additional classes directly for <svg />
+     */
+    svg: {
       type: String,
       default: '',
+    },
+    /**
+     * If SVG is not square, add this like <icon name="..." ratio /> to respect ratio
+     */
+    ratio: {
+      type: Boolean,
+      default: false,
+    },
+    /**
+     * For SVG if designed by <svg stroke-width="..." />
+     */
+    stroke: {
+      type: Boolean,
+      default: false,
     },
   },
 }

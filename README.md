@@ -6,9 +6,9 @@
 [![nodejs](https://img.shields.io/static/v1?label=NodeJS&message=v12.16&color=339933&style=flat-square&logo=node.js&logoColor=ffffff)](https://nodejs.org/en)
 [![yarn](https://img.shields.io/static/v1?label=Yarn&message=v1.22&color=2C8EBB&style=flat-square&logo=yarn&logoColor=ffffff)](https://classic.yarnpkg.com/lang/en/)
 
-![Memo](static/memo.png)
+![Memo](static/logo/logo-readme.png)
 
-> Personal documentation with snippets and boiler plates, built with NuxtJS and nuxt/content. Markdown for ever.
+> Documentation with snippets and boiler plates, built with [NuxtJS](https://nuxtjs.org) and [nuxt/content](https://content.nuxtjs.org). Markdown ❤️ for ever.
 
 ## Setup
 
@@ -37,11 +37,12 @@ To learn more, check [NuxtJS documentation](https://nuxtjs.org).
 
 ## MD tips
 
+```html
 <spoiler label="Config">
 
 ```bash
 sudo apt update && sudo apt upgrade
-```
+\```
 
 </spoiler>
 
@@ -52,14 +53,14 @@ sudo apt update && sudo apt upgrade
 
   ```bash
   yarn add prism-themes
-  ```
+  \```
 
   </code-block>
   <code-block label="NPM">
 
   ```bash
   npm install prism-themes
-  ```
+  \```
 
   </code-block>
 </code-group>
@@ -73,6 +74,8 @@ sudo apt update && sudo apt upgrade
     // Options
   }
 }
+\```
+
 ```
 
 - <http://localhost:3000/_content/posts/animations>
