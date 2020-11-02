@@ -1,3 +1,10 @@
+---
+title: "NGINX: add subdomain"
+description: ''
+position: 1
+category: 'Web server'
+---
+
 # Add new subdomain
 
 ## 1. Create subdomain
@@ -18,7 +25,7 @@ server {
     listen 80;
     # Resources website
     root /var/www/ewilan-riviere.com/vuepress/docs/.vuepress/dist;
-    
+
     # Index to follow
     index index.php index.html index.htm index.nginx-debian.html;
 

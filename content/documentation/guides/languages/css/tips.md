@@ -1,6 +1,8 @@
 ---
-# image: nuxtjs.jpg
-title: 'Tips & tricks'
+title: Tips & tricks
+description: ''
+position: 2
+category: 'CSS'
 ---
 
 ## Flip horizontally / vertically

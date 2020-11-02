@@ -1,12 +1,8 @@
 ---
-image: nuxtjs.jpg
-title: 'nuxt/content'
-description: "Build your next Vue.js application with confidence using NuxtJS. An open source framework making web development simple and powerful."
-tags: ['vue', 'js', 'framework']
-# date: 2020-05-03
-# icon: launch
-# ribbon: popular
-# author: 'Ewilan Rivière'
+title: nuxt/content
+description: 'Build your next Vue.js application with confidence using NuxtJS. An open source framework making web development simple and powerful.'
+position: 2
+category: 'NuxtJS'
 ---
 
 :::tip About

@@ -1,6 +1,8 @@
 ---
-# image: nuxtjs.jpg
-title: 'Cheatsheet'
+title: Cheatsheet
+description: ''
+position: 2
+category: 'Git'
 ---
 
 ## Conflicts with end of file

@@ -1,3 +1,10 @@
+---
+title: Proxy
+description: ''
+position: 1
+category: 'Laravel'
+---
+
 # Proxy
 
 ## Same domain

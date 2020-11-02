@@ -1,6 +1,8 @@
 ---
-# image: nuxtjs.jpg
-title: 'Manage Arrays'
+title: Manage arrays
+description: ''
+position: 2
+category: 'PHP'
 ---
 
 ```php
@@ -131,21 +133,21 @@ class ManageArray
     {
   $duplicate_keys = array();
   $tmp = array();
- 
+
   foreach ($array as $key => $val){
    // convert objects to arrays, in_array() does not support objects
    if (is_object($val))
     $val = (array)$val;
- 
+
    if (!in_array($val, $tmp))
     $tmp[] = $val;
    else
     $duplicate_keys[] = $key;
   }
- 
+
   foreach ($duplicate_keys as $key)
    unset($array[$key]);
- 
+
   return $keep_key_assoc ? $array : array_values($array);
     }
 
@@ -168,21 +170,21 @@ class ManageArray
    }
    $item = serialize($item);
   };
- 
+
   $deserialize = function (&$item) {
    $item = unserialize($item);
   };
- 
+
   array_walk($array1, $serialize, $keysToCompare);
   array_walk($array2, $serialize, $keysToCompare);
- 
+
   // Items that are in the original array but not the new one
   $deletions = array_diff($array1, $array2);
   $insertions = array_diff($array2, $array1);
- 
+
   array_walk($insertions, $deserialize);
   array_walk($deletions, $deserialize);
- 
+
   return array('insertions' => $insertions, 'deletions' => $deletions);
     }
     /**

@@ -1,6 +1,8 @@
 ---
-# image: nuxtjs.jpg
-title: '📦 Install applications'
+title: Setup applications
+description: ''
+position: 1
+category: 'Linux'
 ---
 
 ## 1. NPM: global installations

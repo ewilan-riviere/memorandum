@@ -1,8 +1,16 @@
+---
+title: "Apache: boiler plates"
+description: ''
+position: 1
+category: 'Web server'
+---
+
 # Apache
 
 ## 1. Basic configuration
 
 <vue-code-info ext="apache" path="/etc/nginx/sites-available/my-domain.conf"></vue-code-info>
+
 ```apacheconf
 <VirtualHost *:80>
     ServerAdmin webmaster@my-domain.com

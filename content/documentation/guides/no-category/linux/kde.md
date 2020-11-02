@@ -1,12 +1,8 @@
 ---
-# image: nuxtjs.jpg
-title: 'KDE'
-# description: "Build your next Vue.js application with confidence using NuxtJS. An open source framework making web development simple and powerful."
-# tags: ['vue', 'js', 'framework']
-# date: 2020-05-03
-# icon: launch
-# ribbon: popular
-# author: 'Ewilan Rivière'
+title: KDE
+description: ''
+position: 1
+category: 'Linux'
 ---
 
 Install KDE Plasma with some basic apps and redshift for blue light management (you can control with a widget in systray)

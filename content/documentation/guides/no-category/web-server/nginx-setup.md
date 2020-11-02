@@ -1,3 +1,10 @@
+---
+title: "NGINX: setup"
+description: ''
+position: 1
+category: 'Web server'
+---
+
 # Setup
 
 Nginx is a powerful web server, it's really fastest if we compare it to Apache. To use it with PHP, we need to install `php-fpm`, to enable communication between Nginx and PHP. Check [LEMP configuration](/guides/digital-ocean-init.html#_3-lemp-linux-nginx-mysql-php) to know how install NGINX and PHP-FPM.
@@ -7,6 +14,7 @@ Nginx is a powerful web server, it's really fastest if we compare it to Apache. 
 &nbsp;
 
 <vue-code-info ext="nginx" path="/etc/nginx/sites-available/my-domain"></vue-code-info>
+
 ```nginx{3,5,7}
 server {
     listen 80;
@@ -36,6 +44,7 @@ server {
 Configuration for [Laravel](https://laravel.com/) application, this app need a specific configuration for `storage` directory if you use it.
 
 <vue-code-info ext="nginx" path="/etc/nginx/sites-available/my-laravel-domain"></vue-code-info>
+
 ```nginx{3,5,7,10,13}
 server {
     listen 80;

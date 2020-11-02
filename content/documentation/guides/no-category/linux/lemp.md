@@ -1,6 +1,8 @@
 ---
-# image: nuxtjs.jpg
-title: '🚂 LEMP: Nginx, MySQL, PHP'
+title: "LEMP: NGINX"
+description: ''
+position: 1
+category: 'Linux'
 ---
 
 [Digital Ocean: LEMP](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04)

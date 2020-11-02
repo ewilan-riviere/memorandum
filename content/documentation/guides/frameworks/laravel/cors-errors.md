@@ -1,3 +1,10 @@
+---
+title: CORS errors
+description: ''
+position: 3
+category: 'Laravel'
+---
+
 # CORS errors
 
 ## CORS error when dump data

@@ -1,3 +1,10 @@
+---
+title: Email with Vue.js
+description: ''
+position: 1
+category: 'Laravel'
+---
+
 # Mail with VueJS form
 
 ```bash
@@ -8,6 +15,7 @@ yarn add sweetalert2 vue-recaptcha
 <collapsable></collapsable>
 
 <vue-code-info ext="php" path="resources/views/vendor/notifications/email.blade.php"></vue-code-info>
+
 ```php
 @component('mail::message')
 {{-- Greeting --}}
@@ -56,6 +64,7 @@ yarn add sweetalert2 vue-recaptcha
 
 <vue-code-info ext="php" path="resources/views/vendor/notifications/email.blade.php"></vue-code-info>
 config/recaptcha.php
+
 ```php
 <?php
 
@@ -67,6 +76,7 @@ return [
 
 <vue-code-info ext="php" path="resources/views/vendor/notifications/email.blade.php"></vue-code-info>
 contact.blade.php
+
 ```php
 @extends('layouts.website')
 
@@ -87,6 +97,7 @@ contact.blade.php
 ```
 
 <vue-code-info ext="php" path="resources/views/vendor/notifications/email.blade.php"></vue-code-info>
+
 ```php
 <?php
 
@@ -141,6 +152,7 @@ class NewContact extends Mailable
 ```
 
 <vue-code-info ext="php" path="resources/views/vendor/notifications/email.blade.php"></vue-code-info>
+
 ```vue
 <template>
   <form @submit.prevent="onSubmit">
@@ -304,6 +316,7 @@ export default {
 ```
 
 <vue-code-info ext="php" path="resources/views/vendor/notifications/email.blade.php"></vue-code-info>
+
 ```php
 <?php
 
@@ -353,6 +366,7 @@ class MailController extends Controller
 ```
 
 <vue-code-info ext="php" path="resources/views/vendor/notifications/email.blade.php"></vue-code-info>
+
 ```js
 import Vue from 'vue'
 import axios from 'axios'
@@ -384,6 +398,7 @@ const app = new Vue({
 ```
 
 <vue-code-info ext="php" path="resources/views/vendor/notifications/email.blade.php"></vue-code-info>
+
 ```php
 <?php
 

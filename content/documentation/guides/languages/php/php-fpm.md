@@ -1,6 +1,8 @@
 ---
-# image: nuxtjs.jpg
-title: 'PHP FPM'
+title: PHP FPM
+description: ''
+position: 2
+category: 'PHP'
 ---
 
 When Apache use standard PHP version, NGINX use FPM version.

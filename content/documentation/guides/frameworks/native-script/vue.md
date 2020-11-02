@@ -1,3 +1,10 @@
+---
+title: NativeScript with Vue.js
+description: ''
+position: 1
+category: 'NativeScript'
+---
+
 # NativeScript Vue
 
 *Guide writed to setup NativeScript Vue on Ubuntu 18.04, 06 june 2020*

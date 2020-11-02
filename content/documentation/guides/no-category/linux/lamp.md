@@ -1,6 +1,8 @@
 ---
-# image: nuxtjs.jpg
-title: '🐦 LAMP: Apache, MySQL, PHP'
+title: "LAMP: Apache"
+description: ''
+position: 1
+category: 'Linux'
 ---
 
 [Digital Ocean: LAMP](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04)

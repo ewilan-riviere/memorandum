@@ -1,6 +1,8 @@
 ---
-# image: nuxtjs.jpg
-title: 'NPM & Yarn'
+title: Cheatsheet
+description: ''
+position: 2
+category: 'NPM & Yarn'
 ---
 
 ## Yarn

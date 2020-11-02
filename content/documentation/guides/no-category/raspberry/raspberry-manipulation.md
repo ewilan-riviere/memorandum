@@ -1,3 +1,10 @@
+---
+title: Keymap
+description: ''
+position: 1
+category: 'Raspberry'
+---
+
 # 📺 Raspberry: manipulation
 
 ## 1. HDMI index

@@ -1,12 +1,8 @@
 ---
-image: tailwindcss.jpg
-title: 'Tips & tricks'
-description: "Tips with Tailwind."
-tags: ['css', 'framework']
-# date: 2020-05-03
-# icon: launch
-# ribbon: popular
-# author: 'Ewilan Rivière'
+title: Tips & tricks
+description: ''
+position: 1
+category: 'Tailwind CSS'
 ---
 
 ## Import fonts with Tailwind

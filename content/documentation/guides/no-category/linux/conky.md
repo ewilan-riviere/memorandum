@@ -1,6 +1,8 @@
 ---
-# image: nuxtjs.jpg
-title: 'Conky'
+title: Conky
+description: ''
+position: 1
+category: 'Linux'
 ---
 
 ## 1. Setup

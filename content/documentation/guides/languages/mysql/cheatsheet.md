@@ -1,6 +1,8 @@
 ---
-# image: nuxtjs.jpg
-title: 'MySQL'
+title: Cheatsheet
+description: ''
+position: 1
+category: 'MySQL'
 ---
 
 ## Database importation

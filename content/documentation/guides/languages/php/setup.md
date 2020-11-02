@@ -1,6 +1,8 @@
 ---
-# image: nuxtjs.jpg
-title: 'Setup'
+title: Setup
+description: ''
+position: 1
+category: 'PHP'
 ---
 
 PHP: *Hypertext Preprocessor*

@@ -1,3 +1,10 @@
+---
+title: Windows Subsystem for Linux
+description: ''
+position: 1
+category: 'Windows'
+---
+
 # Windows Subsytem for Linux
 
 - [**blog.eleven-labs.com/developpement-sous-linux-depuis-windows-avec-wsl**](https://blog.eleven-labs.com/fr/le-developpement-sous-linux-depuis-windows-10-avec-wsl-2/)

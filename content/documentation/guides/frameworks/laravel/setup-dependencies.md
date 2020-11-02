@@ -1,3 +1,10 @@
+---
+title: Setup dependencies
+description: ''
+position: 1
+category: 'Laravel'
+---
+
 # Setup dependencies
 
 ## PHP CS Fixer
@@ -122,6 +129,7 @@ php artisan ui vue
 ```bash
 php artisan ui vue --auth
 ```
+
 :::
 
 ```bash
@@ -143,9 +151,11 @@ php artisan ui tailwindcss
 ```
 
 :::tip with Auth
+
 ```bash
 php artisan ui tailwindcss --auth
 ```
+
 :::
 
 ```bash

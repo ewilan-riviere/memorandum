@@ -1,6 +1,14 @@
+---
+title: Deployment
+description: ''
+position: 1
+category: 'Strapi'
+---
+
 # Deployment
 
 :::tip GITHUB
+
 - [**github.com/strapi/strapi-starter-nuxt-blog**](https://github.com/strapi/strapi-starter-nuxt-blog)
 - [**github.com/strapi/strapi-starter-blog**](https://github.com/strapi/strapi-starter-blog)
 :::
@@ -9,7 +17,6 @@
 - [**strapi.io: documentation/deployment => DigitalOcean configuration**](https://strapi.io/documentation/3.0.0-beta.x/deployment/digitalocean.html)
 - [**strapi.io: documentation/deployment => NGINX configuration**](https://strapi.io/documentation/3.0.0-beta.x/deployment/nginx-proxy.html)
 - [**strapi.io: documentation/deployment => another doc**](https://strapi.io/blog/how-to-deploy-a-strapi-application)
-
 
 <vue-code-info ext="js" path="ecosystem.config.js">
 
@@ -42,6 +49,7 @@ module.exports = {
   ]
 };
 ```
+
 </vue-code-info>
 
 <vue-code-info ext="nginx" path="strapi">
@@ -78,6 +86,7 @@ server {
   }
 }
 ```
+
 </vue-code-info>
 
 ---
@@ -91,7 +100,6 @@ server {
 - <https://strapi.io/documentation/3.0.0-beta.x/deployment/nginx-proxy.html>
 - <https://strapi.io/blog/how-to-deploy-a-strapi-application>
 - <https://strapi.io/documentation/3.0.0-beta.x/deployment/digitalocean.html>
-
 
 ### PostgreSQL
 

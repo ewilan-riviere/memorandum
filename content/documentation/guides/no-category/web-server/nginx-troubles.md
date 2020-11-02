@@ -1,3 +1,10 @@
+---
+title: "NGINX: troubles"
+description: ''
+position: 1
+category: 'Web server'
+---
+
 # Troubles
 
 ## VHost works on Chrome but not on Firefox

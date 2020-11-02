@@ -1,6 +1,8 @@
 ---
-# image: nuxtjs.jpg
-title: 'Cheatsheet'
+title: Cheatsheet
+description: ''
+position: 2
+category: 'PHP'
 ---
 
 ## Syntax

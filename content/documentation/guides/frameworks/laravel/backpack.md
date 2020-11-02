@@ -1,3 +1,10 @@
+---
+title: Backpack
+description: ''
+position: 2
+category: 'Laravel'
+---
+
 # Backpack
 
 - <https://backpackforlaravel.com/docs/4.1/installation>
@@ -21,16 +28,19 @@ php artisan backpack:install
 ## Create new Model
 
 - Create **migration** (in case you're starting from scratch)
+
 ```bash
 php artisan make:migration:schema create_tags_table --model=0 --schema="name:string:unique" && php artisan migrate
 ```
 
 - Create a **Model** with **Request** and **Controller** for the admin panel
+
 ```bash
 php artisan backpack:crud tag
 ```
 
 - Add a **route** for this admin panel to `routes/backpack/custom.php`
+
 ```bash
 php artisan backpack:add-custom-route "Route::crud('tag', 'TagCrudController');"
 ```
@@ -46,19 +56,23 @@ php artisan backpack:add-custom-route "Route::crud('tag', 'TagCrudController');"
 `.env`
 
 :::details
+
 ```js
 BP_ADMIN_MAIL=ewilan@dotslashplay.it
 BP_ADMIN_PASSWORD=password
 ```
+
 :::
 
 `config/app.php`
 
 :::details
+
 ```php
 'admin_mail'     => env('BP_ADMIN_MAIL'),
 'admin_password' => env('BP_ADMIN_PASSWORD'),
 ```
+
 :::
 
 ## Backpack customizations
@@ -159,7 +173,6 @@ mix.js('resources/js/app.js', 'public/js')
     </ul>
 </li>
 ```
-
 
 ## Backpack errors
 

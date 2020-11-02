@@ -1,6 +1,8 @@
 ---
-# image: nuxtjs.jpg
-title: '💻 Setup'
+title: Setup
+description: ''
+position: 1
+category: 'Linux'
 ---
 
 This guide has been set for [**Ubuntu 18.04**](https://ubuntu.com/#download), if you have another distribution use it carefully.

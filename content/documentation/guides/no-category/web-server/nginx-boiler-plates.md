@@ -1,3 +1,10 @@
+---
+title: "NGINX: boiler plates"
+description: ''
+position: 1
+category: 'Web server'
+---
+
 # *Boiler plates*
 
 ## Basic for Laravel

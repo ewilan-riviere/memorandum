@@ -1,6 +1,8 @@
 ---
-# image: nuxtjs.jpg
-title: 'Troubles with installation of Linux'
+title: Setup troubles
+description: ''
+position: 1
+category: 'Linux'
 ---
 
 - Prepare boot useb key with Rufus on Windows, just use windows.iso

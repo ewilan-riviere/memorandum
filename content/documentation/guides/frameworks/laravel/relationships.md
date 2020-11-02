@@ -1,3 +1,10 @@
+---
+title: Relationships
+description: ''
+position: 1
+category: 'Laravel'
+---
+
 # Relationships
 
 *Example based on [**./play.it API**](https://forge.dotslashplay.it/play.it/api)*
@@ -30,6 +37,7 @@ class AnyController extends Controller
     $users = User::where('active', 1)->get();
   }
 }
+
 ```
 </vue-code-info>
 
@@ -58,11 +66,13 @@ class User extends Model
   ];
 }
 ```
+
 </vue-code-info>
 :::
 
 :::details Example of users table
 <vue-code-info ext="php" path="database/migrations/2020_05_24_174020_create_users_table.php">
+
 ```php
 <?php
 
@@ -101,6 +111,7 @@ class CreateUsersTable extends Migration
   }
 }
 ```
+
 </vue-code-info>
 :::
 
@@ -183,7 +194,7 @@ To create this database, we need to create migrations with Laravel, to make navi
 
 ```php
 Schema::create('franchises', function (Blueprint $table): void {
-	$table->string('slug')->unique()->index();
+ $table->string('slug')->unique()->index();
     $table->string('name');
     $table->string('website')->nullable();
 });
@@ -191,6 +202,7 @@ Schema::create('franchises', function (Blueprint $table): void {
 
 :::details Complete migration for franchises table
 <vue-code-info ext="php" path="database/migrations/2020_04_07_053742_create_franchises_table.php">
+
 ```php
 <?php
 
@@ -199,29 +211,30 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateFranchisesTable extends Migration {
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up(): void {
-		Schema::create('franchises', function (Blueprint $table): void {
-			$table->string('slug')->unique()->index();
-			$table->string('name');
-			$table->string('website')->nullable();
-		});
-	}
+ /**
+  * Run the migrations.
+  *
+  * @return void
+  */
+ public function up(): void {
+  Schema::create('franchises', function (Blueprint $table): void {
+   $table->string('slug')->unique()->index();
+   $table->string('name');
+   $table->string('website')->nullable();
+  });
+ }
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down(): void {
-		Schema::dropIfExists('franchises');
-	}
+ /**
+  * Reverse the migrations.
+  *
+  * @return void
+  */
+ public function down(): void {
+  Schema::dropIfExists('franchises');
+ }
 }
 ```
+
 </vue-code-info>
 :::
 
@@ -239,15 +252,16 @@ Schema::create('games', function (Blueprint $table): void {
   $table->date('release')->nullable();
   $table->string('website')->nullable();
   $table->string('franchise_slug')->index()->nullable();
-			$table->foreign('franchise_slug')
-				->references('slug')
-				->on('franchises')
-				->onDelete('cascade');
+   $table->foreign('franchise_slug')
+    ->references('slug')
+    ->on('franchises')
+    ->onDelete('cascade');
 });
 ```
 
 :::details Complete migration for games table
 <vue-code-info ext="php" path="database/migrations/2020_05_08_200000_create_games_images_table.php">
+
 ```php
 <?php
 
@@ -256,38 +270,39 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateGamesTable extends Migration {
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up(): void {
-		Schema::create('games', function (Blueprint $table): void {
-			$table->increments('id');
-			$table->string('game_id');
-			$table->string('game_name')->unique();
-			$table->string('game_name_slug');
-			$table->json('description')->nullable();
-			$table->date('release')->nullable();
-			$table->string('website')->nullable();
+ /**
+  * Run the migrations.
+  *
+  * @return void
+  */
+ public function up(): void {
+  Schema::create('games', function (Blueprint $table): void {
+   $table->increments('id');
+   $table->string('game_id');
+   $table->string('game_name')->unique();
+   $table->string('game_name_slug');
+   $table->json('description')->nullable();
+   $table->date('release')->nullable();
+   $table->string('website')->nullable();
       $table->string('franchise_slug')->index()->nullable();
-			$table->foreign('franchise_slug')
-				->references('slug')
-				->on('franchises')
-				->onDelete('cascade');
-		});
-	}
+   $table->foreign('franchise_slug')
+    ->references('slug')
+    ->on('franchises')
+    ->onDelete('cascade');
+  });
+ }
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down(): void {
-		Schema::dropIfExists('games');
-	}
+ /**
+  * Reverse the migrations.
+  *
+  * @return void
+  */
+ public function down(): void {
+  Schema::dropIfExists('games');
+ }
 }
 ```
+
 </vue-code-info>
 :::
 
@@ -297,13 +312,14 @@ The `tags` table
 
 ```php
 Schema::create('tags', function (Blueprint $table): void {
-	$table->string('slug')->unique()->index();
+ $table->string('slug')->unique()->index();
     $table->string('name');
 });
 ```
 
 :::details Complete migration for tags table
 <vue-code-info ext="php" path="database/migrations/2020_07_18_053809_create_tags_table.php">
+
 ```php
 <?php
 
@@ -312,28 +328,29 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateTagsTable extends Migration {
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up(): void {
-		Schema::create('tags', function (Blueprint $table): void {
-			$table->string('slug')->unique()->index();
-			$table->string('name');
-		});
-	}
+ /**
+  * Run the migrations.
+  *
+  * @return void
+  */
+ public function up(): void {
+  Schema::create('tags', function (Blueprint $table): void {
+   $table->string('slug')->unique()->index();
+   $table->string('name');
+  });
+ }
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down(): void {
-		Schema::dropIfExists('tags');
-	}
+ /**
+  * Reverse the migrations.
+  *
+  * @return void
+  */
+ public function down(): void {
+  Schema::dropIfExists('tags');
+ }
 }
 ```
+
 </vue-code-info>
 :::
 
@@ -341,7 +358,7 @@ And `game_tag` table, pivot table between with `games`
 
 ```php
 Schema::create('game_tag', function (Blueprint $table): void {
-	$table->unsignedInteger('game_id')->index();
+ $table->unsignedInteger('game_id')->index();
     $table->foreign('game_id')
         ->references('id')
         ->on('games')
@@ -356,6 +373,7 @@ Schema::create('game_tag', function (Blueprint $table): void {
 
 :::details Complete migration for game_tag table
 <vue-code-info ext="php" path="database/migrations/2020_07_18_053856_add_relationship_between_games_and_tags.php">
+
 ```php
 <?php
 
@@ -364,36 +382,37 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class AddRelationshipBetweenGamesAndTags extends Migration {
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up(): void {
-		Schema::create('game_tag', function (Blueprint $table): void {
-			$table->unsignedInteger('game_id')->index();
-			$table->foreign('game_id')
-				->references('id')
-				->on('games')
-				->onDelete('cascade');
-			$table->string('tag_slug')->index();
-			$table->foreign('tag_slug')
-				->references('slug')
-				->on('tags')
-				->onDelete('cascade');
-		});
-	}
+ /**
+  * Run the migrations.
+  *
+  * @return void
+  */
+ public function up(): void {
+  Schema::create('game_tag', function (Blueprint $table): void {
+   $table->unsignedInteger('game_id')->index();
+   $table->foreign('game_id')
+    ->references('id')
+    ->on('games')
+    ->onDelete('cascade');
+   $table->string('tag_slug')->index();
+   $table->foreign('tag_slug')
+    ->references('slug')
+    ->on('tags')
+    ->onDelete('cascade');
+  });
+ }
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down(): void {
-		Schema::dropIfExists('game_tag');
-	}
+ /**
+  * Reverse the migrations.
+  *
+  * @return void
+  */
+ public function down(): void {
+  Schema::dropIfExists('game_tag');
+ }
 }
 ```
+
 </vue-code-info>
 :::
 
@@ -401,7 +420,7 @@ class AddRelationshipBetweenGamesAndTags extends Migration {
 
 ```php
 Schema::create('hardware', function (Blueprint $table): void {
-	$table->unsignedInteger('game_id')->index();
+ $table->unsignedInteger('game_id')->index();
     $table->foreign('game_id')
         ->references('id')
         ->on('games')
@@ -418,6 +437,7 @@ Schema::create('hardware', function (Blueprint $table): void {
 
 :::details Complete migration for hardware table
 <vue-code-info ext="php" path="database/migrations/2020_07_18_053823_create_hardware_table.php">
+
 ```php
 <?php
 
@@ -426,38 +446,39 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateHardwareTable extends Migration {
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up(): void {
-		Schema::create('hardware', function (Blueprint $table): void {
-			$table->unsignedInteger('game_id')->index();
-			$table->foreign('game_id')
-				->references('id')
-				->on('games')
-				->onDelete('cascade');
-			$table->float('cpu-capacity', 4, 2)->nullable();
-			$table->string('cpu-models')->nullable();
-			$table->float('disk', 4, 2)->nullable();
-			$table->float('graphics-capacity', 4, 3)->nullable();
-			$table->string('graphics-models')->nullable();
-			$table->string('graphics-misc')->nullable();
-			$table->float('ram', 4, 2)->nullable();
-		});
-	}
+ /**
+  * Run the migrations.
+  *
+  * @return void
+  */
+ public function up(): void {
+  Schema::create('hardware', function (Blueprint $table): void {
+   $table->unsignedInteger('game_id')->index();
+   $table->foreign('game_id')
+    ->references('id')
+    ->on('games')
+    ->onDelete('cascade');
+   $table->float('cpu-capacity', 4, 2)->nullable();
+   $table->string('cpu-models')->nullable();
+   $table->float('disk', 4, 2)->nullable();
+   $table->float('graphics-capacity', 4, 3)->nullable();
+   $table->string('graphics-models')->nullable();
+   $table->string('graphics-misc')->nullable();
+   $table->float('ram', 4, 2)->nullable();
+  });
+ }
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down(): void {
-		Schema::dropIfExists('hardware');
-	}
+ /**
+  * Reverse the migrations.
+  *
+  * @return void
+  */
+ public function down(): void {
+  Schema::dropIfExists('hardware');
+ }
 }
 ```
+
 </vue-code-info>
 :::
 
@@ -523,6 +544,7 @@ class Tag{
 
 Tag : games() BelongsToMany
 ```
+
 :::
 
 ### 3. a. Game Model
@@ -555,6 +577,7 @@ class Game extends Model {
 
 :::details Complete model for Game
 <vue-code-info ext="php" path="app/Models/Game.php">
+
 ```php
 <?php
 
@@ -573,52 +596,53 @@ class Game extends Model {
         'website',
     ];
 
-	/**
-	 * ===============
-	 * 	Relationships
-	 * ===============.
-	 *
-	 * - tags: ManyToMany,
-	 * - hardware: OneToOne,
-	 * - franchise: OneToMany
-	 */
+ /**
+  * ===============
+  *  Relationships
+  * ===============.
+  *
+  * - tags: ManyToMany,
+  * - hardware: OneToOne,
+  * - franchise: OneToMany
+  */
 
-	/**
-	 * Relation ManyToMany with Tag::class.
-	 *
-	 * Pivot table: game_tag
-	 *
-	 * Foreign key game_id from games.id / tag_slug from tags.slug
-	 *
-	 * @return BelongsToMany
-	 */
-	public function tags(): BelongsToMany {
-		return $this->belongsToMany(Tag::class, 'game_tag');
-	}
+ /**
+  * Relation ManyToMany with Tag::class.
+  *
+  * Pivot table: game_tag
+  *
+  * Foreign key game_id from games.id / tag_slug from tags.slug
+  *
+  * @return BelongsToMany
+  */
+ public function tags(): BelongsToMany {
+  return $this->belongsToMany(Tag::class, 'game_tag');
+ }
 
-	/**
-	 * Relation OneToOne with Hardware::class.
-	 *
-	 * Foreign key game_id from games.id
-	 *
-	 * @return HasOne
-	 */
-	public function hardware(): HasOne {
-		return $this->hasOne(Hardware::class);
-	}
+ /**
+  * Relation OneToOne with Hardware::class.
+  *
+  * Foreign key game_id from games.id
+  *
+  * @return HasOne
+  */
+ public function hardware(): HasOne {
+  return $this->hasOne(Hardware::class);
+ }
 
-	/**
-	 * Relation OneToMany with Franchise::class, one game can belongs to one franchise and one franchise can belongs to many games.
-	 *
-	 * Foreign key franchise_slug in games from franchises.slug
-	 *
-	 * @return BelongsTo
-	 */
-	public function franchise(): BelongsTo {
-		return $this->belongsTo(Franchise::class);
-	}
+ /**
+  * Relation OneToMany with Franchise::class, one game can belongs to one franchise and one franchise can belongs to many games.
+  *
+  * Foreign key franchise_slug in games from franchises.slug
+  *
+  * @return BelongsTo
+  */
+ public function franchise(): BelongsTo {
+  return $this->belongsTo(Franchise::class);
+ }
 }
 ```
+
 </vue-code-info>
 :::
 
@@ -629,24 +653,25 @@ class Hardware extends Model {
 
     protected $table = 'hardware';
     protected $fillable = [
-		'game_id',
-		'cpu-capacity',
-		'cpu-models',
-		'disk',
-		'graphics-capacity',
-		'graphics-models',
-		'graphics-misc',
-		'ram',
-	];
+  'game_id',
+  'cpu-capacity',
+  'cpu-models',
+  'disk',
+  'graphics-capacity',
+  'graphics-models',
+  'graphics-misc',
+  'ram',
+ ];
 
-	public function game(): BelongsTo {
-		return $this->belongsTo(Game::class, 'game_name');
-	}
+ public function game(): BelongsTo {
+  return $this->belongsTo(Game::class, 'game_name');
+ }
 }
 ```
 
 :::details Complete model for Hardware
 <vue-code-info ext="php" path="app/Models/Hardware.php">
+
 ```php
 <?php
 
@@ -658,28 +683,29 @@ class Hardware extends Model {
 
     protected $table = 'hardware';
     protected $fillable = [
-		'game_id',
-		'cpu-capacity',
-		'cpu-models',
-		'disk',
-		'graphics-capacity',
-		'graphics-models',
-		'graphics-misc',
-		'ram',
-	];
+  'game_id',
+  'cpu-capacity',
+  'cpu-models',
+  'disk',
+  'graphics-capacity',
+  'graphics-models',
+  'graphics-misc',
+  'ram',
+ ];
 
-	/**
-	 * Relation OneToOne with Game::class.
-	 *
-	 * Foreign key game_id from games.id
-	 *
-	 * @return BelongsTo
-	 */
-	public function game(): BelongsTo {
-		return $this->belongsTo(Game::class, 'game_name');
-	}
+ /**
+  * Relation OneToOne with Game::class.
+  *
+  * Foreign key game_id from games.id
+  *
+  * @return BelongsTo
+  */
+ public function game(): BelongsTo {
+  return $this->belongsTo(Game::class, 'game_name');
+ }
 }
 ```
+
 </vue-code-info>
 :::
 
@@ -689,22 +715,23 @@ class Hardware extends Model {
 class Franchise extends Model {
 
     protected $primaryKey = 'slug';
-	protected $keyType = 'string';
+ protected $keyType = 'string';
 
-	protected $fillable = [
-		'name',
-		'slug',
-		'website',
-	];
+ protected $fillable = [
+  'name',
+  'slug',
+  'website',
+ ];
 
-	public function games(): HasMany {
-		return $this->hasMany(Game::class);
-	}
+ public function games(): HasMany {
+  return $this->hasMany(Game::class);
+ }
 }
 ```
 
 :::details Complete model for Franchise
 <vue-code-info ext="php" path="app/Models/Franchise.php">
+
 ```php
 <?php
 
@@ -713,41 +740,42 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Franchise extends Model {
-	/**
-	 * @var string
-	 */
-	protected $primaryKey = 'slug';
+ /**
+  * @var string
+  */
+ protected $primaryKey = 'slug';
 
-	/**
-	 * Database primary key type should be explicitely declared if it is not an integer.
-	 *
-	 * @var string
-	 */
-	protected $keyType = 'string';
+ /**
+  * Database primary key type should be explicitely declared if it is not an integer.
+  *
+  * @var string
+  */
+ protected $keyType = 'string';
 
-	/**
-	 * @var array<string>
-	 */
-	protected $fillable = [
-		'name',
-		'slug',
-		'website',
-	];
+ /**
+  * @var array<string>
+  */
+ protected $fillable = [
+  'name',
+  'slug',
+  'website',
+ ];
 
-	/**
-	 * Relation ManyToMany with Game:class.
-	 *
-	 * Pivot table: game_franchise
-	 *
-	 * Foreign key game_id from games.id / franchise_slug from franchises.slug
-	 *
-	 * @return HasMany
-	 */
-	public function games(): HasMany {
-		return $this->hasMany(Game::class);
-	}
+ /**
+  * Relation ManyToMany with Game:class.
+  *
+  * Pivot table: game_franchise
+  *
+  * Foreign key game_id from games.id / franchise_slug from franchises.slug
+  *
+  * @return HasMany
+  */
+ public function games(): HasMany {
+  return $this->hasMany(Game::class);
+ }
 }
 ```
+
 </vue-code-info>
 :::
 
@@ -757,21 +785,22 @@ class Franchise extends Model {
 class Tag extends Model {
 
     protected $primaryKey = 'slug';
-	protected $keyType = 'string';
+ protected $keyType = 'string';
 
-	protected $fillable = [
-		'name',
-		'slug',
+ protected $fillable = [
+  'name',
+  'slug',
     ];
 
-	public function games(): BelongsToMany {
-		return $this->belongsToMany(Game::class, 'game_tag');
-	}
+ public function games(): BelongsToMany {
+  return $this->belongsToMany(Game::class, 'game_tag');
+ }
 }
 ```
 
 :::details Complete model for Tag
 <vue-code-info ext="php" path="app/Models/Tag.php">
+
 ```php
 <?php
 
@@ -780,40 +809,41 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model {
-	/**
-	 * @var string
-	 */
-	protected $primaryKey = 'slug';
+ /**
+  * @var string
+  */
+ protected $primaryKey = 'slug';
 
-	/**
-	 * Database primary key type should be explicitely declared if it is not an integer.
-	 *
-	 * @var string
-	 */
-	protected $keyType = 'string';
+ /**
+  * Database primary key type should be explicitely declared if it is not an integer.
+  *
+  * @var string
+  */
+ protected $keyType = 'string';
 
-	/**
-	 * @var array<string>
-	 */
-	protected $fillable = [
-		'name',
-		'slug',
-	];
+ /**
+  * @var array<string>
+  */
+ protected $fillable = [
+  'name',
+  'slug',
+ ];
 
-	/**
-	 * Relation ManyToMany with Game:class.
-	 *
-	 * Pivot table: game_tag
-	 *
-	 * Foreign key game_id from games.id / tag_slug from tags.slug
-	 *
-	 * @return BelongsToMany
-	 */
-	public function games(): BelongsToMany {
-		return $this->belongsToMany(Game::class, 'game_tag');
-	}
+ /**
+  * Relation ManyToMany with Game:class.
+  *
+  * Pivot table: game_tag
+  *
+  * Foreign key game_id from games.id / tag_slug from tags.slug
+  *
+  * @return BelongsToMany
+  */
+ public function games(): BelongsToMany {
+  return $this->belongsToMany(Game::class, 'game_tag');
+ }
 }
 ```
+
 </vue-code-info>
 :::
 

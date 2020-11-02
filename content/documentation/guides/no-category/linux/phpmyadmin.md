@@ -1,6 +1,8 @@
 ---
-# image: nuxtjs.jpg
-title: '⛵ phpMyAdmin for NGINX'
+title: phpMyAdmin with NGINX
+description: ''
+position: 1
+category: 'Linux'
 ---
 
 [Digital Ocean: phpMyAdmin with Apache](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04)
