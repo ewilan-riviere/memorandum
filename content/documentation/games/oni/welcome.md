@@ -1,4 +1,9 @@
-# Welcome
+---
+title: Welcome
+description: ''
+position: 1
+category: 'Oxygen Not Included'
+---
 
 ## Asteroids seeds
 

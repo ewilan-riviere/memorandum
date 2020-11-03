@@ -29,7 +29,7 @@ export function createRouter() {
       // },
       {
         name: 'content-slug',
-        path: '/:type/:category/:entity/:content',
+        path: '/:type/:category?/:entity/:content',
         component: ContentSlug,
       },
       // {

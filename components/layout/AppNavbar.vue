@@ -198,8 +198,6 @@ export default {
           .search(query)
           .fetch()
 
-        console.log(articles)
-
         this.articles = articles
       } else {
         this.articles = 'Type 3 characters or more...'
@@ -219,8 +217,6 @@ export default {
         name: 'content-slug',
         params,
       }
-      console.log('link')
-      console.log(link)
       return link
     },
     hideSearch() {
@@ -230,13 +226,3 @@ export default {
   },
 }
 </script>
-
-<style>
-.nuxt-content pre {
-  word-break: break-all !important;
-  white-space: break-spaces !important;
-}
-.nuxt-content code {
-  padding-left: 0;
-}
-</style>

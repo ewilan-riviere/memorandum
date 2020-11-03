@@ -27,7 +27,6 @@ export default {
 
     let pages = []
     content.forEach((markdownFile) => {
-      console.log(markdownFile)
       const path = markdownFile.path.replace('/documentation/', '').split('/')
       const Page = {
         label: path[0],
@@ -38,7 +37,6 @@ export default {
       pages.push(Page)
     })
 
-    console.log(pages)
     const pagesAll = pages
 
     // delete duplicates
@@ -58,7 +56,6 @@ export default {
 
     // pages.unshift({ label: 'Home', iconStroke: false, route: 'home' })
 
-    console.log(pages)
     return {
       pages,
     }

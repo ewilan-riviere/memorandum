@@ -108,6 +108,22 @@
           </div>
         </div>
       </div> -->
+      <div>
+        <div class="flex justify-center">
+          <a
+            v-for="social in socialLinks"
+            :key="social.id"
+            v-tooltip="social.label"
+            class="p-3 transition-colors duration-300 rounded-md hover:bg-gray-200"
+            :href="social.link"
+            target="_blank"
+            rel="noopener noreferrer"
+            :class="`hover:icon-${social.icon}`"
+          >
+            <icon :name="social.icon" :size="20" />
+          </a>
+        </div>
+      </div>
       <div
         class="flex items-center justify-center text-base text-center text-gray-400"
       >
@@ -190,6 +206,33 @@ export default {
           route: 'home',
         },
       ],
+      socialLinks: [
+        {
+          label: 'GitHub',
+          link: 'https://github.com/ewilan-riviere',
+          icon: 'github',
+        },
+        {
+          label: 'GitLab',
+          link: 'https://gitlab.com/EwieFairy',
+          icon: 'gitlab',
+        },
+        {
+          label: 'Twitter',
+          link: 'https://twitter.com/ewieSwitch',
+          icon: 'twitter',
+        },
+        {
+          label: 'Portfolio',
+          link: 'http://portfolio.ewilan-riviere.com',
+          icon: 'briefcase',
+        },
+        {
+          label: 'E-mail',
+          link: 'mailto:ewilan.riviere@gmail.com',
+          icon: 'mail',
+        },
+      ],
       copyrights: [
         'creative-commons',
         'creative-commons-by',
@@ -238,6 +281,22 @@ export default {
   }
   /deep/ .nuxt-icon:hover path:nth-child(3) {
     fill: #108775;
+  }
+
+  /deep/ .icon-github:hover path {
+    fill: #181717;
+  }
+  /deep/ .icon-gitlab:hover path {
+    fill: #fc6d26;
+  }
+  /deep/ .icon-twitter:hover path {
+    fill: #1da1f2;
+  }
+  /deep/ .icon-portfolio:hover path {
+    @apply text-primary-500;
+  }
+  /deep/ .icon-mail:hover path {
+    fill: #d14836;
   }
 }
 </style>

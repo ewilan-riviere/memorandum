@@ -32,6 +32,7 @@
     "@tailwindcss/typography": "^0.2.0",
     "aos": "^3.0.0-beta.6",
     "core-js": "^3.6.5",
+    "lodash": "^4.17.20",
     "nuxt": "^2.14.7",
     "reading-time": "^1.2.0",
     "remark-container": "^0.1.2",
@@ -40,6 +41,7 @@
     "v-tooltip": "^2.0.3",
     "vue-awesome-swiper": "^4.1.1",
     "vue-click-outside": "^1.1.0",
+    "vue-scrollactive": "^0.9.3",
     "vue-scrollto": "^2.20.0",
     "vue-social-sharing": "^3.0.3",
     "vue2-perfect-scrollbar": "^1.5.0"

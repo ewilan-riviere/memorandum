@@ -1,5 +1,5 @@
 <template>
-  <div v-if="toc.length" class="relative block w-full lg:w-1/4">
+  <div v-if="toc.length" class="relative block w-full">
     <div
       class="lg:sticky lg:top-16 overflow-y-auto h-full lg:h-auto lg:max-h-(screen-16)"
     >
@@ -13,7 +13,7 @@
         <h3
           class="mb-3 text-sm font-bold tracking-wider text-gray-500 uppercase lg:mb-2 lg:text-xs"
         >
-          {{ 'toc.title' }}
+          On this page
         </h3>
         <scrollactive
           highlight-first-item
@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+// import { mapGetters } from 'vuex'
 
 export default {
   props: {
@@ -56,8 +56,15 @@ export default {
       default: () => [],
     },
   },
+  data() {
+    return {
+      settings: {
+        layout: 'single',
+      },
+    }
+  },
   computed: {
-    ...mapGetters(['settings']),
+    // ...mapGetters(['settings']),
   },
 }
 </script>

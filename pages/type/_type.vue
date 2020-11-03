@@ -2,31 +2,34 @@
   <div>
     <main-layout>
       <div slot="aside">
-        <nav-pages :pages="pages" route-param="type"></nav-pages>
+        <switch-categories
+          :pages="pages"
+          route-param="type"
+          @select-category="selectCategory"
+        ></switch-categories>
       </div>
       <div slot="main" class="">
-        <div v-for="page in pages" :key="page.id" class="my-10">
+        <div class="">
           <div class="text-2xl">
-            {{ page.label }}
+            {{ selectedCategory.label }}
           </div>
-          <div
-            v-for="entity in page.entities"
-            :key="entity.id"
-            class="p-2 my-5 bg-gray-200 rounded-sm"
+          <category-collapse
+            v-for="(entity, entityId) in selectedCategory.entities"
+            :key="entityId"
+            class="p-2 my-5 rounded-sm"
+            :expanded="entityId === 0"
           >
-            <div class="text-xl">
-              {{ entity.label }}
-            </div>
-            <nuxt-link
-              v-for="(guide, guideId) in entity.guides"
-              :key="guideId"
-              :to="getRoute(guide)"
-              class="block my-1"
-              @click.native="$store.commit('setContentCurrentPath', guide.path)"
+            <h3
+              slot="title"
+              class="text-sm font-bold tracking-wider text-gray-500 uppercase lg:text-xs"
             >
-              <div>{{ guideId + 1 }} {{ guide.title }}</div>
-            </nuxt-link>
-          </div>
+              <!-- {{ $t(category.label) }} -->
+              {{ entity.label }}
+            </h3>
+            <div slot="list" class="ml-2">
+              <list-guide :guides="entity.guides"></list-guide>
+            </div>
+          </category-collapse>
         </div>
       </div>
       <div slot="toc"></div>
@@ -35,18 +38,22 @@
 </template>
 
 <script>
-import NavPages from '@/components/layout/NavPages.vue'
+import SwitchCategories from '@/components/layout/SwitchCategories.vue'
+// eslint-disable-next-line no-unused-vars
+import groupBy from 'lodash/groupBy'
+import ListGuide from '@/components/blocks/ListGuide.vue'
 
 export default {
   name: 'TypeSlug',
   components: {
-    NavPages,
+    SwitchCategories,
+    ListGuide,
   },
   async asyncData({ $content, params }) {
     const content = await $content(`documentation/${params.type}`, {
       deep: true,
     })
-      .only(['title'])
+      .only(['title', 'description'])
       .sortBy('position')
       .fetch()
 
@@ -67,6 +74,8 @@ export default {
         return e.label === Page.label
       })
     })
+
+    // console.log(groupBy(content, 'category'))
 
     // alphabetic sorting
     pages.sort((a, b) => (a.label > b.label ? 1 : -1))
@@ -106,22 +115,13 @@ export default {
 
     return {
       pages,
+      selectedCategory: pages[0],
     }
   },
   methods: {
-    getRoute(guide) {
-      const path = guide.path.replace('/documentation/', '').split('/')
-
-      const route = {
-        name: 'content-slug',
-        params: {
-          type: path[0],
-          category: path[1],
-          entity: path[2],
-          content: path[3],
-        },
-      }
-      return route
+    selectCategory(data) {
+      const category = this.pages.filter((page) => page.label === data)
+      this.selectedCategory = category[0]
     },
   },
 }

@@ -159,3 +159,10 @@
 .nuxt-content kbd {
   @apply px-2 py-1 mx-1 bg-gray-100 shadow-md;
 }
+.nuxt-content pre {
+  /* word-break: break-all !important; */
+  /* white-space: break-spaces !important; */
+}
+.nuxt-content code {
+  padding-left: 0;
+}

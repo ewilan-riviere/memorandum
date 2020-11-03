@@ -35,6 +35,10 @@ export default {
     height: '5px',
   },
 
+  render: {
+    fallback: false,
+  },
+
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: ['~/assets/css/markdown.css'],
 
@@ -53,6 +57,8 @@ export default {
     { src: '~/plugins/vue-perfect-scrollbar', ssr: false },
     // https://github.com/Akryum/v-tooltip
     { src: '~/plugins/v-tooltip', ssr: false },
+    // https://github.com/eddiemf/vue-scrollactive
+    { src: '~/plugins/vue-scrollactive' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

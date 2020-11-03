@@ -1,4 +1,9 @@
-# Games
+---
+title: Seeds
+description: ''
+position: 2
+category: 'Oxygen Not Included'
+---
 
 ## Reboot
 

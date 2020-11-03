@@ -1,4 +1,9 @@
-# Introduction
+---
+title: Tips & tricks
+description: ''
+position: 1
+category: 'Animal Crossings'
+---
 
 Cette section concerne le jeu Animal Crossings: New Horizons sur Nintendo Switch
 

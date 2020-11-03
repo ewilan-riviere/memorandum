@@ -5,9 +5,13 @@
         <nav-pages :pages="pages" route-param="type"></nav-pages>
       </div>
       <div slot="main">
-        <div v-for="page in pages" :key="page.id">
-          {{ page }}
-        </div>
+        <article class="relative pb-10 overflow-hidden bg-white">
+          <div class="relative px-4 sm:px-6 lg:px-8">
+            <div class="mx-auto prose prose-lg text-gray-500">
+              <nuxt-content :document="welcome" />
+            </div>
+          </div>
+        </article>
       </div>
       <div slot="toc"></div>
     </main-layout>
@@ -23,6 +27,8 @@ export default {
     NavPages,
   },
   async asyncData({ $content }) {
+    const welcome = await $content('welcome', { deep: true }).fetch()
+
     const content = await $content('documentation', { deep: true })
       .only(['title'])
       .fetch()
@@ -39,7 +45,6 @@ export default {
       pages.push(Page)
     })
 
-    console.log(pages)
     const pagesAll = pages
 
     // delete duplicates
@@ -59,8 +64,8 @@ export default {
 
     // pages.unshift({ label: 'Home', iconStroke: false, route: 'home' })
 
-    console.log(pages)
     return {
+      welcome,
       pages,
     }
   },

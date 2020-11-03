@@ -1,4 +1,9 @@
-# Asteroids
+---
+title: Asteroids
+description: ''
+position: 3
+category: 'Oxygen Not Included'
+---
 
 <https://www.reddit.com/r/Oxygennotincluded/comments/c6k0rt/preview_branch_a_quick_summary_of_the_new/>
 

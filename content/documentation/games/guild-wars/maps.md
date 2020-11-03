@@ -1,4 +1,9 @@
-# Maps
+---
+title: Maps
+description: ''
+position: 1
+category: 'Guild Wars'
+---
 
 [**Wiki**](https://wiki.guildwars.com/wiki/List_of_maps)
 
