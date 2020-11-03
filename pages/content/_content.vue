@@ -11,7 +11,7 @@
           {{ article.title }}
         </nuxt-link>
       </div>
-      <div slot="main" class="pl-4">
+      <div slot="main" class="">
         <!--
   Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
   Read the documentation to get started: https://tailwindui.com/documentation
