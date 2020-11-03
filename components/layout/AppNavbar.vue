@@ -46,43 +46,67 @@
                     ></path>
                   </svg>
                 </div>
-                <input
-                  id="search"
-                  v-model="query"
-                  placeholder="Ask to Memo..."
-                  type="search"
-                  autocomplete="off"
-                  value=""
-                  class="block w-full py-2 pl-10 pr-3 leading-5 text-gray-700 placeholder-gray-500 truncate transition-colors duration-300 bg-gray-200 border border-transparent rounded-md dark:text-white dark-focus:text-white focus:border-gray-300 dark-focus:border-gray-700 focus:outline-none focus:bg-white dark-focus:bg-gray-900 dark:bg-gray-800"
-                />
-                <transition name="fade">
-                  <ul
-                    v-if="articles.length"
-                    v-click-outside="hideSearch"
-                    class="absolute w-full p-3 bg-white border-b-2 border-l-2 border-r-2 border-gray-200 shadow-xl rounded-b-md"
-                  >
-                    <li
-                      v-for="article of articles"
-                      :key="article.slug"
-                      class="my-1 transition-colors duration-300 hover:bg-gray-200"
+                <div>
+                  <input
+                    id="search"
+                    v-model="query"
+                    placeholder="Ask to Memo..."
+                    type="search"
+                    autocomplete="off"
+                    value=""
+                    class="block w-full py-2 pl-10 pr-3 leading-5 text-gray-700 placeholder-gray-500 truncate transition-colors duration-300 bg-gray-200 border border-transparent rounded-md dark:text-white dark-focus:text-white focus:border-gray-300 dark-focus:border-gray-700 focus:outline-none focus:bg-white dark-focus:bg-gray-900 dark:bg-gray-800"
+                  />
+
+                  <transition v-if="query" name="fade">
+                    <ul
+                      v-if="Array.isArray(articles) && articles.length"
+                      v-click-outside="hideSearch"
+                      class="absolute w-full p-3 bg-white border-b-2 border-l-2 border-r-2 border-gray-200 shadow-xl rounded-b-md"
                     >
-                      <NuxtLink
-                        :to="{
-                          name: 'blog-slug',
-                          params: { slug: article.slug },
-                        }"
-                        class="flex justify-between p-2"
+                      <li
+                        v-for="article of articles"
+                        :key="article.slug"
+                        class="my-1 transition-colors duration-300 hover:bg-gray-200"
                       >
-                        <span>{{
-                          article.title ? article.title : article.slug
-                        }}</span>
-                        <span>{{
-                          article.description ? article.description : '...'
-                        }}</span>
-                      </NuxtLink>
-                    </li>
-                  </ul>
-                </transition>
+                        <NuxtLink
+                          :to="getContentParams(article)"
+                          class="flex justify-between p-2"
+                          @click.native="articles = []"
+                        >
+                          <div>
+                            <div class="text-sm font-semibold text-gray-500">
+                              {{ article.category }}
+                            </div>
+                            <div class="text-lg font-bold">
+                              {{ article.title ? article.title : article.slug }}
+                            </div>
+                            <div>
+                              <p
+                                v-if="article.description"
+                                v-html="article.description"
+                              ></p>
+                              <span v-else class="italic text-gray-400">
+                                No description
+                              </span>
+                            </div>
+                          </div>
+                          <img
+                            src="/images/documentation/guides.png"
+                            class="h-20"
+                            alt=""
+                          />
+                        </NuxtLink>
+                      </li>
+                    </ul>
+                    <div
+                      v-else
+                      v-click-outside="hideSearch"
+                      class="absolute w-full p-3 bg-gray-200 border-b-2 border-l-2 border-r-2 border-gray-200 shadow-xl rounded-b-md"
+                    >
+                      {{ articles }}
+                    </div>
+                  </transition>
+                </div>
               </div>
             </div>
             <ul
@@ -161,24 +185,44 @@ export default {
   },
   watch: {
     async query(query) {
-      if (!query) {
-        this.articles = []
-        return
+      if (query.length >= 3) {
+        if (!query) {
+          this.articles = []
+          return
+        }
+
+        const articles = await this.$content('documentation', { deep: true })
+          .only(['title', 'slug', 'description', 'category'])
+          .sortBy('category', 'asc')
+          .limit(6)
+          .search(query)
+          .fetch()
+
+        console.log(articles)
+
+        this.articles = articles
+      } else {
+        this.articles = 'Type 3 characters or more...'
       }
-
-      const articles = await this.$content('documentation', { deep: true })
-        .only(['title', 'slug'])
-        .sortBy('createdAt', 'asc')
-        .limit(12)
-        .search(query)
-        .fetch()
-
-      console.log(articles)
-
-      this.articles = articles
     },
   },
   methods: {
+    getContentParams(article) {
+      const path = article.path.replace('/documentation/', '').split('/')
+      const params = {
+        type: path[0],
+        category: path[1],
+        entity: path[2],
+        content: path[3],
+      }
+      const link = {
+        name: 'content-slug',
+        params,
+      }
+      console.log('link')
+      console.log(link)
+      return link
+    },
     hideSearch() {
       this.articles = []
       this.query = ''

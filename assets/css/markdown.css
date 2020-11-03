@@ -4,7 +4,7 @@
     @apply relative;
     /* Style filename span added by @nuxt/content */
     & > .filename {
-      @apply absolute top-0 right-0 z-10 mt-3 mr-4 text-sm leading-none tracking-tight text-gray-100;
+      @apply absolute top-0 right-0 z-10 mt-3 mr-4 text-sm leading-none tracking-tight text-gray-100 bg-gray-800 bg-opacity-50;
     }
 
     /* Add top padding to code blocks with filename */
@@ -16,7 +16,7 @@
     @apply relative;
     /* Style copy button added in `pages/_.vue` */
     & > .copy {
-      @apply absolute top-0 right-0 px-2 py-2 mt-3 mr-3 text-sm font-semibold leading-none text-white uppercase transition-opacity duration-300 bg-gray-800 border border-white rounded-md shadow-lg opacity-0;
+      @apply absolute top-0 right-0 px-2 py-2 mt-3 mr-3 text-sm font-semibold leading-none text-white uppercase transition-opacity duration-300 bg-gray-800 bg-opacity-75 border border-white rounded-md shadow-lg opacity-0;
 
       &:hover {
         @apply bg-gray-700;
@@ -42,7 +42,7 @@
     text-indent: -5px;
   }
   & ul > li:before {
-    content: "- ";
+    /* content: '- '; */
     text-indent: -5px;
   }
   & code {

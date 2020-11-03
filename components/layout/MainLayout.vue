@@ -36,7 +36,7 @@
           :class="{
             'lg:border-l lg:border-r dark:border-gray-800': withBorders,
           }"
-          class="w-full py-4 lg:pt-8 lg:pb-4 lg:w-3/4"
+          class="w-full py-4 lg:px-5 lg:pt-8 lg:pb-4 lg:w-3/4"
         >
           <slot name="main"></slot>
         </div>

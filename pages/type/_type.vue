@@ -4,7 +4,7 @@
       <div slot="aside">
         <nav-pages :pages="pages" route-param="type"></nav-pages>
       </div>
-      <div slot="main" class="pl-4">
+      <div slot="main" class="">
         <div v-for="page in pages" :key="page.id" class="my-10">
           <div class="text-2xl">
             {{ page.label }}
@@ -17,13 +17,15 @@
             <div class="text-xl">
               {{ entity.label }}
             </div>
-            <div
+            <nuxt-link
               v-for="(guide, guideId) in entity.guides"
               :key="guideId"
-              class="my-1"
+              :to="getRoute(guide)"
+              class="block my-1"
+              @click.native="$store.commit('setContentCurrentPath', guide.path)"
             >
-              {{ guideId + 1 }} {{ guide.title }}
-            </div>
+              <div>{{ guideId + 1 }} {{ guide.title }}</div>
+            </nuxt-link>
           </div>
         </div>
       </div>
@@ -105,6 +107,22 @@ export default {
     return {
       pages,
     }
+  },
+  methods: {
+    getRoute(guide) {
+      const path = guide.path.replace('/documentation/', '').split('/')
+
+      const route = {
+        name: 'content-slug',
+        params: {
+          type: path[0],
+          category: path[1],
+          entity: path[2],
+          content: path[3],
+        },
+      }
+      return route
+    },
   },
 }
 </script>

@@ -166,7 +166,6 @@ export default {
         'remark-external-links',
         'remark-footnotes',
         'remark-container',
-        'remark-parse',
       ],
       prism: {
         theme: '~/assets/css/prism-vsc-dark-plus.css',

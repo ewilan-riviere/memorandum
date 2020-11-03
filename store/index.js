@@ -11,6 +11,7 @@ export const state = () => ({
     // { label: 'À propos', routeName: 'about' },
   ],
   settings: {},
+  contentCurrentPath: '',
 })
 
 export const mutations = {
@@ -37,5 +38,9 @@ export const mutations = {
   },
   setGuides(state, data) {
     state.guides = data
+  },
+
+  setContentCurrentPath(state, data) {
+    state.contentCurrentPath = data
   },
 }
