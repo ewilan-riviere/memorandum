@@ -68,6 +68,13 @@ export default {
       type: Boolean,
       default: false,
     },
+    /**
+     * Default icon if not found
+     */
+    default: {
+      type: String,
+      default: null,
+    },
   },
   data() {
     return {
@@ -94,6 +101,10 @@ export default {
         console.error(
           `${this.$parent._name} with Icon component\nSVG doesn't exist: ${this.name}.svg`
         )
+        if (this.default) {
+          this.svgExist = true
+          this.svgComponent = `icon-${this.default}`
+        }
       } else {
         // if exist, display it
         this.svgExist = true

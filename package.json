@@ -35,16 +35,13 @@
     "nuxt": "^2.14.7",
     "reading-time": "^1.2.0",
     "remark-container": "^0.1.2",
-    "swiper": "^6.3.5",
     "tailwindcss": "^1.9.6",
     "tailwindcss-dark-mode": "^1.1.7",
     "v-tooltip": "^2.0.3",
-    "vue": "^2.6.12",
     "vue-awesome-swiper": "^4.1.1",
     "vue-click-outside": "^1.1.0",
     "vue-scrollto": "^2.20.0",
     "vue-social-sharing": "^3.0.3",
-    "vue-template-compiler": "^2.6.12",
     "vue2-perfect-scrollbar": "^1.5.0"
   },
   "devDependencies": {
@@ -57,6 +54,8 @@
     "@nuxtjs/tailwindcss": "^3.2.0",
     "@tailwindcss/ui": "^0.7.0",
     "babel-eslint": "^10.1.0",
+    "chalk": "3.0.0",
+    "consola": "^2.15.0",
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-nuxt": "^1.0.0",
@@ -66,7 +65,12 @@
     "prettier": "^2.1.1",
     "remark-emoji": "^2.1.0",
     "remark-emoji-to-gemoji": "^1.1.0",
-    "vue-tailwind-screens-helper": "^0.1.0"
+    "remark-footnotes": "^3.0.0",
+    "remark-parse": "^9.0.0",
+    "swiper": "5.2.0",
+    "vue": "^2.6.12",
+    "vue-tailwind-screens-helper": "^0.1.0",
+    "vue-template-compiler": "^2.6.12"
   },
   "vetur": {
     "tags": "./docs/tags.json",

@@ -45,7 +45,7 @@ export default {
     { src: '~/plugins/vue-tailwind-screens', mode: 'client' },
     { src: '~/plugins/vue-helper' },
     // https://github.com/surmon-china/vue-awesome-swiper
-    { src: '~/plugins/vue-awesome-swiper' },
+    { src: '~/plugins/vue-awesome-swiper', ssr: false },
     { src: '~/plugins/vue-scrollto' },
     // https://michalsnik.github.io/aos/
     { src: '~/plugins/aos', ssr: false },
@@ -166,6 +166,7 @@ export default {
         'remark-external-links',
         'remark-footnotes',
         'remark-container',
+        'remark-parse',
       ],
       prism: {
         theme: '~/assets/css/prism-vsc-dark-plus.css',

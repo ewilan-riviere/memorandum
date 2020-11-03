@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Home from '~/pages/index'
+import TypeSlug from '~/pages/type/_type'
+import CategorySlug from '~/pages/category/_category'
 
 Vue.use(Router)
 
@@ -13,6 +15,16 @@ export function createRouter() {
         name: 'home',
         path: '/',
         component: Home,
+      },
+      {
+        name: 'type-slug',
+        path: '/:type',
+        component: TypeSlug,
+      },
+      {
+        name: 'category-slug',
+        path: '/:category',
+        component: CategorySlug,
       },
       // {
       //   name: 'documentation-type',

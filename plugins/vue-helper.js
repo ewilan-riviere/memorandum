@@ -25,3 +25,22 @@ const shuffle = (a) => {
 }
 
 Vue.prototype.$shuffle = shuffle
+
+// check if an element exists in array using a comparer function
+// comparer : function(currentElement)
+// eslint-disable-next-line no-extend-native
+Array.prototype.inArray = function (comparer) {
+  for (let i = 0; i < this.length; i++) {
+    if (comparer(this[i])) return true
+  }
+  return false
+}
+
+// adds an element to the array if it does not already exist using a comparer
+// function
+// eslint-disable-next-line no-extend-native
+Array.prototype.pushIfNotExist = function (element, comparer) {
+  if (!this.inArray(comparer)) {
+    this.push(element)
+  }
+}

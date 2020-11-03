@@ -2,12 +2,13 @@
   <div>
     <main-layout>
       <div slot="aside">
-        <nav-pages :pages="pages" route-param="type"></nav-pages>
+        <!-- <nav-pages :pages="pages"></nav-pages> -->
       </div>
       <div slot="main">
-        <div v-for="page in pages" :key="page.id">
+        <!-- <div v-for="page in pages" :key="page.id">
           {{ page }}
-        </div>
+        </div> -->
+        {{ $route.params.slug }}
       </div>
       <div slot="toc"></div>
     </main-layout>
@@ -15,26 +16,24 @@
 </template>
 
 <script>
-import NavPages from '@/components/layout/NavPages.vue'
-
 export default {
-  name: 'HomeIndex',
-  components: {
-    NavPages,
-  },
-  async asyncData({ $content }) {
-    const content = await $content('documentation', { deep: true })
+  name: 'CategorySlug',
+  async asyncData({ $content, params }) {
+    const content = await $content(`documentation/${params.slug}`, {
+      deep: true,
+    })
       .only(['title'])
       .fetch()
 
     let pages = []
     content.forEach((markdownFile) => {
+      console.log(markdownFile)
       const path = markdownFile.path.replace('/documentation/', '').split('/')
       const Page = {
         label: path[0],
         guides: [],
         number: 0,
-        route: 'type-slug',
+        route: 'category-slug',
       }
       pages.push(Page)
     })

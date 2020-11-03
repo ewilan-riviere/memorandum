@@ -1,7 +1,7 @@
 <template>
   <div>
     <navigation></navigation>
-    <Nuxt class="pt-16" />
+    <Nuxt class="min-h-screen pt-16" />
     <app-footer></app-footer>
     <app-back-to-top />
     <client-only>

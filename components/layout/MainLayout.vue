@@ -1,6 +1,6 @@
 <template>
   <main class="container px-4 mx-auto lg:px-8">
-    <div class="relative flex flex-wrap min-h-screen">
+    <div class="relative flex flex-wrap">
       <aside
         class="fixed inset-0 z-30 hidden w-full mt-16 bg-white lg:w-1/5 lg:block lg:relative lg:mt-0 dark:bg-gray-900 lg:bg-transparent lg:dark:bg-transparent"
       >
@@ -18,9 +18,9 @@
                   >
                     <span>Back</span>
                     <icon
-                      name="arrow-top"
-                      :size="25"
-                      class="ml-1"
+                      name="back-to-top"
+                      :size="15"
+                      class="ml-2"
                       svg-class="transition-transform duration-300 transform group-hover:-translate-y-1"
                     />
                   </h3>

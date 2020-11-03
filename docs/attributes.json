@@ -13,5 +13,8 @@
     },
     "icon/stroke": {
         "description": "Boolean: For SVG if designed by &lt;svg stroke-width='...' /&gt;"
+    },
+    "icon/default": {
+        "description": "String: Default icon if not found"
     }
 }
