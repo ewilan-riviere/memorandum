@@ -192,3 +192,10 @@ flutter install
 ## Publish the app on Google Play Store
 
 todo
+
+---
+
+## Promote the app
+
+- <https://play.google.com/intl/en_us/badges/>
+- <https://github.com/steverichey/google-play-badge-svg>

@@ -12,7 +12,7 @@
         >
           <div class="flex items-center px-4 py-4 sm:px-6">
             <div class="flex items-center flex-1 min-w-0">
-              <div class="flex-shrink-0">
+              <!-- <div class="flex-shrink-0">
                 <client-only>
                   <img
                     class="w-12 h-12"
@@ -21,7 +21,7 @@
                     @error="imgError"
                   />
                 </client-only>
-              </div>
+              </div> -->
               <div class="min-w-0 px-4">
                 <div>
                   <div

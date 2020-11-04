@@ -1,6 +1,6 @@
 ---
 title: Setup dependencies
-description: 'How to setup common dependencies with Laravel: PHP CS fixer, IDE helper, scaffold...'
+description: ''
 position: 1
 category: 'Laravel'
 ---

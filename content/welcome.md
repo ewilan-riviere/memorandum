@@ -20,9 +20,6 @@ Open-source documentation about my projects, my favorites frameworks & languages
 
 ## Features
 
-<list :items="features"></list>
-
-![fallout-hacker-zone](/images/fallout/hacker-zone.jpg)
-> Code... Code never changes
+<list :items="features" class="mb-10"></list>
 
 <icon name="signature" :size="160"  ratio />

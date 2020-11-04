@@ -2,10 +2,8 @@
   <div>
     <div
       :class="{
-        'pl-2 bg-green-300 bg-opacity-50 border-green-600': opened,
+        'bg-green-300 bg-opacity-50': opened,
       }"
-      class="flex items-center p-2 mb-2 font-bold transition-colors duration-300 bg-gray-100 border-l-2 border-gray-400 cursor-pointer rounded-tr-md rounded-br-md hover:bg-gray-200"
-      @click="opened = !opened"
     >
       <slot name="title"></slot>
     </div>
@@ -39,6 +37,12 @@ export default {
     this.opened = this.expanded
   },
   methods: {
+    open() {
+      this.opened = true
+    },
+    false() {
+      this.opened = false
+    },
     toggle() {
       this.opened = !this.opened
     },

@@ -64,6 +64,11 @@ Don't login with Google to Medium, just delete cookies when you reach limit, you
 
 ## ToDo
 
+- <https://github.com/seenickcode/flutter_realistic_forms>
+- <https://medium.com/@michael.krol/simple-recipes-app-made-in-flutter-list-view-283ef85f91e7>
+- <https://medium.com/@dev.n/answering-questions-on-flutter-app-development-6d50eb7223f3>
+- <https://medium.com/flutter-community/using-the-bloc-pattern-for-clean-flutter-apps-theory-and-a-practical-example-b5dcad728a2b>
+- <https://medium.com/swlh/flutter-provider-and-didchangedependencies-15678f502262>
 - <https://medium.com/flutter-community/creating-services-to-do-the-work-in-your-flutter-app-93d6c4aa7697>
 - <https://levelup.gitconnected.com/flutter-splash-screen-a-simple-way-to-handle-async-dependencies-7a9f559eb280>
 - <https://medium.com/flutter-community/clipping-in-flutter-e9eaa6b1721a>

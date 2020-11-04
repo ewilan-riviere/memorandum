@@ -10,6 +10,18 @@ features:
   - Built with NuxtJS & nuxt/content
 ---
 
+<fallout></fallout>
+
+- <local-link url="_content/documentation/development/frameworks/flutter/setup-flutter" text="_content/documentation/.../flutter/setup-flutter"></local-link>
+- <local-link url="_content/documentation/development/frameworks/flutter?only=title&only=description&only=img&only=slug&only=author" text="_content/documentation/development/frameworks/flutter?only=title..."></local-link>
+- [**content.nuxtjs.org**](https://content.nuxtjs.org)
+- [**nuxtjs.org**](https://nuxtjs.org)
+- [**github.com/remarkjs/remark#list-of-plugins**](https://github.com/remarkjs/remark/blob/main/doc/plugins.md#list-of-plugins)
+- [**github.com/nuxt-community/feed-module**](https://github.com/nuxt-community/feed-module)
+- [**github.com/ngryman/reading-time**](https://github.com/ngryman/reading-time)
+- [**github.com/nuxt/content/issues/106**](https://github.com/nuxt/content/issues/106)
+- [**nuxtjs.org/blog/creating-blog-with-nuxt-content**](https://nuxtjs.org/blog/creating-blog-with-nuxt-content)
+
 ## Spoiler
 
 <spoiler label="Config">
@@ -30,13 +42,13 @@ sudo apt update && sudo apt upgrade
 </spoiler>
 ```
 
-## Image
+<!-- ## Image -->
 
-<md-img source="nginx-home.jpg"></md-img>
+<!-- <md-img source="nginx-home.jpg"></md-img> -->
 
-```html
+<!-- ```html
 <md-img source="nginx-home.jpg"></md-img>
-```
+``` -->
 
 ## Code group
 
@@ -101,15 +113,3 @@ sudo apt update && sudo apt upgrade
 }
 \```
 ```
-
-## Links
-
-- <http://localhost:3000/_content/posts/animations>
-- <http://localhost:3000/_content/posts?only=title&only=description&only=img&only=slug&only=author>
-- <https://content.nuxtjs.org/>
-- <https://nuxtjs.org/>
-- <https://github.com/remarkjs/remark/blob/main/doc/plugins.md#list-of-plugins>
-- <https://github.com/nuxt-community/feed-module>
-- <https://github.com/ngryman/reading-time>
-- <https://github.com/nuxt/content/issues/106>
-- <https://fr.nuxtjs.org/blog/creating-blog-with-nuxt-content/>

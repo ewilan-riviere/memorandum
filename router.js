@@ -63,14 +63,14 @@ export function createRouter() {
       //   component: GuidesSlug,
       // },
     ],
-    scrollBehavior(to) {
+    scrollBehavior(to, from, savedPosition) {
       if (to.hash) {
-        return window.scrollTo({
-          top: document.querySelector(to.hash).offsetTop,
-          behavior: 'smooth',
-        })
+        return { selector: to.hash }
+      } else {
+        setTimeout(() => {
+          return window.scrollTo({ top: 0, behavior: 'smooth' })
+        }, 100)
       }
-      return window.scrollTo({ top: 0, behavior: 'smooth' })
     },
   })
 }

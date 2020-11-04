@@ -13,23 +13,78 @@
           <div class="text-2xl">
             {{ selectedCategory.label }}
           </div>
-          <category-collapse
-            v-for="(entity, entityId) in selectedCategory.entities"
-            :key="entityId"
-            class="p-2 my-5 rounded-sm"
-            :expanded="entityId === 0"
-          >
-            <h3
-              slot="title"
-              class="text-sm font-bold tracking-wider text-gray-500 uppercase lg:text-xs"
-            >
-              <!-- {{ $t(category.label) }} -->
-              {{ entity.label }}
-            </h3>
-            <div slot="list" class="ml-2">
-              <list-guide :guides="entity.guides"></list-guide>
-            </div>
-          </category-collapse>
+          <!--
+  Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
+  Read the documentation to get started: https://tailwindui.com/documentation
+-->
+          <div class="overflow-hidden bg-white shadow sm:rounded-md">
+            <ul>
+              <category-collapse
+                v-for="(entity, entityId) in selectedCategory.entities"
+                :key="entityId"
+                :ref="`collapse-${entityId}`"
+                class="cursor-pointer"
+                :class="{
+                  'bg-green-400 bg-opacity-50': currentOpened === entityId,
+                }"
+                @click.native="switchAccordion(entityId)"
+              >
+                <div
+                  slot="title"
+                  class="block transition duration-300 ease-in-out hover:bg-gray-200 focus:outline-none focus:bg-gray-50"
+                >
+                  <div class="flex items-center px-4 py-4 sm:px-6">
+                    <div class="flex items-center flex-1 min-w-0">
+                      <div class="flex-shrink-0">
+                        <client-only>
+                          <img
+                            class="w-12 h-12"
+                            :src="`/images/documentation/${entity.label}.png`"
+                            alt=""
+                            @error="imgError"
+                          />
+                        </client-only>
+                      </div>
+                      <div class="min-w-0 px-4">
+                        <div>
+                          <div
+                            class="text-lg font-medium leading-5 text-indigo-600 truncate"
+                          >
+                            {{ entity.label }}
+                          </div>
+                          <div>
+                            <!-- <p v-if="guide.description" v-html="guide.description"></p>
+                    <span v-else class="italic text-gray-400">
+                      No description
+                    </span> -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <!-- Heroicon name: chevron-right -->
+                      <svg
+                        class="w-5 h-5 text-gray-400 transition-transform duration-300"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        :class="{ 'rotate-arrow': currentOpened === entityId }"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div slot="list" class="ml-2">
+                  <list-guide :guides="entity.guides"></list-guide>
+                </div>
+              </category-collapse>
+            </ul>
+          </div>
         </div>
       </div>
       <div slot="toc"></div>
@@ -100,6 +155,7 @@ export default {
             entity.guides.push(markdownFile)
           }
         })
+        page.entities.sort((a, b) => (a.label > b.label ? 1 : -1))
       }
     })
 
@@ -118,11 +174,44 @@ export default {
       selectedCategory: pages[0],
     }
   },
+  data() {
+    return {
+      currentOpened: null,
+      switched: false,
+    }
+  },
   methods: {
+    switchAccordion(id) {
+      for (let i = 0; i < this.selectedCategory.entities.length; i++) {
+        this.$refs[`collapse-${i}`][0].false()
+      }
+      if (this.currentOpened === id && this.switched === false) {
+        this.$refs[`collapse-${id}`][0].false()
+        this.switched = true
+      } else {
+        this.$refs[`collapse-${id}`][0].open()
+        this.switched = false
+      }
+
+      this.currentOpened = id
+      this.$scrollTo('#__nuxt', 500)
+    },
+    imgError(event) {
+      event.target.src = require(`~/static/images/documentation/guides.png`)
+    },
     selectCategory(data) {
+      for (let i = 0; i < this.selectedCategory.entities.length; i++) {
+        this.$refs[`collapse-${i}`][0].false()
+      }
       const category = this.pages.filter((page) => page.label === data)
       this.selectedCategory = category[0]
     },
   },
 }
 </script>
+
+<style scoped>
+.rotate-arrow {
+  transform: rotate(90deg);
+}
+</style>
