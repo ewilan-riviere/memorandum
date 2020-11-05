@@ -71,6 +71,15 @@ Don't forget the commande `sudo chmod 775 .git/hooks/post-merge` to allow system
 
 ### Static
 
+Add `static` to `nuxt.config.js`
+
+```js
+export default {
+  target: 'static',
+  // ...
+}
+```
+
 ```bash
 # generate static project
 yarn generate
