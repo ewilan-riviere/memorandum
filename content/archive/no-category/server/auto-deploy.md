@@ -5,8 +5,6 @@ position: 1
 category: 'Server'
 ---
 
-# Auto-deploy
-
 When you push some modifications on your repo, your server not update automatically. If you use **webhooks**, you can send **push event** to your server execute `git pull` on your repo. But we need to receive this push event, it's call a **payload**, we have to configure server to receive it and update repository.
 
 ## 1. Setup drone to watch push events
@@ -162,10 +160,10 @@ GitHub example, webhooks are available into **Settings/Webhooks**. If you haven'
 
 When repo is updated, you need to execute some commands like `npm install` or `npm build` for example. To do this, you can use **git hooks**, it's script that you can configure when git event triggered. Check `repo/.git/hooks/` directory, it's available on all repositories and not gittable. If you want to execute commands after `git pull`, create a new script and name it `post-merge`.
 
-```sh[~/www/portfolio-front/.git/hooks/post-merge]
+```sh[~/www/nuxt-app/.git/hooks/post-merge]
 #!/bin/bash
 yarn && yarn run build
-yarn restart pm2 portfolio
+yarn restart pm2 nuxt-app
 ```
 
 Change rights on this file with this command:
@@ -188,7 +186,9 @@ php artisan config:clear
 php artisan view:clear
 
 composer install
-php artisan migrate:fresh --seed --force
+# If database works with seeds only for dev
+# php artisan migrate:fresh --seed --force
+php artisan migrate
 php artisan config:cache
 php artisan view:cache
 php artisan route:cache
@@ -209,5 +209,5 @@ yarn && yarn build
 ```sh[~/www/nuxtjs-front/.git/hooks/post-merge]
 #!/bin/bash
 yarn && yarn build
-yarn restart pm2 nuxt-app
+pm2 restart nuxt-app
 ```
