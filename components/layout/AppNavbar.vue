@@ -199,7 +199,7 @@ export default {
         }
 
         const articles = await this.$content('documentation', { deep: true })
-          .only(['title', 'slug', 'description', 'category'])
+          .only(['title', 'slug', 'description', 'category', 'path'])
           .sortBy('category', 'asc')
           .limit(6)
           .search(query)

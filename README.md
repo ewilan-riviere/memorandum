@@ -57,8 +57,6 @@ module.exports = {
 }
 ```
 
-You can just use `generate` without pm2.
-
 Use `.git/hooks/post-merge` like:
 
 ```bash
@@ -68,21 +66,5 @@ pm2 restart memorandum
 ```
 
 Don't forget the commande `sudo chmod 775 .git/hooks/post-merge` to allow system to execute this script.
-
-### Static
-
-Add `static` to `nuxt.config.js`
-
-```js
-export default {
-  target: 'static',
-  // ...
-}
-```
-
-```bash
-# generate static project
-yarn generate
-```
 
 To learn more, check [NuxtJS documentation](https://nuxtjs.org).
