@@ -17,11 +17,11 @@
             {{ label }}
           </div>
           <small>
-            {{ expanded ? 'Réduire' : 'Ouvrir' }}
+            {{ expanded ? 'Minimize' : 'Open' }}
           </small>
         </span>
         <span v-else>
-          {{ expanded ? 'Réduire' : 'Ouvrir' }}
+          {{ expanded ? 'Minimize' : 'Ouvrir' }}
         </span>
       </div>
     </div>

@@ -21,6 +21,7 @@
             <ul>
               <category-collapse
                 v-for="(entity, entityId) in selectedCategory.entities"
+                :id="`collapse-${entityId}`"
                 :key="entityId"
                 :ref="`collapse-${entityId}`"
                 class="cursor-pointer"
@@ -108,7 +109,7 @@ export default {
     const content = await $content(`documentation/${params.type}`, {
       deep: true,
     })
-      .only(['title', 'description', 'path'])
+      .only(['title', 'description', 'path', 'readingTime'])
       .sortBy('position')
       .fetch()
 
@@ -194,7 +195,9 @@ export default {
       }
 
       this.currentOpened = id
-      this.$scrollTo('#__nuxt', 500)
+      setTimeout(() => {
+        this.$scrollTo(`#collapse-${id}`, 500, { offset: -60 })
+      }, 400)
     },
     imgError(event) {
       event.target.src = require(`~/static/images/documentation/guides.png`)

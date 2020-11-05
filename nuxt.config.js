@@ -50,7 +50,7 @@ export default {
       },
       {
         hid: 'twitter:image',
-        property: 'og:image',
+        property: 'twitter:image',
         content: `${process.env.APP_URL}/logo/preview.png`,
       },
     ],
@@ -172,13 +172,31 @@ export default {
   axios: {},
 
   hooks: {
-    'content:file:beforeInsert': async (document, database) => {
-      if (document.extension === '.json' && document.body) {
-        const data = await database.markdown.toJSON(document.body)
+    'content:file:beforeInsert': (document) => {
+      if (document.extension === '.md') {
+        const readingTime = require('reading-time')
+        const stats = readingTime(document.text)
 
-        Object.assign(document, data)
+        document.readingTime = stats
+
+        const paths = document.path.split('/')
+        paths.splice(0, 2)
+        const pathsObj = {
+          type: paths[0], // like 'development' or 'games'
+          category: paths.length === 4 ? paths[1] : null, // like 'frameworks'
+          entity: paths[paths.length - 2], // like 'flutter' or 'guild-wars'
+          file: paths[paths.length - 1], // like 'setup-flutter'
+        }
+        document.pathsObj = pathsObj
       }
     },
+    // 'content:file:beforeInsert': async (document, database) => {
+    //   if (document.extension === '.json' && document.body) {
+    //     const data = await database.markdown.toJSON(document.body)
+
+    //     Object.assign(document, data)
+    //   }
+    // },
   },
   // Content module configuration (https://go.nuxtjs.dev/content-config)
   content: {

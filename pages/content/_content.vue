@@ -1,40 +1,67 @@
 <template>
   <div>
-    <main-layout>
+    <main-layout
+      :image="$slugify(article.category)"
+      :back-route="{
+        name: 'type-slug',
+        params: { type: article.pathsObj.type },
+      }"
+    >
       <div slot="aside">
         <nuxt-link
-          v-for="article in otherArticles"
-          :key="article.id"
-          :to="getRoute(article)"
+          v-for="otherArticle in otherArticles"
+          :key="otherArticle.id"
+          :to="getRoute(otherArticle)"
+          :class="
+            otherArticle.title === article.title
+              ? 'bg-primary-500 bg-opacity-25'
+              : ''
+          "
           class="block p-1 my-1 font-semibold transition-colors duration-300 rounded-md hover:bg-opacity-50 hover:bg-primary-500"
         >
-          {{ article.title }}
+          {{ otherArticle.position }}. {{ otherArticle.title }}
         </nuxt-link>
       </div>
+      <div slot="title">
+        <p
+          class="text-base font-semibold leading-6 tracking-wide text-center text-indigo-600 uppercase"
+        >
+          {{ article.category }}
+        </p>
+        <h1
+          class="mt-2 mb-8 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-800 sm:text-4xl sm:leading-10"
+        >
+          {{ article.title }}
+        </h1>
+      </div>
       <div slot="main" class="">
-        <!--
-  Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
-  Read the documentation to get started: https://tailwindui.com/documentation
--->
-        <!-- This component requires Tailwind CSS >= 1.5.1 and @tailwindcss/ui >= 0.4.0 -->
+        <client-only>
+          <read-progress></read-progress>
+        </client-only>
         <transition name="fade">
           <article v-if="article" class="relative overflow-hidden bg-white">
-            <div class="relative">
-              <div class="mx-auto mb-6 text-lg max-w-prose">
-                <p
-                  class="text-base font-semibold leading-6 tracking-wide text-center text-indigo-600 uppercase"
+            <div class="relative mx-auto prose prose-lg">
+              <div
+                v-if="article.description"
+                class="relative mx-auto mb-6 text-lg font-medium leading-7 md:flex-grow max-w-prose"
+              >
+                <svg
+                  class="absolute top-0 left-0 w-8 h-8 text-gray-200 transform -translate-x-3 -translate-y-2"
+                  fill="currentColor"
+                  viewBox="0 0 32 32"
                 >
-                  {{ article.category }}
-                </p>
-                <h1
-                  class="mt-2 mb-8 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 sm:text-4xl sm:leading-10"
-                >
-                  {{ article.title }}
-                </h1>
+                  <path
+                    d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"
+                  />
+                </svg>
                 <p
-                  class="text-xl leading-8 text-gray-500"
+                  class="relative text-xl leading-8 text-gray-500"
                   v-html="article.description"
                 ></p>
+              </div>
+              <div class="flex items-center my-1 text-gray-600">
+                <icon name="clock" stroke class="mr-1" />
+                {{ article.readingTime.text }}
               </div>
               <div class="mx-auto prose prose-lg text-gray-500">
                 <nuxt-content :document="article" />
@@ -53,6 +80,12 @@
 <script>
 export default {
   name: 'ContentSlug',
+  components: {
+    ReadProgress: () =>
+      import('vue-read-progress')
+        .then((m) => m.default)
+        .catch(),
+  },
   async asyncData({ $content, params, route }) {
     const path = `documentation/${route.fullPath}`
     const article = await $content(path).fetch()
@@ -61,16 +94,16 @@ export default {
     fullPath.splice(0, 1)
     fullPath.pop()
     fullPath = fullPath.join('/')
-    let otherArticles = await $content(`documentation/${fullPath}`, {
+    const otherArticles = await $content(`documentation/${fullPath}`, {
       deep: true,
     })
-      .only(['title', 'path', 'extension'])
+      .only(['title', 'path', 'extension', 'position'])
       .sortBy('position')
       .fetch()
 
-    otherArticles = otherArticles.filter(
-      (otherArticle) => otherArticle.title !== article.title
-    )
+    // otherArticles = otherArticles.filter(
+    //   (otherArticle) => otherArticle.title !== article.title
+    // )
 
     return {
       article,
@@ -120,31 +153,45 @@ export default {
     },
   },
   head() {
+    const title = `${this.article.title} - ${this.article.category} · Memorandum`
+    const description = this.article.description
+      ? this.article.description
+      : 'No description'
     return {
-      title: `${this.article.title} - ${this.article.category}`,
+      title,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.article.description,
+          content: description,
         },
         // Open Graph
-        { hid: 'og:title', property: 'og:title', content: this.article.title },
+        { hid: 'og:title', property: 'og:title', content: title },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: this.article.description,
+          content: description,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: `${process.env.APP_URL}/images/documentation/${this.article.category}.png`,
         },
         // Twitter Card
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: this.article.title,
+          content: title,
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: this.article.description,
+          content: description,
+        },
+        {
+          hid: 'twitter:image',
+          property: 'twitter:image',
+          content: `${process.env.APP_URL}/images/documentation/${this.article.category}.png`,
         },
       ],
     }

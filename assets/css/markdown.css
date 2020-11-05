@@ -46,7 +46,7 @@
     text-indent: -5px;
   }
   & code {
-    /* @apply bg-gray-nuxt; */
+    @apply bg-gray-200;
   }
 }
 .nuxt-content a {
@@ -56,14 +56,10 @@
   @apply text-white bg-opacity-50 border-blue-useweb-light bg-blue-useweb-light;
 }
 .nuxt-content {
-  @apply text-gray-700 font-quicksand;
+  @apply text-gray-700 font-ptsans-regular;
 }
 .nuxt-content h2 {
-  position: relative;
-  font-size: 1.5rem;
-  display: table;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  @apply relative table mt-16 mb-8 text-2xl;
 }
 .nuxt-content h2::after {
   content: ' ';

@@ -10276,6 +10276,13 @@ vue-no-ssr@^1.1.1:
   resolved "https://registry.yarnpkg.com/vue-no-ssr/-/vue-no-ssr-1.1.1.tgz#875f3be6fb0ae41568a837f3ac1a80eaa137b998"
   integrity sha512-ZMjqRpWabMPqPc7gIrG0Nw6vRf1+itwf0Itft7LbMXs2g3Zs/NFmevjZGN1x7K3Q95GmIjWbQZTVerxiBxI+0g==
 
+vue-read-progress@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/vue-read-progress/-/vue-read-progress-1.0.4.tgz#12309ce2d688481df499fd97b50fd7a1b3f26412"
+  integrity sha512-IAMoax2o0EYBuhIWirrnWwgVCIz8Cz9k/i5heHdjmuL8qqm7oZpx8vU4EttbW7BBGKdC5t53cadDdReNvT0dLA==
+  dependencies:
+    vue "^2.6.7"
+
 vue-resize@^0.4.5:
   version "0.4.5"
   resolved "https://registry.yarnpkg.com/vue-resize/-/vue-resize-0.4.5.tgz#4777a23042e3c05620d9cbda01c0b3cc5e32dcea"
@@ -10362,7 +10369,7 @@ vue2-perfect-scrollbar@^1.5.0:
     perfect-scrollbar "^1.5.0"
     postcss-import "^12.0.0"
 
-vue@^2.6.12:
+vue@^2.6.12, vue@^2.6.7:
   version "2.6.12"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.12.tgz#f5ebd4fa6bd2869403e29a896aed4904456c9123"
   integrity sha512-uhmLFETqPPNyuLLbsKz6ioJ4q7AZHzD8ZVFNATNyICSZouqP2Sz0rotWQC8UNBF6VGSCs5abnKJoStA6JbCbfg==

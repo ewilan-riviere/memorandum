@@ -14,7 +14,9 @@
                   <h3
                     v-if="$route.name !== 'home'"
                     class="flex items-center px-3 py-1 mb-3 text-sm font-bold tracking-wider text-gray-500 uppercase transition-colors duration-300 border-l-2 border-gray-200 cursor-pointer rounded-tr-md rounded-br-md lg:text-xs group hover:border-gray-300 hover:bg-gray-100"
-                    @click="$router.back()"
+                    @click="
+                      backRoute ? $router.push(backRoute) : $router.push('/')
+                    "
                   >
                     <span>Back</span>
                     <icon
@@ -36,9 +38,27 @@
           :class="{
             'lg:border-l lg:border-r dark:border-gray-800': withBorders,
           }"
-          class="w-full py-4 lg:px-5 lg:pt-8 lg:pb-4 lg:w-3/4"
+          class="w-full lg:w-3/4"
         >
-          <slot name="main"></slot>
+          <div v-if="image" class="text-on-img-tailwind">
+            <div class="relative w-full">
+              <div class="source" style="z-index: -1">
+                <img
+                  :src="`/images/documentation/${image}-banner.webp`"
+                  class="object-cover object-center w-full h-40 opacity-25"
+                />
+                <div
+                  class="absolute z-10 w-full text-2xl italic text-center text-white"
+                  style="top: 50%; left: 50%; transform: translate(-50%, -50%)"
+                >
+                  <slot name="title"></slot>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pt-4 pb-10 lg:px-5 lg:pt-8">
+            <slot name="main"></slot>
+          </div>
         </div>
         <div class="relative block w-full lg:w-1/4">
           <div
@@ -62,6 +82,14 @@ export default {
     withBorders: {
       type: Boolean,
       default: true,
+    },
+    image: {
+      type: String,
+      default: null,
+    },
+    backRoute: {
+      type: Object,
+      default: () => {},
     },
   },
   mounted() {
@@ -93,8 +121,12 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .ps {
   height: 90vh;
+}
+.text-on-img-tailwind .source::after {
+  @apply absolute top-0 left-0 right-0 bottom-0 w-full max-w-full bg-black bg-opacity-0;
+  content: '';
 }
 </style>

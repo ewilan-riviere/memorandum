@@ -29,6 +29,10 @@
                   >
                     {{ guide.title }}
                   </div>
+                  <div class="flex items-center my-1 text-gray-600">
+                    <icon name="clock" stroke class="mr-1" />
+                    {{ guide.readingTime.text }}
+                  </div>
                   <div>
                     <p v-if="guide.description" v-html="guide.description"></p>
                     <span v-else class="italic text-gray-400">
@@ -104,6 +108,12 @@ export default {
           break
       }
       return route
+    },
+    time(time) {
+      console.log(time)
+      const format = new Date(time * 1000).toISOString().substr(11, 8)
+      console.log(format)
+      return format
     },
   },
 }
