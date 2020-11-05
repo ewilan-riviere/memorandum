@@ -1,15 +1,18 @@
 ---
 title: Backpack
-description: ''
-position: 2
+description: 'Basics to use Backpack, admin panel for Laravel. Check backpackforlaravel.com'
+position: 8
 category: 'Laravel'
 ---
 
-# Backpack
+:::tip Links
 
-- <https://backpackforlaravel.com/docs/4.1/installation>
-- <https://github.com/Laravel-Backpack/FileManager>
-- <https://github.com/Laravel-Backpack/Settings>
+- [**backpackforlaravel.com**](https://backpackforlaravel.com): doc of Backpack
+- [**backpackforlaravel.com/docs/4.1/installation**](https://backpackforlaravel.com/docs/4.1/installation): setup Backpack
+- [**github.com/Laravel-Backpack/FileManager**](https://github.com/Laravel-Backpack/FileManager): add File manager
+- [**github.com/Laravel-Backpack/Settings**](https://github.com/Laravel-Backpack/Settings): add Settings page
+
+:::
 
 ## Installation
 

@@ -1,11 +1,9 @@
 ---
 title: Email with Vue.js
-description: ''
-position: 1
+description: 'With embedded Vue, how to send mail with Vue.js form.'
+position: 4
 category: 'Laravel'
 ---
-
-# Mail with VueJS form
 
 ```bash
 composer require google/recaptcha

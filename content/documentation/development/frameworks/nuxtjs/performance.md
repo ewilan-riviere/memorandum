@@ -8,6 +8,7 @@ category: 'NuxtJS'
 - <https://medium.com/weekly-webtips/web-vitals-google-search-the-state-vue-nuxt-performance-optimization-in-july-2020-71441eefc51>
 - <https://github.com/daliborgogic/nuxt-vitals>
 - <https://github.com/nuxt-community/html-validator-module>
+- <https://codeburst.io/5-steps-to-speed-up-your-image-heavy-website-65c874a86966>
 
 :::tip By pi0
 

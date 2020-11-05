@@ -1,22 +1,17 @@
 ---
 title: Relationships
-description: ''
-position: 1
+description: 'About relationships.'
+position: 2
 category: 'Laravel'
 ---
 
-# Relationships
-
 *Example based on [**./play.it API**](https://forge.dotslashplay.it/play.it/api)*
-
-[[toc]]
 
 ## 1. Difference between *Model* and *Table*
 
 Laravel has ORM system called Eloquent, an ORM is an Object Relationships Mapping. In one way, we have *migrations* to create database tables in MySQL for example. In other way, we have *models* to represent each entity in a PHP object. In a Controller, we call model if we want to get database content and not directly table.
 
-<vue-code-info ext="php" path="app/Http/Controllers/AnyController.php">
-```php {13, 17}
+```php[app/Http/Controllers/AnyController.php]
 <?php
 
 namespace App\Http\Controllers;
@@ -37,15 +32,13 @@ class AnyController extends Controller
     $users = User::where('active', 1)->get();
   }
 }
-
 ```
-</vue-code-info>
 
 At l. 13, we call directly table `users` from database and we bypass ORM system, like old PHP apps before ORM. But the real interest to use Laravel is to call Model **User**, l. 17, which is a class object in PHP, that we define before setup controllers, to define each attribute which in the `users` table.
 
-:::details Example of User model
-<vue-code-info ext="php" path="app/Models/User.php">
-```php
+<spoiler label="Example of User model">
+
+```php[app/Models/User.php]
 <?php
 
 namespace App\Models;
@@ -67,13 +60,11 @@ class User extends Model
 }
 ```
 
-</vue-code-info>
-:::
+</spoiler>
 
-:::details Example of users table
-<vue-code-info ext="php" path="database/migrations/2020_05_24_174020_create_users_table.php">
+<spoiler label="Example of users table">
 
-```php
+```php[database/migrations/2020_05_24_174020_create_users_table.php]
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -112,8 +103,7 @@ class CreateUsersTable extends Migration
 }
 ```
 
-</vue-code-info>
-:::
+</spoiler>
 
 **Why?**
 
@@ -124,7 +114,7 @@ To use Eloquent ORM, we need to define database tables into migrations AND Model
 MySQL allow tables to have relationships like OneToOne, OneToMany or ManyToMany. So you will have to create these relationships into migrations files for MySQL. But for Models, you will have to recreate these relationships with Eloquent ORM syntax to manipulate each entity with relationships if you want it.
 When migrations and models have right syntax, you can call any entity with relationships with a extremely simple syntax like below
 
-```php
+```php[app/Http/Controllers/AnyController.php]
 <?php
 
 // Here with take the example of a Game with some relationships

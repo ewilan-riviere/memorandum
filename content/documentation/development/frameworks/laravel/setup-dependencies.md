@@ -1,11 +1,9 @@
 ---
 title: Setup dependencies
-description: ''
+description: 'Setup usefeul dependencies like PHP CS fixer, IDE Helper...'
 position: 1
 category: 'Laravel'
 ---
-
-# Setup dependencies
 
 ## PHP CS Fixer
 

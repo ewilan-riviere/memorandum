@@ -1,11 +1,9 @@
 ---
 title: Localization
-description: ''
-position: 1
+description: 'How to use i18n into Blade and Vue'
+position: 6
 category: 'Laravel'
 ---
-
-# Localization
 
 ## **Get Laravel translations into VueJS**
 

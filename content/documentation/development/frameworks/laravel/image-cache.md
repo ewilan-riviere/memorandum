@@ -1,7 +1,7 @@
 ---
 title: Image cache
 description: 'Increase loading speed of image with cache for images'
-position: 2
+position: 5
 category: 'Laravel'
 ---
 

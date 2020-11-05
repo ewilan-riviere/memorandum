@@ -1,11 +1,12 @@
 ---
 title: SVG manager
-description: ''
-position: 1
+description: 'How to manage SVG.'
+position: 3
 category: 'Laravel'
+type: 'development'
 ---
 
-:::tip
+:::tip Composer: inline-svg
 
 You can easily display SVG file on Laravel without create a specific *blade* file for each SVG, just keep SVG in a defined folder and load it from a method of `helpers.php`. You will need to install **composer** dependency [**oscarotero/inline-svg**](https://github.com/oscarotero/inline-svg).
 
@@ -75,10 +76,6 @@ Add `helpers.php` in `autoload.files` in `composer.json`
 ```json[composer.json]
 {
   "name": "...",
-  "require": {
-    // ...
-    "oscarotero/inline-svg": "^2.0"
-  },
   "autoload": {
     "files": [
       "app/helpers.php"
@@ -197,18 +194,24 @@ Add new SVG icon into `resources/svg` like `laravel.svg`
 
 You will find another file into `resources/views/livewire`: `icon.blade.php`
 
-```php[resources/views/livewire/icon.blade.php]
+```html[resources/views/livewire/icon.blade.php]
 <span class="{{ $class }}">
   {!! $icon !!}
 </span>
 ```
 
-And now, you can call your `icon` component into any `blade` file and pass parameter with HTML attributes, like Vue files !  
+And now, you can call your `icon` component into any `blade` file and pass parameter with HTML attributes, like Vue files !
 
-In this example, I use Tailwind CSS framework for design.
-
-```php[resources/views/welcome.blade.php]
+```html[resources/views/welcome.blade.php]
+<style>
+.my-auto {
+  margin: auto 0;
+}
+.text-red {
+  color: red;
+}
+</style>
 <div>
-  <livewire:icon name="laravel" :size="60" class="my-auto text-red-500">
+  <livewire:icon name="laravel" :size="60" class="my-auto text-red">
 </div>
 ```
