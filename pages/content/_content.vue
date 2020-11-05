@@ -64,7 +64,7 @@ export default {
     let otherArticles = await $content(`documentation/${fullPath}`, {
       deep: true,
     })
-      .only(['title'])
+      .only(['title', 'path', 'extension'])
       .sortBy('position')
       .fetch()
 

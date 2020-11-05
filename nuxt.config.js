@@ -81,19 +81,19 @@ export default {
     // https://github.com/nuxt-community/html-validator-module
     // '@nuxtjs/html-validator',
     // https://github.com/daliborgogic/nuxt-vitals
-    [
-      'nuxt-vitals',
-      {
-        // Tracking ID (required) { string }
-        // Replace UA-XXXXXXXX-X by your Google Analytics tracking ID.
-        trackingID: 'G-Y4XJBB2RP7',
-        // Event Category (optional) { string }, default 'Web Vitals'
-        eventCategory: 'Some Category',
-        // Debug (optional) { number } default 0
-        debug: 1,
-        disabled: false,
-      },
-    ],
+    // [
+    //   'nuxt-vitals',
+    //   {
+    //     // Tracking ID (required) { string }
+    //     // Replace UA-XXXXXXXX-X by your Google Analytics tracking ID.
+    //     trackingID: 'G-Y4XJBB2RP7',
+    //     // Event Category (optional) { string }, default 'Web Vitals'
+    //     eventCategory: 'Some Category',
+    //     // Debug (optional) { number } default 0
+    //     debug: 1,
+    //     disabled: false,
+    //   },
+    // ],
   ],
 
   tailwindcss: {

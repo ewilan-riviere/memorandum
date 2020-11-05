@@ -108,7 +108,7 @@ export default {
     const content = await $content(`documentation/${params.type}`, {
       deep: true,
     })
-      .only(['title', 'description'])
+      .only(['title', 'description', 'path'])
       .sortBy('position')
       .fetch()
 

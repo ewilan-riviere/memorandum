@@ -30,11 +30,13 @@ export default {
     const welcome = await $content('welcome', { deep: true }).fetch()
 
     const content = await $content('documentation', { deep: true })
-      .only(['title'])
+      .only(['title', 'path'])
       .fetch()
 
     let pages = []
+    console.log(content)
     content.forEach((markdownFile) => {
+      console.log(markdownFile)
       const path = markdownFile.path.replace('/documentation/', '').split('/')
       const Page = {
         label: path[0],
