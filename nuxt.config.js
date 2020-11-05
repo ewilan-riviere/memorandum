@@ -19,13 +19,40 @@ export default {
         content:
           'Personal documentation, in nuxt/content, on several languages, frameworks and many other topics in web & mobile development.',
       },
-      { property: 'og:title', content: 'Memorandum' },
+      // Open Graph
       {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'Memorandum',
+      },
+      {
+        hid: 'og:description',
         property: 'og:description',
         content:
           'Personal documentation, in nuxt/content, on several languages, frameworks and many other topics in web & mobile development.',
       },
-      { property: 'og:image', content: '/logo/preview/preview.png' },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: '/logo/preview.png',
+      },
+      // Twitter Card
+      {
+        hid: 'twitter:title',
+        name: 'twitter:title',
+        content: 'Memorandum',
+      },
+      {
+        hid: 'twitter:description',
+        name: 'twitter:description',
+        content:
+          'Personal documentation, in nuxt/content, on several languages, frameworks and many other topics in web & mobile development.',
+      },
+      {
+        hid: 'twitter:image',
+        property: 'og:image',
+        content: '/logo/preview.png',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },

@@ -207,6 +207,43 @@ export default {
       this.selectedCategory = category[0]
     },
   },
+  head() {
+    return {
+      title: `${this.selectedCategory.label} - ${this.$route.params.type}`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Personal documentation, in nuxt/content, on several languages, frameworks and many other topics in web & mobile development.',
+        },
+        // Open Graph
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.selectedCategory.label,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'Personal documentation, in nuxt/content, on several languages, frameworks and many other topics in web & mobile development.',
+        },
+        // Twitter Card
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: this.selectedCategory.label,
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content:
+            'Personal documentation, in nuxt/content, on several languages, frameworks and many other topics in web & mobile development.',
+        },
+      ],
+    }
+  },
 }
 </script>
 

@@ -69,5 +69,45 @@ export default {
       pages,
     }
   },
+  head() {
+    return {
+      title: 'Memorandum',
+      titleTemplate: '',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Personal documentation, in nuxt/content, on several languages, frameworks and many other topics in web & mobile development.',
+        },
+        // Open Graph
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Memorandum',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'Personal documentation, in nuxt/content, on several languages, frameworks and many other topics in web & mobile development.',
+        },
+        { property: 'og:image', content: '/logo/preview.png' },
+        // Twitter Card
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: 'Memorandum',
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content:
+            'Personal documentation, in nuxt/content, on several languages, frameworks and many other topics in web & mobile development.',
+        },
+        { property: 'twitter:image', content: '/logo/preview.png' },
+      ],
+    }
+  },
 }
 </script>
