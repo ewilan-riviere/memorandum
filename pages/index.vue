@@ -92,7 +92,10 @@ export default {
           content:
             'Personal documentation, in nuxt/content, on several languages, frameworks and many other topics in web & mobile development.',
         },
-        { property: 'og:image', content: '/logo/preview.png' },
+        {
+          property: 'og:image',
+          content: `${process.env.APP_URL}/logo/preview.png`,
+        },
         // Twitter Card
         {
           hid: 'twitter:title',
@@ -105,7 +108,10 @@ export default {
           content:
             'Personal documentation, in nuxt/content, on several languages, frameworks and many other topics in web & mobile development.',
         },
-        { property: 'twitter:image', content: '/logo/preview.png' },
+        {
+          property: 'twitter:image',
+          content: `${process.env.APP_URL}/logo/preview.png`,
+        },
       ],
     }
   },

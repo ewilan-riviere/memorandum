@@ -34,7 +34,7 @@ export default {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: '/logo/preview.png',
+        content: `${process.env.APP_URL}/logo/preview.png`,
       },
       // Twitter Card
       {
@@ -51,7 +51,7 @@ export default {
       {
         hid: 'twitter:image',
         property: 'og:image',
-        content: '/logo/preview.png',
+        content: `${process.env.APP_URL}/logo/preview.png`,
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
