@@ -34,9 +34,7 @@ export default {
       .fetch()
 
     let pages = []
-    console.log(content)
     content.forEach((markdownFile) => {
-      console.log(markdownFile)
       const path = markdownFile.path.replace('/documentation/', '').split('/')
       const Page = {
         label: path[0],
