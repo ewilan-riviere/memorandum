@@ -13,24 +13,67 @@
 ## Setup
 
 ```bash
+# setup .env
+cp .env.example .env
+
 # install dependencies
-$ yarn
+yarn
 
 # serve with hot reload at localhost:3000
-$ yarn dev
+yarn dev
 ```
 
 ### Production
 
-```bash
-# build for production and launch server
-$ yarn build
-$ yarn start
+Update `.env` with current website URL like:
+
+```js
+APP_URL='http://memorandum.website.dev'
 ```
+
+### SSR
+
+```bash
+# build for production
+yarn build
+```
+
+Use a process manager like [pm2](https://pm2.keymetrics.io) to `start` NuxtJS app if you want SSR.
+
+```js
+// example of ~/ecosystem.config.js for pm2
+module.exports = {
+  apps : [
+    {
+      name: 'memorandum',
+      script: 'npm',
+      cwd: '/home/ubuntu/www/memorandum',
+      args: 'start',
+      env: {
+        PORT: 3001
+      },
+    },
+  ]
+}
+```
+
+You can just use `generate` without pm2.
+
+Use `.git/hooks/post-merge` like:
+
+```bash
+#!/bin/bash
+yarn && yarn build
+pm2 restart memorandum
+```
+
+Don't forget the commande `sudo chmod 775 .git/hooks/post-merge` to allow system to execute this script.
+
+### Static
 
 ```bash
 # generate static project
-$ yarn generate
+yarn generate
 ```
 
 To learn more, check [NuxtJS documentation](https://nuxtjs.org).
