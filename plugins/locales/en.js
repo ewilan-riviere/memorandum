@@ -25,7 +25,7 @@ module.exports = {
   js: 'JavaScript',
   ts: 'TypeScript',
   mysql: 'MySQL',
-  'package-manager': 'Package manager',
+  'npm-yarn': 'NPM & Yarn',
   php: 'PHP',
 
   linux: 'Linux',
@@ -40,6 +40,11 @@ module.exports = {
 
   'todo-list': 'ToDo List',
   'useful-links': 'Useful links',
+
+  'animal-crossings': 'Animal Crossings',
+  'guild-wars': 'Guild Wars',
+  'oxygen-not-included': 'Oxygen Not Included',
+  switch: 'Nintendo Switch',
 
   back: 'Back',
   home: 'Home',

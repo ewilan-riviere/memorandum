@@ -28,9 +28,9 @@
             v-if="$route.name !== 'home'"
             class="px-4"
             :to="{ name: 'home' }"
-            >blogtech</nuxt-link
+            >Memorandum</nuxt-link
           >
-          <span v-else>blogtech</span>
+          <span v-else>Memorandum</span>
         </div>
         <div
           class="p-4 transition-colors duration-300 cursor-pointer hover:bg-blue-useweb"

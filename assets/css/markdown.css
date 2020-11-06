@@ -48,6 +48,9 @@
       }
     }
   }
+  & kbd {
+    @apply px-2 py-1 mx-1 bg-gray-100 shadow-md;
+  }
   /* code  */
   & code {
     @apply p-1 bg-gray-200;
@@ -58,6 +61,10 @@
   & code::after {
     @apply hidden !important;
     content: '' !important;
+  }
+  & pre {
+    /* word-break: break-all !important; */
+    /* white-space: break-spaces !important; */
   }
   /* container  */
   & .remark-container {

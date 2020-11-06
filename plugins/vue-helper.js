@@ -47,7 +47,6 @@ Array.prototype.pushIfNotExist = function (element, comparer) {
 
 // eslint-disable-next-line no-unused-vars
 const langs = {
-  fr: require('./locales/fr.js'),
   en: require('./locales/en.js'),
 }
 

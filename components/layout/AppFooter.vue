@@ -224,7 +224,7 @@ export default {
         },
         {
           label: 'Portfolio',
-          link: 'http://portfolio.ewilan-riviere.com',
+          link: 'http://ewilan-riviere.com',
           icon: 'briefcase',
         },
         {

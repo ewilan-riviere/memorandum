@@ -33,7 +33,7 @@
               <div
                 class="px-5 py-3 text-5xl transition-colors duration-300 font-dancing-script hover:bg-gray-200 w-max-content"
               >
-                blogtech
+                Memorandum
               </div>
               <nuxt-link
                 v-for="route in routes"
