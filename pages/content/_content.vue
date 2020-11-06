@@ -198,7 +198,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: `${process.env.APP_URL}/documentation/logo/${this.article.category}.png`,
+          content: `${process.env.APP_URL}/documentation/logo/${this.article.category}.webp`,
         },
         // Twitter Card
         {
@@ -214,7 +214,7 @@ export default {
         {
           hid: 'twitter:image',
           property: 'twitter:image',
-          content: `${process.env.APP_URL}/documentation/logo/${this.article.category}.png`,
+          content: `${process.env.APP_URL}/documentation/logo/${this.article.category}.webp`,
         },
       ],
     }

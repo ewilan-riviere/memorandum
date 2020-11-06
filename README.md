@@ -10,6 +10,14 @@
 
 > Documentation with snippets and boiler plates, built with [NuxtJS](https://nuxtjs.org) and [nuxt/content](https://content.nuxtjs.org). Markdown ❤️ for ever.
 
+## Todo
+
+- [] fix emojis
+- [] import components from blog, clean components
+- [] fix positions
+- [] add img for all guides
+- [] md containers fix style
+
 ## Setup
 
 ```bash

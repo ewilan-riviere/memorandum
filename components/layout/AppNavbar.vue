@@ -91,7 +91,7 @@
                             </div>
                           </div>
                           <img
-                            src="/documentation/logo/guides.png"
+                            src="/documentation/logo/guides.webp"
                             class="h-20"
                             alt=""
                           />

@@ -55,7 +55,17 @@ const t = (key) => {
     ...langs.en,
   }
 
-  return translate[key] || key.charAt(0).toUpperCase() + key.slice(1)
+  return translate[key].label || key.charAt(0).toUpperCase() + key.slice(1)
 }
 
 Vue.prototype.$t = t
+
+const o = (key) => {
+  const translate = {
+    ...langs.en,
+  }
+
+  return translate[key] || null
+}
+
+Vue.prototype.$o = o

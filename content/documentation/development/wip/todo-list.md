@@ -33,6 +33,11 @@ This is future content.
 - [**askubuntu.com/how-to-completely-remove-php**](https://askubuntu.com/questions/59886/how-to-completely-remove-php)
 - [**stackoverflow.com/completely-removing-phpmyadmin**](https://stackoverflow.com/questions/5050296/completely-removing-phpmyadmin)
 - [**stackoverflow.com/your-password-does-not-satisfy-the-current-policy-requirements**](https://stackoverflow.com/questions/43094726/your-password-does-not-satisfy-the-current-policy-requirements)
+- [**stackoverflow.com/how-do-you-convert-an-entire-directory-with-ffmpeg**](https://stackoverflow.com/questions/5784661/how-do-you-convert-an-entire-directory-with-ffmpeg)
+
+```cmd
+FOR /F "tokens=*" %G IN ('dir /b *.png') DO ffmpeg -i "%G" "%~nG.webp"
+```
 
 ## Mangas
 
