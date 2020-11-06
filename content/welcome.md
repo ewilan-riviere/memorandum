@@ -20,6 +20,6 @@ Open-source documentation about my projects, my favorites frameworks & languages
 
 ## Features
 
-<list :items="features" class="mb-10"></list>
-
+<list :items="features"></list>
+<br />
 <icon name="signature" :size="160"  ratio />

@@ -5,23 +5,17 @@ position: 3
 category: 'Oxygen Not Included'
 ---
 
-<https://www.reddit.com/r/Oxygennotincluded/comments/c6k0rt/preview_branch_a_quick_summary_of_the_new/>
-
-<https://oxygennotincluded.gamepedia.com/Asteroid_Types>
-
-<https://oxygennotincluded.gamepedia.com/Category:Asteroid_Types>
-
-<https://forums.kleientertainment.com/forums/topic/108164-all-biomes-and-asteroid-types-a-brief-review/>
-
-<https://forums.kleientertainment.com/forums/topic/108331-world-traits-and-their-effects/>
-
-<https://oxygennotincluded.gamepedia.com/World_Trait>
-
-<https://oni-assistant.com/database/planets>
+- <https://www.reddit.com/r/Oxygennotincluded/comments/c6k0rt/preview_branch_a_quick_summary_of_the_new/>
+- <https://oxygennotincluded.gamepedia.com/Asteroid_Types>
+- <https://oxygennotincluded.gamepedia.com/Category:Asteroid_Types>
+- <https://forums.kleientertainment.com/forums/topic/108164-all-biomes-and-asteroid-types-a-brief-review/>
+- <https://forums.kleientertainment.com/forums/topic/108331-world-traits-and-their-effects/>
+- <https://oxygennotincluded.gamepedia.com/World_Trait>
+- <https://oni-assistant.com/database/planets>
 
 ## World traits
 
-## Geysers
+### Geysers
 
 :::details
 
@@ -93,5 +87,3 @@ C Tier [Sad that it takes up a slot]
 ```
 
 :::
-
-## Planets

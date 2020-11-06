@@ -19,6 +19,6 @@ category: 'Guild Wars'
 
 <guild-wars-map source="/images/games/guild-wars/elona-high-resolution.jpg" />
 
-## Tyria
+## Eye of the North
 
 <guild-wars-map source="/images/games/guild-wars/eye-of-the-north.jpg" />
