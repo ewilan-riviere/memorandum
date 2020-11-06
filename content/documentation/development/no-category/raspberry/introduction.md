@@ -44,7 +44,7 @@ Erase SD Card and create new partition with any package like with `gnome-disks`
 
 For example I have this output.
 
-![alt](/images/raspberry/lsblk.jpg)
+![alt](/documentation/raspberry/lsblk.jpg)
 
 :::tip Explanation
 

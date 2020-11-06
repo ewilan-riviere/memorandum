@@ -260,7 +260,7 @@ If you change PHP version, it can be missing some extensions, if phpMyAdmin disp
 
 You can check phpMyAdmin infos on dashboard of phpMyAdmin, just after connection
 
-![phpmyadmin](/images/linux/phpmyadmin-infos.jpg)
+![phpmyadmin](/documentation/linux/phpmyadmin-infos.jpg)
 
 You can have more infos about PHP version and configuration of `php.ini` if you create new file in `/var/www/html/` folder
 
@@ -278,7 +278,7 @@ Insert these lines
 
 Save it and go to [**http://localhost/infos.php**](http://localhost/infos.php)
 
-![phpinfo](/images/linux/phpinfo.jpg)
+![phpinfo](/documentation/linux/phpinfo.jpg)
 
 You can keep it on local server but it represent security risk on production server.
 

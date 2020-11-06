@@ -7,7 +7,7 @@ category: 'ESLint'
 
 # ESLint
 
-![eslint](/images/linux/eslint.png)
+![eslint](/documentation/linux/eslint.png)
 
 [**ESLint**](https://eslint.org/) is a formatter for JS language. It's very useful, especially with JS frameworks. You can configure it with some IDE and here, we will see how to install it with [**Visual Studio Code**](https://code.visualstudio.com/):
 

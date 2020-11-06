@@ -1,13 +1,11 @@
 ---
 title: Deployment on Android
-description: ''
+description: 'When your app is ready, you will have to deploy it.'
 position: 4
 category: 'Flutter'
 ---
 
-When your app is ready, you will have to deploy it.
-
-![android-versions](/images/flutter/google-play.jpg)
+![android-versions](/documentation/flutter/google-play.jpg)
 
 :::tip Links
 
@@ -20,17 +18,17 @@ When your app is ready, you will have to deploy it.
 To publish on the Play Store, you need to give your app a digital signature. Use the following instructions to sign your app.
 
 <code-group>
-  <code-block label="Linux/Mac" active>
-
-  ```bash
-  keytool -genkey -v -keystore ~/key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias key
-  ```
-
-  </code-block>
-  <code-block label="Windows">
+  <code-block label="Windows" active>
 
   ```powershell
   keytool -genkey -v -keystore c:\Users\$env:UserName\key.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias key
+  ```
+
+  </code-block>
+  <code-block label="Linux/Mac">
+
+  ```bash
+  keytool -genkey -v -keystore ~/key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias key
   ```
 
   </code-block>
@@ -38,48 +36,34 @@ To publish on the Play Store, you need to give your app a digital signature. Use
 
 Create a password and answer to questions
 
-```bash
-Quels sont vos nom et prénom ?
-  [Unknown]:  RIVIERE Ewilan
-```
-
-```bash
-Quel est le nom de votre unité organisationnelle ?
-  [Unknown]:  Developers
-```
-
-```bash
-Quel est le nom de votre entreprise ?
-  [Unknown]:  Enterprise
-```
-
-```bash
-Quel est le nom de votre ville de résidence ?
-  [Unknown]:  Rennes
-```
-
-```bash
-Quel est le nom de votre état ou province ?
-  [Unknown]:  FRANCE
-```
-
-```bash
-Quel est le code pays à deux lettres pour cette unité ?
-  [Unknown]:  FR
-```
-
-```bash
-Est-ce CN=RIVIERE Ewilan, OU=Developers, O=Enterprise, L=Rennes, ST=FRANCE, C=FR ?
-  [non]: oui
-```
+- Quels sont vos nom et prénom : `RIVIERE Ewilan`
+- Quel est le nom de votre unité organisationnelle : `Developers`
+- Quel est le nom de votre entreprise : `Enterprise`
+- Quel est le nom de votre ville de résidence : `Rennes`
+- Quel est le nom de votre état ou province : `FRANCE`
+- Quel est le code pays à deux lettres pour cette unité : `FR`
+- Est-ce CN=RIVIERE Ewilan, OU= Developers, O=Enterprise, L=Rennes, ST=FRANCE, C=FR : `oui`
 
 ### Migrate key
 
 Default generated key use `JKS` format, you can migrate to `PKCS12` with this command:
 
-```powershell
-keytool -importkeystore -srckeystore c:\Users\$env:UserName\key.jks -destkeystore c:\Users\$env:UserName\key.jks -deststoretype pkcs12
-```
+<code-group>
+  <code-block label="Windows" active>
+
+  ```powershell
+  keytool -genkey -v -keystore c:\Users\$env:UserName\key.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias key
+  ```
+
+  </code-block>
+  <code-block label="Linux/Mac">
+
+  ```bash
+  keytool -genkey -v -keystore ~/key.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias key
+  ```
+
+  </code-block>
+</code-group>
 
 ### Reference key
 

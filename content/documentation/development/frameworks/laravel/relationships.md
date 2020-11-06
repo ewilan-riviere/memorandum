@@ -170,7 +170,7 @@ To design theses charts, I use [**mermaidjs**](https://mermaid-js.github.io/merm
 
 #### phpMyAdmin view
 
-![games-database](/images/laravel/games-database.jpg)
+![games-database](/documentation/laravel/games-database.jpg)
 
 :::
 

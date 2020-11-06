@@ -101,7 +101,7 @@ source ~/.zshrc
 
 Open **AVD Manager** from toolbar or search `avd` in global search (double tape on <kbd>N</kbd>).
 
-![alt](/images/flutter/avd-manager.jpg)
+![alt](/documentation/flutter/avd-manager.jpg)
 
 **Create new device**, select **phone** with **PlayStore**, like **Pixel 2** and select recent **Android OS**, like `Oreo 8.1`. **Download image** to create virtual device and **launch it**. If you have some problems with `KVM` check below.
 

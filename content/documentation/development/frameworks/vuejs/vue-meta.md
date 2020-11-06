@@ -1,5 +1,5 @@
 ---
-title: Store
+title: Vue Meta
 description: ''
 position: 3
 category: 'Vue.js'
