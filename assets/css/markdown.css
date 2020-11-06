@@ -1,5 +1,24 @@
 .nuxt-content {
-  @apply break-words;
+  /* common text  */
+  @apply text-gray-700 font-ptsans-regular;
+  & p {
+    @apply my-5 text-justify !important;
+    -webkit-hyphens: auto !important;
+    -moz-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    hyphens: auto !important;
+  }
+  /* links  */
+  & a {
+    @apply text-black transition-colors duration-300 border-b-2 border-primary-500;
+    --border-opacity: 0.25;
+  }
+  & a:hover {
+    @apply bg-primary-500 border-primary-500;
+    --bg-opacity: 0.25;
+    --border-opacity: 0.25;
+  }
+  /* filename and copy  */
   & .nuxt-content-highlight {
     @apply relative;
     /* Style filename span added by @nuxt/content */
@@ -11,9 +30,6 @@
     & > .filename + pre[class*='language-'] {
       @apply pt-8;
     }
-  }
-  & .nuxt-content-highlight {
-    @apply relative;
     /* Style copy button added in `pages/_.vue` */
     & > .copy {
       @apply absolute top-0 right-0 px-2 py-2 mt-3 mr-3 text-sm font-semibold leading-none text-white uppercase transition-opacity duration-300 bg-gray-800 bg-opacity-75 border border-white rounded-md shadow-lg opacity-0;
@@ -32,72 +48,57 @@
       }
     }
   }
-  & ul {
-    margin: 0;
-  }
-  & ul {
-    list-style-type: none;
-  }
-  & ul > li {
-    text-indent: -5px;
-  }
-  & ul > li:before {
-    /* content: '- '; */
-    text-indent: -5px;
-  }
+  /* code  */
   & code {
-    @apply bg-gray-200;
+    @apply p-1 bg-gray-200;
+  }
+  & code::before {
+    content: '' !important;
+  }
+  & code::after {
+    @apply hidden !important;
+    content: '' !important;
+  }
+  /* container  */
+  & .remark-container {
+    @apply bg-opacity-75 px-5 pt-1 pb-5 border-l-4 my-10 !important;
+    @apply bg-gray-100;
+  }
+  & .remark-container-title {
+    @apply my-2 text-xl font-bold text-black;
+  }
+  & .tip {
+    @apply bg-green-100 border-green-600;
+  }
+  /* titles  */
+  & h2 {
+    @apply relative table mt-16 mb-8 text-2xl font-quicksand;
+  }
+  & h2::after {
+    content: ' ';
+    width: 80%;
+    display: block;
+    --border-opacity: 1;
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+    border-radius: 0.25rem;
+    border: 2px solid #108775;
+    border-top-color: rgb(16, 135, 117);
+    border-right-color: rgb(16, 135, 117);
+    border-bottom-color: rgb(16, 135, 117);
+    border-left-color: rgb(16, 135, 117);
+    border-color: rgba(16, 135, 117, var(--border-opacity));
+  }
+  & h3 {
+    @apply font-quicksand;
+    position: relative;
+    display: table;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    @apply text-xl font-bold;
   }
 }
-.nuxt-content a {
-  @apply transition-colors duration-300 border-b-2 border-blue-useweb;
-}
-.nuxt-content a:hover {
-  @apply text-white bg-opacity-50 border-blue-useweb-light bg-blue-useweb-light;
-}
-.nuxt-content {
-  @apply text-gray-700 font-ptsans-regular;
-}
-.nuxt-content h2 {
-  @apply relative table mt-16 mb-8 text-2xl;
-}
-.nuxt-content h2::after {
-  content: ' ';
-  width: 80%;
-  display: block;
-  --border-opacity: 1;
-  margin-top: 0.5rem;
-  margin-bottom: 0.25rem;
-  border-radius: 0.25rem;
-  border: 2px solid #108775;
-  border-top-color: rgb(16, 135, 117);
-  border-right-color: rgb(16, 135, 117);
-  border-bottom-color: rgb(16, 135, 117);
-  border-left-color: rgb(16, 135, 117);
-  border-color: rgba(16, 135, 117, var(--border-opacity));
-}
-.nuxt-content h3 {
-  position: relative;
-  display: table;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  @apply text-xl font-bold;
-}
-.nuxt-content h3::after {
-  content: ' ';
-  width: 80%;
-  display: block;
-  --border-opacity: 1;
-  margin-top: 0.1rem;
-  margin-bottom: 0.1rem;
-  border-radius: 0.25rem;
-  border: 1px solid #108775;
-  border-top-color: rgb(16, 135, 117);
-  border-right-color: rgb(16, 135, 117);
-  border-bottom-color: rgb(16, 135, 117);
-  border-left-color: rgb(16, 135, 117);
-  border-color: rgba(16, 135, 117, var(--border-opacity));
-}
+
 .title::after {
   content: ' ';
   width: 80%;
@@ -112,53 +113,4 @@
   border-bottom-color: rgb(16, 135, 117);
   border-left-color: rgb(16, 135, 117);
   border-color: rgba(16, 135, 117, var(--border-opacity));
-}
-.nuxt-content pre {
-  @apply rounded-md;
-}
-.nuxt-content pre::after {
-  @apply hidden !important;
-}
-.nuxt-content code::before {
-  content: '' !important;
-}
-.nuxt-content code::after {
-  @apply hidden !important;
-  content: '' !important;
-}
-.nuxt-content p {
-  @apply my-5 text-justify !important;
-  -webkit-hyphens: auto !important;
-  -moz-hyphens: auto !important;
-  -ms-hyphens: auto !important;
-  hyphens: auto !important;
-}
-.nuxt-content ul {
-  @apply my-2 !important;
-}
-.nuxt-content li {
-  @apply my-1 !important;
-}
-.nuxt-content code {
-  @apply px-2 py-1;
-}
-.nuxt-content .remark-container {
-  @apply bg-opacity-75 px-5 pt-1 pb-5 border-l-8 my-10 !important;
-  @apply bg-gray-100;
-}
-.nuxt-content .remark-container-title {
-  @apply my-2 text-xl font-bold text-black;
-}
-.nuxt-content .tip {
-  @apply bg-green-100 border-green-600;
-}
-.nuxt-content kbd {
-  @apply px-2 py-1 mx-1 bg-gray-100 shadow-md;
-}
-.nuxt-content pre {
-  /* word-break: break-all !important; */
-  /* white-space: break-spaces !important; */
-}
-.nuxt-content code {
-  padding-left: 0;
 }
