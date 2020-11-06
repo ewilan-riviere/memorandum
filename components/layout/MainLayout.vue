@@ -44,7 +44,7 @@
             <div class="relative w-full">
               <div class="source" style="z-index: -1">
                 <img
-                  :src="`/images/documentation/${image}-banner.webp`"
+                  :src="`/documentation/logo/${image}-banner.webp`"
                   class="object-cover object-center w-full h-40 opacity-25"
                 />
                 <div

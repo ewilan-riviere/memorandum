@@ -10,13 +10,11 @@
       </div>
       <div slot="main" class="">
         <div class="">
-          <div class="text-2xl">
-            {{ selectedCategory.label }}
-          </div>
-          <!--
-  Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
-  Read the documentation to get started: https://tailwindui.com/documentation
--->
+          <h2
+            class="p-2 mb-5 ml-2 text-2xl font-bold rounded-md font-quicksand title w-max-content"
+          >
+            {{ $t(selectedCategory.label) }}
+          </h2>
           <div class="overflow-hidden bg-white shadow sm:rounded-md">
             <ul>
               <category-collapse
@@ -40,7 +38,7 @@
                         <client-only>
                           <img
                             class="w-12 h-12"
-                            :src="`/images/documentation/${entity.label}.png`"
+                            :src="`/documentation/logo/${entity.label}.png`"
                             alt=""
                             @error="imgError"
                           />
@@ -49,9 +47,9 @@
                       <div class="min-w-0 px-4">
                         <div>
                           <div
-                            class="text-lg font-medium leading-5 text-indigo-600 truncate"
+                            class="text-lg font-semibold leading-5 text-gray-800 truncate"
                           >
-                            {{ entity.label }}
+                            {{ $t(entity.label) }}
                           </div>
                           <div>
                             <!-- <p v-if="guide.description" v-html="guide.description"></p>
@@ -200,7 +198,7 @@ export default {
       }, 400)
     },
     imgError(event) {
-      event.target.src = require(`~/static/images/documentation/guides.png`)
+      event.target.src = require(`~/static/documentation/logo/guides.png`)
     },
     selectCategory(data) {
       for (let i = 0; i < this.selectedCategory.entities.length; i++) {
@@ -208,11 +206,15 @@ export default {
       }
       const category = this.pages.filter((page) => page.label === data)
       this.selectedCategory = category[0]
+      this.$scrollTo('#__nuxt', 500)
     },
   },
   head() {
+    const title = `${this.$t(this.selectedCategory.label)} - ${this.$t(
+      this.$route.params.type
+    )}`
     return {
-      title: `${this.selectedCategory.label} - ${this.$route.params.type}`,
+      title,
       meta: [
         {
           hid: 'description',
@@ -224,7 +226,7 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          content: this.selectedCategory.label,
+          content: title,
         },
         {
           hid: 'og:description',
@@ -236,7 +238,7 @@ export default {
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: this.selectedCategory.label,
+          content: title,
         },
         {
           hid: 'twitter:description',

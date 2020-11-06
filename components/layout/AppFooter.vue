@@ -249,7 +249,7 @@ export default {
     },
   },
   mounted() {
-    this.$colorMode.preference = 'system'
+    // this.$colorMode.preference = 'system'
   },
   methods: {
     date(begin) {
@@ -261,9 +261,9 @@ export default {
       }
       return year
     },
-    changeMode(mode) {
-      this.$colorMode.preference = mode
-    },
+    // changeMode(mode) {
+    //   this.$colorMode.preference = mode
+    // },
   },
 }
 </script>

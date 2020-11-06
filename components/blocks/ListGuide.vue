@@ -16,7 +16,7 @@
                 <client-only>
                   <img
                     class="w-12 h-12"
-                    :src="`/images/documentation/${guide.entity}.png`"
+                    :src="`/documentation/logo/${guide.entity}.png`"
                     alt=""
                     @error="imgError"
                   />
@@ -75,7 +75,7 @@ export default {
   },
   methods: {
     imgError(event) {
-      event.target.src = require(`~/static/images/documentation/guides.png`)
+      event.target.src = require(`~/static/documentation/logo/guides.png`)
     },
     getRoute(guide) {
       const path = guide.path.replace('/documentation/', '').split('/')

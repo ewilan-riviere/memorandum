@@ -1,7 +1,7 @@
 <template>
   <div>
     <main-layout
-      :image="$slugify(article.category)"
+      :image="$slugify(article.pathsObj.entity)"
       :back-route="{
         name: 'type-slug',
         params: { type: article.pathsObj.type },
@@ -46,7 +46,7 @@
                 class="relative mx-auto mb-6 text-lg font-medium leading-7 md:flex-grow max-w-prose"
               >
                 <svg
-                  class="absolute top-0 left-0 w-8 h-8 text-gray-200 transform -translate-x-3 -translate-y-2"
+                  class="absolute top-0 left-0 w-8 h-8 text-gray-200 transform -translate-y-2"
                   fill="currentColor"
                   viewBox="0 0 32 32"
                 >
@@ -55,13 +55,19 @@
                   />
                 </svg>
                 <p
-                  class="relative text-xl leading-8 text-gray-500"
+                  class="relative pl-3 text-xl leading-8 text-gray-500"
                   v-html="article.description"
                 ></p>
               </div>
-              <div class="flex items-center my-1 text-gray-600">
-                <icon name="clock" stroke class="mr-1" />
-                {{ article.readingTime.text }}
+              <div class="flex items-center justify-between my-1 text-gray-600">
+                <div class="flex items-center">
+                  <icon name="clock" stroke class="mr-1" />
+                  {{ article.readingTime.text }}
+                </div>
+                <div class="flex items-center">
+                  <icon name="date" stroke class="mr-1" />
+                  Last update: {{ getDate(article.updatedAt) }}
+                </div>
               </div>
               <div class="mx-auto prose prose-lg text-gray-500">
                 <nuxt-content :document="article" />
@@ -116,6 +122,23 @@ export default {
     }
   },
   methods: {
+    getDate(date) {
+      let userLang = 'en-US'
+      if (process.client) {
+        userLang = navigator.language || navigator.userLanguage
+      }
+      const options = {
+        year: 'numeric',
+        // weekday: 'long',
+        month: 'long',
+        day: 'numeric',
+        timeZone: 'UTC',
+        hour: 'numeric',
+        minute: 'numeric',
+        // second: 'numeric',
+      }
+      return new Date(date).toLocaleString(userLang, options)
+    },
     setCurrentArticle() {
       this.currentArticle = this.article
     },
@@ -153,7 +176,7 @@ export default {
     },
   },
   head() {
-    const title = `${this.article.title} - ${this.article.category} · Memorandum`
+    const title = `${this.article.title} - ${this.article.category}`
     const description = this.article.description
       ? this.article.description
       : 'No description'
@@ -175,7 +198,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: `${process.env.APP_URL}/images/documentation/${this.article.category}.png`,
+          content: `${process.env.APP_URL}/documentation/logo/${this.article.category}.png`,
         },
         // Twitter Card
         {
@@ -191,7 +214,7 @@ export default {
         {
           hid: 'twitter:image',
           property: 'twitter:image',
-          content: `${process.env.APP_URL}/images/documentation/${this.article.category}.png`,
+          content: `${process.env.APP_URL}/documentation/logo/${this.article.category}.png`,
         },
       ],
     }

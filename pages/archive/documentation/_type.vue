@@ -53,7 +53,7 @@
         </h1>
 
         <img
-          :src="`/images/documentation/${documentationPresentation.image}`"
+          :src="`/documentation/logo/${documentationPresentation.image}`"
           class="w-64 mt-10"
         />
         <div class="my-10 nuxt-content-container">

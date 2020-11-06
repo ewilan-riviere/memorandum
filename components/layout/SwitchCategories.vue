@@ -18,7 +18,7 @@
         default="nav-default"
       />
       <span class="font-semibold truncate">
-        {{ capitalizeFirstLetter(page.label) }}
+        {{ $t(page.label) }}
       </span>
       <span
         v-if="page.number"
