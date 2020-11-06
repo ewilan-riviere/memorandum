@@ -44,3 +44,19 @@ Array.prototype.pushIfNotExist = function (element, comparer) {
     this.push(element)
   }
 }
+
+// eslint-disable-next-line no-unused-vars
+const langs = {
+  fr: require('./locales/fr.js'),
+  en: require('./locales/en.js'),
+}
+
+const t = (key) => {
+  const translate = {
+    ...langs.en,
+  }
+
+  return translate[key] || key.charAt(0).toUpperCase() + key.slice(1)
+}
+
+Vue.prototype.$t = t

@@ -76,10 +76,10 @@ export default {
     { src: '~/plugins/vue-tailwind-screens', mode: 'client' },
     { src: '~/plugins/vue-helper' },
     // https://github.com/surmon-china/vue-awesome-swiper
-    { src: '~/plugins/vue-awesome-swiper', ssr: false },
+    // { src: '~/plugins/vue-awesome-swiper', ssr: false },
     { src: '~/plugins/vue-scrollto' },
     // https://michalsnik.github.io/aos/
-    { src: '~/plugins/aos', ssr: false },
+    // { src: '~/plugins/aos', ssr: false },
     // https://github.com/mercs600/vue2-perfect-scrollbar
     { src: '~/plugins/vue-perfect-scrollbar', ssr: false },
     // https://github.com/Akryum/v-tooltip
@@ -100,11 +100,11 @@ export default {
     // https://github.com/nuxt-community/global-components
     '@nuxtjs/global-components',
     // https://github.com/pirony/nuxt-gsap
-    'nuxt-gsap',
+    // 'nuxt-gsap',
     // Doc: https://github.com/nuxt-community/router-module
     '@nuxtjs/router',
     // https://color-mode.nuxtjs.org/
-    '@nuxtjs/color-mode',
+    // '@nuxtjs/color-mode',
     // https://github.com/nuxt-community/html-validator-module
     // '@nuxtjs/html-validator',
     // https://github.com/daliborgogic/nuxt-vitals
@@ -127,22 +127,22 @@ export default {
     cssPath: '~/assets/css/tailwind.css',
   },
 
-  colorMode: {
-    preference: 'system', // default value of $colorMode.preference
-    fallback: 'light', // fallback value if not system preference found
-    hid: 'nuxt-color-mode-script',
-    globalName: '__NUXT_COLOR_MODE__',
-    componentName: 'ColorScheme',
-    classPrefix: '',
-    classSuffix: '-mode',
-    cookie: {
-      key: 'nuxt-color-mode',
-      // options: {
-      //   path: nuxt.options.router.base, // https://nuxtjs.org/api/configuration-router#base
-      //   sameSite: 'lax', // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite
-      // },
-    },
-  },
+  // colorMode: {
+  //   preference: 'system', // default value of $colorMode.preference
+  //   fallback: 'light', // fallback value if not system preference found
+  //   hid: 'nuxt-color-mode-script',
+  //   globalName: '__NUXT_COLOR_MODE__',
+  //   componentName: 'ColorScheme',
+  //   classPrefix: '',
+  //   classSuffix: '-mode',
+  //   cookie: {
+  //     key: 'nuxt-color-mode',
+  //     // options: {
+  //     //   path: nuxt.options.router.base, // https://nuxtjs.org/api/configuration-router#base
+  //     //   sameSite: 'lax', // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite
+  //     // },
+  //   },
+  // },
 
   router: {
     // keepDefaultRouter: true,
@@ -151,7 +151,7 @@ export default {
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
+    // '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
@@ -163,41 +163,14 @@ export default {
     // https://github.com/nuxt-community/recaptcha-module
     // '@nuxtjs/recaptcha',
     // https://github.com/nicolasbeauvais/vue-social-sharing
-    'vue-social-sharing/nuxt',
+    // 'vue-social-sharing/nuxt',
     // https://github.com/rigor789/vue-scrollto
     ['vue-scrollto/nuxt', { duration: 300 }],
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  // axios: {},
 
-  hooks: {
-    'content:file:beforeInsert': (document) => {
-      if (document.extension === '.md') {
-        const readingTime = require('reading-time')
-        const stats = readingTime(document.text)
-
-        document.readingTime = stats
-
-        const paths = document.path.split('/')
-        paths.splice(0, 2)
-        const pathsObj = {
-          type: paths[0], // like 'development' or 'games'
-          category: paths.length === 4 ? paths[1] : null, // like 'frameworks'
-          entity: paths[paths.length - 2], // like 'flutter' or 'guild-wars'
-          file: paths[paths.length - 1], // like 'setup-flutter'
-        }
-        document.pathsObj = pathsObj
-      }
-    },
-    // 'content:file:beforeInsert': async (document, database) => {
-    //   if (document.extension === '.json' && document.body) {
-    //     const data = await database.markdown.toJSON(document.body)
-
-    //     Object.assign(document, data)
-    //   }
-    // },
-  },
   // Content module configuration (https://go.nuxtjs.dev/content-config)
   content: {
     apiPrefix: '_content',
@@ -241,6 +214,34 @@ export default {
   },
 
   // storybook: {},
+
+  hooks: {
+    'content:file:beforeInsert': (document) => {
+      if (document.extension === '.md') {
+        const readingTime = require('reading-time')
+        const stats = readingTime(document.text)
+
+        document.readingTime = stats
+
+        const paths = document.path.split('/')
+        paths.splice(0, 2)
+        const pathsObj = {
+          type: paths[0], // like 'development' or 'games'
+          category: paths.length === 4 ? paths[1] : null, // like 'frameworks'
+          entity: paths[paths.length - 2], // like 'flutter' or 'guild-wars'
+          file: paths[paths.length - 1], // like 'setup-flutter'
+        }
+        document.pathsObj = pathsObj
+      }
+    },
+    // 'content:file:beforeInsert': async (document, database) => {
+    //   if (document.extension === '.json' && document.body) {
+    //     const data = await database.markdown.toJSON(document.body)
+
+    //     Object.assign(document, data)
+    //   }
+    // },
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
