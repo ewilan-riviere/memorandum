@@ -3,10 +3,10 @@
   z-index: 10000;
 
   & .tooltip-inner {
-    @apply px-3 py-1 font-semibold text-gray-700 bg-opacity-50 rounded-md shadow-md bg-gray-50;
+    @apply px-3 py-1 font-semibold text-gray-700 bg-gray-300 bg-opacity-75 rounded-md shadow-md;
   }
   & .tooltip-arrow {
-    @apply shadow-md text-gray-50;
+    @apply border-gray-300 shadow-md;
     width: 0;
     height: 0;
     border-style: solid;
@@ -84,7 +84,7 @@
 }
 
 .tooltip.popover .popover-arrow {
-  border-color: #f9f9f9;
+  @apply bg-gray-50;
 }
 
 .tooltip[aria-hidden='true'] {
