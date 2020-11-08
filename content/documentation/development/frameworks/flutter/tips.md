@@ -1,7 +1,7 @@
 ---
 title: Tips & tricks
 description: ''
-position: 4
+position: 6
 category: 'Flutter'
 ---
 
@@ -87,7 +87,7 @@ Add `<uses-permission android:name="android.permission.INTERNET" />` to `Android
 
 This configuration allow to use online API, not localhost API, to do this, you have to use a tunneling service like [**ngrok**](/frameworks/flutter/localhost-api).
 
-Your app is available on http://random-generated-key.ngrok.io
+Your app is available on <http://random-generated-key.ngrok.io>
 
 ## Add packages
 

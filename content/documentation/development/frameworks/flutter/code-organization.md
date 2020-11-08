@@ -1,7 +1,7 @@
 ---
 title: Code Organization
 description: ''
-position: 5
+position: 8
 category: 'Flutter'
 ---
 

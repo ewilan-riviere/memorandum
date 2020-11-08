@@ -1,7 +1,7 @@
 ---
 title: Deployment on Android
 description: 'When your app is ready, you will have to deploy it.'
-position: 4
+position: 5
 category: 'Flutter'
 ---
 

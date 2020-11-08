@@ -1,7 +1,7 @@
 ---
 title: Snippets
 description: 'Snippets & example of code'
-position: 7
+position: 12
 category: 'Flutter'
 ---
 
