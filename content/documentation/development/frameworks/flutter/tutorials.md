@@ -17,6 +17,9 @@ Don't login with Google to Medium, just delete cookies when you reach limit, you
 
 - [**Decode FutureBuilder**](https://medium.com/@greg.perry/decode-futurebuilder-bc1a5e6507d4) by Greg Perry, 03/05/2019
 - [**Handling your network API calls**](https://itnext.io/flutter-handling-your-network-api-calls-like-a-legend-using-provider-8c652c0530e3) by Ryan Godlonton-Shaw, 06/05/2020 (8 min to read)
+- [**Fetch data from the internet**](https://flutter.dev/docs/cookbook/networking/fetch-data)
+- [**How To Fetch Data using API Calls**](https://medium.com/@maffan/how-to-fetch-data-using-api-calls-in-flutter-99668a60170c)
+- [**Flutter : Fetching & Parsing JSON data**](https://medium.com/@diegoveloper/flutter-fetching-parsing-json-data-c019ddddaa34)
 
 ### Local storage
 
