@@ -104,6 +104,10 @@
     margin-bottom: 2rem;
     @apply text-xl font-bold;
   }
+  /* list  */
+  & li {
+    @apply my-1;
+  }
 }
 
 .title::after {
