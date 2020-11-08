@@ -53,7 +53,9 @@
         </h1>
 
         <img
-          :src="`/documentation/logo/${documentationPresentation.image}`"
+          :src="`/documentation/logo/${$slugify(
+            documentationPresentation.image
+          )}`"
           class="w-64 mt-10"
         />
         <div class="my-10 nuxt-content-container">

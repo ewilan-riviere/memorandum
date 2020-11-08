@@ -180,6 +180,9 @@ export default {
     const description = this.article.description
       ? this.article.description
       : 'No description'
+    const image = `${process.env.APP_URL}/documentation/logo/${this.$slugify(
+      this.article.category
+    )}.webp`
     return {
       title,
       meta: [
@@ -198,7 +201,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: `${process.env.APP_URL}/documentation/logo/${this.article.category}.webp`,
+          content: image,
         },
         // Twitter Card
         {
@@ -214,7 +217,7 @@ export default {
         {
           hid: 'twitter:image',
           property: 'twitter:image',
-          content: `${process.env.APP_URL}/documentation/logo/${this.article.category}.webp`,
+          content: image,
         },
       ],
     }

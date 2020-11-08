@@ -21,7 +21,7 @@
           </small>
         </span>
         <span v-else>
-          {{ expanded ? 'Minimize' : 'Ouvrir' }}
+          {{ expanded ? 'Minimize' : 'OpenOpen' }}
         </span>
       </div>
     </div>

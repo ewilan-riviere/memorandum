@@ -46,7 +46,7 @@
 
             <img
               v-if="guide.image"
-              :src="`/documentation/logo/${guide.image}`"
+              :src="`/documentation/logo/${$slugify(guide.image)}`"
               class="w-64 mt-10"
             />
             <p

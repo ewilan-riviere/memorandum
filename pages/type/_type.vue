@@ -32,7 +32,7 @@
                   slot="title"
                   class="block transition duration-300 ease-in-out hover:bg-gray-200 focus:outline-none focus:bg-gray-50"
                 >
-                  <!-- <div class="flex items-center px-4 py-4 sm:px-6">
+                  <div class="flex items-center px-4 py-4 sm:px-6">
                     <div
                       class="flex items-center justify-between flex-1 min-w-0"
                     >
@@ -41,7 +41,9 @@
                           <client-only>
                             <img
                               class="w-12 h-12"
-                              :src="`/documentation/logo/${entity.label}.webp`"
+                              :src="`/documentation/logo/${$slugify(
+                                entity.label
+                              )}.webp`"
                               alt=""
                               @error="imgError"
                             />
@@ -54,15 +56,14 @@
                             >
                               {{ $t(entity.label) }}
                             </div>
-                            <div>
-                            </div>
+                            <div></div>
                           </div>
                         </div>
                       </div>
-                      <div>
+                      <!-- <div>
                         {{ $o(entity.label).description }}
                         {{ $o(entity.label).link }}
-                      </div>
+                      </div> -->
                     </div>
                     <div>
                       <svg
@@ -79,60 +80,7 @@
                         />
                       </svg>
                     </div>
-                  </div> -->
-                  <li>
-                    <a
-                      href="#"
-                      class="block transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus:bg-gray-50"
-                    >
-                      <div class="flex items-center px-4 py-4 sm:px-6">
-                        <div
-                          class="flex-1 min-w-0 sm:flex sm:items-center sm:justify-between"
-                        >
-                          <div class="flex items-center">
-                            <img
-                              class="w-12 h-12"
-                              :src="`/documentation/logo/${entity.label}.webp`"
-                              alt=""
-                              @error="imgError"
-                            />
-                            <div
-                              class="ml-4 text-lg font-semibold leading-5 text-gray-800 truncate"
-                            >
-                              {{ $t(entity.label) }}
-                            </div>
-                          </div>
-                          <!-- <div class="flex-shrink-0 mt-4 sm:mt-0">
-                            <div class="flex my-auto">
-                              <p
-                                class="inline-block h-16 text-gray-500 truncate w-96"
-                                v-html="$o(entity.label).description"
-                              ></p>
-                            </div>
-                          </div> -->
-                        </div>
-                        <!-- <p
-                          class="inline-block h-16 text-gray-500 truncate w-96"
-                          v-html="$o(entity.label).description"
-                        ></p> -->
-                        <div class="flex-shrink-0 ml-5">
-                          <!-- Heroicon name: chevron-right -->
-                          <svg
-                            class="w-5 h-5 text-gray-400"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                              clip-rule="evenodd"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
+                  </div>
                 </div>
                 <div slot="list" class="ml-2">
                   <list-guide :guides="entity.guides"></list-guide>
