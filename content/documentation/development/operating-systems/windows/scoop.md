@@ -164,6 +164,7 @@ You can find many package with **scoop**, you can see below just some examples:
 - ngrok [main]
 - nssm [main]
 - phpstorm [jetbrains]
+- postman [extras]
 - Victor-Mono [nerd-fonts]
 - vscode [extras]
 - yarn [main]

@@ -11,22 +11,22 @@ Flutter cannot communication directly with a Vhost, the app need a online API, l
 
 To use API with Flutter app, you can't directly use localhost VHost, it's necessary to use [**ngrok**](https://ngrok.com) (you need to create free account to get auth token).
 
-1 - Install **ngrok**
+**1 - Install ngrok**
 
 **ngrok** on Linux : [github.com/inconshreveable/ngrok/issues/447](https://github.com/inconshreveable/ngrok/issues/447)
 
 <code-group>
-  <code-block label="Linux" active>
-
-  ```bash
-  # TODO
-  ```
-
-  </code-block>
-  <code-block label="Windows">
+  <code-block label="Windows" active>
 
   ```bash
   scoop install ngrok
+  ```
+
+  </code-block>
+  <code-block label="Linux">
+
+  ```bash
+  # TODO
   ```
 
   </code-block>
@@ -38,7 +38,7 @@ Save token just once after install (to have it, you need to create an account an
 ngrok authtoken random_token
 ```
 
-2 - Execute serve on your back-end application
+**2 - Execute serve on your back-end application**
 
 ### Example for a Laravel application
 
@@ -46,11 +46,11 @@ ngrok authtoken random_token
 php artisan serve
 ```
 
-To get default http://127.0.0.1:8000
+To get default <http://127.0.0.1:8000>
 
 The application is available on port `8000`
 
-3 - And, in another tab, execute **ngrok**
+**3 - And, in another tab, execute ngrok**
 
 If the application is available on port `8000`, execute below command (change port if it's necessary)
 
@@ -58,7 +58,7 @@ If the application is available on port `8000`, execute below command (change po
 ngrok http 8000
 ```
 
-4 - You will have output like
+**4 - You will have output like**
 
 ```bash
 Forwarding                    http://random-generated-key.ngrok.io -> http://localhost:8000
@@ -70,19 +70,25 @@ Forwarding                    http://random-generated-key.ngrok.io -> http://loc
 
 Official documentation: [**beyondco.de/docs/expose/introduction**](https://beyondco.de/docs/expose/introduction)
 
-Install expose globbaly with `composer`
+**Install expose globaly with `composer`**
 
 ```bash
 composer global require beyondcode/expose
 ```
 
-Expose your Vhost, here `laravel-app.localhost` is the hypothetical Vhost
+**Set token** (to have this, create an account on [**beyondco.de/docs/expose/introduction**](https://beyondco.de/docs/expose/introduction))
+
+```bash
+expose token xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```
+
+**Expose your Vhost, here `laravel-app.localhost` is the hypothetical Vhost**
 
 ```bash
 expose share laravel-app.localhost
 ```
 
-You will have this output
+**You will have this output**
 
 ```bash
 Local-URL:              laravel-app.localhost
@@ -90,4 +96,4 @@ Dashboard-URL:          http://127.0.0.1:4040
 Expose-URL:             https://random-key.sharedwithexpose.com
 ```
 
-And you can connect your app to https://random-key.sharedwithexpose.com
+**And you can connect your app to <https://random-key.sharedwithexpose.com>**

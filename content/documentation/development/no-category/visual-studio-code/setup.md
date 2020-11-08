@@ -2,10 +2,8 @@
 title: Setup
 description: ''
 position: 1
-category: 'ESLint'
+category: 'Visual Studio Code'
 ---
-
-# ESLint
 
 ![eslint](/documentation/linux/eslint.png)
 

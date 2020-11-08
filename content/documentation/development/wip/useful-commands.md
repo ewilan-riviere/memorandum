@@ -57,3 +57,7 @@ category: 'Work in progress'
 
   </code-block>
 </code-group>
+
+```bash
+php artisan route:list --compact
+```
