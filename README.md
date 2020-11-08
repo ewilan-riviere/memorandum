@@ -17,6 +17,9 @@
 - [] fix positions
 - [] add img for all guides
 - [] md containers fix style
+- [] php clockwork
+- [x] windows install
+- [] what to save before reinstall OS (Keep)
 
 ## Setup
 

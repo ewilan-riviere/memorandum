@@ -183,7 +183,7 @@ export default {
         inlineNotes: true,
       },
       remarkPlugins: [
-        ['remark-emoji', { emoticon: true }],
+        ['remark-emoji'],
         'remark-squeeze-paragraphs',
         'remark-slug',
         'remark-autolink-headings',
