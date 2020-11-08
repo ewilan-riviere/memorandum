@@ -11,6 +11,7 @@ module.exports = {
   frameworks: { label: 'Frameworks' },
   languages: { label: 'Languages' },
   'no-category': { label: 'No category' },
+  'operating-systems': { label: 'Operating Systems' },
   wip: { label: 'Work in progress' },
 
   // entities
