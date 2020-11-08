@@ -65,6 +65,16 @@ Don't login with Google to Medium, just delete cookies when you reach limit, you
 
 ## ToDo
 
+- [**Real-time Location Updates on Google Maps**](https://medium.com/flutter-community/implement-real-time-location-updates-on-google-maps-in-flutter-235c8a09173e) by Roman Jaquez, 06/12/2019 (9 min to read)
+- [**Calculator App in Flutter**](https://itnext.io/building-a-calculator-app-in-flutter-824254704fe6) by Ken Reilly, 21/08/2019 (8 min to read)
+- [**The Differences Between Provider Pattern and Bloc Pattern**](https://medium.com/swlh/the-differences-between-provider-pattern-and-bloc-pattern-fc93dc523672) by DLT Labs, 29/06/2020 (10 min to read)
+- [**Networking in Flutter**](https://itnext.io/networking-in-flutter-quick-guide-c491819a64f0) by Thomas Middel, 30/04/2020 (4 min to read)
+- [**Flutter: Custom Clipper**](https://medium.com/flutter-community/flutter-custom-clipper-28c6d380fdd6) by Kinjal Dhamat, 28/05/2020 (6 min to read)
+- [**Making Your API Calls In Flutter The Right Way**](https://medium.com/solidmvp-africa/making-your-api-calls-in-flutter-the-right-way-f0a03e35b4b1) by Solidmvp story, 23/05/2020 (14 min to read)
+- [**GetX Flutter Firebase Auth Example**](https://medium.com/@jeffmcmorris/getx-flutter-firebase-auth-example-b383c1dd1de2) by Jeff McMorris, 01/08/2020 (7 min to read)
+- [**Flutter Wrap Widget**](https://medium.com/flutter-community/flutter-wrap-widget-e1ee0b005b16) by Suragch, 14/01/2020 (5 min to read)
+- [**Flutter: Creating Drawers**](https://proandroiddev.com/flutter-creating-drawers-e31414f7d71a) by Deepak K [Daksh] Gupta, 12/01/2018 (7 min to read)
+- [**Guide to Firebase Analytics**](https://medium.com/flutter-community/the-flutter-guide-to-firebase-analytics-9b99c6e27a6) by Gaspard Merten, 21/04/2020 (5 min to read)
 - <https://github.com/seenickcode/flutter_realistic_forms>
 - <https://medium.com/@michael.krol/simple-recipes-app-made-in-flutter-list-view-283ef85f91e7>
 - <https://medium.com/@dev.n/answering-questions-on-flutter-app-development-6d50eb7223f3>

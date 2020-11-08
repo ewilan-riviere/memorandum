@@ -4,7 +4,7 @@ export default {
   // target: 'static',
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'Memorandum',
+    title: 'Documentation',
     titleTemplate: '%s · Memorandum',
     htmlAttrs: {
       lang: 'en-US',
