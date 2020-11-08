@@ -52,3 +52,13 @@ class AnotherClass extends StatelessWidget {
   }
 }
 ```
+
+// Factory, if exist
+
+<https://stackoverflow.com/questions/58141074/how-do-i-import-a-json-property-to-a-dart-object-when-it-may-or-may-not-exist>
+
+// Built split by abi
+
+```bash
+flutter build apk --split-per-abi
+```
