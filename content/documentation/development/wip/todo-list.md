@@ -36,7 +36,7 @@ This is future content.
 - [**stackoverflow.com/how-do-you-convert-an-entire-directory-with-ffmpeg**](https://stackoverflow.com/questions/5784661/how-do-you-convert-an-entire-directory-with-ffmpeg)
 
 ```cmd
-FOR /F "tokens=*" %G IN ('dir /b *.png') DO ffmpeg -i "%G" "%~nG.webp"
+FOR /F "tokens=*" %G IN ('dir /b *') DO ffmpeg -i "%G" "%~nG.webp"
 ```
 
 ## Mangas

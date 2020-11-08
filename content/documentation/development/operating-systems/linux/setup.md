@@ -1,6 +1,6 @@
 ---
 title: Setup
-description: ''
+description: 'How to setup Ubuntu'
 position: 1
 category: 'Linux'
 ---

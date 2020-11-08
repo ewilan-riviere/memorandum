@@ -1,14 +1,14 @@
 ---
 title: Setup applications
-description: ''
-position: 1
+description: 'Add some applications to Ubuntu'
+position: 3
 category: 'Linux'
 ---
 
 ## 1. NPM: global installations
 
 ```bash
-npm install -g @vue/cli && npm install -g @angular/cli && npm i -g gitmoji-cli && npm install -g eslint && npm install -g svgo && npm i -g vuepress
+npm install -g @vue/cli @angular/cli eslint
 ```
 
 ## 2.  Visual Studio Code

@@ -5,6 +5,16 @@ position: 2
 category: 'Git'
 ---
 
+## New config
+
+```bash
+git config --global user.email "you@example.com"
+```
+
+```bash
+git config --global user.name "Your Name"
+```
+
 ## Conflicts with end of file
 
 It's cause of Windows end of file (CRLF) conflict with Linux end of file  (LF), just udpate global git core

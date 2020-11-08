@@ -1,7 +1,7 @@
 ---
 title: Setup troubles
-description: ''
-position: 1
+description: 'Problems about setup'
+position: 2
 category: 'Linux'
 ---
 

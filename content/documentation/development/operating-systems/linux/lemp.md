@@ -1,7 +1,7 @@
 ---
 title: "LEMP: NGINX"
-description: ''
-position: 1
+description: 'How to install NGINX on Ubuntu'
+position: 5
 category: 'Linux'
 ---
 
