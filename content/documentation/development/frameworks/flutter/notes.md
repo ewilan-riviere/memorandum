@@ -62,3 +62,7 @@ class AnotherClass extends StatelessWidget {
 ```bash
 flutter build apk --split-per-abi
 ```
+
+// Stringify List
+
+<https://stackoverflow.com/questions/59143173/convert-list-to-json-string-then-convert-this-string-back-to-list-in-dart>

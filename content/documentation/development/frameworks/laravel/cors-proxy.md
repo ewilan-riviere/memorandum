@@ -69,7 +69,9 @@ return [
 
 ## Proxy
 
-```php[app/Http/Middleware/TrustProxies.php]{15}
+To have HTTPS everywhere.
+
+```php[app/Http/Middleware/TrustProxies.php]
 <?php
 
 namespace App\Http\Middleware;
@@ -93,4 +95,37 @@ class TrustProxies extends Middleware
      */
     protected $headers = Request::HEADER_X_FORWARDED_ALL;
 }
+```
+
+```php[app/Http/Kernel.php]
+class Kernel extends HttpKernel
+{
+    // ...
+
+    /**
+     * The application's route middleware groups.
+     *
+     * @var array
+     */
+
+    protected $middlewareGroups = [
+        'web' => [
+            // ...
+        ],
+
+        'api' => [
+            // 'throttle:60,1', <- Remove this line
+            'bindings',
+        ],
+    ];
+    // ...
+}
+```
+
+```bash
+composer self-update --1
+```
+
+```bash
+composer self-update --2
 ```

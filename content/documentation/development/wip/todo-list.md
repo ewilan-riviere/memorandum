@@ -33,10 +33,23 @@ This is future content.
 - [**askubuntu.com/how-to-completely-remove-php**](https://askubuntu.com/questions/59886/how-to-completely-remove-php)
 - [**stackoverflow.com/completely-removing-phpmyadmin**](https://stackoverflow.com/questions/5050296/completely-removing-phpmyadmin)
 - [**stackoverflow.com/your-password-does-not-satisfy-the-current-policy-requirements**](https://stackoverflow.com/questions/43094726/your-password-does-not-satisfy-the-current-policy-requirements)
+
+## ffmpeg
+
 - [**stackoverflow.com/how-do-you-convert-an-entire-directory-with-ffmpeg**](https://stackoverflow.com/questions/5784661/how-do-you-convert-an-entire-directory-with-ffmpeg)
 
 ```cmd
 FOR /F "tokens=*" %G IN ('dir /b *') DO ffmpeg -i "%G" "%~nG.webp"
+```
+
+## youtube-dl
+
+- <https://youtube-dl.org>
+- <https://github.com/l1ving/youtube-dl>
+- <https://korben.info/comment-utiliser-et-maitriser-youtube-dl-pour-telecharger-des-videos-comme-un-champion.html>
+
+```bash
+youtube-dl -x --audio-format mp3 URL
 ```
 
 ## Mangas
