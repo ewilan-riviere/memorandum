@@ -160,6 +160,7 @@ You can find many package with **scoop**, you can see below just some examples:
 - docker [main]
 - docker-compose [main]
 - firacode [nerd-fonts]
+- glow [main]
 - nginx [main]
 - ngrok [main]
 - nssm [main]
@@ -178,4 +179,5 @@ You can find many package with **scoop**, you can see below just some examples:
 - gimp [extras]
 - googlechrome [extras]
 - rufus [extras]
+- vlc [extras]
 - youtube-dl [main]
