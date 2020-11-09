@@ -1,7 +1,7 @@
 ---
 title: Cheatsheet
 description: ''
-position: 2
+position: 1
 category: 'Git'
 ---
 
@@ -17,7 +17,7 @@ git config --global user.name "Your Name"
 
 ## Conflicts with end of file
 
-It's cause of Windows end of file (CRLF) conflict with Linux end of file  (LF), just udpate global git core
+It's cause of Windows end of file (CRLF) conflict with Linux end of file  (LF), just update global git core
 
 ```bash
 git config --global core.autocrlf false
@@ -25,13 +25,29 @@ git config --global core.autocrlf false
 
 And re-clone repository
 
+## “Pulling without specifying...”
+
+> “Pulling without specifying how to reconcile divergent branches is discouraged”
+
+```bash
+git config --global pull.ff only
+```
+
+## Change default editor
+
+Example to change to vim editor
+
+```bash
+git config --global core.editor "vim"
+```
+
 ## Erase a branch with another
 
 Erase a branch with another
 
 ```bash
 git checkout branch_to_erase
-gir reset --hard branch_to_keep
+git reset --hard branch_to_keep
 ```
 
 ## Delete branch
@@ -51,7 +67,7 @@ git checkout other_branch
 git stash pop
 ```
 
-## unstage all files
+## Unstage all files
 
 ```bash
 git reset
@@ -81,20 +97,4 @@ With another branch
 
 ```bash
 git reset --hard origin/branch_name
-```
-
-## “Pulling without specifying...”
-
-> “Pulling without specifying how to reconcile divergent branches is discouraged”
-
-```bash
-git config --global pull.ff only
-```
-
-## Change default editor
-
-Example to change to vim editor
-
-```bash
-git config --global core.editor "vim"
 ```

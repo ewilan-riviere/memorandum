@@ -11,7 +11,9 @@ Many of the tutorials here come from **Medium**'s website, which sets **a readin
 Don't login with Google to Medium, just delete cookies when you reach limit, you will have **to do this several times** if you read a lot of articles.
 :::
 
-## Data
+## Networking
+
+- [**Networking in Flutter**](https://itnext.io/networking-in-flutter-quick-guide-c491819a64f0) by Thomas Middel, 30/04/2020 (4 min to read)
 
 ### Fetch data
 
@@ -20,6 +22,7 @@ Don't login with Google to Medium, just delete cookies when you reach limit, you
 - [**Fetch data from the internet**](https://flutter.dev/docs/cookbook/networking/fetch-data)
 - [**How To Fetch Data using API Calls**](https://medium.com/@maffan/how-to-fetch-data-using-api-calls-in-flutter-99668a60170c)
 - [**Flutter : Fetching & Parsing JSON data**](https://medium.com/@diegoveloper/flutter-fetching-parsing-json-data-c019ddddaa34)
+- [**Making Your API Calls In Flutter The Right Way**](https://medium.com/solidmvp-africa/making-your-api-calls-in-flutter-the-right-way-f0a03e35b4b1) by Solidmvp story, 23/05/2020 (14 min to read)
 
 ### Local storage
 
@@ -38,6 +41,8 @@ Don't login with Google to Medium, just delete cookies when you reach limit, you
 
 - [**Sign in with Google in Android (without firebase)**](https://medium.com/flutter-community/flutter-sign-in-with-google-in-android-without-firebase-a91b977d166f) by Snir David, 05/02/2020 (5 min to read)
 - [**Login Tutorial with “flutter_bloc”**](https://medium.com/flutter-community/flutter-login-tutorial-with-flutter-bloc-ea606ef701ad) by Felix Angelov, 24/08/2018 (6 min to read)
+- [**Dive into Firebase Auth on Flutter: Email and Link Sign-in**](https://medium.com/firebase-developers/dive-into-firebase-auth-on-flutter-email-and-link-sign-in-e51603eb08f8)
+- [**GetX Flutter Firebase Auth Example**](https://medium.com/@jeffmcmorris/getx-flutter-firebase-auth-example-b383c1dd1de2) by Jeff McMorris, 01/08/2020 (7 min to read)
 
 ---
 
@@ -46,6 +51,11 @@ Don't login with Google to Medium, just delete cookies when you reach limit, you
 ### Navbar
 
 - [**Getting to the Bottom of Navigation in Flutter**](https://medium.com/flutter/getting-to-the-bottom-of-navigation-in-flutter-b3e440b9386) by Hans Muller, 28/06/2019 (7 min to read)
+- [**Flutter: Creating Drawers**](https://proandroiddev.com/flutter-creating-drawers-e31414f7d71a) by Deepak K [Daksh] Gupta, 12/01/2018 (7 min to read)
+
+### Transitions
+
+- [**Flutter Navigator PageRouteBuilder Transitions**](https://medium.com/@JediPixels/flutter-navigator-pageroutebuilder-transitions-b05991f53069)
 
 ---
 
@@ -58,26 +68,27 @@ Don't login with Google to Medium, just delete cookies when you reach limit, you
 - [**Creating a Parallax Background in Flutter**](https://itnext.io/creating-a-parallax-background-in-flutter-5e8b5f4bb837) by Ken Reilly, 14/05/2019
 - [**How to build responsive applications**](https://medium.com/better-programming/how-to-build-responsive-apps-with-flutter-widgets-review-b22c6dec6904) by inVerita, 25/02/2020 (6 min to read)
 - [**Bouncing button animation**](https://medium.com/flutter-community/flutter-bouncing-button-animation-ece660e19c91) by Daniele Cambi, 25/05/2019 (2 min to read)
+- [**Flutter: Custom Clipper**](https://medium.com/flutter-community/flutter-custom-clipper-28c6d380fdd6) by Kinjal Dhamat, 28/05/2020 (6 min to read)
+- [**Flutter Wrap Widget**](https://medium.com/flutter-community/flutter-wrap-widget-e1ee0b005b16) by Suragch, 14/01/2020 (5 min to read)
 
-## Good practice
+## Good practices
 
 - [**Your Next Flutter Project**](https://medium.com/follow-flutter/your-next-mvc-flutter-project-1fabe2069b01) by Greg Perry, 08/05/2020
 - [**VSCode Shortcuts for Fast and Efficient Development**](https://medium.com/flutter-community/flutter-visual-studio-code-shortcuts-for-fast-and-efficient-development-7235bc6c3b7d) by Ganesh .s.p, 25/05/2019
 - [**Better Errors Messages**](https://medium.com/icnh/better-errors-messages-for-flutter-a21c53982a99) by Stefan Matthias Aust, 06/04/2019 (5 min to read)
 - [**BLoC pattern**](https://itnext.io/bloc-pattern-building-blocs-for-flutter-81a17410b09) by Thomas Middel, 14/01/2020 (3 min to read)
+- [**app navigation state and menu pattern using BLoC**](https://medium.com/flutter-community/flutter-app-navigation-state-and-menu-pattern-using-bloc-d5a42be941b2)
+- [**The Differences Between Provider Pattern and Bloc Pattern**](https://medium.com/swlh/the-differences-between-provider-pattern-and-bloc-pattern-fc93dc523672) by DLT Labs, 29/06/2020 (10 min to read)
+- [**Guide to Firebase Analytics**](https://medium.com/flutter-community/the-flutter-guide-to-firebase-analytics-9b99c6e27a6) by Gaspard Merten, 21/04/2020 (5 min to read)
+
+## Features
+
+- [**Making a full screen camera application in Flutter**](https://medium.com/lightsnap/making-a-full-screen-camera-application-in-flutter-65db7f5d717b)
+- [**Real-time Location Updates on Google Maps**](https://medium.com/flutter-community/implement-real-time-location-updates-on-google-maps-in-flutter-235c8a09173e) by Roman Jaquez, 06/12/2019 (9 min to read)
+- [**Calculator App in Flutter**](https://itnext.io/building-a-calculator-app-in-flutter-824254704fe6) by Ken Reilly, 21/08/2019 (8 min to read)
 
 ## ToDo
 
-- [**Real-time Location Updates on Google Maps**](https://medium.com/flutter-community/implement-real-time-location-updates-on-google-maps-in-flutter-235c8a09173e) by Roman Jaquez, 06/12/2019 (9 min to read)
-- [**Calculator App in Flutter**](https://itnext.io/building-a-calculator-app-in-flutter-824254704fe6) by Ken Reilly, 21/08/2019 (8 min to read)
-- [**The Differences Between Provider Pattern and Bloc Pattern**](https://medium.com/swlh/the-differences-between-provider-pattern-and-bloc-pattern-fc93dc523672) by DLT Labs, 29/06/2020 (10 min to read)
-- [**Networking in Flutter**](https://itnext.io/networking-in-flutter-quick-guide-c491819a64f0) by Thomas Middel, 30/04/2020 (4 min to read)
-- [**Flutter: Custom Clipper**](https://medium.com/flutter-community/flutter-custom-clipper-28c6d380fdd6) by Kinjal Dhamat, 28/05/2020 (6 min to read)
-- [**Making Your API Calls In Flutter The Right Way**](https://medium.com/solidmvp-africa/making-your-api-calls-in-flutter-the-right-way-f0a03e35b4b1) by Solidmvp story, 23/05/2020 (14 min to read)
-- [**GetX Flutter Firebase Auth Example**](https://medium.com/@jeffmcmorris/getx-flutter-firebase-auth-example-b383c1dd1de2) by Jeff McMorris, 01/08/2020 (7 min to read)
-- [**Flutter Wrap Widget**](https://medium.com/flutter-community/flutter-wrap-widget-e1ee0b005b16) by Suragch, 14/01/2020 (5 min to read)
-- [**Flutter: Creating Drawers**](https://proandroiddev.com/flutter-creating-drawers-e31414f7d71a) by Deepak K [Daksh] Gupta, 12/01/2018 (7 min to read)
-- [**Guide to Firebase Analytics**](https://medium.com/flutter-community/the-flutter-guide-to-firebase-analytics-9b99c6e27a6) by Gaspard Merten, 21/04/2020 (5 min to read)
 - <https://github.com/seenickcode/flutter_realistic_forms>
 - <https://medium.com/@michael.krol/simple-recipes-app-made-in-flutter-list-view-283ef85f91e7>
 - <https://medium.com/@dev.n/answering-questions-on-flutter-app-development-6d50eb7223f3>

@@ -57,14 +57,21 @@ To find pictures about tech
 
 ## Tools
 
-- [**dompcomp**](https://www.domcomp.com) : list of registrars
-- [**GTmetrix**](https://gtmetrix.com) : to know if website have a good loading speed
-- [**Website Carbon Calculator**](https://www.websitecarbon.com) : to know if a website can have ecological badge
 - [**HTML Entities**](https://www.toptal.com/designers/htmlarrows) : to get HTML code
 - [**JSON Formatter**](https://jsonformatter.curiousconcept.com) : to format and valid JSON
 - [**Sassmeister**](https://www.sassmeister.com) : translate Sass to CSS
 - [**CSSmatic**](https://www.cssmatic.com) : some CSS tools Gradient generator, Border radius, Noise texture, Box shadow
 - [**color-hex**](https://www.color-hex.com) : tool for hexadecimal colors
-- [**Astral**](https://app.astralapp.com) : web app to check GitHub stars
 - [**Optimizilla**](https://imagecompressor.com/fr) : to optimize images
 - [**Convertio**](https://convertio.co) : to convert any file to multiple formats
+
+### Crawler
+
+- [**Website Carbon Calculator**](https://www.websitecarbon.com) : to know if a website can have ecological badge
+- [**GTmetrix**](https://gtmetrix.com) : to know if website have a good loading speed
+- [**Screaming Frog**](https://www.screamingfrog.co.uk/seo-spider) : website crawler for SEO
+
+### Misc
+
+- [**dompcomp**](https://www.domcomp.com) : list of registrars
+- [**Astral**](https://app.astralapp.com) : web app to check GitHub stars
