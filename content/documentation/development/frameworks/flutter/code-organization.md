@@ -12,10 +12,7 @@ category: 'Flutter'
 
 :::
 
-<!-- <citation title="Flutter: Code Organization (Revised)" author="Conner Aldrich" link="https://medium.com/flutter-community/flutter-code-organization-revised-b09ad5cef7f6"> -->
-<div class="px-8 py-1 my-10 italic bg-gray-300 border-l-4 border-green-600 rounded-r-md">
-
-**Flutter: Code Organization (Revised) by Conner Aldrich**
+<citation title="Flutter: Code Organization (Revised)" author="Conner Aldrich" link="https://medium.com/flutter-community/flutter-code-organization-revised-b09ad5cef7f6">
 
 As I wrote in the first version of my article, my biggest problem when getting into Flutter development was figuring out how to manage my code. Native Android development splits UI code and Logic code between XML files and Java (or Kotlin) files respectively, but with Flutter it can all become a jumbled mess if you’re not careful. After working with Flutter for almost two years, this has been written as a simple guide to architecture your app in the best way possible for future refactoring and readability.
 
@@ -89,5 +86,4 @@ After working with the first system of code organization I designed, I came up w
 
 Also, if you want this setup to be your default, you can learn how to make it or something else your default app template [here](https://medium.com/flutter-community/flutter-changing-the-default-app-template-f3448386139f).
 
-</div>
-<!-- </citation> -->
+</citation>

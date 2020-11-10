@@ -68,7 +68,7 @@ export function createRouter() {
         return { selector: to.hash }
       } else {
         setTimeout(() => {
-          return window.scrollTo({ top: 0, behavior: 'smooth' })
+          return window.scrollTo({ top: 0 })
         }, 100)
       }
     },
