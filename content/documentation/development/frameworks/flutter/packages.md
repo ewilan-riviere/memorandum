@@ -34,3 +34,8 @@ flutter_icons:
 - <https://pub.dev/packages/faker>
 - <https://pub.dev/packages/lint>
 - <https://pub.dev/packages/linter>
+- <https://pub.dev/packages/shared_preferences>
+- <https://pub.dev/packages/flutter_phoenix>
+- <https://pub.dev/packages/persistent_bottom_nav_bar>
+- <https://pub.dev/packages/advance_pdf_viewer>
+- <https://pub.dev/packages/flutter_tagging>

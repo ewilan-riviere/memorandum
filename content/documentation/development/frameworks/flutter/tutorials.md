@@ -43,10 +43,13 @@ Don't login with Google to Medium, just delete cookies when you reach limit, you
 - [**Login Tutorial with “flutter_bloc”**](https://medium.com/flutter-community/flutter-login-tutorial-with-flutter-bloc-ea606ef701ad) by Felix Angelov, 24/08/2018 (6 min to read)
 - [**Dive into Firebase Auth on Flutter: Email and Link Sign-in**](https://medium.com/firebase-developers/dive-into-firebase-auth-on-flutter-email-and-link-sign-in-e51603eb08f8)
 - [**GetX Flutter Firebase Auth Example**](https://medium.com/@jeffmcmorris/getx-flutter-firebase-auth-example-b383c1dd1de2) by Jeff McMorris, 01/08/2020 (7 min to read)
+- [**stackoverflow.com/flutter-how-to-keep-user-logged-in-and-make-logout**](https://stackoverflow.com/questions/57405433/flutter-how-to-keep-user-logged-in-and-make-logout)
 
 ---
 
 ## Navigation
+
+- [**Flutter Navigation Cheatsheet - A Guide to Named Routing**](https://www.filledstacks.com/post/flutter-navigation-cheatsheet-a-guide-to-named-routing/)
 
 ### Navbar
 
@@ -71,6 +74,10 @@ Don't login with Google to Medium, just delete cookies when you reach limit, you
 - [**Flutter: Custom Clipper**](https://medium.com/flutter-community/flutter-custom-clipper-28c6d380fdd6) by Kinjal Dhamat, 28/05/2020 (6 min to read)
 - [**Flutter Wrap Widget**](https://medium.com/flutter-community/flutter-wrap-widget-e1ee0b005b16) by Suragch, 14/01/2020 (5 min to read)
 
+### Example
+
+- [**Simple Recipes App made in Flutter — List View**](https://medium.com/@michael.krol/simple-recipes-app-made-in-flutter-list-view-283ef85f91e7)
+
 ## Good practices
 
 - [**Your Next Flutter Project**](https://medium.com/follow-flutter/your-next-mvc-flutter-project-1fabe2069b01) by Greg Perry, 08/05/2020
@@ -80,6 +87,9 @@ Don't login with Google to Medium, just delete cookies when you reach limit, you
 - [**app navigation state and menu pattern using BLoC**](https://medium.com/flutter-community/flutter-app-navigation-state-and-menu-pattern-using-bloc-d5a42be941b2)
 - [**The Differences Between Provider Pattern and Bloc Pattern**](https://medium.com/swlh/the-differences-between-provider-pattern-and-bloc-pattern-fc93dc523672) by DLT Labs, 29/06/2020 (10 min to read)
 - [**Guide to Firebase Analytics**](https://medium.com/flutter-community/the-flutter-guide-to-firebase-analytics-9b99c6e27a6) by Gaspard Merten, 21/04/2020 (5 min to read)
+- [**FR: Widget, State et Context**](https://www.didierboelens.com/fr/2018/06/widget-state-context-inheritedwidget)
+- [**Improve your Flutter app performance: split your widgets**](https://medium.com/flutter-community/improve-your-flutter-app-performance-split-your-widgets-935f97e93f7d)
+- [**My November Recommendations for Flutter Packages**](https://medium.com/better-programming/discover-flutter-november-recommendation-for-flutter-packages-4b7cb2470323)
 
 ## Features
 
