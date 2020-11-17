@@ -1,7 +1,7 @@
 ---
 title: Tips & tricks
-description: ''
-position: 1
+description: 'Tips for Tailwind'
+position: 2
 category: 'Tailwind CSS'
 ---
 
