@@ -55,3 +55,7 @@ An Observatory debugger and profiler on JSN L21 is available at: http://127.0.0.
 ```
 
 So, you can find **Observatory** to <http://127.0.0.1:50539/random_key=/> but if you want to use **Dart DevTools**, got to <http://127.0.0.1:9100/#/> and, in **Connect to a Running App** input, add <http://127.0.0.1:50539/random_key=/> to connect **Dart DevTools** to current app.
+
+## Gradle version
+
+- [**developer.android.com/studio/releases/gradle-plugin**](https://developer.android.com/studio/releases/gradle-plugin#4-1-0)
