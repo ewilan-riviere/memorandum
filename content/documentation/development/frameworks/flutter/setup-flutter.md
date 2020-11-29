@@ -16,10 +16,10 @@ You need to install **Android Studio** before install **Flutter**, follow [**thi
 
 ## 1. Installation
 
-Example to download with terminal with Flutter `v1.20.1`, check official website to download last version. But you can download this version and upgrade Flutter after with `flutter upgrade`
+Example to download with terminal with Flutter `v1.22.4`, check official website to download last version. But you can download this version and upgrade Flutter after with `flutter upgrade`
 
 ```bash
-wget -O flutter_linux_1.20.1-stable.tar.xz "https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_1.20.1-stable.tar.xz"
+wget -O flutter_linux_1.22.4-stable.tar.xz "https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_1.22.4-stable.tar.xz"
 ```
 
 ```bash
