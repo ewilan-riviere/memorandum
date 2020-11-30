@@ -7,6 +7,10 @@ category: 'Linux'
 
 [Digital Ocean: LEMP](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04)
 
+:::tip
+When I offer to create new user, I call it `ubuntu`, you can use any other username.
+:::
+
 ## 1. NGINX & firewall
 
 ```bash
@@ -33,13 +37,13 @@ If you have set password, you can use:
 `mysql -u root -p`
 :::
 
-Now redefine `root` `password` (change it, if you want strong password) and create new `user` (choose a custom username if you want).
+Now redefine `root` `password` (change it, if you want strong password) and create new `ubuntu` (choose a custom username if you want).
 
 ```sql {3,4}
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 FLUSH PRIVILEGES;
-CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON *.* TO 'user'@'localhost' WITH GRANT OPTION;
+CREATE USER 'ubuntu'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'ubuntu'@'localhost' WITH GRANT OPTION;
 exit
 ```
 
@@ -47,8 +51,8 @@ exit
 
 ```bash
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
-CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON *.* TO 'user'@'localhost' WITH GRANT OPTION;
+CREATE USER 'ubuntu'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'ubuntu'@'localhost' WITH GRANT OPTION;
 exit
 ```
 

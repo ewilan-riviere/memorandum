@@ -7,6 +7,10 @@ category: 'Linux'
 
 This guide has been set for [**Ubuntu 18.04**](https://ubuntu.com/#download), if you have another distribution use it carefully.
 
+:::tip
+When I offer to create new user, I call it `ubuntu`, you can use any other username.
+:::
+
 :::tip SSH
 If it's setup of server, you have to disable ssh with root and allow it with a custom user.
 
@@ -17,11 +21,11 @@ ssh root@ip-address
 ```
 
 ```bash
-apt update && apt upgrade && adduser ewilan && usermod -aG sudo ewilan
+apt update && apt upgrade && adduser ubuntu && usermod -aG sudo ubuntu
 ```
 
 ```bash
-mkdir /home/ewilan/.ssh/ && cp /root/.ssh/authorized_keys /home/ewilan/.ssh/ && chown -R ewilan:ewilan /home/ewilan/.ssh/ && chmod -R 700 /home/ewilan/.ssh/
+mkdir /home/ubuntu/.ssh/ && cp /root/.ssh/authorized_keys /home/ubuntu/.ssh/ && chown -R ubuntu:ubuntu /home/ubuntu/.ssh/ && chmod -R 700 /home/ubuntu/.ssh/
 ```
 
 Check if ssh works with new user and disallow ssh connection with root.
@@ -43,8 +47,8 @@ sudo apt install -y ufw && sudo ufw app list && sudo ufw allow OpenSSH && sudo u
 ```
 
 ```bash
-sudo adduser ewilan
-sudo usermod -aG sudo ewilan
+sudo adduser ubuntu
+sudo usermod -aG sudo ubuntu
 ```
 
 ```bash

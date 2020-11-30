@@ -8,7 +8,7 @@ category: 'Linux'
 ## 1. NPM: global installations
 
 ```bash
-npm install -g @vue/cli @angular/cli eslint
+npm install -g @vue/cli eslint
 ```
 
 ## 2.  Visual Studio Code
