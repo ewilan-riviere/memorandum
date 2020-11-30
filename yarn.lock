@@ -1806,6 +1806,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/youtube@0.0.39":
+  version "0.0.39"
+  resolved "https://registry.yarnpkg.com/@types/youtube/-/youtube-0.0.39.tgz#1c80e882d339a4d89da16b10acc411ceadc26955"
+  integrity sha512-naVjyTZT/CoNwEQW3+mf9E/x6sgB7QIPbRDtVlPUpHlmuQTk+j6gQBy0T5CRkV8oC0GYQjMgfr3VdueTSVLTjw==
+
 "@typescript-eslint/experimental-utils@^2.5.0":
   version "2.34.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/experimental-utils/-/experimental-utils-2.34.0.tgz#d3524b644cdb40eebceca67f8cf3e4cc9c8f980f"
@@ -10253,6 +10258,15 @@ vue-hot-reload-api@^2.3.0:
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
   integrity sha512-BXq3jwIagosjgNVae6tkHzzIk6a8MHFtzAdwhnV5VlvPTFxDCvIttgSiHWjdGoTJvXtmRu5HacExfdarRcFhog==
 
+vue-lazy-youtube-video@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/vue-lazy-youtube-video/-/vue-lazy-youtube-video-2.3.0.tgz#0e8050b1661ebab6af69597139261f2dd87e9ea0"
+  integrity sha512-KYhYxX3xnx5akESekF7INu056ish+5BOPsA0n20cg9raSp/0sbhZHOULyUyxdEnhVKI0YKo6GnZOuR55kImoGw==
+  dependencies:
+    "@types/youtube" "0.0.39"
+    vue-typed-emit "^1.0.0"
+    vue-typed-refs "^1.0.0"
+
 vue-loader@^15.9.3:
   version "15.9.5"
   resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-15.9.5.tgz#7a960dc420a3439deaacdda038fdcdbf7c432706"
@@ -10359,6 +10373,16 @@ vue-template-es2015-compiler@^1.9.0:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
+
+vue-typed-emit@^1.0.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/vue-typed-emit/-/vue-typed-emit-1.1.0.tgz#32bc2519dc87d068d2657c8f14fedafabc7e535d"
+  integrity sha512-dfR6m9yJydUk3jHpdbwGuF3CvzL+jLO/L2douk00MJDEMLXcY5Ald/cozV8JRgQ/0hJR85m76G0Lyr04DTGl0g==
+
+vue-typed-refs@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/vue-typed-refs/-/vue-typed-refs-1.0.0.tgz#374a1f28c1037c4fbaf988c9e2b07cf634846095"
+  integrity sha512-HrNHyt2SmvPzWqzl6yEb4dBc0yV7xgGb+BTF+XKokO6AwKWBcDd73ka/wCKvZ9KAnyL+4q3NOEQ8kPfyBWFBmg==
 
 vue2-perfect-scrollbar@^1.5.0:
   version "1.5.0"

@@ -88,25 +88,26 @@ Built-in Audio
 
 ## MacOS design
 
-![alt](https://www.youtube.com/watch?v=UYn4UYQ-nTo)
+[![https://i.ytimg.com/vi/UYn4UYQ-nTo/maxresdefault.jpg?v=5e4286bb](https://res.cloudinary.com/marcomontalbano/image/upload/v1606725266/video_to_markdown/images/youtube--UYn4UYQ-nTo-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/UYn4UYQ-nTo "https://i.ytimg.com/vi/UYn4UYQ-nTo/maxresdefault.jpg?v=5e4286bb")
+<small>YouTube video: [**Make Your KDE Plasma Desktop Look Like Mac OS**](https://youtu.be/UYn4UYQ-nTo)</small>
 
 - Window Management->Window Behavior->Advanced
-    - Window placement: `Centered`
+  - Window placement: `Centered`
 - Global Theme->Get new global themes
-    - Search `mcmojave` to find `McMojave LAF`: install `01-com...McMojave.tar.xz`
-    - Apply new theme
+  - Search `mcmojave` to find `McMojave LAF`: install `01-com...McMojave.tar.xz`
+  - Apply new theme
 - Icons->Icons->Get new Icons
-    - Search `la capitaine` to find `La Capitaine`: install `0.6.1`
-    - Apply new icons
+  - Search `la capitaine` to find `La Capitaine`: install `0.6.1`
+  - Apply new icons
 - Cursors->Get new cursors
-    - Search `osx el cap` to find `OSX-ElCap-(KDE).tar.bz2`
-    - Apply new cursors
+  - Search `osx el cap` to find `OSX-ElCap-(KDE).tar.bz2`
+  - Apply new cursors
 - Application style->Application style->`Configure GNOME/GTK  application style...`->`Download new GNOME/GTK application styles...`->Choose GTK 3.x Themes
-    - Search `mchigh` to find `McHigh Sierra`: install `Sierra-dark-solid-alt.tar.xz`
-    - Select `Sierra-dark-solid-alt` for GTK2 theme and GTK3 theme
+  - Search `mchigh` to find `McHigh Sierra`: install `Sierra-dark-solid-alt.tar.xz`
+  - Select `Sierra-dark-solid-alt` for GTK2 theme and GTK3 theme
 - Window decoration->Titlebar buttons
-    - Remove all except `Minimize`, `Maximize` and `Close`
-    - Move features on the left: `Close`, `Minimize`, `Maximize`
+  - Remove all except `Minimize`, `Maximize` and `Close`
+  - Move features on the left: `Close`, `Minimize`, `Maximize`
 - Open `settings.ini` with **vim**: `vim ~/.config/gtk-3.0/settings.ini`
 
 Original `settings`
@@ -146,29 +147,29 @@ gtk-decoration-layout=close,minimize,maximize:menu
 ```
 
 - Desktop behavior->Desktop effects->Search `blur`
-    - On `Blur`, on the left full activate it with full blue checkbox, on the right, click on settings to open dialog
-    - On dialog `Blur strength` to 75% and `Noise strength` to 0%
+  - On `Blur`, on the left full activate it with full blue checkbox, on the right, click on settings to open dialog
+  - On dialog `Blur strength` to 75% and `Noise strength` to 0%
 - Window management->KWin scripts->Get new scripts
-    - Search `force`: install `Force blur`
-    - Apply Force blur
+  - Search `force`: install `Force blur`
+  - Apply Force blur
 - `sudo add-apt-repository ppa:papirus/papirus`, `sudo apt install -y qt5-style-kvantum`, launch Kvantum Manager
-    - Select Change/delete theme, select KvMojave
-    - Select Configure active theme, in `Hacks` toggle `Transparent menu title`, in `Compositing & general look`, `Reduce window opacity by` `5%`, `Reduce menu opacity by` `15%`
+  - Select Change/delete theme, select KvMojave
+  - Select Configure active theme, in `Hacks` toggle `Transparent menu title`, in `Compositing & general look`, `Reduce window opacity by` `5%`, `Reduce menu opacity by` `15%`
 
 - Click right on task bar, add panel, empty panel
-    - Place to the top, click on it to open Widgets panel, select get new Widgets
-    - Search `clock`: install `Better inline clock`
-    - Search `application title`: install `Application title`
-    - Search `simple menu`: install `Simple menu` v1.0.12
-    - Add widgets to top panel: `6:54` to `9:30`
+  - Place to the top, click on it to open Widgets panel, select get new Widgets
+  - Search `clock`: install `Better inline clock`
+  - Search `application title`: install `Application title`
+  - Search `simple menu`: install `Simple menu` v1.0.12
+  - Add widgets to top panel: `6:54` to `9:30`
 - Install dock: `sudo apt install -y latte-dock`
-    - Customize `9:55` to `12:50`
+  - Customize `9:55` to `12:50`
 - From `13:44` `sudo vim /usr/share/sddm/themes/plasma-chili/Login.qml`
 
 ```qml
 PlasmaComponents.TextField {
     id: passwordBox
-    
+
     Layout.fillWidth: true
     Layout.minimumHeight: 21
     implicitHeight: usernameFontSize * 2.85
@@ -193,4 +194,3 @@ PlasmaComponents.TextField {
         }
     }
 ```
-

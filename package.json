@@ -41,6 +41,7 @@
     "v-tooltip": "^2.0.3",
     "vue-awesome-swiper": "^4.1.1",
     "vue-click-outside": "^1.1.0",
+    "vue-lazy-youtube-video": "^2.3.0",
     "vue-read-progress": "^1.0.4",
     "vue-scrollactive": "^0.9.3",
     "vue-scrollto": "^2.20.0",

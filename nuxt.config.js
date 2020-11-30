@@ -86,6 +86,8 @@ export default {
     { src: '~/plugins/v-tooltip', ssr: false },
     // https://github.com/eddiemf/vue-scrollactive
     { src: '~/plugins/vue-scrollactive' },
+    // https://www.npmjs.com/package/vue-lazy-youtube-video
+    { src: '~/plugins/vue-lazy-youtube' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
