@@ -159,6 +159,7 @@ You can find many package with **scoop**, you can see below just some examples:
 - composer [main]
 - docker [main]
 - docker-compose [main]
+- doctl [main]
 - firacode [nerd-fonts]
 - glow [main]
 - nginx [main]

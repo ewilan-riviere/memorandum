@@ -6,16 +6,22 @@ category: 'Linux'
 ---
 
 [Digital Ocean: phpMyAdmin with Apache](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04)
-[Digital Ocean: phpMyAdmin with Nginx](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-with-nginx-on-an-ubuntu-18-04-server)
+[Digital Ocean: phpMyAdmin with NGINX](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-with-nginx-on-an-ubuntu-18-04-server)
+
+On Ubuntu 20.04, you can have some problems with validate password on MySQL. Before install phpMyAdmin, disable it and enable it after installation.
 
 ```bash
 mysql -u root -p
 ```
 
+Disable validate password
+
 ```sql
 UNINSTALL COMPONENT "file://component_validate_password";
 exit
 ```
+
+Install phpMyAdmin
 
 ```bash
 sudo apt update
@@ -26,15 +32,18 @@ sudo apt install phpmyadmin
 mysql -u root -p
 ```
 
+Enable valdiate password
+
 ```sql
 INSTALL COMPONENT "file://component_validate_password";
+exit
 ```
 
 ::: danger
-After installing, you will see dialog with choices about server, don't select anything because it's Nginx.
+After installing, you will see dialog with choices about server, **don't select anything** because it's NGINX.
 Just press <kbd>&nbsp;&#8633;&nbsp;</kbd> to select `OK` with <kbd>&nbsp;Enter&nbsp;</kbd>
 
-Select `Yes` for all questions and enter MySQL password you defined.
+Select **`Yes` for all questions** and **enter MySQL password** you defined for MySQL.
 :::
 
 Link phpMyAdmin from it folder to NGINX folder
@@ -97,6 +106,8 @@ And phpMyAdmin is available on [**http://localhost/phpmyadmin**](http://localhos
 You can connect to phpMyAdmin with MySQL informations, so basically if you follow [**LEMP MySQL**](/guides/linux/lemp/#_2-mysql) steps, you can use `root` as *username* and `password` as *password* if you not setup a high level of security. It's better to use a custom user to connect to phpMyAdmin for security reasons (because `root` have ALL rights and it's better to disable `root` connection).
 
 ## 2. Fix phpMyAdmin errors
+
+You can have some errors when you use phpMyAdmin, search here if your error exist below.
 
 ### 2. a. Configure `blowfish_secret`
 
