@@ -59,3 +59,15 @@ So, you can find **Observatory** to <http://127.0.0.1:50539/random_key=/> but if
 ## Gradle version
 
 - [**developer.android.com/studio/releases/gradle-plugin**](https://developer.android.com/studio/releases/gradle-plugin#4-1-0)
+
+## Reduce application size
+
+- [**Measuring your app's size**](https://flutter.dev/docs/perf/app-size) : official doc
+- [**Obfuscating The Flutter App**](https://medium.com/flutterdevs/obfuscating-the-flutter-app-80a190ed7540) : article summarizing very well the concept
+- [**Using the app size tool**](https://flutter.dev/docs/development/tools/devtools/app-size) : official doc about DevTools and app size
+
+You can analyze your application with `--analyze-size` flag for **APK** or **Android App Bundle** for `android-arm`, `android-arm64` or `android-x64`. Add the flag on `build` with `--target-platform` like this for android-arm64.
+
+```bash
+flutter build apk --analyze-size --target-platform=android-arm64
+```
