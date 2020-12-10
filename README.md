@@ -20,6 +20,8 @@
 - [] php clockwork
 - [x] windows install
 - [] what to save before reinstall OS (Keep)
+- [] flutter lint
+- [] flutter reduce size proguard and obfuscate
 
 ## Setup
 
