@@ -32,3 +32,21 @@ History of Android:
 | Pie | 9 | August 6, 2018 | Yes | 28 |
 | Android 10 | 10 | September 3, 2019 | Yes | 29 |
 | Android 11 | 11 | September 8, 2020 | Yes | 30 |
+
+## Flutter
+
+In Flutter, Android version reference can be found into `build.gradle`, you can compare with **API level** (it's other name of SDK level) above. In this example, the application can be used by Android KitKat 4.4 but not under this version and the target version is Android 10.
+
+```groovy[android/app/build.gradle]
+android {
+    compileSdkVersion 29
+
+    // ...
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 29
+        // ...
+    }
+}
+```

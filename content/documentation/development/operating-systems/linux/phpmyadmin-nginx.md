@@ -1,7 +1,7 @@
 ---
 title: phpMyAdmin with NGINX
 description: 'How to setup phpMyAdmin with NGINX'
-position: 6
+position: 5
 category: 'Linux'
 ---
 

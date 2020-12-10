@@ -27,7 +27,8 @@
                   <div
                     class="text-lg font-medium leading-5 text-indigo-600 truncate"
                   >
-                    {{ guide.title }}
+                    <span>{{ guideId + 1 }}.</span>
+                    <span>{{ guide.title }}</span>
                   </div>
                   <div class="flex items-center my-1 text-gray-600">
                     <icon name="clock" stroke class="mr-1" />

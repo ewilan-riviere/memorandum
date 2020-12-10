@@ -1,7 +1,7 @@
 ---
 title: KDE
 description: 'Tips about KDE'
-position: 7
+position: 6
 category: 'Linux'
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Setup Android Studio
 description: 'How to setup Android Studio on Linux'
-position: 2
+position: 7
 category: 'Flutter'
 ---
 
@@ -72,7 +72,11 @@ mv android-studio.desktop ~/.local/share/applications/
 
 ---
 
+:::warning After installation
+
 When the package is installed, search **Android Studio** in your apps and execute it and setup to keep all as default. A wizard will **download tools**, when tools configuration is finish, you can **create an basic project to use IDE**.
+
+:::
 
 ## 2. Platform-tools
 

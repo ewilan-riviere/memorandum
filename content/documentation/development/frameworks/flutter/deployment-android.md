@@ -1,5 +1,5 @@
 ---
-title: Deployment on Android
+title: "Deployment: Android"
 description: 'When your app is ready, you will have to deploy it.'
 position: 5
 category: 'Flutter'

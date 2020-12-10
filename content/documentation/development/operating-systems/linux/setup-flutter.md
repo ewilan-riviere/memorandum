@@ -1,7 +1,7 @@
 ---
 title: Setup Flutter
 description: 'How to setup Flutter on Linux'
-position: 3
+position: 8
 category: 'Flutter'
 ---
 
@@ -138,5 +138,39 @@ flutter pub global run devtools
 ## 4. Upgrade
 
 ```bash
-flutter upgrade
+flutter upgrade # or flutter upgrade --force
+```
+
+## 5. Snap on Ubuntu
+
+I advice you to **NOT** install Flutter with snap, you will have PATH problems, even it's the official setup offer by FLutter documentation.
+
+- [**askubuntu.com/questions/965599/where-is-the-install-location-for-the-snap-download-tool**](https://askubuntu.com/questions/965599/where-is-the-install-location-for-the-snap-download-tool)
+
+```bash
+sudo snap install flutter --classic
+```
+
+Add to .zshrc
+
+```bash[~/.zshrc]
+export PATH="/snap/bin:$PATH"
+```
+
+```bash
+sudo apt-add-repository ppa:maarten-fonville/android-studio
+sudo apt-get update
+sudo apt-get install android-studio
+```
+
+- Execute Android Studio, setup it with default options
+- Hardware acceleration for emulator : [**developer.android.com/studio/emulator-acceleration**](https://developer.android.com/studio/run/emulator-acceleration?utm_source=android-studio#vm-linux)
+- Download dependencies
+- Create new default project
+- Open AVD manager (double shift and research)
+- Create new phone : Pixel 2 with Oreo 8.1 (with Play store)
+- Download Android system image
+
+```bash
+flutter doctor --android-licenses
 ```

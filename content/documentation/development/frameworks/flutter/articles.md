@@ -1,6 +1,6 @@
 ---
-title: Tutorials
-description: 'Some tutorials'
+title: Articles
+description: 'Some articles to present example or good practices'
 position: 10
 category: 'Flutter'
 ---

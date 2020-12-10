@@ -4,7 +4,35 @@
   Read the documentation to get started: https://tailwindui.com/documentation
 -->
   <div>
-    <section class="bg-indigo-800 bg-opacity-75">
+    <section
+      :class="{ 'cursor-pointer hover:bg-indigo-900': spoiler }"
+      class="relative transition-colors duration-300 bg-indigo-800 bg-opacity-75"
+      @click="expanded = !expanded"
+    >
+      <div
+        v-if="spoiler"
+        class="absolute bottom-0 right-0 flex items-center p-2 mb-2 mr-2 text-white bg-indigo-800 bg-opacity-50 rounded-md"
+      >
+        <div class="w-full">
+          <span v-if="label" class="flex items-center justify-between">
+            <div>
+              {{ label }}
+            </div>
+            <small>
+              {{ expanded ? 'Minimize' : 'Click to open' }}
+            </small>
+          </span>
+          <span v-else>
+            {{ expanded ? 'Minimize' : 'Click to open' }}
+          </span>
+        </div>
+        <icon
+          name="arrow-right"
+          :size="20"
+          :class="{ rotate: expanded }"
+          class="ml-2 transition-transform duration-300"
+        />
+      </div>
       <div class="max-w-screen-xl mx-auto md:px-2 lg:px-4">
         <div
           class="px-4 py-5 sm:px-6 md:flex md:flex-col md:py-6 md:pl-0 md:pr-4 lg:pr-6"
@@ -18,7 +46,6 @@
               role="img"
               aria-labelledby="svg-tuple"
             >
-              <title id="svg-tuple">Tuple</title>
               <path
                 fill="#B4C6FC"
                 fill-rule="evenodd"
@@ -62,7 +89,7 @@
                   d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"
                 />
               </svg>
-              <p class="relative" v-html="getExcerpt(excerpt)"></p>
+              <p class="relative italic" v-html="excerpt"></p>
             </div>
             <footer class="mt-8">
               <div class="flex items-center">
@@ -77,8 +104,15 @@
         </div>
       </div>
     </section>
-    <div ref="content" class="p-5 bg-gray-100">
-      <slot />
+    <div v-if="expanded" ref="content" class="p-5 bg-gray-100">
+      <transition-expand>
+        <div v-if="expanded">
+          <slot></slot>
+        </div>
+      </transition-expand>
+    </div>
+    <div v-if="!spoiler" ref="content" class="p-5 bg-gray-100">
+      <slot></slot>
     </div>
   </div>
 </template>
@@ -99,10 +133,18 @@ export default {
       type: String,
       default: '',
     },
+    excerpt: {
+      type: String,
+      default: null,
+    },
+    spoiler: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
-      excerpt: null,
+      expanded: false,
     }
   },
   computed: {
@@ -110,18 +152,18 @@ export default {
       return new URL(this.link).hostname
     },
   },
-  mounted() {
-    this.excerpt = this.$refs.content.children[0].innerHTML
-  },
-  methods: {
-    getExcerpt(text) {
-      if (text) {
-        const more = text.length > 80
-        const excerpt = text.replace(/^(.{80}[^\s]*).*/, '$1')
-        return `${excerpt}${more ? '...' : ''}`
-      }
-    },
-  },
+  // mounted() {
+  //   this.excerpt = this.$refs.content.children[0].innerHTML
+  // },
+  // methods: {
+  //   getExcerpt(text) {
+  //     if (text) {
+  //       const more = text.length > 80
+  //       const excerpt = text.replace(/^(.{80}[^\s]*).*/, '$1')
+  //       return `${excerpt}${more ? '...' : ''}`
+  //     }
+  //   },
+  // },
 }
 </script>
 
@@ -131,5 +173,16 @@ blockquote {
 }
 a {
   color: white !important;
+}
+.rotate {
+  transform: rotate(90deg);
+}
+.expand-enter-active,
+.expand-leave-active {
+  transition-property: opacity, height;
+}
+.expand-enter,
+.expand-leave-to {
+  opacity: 0;
 }
 </style>

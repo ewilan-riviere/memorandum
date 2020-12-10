@@ -1,7 +1,7 @@
 ---
 title: "LAMP: Apache"
 description: 'How to install Apache2 on Ubuntu'
-position: 4
+position: 3
 category: 'Linux'
 ---
 
