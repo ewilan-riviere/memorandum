@@ -27,6 +27,19 @@
   - <https://stitcher.io/blog/new-in-php-8>
 - [] dart named arguments
   - <https://stackoverflow.com/questions/13264230/what-is-the-difference-between-named-and-positional-parameters-in-dart>
+- [] JS versions: <https://www.w3schools.com/js/js_versions.asp>
+- [] Laravel Resources
+  - <https://medium.com/@dinotedesco/laravel-api-resources-what-if-you-want-to-manipulate-your-models-before-transformation-8982846ad22c>
+  - <https://laravel.com/docs/8.x/eloquent-resources>
+- [] TablePlus
+  - <https://tableplus.com>
+- [] Laravel Sail
+  - <https://github.com/mailhog/MailHog>
+- [] php the right way <https://eilgin.github.io/php-the-right-way/>
+- [] dart flutter
+  - <https://pub.dev/packages/logging>
+  - <https://medium.com/flutter-community/debugprint-and-the-power-of-hiding-and-customizing-your-logs-in-dart-86881df05929>
+  - <https://codeburst.io/top-10-array-utility-methods-you-should-know-dart-feb2648ee3a2>
 
 ## Setup
 
