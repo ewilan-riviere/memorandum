@@ -69,9 +69,22 @@ Execute this command fix all files
 composer require --dev barryvdh/laravel-ide-helper
 ```
 
-```bash
-php artisan ide-helper:generate && php artisan ide-helper:models && php artisan ide-helper:meta && php artisan ide-helper:eloquent
-```
+<code-group>
+  <code-block label="Linux" active>
+
+  ```bash
+  php artisan ide-helper:generate && php artisan ide-helper:models && php artisan ide-helper:meta && php artisan ide-helper:eloquent
+  ```
+
+  </code-block>
+  <code-block label="Windows">
+
+  ```bash
+  php artisan ide-helper:generate ; php artisan ide-helper:models ; php artisan ide-helper:meta ; php artisan ide-helper:eloquent
+  ```
+
+  </code-block>
+</code-group>
 
 ## Laravel Swagger
 
@@ -84,6 +97,10 @@ composer require "darkaonline/l5-swagger"
 ```
 
 ```bash
+php artisan vendor:publish --provider "L5Swagger\L5SwaggerServiceProvider"
+```
+
+```bash
 L5_SWAGGER_GENERATE_ALWAYS=true
 ```
 
@@ -91,17 +108,17 @@ L5_SWAGGER_GENERATE_ALWAYS=true
 php artisan l5-swagger:generate
 ```
 
-## Laravel Auth
+## Laravel Auth | DEPRECATED
 
 :::tip Official doc
-[**laravel.com/docs/7.x/authentication**](https://laravel.com/docs/7.x/authentication)
+[**laravel.com/docs/8.x/authentication**](https://laravel.com/docs/8.x/authentication)
 :::
 
 ```bash
 composer require laravel/ui
 ```
 
-## Vue.js
+## Vue.js | DEPRECATED
 
 :::tip
 [**laravel.com/docs/7.x/frontend**](https://laravel.com/docs/7.x/frontend)
@@ -134,7 +151,7 @@ php artisan ui vue --auth
 yarn && yarn dev
 ```
 
-## Laravel Tailwind CSS
+## Laravel Tailwind CSS | DEPRECATED
 
 :::tip GitHub
 [**github.com/laravel-frontend-presets/tailwindcss**](https://github.com/laravel-frontend-presets/tailwindcss)

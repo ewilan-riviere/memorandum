@@ -239,6 +239,10 @@ sudo chown -R $USER:www-data
 sudo chmod ug+rwx storage bootstrap/cache
 ```
 
+```bash
+php artisan cache:clear && php artisan config:clear && php artisan route:clear
+```
+
 ## Usage
 
 Example with *Post* model and *transformer* of [**spatie/laravel-fractal**](https://github.com/spatie/laravel-fractal)

@@ -86,3 +86,20 @@ php artisan route:list --compact
 ```bash
 .\vendor\bin\php-cs-fixer fix
 ```
+
+<code-group>
+  <code-block label="Windows" active>
+
+  ```bash
+  php artisan cache:clear ; php artisan config:clear ; php artisan route:clear
+  ```
+
+  </code-block>
+  <code-block label="Linux">
+
+  ```bash
+  php artisan cache:clear && php artisan config:clear && php artisan route:clear
+  ```
+
+  </code-block>
+</code-group>
