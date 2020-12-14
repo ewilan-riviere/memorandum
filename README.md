@@ -22,6 +22,11 @@
 - [] what to save before reinstall OS (Keep)
 - [] flutter lint
 - [] flutter reduce size proguard and obfuscate
+- [] php named arguments, pass function as parameter, spread d'arguments
+  - <https://www.php.net/releases/8.0/en.php>
+  - <https://stitcher.io/blog/new-in-php-8>
+- [] dart named arguments
+  - <https://stackoverflow.com/questions/13264230/what-is-the-difference-between-named-and-positional-parameters-in-dart>
 
 ## Setup
 
