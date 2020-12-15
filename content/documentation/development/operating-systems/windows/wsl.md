@@ -135,3 +135,78 @@ If doesn't work go to next step.
 ### ***Misc***
 
 - Disable Hyper-V feature
+
+## Update Linux
+
+```bash
+sudo apt update && sudo apt -y upgrade
+```
+
+```bash
+sudo apt install -y curl git nethogs vim ssh zip unzip php-zip fonts-firacode net-tools speedtest-cli && sudo chmod u+s $(which nethogs)
+```
+
+```bash
+sudo vim /etc/vim/vimrc
+```
+
+Copy/paste this config at the end
+
+```bash
+set nocompatible
+set number
+set background=dark
+syntax on
+set tabstop=4
+set smartindent
+set autoindent
+set backspace=indent,eol,start
+set ignorecase
+set ruler
+set showcmd
+set mouse=a
+```
+
+Install NVM
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+```
+
+```bash
+vim ~/.profile
+```
+
+Add this configuration at the end
+
+```bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+```
+
+Install Node.js **14.15.1**
+
+```bash
+source ~/.profile && nvm ls-remote && nvm install 14.15.1 && nvm use 14.15.1 && nvm alias default 14.15.1 && nvm use default && nvm ls && node -v
+```
+
+Install yarn
+
+```bash
+npm install -g yarn
+```
+
+Install NGINX
+
+```bash
+sudo apt update && sudo apt install -y nginx && sudo ufw allow 'Nginx HTTP'
+```
+
+```bash
+sudo apt install -y php-fpm php-mysql
+```
+
+```bash
+sudo mv composer.phar /usr/local/bin/composer && sudo chown -R $USER ~/.config/composer/ && composer global require laravel/installer
+```

@@ -271,14 +271,14 @@ npm install -g yarn
 
 Install **NGINX** or **Apache2** to have VHost, check these guides
 
-- [**NGINX: LEMP**](/guides/linux/lemp/)
-- [**Apache2: LAMP**](/guides/linux/lamp/)
+- [**NGINX: LEMP**](/development/operating-systems/linux/lemp)
+- [**Apache2: LAMP**](/development/operating-systems/linux/lamp)
 
 ### B. Composer
 
 Use command line instructions of [**Composer website**](https://getcomposer.org/download/) to download and install latest version of Composer
 
-<img src="/images/linux/composer-installation-commands.jpg" class="" />
+<md-img source="composer-installation-commands.jpg"></md-img>
 
 You have just to copy installation instructions and composer will be download, this is an example:
 
