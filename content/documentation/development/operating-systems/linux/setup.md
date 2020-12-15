@@ -178,12 +178,12 @@ ZSH_THEME="spaceship"
 
 ## 3. NodeJS: NVM
 
-You can install basic **NPM** package but with **NVM**, you can change NodeJS version when you want. Check last version on [**NVM GitHub**](https://github.com/nvm-sh/nvm) and change it if you want latest. Here, the **NVM** version is **`0.35.3`** and **NodeJS** version is **`12.16.3`** LTS.
+You can install basic **NPM** package but with **NVM**, you can change NodeJS version when you want. Check last version on [**NVM GitHub**](https://github.com/nvm-sh/nvm) and change it if you want latest. Here, the **NVM** version is **`0.37.2`** and **NodeJS** version is **`14.15.1`** LTS.
 
 Download NVM
 
 ```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 ```
 
 Add this into ~/.zshrc
@@ -194,11 +194,68 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 ```
 
-Install Node.js v12.18.3 and config NVM to use it
+Install Node.js v14.15.1 and config NVM to use it
 
-```bash
-source ~/.zshrc && nvm ls-remote && nvm install 12.18.3 && nvm use 12.18.3 && nvm alias default 12.18.3 && nvm use default && nvm ls && node -v
-```
+<code-group>
+  <code-block label="One command" active>
+
+  ```bash
+  source ~/.zshrc && nvm ls-remote && nvm install 14.15.1 && nvm use 14.15.1 && nvm alias default 14.15.1 && nvm use default && nvm ls && node -v
+  ```
+
+  </code-block>
+  <code-block label="With more details">
+
+  Update `.zshrc` for **PATH**
+
+  ```bash
+  source ~/.zshrc
+  ```
+
+  List all Node.js  available versions with NVM
+
+  ```bash
+  nvm ls-remote
+  ```
+
+  Install specific version
+
+  ```bash
+  nvm install 14.15.1
+  ```
+
+  Use specific version
+
+  ```bash
+  nvm use 14.15.1
+  ```
+
+  Assign a version to **default**
+
+  ```bash
+  nvm alias default 14.15.1
+  ```
+
+  Use default version
+
+  ```bash
+  nvm use default
+  ```
+
+  List installed versions
+
+  ```bash
+  nvm ls
+  ```
+
+  Get current version
+
+  ```bash
+  node -v
+  ```
+
+  </code-block>
+</code-group>
 
 ### 3. A. Yarn
 
