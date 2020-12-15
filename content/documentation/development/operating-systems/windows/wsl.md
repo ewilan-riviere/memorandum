@@ -40,7 +40,7 @@ Install any Linux distro with Windows Store and reboot after this.
 
 :::
 
-To switch to WSL 2
+To switch to WSL 2 and install [**Linux Kernel**](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi) from Microsoft
 
 ```bash
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all
@@ -51,8 +51,6 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all
 Reboot after this.
 
 :::
-
-And install [**Linux Kernel**](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi) from Microsoft
 
 Convert distros to WSL 2
 
