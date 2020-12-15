@@ -41,6 +41,48 @@
   - <https://medium.com/flutter-community/debugprint-and-the-power-of-hiding-and-customizing-your-logs-in-dart-86881df05929>
   - <https://codeburst.io/top-10-array-utility-methods-you-should-know-dart-feb2648ee3a2>
 
+### Parallax
+
+```html
+<style>
+.background {
+    background-image: url('assets/images/background.png');
+}
+.parallax {
+    /* The image used */
+    background-image: url('assets/images/background.png');
+
+    /* Full height */
+    height: 100%; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+<div class="fixed w-full h-screen bg-gray-100 bg-center bg-no-repeat bg-cover opacity-10 background"></div>
+<div>
+    content
+</div>
+```
+
+- <https://www.digitalocean.com/community/tutorials/css-pure-css-parallax>
+- <https://www.w3schools.com/cssref/pr_background-attachment.asp>
+- <https://www.w3schools.com/howto/howto_css_parallax.asp>
+- <https://stackoverflow.com/questions/9182978/semi-transparent-color-layer-over-background-image>
+- <https://www.sitepoint.com/community/t/making-a-parallax-background-image-stay-at-100-width-when-responding/113203>
+
+### Concepts
+
+- php méthodes magiques
+  - <https://www.php.net/manual/fr/language.oop5.magic.php>
+- <https://www.php.net/manual/en/datetime.format.php>
+- <https://www.taniarascia.com/the-simplest-php-router>
+- <https://www.php-fig.org/psr/psr-4>
+  - <https://code.tutsplus.com/tutorials/how-to-autoload-classes-with-composer-in-php--cms-35649>
+
 ## Setup
 
 ```bash
