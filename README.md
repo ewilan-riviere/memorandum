@@ -36,6 +36,7 @@
 - [] Laravel Sail
   - <https://github.com/mailhog/MailHog>
 - [] php the right way <https://eilgin.github.io/php-the-right-way/>
+- [] php cheatsheet <https://front-line-php.com/cheat-sheet>
 - [] dart flutter
   - <https://pub.dev/packages/logging>
   - <https://medium.com/flutter-community/debugprint-and-the-power-of-hiding-and-customizing-your-logs-in-dart-86881df05929>
