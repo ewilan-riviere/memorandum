@@ -41,6 +41,10 @@
   - <https://medium.com/flutter-community/debugprint-and-the-power-of-hiding-and-customizing-your-logs-in-dart-86881df05929>
   - <https://codeburst.io/top-10-array-utility-methods-you-should-know-dart-feb2648ee3a2>
 - [] PowerShell Profiles with custom alias methods
+- symfony
+  - scoop
+  - symfony serve
+  - symfony new symfo-test
 
 ### Parallax
 
