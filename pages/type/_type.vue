@@ -183,36 +183,6 @@ export default {
       switched: false,
     }
   },
-  methods: {
-    switchAccordion(id) {
-      for (let i = 0; i < this.selectedCategory.entities.length; i++) {
-        this.$refs[`collapse-${i}`][0].false()
-      }
-      if (this.currentOpened === id && this.switched === false) {
-        this.$refs[`collapse-${id}`][0].false()
-        this.switched = true
-      } else {
-        this.$refs[`collapse-${id}`][0].open()
-        this.switched = false
-      }
-
-      this.currentOpened = id
-      setTimeout(() => {
-        this.$scrollTo(`#collapse-${id}`, 500, { offset: -60 })
-      }, 400)
-    },
-    imgError(event) {
-      event.target.src = require(`~/static/documentation/logo/guides.webp`)
-    },
-    selectCategory(data) {
-      for (let i = 0; i < this.selectedCategory.entities.length; i++) {
-        this.$refs[`collapse-${i}`][0].false()
-      }
-      const category = this.pages.filter((page) => page.label === data)
-      this.selectedCategory = category[0]
-      this.$scrollTo('#__nuxt', 500)
-    },
-  },
   head() {
     const title = `${this.$t(this.selectedCategory.label)} - ${this.$t(
       this.$route.params.type
@@ -252,6 +222,36 @@ export default {
         },
       ],
     }
+  },
+  methods: {
+    switchAccordion(id) {
+      for (let i = 0; i < this.selectedCategory.entities.length; i++) {
+        this.$refs[`collapse-${i}`][0].false()
+      }
+      if (this.currentOpened === id && this.switched === false) {
+        this.$refs[`collapse-${id}`][0].false()
+        this.switched = true
+      } else {
+        this.$refs[`collapse-${id}`][0].open()
+        this.switched = false
+      }
+
+      this.currentOpened = id
+      setTimeout(() => {
+        this.$scrollTo(`#collapse-${id}`, 500, { offset: -60 })
+      }, 400)
+    },
+    imgError(event) {
+      event.target.src = require(`~/static/documentation/logo/guides.webp`)
+    },
+    selectCategory(data) {
+      for (let i = 0; i < this.selectedCategory.entities.length; i++) {
+        this.$refs[`collapse-${i}`][0].false()
+      }
+      const category = this.pages.filter((page) => page.label === data)
+      this.selectedCategory = category[0]
+      this.$scrollTo('#__nuxt', 500)
+    },
   },
 }
 </script>

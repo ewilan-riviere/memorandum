@@ -91,7 +91,9 @@ async function printFiles () {
 }
 ```
 
-### Manage `Date` and time without plugin
+## Manage `Date` and time without plugin
+
+<md-img source="dates.jpg" from="https://elijahmanor.com/blog/format-js-dates-and-times"></md-img>
 
 Source :
 
@@ -102,7 +104,9 @@ If we get a SQL DateTime from an API, we have an output like `2020-10-16T08:18:4
 
 ```js
 function getDate(date) { // the param is raw DateTime from API like 2020-10-16T08:18:49.000000Z
-  const date = new Date('2020-10-16T08:18:49.000000Z')
+  // convert date to JS Date
+  // example here date param is '2020-10-16T08:18:49.000000Z'
+  const date = new Date(date)
 
   // define options
   const userLang = navigator.language || navigator.userLanguage
@@ -120,22 +124,28 @@ function getDate(date) { // the param is raw DateTime from API like 2020-10-16T0
   }
 
   // get Date Time
-  const dateTimeLocale = date.toLocaleString() // 16/10/2020 à 10:18:49
+  // 16/10/2020 à 10:18:49
+  const dateTimeLocale = date.toLocaleString()
   console.log(dateTimeLocale)
 
-  const dateTimeToStringFullLocale = date.toString() // Fri Oct 16 2020 10:18:49 GMT+0200 (heure d’été d’Europe centrale)
+  // Fri Oct 16 2020 10:18:49 GMT+0200 (heure d’été d’Europe centrale)
+  const dateTimeToStringFullLocale = date.toString()
   console.log(dateTimeToStringFullLocale)
 
-  const dateTimeToStringFull = date.toUTCString() // Fri, 16 Oct 2020 08:18:49 GMT
+  // Fri, 16 Oct 2020 08:18:49 GMT
+  const dateTimeToStringFull = date.toUTCString()
   console.log(dateTimeToStringFull)
 
-  const dateToStringLocale = date.toLocaleString(userLang, dateOptions) // vendredi 16 octobre 2020
+  // vendredi 16 octobre 2020
+  const dateToStringLocale = date.toLocaleString(userLang, dateOptions)
   console.log(dateToStringLocale)
 
-  const timeToString = date.toLocaleString(userLang, hoursOptions) // 08:18:49
+  // 08:18:49
+  const timeToString = date.toLocaleString(userLang, hoursOptions)
   console.log(timeToString)
 
-  const timeToStringLocale = date.toLocaleTimeString() // 10:18:49
+  // 10:18:49
+  const timeToStringLocale = date.toLocaleTimeString()
   console.log(timeToStringLocale)
 }
 ```

@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     switchTab(i) {
-      this.tabs.map((tab) => {
+      this.tabs.forEach((tab) => {
         tab.elm.classList.remove('active')
       })
       this.tabs[i].elm.classList.add('active')
@@ -67,13 +67,13 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 button {
   outline: none;
 }
 
 .highlight-underline {
-  @apply bg-green-500 absolute;
+  @apply bg-primary-500 absolute;
   bottom: -2px;
   height: 2px;
   transition: left 150ms, width 150ms;

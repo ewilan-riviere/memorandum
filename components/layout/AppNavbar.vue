@@ -6,7 +6,7 @@
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center pr-4 lg:w-1/5">
           <nuxt-link
-            :to="{ name: 'home' }"
+            :to="'/'"
             aria-current="page"
             aria-label="Nuxt Content Logo"
             class="flex-1 flex-shrink-0 text-xl font-bold nuxt-link-exact-active nuxt-link-active"

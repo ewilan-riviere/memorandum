@@ -2,9 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Home from '~/pages/index'
-import About from '~/pages/about/index'
+import About from '~/pages/about'
 import TypeSlug from '~/pages/type/_type'
 import ContentSlug from '~/pages/content/_content'
+import Content from '~/pages/content/_'
 
 Vue.use(Router)
 
@@ -36,6 +37,11 @@ export function createRouter() {
         name: 'content-slug',
         path: '/:type/:category?/:entity/:content',
         component: ContentSlug,
+      },
+      {
+        name: 'all',
+        path: '/*',
+        component: Content,
       },
       // {
       //   name: 'documentation-type',

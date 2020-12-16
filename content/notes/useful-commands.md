@@ -1,7 +1,7 @@
 ---
 title: Useful commands
 description: ''
-position: 3
+position: 1
 category: 'Work in progress'
 ---
 

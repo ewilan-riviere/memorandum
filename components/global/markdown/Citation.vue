@@ -14,17 +14,7 @@
         class="absolute bottom-0 right-0 flex items-center p-2 mb-2 mr-2 text-white bg-indigo-800 bg-opacity-50 rounded-md"
       >
         <div class="w-full">
-          <span v-if="label" class="flex items-center justify-between">
-            <div>
-              {{ label }}
-            </div>
-            <small>
-              {{ expanded ? 'Minimize' : 'Click to open' }}
-            </small>
-          </span>
-          <span v-else>
-            {{ expanded ? 'Minimize' : 'Click to open' }}
-          </span>
+          {{ expanded ? 'Minimize' : 'Click to open' }}
         </div>
         <icon
           name="arrow-right"

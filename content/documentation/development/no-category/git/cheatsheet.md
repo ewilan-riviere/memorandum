@@ -5,6 +5,8 @@ position: 1
 category: 'Git'
 ---
 
+<md-img source="git.webp" from="https://elijahmanor.com/blog/git-branch"></md-img>
+
 ## New config
 
 ```bash

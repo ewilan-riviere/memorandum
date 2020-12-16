@@ -71,3 +71,23 @@ const o = (key) => {
 }
 
 Vue.prototype.$o = o
+
+const getDate = (date) => {
+  let userLang = 'en-US'
+  if (process.client) {
+    userLang = navigator.language || navigator.userLanguage
+  }
+  const options = {
+    year: 'numeric',
+    // weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC',
+    hour: 'numeric',
+    minute: 'numeric',
+    // second: 'numeric',
+  }
+  return new Date(date).toLocaleString(userLang, options)
+}
+
+Vue.prototype.$getDate = getDate

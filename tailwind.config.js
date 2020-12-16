@@ -72,5 +72,5 @@ module.exports = {
     ],
     translate: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
   },
-  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/ui')],
+  plugins: [require('@tailwindcss/typography')],
 }

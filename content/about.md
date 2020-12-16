@@ -1,8 +1,6 @@
 ---
 title: About
 description: ''
-position: 1
-category: ''
 features:
   - Topics with explicits examples
   - Boiler plates
@@ -11,6 +9,14 @@ features:
 ---
 
 <fallout></fallout>
+
+## Why Memorandum ?
+
+I'm Web developer since 2018, I learn a lot about some different languages, frameworks, techs... And I needed to have some place to get more than snippets. I wanted to can write some article about concepts, with boiler plates and explications. But I would to have a beautiful interface and user friendly blocks of codes, easy to copy. I try Vuepress, it was cool but when the goal is the create a really custom documentation, it's a little... tricky. When I discovered nuxt/content, I love it immediately because I love markdown and Tailwind CSS, so it's perfect.
+
+It's not really a documentation or a blog, it's curious mix between two. I update it regulary but I advice you to use information with caution, these can be not up to date. If you find anything than can help you, you are welcome.
+
+## WIP
 
 - <local-link url="_content/documentation/development/frameworks/flutter/setup-flutter" text="_content/documentation/.../flutter/setup-flutter"></local-link>
 - <local-link url="_content/documentation/development/frameworks/flutter?only=title&only=description&only=img&only=slug&only=author" text="_content/documentation/development/frameworks/flutter?only=title..."></local-link>
@@ -21,95 +27,3 @@ features:
 - [**github.com/ngryman/reading-time**](https://github.com/ngryman/reading-time)
 - [**github.com/nuxt/content/issues/106**](https://github.com/nuxt/content/issues/106)
 - [**nuxtjs.org/blog/creating-blog-with-nuxt-content**](https://nuxtjs.org/blog/creating-blog-with-nuxt-content)
-
-## Spoiler
-
-<spoiler label="Config">
-
-```bash
-sudo apt update && sudo apt upgrade
-```
-
-</spoiler>
-
-```html
-<spoiler label="Config">
-
-```bash
-sudo apt update && sudo apt upgrade
-\```
-
-</spoiler>
-```
-
-<!-- ## Image -->
-
-<!-- <md-img source="nginx-home.jpg"></md-img> -->
-
-<!-- ```html
-<md-img source="nginx-home.jpg"></md-img>
-``` -->
-
-## Code group
-
-<code-group>
-  <code-block label="Yarn" active>
-
-  ```bash
-  yarn add prism-themes
-  ```
-
-  </code-block>
-  <code-block label="NPM">
-
-  ```bash
-  npm install prism-themes
-  ```
-
-  </code-block>
-</code-group>
-
-```html
-<code-group>
-  <code-block label="Yarn" active>
-
-  ```bash
-  yarn add prism-themes
-  \```
-
-  </code-block>
-  <code-block label="NPM">
-
-  ```bash
-  npm install prism-themes
-  \```
-
-  </code-block>
-</code-group>
-```
-
-## File path & name
-
-```js[nuxt.config.js]
-{
-  modules: [
-    '@nuxt/content'
-  ],
-  content: {
-    // Options
-  }
-}
-```
-
-```html
-```js[nuxt.config.js]
-{
-  modules: [
-    '@nuxt/content'
-  ],
-  content: {
-    // Options
-  }
-}
-\```
-```

@@ -93,7 +93,11 @@ export default {
         .catch(),
   },
   async asyncData({ $content, params, route }) {
-    const path = `documentation/${route.fullPath}`
+    let basePath = 'documentation'
+    if (route.name === 'content-slug-short') {
+      basePath = ''
+    }
+    const path = `${basePath}/${route.fullPath}`
     const article = await $content(path).fetch()
 
     let fullPath = route.fullPath.split('/')
@@ -119,6 +123,53 @@ export default {
   data() {
     return {
       currentArticle: {},
+    }
+  },
+  head() {
+    const title = `${this.article.title} - ${this.article.category}`
+    const description = this.article.description
+      ? this.article.description
+      : 'No description'
+    const image = `${process.env.APP_URL}/documentation/logo/${this.$slugify(
+      this.article.category
+    )}.webp`
+    return {
+      title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: description,
+        },
+        // Open Graph
+        { hid: 'og:title', property: 'og:title', content: title },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: description,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: image,
+        },
+        // Twitter Card
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: title,
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: description,
+        },
+        {
+          hid: 'twitter:image',
+          property: 'twitter:image',
+          content: image,
+        },
+      ],
     }
   },
   methods: {
@@ -174,53 +225,6 @@ export default {
       }
       return route
     },
-  },
-  head() {
-    const title = `${this.article.title} - ${this.article.category}`
-    const description = this.article.description
-      ? this.article.description
-      : 'No description'
-    const image = `${process.env.APP_URL}/documentation/logo/${this.$slugify(
-      this.article.category
-    )}.webp`
-    return {
-      title,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: description,
-        },
-        // Open Graph
-        { hid: 'og:title', property: 'og:title', content: title },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content: description,
-        },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: image,
-        },
-        // Twitter Card
-        {
-          hid: 'twitter:title',
-          name: 'twitter:title',
-          content: title,
-        },
-        {
-          hid: 'twitter:description',
-          name: 'twitter:description',
-          content: description,
-        },
-        {
-          hid: 'twitter:image',
-          property: 'twitter:image',
-          content: image,
-        },
-      ],
-    }
   },
 }
 </script>

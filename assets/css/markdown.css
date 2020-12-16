@@ -1,4 +1,7 @@
 .nuxt-content {
+  & a {
+    text-decoration: none !important;
+  }
   /* common text  */
   @apply text-gray-700 font-ptsans-regular;
   & p {

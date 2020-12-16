@@ -69,6 +69,11 @@ export default {
       pages,
     }
   },
+  data() {
+    return {
+      items: [],
+    }
+  },
   head() {
     return {
       title: 'Memorandum',
