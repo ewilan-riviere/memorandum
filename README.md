@@ -163,7 +163,45 @@ To learn more, check [NuxtJS documentation](https://nuxtjs.org).
 - [**medium.com/setting-up-laravel-8-x-with-jetstream-auth**](https://medium.com/dev-genius/setting-up-laravel-8-x-with-jetstream-auth-84bbeafc0cd3)
 - [**medium.com/how-to-use-svg-icons-in-your-vue-app**](https://medium.com/javascript-in-plain-english/how-to-use-svg-icons-in-your-vue-app-6e2c30865d7c)
 - css link border expand: <https://stackoverflow.com/questions/28623446/hover-effect-expand-bottom-border>
+- php big files
 
+```
+## Setup to upload big files
+
+For NGINX: `/etc/nginx/nginx.conf`
+
+```nginxconfig
+http {
+    # ...
+    client_max_body_size 500M;
+}
+```
+
+For current PHP FPM version `/etc/php/7.4/fpm/php.ini`  
+*Check current version with `php -v`*
+
+```ini
+post_max_size = 500M
+# ...
+upload_max_filesize = 500M
+```
+
+Restart NGINX and PHP FPM :
+
+```bash
+sudo service nginx restart
+sudo service php7.4-fpm restart
+```
+
+Check on phpinfo() if your config is correct. You can add this to `/var/www/html`, give it `phpinfo.php` name and acces to [**localhost/phpinfo.php**](localhost/phpinfo.php)
+
+```bash
+<?php
+phpinfo();
+?>
+```
+
+```
 ## Video games
 
 - [**polygon.com/botw-shrine-map-location**](https://www.polygon.com/zelda-breath-of-the-wild-guide-walkthrough/2017/6/1/15723316/botw-shrine-map-location)
