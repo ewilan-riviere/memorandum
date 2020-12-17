@@ -116,7 +116,7 @@ To learn more, check [NuxtJS documentation](https://nuxtjs.org).
   - <https://github.com/nvbn/thefuck>
   - <https://github.com/junegunn/fzf#installation>
 - js
-  - https://medium.com/javascript-in-plain-english/15-hacks-in-javascript-6e3f88c90d00
+  - <https://medium.com/javascript-in-plain-english/15-hacks-in-javascript-6e3f88c90d00>
 
 ### Parallax
 
@@ -162,6 +162,7 @@ To learn more, check [NuxtJS documentation](https://nuxtjs.org).
 - [terryz.github.io](https://terryz.github.io/vue/#/dialog)
 - [**medium.com/setting-up-laravel-8-x-with-jetstream-auth**](https://medium.com/dev-genius/setting-up-laravel-8-x-with-jetstream-auth-84bbeafc0cd3)
 - [**medium.com/how-to-use-svg-icons-in-your-vue-app**](https://medium.com/javascript-in-plain-english/how-to-use-svg-icons-in-your-vue-app-6e2c30865d7c)
+- css link border expand: <https://stackoverflow.com/questions/28623446/hover-effect-expand-bottom-border>
 
 ## Video games
 
