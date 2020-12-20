@@ -1,10 +1,12 @@
 # Memorandum
 
-[![nuxtjs](https://img.shields.io/static/v1?label=NuxtJS&message=v2.14&color=00C58E&style=flat-square&logo=nuxt.js&logoColor=ffffff)](https://nuxtjs.org/)
-[![tailwindCSS](https://img.shields.io/static/v1?label=Tailwind%20CSS&message=v1.9&color=38B2AC&style=flat-square&logo=tailwind-css&logoColor=ffffff)](https://tailwindcss.com/)
+[![Build Status](https://drone.ewilan-riviere.com/api/badges/ewilan-riviere/memorandum/status.svg)](https://drone.ewilan-riviere.com/ewilan-riviere/memorandum)
 
-[![nodejs](https://img.shields.io/static/v1?label=NodeJS&message=v12.16&color=339933&style=flat-square&logo=node.js&logoColor=ffffff)](https://nodejs.org/en)
-[![yarn](https://img.shields.io/static/v1?label=Yarn&message=v1.22&color=2C8EBB&style=flat-square&logo=yarn&logoColor=ffffff)](https://classic.yarnpkg.com/lang/en/)
+[![nuxtjs](https://img.shields.io/static/v1?label=NuxtJS&message=v2.14&color=00C58E&style=flat-square&logo=nuxt.js&logoColor=ffffff)](https://nuxtjs.org/)
+[![tailwindCSS](https://img.shields.io/static/v1?label=Tailwind%20CSS&message=v2.0&color=38B2AC&style=flat-square&logo=tailwind-css&logoColor=ffffff)](https://tailwindcss.com/)
+
+[![nodejs](https://img.shields.io/static/v1?label=NodeJS&message=v14.15&color=339933&style=flat-square&logo=node.js&logoColor=ffffff)](https://nodejs.org/en)
+[![yarn](https://img.shields.io/static/v1?label=Yarn&message=v1.2&color=2C8EBB&style=flat-square&logo=yarn&logoColor=ffffff)](https://classic.yarnpkg.com/lang/en/)
 
 ![Memo](static/logo/logo-readme.png)
 
@@ -48,7 +50,7 @@ module.exports = {
     {
       name: 'memorandum',
       script: 'npm',
-      cwd: '/home/ubuntu/www/memorandum',
+      cwd: '/home/username/www/memorandum',
       args: 'start',
       env: {
         PORT: 3001
