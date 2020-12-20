@@ -1,5 +1,7 @@
 # Memorandum
 
+drone
+
 [![Build Status](https://drone.ewilan-riviere.com/api/badges/ewilan-riviere/memorandum/status.svg)](https://drone.ewilan-riviere.com/ewilan-riviere/memorandum)
 
 [![nuxtjs](https://img.shields.io/static/v1?label=NuxtJS&message=v2.14&color=00C58E&style=flat-square&logo=nuxt.js&logoColor=ffffff)](https://nuxtjs.org/)
