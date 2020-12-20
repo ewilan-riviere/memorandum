@@ -2,10 +2,8 @@
 title: NodeJS & PM2
 description: ''
 position: 1
-category: 'Server'
+category: 'Misc'
 ---
-
-# Manage NodeJS apps with PM2
 
 <div class="word-wraping" lang="en">
 

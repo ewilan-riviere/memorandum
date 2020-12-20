@@ -2,10 +2,8 @@
 title: Create local network
 description: ''
 position: 1
-category: 'Server'
+category: 'Misc'
 ---
-
-# 🖧 Networking: share directory
 
 <img src="/images/python.jpg" class="cover-img" />
 

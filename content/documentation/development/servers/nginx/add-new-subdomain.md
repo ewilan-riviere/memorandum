@@ -1,18 +1,16 @@
 ---
-title: "NGINX: add subdomain"
+title: Add subdomain
 description: ''
 position: 1
-category: 'Web server'
+category: 'NGINX'
 ---
-
-# Add new subdomain
 
 ## 1. Create subdomain
 
 On your domain host, like [**Hostinger**](https://www.hostinger.fr/), select the domain you want to manage. Choose `DNS Zone`. In `CNAME (Alias)` zone add just new entry with `subdomain` for host and `ewilan-riviere.com` for main domain to have new subdomain like `subdomain.ewilan-riviere.com`.
 
 | Host      | Point to           | TTL         |
-|-----------|--------------------|-------------|
+| --------- | ------------------ | ----------- |
 | subdomain | ewilan-riviere.com | Don't touch |
 
 ## 2. Server configuration

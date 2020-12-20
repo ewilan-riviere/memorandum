@@ -7,28 +7,56 @@ category: 'Linux'
 
 This guide has been set for [**Ubuntu 18.04**](https://ubuntu.com/#download), if you have another distribution use it carefully.
 
-:::tip
-When I offer to create new user, I call it `ubuntu`, you can use any other username.
+:::warning
+When I offer to create new user, I call it `jack`, you can use any other username.
+
 :::
 
-:::tip SSH
+<update-username></update-username>
+
+## SSH
+
 If it's setup of server, you have to disable ssh with root and allow it with a custom user.
 
-First time connection
+**First time connection**
 
 ```bash
-ssh root@ip-address
+ssh root@xxx.xx.xx.xxx
 ```
+
+**Update Linux and add new user**
 
 ```bash
-apt update && apt upgrade && adduser ubuntu && usermod -aG sudo ubuntu
+apt update && apt upgrade && adduser jack && usermod -aG sudo jack
 ```
+
+**Enable firewall**
 
 ```bash
-mkdir /home/ubuntu/.ssh/ && cp /root/.ssh/authorized_keys /home/ubuntu/.ssh/ && chown -R ubuntu:ubuntu /home/ubuntu/.ssh/ && chmod -R 700 /home/ubuntu/.ssh/
+sudo apt install -y ufw && sudo ufw app list && sudo ufw allow OpenSSH && sudo ufw enable && sudo ufw status
 ```
 
-Check if ssh works with new user and disallow ssh connection with root.
+:::tip If server
+
+**Copy SSH keys from *root* to *jack***
+
+```bash
+mkdir /home/jack/.ssh/ && cp /root/.ssh/authorized_keys /home/jack/.ssh/ && chown -R jack:jack /home/jack/.ssh/ && chmod -R 700 /home/jack/.ssh/
+```
+
+Exit SSH connection
+
+```bash
+exit
+```
+
+Connect to server with new user
+
+```bash
+ssh jack@xxx.xx.xx.xxx
+```
+
+**If works**, disallow ssh connection with root.
 
 ```bash
 vim /etc/ssh/sshd_config
@@ -42,26 +70,24 @@ systemctl restart sshd.service
 
 :::
 
-```bash
-sudo apt install -y ufw && sudo ufw app list && sudo ufw allow OpenSSH && sudo ufw enable && sudo ufw status
-```
-
-```bash
-sudo adduser ubuntu
-sudo usermod -aG sudo ubuntu
-```
-
-```bash
-sudo ufw app list
-sudo ufw allow OpenSSH
-sudo ufw enable
-```
-
 ## 1. Useful packages
 
-```bash
-sudo apt install -y exfat-utils exfat-fuse curl git gimp nethogs vim ssh vlc fonts-firacode net-tools florence speedtest-cli
-```
+<code-group>
+  <code-block label="Desktop" active>
+
+  ```bash
+  sudo apt install -y exfat-utils exfat-fuse zip unzip curl git gimp nethogs vim ssh vlc fonts-firacode net-tools florence speedtest-cli
+  ```
+
+  </code-block>
+  <code-block label="Server">
+
+  ```bash
+  sudo apt install -y exfat-utils exfat-fuse zip unzip curl git nethogs vim ssh net-tools
+  ```
+
+  </code-block>
+</code-group>
 
 :::tip
 
@@ -113,8 +139,6 @@ vim ~/.vimrc
 ```
 
 :::
-
-<vue-code-info path="/home/user/.vimrc"></vue-code-info>
 
 ```vim
 set nocompatible

@@ -1,11 +1,9 @@
 ---
-title: "Apache: boiler plates"
-description: ''
+title: Examples
+description: Examples of Apache2 configurations
 position: 1
-category: 'Web server'
+category: 'Apache2'
 ---
-
-# Apache
 
 ## 1. Basic configuration
 

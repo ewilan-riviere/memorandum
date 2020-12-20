@@ -2,10 +2,8 @@
 title: SSH management
 description: ''
 position: 1
-category: 'Server'
+category: 'Misc'
 ---
-
-# SSH Management
 
 ## Connection to server
 

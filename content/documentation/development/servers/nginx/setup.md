@@ -1,11 +1,9 @@
 ---
-title: "NGINX: setup"
+title: Setup
 description: ''
 position: 1
-category: 'Web server'
+category: 'NGINX'
 ---
-
-# Setup
 
 Nginx is a powerful web server, it's really fastest if we compare it to Apache. To use it with PHP, we need to install `php-fpm`, to enable communication between Nginx and PHP. Check [LEMP configuration](/guides/digital-ocean-init.html#_3-lemp-linux-nginx-mysql-php) to know how install NGINX and PHP-FPM.
 

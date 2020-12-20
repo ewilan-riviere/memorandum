@@ -1,13 +1,11 @@
 ---
-title: "NGINX: boiler plates"
-description: ''
+title: Examples
+description: Examples of boiler plates NGINX configurations
 position: 1
-category: 'Web server'
+category: 'NGINX'
 ---
 
-# *Boiler plates*
-
-## Basic for Laravel
+## Laravel
 
 ```nginx
 server {
