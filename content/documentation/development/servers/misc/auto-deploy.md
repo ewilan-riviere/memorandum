@@ -160,10 +160,21 @@ GitHub example, webhooks are available into **Settings/Webhooks**. If you haven'
 
 When repo is updated, you need to execute some commands like `npm install` or `npm build` for example. To do this, you can use **git hooks**, it's script that you can configure when git event triggered. Check `repo/.git/hooks/` directory, it's available on all repositories and not gittable. If you want to execute commands after `git pull`, create a new script and name it `post-merge`.
 
-```sh[~/www/portfolio-front/.git/hooks/post-merge]
+At the root of repository create new bash script
+
+```bash
+vim .git/hooks/post-merge
+```
+
+Add commands to build app
+
+> in this example it's NuxtJS application, `yarn` will build the app and pm2 restart daemon with `pm2 restart app_id` where `app_id` is the `name` of app in `ecosystem.config.js`
+
+```sh[.git/hooks/post-merge]
 #!/bin/bash
+
 yarn && yarn run build
-yarn restart pm2 portfolio
+pm2 restart app_id
 ```
 
 Change rights on this file with this command:
@@ -179,7 +190,7 @@ All commands in this scripts will be executed after *git pull*.
 #### **Laravel**
 
 ```bash
-#!/bin/sh
+#!/bin/bash
 
 php artisan cache:clear
 php artisan config:clear
@@ -197,15 +208,17 @@ yarn && yarn prod
 
 #### **VueJS with Yarn**
 
-```sh[~/www/vue-app/.git/hooks/post-merge]
+```bash[.git/hooks/post-merge]
 #!/bin/bash
+
 yarn && yarn build
 ```
 
 #### **NuxtJS with pm2 - SSR mode**
 
-```sh[~/www/nuxtjs-front/.git/hooks/post-merge]
+```bash[.git/hooks/post-merge]
 #!/bin/bash
+
 yarn && yarn build
-yarn restart pm2 nuxt-app
+pm2 restart app_id
 ```

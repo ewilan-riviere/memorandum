@@ -80,6 +80,10 @@ Create symlink like this:
 sudo ln -s /etc/nginx/sites-available/my-domain /etc/nginx/sites-enabled/
 ```
 
+```bash
+sudo ln -s /etc/nginx/sites-available/* /etc/nginx/sites-enabled/
+```
+
 And test nginx configuration with this command:
 
 ```bash

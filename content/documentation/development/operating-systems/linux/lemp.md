@@ -14,8 +14,14 @@ When I offer to create new user, I call it `ubuntu`, you can use any other usern
 ## 1. NGINX & firewall
 
 ```bash
-sudo apt update && sudo apt install -y nginx && sudo ufw allow 'Nginx HTTP'
+sudo apt update && sudo apt install -y nginx && sudo ufw allow 'Nginx HTTP' && sudo ufw allow 'Nginx HTTPS' && sudo ufw allow 'Nginx Full'
 ```
+
+:::warning
+
+If you don't allow NGINX on firewall, your domain cannot be loaded.
+
+:::
 
 ## 2. MySQL
 

@@ -31,6 +31,20 @@ server {
 }
 ```
 
+## PM2 app
+
+```nginx
+server {
+  listen 80;
+  server_name memorandum.ewilan-riviere.com;
+
+  location / {
+    include proxy_params;
+    proxy_pass http://localhost:3001;
+  }
+}
+```
+
 ## Vue CLI App
 
 ```nginx
