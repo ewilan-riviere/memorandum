@@ -71,7 +71,9 @@ npm install pm2@latest -g
 
 PM2 is now available on your server, you can use it on different ways but here, we use *ecosystem* solution. With this, it's easy to maintain a lot of NodeJS app with just JSON. You have just to create `ecosystem.config.js` anywhere on your server:
 
-<vue-code-info ext="js" path="/home/user/ecosystem.config.js"></vue-code-info>
+```bash
+vim ~/ecosystem.config.js
+```
 
 ```js
 module.exports = {

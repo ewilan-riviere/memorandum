@@ -7,8 +7,10 @@ category: 'Linux'
 
 ## 1. NPM: global installations
 
+- [Vue CLI](https://cli.vuejs.org/guide)
+
 ```bash
-npm install -g @vue/cli eslint
+npm install -g @vue/cli eslint @vue/cli-service-global
 ```
 
 ## 2.  Visual Studio Code
