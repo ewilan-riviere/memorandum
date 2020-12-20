@@ -72,5 +72,9 @@ module.exports = {
     ],
     translate: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio'),
+  ],
 }

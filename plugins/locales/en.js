@@ -12,7 +12,7 @@ module.exports = {
   languages: { label: 'Languages' },
   'no-category': { label: 'No category' },
   'operating-systems': { label: 'Operating Systems' },
-  wip: { label: 'Work in progress' },
+  servers: { label: 'Servers' },
 
   // entities
   flutter: {
@@ -43,10 +43,13 @@ module.exports = {
   'nas-synology': { label: 'NAS Synology' },
   raspberry: { label: 'Raspberry' },
   seo: { label: 'SEO' },
-  server: { label: 'Server' },
   'visual-studio-code': { label: 'Visual Studio Code' },
-  'web-server': { label: 'Web server' },
   windows: { label: 'Windows' },
+
+  server: { label: 'Server' },
+  'web-server': { label: 'Web server' },
+  nginx: { label: 'NGINX' },
+  apache: { label: 'Apache2' },
 
   'todo-list': {
     label: 'ToDo List',

@@ -56,6 +56,8 @@
     "@nuxtjs/global-components": "^0.6.1",
     "@nuxtjs/svg": "^0.1.12",
     "@nuxtjs/tailwindcss": "^3.2.0",
+    "@tailwindcss/aspect-ratio": "^0.2.0",
+    "@tailwindcss/forms": "^0.2.1",
     "autoprefixer": "9",
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",

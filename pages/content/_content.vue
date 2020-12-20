@@ -35,9 +35,9 @@
         </h1>
       </div>
       <div slot="main" class="">
-        <client-only>
+        <!-- <client-only>
           <read-progress></read-progress>
-        </client-only>
+        </client-only> -->
         <transition name="fade">
           <article v-if="article" class="relative overflow-hidden bg-white">
             <div class="relative mx-auto prose prose-lg">
@@ -70,7 +70,7 @@
                 </div>
               </div>
               <div class="mx-auto prose prose-lg text-gray-500">
-                <nuxt-content :document="article" />
+                <display-document :document="article" />
               </div>
             </div>
           </article>
@@ -84,14 +84,16 @@
 </template>
 
 <script>
+import DisplayDocument from '~/components/blocks/DisplayDocument.vue'
 export default {
   name: 'ContentSlug',
-  components: {
-    ReadProgress: () =>
-      import('vue-read-progress')
-        .then((m) => m.default)
-        .catch(),
-  },
+  components: { DisplayDocument },
+  // components: {
+  //   ReadProgress: () =>
+  //     import('vue-read-progress')
+  //       .then((m) => m.default)
+  //       .catch(),
+  // },
   async asyncData({ $content, params, route }) {
     let basePath = 'documentation'
     if (route.name === 'content-slug-short') {
@@ -125,54 +127,10 @@ export default {
       currentArticle: {},
     }
   },
-  head() {
-    const title = `${this.article.title} - ${this.article.category}`
-    const description = this.article.description
-      ? this.article.description
-      : 'No description'
-    const image = `${process.env.APP_URL}/documentation/logo/${this.$slugify(
-      this.article.category
-    )}.webp`
-    return {
-      title,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: description,
-        },
-        // Open Graph
-        { hid: 'og:title', property: 'og:title', content: title },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content: description,
-        },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: image,
-        },
-        // Twitter Card
-        {
-          hid: 'twitter:title',
-          name: 'twitter:title',
-          content: title,
-        },
-        {
-          hid: 'twitter:description',
-          name: 'twitter:description',
-          content: description,
-        },
-        {
-          hid: 'twitter:image',
-          property: 'twitter:image',
-          content: image,
-        },
-      ],
-    }
-  },
   methods: {
+    action(e) {
+      console.log(e)
+    },
     getDate(date) {
       let userLang = 'en-US'
       if (process.client) {
@@ -225,6 +183,53 @@ export default {
       }
       return route
     },
+  },
+  head() {
+    const title = `${this.article.title} - ${this.article.category}`
+    const description = this.article.description
+      ? this.article.description
+      : 'No description'
+    const image = `${process.env.APP_URL}/documentation/logo/${this.$slugify(
+      this.article.category
+    )}.webp`
+    return {
+      title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: description,
+        },
+        // Open Graph
+        { hid: 'og:title', property: 'og:title', content: title },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: description,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: image,
+        },
+        // Twitter Card
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: title,
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: description,
+        },
+        {
+          hid: 'twitter:image',
+          property: 'twitter:image',
+          content: image,
+        },
+      ],
+    }
   },
 }
 </script>

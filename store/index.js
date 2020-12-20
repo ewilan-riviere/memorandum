@@ -12,6 +12,7 @@ export const state = () => ({
   ],
   settings: {},
   contentCurrentPath: '',
+  currentDocument: {},
 })
 
 export const mutations = {
@@ -39,8 +40,10 @@ export const mutations = {
   setGuides(state, data) {
     state.guides = data
   },
-
   setContentCurrentPath(state, data) {
     state.contentCurrentPath = data
+  },
+  setCurrentDocument(state, data) {
+    state.currentDocument = data
   },
 }

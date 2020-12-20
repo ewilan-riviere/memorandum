@@ -73,9 +73,6 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import AppCopyButton from '@/components/global/markdown/AppCopyButton'
-
 export default {
   name: 'MainLayout',
   props: {
@@ -107,16 +104,6 @@ export default {
     //   const id = title.getAttribute('id')
     //   title.setAttribute('id', `title-${this.$slugify(id)}`)
     // })
-
-    setTimeout(() => {
-      const blocks = document.getElementsByClassName('nuxt-content-highlight')
-
-      for (const block of blocks) {
-        const CopyButton = Vue.extend(AppCopyButton)
-        const component = new CopyButton().$mount()
-        block.appendChild(component.$el)
-      }
-    }, 100)
   },
 }
 </script>

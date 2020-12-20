@@ -80,6 +80,15 @@
   & .tip {
     @apply bg-green-100 border-green-600;
   }
+  & .warning {
+    @apply bg-yellow-100 border-yellow-600;
+  }
+  & .danger {
+    @apply bg-red-100 border-red-600;
+  }
+  & .info {
+    @apply bg-blue-100 border-blue-600;
+  }
   /* titles  */
   & h2 {
     @apply relative table mt-16 mb-8 text-2xl font-quicksand;

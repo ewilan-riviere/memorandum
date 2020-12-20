@@ -17,6 +17,7 @@ export default {
   mounted() {
     const copyCode = new Clipboard(this.$refs.copy, {
       target(trigger) {
+        console.log(trigger)
         return trigger.previousElementSibling
       },
     })
