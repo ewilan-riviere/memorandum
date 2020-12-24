@@ -114,7 +114,7 @@ export default {
   },
 }
 </script>
-<style scoped>
+<style lang="postcss" scoped>
 .error {
   animation: error 2s infinite;
 }

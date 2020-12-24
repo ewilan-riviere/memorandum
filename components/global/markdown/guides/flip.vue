@@ -35,7 +35,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 .flip span {
   display: inline-block;
   font-size: 3rem;

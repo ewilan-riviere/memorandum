@@ -49,7 +49,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 .advantages {
   padding: 1rem;
   font-weight: bold;

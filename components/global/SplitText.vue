@@ -64,7 +64,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 .split-text {
   font-size: 4rem !important;
   letter-spacing: -7px;

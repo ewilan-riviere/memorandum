@@ -84,7 +84,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 section {
   all: revert;
 }

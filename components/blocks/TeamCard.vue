@@ -47,7 +47,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 ul {
   margin: 0 !important;
   padding: 0 !important;

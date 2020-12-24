@@ -268,7 +268,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 @variants hover {
   /deep/ path {
     @apply transition-colors duration-300;

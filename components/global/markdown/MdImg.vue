@@ -105,7 +105,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 img {
   margin: 0 auto !important;
 }

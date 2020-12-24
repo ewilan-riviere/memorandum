@@ -65,7 +65,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 * {
   will-change: height;
   transform: translateZ(0);

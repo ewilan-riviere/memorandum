@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 .zoom {
   transition: transform 0.5s, box-shadow 0.5s;
 }

@@ -103,7 +103,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 .router-link-exact-active {
   @apply text-blue-useweb;
 }
