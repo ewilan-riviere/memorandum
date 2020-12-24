@@ -5,11 +5,7 @@ position: 1
 category: 'Misc'
 ---
 
-<div class="word-wraping" lang="en">
-
 Unlike PHP app, which just need to have Nginx/Apache configuration, a NodeJS app can have two production options : **generate static project** or **launch server**. With the first, you compile your project into *html*, *js* and *css* files, and you can host it with a basic Nginx/Apache config like PHP app. It's easy but if you want to update infos of your app with a back-office via an API, infos won't update on your app because it's static app (you will have to re generate your app each time...). The solution is the second option, build a server, it will update infos of your app if you change it with a back-office. To manage a NodeJS app like this, you need a manager to keep live your app and **PM2** is here for it.
-
-</div>
 
 > **In this example, we take a repository called `portfolio-front`, a NuxtJS app**
 > You can find it here [GitHub](https://github.com/ewilan-riviere/portfolio-front)
@@ -20,16 +16,14 @@ Unlike PHP app, which just need to have Nginx/Apache configuration, a NodeJS app
 
 You need to have a **domain** and **Nginx**. The configuration of Nginx is light but necessary to allow **PM2** to serve it on this domain.
 
-<vue-code-info ext="nginx" path="/etc/nginx/sites-available/portfolio"></vue-code-info>
-
-```nginx{2,6}
+```nginx{2,6}[/etc/nginx/sites-available/portfolio]
 server {
-    server_name portfolio.ewilan-riviere.com;
+  server_name ewilan-riviere.com;
 
-    location / {
-        include proxy_params;
-        proxy_pass http://localhost:3001;
-    }
+  location / {
+    include proxy_params;
+    proxy_pass http://localhost:3001;
+  }
 }
 ```
 
