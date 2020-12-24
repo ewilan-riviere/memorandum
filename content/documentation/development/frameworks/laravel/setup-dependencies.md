@@ -7,6 +7,8 @@ category: 'Laravel'
 
 ## Laravel permissions
 
+At root of Laravel's repository
+
 ```bash
 sudo chown -R $USER:www-data * && sudo chmod -R ug+rwx storage bootstrap/cache && git checkout .
 ```

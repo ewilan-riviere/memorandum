@@ -70,6 +70,22 @@ systemctl restart sshd.service
 
 :::
 
+:::tip Optional: change root password
+
+```bash
+sudo -i
+```
+
+```bash
+passwd
+```
+
+```bash
+exit
+```
+
+:::
+
 ## 1. Useful packages
 
 <code-group>

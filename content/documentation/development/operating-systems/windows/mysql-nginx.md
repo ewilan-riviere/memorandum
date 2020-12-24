@@ -206,7 +206,7 @@ sudo nssm restart nginx
 
 In any browser, at <http://localhost/phpmyadmin>, you have to see **phpMyAdmin welcome** page:
 
-<md-img source="pma-welcome.png"></md-img>
+<md-img source="pma-welcome.png" legend="Welcome page of phpMyAdmin"></md-img>
 
 ## Add a new VHost
 

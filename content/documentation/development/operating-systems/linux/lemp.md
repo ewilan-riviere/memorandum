@@ -7,6 +7,7 @@ category: 'Linux'
 
 - [Digital Ocean: LEMP - Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04)
 - [Digital Ocean: LEMP - Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-on-ubuntu-20-04#step-2-%E2%80%94-installing-mysql)
+- [**LEMP - Ubuntu 20.04**](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-20-04)
 
 :::tip
 When I offer to create new user, I call it `jack`, you can use any other username.

@@ -16,3 +16,4 @@ Use Markdown files to create content pages with NuxtJS
 - [**github.com/remark/plugins#list-of-plugins**](https://github.com/remarkjs/remark/blob/main/doc/plugins.md#list-of-plugins)
 - [**github.com/remarkjs/remark**](https://github.com/remarkjs/remark)
 - [**github.com/rehypejs/rehype**](https://github.com/rehypejs/rehype)
+- For blog theme: [**nuxtjs.blog**](https://nuxtjs.blog)

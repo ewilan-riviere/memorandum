@@ -1,8 +1,8 @@
 ---
-title: Auto-deploy
+title: Manual
 description: ''
 position: 1
-category: 'Misc'
+category: 'Auto-deploy'
 ---
 
 When you push some modifications on your repo, your server not update automatically. If you use **webhooks**, you can send **push event** to your server execute `git pull` on your repo. But we need to receive this push event, it's call a **payload**, we have to configure server to receive it and update repository.
@@ -11,17 +11,23 @@ When you push some modifications on your repo, your server not update automatica
 
 > Drone project is designed by [**adr1enbe4udou1n**](https://github.com/adr1enbe4udou1n), I just clone his project, thanks to him!
 
-To watch **payloads**, we need to have a tool to receive it. It's goal of [**drone project**](https://gitlab.com/EwieFairy/drone), just clone it on your server, where you want, here I choose to clone it to `/home/user/deploy`. It's NodeJS app, so use [PM2](/guides/server-nodejs-pm2.html) to manage it, just define config like it:
+To watch **payloads**, we need to have a tool to receive it. It's goal of [**drone project**](https://gitlab.com/EwieFairy/drone), just clone it on your server, where you want, here I choose to clone it to `/home/jack/drone-manual`. It's NodeJS app, so use [PM2](/guides/server-nodejs-pm2.html) to manage it.
 
-<vue-code-info ext="js" path="/home/user/ecosystem.config.js"></vue-code-info>
+Create drone with `git clone` in `~/`
 
-```js
+```bash
+git clone https://gitlab.com/EwieFairy/drone drone-manual
+```
+
+Create **ecosystem** file
+
+```js[~/ecosystem.config.js]
 module.exports = {
   apps : [
     {
       name: 'deploy',
       script: 'index.js',
-      cwd: '/home/user/deploy'
+      cwd: '/home/jack/drone-manual'
     },
     {
       // some project
@@ -32,14 +38,12 @@ module.exports = {
 
 Then configure `.env` file, just copy `.env.example` to `.env` and fill it with infos:
 
-<vue-code-info ext="env" path="/home/user/deploy/.env"></vue-code-info>
-
-```
+```yaml[~/drone-manual/.env]
 PORT=3000
 WEBHOOK_PATH=/deploy
 WEBSCRIPT_PATH=
 SCRIPT_KEY=
-PROJECTS_ROOT=/home/user/www/
+PROJECTS_ROOT=/home/jack/www/
 ```
 
 - `PORT`: port to deploy drone, 3000 by default
@@ -48,12 +52,10 @@ PROJECTS_ROOT=/home/user/www/
 
 Then create `repositories.json` into repo. It will useful only if remote have different name of cloned repo. But you need to have this file, even it's empty file.
 
-<vue-code-info ext="json" path="/home/user/deploy/repositories.json"></vue-code-info>
-
-```json
+```json[~/drone-manual/repositories.json]
 {
-    "remote-repo": [
-            "local-repo"
+    "portfolio-front": [
+        "portfolio-front"
     ]
 }
 ```
@@ -154,7 +156,7 @@ server {
 
 GitHub example, webhooks are available into **Settings/Webhooks**. If you haven't configure HTTPS on your Nginx config disable **SSL verification**.
 
-<img src="/images/webhook-config.jpg" class="covver-img" />
+<md-img source="webhook-config.jpg" can-zoom></md-img>
 
 ## 3. Git hooks
 
@@ -168,10 +170,10 @@ vim .git/hooks/post-merge
 
 Add commands to build app
 
-```sh[.git/hooks/post-merge]
+```bash[.git/hooks/post-merge]
 #!/bin/bash
 
-yarn && yarn run build
+yarn && yarn build
 ```
 
 Change rights on this file with this command:

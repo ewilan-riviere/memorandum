@@ -1,8 +1,8 @@
 ---
-title: NodeJS & PM2
+title: PM2
 description: ''
-position: 1
-category: 'Misc'
+position: 2
+category: 'Auto-deploy'
 ---
 
 Unlike PHP app, which just need to have Nginx/Apache configuration, a NodeJS app can have two production options : **generate static project** or **launch server**. With the first, you compile your project into *html*, *js* and *css* files, and you can host it with a basic Nginx/Apache config like PHP app. It's easy but if you want to update infos of your app with a back-office via an API, infos won't update on your app because it's static app (you will have to re generate your app each time...). The solution is the second option, build a server, it will update infos of your app if you change it with a back-office. To manage a NodeJS app like this, you need a manager to keep live your app and **PM2** is here for it.
@@ -11,6 +11,14 @@ Unlike PHP app, which just need to have Nginx/Apache configuration, a NodeJS app
 > You can find it here [GitHub](https://github.com/ewilan-riviere/portfolio-front)
 > I choose to define Nginx directory to /home/user/www/
 > The domain used is `ewilan-riviere.com` with some differents subdomains
+
+:::tip Links
+
+- [monitoring](https://pm2.keymetrics.io/docs/usage/monitoring/)
+- [ecosystem](https://pm2.keymetrics.io/docs/usage/application-declaration/)
+  - [startup](https://pm2.keymetrics.io/docs/usage/startup/)
+
+:::
 
 ## 1. Create Nginx configuration
 
