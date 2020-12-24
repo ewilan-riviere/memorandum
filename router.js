@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import Home from '~/pages/index'
 import About from '~/pages/about'
+import InComing from '~/pages/in-coming'
 import TypeSlug from '~/pages/type/_type'
 import ContentSlug from '~/pages/content/_content'
 import Content from '~/pages/content/_'
@@ -22,6 +23,11 @@ export function createRouter() {
         name: 'about',
         path: '/about',
         component: About,
+      },
+      {
+        name: 'in-coming',
+        path: '/in-coming',
+        component: InComing,
       },
       {
         name: 'type-slug',
