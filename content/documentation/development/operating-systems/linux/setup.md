@@ -138,24 +138,6 @@ Get basic configuration and copy it to user directory
 sudo vim /etc/vim/vimrc
 ```
 
-:::tip
-
-For custom config for user
-
-```bash
-sudo apt install -y vim
-cp /usr/share/vim/vimrc ~/
-mv ~/vimrc .vimrc
-```
-
-Edit `~/.vimrc` and copy this at the end of file to enable basics features.
-
-```bash
-vim ~/.vimrc
-```
-
-:::
-
 ```vim
 set nocompatible
 set number
@@ -170,6 +152,24 @@ set ruler
 set showcmd
 set mouse=a
 ```
+
+:::tip To have user's config
+
+```bash
+cp /usr/share/vim/vimrc ~/ ; mv ~/vimrc .vimrc
+```
+
+Edit `~/.vimrc` and copy the config at the end of file to enable it.
+
+```bash
+vim ~/.vimrc
+```
+
+:::
+
+#### `set paste`
+
+- <https://coderwall.com/p/if9mda/automatically-set-paste-mode-in-vim-when-pasting-in-insert-mode>
 
 ## 2. ZSH & Oh my ZSH
 
