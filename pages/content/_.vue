@@ -1,6 +1,12 @@
 <template>
   <div>
-    <main-layout>
+    <main-layout
+      :image="$slugify(document.pathsObj.entity)"
+      :back-route="{
+        name: 'type-slug',
+        params: { type: document.pathsObj.type },
+      }"
+    >
       <div slot="aside">
         <nuxt-link
           v-for="otherdocument in otherDocuments"
@@ -16,7 +22,18 @@
           {{ otherdocument.position }}. {{ otherdocument.title }}
         </nuxt-link>
       </div>
-      <div slot="title"></div>
+      <div slot="title">
+        <p
+          class="text-base font-semibold leading-6 tracking-wide text-center text-indigo-600 uppercase"
+        >
+          {{ document.category }}
+        </p>
+        <h1
+          class="mt-2 mb-8 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-800 sm:text-4xl sm:leading-10"
+        >
+          {{ document.title }}
+        </h1>
+      </div>
       <div slot="main" class="">
         <client-only>
           <read-progress></read-progress>
@@ -53,7 +70,8 @@
                 </div>
               </div>
               <div class="mx-auto prose prose-lg text-gray-500">
-                <nuxt-content :document="document" />
+                <!-- <nuxt-content :document="document" /> -->
+                <display-document :document="document" />
               </div>
             </div>
           </article>
@@ -67,8 +85,8 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import AppCopyButton from '~/components/global/markdown/AppCopyButton'
+// import Vue from 'vue'
+// import AppCopyButton from '~/components/global/markdown/AppCopyButton'
 
 export default {
   name: 'ContentSlugShort',

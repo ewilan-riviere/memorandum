@@ -8,6 +8,7 @@
       }"
     >
       <div slot="aside">
+        {{ article.pathsObj.entity }}
         <nuxt-link
           v-for="otherArticle in otherArticles"
           :key="otherArticle.id"

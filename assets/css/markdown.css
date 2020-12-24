@@ -78,16 +78,16 @@
     @apply my-2 text-xl font-bold text-black;
   }
   & .tip {
-    @apply bg-green-100 border-green-600;
+    @apply bg-green-100 border-green-300;
   }
   & .warning {
-    @apply bg-yellow-100 border-yellow-600;
+    @apply bg-yellow-100 border-yellow-300;
   }
   & .danger {
-    @apply bg-red-100 border-red-600;
+    @apply bg-red-100 border-red-300;
   }
   & .info {
-    @apply bg-blue-100 border-blue-600;
+    @apply bg-blue-100 border-blue-300;
   }
   /* titles  */
   & h2 {

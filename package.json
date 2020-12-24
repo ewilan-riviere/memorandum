@@ -71,6 +71,7 @@
     "remark-emoji-to-gemoji": "^1.1.0",
     "remark-footnotes": "2.0.0",
     "swiper": "5.2.0",
+    "vue-code-info": "^0.1.9",
     "vue-tailwind-screens-helper": "^0.1.0"
   },
   "vetur": {

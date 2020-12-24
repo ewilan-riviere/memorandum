@@ -88,6 +88,7 @@ export default {
     { src: '~/plugins/vue-scrollactive' },
     // https://www.npmjs.com/package/vue-lazy-youtube-video
     { src: '~/plugins/vue-lazy-youtube' },
+    { src: '~/plugins/vue-code-info', ssr: false },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

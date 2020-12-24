@@ -1,16 +1,18 @@
 <template>
-  <div class="flex">
+  <picture class="flex">
     <div
       v-if="imgFound"
-      class="relative p-2 rounded-md shadow-md"
-      @mouseover="hover = true"
-      @mouseleave="hover = false"
+      class="relative p-2 mx-auto rounded-md shadow-md"
+      @mouseover="canZoom ? (hover = true) : ''"
+      @mouseleave="canZoom ? (hover = false) : ''"
     >
       <div
-        class="transition-transform duration-300 cursor-pointer zoom"
+        :class="{ 'cursor-pointer zoom': canZoom }"
+        class="transition-transform duration-300"
         @click="openInTab"
       >
         <div
+          v-if="canZoom"
           :class="hover ? 'opacity-100' : 'opacity-0'"
           class="absolute top-0 right-0 z-10 p-3 leading-5 transition-opacity duration-300 bg-gray-300 bg-opacity-95"
         >
@@ -19,11 +21,14 @@
           to open it in new tab
         </div>
         <img
-          :src="`/documentation/${path}/${source}`"
-          :alt="source"
+          :src="fullPath"
+          :alt="metadata ? metadata : source"
           class="mx-auto my-auto"
           @error="handleImgError"
         />
+        <legend v-if="legend" class="mb-3 text-sm italic text-center">
+          {{ legend }}
+        </legend>
       </div>
       <small v-if="from" class="mt-2"
         >From
@@ -38,6 +43,9 @@
     >
       <div>
         <div class="text-6xl text-center text-red-600">Image not found</div>
+        <div class="my-3 text-lg text-center">
+          {{ metadata ? metadata : source }}
+        </div>
         <small>
           Search if image exist on:
           <span class="px-1 py-1 bg-gray-200">{{
@@ -46,7 +54,7 @@
         </small>
       </div>
     </div>
-  </div>
+  </picture>
 </template>
 
 <script>
@@ -61,20 +69,34 @@ export default {
       type: String,
       default: null,
     },
+    metadata: {
+      type: String,
+      default: null,
+    },
+    canZoom: {
+      type: Boolean,
+      default: false,
+    },
+    legend: {
+      type: String,
+      default: null,
+    },
   },
   data() {
     return {
       path: null,
       imgFound: true,
       hover: false,
+      fullPath: null,
     }
   },
   mounted() {
     this.getPath()
+    this.fullPath = `/${this.path}/${this.source}`
   },
   methods: {
     openInTab() {
-      window.open(`/documentation/${this.path}/${this.source}`)
+      window.open(this.fullPath)
     },
     domain_from_url(url) {
       let result
@@ -92,13 +114,15 @@ export default {
       return result
     },
     handleImgError() {
-      console.error('img error')
+      console.error(`<MdImg />\nImage not found, check path ${this.path}`)
       this.imgFound = false
     },
     getPath() {
       let path = this.$route.fullPath.split('/')
       path.splice(0, 1)
+      path.splice(path.length - 1, 1)
       path = path.join('/')
+      console.log(path)
       this.path = path
     },
   },
