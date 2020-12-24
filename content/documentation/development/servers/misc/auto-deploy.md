@@ -168,19 +168,20 @@ vim .git/hooks/post-merge
 
 Add commands to build app
 
-> in this example it's NuxtJS application, `yarn` will build the app and pm2 restart daemon with `pm2 restart app_id` where `app_id` is the `name` of app in `ecosystem.config.js`
-
 ```sh[.git/hooks/post-merge]
 #!/bin/bash
 
 yarn && yarn run build
-pm2 restart app_id
 ```
 
 Change rights on this file with this command:
 
 ```bash
 sudo chmod 775 .git/hooks/post-merge
+```
+
+```bash
+./.git/hooks/post-merge
 ```
 
 All commands in this scripts will be executed after *git pull*.
@@ -215,6 +216,8 @@ yarn && yarn build
 ```
 
 #### **NuxtJS with pm2 - SSR mode**
+
+> in this example it's NuxtJS application, `yarn` will build the app and pm2 restart daemon with `pm2 restart app_id` where `app_id` is the `name` of app in `ecosystem.config.js`
 
 ```bash[.git/hooks/post-merge]
 #!/bin/bash
