@@ -52,7 +52,7 @@ module.exports = {
     {
       name: 'memorandum',
       script: 'npm',
-      cwd: '/home/username/www/memorandum',
+      cwd: '/home/ewilan/www/memorandum',
       args: 'start',
       env: {
         PORT: 3001
