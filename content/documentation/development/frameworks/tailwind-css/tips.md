@@ -199,3 +199,11 @@ Common error with Vetur with **@apply** Tailwind directive. Usse `postcss` as at
 
 </style>
 ```
+
+## Plugins
+
+For v2.0 with [this guide](https://tailwindui.com/changes-for-v2#updating-your-tailwind-ui-projects)
+
+```bash
+yarn add @tailwindcss/forms @tailwindcss/typography @tailwindcss/aspect-ratio
+```

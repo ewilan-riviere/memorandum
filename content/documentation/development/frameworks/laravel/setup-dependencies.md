@@ -5,6 +5,12 @@ position: 1
 category: 'Laravel'
 ---
 
+## Laravel permissions
+
+```bash
+sudo chown -R $USER:www-data * && sudo chmod -R ug+rwx storage bootstrap/cache && git checkout .
+```
+
 ## PHP CS Fixer
 
 :::tip GitHub
@@ -107,6 +113,53 @@ L5_SWAGGER_GENERATE_ALWAYS=true
 ```bash
 php artisan l5-swagger:generate
 ```
+
+## ESLint
+
+```bash
+yarn add -D eslint eslint-plugin-vue prettier eslint-config-prettier eslint-plugin-prettier
+```
+
+:::tip Automatic config
+
+```bash
+./node_modules/.bin/eslint --init
+```
+
+:::
+
+**OR**
+
+:::tip Manual config
+
+Create these files at the root of repository
+
+```js[.eslintrc.js]
+module.exports = {
+    root: true,
+    env: {
+        browser: true,
+        es2021: true,
+    },
+    extends: [
+        // 'eslint:recommended',
+        'plugin:vue/essential',
+        'plugin:vue/recommended',
+        'plugin:prettier/recommended',
+    ],
+    plugins: ['vue', 'prettier'],
+    rules: {},
+}
+```
+
+```prettierrc[.prettierrc]
+{
+  "semi": false,
+  "singleQuote": true
+}
+```
+
+:::
 
 ## Laravel Auth | DEPRECATED
 

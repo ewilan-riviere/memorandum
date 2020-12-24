@@ -113,26 +113,46 @@ server {
 
 ```nginx
 server {
-    listen 80;
-    server_name portfolio.ewilan-riviere.com;
-    root /home/ewilan/www/portfolio-back/public;
-    index index.php;
+  listen 80;
+  server_name ewilan-riviere.com www.ewilan-riviere.com;
+  root /home/ewilan/www/portfolio-back/public;
+  index index.php;
 
-    location / {
-        include proxy_params;
-        proxy_pass http://localhost:3001;
-    }
+  error_log /var/log/nginx/ewilan-riviere.com.log warn;
+  access_log  /var/log/nginx/ewilan-riviere.com.log;
 
-    # location ~ ^/(api|docs|storage|media|files|admin|ckeditor|elfinder|packages|build|brand|_ignition) {
-    #     try_files $uri $uri/ /index.php?$query_string;
-    # }
-    location ~ ^/(admin|api|css|media|uploads|storage|docs|packages|cache) {
-        try_files $uri $uri/ /index.php?$query_string;
-    }
+  location / {
+    include proxy_params;
+    proxy_pass http://localhost:3001;
+  }
 
-    location ~ \.php$ {
-        include         snippets/fastcgi-php.conf;
-        fastcgi_pass    unix:/var/run/php/php7.4-fpm.sock;
-    }
+  location ~ ^/(admin|api|css|media|uploads|storage|docs|packages|cache) {
+    try_files $uri $uri/ /index.php?$query_string;
+  }
+
+  location ~ \.php$ {
+    include         snippets/fastcgi-php.conf;
+    fastcgi_pass    unix:/var/run/php/php7.4-fpm.sock;
+  }
 }
+```
+
+With `ecosystem.config.js`
+
+```js
+// ecosystem.config.js
+module.exports = {
+  apps : [
+    // ...
+    {
+      name: 'portfolio',
+      script: 'npm',
+      cwd: '/home/ewilan/www/portfolio-front',
+      args: 'start',
+      env: {
+        PORT: 3001
+      },
+    }
+  ]
+};
 ```

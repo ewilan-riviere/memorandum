@@ -39,3 +39,17 @@ In this example, prompt is in same directory of `file.sql`, of course it's neces
 ```bash
 mysql -u username -p db_name < file.sql
 ```
+
+## Useful commands
+
+### Delete user
+
+```mysql[mysql]
+DROP USER 'user'@'localhost';
+```
+
+### List of all users
+
+```mysql[mysql]
+SELECT host,user,plugin,host FROM mysql.user;
+```

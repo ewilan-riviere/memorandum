@@ -5,17 +5,14 @@ position: 4
 category: 'Linux'
 ---
 
-[Digital Ocean: LEMP](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04)
+- [Digital Ocean: LEMP - Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04)
+- [Digital Ocean: LEMP - Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-on-ubuntu-20-04#step-2-%E2%80%94-installing-mysql)
 
 :::tip
-When I offer to create new user, I call it `ubuntu`, you can use any other username.
+When I offer to create new user, I call it `jack`, you can use any other username.
 :::
 
 ## 1. NGINX & firewall
-
-```bash
-sudo apt update && sudo apt install -y nginx && sudo ufw allow 'Nginx HTTP' && sudo ufw allow 'Nginx HTTPS' && sudo ufw allow 'Nginx Full'
-```
 
 :::warning
 
@@ -23,46 +20,79 @@ If you don't allow NGINX on firewall, your domain cannot be loaded.
 
 :::
 
+```bash
+sudo apt update && sudo apt install -y nginx && sudo ufw allow 'Nginx HTTP' && sudo ufw allow 'Nginx HTTPS' && sudo ufw allow 'Nginx Full'
+```
+
 ## 2. MySQL
+
+Install MySQL
 
 ```bash
 sudo apt install -y mysql-server && sudo mysql_secure_installation
 ```
 
-:::tip
-Choose password level, I advice `LOW` to avoid problems with password.
-And define password, select `Yes` for all questions after this.
+:::tip About installation
+
+- Choose password level, I advice `LOW` to avoid problems with password.
+- Define password
+- Select `Yes` for all questions after this.
 :::
+
+Connect to MySQL CLI
 
 ```bash
-sudo mysql
+sudo mysql -u root -p
 ```
 
-:::tip
-If you have set password, you can use:  
-`mysql -u root -p`
-:::
+Redefine `validate_password.policy` if necessary and `root` password if necessary
 
-Now redefine `root` `password` (change it, if you want strong password) and create new `ubuntu` (choose a custom username if you want).
-
-```sql {3,4}
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+```mysql[mysql]
+SET GLOBAL validate_password.policy=LOW;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'super_secret_password';
 FLUSH PRIVILEGES;
-CREATE USER 'ubuntu'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON *.* TO 'ubuntu'@'localhost' WITH GRANT OPTION;
-exit
 ```
 
-:::tip If any problems
+It's not a good idea to have one user to manage all databases, `root` user is useful to create database and users but only with MySQL CLI and not with phpMyAdmin because phpMyAdmin have online access. It's a good idea to create ONE user BY database and give rights about this database only to this NEW user (and `root` of course). And, the most important, in your application, give new user for credentials. With this solution, your credentials can only manage ONE database, it's more secure if someone find credentials.
+
+Here, it's an example of this solution, `my_project_database` and `my_project_user` can be same.
+
+```mysql[mysql]
+CREATE DATABASE my_project_database;
+CREATE USER 'my_project_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'secret_password';
+GRANT ALL ON my_project_database.* TO 'my_project_user'@'localhost';
+```
+
+:::danger Bad practice
 
 ```bash
-ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
-CREATE USER 'ubuntu'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON *.* TO 'ubuntu'@'localhost' WITH GRANT OPTION;
+CREATE USER 'my_user'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'my_user'@'localhost' WITH GRANT OPTION;
 exit
 ```
 
 :::
+
+### Disable `root` for phpMyAdmin
+
+Open phpMyAdmin config
+
+```bash
+sudo vim /etc/phpmyadmin/config.inc.php
+```
+
+Find `$cfg['Servers'][$i]['auth_type'] = 'cookie';` line and add this line `$cfg['Servers'][$i]['AllowRoot'] = FALSE;`
+
+```php[/etc/phpmyadmin/config.inc.php]
+if (!empty($dbname)) {
+  /* Authentication type */
+  $cfg['Servers'][$i]['auth_type'] = 'cookie';
+  $cfg['Servers'][$i]['AllowRoot'] = FALSE; // add this line
+  // ...
+}
+```
+
+Now `root` user is forbidden with phpMyadmin but allowed with MySQL CLI.
 
 ## 3. PHP
 

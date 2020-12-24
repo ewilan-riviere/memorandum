@@ -5,7 +5,7 @@ position: 1
 category: 'Linux'
 ---
 
-This guide has been set for [**Ubuntu 18.04**](https://ubuntu.com/#download), if you have another distribution use it carefully.
+This guide has been set for [**Ubuntu 20.04**](https://ubuntu.com/#download), if you have another distribution use it carefully.
 
 :::warning
 When I offer to create new user, I call it `jack`, you can use any other username.
