@@ -2,13 +2,15 @@ import Vue from 'vue'
 
 // slugify text
 const slugify = (text) => {
-  return text
-    .toString()
-    .toLowerCase()
-    .replace(/["']/i, '-')
-    .replace(/\s+/g, '-')
-    .normalize('NFD')
-    .replace(/[\u0300-\u036F]/g, '')
+  if (text !== null) {
+    return text
+      .toString()
+      .toLowerCase()
+      .replace(/["']/i, '-')
+      .replace(/\s+/g, '-')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036F]/g, '')
+  }
 }
 
 Vue.prototype.$slugify = slugify

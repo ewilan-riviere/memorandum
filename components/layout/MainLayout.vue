@@ -90,25 +90,33 @@ export default {
     },
   },
   mounted() {
-    // const paragraphs = document.querySelectorAll('p')
-    // paragraphs.forEach((paragraph) => {
-    //   paragraph.setAttribute('lang', 'fr')
-    // })
-    // const titlesH2 = document.querySelectorAll('h2')
-    // const titlesH3 = document.querySelectorAll('h3')
-    // titlesH2.forEach((title) => {
-    //   const id = title.getAttribute('id')
-    //   title.setAttribute('id', `title-${this.$slugify(id)}`)
-    // })
-    // titlesH3.forEach((title) => {
-    //   const id = title.getAttribute('id')
-    //   title.setAttribute('id', `title-${this.$slugify(id)}`)
-    // })
+    const paragraphs = document.querySelectorAll('p')
+    paragraphs.forEach((paragraph) => {
+      paragraph.setAttribute('lang', 'fr')
+    })
+    const titlesH2 = document.querySelectorAll('h2')
+    const titlesH3 = document.querySelectorAll('h3')
+    const toc = document.querySelectorAll('.scrollactive-item')
+    console.log(toc)
+    titlesH2.forEach((title) => {
+      const id = title.getAttribute('id')
+      console.log(id)
+      title.setAttribute('id', `to-${this.$slugify(id)}`)
+    })
+    titlesH3.forEach((title) => {
+      const id = title.getAttribute('id')
+      title.setAttribute('id', `to-${this.$slugify(id)}`)
+    })
+    toc.forEach((scrollItem) => {
+      let href = scrollItem.getAttribute('href')
+      href = href.replace('#', '')
+      scrollItem.setAttribute('href', `#to-${this.$slugify(href)}`)
+    })
   },
 }
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 .ps {
   height: 90vh;
 }
