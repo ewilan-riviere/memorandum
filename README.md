@@ -87,42 +87,44 @@ To learn more, check [NuxtJS documentation](https://nuxtjs.org).
 
 ## Todo content
 
-- [] php clockwork
+- [ ] php clockwork
 - [x] windows install
-- [] what to save before reinstall OS (Keep)
-- [] flutter lint
-- [] flutter reduce size proguard and obfuscate
-- [] php named arguments, pass function as parameter, spread d'arguments
+- [ ] what to save before reinstall OS (Keep)
+- [ ] flutter lint
+- [ ] flutter reduce size proguard and obfuscate
+- [ ] php named arguments, pass function as parameter, spread d'arguments
   - <https://www.php.net/releases/8.0/en.php>
   - <https://stitcher.io/blog/new-in-php-8>
-- [] dart named arguments
+- [ ] dart named arguments
   - <https://stackoverflow.com/questions/13264230/what-is-the-difference-between-named-and-positional-parameters-in-dart>
-- [] JS versions: <https://www.w3schools.com/js/js_versions.asp>
-- [] Laravel Resources
+- [ ] JS versions: <https://www.w3schools.com/js/js_versions.asp>
+- [ ] Laravel Resources
   - <https://medium.com/@dinotedesco/laravel-api-resources-what-if-you-want-to-manipulate-your-models-before-transformation-8982846ad22c>
   - <https://laravel.com/docs/8.x/eloquent-resources>
-- [] TablePlus
+- [ ] TablePlus
   - <https://tableplus.com>
-- [] Laravel Sail
+- [ ] Laravel Sail
   - <https://github.com/mailhog/MailHog>
-- [] php the right way <https://eilgin.github.io/php-the-right-way/>
-- [] php cheatsheet <https://front-line-php.com/cheat-sheet>
-- [] dart flutter
+- [ ] php the right way <https://eilgin.github.io/php-the-right-way/>
+- [ ] php cheatsheet <https://front-line-php.com/cheat-sheet>
+- [ ] dart flutter
   - <https://pub.dev/packages/logging>
   - <https://medium.com/flutter-community/debugprint-and-the-power-of-hiding-and-customizing-your-logs-in-dart-86881df05929>
   - <https://codeburst.io/top-10-array-utility-methods-you-should-know-dart-feb2648ee3a2>
-- [] PowerShell Profiles with custom alias methods
-- symfony
+- [ ] PowerShell Profiles with custom alias methods
+- [ ] symfony
   - scoop
   - symfony serve
   - symfony new symfo-test
-- terminal
+- [ ] terminal
   - <https://github.com/nvbn/thefuck>
   - <https://github.com/junegunn/fzf#installation>
-- js
+- [ ] js
   - <https://medium.com/javascript-in-plain-english/15-hacks-in-javascript-6e3f88c90d00>
 
 ### Parallax
+
+[ ] add example
 
 ```html
 <style>
@@ -157,20 +159,19 @@ To learn more, check [NuxtJS documentation](https://nuxtjs.org).
 
 ### Concepts
 
-- php méthodes magiques
+- [ ] php méthodes magiques
   - <https://www.php.net/manual/fr/language.oop5.magic.php>
-- <https://www.php.net/manual/en/datetime.format.php>
-- <https://www.taniarascia.com/the-simplest-php-router>
-- <https://www.php-fig.org/psr/psr-4>
+- [ ] <https://www.php.net/manual/en/datetime.format.php>
+- [ ] <https://www.taniarascia.com/the-simplest-php-router>
+- [ ] <https://www.php-fig.org/psr/psr-4>
   - <https://code.tutsplus.com/tutorials/how-to-autoload-classes-with-composer-in-php--cms-35649>
 - [terryz.github.io](https://terryz.github.io/vue/#/dialog)
-- [**medium.com/setting-up-laravel-8-x-with-jetstream-auth**](https://medium.com/dev-genius/setting-up-laravel-8-x-with-jetstream-auth-84bbeafc0cd3)
-- [**medium.com/how-to-use-svg-icons-in-your-vue-app**](https://medium.com/javascript-in-plain-english/how-to-use-svg-icons-in-your-vue-app-6e2c30865d7c)
+- [ ] [**medium.com/setting-up-laravel-8-x-with-jetstream-auth**](https://medium.com/dev-genius/setting-up-laravel-8-x-with-jetstream-auth-84bbeafc0cd3)
+- [ ] [**medium.com/how-to-use-svg-icons-in-your-vue-app**](https://medium.com/javascript-in-plain-english/how-to-use-svg-icons-in-your-vue-app-6e2c30865d7c)
 - css link border expand: <https://stackoverflow.com/questions/28623446/hover-effect-expand-bottom-border>
 - php big files
 
-```
-## Setup to upload big files
+[ ] Setup to upload big files
 
 For NGINX: `/etc/nginx/nginx.conf`
 
@@ -205,16 +206,15 @@ phpinfo();
 ?>
 ```
 
-```
 ## Video games
 
-- [**polygon.com/botw-shrine-map-location**](https://www.polygon.com/zelda-breath-of-the-wild-guide-walkthrough/2017/6/1/15723316/botw-shrine-map-location)
-- [**zelda.fandom.com/Armor**](https://zelda.fandom.com/wiki/Armor)
-- [**rankedboost.com/shrines-dungeons**](https://rankedboost.com/zelda-breath-of-the-wild/shrines-dungeons/#hateno)
-- [**rankedboost.com/armor-upgrades**](https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/#armor)
-- [**pinterest.fr/pin/717831628097592945**](https://www.pinterest.fr/pin/717831628097592945/)
+- [ ] [**polygon.com/botw-shrine-map-location**](https://www.polygon.com/zelda-breath-of-the-wild-guide-walkthrough/2017/6/1/15723316/botw-shrine-map-location)
+- [ ] [**zelda.fandom.com/Armor**](https://zelda.fandom.com/wiki/Armor)
+- [ ] [**rankedboost.com/shrines-dungeons**](https://rankedboost.com/zelda-breath-of-the-wild/shrines-dungeons/#hateno)
+- [ ] [**rankedboost.com/armor-upgrades**](https://rankedboost.com/zelda-breath-of-the-wild/armor-upgrades/#armor)
+- [ ] [**pinterest.fr/pin/717831628097592945**](https://www.pinterest.fr/pin/717831628097592945/)
 
-## stackoverflow
+[ ] stackoverflow
 
 - [**stackoverflow.com/how-do-i-revert-a-git-repository-to-a-previous-commit**](https://stackoverflow.com/questions/4114095/how-do-i-revert-a-git-repository-to-a-previous-commit)
 - [**stackoverflow.com/how-can-i-move-head-back-to-a-previous-location-detached-head-undo-commits**](https://stackoverflow.com/questions/34519665/how-can-i-move-head-back-to-a-previous-location-detached-head-undo-commits/34519716#34519716)
@@ -229,7 +229,7 @@ phpinfo();
 - [**stackoverflow.com/completely-removing-phpmyadmin**](https://stackoverflow.com/questions/5050296/completely-removing-phpmyadmin)
 - [**stackoverflow.com/your-password-does-not-satisfy-the-current-policy-requirements**](https://stackoverflow.com/questions/43094726/your-password-does-not-satisfy-the-current-policy-requirements)
 
-## ffmpeg
+[ ] ffmpeg
 
 - [**stackoverflow.com/how-do-you-convert-an-entire-directory-with-ffmpeg**](https://stackoverflow.com/questions/5784661/how-do-you-convert-an-entire-directory-with-ffmpeg)
 
@@ -237,7 +237,7 @@ phpinfo();
 FOR /F "tokens=*" %G IN ('dir /b *') DO ffmpeg -i "%G" "%~nG.webp"
 ```
 
-## youtube-dl
+[ ] youtube-dl
 
 - <https://youtube-dl.org>
 - <https://github.com/l1ving/youtube-dl>
