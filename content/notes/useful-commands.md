@@ -28,22 +28,13 @@ cp .env.example .env
   </code-block>
 </code-group>
 
-<code-group>
-  <code-block label="Windows" active>
+```bash
+sudo chgrp -R www-data storage bootstrap/cache ; sudo chmod -R ug+rwx storage bootstrap/cache
+```
 
-  ```bash
-  php artisan key:generate ; php artisan storage:link
-  ```
-
-  </code-block>
-  <code-block label="Linux">
-
-  ```bash
-  php artisan key:generate && php artisan storage:link
-  ```
-
-  </code-block>
-</code-group>
+```bash
+php artisan key:generate ; php artisan storage:link
+```
 
 <code-group>
   <code-block label="Migrate" active>
@@ -66,40 +57,14 @@ cp .env.example .env
 php artisan route:list --compact
 ```
 
-<code-group>
-  <code-block label="Windows" active>
-
-  ```bash
-  php artisan ide-helper:generate ; php artisan ide-helper:models ; php artisan ide-helper:meta
-  ```
-
-  </code-block>
-  <code-block label="Linux">
-
-  ```bash
-  php artisan ide-helper:generate && php artisan ide-helper:models && php artisan ide-helper:meta
-  ```
-
-  </code-block>
-</code-group>
+```bash
+php artisan ide-helper:generate ; php artisan ide-helper:models ; php artisan ide-helper:meta
+```
 
 ```bash
 .\vendor\bin\php-cs-fixer fix
 ```
 
-<code-group>
-  <code-block label="Windows" active>
-
-  ```bash
-  php artisan cache:clear ; php artisan config:clear ; php artisan route:clear
-  ```
-
-  </code-block>
-  <code-block label="Linux">
-
-  ```bash
-  php artisan cache:clear && php artisan config:clear && php artisan route:clear
-  ```
-
-  </code-block>
-</code-group>
+```bash
+php artisan cache:clear ; php artisan config:clear ; php artisan route:clear
+```
