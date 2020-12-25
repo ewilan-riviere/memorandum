@@ -103,6 +103,36 @@ This will install LTS version of PHP, if you want to upgrade it, check [**this g
 sudo apt install -y php-fpm php-mysql
 ```
 
+### 3. a. PHP 8.0+
+
+From [**linuxize.com**](https://linuxize.com/post/how-to-install-php-8-on-ubuntu-20-04)
+
+Install PPA for PHP
+
+```bash
+sudo apt install software-properties-common ; sudo add-apt-repository ppa:ondrej/php
+```
+
+Press <kbd>Enter</kbd> to add repository to APT source list.
+
+Install PHP 8.0 FPM for NGINX.
+
+```bash
+sudo apt update ; sudo apt -y install php8.0-fpm
+```
+
+Check PHP 8.0 status.
+
+```bash
+systemctl status php8.0-fpm
+```
+
+Install extension for PHP 8.0
+
+```bash
+sudo apt install -y php8.0-mbstring php8.0-mysql php8.0-common php8.0-mysql php8.0-xml php8.0-curl php8.0-gd php8.0-imagick php8.0-cli php8.0-dev php8.0-imap php8.0-mbstring php8.0-opcache php8.0-soap php8.0-zip php8.0-intl
+```
+
 ---
 
 ## 4. Virtual Host

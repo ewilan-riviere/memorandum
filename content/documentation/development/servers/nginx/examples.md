@@ -9,25 +9,26 @@ category: 'NGINX'
 
 ```nginx
 server {
-    listen 80;
-    root /var/www/laravel/public;
-    index index.php index.html index.htm index.nginx-debian.html;
-    server_name laravel.localhost;
+  listen 80;
+  root /home/user/www/my-project/public;
+  index index.php index.html index.htm index.nginx-debian.html;
+  server_name my-project.com;
 
-    error_log /var/log/nginx/laravel.log warn;
+  error_log /var/log/nginx/my-project-error.log warn;
+  access_log /var/log/nginx/my-project-access.log;
 
-    location / {
-        try_files $uri $uri/ =404;
-    }
+  location / {
+    try_files $uri $uri/ =404;
+  }
 
-    location ~ \.php$ {
-        include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
-    }
+  location ~ \.php$ {
+    include snippets/fastcgi-php.conf;
+    fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+  }
 
-    location ~ /\.ht {
-        deny all;
-    }
+  location ~ /\.ht {
+    deny all;
+  }
 }
 ```
 
@@ -36,7 +37,7 @@ server {
 ```nginx
 server {
   listen 80;
-  server_name memorandum.ewilan-riviere.com;
+  server_name my-project.com;
 
   location / {
     include proxy_params;
@@ -48,21 +49,10 @@ server {
 ## Vue CLI App
 
 ```nginx
- location / {
-    # rewrite ^/(.*)/$ /$1 permanent;
-    # try_files $uri $uri/index.html;
-        # root   /path/to/your/project/html;
-    # index  index.html index.htm;
-    # include  /etc/nginx/mime.types;
-    try_files $uri $uri/ /index.html;
-  }
-```
-
-```nginx
 server {
   listen 80;
-  server_name my-app.localhost;
-  root /var/www/vue-cli/dist;
+  server_name my-project.com;
+  root /home/user/www/my-project/dist;
 
   location / {
     try_files $uri $uri/ /index.html;
@@ -81,45 +71,46 @@ server {
 
 ```nginx
 map $request_uri $rot {
-    "~api" /home/ewilan/www/ac-market-back/public/;
-    default /home/ewilan/www/ac-market-front/dist/;
+    "~api" /home/user/www/my-project-back/public/;
+    default /home/user/www/my-project-front/dist/;
 }
 server {
-    listen 80;
-    server_name ac-market.git-projects.xyz;
-    root $rot;
-    index index.html index.php;
+  listen 80;
+  server_name my-domain.com;
+  root $rot;
+  index index.html index.php;
 
-    error_log /var/log/nginx/todo-list.log warn;
+  error_log /var/log/nginx/my-project-error.log warn;
+  access_log /var/log/nginx/my-project-access.log;
 
-    location / {
-      try_files $uri $uri/ /index.php$is_args$args;
-    }
+  location / {
+    try_files $uri $uri/ /index.php$is_args$args;
+  }
 
-    location ~ \.php$ {
-      include snippets/fastcgi-php.conf;
-      fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
-    }
+  location ~ \.php$ {
+    include snippets/fastcgi-php.conf;
+    fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+  }
 
-    location ~ /\.ht {
-      deny all;
-    }
+  location ~ /\.ht {
+    deny all;
+  }
 }
 ```
 
 ## Two apps on same domains (PM2 edition)
 
-*Config to use Nuxt.js SSR app on same domain with Laravel app*
+*Config to use Nuxt.js SSR app on same domain with PHP app*
 
 ```nginx
 server {
   listen 80;
-  server_name ewilan-riviere.com www.ewilan-riviere.com;
-  root /home/ewilan/www/portfolio-back/public;
+  server_name my-domain.com;
+  root /home/user/www/my-project-back/public;
   index index.php;
 
-  error_log /var/log/nginx/ewilan-riviere.com.log warn;
-  access_log  /var/log/nginx/ewilan-riviere.com.log;
+  error_log /var/log/nginx/my-project-back-error.log warn;
+  access_log /var/log/nginx/my-project-back-access.log;
 
   location / {
     include proxy_params;
@@ -145,9 +136,9 @@ module.exports = {
   apps : [
     // ...
     {
-      name: 'portfolio',
+      name: 'my-project',
       script: 'npm',
-      cwd: '/home/ewilan/www/portfolio-front',
+      cwd: '/home/ewilan/www/my-project-front',
       args: 'start',
       env: {
         PORT: 3001
