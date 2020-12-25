@@ -1,7 +1,7 @@
 ---
 title: Add subdomain
 description: ''
-position: 1
+position: 3
 category: 'NGINX'
 ---
 

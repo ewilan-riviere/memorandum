@@ -1,7 +1,7 @@
 ---
 title: Examples
 description: Examples of boiler plates NGINX configurations
-position: 1
+position: 2
 category: 'NGINX'
 ---
 
@@ -18,7 +18,7 @@ server {
   access_log /var/log/nginx/my-project-access.log;
 
   location / {
-    try_files $uri $uri/ =404;
+    try_files $uri $uri/ /index.php?$query_string;
   }
 
   location ~ \.php$ {
@@ -84,7 +84,7 @@ server {
   access_log /var/log/nginx/my-project-access.log;
 
   location / {
-    try_files $uri $uri/ /index.php$is_args$args;
+    try_files $uri $uri/ /index.php?$query_string;
   }
 
   location ~ \.php$ {
