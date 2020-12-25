@@ -5,7 +5,13 @@ position: 1
 category: 'Work in progress'
 ---
 
-## PHP / Laravel
+## PHP
+
+```bash
+sudo update-alternatives --config php
+```
+
+## Laravel
 
 ```bash
 cp .env.example .env
