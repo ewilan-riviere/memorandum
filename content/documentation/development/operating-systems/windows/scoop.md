@@ -152,6 +152,7 @@ You can find many package with **scoop**, you can see below just some examples:
 - php7.4-nts [php]
 - python [main]
 - rust [main]
+- symfony-cli [main]
 
 ### For development
 
