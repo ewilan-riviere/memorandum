@@ -27,11 +27,12 @@ module.exports = {
     {
       name: 'deploy',
       script: 'index.js',
-      cwd: '/home/jack/drone-manual'
+      cwd: '/home/jack/drone-manual',
+      env: {
+          PORT: 30001
+      },
     },
-    {
-      // some project
-    }
+    // some projects
   ]
 };
 ```
@@ -39,7 +40,7 @@ module.exports = {
 Then configure `.env` file, just copy `.env.example` to `.env` and fill it with infos:
 
 ```yaml[~/drone-manual/.env]
-PORT=3000
+PORT=3001
 WEBHOOK_PATH=/deploy
 WEBSCRIPT_PATH=
 SCRIPT_KEY=
