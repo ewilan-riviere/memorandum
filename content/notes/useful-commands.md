@@ -7,15 +7,21 @@ category: 'Work in progress'
 
 ## PHP
 
+Linux change PHP version
+
 ```bash
 sudo update-alternatives --config php
 ```
 
 ## Laravel
 
+Create `.env`
+
 ```bash
 cp .env.example .env
 ```
+
+Download `composer` dependencies
 
 <code-group>
   <code-block label="Composer" active>
@@ -34,9 +40,19 @@ cp .env.example .env
   </code-block>
 </code-group>
 
+Linus setup permissions
+
+```bash
+sudo chown -R $USER:www-data * ; echo sudo chmod -R ug+rwx storage bootstrap/cache
+```
+
+Setup `key:generate` & `storage:link`
+
 ```bash
 php artisan key:generate ; php artisan storage:link
 ```
+
+Migrate database
 
 <code-group>
   <code-block label="Migrate" active>
@@ -55,20 +71,28 @@ php artisan key:generate ; php artisan storage:link
   </code-block>
 </code-group>
 
+Clear all
+
+```bash
+php artisan cache:clear ; php artisan config:clear ; php artisan route:clear
+```
+
+List routes (compact mode)
+
 ```bash
 php artisan route:list --compact
 ```
+
+[**laravel-ide-helper**](https://github.com/barryvdh/laravel-ide-helper) generate command
 
 ```bash
 php artisan ide-helper:generate ; php artisan ide-helper:models ; php artisan ide-helper:meta
 ```
 
-```bash
-./vendor/bin/php-cs-fixer fix
-```
+[**PHP-CS-Fixer**](https://github.com/FriendsOfPHP/PHP-CS-Fixer) fix all PHP files
 
 ```bash
-php artisan cache:clear ; php artisan config:clear ; php artisan route:clear
+./vendor/bin/php-cs-fixer fix
 ```
 
 ## Scoop update
