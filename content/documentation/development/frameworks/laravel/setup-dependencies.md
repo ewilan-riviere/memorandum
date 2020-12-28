@@ -14,7 +14,7 @@ sudo chgrp -R www-data storage bootstrap/cache ; sudo chmod -R ug+rwx storage bo
 ```
 
 ```bash
-sudo chown -R $USER:www-data * && sudo chmod -R ug+rwx storage bootstrap/cache && git checkout .
+sudo chown -R $USER:www-data * ; sudo chmod -R ug+rwx storage bootstrap/cache ; git checkout .
 ```
 
 ## PHP CS Fixer
@@ -81,22 +81,9 @@ Execute this command fix all files
 composer require --dev barryvdh/laravel-ide-helper
 ```
 
-<code-group>
-  <code-block label="Linux" active>
-
-  ```bash
-  php artisan ide-helper:generate && php artisan ide-helper:models && php artisan ide-helper:meta && php artisan ide-helper:eloquent
-  ```
-
-  </code-block>
-  <code-block label="Windows">
-
-  ```bash
-  php artisan ide-helper:generate ; php artisan ide-helper:models ; php artisan ide-helper:meta ; php artisan ide-helper:eloquent
-  ```
-
-  </code-block>
-</code-group>
+```bash
+php artisan ide-helper:generate ; php artisan ide-helper:models ; php artisan ide-helper:meta ; php artisan ide-helper:eloquent
+```
 
 ## Laravel Swagger
 
@@ -207,7 +194,7 @@ php artisan ui vue --auth
 :::
 
 ```bash
-yarn && yarn dev
+yarn ; yarn dev
 ```
 
 ## Laravel Tailwind CSS | DEPRECATED
@@ -233,5 +220,5 @@ php artisan ui tailwindcss --auth
 :::
 
 ```bash
-yarn && yarn dev
+yarn ; yarn dev
 ```

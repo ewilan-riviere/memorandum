@@ -139,11 +139,11 @@ If doesn't work go to next step.
 ## Update Linux
 
 ```bash
-sudo apt update && sudo apt -y upgrade
+sudo apt update ; sudo apt -y upgrade
 ```
 
 ```bash
-sudo apt install -y curl git nethogs vim ssh zip unzip php-zip fonts-firacode net-tools speedtest-cli && sudo chmod u+s $(which nethogs)
+sudo apt install -y curl git nethogs vim ssh zip unzip php-zip fonts-firacode net-tools speedtest-cli ; sudo chmod u+s $(which nethogs)
 ```
 
 ```bash
@@ -181,14 +181,14 @@ Add this configuration at the end
 
 ```bash
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] ; \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] ; \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 ```
 
 Install Node.js **14.15.1**
 
 ```bash
-source ~/.profile && nvm ls-remote && nvm install 14.15.1 && nvm use 14.15.1 && nvm alias default 14.15.1 && nvm use default && nvm ls && node -v
+source ~/.profile ; nvm ls-remote ; nvm install 14.15.1 ; nvm use 14.15.1 ; nvm alias default 14.15.1 ; nvm use default ; nvm ls ; node -v
 ```
 
 Install yarn
@@ -200,7 +200,7 @@ npm install -g yarn
 Install NGINX
 
 ```bash
-sudo apt update && sudo apt install -y nginx && sudo ufw allow 'Nginx HTTP'
+sudo apt update ; sudo apt install -y nginx ; sudo ufw allow 'Nginx HTTP'
 ```
 
 ```bash
@@ -208,5 +208,5 @@ sudo apt install -y php-fpm php-mysql
 ```
 
 ```bash
-sudo mv composer.phar /usr/local/bin/composer && sudo chown -R $USER ~/.config/composer/ && composer global require laravel/installer
+sudo mv composer.phar /usr/local/bin/composer ; sudo chown -R $USER ~/.config/composer/ ; composer global require laravel/installer
 ```

@@ -27,13 +27,13 @@ ssh root@xxx.xx.xx.xxx
 **Update Linux and add new user**
 
 ```bash
-apt update && apt upgrade && adduser jack && usermod -aG sudo jack
+apt update ; apt upgrade ; adduser jack ; usermod -aG sudo jack
 ```
 
 **Enable firewall**
 
 ```bash
-sudo apt install -y ufw && sudo ufw app list && sudo ufw allow OpenSSH && sudo ufw enable && sudo ufw status
+sudo apt install -y ufw ; sudo ufw app list ; sudo ufw allow OpenSSH ; sudo ufw enable ; sudo ufw status
 ```
 
 :::tip If server
@@ -41,7 +41,7 @@ sudo apt install -y ufw && sudo ufw app list && sudo ufw allow OpenSSH && sudo u
 **Copy SSH keys from *root* to *jack***
 
 ```bash
-mkdir /home/jack/.ssh/ && cp /root/.ssh/authorized_keys /home/jack/.ssh/ && chown -R jack:jack /home/jack/.ssh/ && chmod -R 700 /home/jack/.ssh/
+mkdir /home/jack/.ssh/ ; cp /root/.ssh/authorized_keys /home/jack/.ssh/ ; chown -R jack:jack /home/jack/.ssh/ ; chmod -R 700 /home/jack/.ssh/
 ```
 
 Exit SSH connection
@@ -230,8 +230,8 @@ Add this into ~/.zshrc
 
 ```bash
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] ; \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] ; \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 ```
 
 Install Node.js v14.15.1 and config NVM to use it
@@ -240,7 +240,7 @@ Install Node.js v14.15.1 and config NVM to use it
   <code-block label="One command" active>
 
   ```bash
-  source ~/.zshrc && nvm ls-remote && nvm install 14.15.1 && nvm use 14.15.1 && nvm alias default 14.15.1 && nvm use default && nvm ls && node -v
+  source ~/.zshrc ; nvm ls-remote ; nvm install 14.15.1 ; nvm use 14.15.1 ; nvm alias default 14.15.1 ; nvm use default ; nvm ls ; node -v
   ```
 
   </code-block>
@@ -352,8 +352,8 @@ Add this to /home/$USER/.zshrc
 
 ```bash
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] ; \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] ; \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="$PATH:$(yarn global bin)"
 export PATH=~/.config/composer/vendor/bin:$PATH
 ```
@@ -369,7 +369,7 @@ export LANGUAGE="en_US.UTF-8"
 ```
 
 ```bash
-source .zshrc && locale
+source .zshrc ; locale
 ```
 
 ---

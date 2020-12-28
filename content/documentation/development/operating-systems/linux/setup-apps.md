@@ -18,7 +18,7 @@ npm install -g @vue/cli eslint @vue/cli-service-global
 [**Visual Studio Code**](https://code.visualstudio.com/)
 
 ```bash
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg && sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/ && sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list' && sudo apt-get install apt-transport-https && sudo apt-get update && sudo apt-get install code && rm packages.microsoft.gpg
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg ; sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/ ; sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list' ; sudo apt-get install apt-transport-https ; sudo apt-get update ; sudo apt-get install code ; rm packages.microsoft.gpg
 ```
 
 Look at this configuration: [**code.visualstudio.com**](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc)
@@ -54,7 +54,7 @@ sudo sysctl -p
 [**Spotify**](https://www.spotify.com)
 
 ```bash
-curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - && echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list && sudo apt-get update && sudo apt-get install -y spotify-client
+curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - ; echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list ; sudo apt-get update ; sudo apt-get install -y spotify-client
 ```
 
 ## 4. Postman
@@ -62,7 +62,7 @@ curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key 
 [**Postman**](https://www.postman.com/)
 
 ```bash
-curl -L  https://dl.pstmn.io/download/latest/linux64 -o postman.tar.gz && tar -xzf postman*.tar.gz && sudo rm -rf /opt/Postman && sudo mv Postman /opt/Postman && sudo ln -s /opt/Postman/Postman /usr/bin/postman
+curl -L  https://dl.pstmn.io/download/latest/linux64 -o postman.tar.gz ; tar -xzf postman*.tar.gz ; sudo rm -rf /opt/Postman ; sudo mv Postman /opt/Postman ; sudo ln -s /opt/Postman/Postman /usr/bin/postman
 ```
 
 Create icon to launch Postman from your apps
@@ -99,7 +99,7 @@ mv postman.desktop ~/.local/share/applications/
 If you want to install next apps, you need some dependencies
 
 ```bash
-sudo apt install -y libatomic1 libappindicator1 libc++1 libsecret-1-dev gconf2 && sudo apt --fix-broken install
+sudo apt install -y libatomic1 libappindicator1 libc++1 libsecret-1-dev gconf2 ; sudo apt --fix-broken install
 ```
 
 :::
@@ -109,7 +109,7 @@ sudo apt install -y libatomic1 libappindicator1 libc++1 libsecret-1-dev gconf2 &
 [**Mailspring**](https://getmailspring.com/)
 
 ```bash
-curl -L https://updates.getmailspring.com/download\?platform\=linuxDeb -o mailspring.deb && sudo dpkg -i mailspring.deb
+curl -L https://updates.getmailspring.com/download\?platform\=linuxDeb -o mailspring.deb ; sudo dpkg -i mailspring.deb
 ```
 
 ## 6. Discord
@@ -117,7 +117,7 @@ curl -L https://updates.getmailspring.com/download\?platform\=linuxDeb -o mailsp
 [**Discord**](https://discord.com/new)
 
 ```bash
-wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=deb" && sudo dpkg -i discord.deb
+wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=deb" ; sudo dpkg -i discord.deb
 ```
 
 ## 7. GitKraken
@@ -125,7 +125,7 @@ wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=d
 [**GitKraken**](https://www.gitkraken.com/)
 
 ```bash
-curl -L https://www.gitkraken.com/download/linux-deb -o gitkraken.deb && sudo dpkg -i gitkraken.deb
+curl -L https://www.gitkraken.com/download/linux-deb -o gitkraken.deb ; sudo dpkg -i gitkraken.deb
 ```
 
 ## 8. Video player
@@ -145,7 +145,7 @@ sudo apt install -y chromium-browser
 ### Google Chrome
 
 ```bash
-sudo sh -c 'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list' && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - && sudo apt-get update
+sudo sh -c 'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list' ; wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - ; sudo apt-get update
 ```
 
 ```bash

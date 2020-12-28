@@ -21,7 +21,7 @@ composer require backpack/crud:"4.1.*"
 ```
 
 ```bash
-composer require backpack/generators --dev && laracasts/generators --dev
+composer require backpack/generators --dev ; laracasts/generators --dev
 ```
 
 ```bash
@@ -33,7 +33,7 @@ php artisan backpack:install
 - Create **migration** (in case you're starting from scratch)
 
 ```bash
-php artisan make:migration:schema create_tags_table --model=0 --schema="name:string:unique" && php artisan migrate
+php artisan make:migration:schema create_tags_table --model=0 --schema="name:string:unique" ; php artisan migrate
 ```
 
 - Create a **Model** with **Request** and **Controller** for the admin panel

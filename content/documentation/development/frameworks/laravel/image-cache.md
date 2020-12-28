@@ -240,7 +240,7 @@ sudo chmod ug+rwx storage bootstrap/cache
 ```
 
 ```bash
-php artisan cache:clear && php artisan config:clear && php artisan route:clear
+php artisan cache:clear ; php artisan config:clear ; php artisan route:clear
 ```
 
 ## Usage

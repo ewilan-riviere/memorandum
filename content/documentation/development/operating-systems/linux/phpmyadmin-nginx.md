@@ -148,7 +148,7 @@ It's only optional but if you want to upgrade phpMyAdmin and avoid common errors
 *backup old version, recreate phpmyadmin folder, create tmp directory for phpmyadmin, rights on tmp directory, move to the directory*
 
 ```bash
-sudo mv /usr/share/phpmyadmin/ /usr/share/phpmyadmin.bak && sudo mkdir /usr/share/phpmyadmin/ && sudo mkdir /usr/share/phpmyadmin/tmp && sudo chown www-data:www-data /usr/share/phpmyadmin/tmp && cd /usr/share/phpmyadmin/
+sudo mv /usr/share/phpmyadmin/ /usr/share/phpmyadmin.bak ; sudo mkdir /usr/share/phpmyadmin/ ; sudo mkdir /usr/share/phpmyadmin/tmp ; sudo chown www-data:www-data /usr/share/phpmyadmin/tmp ; cd /usr/share/phpmyadmin/
 ```
 
 An example for **5.0.2** phpMyAdmin version
@@ -160,7 +160,7 @@ sudo wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-lan
 *extract content of downloded .tar.gz, move files to phpmyadmin directory*
 
 ```bash
-sudo tar xzf phpMyAdmin-*-all-languages.tar.gz && sudo mv phpMyAdmin-*-all-languages/* /usr/share/phpmyadmin
+sudo tar xzf phpMyAdmin-*-all-languages.tar.gz ; sudo mv phpMyAdmin-*-all-languages/* /usr/share/phpmyadmin
 ```
 
 ### 3. a. Blowfish secret
@@ -192,7 +192,7 @@ $cfg['blowfish_secret'] = ''; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
 Check phpMyAdmin on [**http://localhost/phpmyadmin**](http://localhost/phpmyadmin) if you have default config. If you can access to it, you can delete save.
 
 ```bash
-sudo rm -rf /usr/share/phpmyadmin.bak && sudo rm /usr/share/phpMyAdmin*.tar.gz
+sudo rm -rf /usr/share/phpmyadmin.bak ; sudo rm /usr/share/phpMyAdmin*.tar.gz
 ```
 
 If not exist, you have to configure a new file for this version.

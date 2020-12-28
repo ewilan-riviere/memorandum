@@ -188,7 +188,7 @@ export default {
       for (let i = 0; i < this.selectedCategory.entities.length; i++) {
         this.$refs[`collapse-${i}`][0].false()
       }
-      if (this.currentOpened === id && this.switched === false) {
+      if (this.currentOpened === id ; this.switched === false) {
         this.$refs[`collapse-${id}`][0].false()
         this.switched = true
       } else {

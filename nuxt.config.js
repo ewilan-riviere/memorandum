@@ -238,7 +238,7 @@ export default {
       }
     },
     // 'content:file:beforeInsert': async (document, database) => {
-    //   if (document.extension === '.json' && document.body) {
+    //   if (document.extension === '.json' ; document.body) {
     //     const data = await database.markdown.toJSON(document.body)
 
     //     Object.assign(document, data)

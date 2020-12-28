@@ -22,7 +22,7 @@ If you don't allow NGINX on firewall, your domain cannot be loaded.
 :::
 
 ```bash
-sudo apt update && sudo apt install -y nginx && sudo ufw allow 'Nginx HTTP' && sudo ufw allow 'Nginx HTTPS' && sudo ufw allow 'Nginx Full'
+sudo apt update ; sudo apt install -y nginx ; sudo ufw allow 'Nginx HTTP' ; sudo ufw allow 'Nginx HTTPS' ; sudo ufw allow 'Nginx Full'
 ```
 
 ## 2. MySQL
@@ -30,7 +30,7 @@ sudo apt update && sudo apt install -y nginx && sudo ufw allow 'Nginx HTTP' && s
 Install MySQL
 
 ```bash
-sudo apt install -y mysql-server && sudo mysql_secure_installation
+sudo apt install -y mysql-server ; sudo mysql_secure_installation
 ```
 
 :::tip About installation
@@ -176,7 +176,7 @@ server {
 Setup rights on web server folder `/var/www`, create root folder for the app and `index.php`
 
 ```bash
-sudo chown -R $USER:www-data /var/www && sudo mkdir /var/www/my-domain && sudo touch /var/www/my-domain/index.php && sudo vim /var/www/my-domain/index.php
+sudo chown -R $USER:www-data /var/www ; sudo mkdir /var/www/my-domain ; sudo touch /var/www/my-domain/index.php ; sudo vim /var/www/my-domain/index.php
 ```
 
 Fill `index.php` with basic infos
@@ -204,7 +204,7 @@ Fill `index.php` with basic infos
 Make symbolic link with NGINX conf and `sites-enabled` to enable this conf, check NGINX configuration and reload NGINX to refresh web server
 
 ```bash
-sudo ln -s /etc/nginx/sites-available/my-domain.localhost /etc/nginx/sites-enabled && sudo nginx -t && sudo service nginx reload
+sudo ln -s /etc/nginx/sites-available/my-domain.localhost /etc/nginx/sites-enabled ; sudo nginx -t ; sudo service nginx reload
 ```
 
 And now, you can access to you domain to [**http://my-domain.localhost**](http://my-domain.localhost)

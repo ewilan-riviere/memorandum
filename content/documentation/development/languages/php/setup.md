@@ -38,7 +38,7 @@ It's will install latest **stable** version of PHP-fpm, so you will maybe need a
 You can check PHP version with `php -v`, if you want to upgrade this version follow next steps. You have to add new source for `apt`
 
 ```bash
-sudo add-apt-repository -y ppa:ondrej/php && sudo apt update
+sudo add-apt-repository -y ppa:ondrej/php ; sudo apt update
 ```
 
 Now you can download new PHP version
@@ -188,7 +188,7 @@ With PPA `ondrej/php`, we can install all PHP versions
 Add PPA to `apt`
 
 ```bash
-sudo add-apt-repository -y ppa:ondrej/php && sudo apt update
+sudo add-apt-repository -y ppa:ondrej/php ; sudo apt update
 ```
 
 Install PHP FPM 7.4 with extensions

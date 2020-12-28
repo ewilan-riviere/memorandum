@@ -59,7 +59,7 @@
 
                   <transition v-if="query" name="fade">
                     <ul
-                      v-if="Array.isArray(articles) && articles.length"
+                      v-if="Array.isArray(articles) ; articles.length"
                       v-click-outside="hideSearch"
                       class="absolute w-full p-3 bg-white border-b-2 border-l-2 border-r-2 border-gray-200 shadow-xl rounded-b-md"
                     >

@@ -67,7 +67,7 @@ Use `.git/hooks/post-merge` like:
 
 ```bash
 #!/bin/bash
-yarn && yarn build
+yarn ; yarn build
 pm2 restart memorandum
 ```
 

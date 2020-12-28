@@ -71,11 +71,11 @@ cd /media/$USER/
 You will have two partitions `boot` & `rootfs`, you have to enable SSH.
 
 ```bash
-cd /media/$USER/boot/ && touch ssh
+cd /media/$USER/boot/ ; touch ssh
 ```
 
 ```bash
-cd /media/$USER/rootfs/boot/ && touch ssh
+cd /media/$USER/rootfs/boot/ ; touch ssh
 ```
 
 Now, SSH is enabled and you can unmount SD Card (with **Nautilus** for example). And insert SD Card to Raspberry PI, insert ethernet cable and power on. Wait some seconds and try to connect with terminal.
@@ -159,7 +159,7 @@ ssh root@raspberrypi.local
 Delete `pi` and create new user
 
 ```bash
-userdel pi && useradd -m newuser && passwd newuser && usermod -aG sudo newuser
+userdel pi ; useradd -m newuser ; passwd newuser ; usermod -aG sudo newuser
 ```
 
 Logout SSH and SSH with `newuser`

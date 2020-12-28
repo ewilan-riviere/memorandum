@@ -23,7 +23,7 @@ wget -O flutter_linux_1.22.4-stable.tar.xz "https://storage.googleapis.com/flutt
 ```
 
 ```bash
-mv flutter_linux*.tar.xz ~/Android && tar xf ~/Android/flutter_linux*.tar.xz ~/Android
+mv flutter_linux*.tar.xz ~/Android ; tar xf ~/Android/flutter_linux*.tar.xz ~/Android
 ```
 
 Add this `.profile`, `.bashrc` or `.zshrc`
@@ -97,7 +97,7 @@ Run `flutter doctor` to check if evrything is okay
 Respect CamelCase for app name
 
 ```bash
-flutter create myApp && cd myApp
+flutter create myApp ; cd myApp
 ```
 
 Download all Java dependencies to execute app, this will take long time at the first execution.
@@ -114,7 +114,7 @@ Accept to `always open Dart DevTools`
 You need to install **Google Chrome**
 
 ```bash
-sudo sh -c 'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list' && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - && sudo apt-get update
+sudo sh -c 'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list' ; wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - ; sudo apt-get update
 ```
 
 ```bash

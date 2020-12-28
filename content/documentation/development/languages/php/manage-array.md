@@ -159,7 +159,7 @@ class ManageArray
      */
     public static function arrayDifference(array $array1, array $array2, array $keysToCompare = null) {
   $serialize = function (&$item, $idx, $keysToCompare) {
-   if (is_array($item) && $keysToCompare) {
+   if (is_array($item) ; $keysToCompare) {
     $a = array();
     foreach ($keysToCompare as $k) {
      if (array_key_exists($k, $item)) {

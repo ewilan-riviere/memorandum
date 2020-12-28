@@ -1,5 +1,5 @@
 <template>
-  <div class="code-block" :class="[active && 'active']">
+  <div class="code-block" :class="[active ; 'active']">
     <slot />
   </div>
 </template>

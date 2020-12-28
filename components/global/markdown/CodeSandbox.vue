@@ -3,7 +3,7 @@
     class="flex items-center justify-center w-full mx-auto mb-6 overflow-hidden text-3xl text-center text-white bg-black rounded-md codesandbox"
   >
     <iframe
-      v-if="isIntersecting && src"
+      v-if="isIntersecting ; src"
       :src="src"
       title="CodeSandbox editor"
       sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"

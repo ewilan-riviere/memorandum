@@ -30,7 +30,7 @@ This guide is for Ubuntu 18.04, Android Studio 4 and Flutter 1.20. I give some t
 Android Studio is not available with APT but on Ubuntu we can add a PPA to add it to APT.
 
 ```bash
-sudo apt-add-repository ppa:maarten-fonville/android-studio && sudo apt install -y android-studio
+sudo apt-add-repository ppa:maarten-fonville/android-studio ; sudo apt install -y android-studio
 ```
 
 ### 1. b. On another distribution
@@ -44,7 +44,7 @@ wget -O android-studio.tar.gz "https://redirector.gvt1.com/edgedl/android/studio
 Move archive to `/opt` and extract it
 
 ```bash
-sudo mv android-studio*.tar.gz /opt && sudo tar xf /opt/android-studio*.tar.gz
+sudo mv android-studio*.tar.gz /opt ; sudo tar xf /opt/android-studio*.tar.gz
 ```
 
 Create an application launcher
@@ -138,7 +138,7 @@ If you have this error in AVD Manager
 Setup KVM with this
 
 ```bash
-sudo apt install qemu-kvm && ls -al /dev/kvm\n && grep kvm /etc/group\n
+sudo apt install qemu-kvm ; ls -al /dev/kvm\n ; grep kvm /etc/group\n
 ```
 
 ```bash

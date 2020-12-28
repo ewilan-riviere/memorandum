@@ -10,7 +10,7 @@ category: ''
 <spoiler label="Config">
 
 ```bash
-sudo apt update && sudo apt upgrade
+sudo apt update ; sudo apt upgrade
 ```
 
 </spoiler>
@@ -19,7 +19,7 @@ sudo apt update && sudo apt upgrade
 <spoiler label="Config">
 
 ```bash
-sudo apt update && sudo apt upgrade
+sudo apt update ; sudo apt upgrade
 \```
 
 </spoiler>

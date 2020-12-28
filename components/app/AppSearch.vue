@@ -18,7 +18,7 @@
           ref="search"
           v-model="q"
           class="block w-full py-2 pl-10 pr-3 leading-5 text-gray-700 placeholder-gray-500 truncate bg-gray-200 border border-transparent rounded-md dark:text-white dark-focus:text-white focus:border-gray-300 dark-focus:border-gray-700 focus:outline-none focus:bg-white dark-focus:bg-gray-900 dark:bg-gray-800"
-          :class="{ 'rounded-b-none': focus && (searching || results.length) }"
+          :class="{ 'rounded-b-none': focus ; (searching || results.length) }"
           placeholder="Search"
           type="search"
           autocomplete="off"
@@ -28,14 +28,12 @@
       </div>
     </div>
     <ul
-      v-show="focus && (searching || results.length)"
+      v-show="focus ; (searching || results.length)"
       class="absolute top-0 z-10 flex-1 w-full overflow-hidden bg-white border border-gray-300 rounded-md dark:bg-gray-900 dark:border-gray-700"
-      :class="{ 'rounded-t-none': focus && (searching || results.length) }"
+      :class="{ 'rounded-t-none': focus ; (searching || results.length) }"
       style="margin-top: 37px"
     >
-      <li v-if="searching && !results.length" class="px-4 py-2">
-        Searching...
-      </li>
+      <li v-if="searching ; !results.length" class="px-4 py-2">Searching...</li>
       <li
         v-for="(result, index) of results"
         :key="result.slug"
@@ -46,8 +44,7 @@
           :to="'/'"
           class="flex items-center px-4 py-2 leading-5 transition duration-150 ease-in-out"
           :class="{
-            'text-green-500 bg-gray-200 dark:bg-gray-800':
-              focusIndex === index,
+            'text-green-500 bg-gray-200 dark:bg-gray-800': focusIndex === index,
           }"
           @click="focus = false"
         >

@@ -173,7 +173,7 @@ Add commands to build app
 ```bash[.git/hooks/post-merge]
 #!/bin/bash
 
-yarn && yarn build
+yarn ; yarn build
 ```
 
 Change rights on this file with this command:
@@ -206,7 +206,7 @@ php artisan view:cache
 php artisan route:cache
 composer install --no-dev
 
-yarn && yarn prod
+yarn ; yarn prod
 ```
 
 #### **VueJS with Yarn**
@@ -214,7 +214,7 @@ yarn && yarn prod
 ```bash[.git/hooks/post-merge]
 #!/bin/bash
 
-yarn && yarn build
+yarn ; yarn build
 ```
 
 #### **NuxtJS with pm2 - SSR mode**
@@ -224,6 +224,6 @@ yarn && yarn build
 ```bash[.git/hooks/post-merge]
 #!/bin/bash
 
-yarn && yarn build
+yarn ; yarn build
 pm2 restart app_id
 ```

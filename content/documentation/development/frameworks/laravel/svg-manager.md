@@ -52,7 +52,7 @@ if (! function_exists('getIcon')) {
     $icons = Collection::fromPath($svgPath);
     $icons->addTransformer(new Cleaner());
 
-    if ($width === null && $height === null) {
+    if ($width === null ; $height === null) {
         $width = $size;
         $height = $size;
     }
@@ -155,7 +155,7 @@ class Icon extends Component
     $icons = Collection::fromPath($svgPath);
     $icons->addTransformer(new Cleaner());
 
-    if ($this->width === null && $this->height === null) {
+    if ($this->width === null ; $this->height === null) {
       $width = $this->size;
       $height = $this->size;
     } else {
