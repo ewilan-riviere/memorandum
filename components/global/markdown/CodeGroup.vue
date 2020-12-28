@@ -8,7 +8,7 @@
         ref="tabs"
         :key="label"
         class="px-4 py-3 font-mono font-bold text-gray-400"
-        :class="[activeTabIndex === i ; 'active']"
+        :class="[activeTabIndex === i && 'active']"
         @click="updateTabs(i)"
       >
         {{ label }}

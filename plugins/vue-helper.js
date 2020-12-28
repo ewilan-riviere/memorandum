@@ -2,7 +2,7 @@ import Vue from 'vue'
 
 // slugify text
 const slugify = (text) => {
-  if (text !== null ; text !== undefined) {
+  if (text !== null && text !== undefined) {
     return text
       .toString()
       .toLowerCase()

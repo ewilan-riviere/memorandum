@@ -35,7 +35,7 @@ export default {
   methods: {
     configSettings() {
       if (
-        Object.keys(this.$store.state.settings).length === 0 ;
+        Object.keys(this.$store.state.settings).length === 0 &&
         this.$store.state.settings.constructor === Object
       ) {
         this.$store.commit('setSettings', settings)
