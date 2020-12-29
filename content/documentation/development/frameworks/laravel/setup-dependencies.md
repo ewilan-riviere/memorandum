@@ -115,17 +115,58 @@ php artisan ide-helper:generate ; php artisan ide-helper:models ; php artisan id
 [**github.com/DarkaOnLine/L5-Swagger**](https://github.com/DarkaOnLine/L5-Swagger)
 :::
 
+Add `l5-swagger`
+
 ```bash
 composer require "darkaonline/l5-swagger"
 ```
+
+Publish config
 
 ```bash
 php artisan vendor:publish --provider "L5Swagger\L5SwaggerServiceProvider"
 ```
 
-```bash
+Add this to `.env`
+
+```js[.env]
 L5_SWAGGER_GENERATE_ALWAYS=true
 ```
+
+You can update `config/l5-swagger.php`
+
+```bash
+php artisan storage:link
+```
+
+```php [config/l5-swagger.php]
+<?php
+
+return [
+  // ...
+  'documentations' => [
+    'default' => [
+      'api' => [
+        'title' => 'My beautiful API documentation', // Update title
+      ],
+      // ...
+    ],
+  ],
+  'defaults' => [
+    // ...
+    'group_options' => [
+      'api' // Add this to add api/ routes
+    ],
+  ],
+
+  'paths' => [
+    'docs' => public_path('docs'), // generate doc into 'public' dir with storage linking
+    // ...
+  ],
+];
+```
+
+Generate documentation
 
 ```bash
 php artisan l5-swagger:generate
