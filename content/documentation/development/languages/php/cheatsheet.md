@@ -5,6 +5,11 @@ position: 2
 category: 'PHP'
 ---
 
+## Useful links
+
+- <https://www.php.net>
+- <https://eilgin.github.io/php-the-right-way>
+
 ## Syntax
 
 Concat variable into string:

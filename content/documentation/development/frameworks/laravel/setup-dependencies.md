@@ -13,9 +13,24 @@ At root of Laravel's repository
 sudo chgrp -R www-data storage bootstrap/cache ; sudo chmod -R ug+rwx storage bootstrap/cache
 ```
 
-```bash
-sudo chown -R $USER:www-data * ; sudo chmod -R ug+rwx storage bootstrap/cache ; git checkout .
-```
+**OR**
+
+<code-group>
+  <code-block label="Simple" active>
+
+  ```bash
+  sudo chown -R $USER:www-data * ; sudo chmod -R ug+rwx storage bootstrap/cache
+  ```
+
+  </code-block>
+  <code-block label="Remove Git changements">
+
+  ```bash
+  sudo chown -R $USER:www-data * ; sudo chmod -R ug+rwx storage bootstrap/cache ; git checkout .
+  ```
+
+  </code-block>
+</code-group>
 
 ## PHP CS Fixer
 
@@ -29,7 +44,9 @@ Add this dependency to this project
 composer require --dev friendsofphp/php-cs-fixer
 ```
 
-Create the file `.php_cs.dist`
+```bash
+vim .php_cs.dist
+```
 
 ```php
 <?php
@@ -65,7 +82,14 @@ return PhpCsFixer\Config::create()
 ;
 ```
 
-Execute this command fix all files
+Add this to `.gitignore`
+
+```.gitignore[.gitignore]
+# ...
+.php_cs.cache
+```
+
+Execute this command to fix all files
 
 ```bash
 ./vendor/bin/php-cs-fixer fix
@@ -156,73 +180,105 @@ module.exports = {
 }
 ```
 
-:::
-
-## Laravel Auth | DEPRECATED
-
-:::tip Official doc
-[**laravel.com/docs/8.x/authentication**](https://laravel.com/docs/8.x/authentication)
-:::
-
-```bash
-composer require laravel/ui
-```
-
-## Vue.js | DEPRECATED
-
-:::tip
-[**laravel.com/docs/7.x/frontend**](https://laravel.com/docs/7.x/frontend)
-:::
-:::warning
-The UI package offer to install Bootstrap, Vue.js or React.js.
-:::
-
-Get UI for Laravel to publish Vue.js
-
-```bash
-composer require laravel/ui
-```
-
-Publish Vue.js basic
-
-```bash
-php artisan ui vue
-```
-
-:::tip Publish with Auth views
-
-```bash
-php artisan ui vue --auth
+```.editorconfig[.editorconfig]
+# ...
+[*.{vue,js}]
+indent_style = space
+indent_size = 2
 ```
 
 :::
 
+## Laravel & Tailwind CSS v2.0
+
+### Vanilla
+
 ```bash
-yarn ; yarn dev
+yarn add -D tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9 vue-template-compiler ; npx tailwindcss init
 ```
 
-## Laravel Tailwind CSS | DEPRECATED
+Add this into `tailwind.config.js`
+
+```js[tailwind.config.js]
+module.exports = {
+  purge: [
+    './resources/**/*.blade.php',
+    './resources/**/*.js',
+    './resources/**/*.vue',
+  ],
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+Remove all in `webpack.mix.js`
+
+```js[webpack.mix.js]
+const mix = require('laravel-mix')
+
+mix
+  .js('resources/js/app.js', 'public/js')
+  .postCss('resources/css/app.css', 'public/css', [require('tailwindcss')])
+```
+
+### Example with Breeze
 
 :::tip GitHub
-[**github.com/laravel-frontend-presets/tailwindcss**](https://github.com/laravel-frontend-presets/tailwindcss)
-:::
 
-```bash
-composer require laravel-frontend-presets/tailwindcss --dev
-```
-
-```bash
-php artisan ui tailwindcss
-```
-
-:::tip with Auth
-
-```bash
-php artisan ui tailwindcss --auth
-```
+[**github.com/laravel/breeze**](https://github.com/laravel/breeze)
 
 :::
 
+Install Breeze
+
 ```bash
-yarn ; yarn dev
+composer require laravel/breeze --dev ; php artisan breeze:install
+```
+
+Remove default version Tailwind in Breeze
+
+```bash
+yarn remove @tailwindcss/forms postcss-import tailwindcss autoprefixer ; rm tailwind.config.js
+```
+
+Install new Tailwind version
+
+```bash
+yarn add -D tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9 vue-template-compiler ; npx tailwindcss init
+```
+
+Add this into `tailwind.config.js`
+
+```js[tailwind.config.js]
+module.exports = {
+  purge: [
+    './resources/**/*.blade.php',
+    './resources/**/*.js',
+    './resources/**/*.vue',
+  ],
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+Remove all in `webpack.mix.js`
+
+```js[webpack.mix.js]
+const mix = require('laravel-mix')
+
+mix
+  .js('resources/js/app.js', 'public/js')
+  .postCss('resources/css/app.css', 'public/css', [require('tailwindcss')])
 ```
