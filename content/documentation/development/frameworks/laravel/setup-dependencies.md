@@ -109,8 +109,10 @@ php artisan l5-swagger:generate
 
 ## ESLint
 
+Useful with ESLint and Vue
+
 ```bash
-yarn add -D eslint eslint-plugin-vue prettier eslint-config-prettier eslint-plugin-prettier
+yarn add -D eslint eslint-plugin-vue prettier eslint-config-prettier eslint-plugin-prettier babel-eslint
 ```
 
 :::tip Automatic config
@@ -129,19 +131,21 @@ Create these files at the root of repository
 
 ```js[.eslintrc.js]
 module.exports = {
-    root: true,
-    env: {
-        browser: true,
-        es2021: true,
-    },
-    extends: [
-        // 'eslint:recommended',
-        'plugin:vue/essential',
-        'plugin:vue/recommended',
-        'plugin:prettier/recommended',
-    ],
-    plugins: ['vue', 'prettier'],
-    rules: {},
+  root: true,
+  env: {
+    node: true,
+    browser: true,
+    // es2021: true,
+  },
+  extends: [
+    'plugin:vue/essential',
+    'eslint:recommended',
+    'plugin:prettier/recommended',
+  ],
+  rules: {},
+  parserOptions: {
+    parser: 'babel-eslint',
+  },
 }
 ```
 
