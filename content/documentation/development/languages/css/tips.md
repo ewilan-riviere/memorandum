@@ -85,3 +85,35 @@ span {
   font-size: 2rem;
 }
 ```
+
+## Word wraping
+
+```css
+.word-wraping {
+  text-align: justify !important;
+  -webkit-hyphens: auto !important;
+  -moz-hyphens: auto !important;
+  -ms-hyphens: auto !important;
+  hyphens: auto !important;
+}
+```
+
+For better display
+
+```html
+<div class="word-wraping" lang="en">...</div>
+```
+
+## Import font
+
+```css
+
+@font-face {
+  font-family: "Morpheus";
+  src: url("~assets/fonts/morpheus.ttf");
+}
+
+.font-morpheus {
+  font-family: 'Morpheus';
+}
+```

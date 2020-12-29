@@ -45,6 +45,9 @@ module.exports = {
   seo: { label: 'SEO' },
   'visual-studio-code': { label: 'Visual Studio Code' },
   windows: { label: 'Windows' },
+  regex: {
+    label: 'REGEX',
+  },
 
   server: { label: 'Server' },
   'web-server': { label: 'Web server' },

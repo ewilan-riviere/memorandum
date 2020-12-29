@@ -155,3 +155,18 @@ function getDate(date) { // the param is raw DateTime from API like 2020-10-16T0
 ```
 
 Check [**developer.mozilla.org/docs/JavaScript/Date**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) to know how to get time with Date methods.
+
+## Shuffle
+
+```js
+function shuffle(a) {
+  let j, x, i
+  for (i = a.length - 1; i > 0; i--) {
+    j = Math.floor(Math.random() * (i + 1))
+    x = a[i]
+    a[i] = a[j]
+    a[j] = x
+  }
+  return a
+}
+```
