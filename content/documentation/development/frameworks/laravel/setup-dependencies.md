@@ -373,3 +373,27 @@ mix
   .js('resources/js/app.js', 'public/js')
   .postCss('resources/css/app.css', 'public/css', [require('tailwindcss')])
 ```
+
+## Blade Formatter
+
+From [**Laravel Blade formatter**](https://marketplace.visualstudio.com/items?itemName=shufo.vscode-blade-formatter), install Extension from Vieusla Studio Code
+
+In `settings.json`, add this
+
+```json[settings.json]
+{
+  // ...
+  "bladeFormatter.format.indentSize": 2,
+  "bladeFormatter.format.enabled": true,
+  "bladeFormatter.format.wrapAttributes": "auto",
+  "bladeFormatter.format.wrapLineLength": 120,
+}
+```
+
+:::tip Open `settings.json`
+
+Execute <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> to open **Preferences: Open settings (JSON)
+
+:::
+
+To find other settings with Blade formatter, check page extension.
