@@ -69,7 +69,7 @@
                   Last update: {{ $getDate(document.updatedAt) }}
                 </div>
               </div>
-              <div class="mx-auto prose prose-lg text-gray-500">
+              <div class="mx-auto mt-5 prose prose-lg text-gray-500">
                 <!-- <nuxt-content :document="document" /> -->
                 <display-document :document="document" />
               </div>
@@ -133,31 +133,48 @@ export default {
     }
   },
   head() {
+    const title = `${this.document.title} in ${this.document.category}`
+    const description = this.document.description
+      ? this.document.description
+      : 'No description'
+    const image = `${process.env.APP_URL}/documentation/logo/${this.$slugify(
+      this.document.category
+    )}.webp`
     return {
-      title: this.document.title,
+      title,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.document.description,
+          content: description,
         },
         // Open Graph
-        { hid: 'og:title', property: 'og:title', content: this.document.title },
+        { hid: 'og:title', property: 'og:title', content: title },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: this.document.description,
+          content: description,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: image,
         },
         // Twitter Card
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: this.document.title,
+          content: title,
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: this.document.description,
+          content: description,
+        },
+        {
+          hid: 'twitter:image',
+          property: 'twitter:image',
+          content: image,
         },
       ],
     }

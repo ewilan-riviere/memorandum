@@ -5,6 +5,10 @@ position: 2
 category: 'Work in progress'
 ---
 
+## Cheatsheets
+
+- [**github.com/LeCoupa/awesome-cheatsheets**](https://github.com/LeCoupa/awesome-cheatsheets)
+
 ## Icons
 
 Libraries to get SVG files
@@ -64,6 +68,8 @@ To find pictures about tech
 - [**color-hex**](https://www.color-hex.com) : tool for hexadecimal colors
 - [**Optimizilla**](https://imagecompressor.com/fr) : to optimize images
 - [**Convertio**](https://convertio.co) : to convert any file to multiple formats
+- [**sqlmap**](http://sqlmap.org) : check security of your database
+- [**ping.eu**](https://ping.eu) : check your IP and other tools
 
 ### Crawler
 

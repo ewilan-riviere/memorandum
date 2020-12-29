@@ -1,18 +1,13 @@
 ---
 title: Librairies
 description: 'Copy/paste amazing components'
-position: 3
+position: 5
 category: 'Tailwind CSS'
 ---
 
 ## Best
 
-<TailwindLibrary id="tailwind-ui" title="Tailwind UI" link="https://tailwindui.com/components" medal pay desc="Official Tailwind UI, need to pay but amazing layouts and components."></TailwindLibrary>
-<TailwindLibrary id="tailblocks" title="Tailblocks" link="https://mertjf.github.io/tailblocks" medal desc="Amazing collection of components."></TailwindLibrary>
-<TailwindLibrary id="meraki-ui" title="MerakiUI" link="https://merakiui.com" desc="Some beautiful components."></TailwindLibrary>
-<TailwindLibrary id="headless-ui" title="Headless UI" link="https://headlessui.dev" medal desc="From Tailwind Labs, some React/Vue components."></TailwindLibrary>
-<TailwindLibrary id="tailwind-toolbox" title="Tailwind Toolbox" link="https://www.tailwindtoolbox.com" desc="Some templates and some components."></TailwindLibrary>
-<TailwindLibrary id="tailwind-templates" title="Tailwind Templates" pay medal link="https://www.creative-tim.com/templates/tailwind" desc="Beautiful templates by Creative Tim"></TailwindLibrary>
+<tailwind-librairies></tailwind-librairies>
 
 ## Other
 

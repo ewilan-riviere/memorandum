@@ -29,3 +29,59 @@ span {
   Demo text &#9986;
 </span>
 ```
+
+## Image with opacity
+
+<text-on-image type="classic" />
+
+```html
+<div class="block-image-container">
+  <div class="block-image">
+    <div class="block-image-src">
+      <img src="/images/css-tips/thymara.jpg" />
+      <div class="block-image-text">
+        It's too hot to work.
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+```css
+.block-image-container .block-image {
+  position: relative;
+  width: 100%;
+}
+.block-image-container .block-image-src {
+  z-index: -1;
+}
+.block-image-src img {
+  height: 16rem;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.block-image-src::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0.2rem;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 100%;
+  background: rgba(black, 0.5);
+}
+.block-image-container .block-image-text {
+  z-index: 10;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  font-style: italic;
+  font-size: 2rem;
+}
+```

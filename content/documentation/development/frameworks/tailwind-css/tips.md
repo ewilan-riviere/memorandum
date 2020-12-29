@@ -79,60 +79,6 @@ And you will be able to use `font-dancing-script` auto-generate tailwind class, 
 
 ## Image with opacity
 
-<text-on-image type="classic" />
-
-```html
-<div class="block-image-container">
-  <div class="block-image">
-    <div class="block-image-src">
-      <img src="/images/css-tips/thymara.jpg" />
-      <div class="block-image-text">
-        It's too hot to work.
-      </div>
-    </div>
-  </div>
-</div>
-```
-
-```css
-.block-image-container .block-image {
-  position: relative;
-  width: 100%;
-}
-.block-image-container .block-image-src {
-  z-index: -1;
-}
-.block-image-src img {
-  height: 16rem;
-  width: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-.block-image-src::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0.2rem;
-  left: 0;
-  right: 0;
-  width: 100%;
-  max-width: 100%;
-  background: rgba(black, 0.5);
-}
-.block-image-container .block-image-text {
-  z-index: 10;
-  color: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  width: 100%;
-  font-style: italic;
-  font-size: 2rem;
-}
-```
-
 <text-on-image type="tailwind" />
 
 ```html
@@ -175,35 +121,17 @@ And you will be able to use `font-dancing-script` auto-generate tailwind class, 
 
 ```scss
 .link-yellow {
-    display: inline-block;
-    text-decoration: none !important;
-    background-image: linear-gradient(to right, orange, orange);
-    background-position: 0% 85%;
-    background-repeat: no-repeat;
-    background-size: 0% 2px;
-    transition: background-size .5s, color .5s;
+  display: inline-block;
+  text-decoration: none !important;
+  background-image: linear-gradient(to right, orange, orange);
+  background-position: 0% 85%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size .5s, color .5s;
 
-    &:hover {
-        color: black;
-        background-size: 100% 2px;
-    }
+  &:hover {
+    color: black;
+    background-size: 100% 2px;
+  }
 }
-```
-
-## `semi-colon expected`
-
-Common error with Vetur with **@apply** Tailwind directive. Usse `postcss` as attribute to avoid this error.
-
-```html
-<style lang="postcss">
-
-</style>
-```
-
-## Plugins
-
-For v2.0 with [this guide](https://tailwindui.com/changes-for-v2#updating-your-tailwind-ui-projects)
-
-```bash
-yarn add @tailwindcss/forms @tailwindcss/typography @tailwindcss/aspect-ratio
 ```

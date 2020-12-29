@@ -39,3 +39,4 @@ flutter_icons:
 - <https://pub.dev/packages/persistent_bottom_nav_bar>
 - <https://pub.dev/packages/advance_pdf_viewer>
 - <https://pub.dev/packages/flutter_tagging>
+- <https://pub.dev/packages/change_app_package_name>

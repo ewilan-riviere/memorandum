@@ -5,6 +5,10 @@ position: 2
 category: 'JavaScript'
 ---
 
+## VS Code
+
+- [**code.visualstudio.com/docs/languages/javascript**](https://code.visualstudio.com/docs/languages/javascript)
+
 ## Decode / Encode HTML entities
 
 ```vue

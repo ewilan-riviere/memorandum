@@ -136,6 +136,7 @@ You can find many package with **scoop**, you can see below just some examples:
 - 7zip [main]
 - curl [main]
 - git [main]
+- grep [main]
 - sudo [main]
 - touch [main]
 - vim [main]
