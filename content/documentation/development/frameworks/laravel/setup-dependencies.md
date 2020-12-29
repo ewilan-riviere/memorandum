@@ -166,6 +166,62 @@ return [
 ];
 ```
 
+Into main API Controller
+
+```php[app/Http/Controllers/Api/ApiController.php]
+<?php
+
+namespace App\Http\Controllers\Api;
+
+use App\Models\Formation;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Route;
+
+/**
+ * @OA\Info(
+ *     version="1.0.0",
+ *     title="API",
+ *     description="My Documentation"
+ * ),
+ * @OA\Tag(
+ *     name="global",
+ *     description="Global requests"
+ * ),
+ */
+class ApiController extends Controller
+{
+  // ...
+}
+```
+
+In any controller
+
+```php[app/Http/Controllers/Api/AnyController.php]
+<?php
+
+// ...
+
+class AnyController extends Controller
+{
+  /**
+    * @OA\Get(
+    *     path="/products",
+    *     tags={"global"},
+    *     summary="List of products",
+    *     description="Products",
+    *     @OA\Response(
+    *         response=200,
+    *         description="Successful operation"
+    *     )
+    * )
+    */
+  public function index()
+  {
+    // ...
+  }
+}
+```
+
 Generate documentation
 
 ```bash
