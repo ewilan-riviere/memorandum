@@ -133,13 +133,7 @@ Add this to `.env`
 L5_SWAGGER_GENERATE_ALWAYS=true
 ```
 
-You can update `config/l5-swagger.php`
-
-```bash
-php artisan storage:link
-```
-
-```php [config/l5-swagger.php]
+```php[config/l5-swagger.php]
 <?php
 
 return [
@@ -160,7 +154,7 @@ return [
   ],
 
   'paths' => [
-    'docs' => public_path('docs'), // generate doc into 'public' dir with storage linking
+    'docs' => public_path('docs'), // generate doc into 'public'
     // ...
   ],
 ];
