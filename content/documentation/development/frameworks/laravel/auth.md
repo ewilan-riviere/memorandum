@@ -1,7 +1,7 @@
 ---
 title: Authentication
 description: 'How to manage Authentication.'
-# position: 3
+position: 10
 category: 'Laravel'
 type: 'development'
 ---
