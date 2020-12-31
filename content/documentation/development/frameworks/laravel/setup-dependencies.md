@@ -280,7 +280,7 @@ indent_size = 2
 
 :::
 
-## Laravel & Tailwind CSS v2.0
+## Tailwind CSS v2.0
 
 ### Vanilla
 
