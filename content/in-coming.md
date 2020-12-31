@@ -37,6 +37,12 @@ description: 'Future documentations'
   - <https://github.com/junegunn/fzf#installation>
 - [ ] js
   - <https://medium.com/javascript-in-plain-english/15-hacks-in-javascript-6e3f88c90d00>
+- [ ] book api
+  - <https://www.googleapis.com/books/v1/volumes?q=isbn%3D2700229835>
+  - <https://isbnsearch.org/isbn/9780134092669>
+  - <https://www.abebooks.fr/servlet/BookDetailsPL?bi=30809599867&searchurl=ds%3D20%26kn%3Dewilan%26sortby%3D17&cm_sp=snippet>-_-srp1-_-title1
+  - <https://www.isbn-international.org/>
+  - <http://fr.feedbooks.com/api>
 
 ## Parallax
 
