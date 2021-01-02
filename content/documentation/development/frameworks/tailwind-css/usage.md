@@ -1,3 +1,16 @@
+---
+title: Usage
+description: 'How to use'
+position: 7
+category: 'Tailwind CSS'
+---
+
+- [**tailwindcss.com/docs/customizing-colors**](https://tailwindcss.com/docs/customizing-colors)
+- [**tailwindcss.com/docs/dark-mode**](https://tailwindcss.com/docs/dark-mode)
+
+```js[tailwind.config.js]
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   purge: {
     // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
@@ -20,6 +33,12 @@ module.exports = {
       quicksand: ['Quicksand'],
       'handlee-regular': ['Handlee-Regular'],
     },
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      red: colors.rose,
+    }
+    // EXTEND THEME
     extend: {
       screens: {
         xl: '1280px',
@@ -37,7 +56,9 @@ module.exports = {
         'gray-nuxt': '#2F495E',
         'green-nuxt': '#00C58E',
       },
-      backgroundImage: {},
+      backgroundImage: theme => ({
+        'hero-pattern': "url('/img/hero-pattern.svg')",
+      })
       opacity: {},
       animation: {
         'bounce-slow': 'bounce-anim-slow 0.3s infinite',
@@ -58,6 +79,7 @@ module.exports = {
   },
   variants: {
     textColor: ['responsive', 'hover', 'focus', 'group-hover'],
+    backgroundImage: ['hover', 'focus'],
     scale: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
     animation: [
       'responsive',
@@ -74,3 +96,4 @@ module.exports = {
     require('@tailwindcss/aspect-ratio'),
   ],
 }
+```
