@@ -167,6 +167,7 @@ You can find many package with **scoop**, you can see below just some examples:
 - nginx [main]
 - ngrok [main]
 - nssm [main]
+- pandoc [main]
 - phpstorm [jetbrains]
 - postman [extras]
 - Victor-Mono [nerd-fonts]
