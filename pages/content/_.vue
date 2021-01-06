@@ -70,8 +70,8 @@
                 </div>
               </div>
               <div class="mx-auto mt-5 prose prose-lg text-gray-500">
-                <!-- <nuxt-content :document="document" /> -->
-                <display-document :document="document" />
+                <nuxt-content :document="document" />
+                <!-- <display-document :document="document" /> -->
               </div>
             </div>
           </article>

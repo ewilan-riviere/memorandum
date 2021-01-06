@@ -71,7 +71,8 @@
                 </div>
               </div>
               <div class="mx-auto prose prose-lg text-gray-500">
-                <display-document :document="article" />
+                <nuxt-content :document="document" />
+                <!-- <display-document :document="article" /> -->
               </div>
             </div>
           </article>
@@ -85,10 +86,10 @@
 </template>
 
 <script>
-import DisplayDocument from '~/components/blocks/DisplayDocument.vue'
+// import DisplayDocument from '~/components/blocks/DisplayDocument.vue'
 export default {
   name: 'ContentSlug',
-  components: { DisplayDocument },
+  // components: { DisplayDocument },
   // components: {
   //   ReadProgress: () =>
   //     import('vue-read-progress')
