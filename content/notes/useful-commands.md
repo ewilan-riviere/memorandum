@@ -95,6 +95,15 @@ php artisan ide-helper:generate ; php artisan ide-helper:models ; php artisan id
 ./vendor/bin/php-cs-fixer fix
 ```
 
+## MySQL database
+
+```sql
+CREATE DATABASE database_project;
+SET GLOBAL validate_password.policy=LOW;
+CREATE USER 'user_project'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password_secret';
+GRANT ALL ON database_project.* TO 'user_project'@'localhost';
+```
+
 ## Scoop update
 
 Update common packages

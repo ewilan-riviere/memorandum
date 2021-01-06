@@ -15,16 +15,17 @@ category: 'Flutter'
 
 Before to deploy iOS app, you need to clean cache
 
-**Close Xcode**
+- Close Xcode
+- Execute cleaning
 
 ```bash
-rm ios/Podfile.lock
+flutter clean ; rm -Rf ios/Pods ; rm -Rf ios/.symlinks ; rm -Rf ios:Flutter/Flutter.framework ; rm -Rf ios/Flutter/Flutter.podspec ; rm ios/Podfile ; rm ios/Podfile.lock ; flutter clean ; flutter pub get ; cd ios ; pod update ; cd ../
 ```
 
-```bash
-flutter clean ; flutter pub get
-```
+## Uncheck Runner
 
-```bash
-cd ios ; pod update ; cd ../
-```
+- [**github.com/flutter/flutter/issues/30287**](https://github.com/flutter/flutter/issues/30287)
+
+In Xcode, select **Runner**, select **TARGETS/Runner**, select **Build phases**, open **Copy Bundle Resources** and remove **Runner.app** if you find it into list of files.
+
+In project navigator, find `Runner/Info.plist`, open it and, at *right* side you have to see **Target membership**, uncheck Runner if checked.
