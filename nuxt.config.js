@@ -74,26 +74,27 @@ export default {
     // { src: '~/plugins/vue-helper' },
     // https://github.com/surmon-china/vue-awesome-swiper
     // { src: '~/plugins/vue-awesome-swiper', ssr: false },
-    // { src: '~/plugins/vue-scrollto' },
+    { src: '~/plugins/vue-scrollto' },
     // https://michalsnik.github.io/aos/
     // { src: '~/plugins/aos', ssr: false },
     { src: '~/plugins/vue-perfect-scrollbar', ssr: false },
     // https://github.com/Akryum/v-tooltip
-    // { src: '~/plugins/v-tooltip', ssr: false },
+    { src: '~/plugins/v-tooltip', ssr: false },
     // https://github.com/eddiemf/vue-scrollactive
-    // { src: '~/plugins/vue-scrollactive' },
+    { src: '~/plugins/vue-scrollactive' },
     // https://www.npmjs.com/package/vue-lazy-youtube-video
     // { src: '~/plugins/vue-lazy-youtube' },
-    // { src: '~/plugins/vue-code-info', ssr: false },
+    { src: '~/plugins/vue-code-info', ssr: false },
     { src: '~/plugins/vue-helper' },
+    { src: '~/plugins/global-loader' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   // https://github.com/nuxt/components
-  components: [
-    '~/components', // shortcut to { path: '~/components' }
-    { path: '~/components/global' },
-  ],
+  // components: [
+  //   '~/components',
+  //   { path: '~/components/global' },
+  // ],
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [

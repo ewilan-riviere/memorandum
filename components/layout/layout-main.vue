@@ -97,10 +97,8 @@ export default {
     const titlesH2 = document.querySelectorAll('h2')
     const titlesH3 = document.querySelectorAll('h3')
     const toc = document.querySelectorAll('.scrollactive-item')
-    console.log(toc)
     titlesH2.forEach((title) => {
       const id = title.getAttribute('id')
-      console.log(id)
       title.setAttribute('id', `to-${this.$slugify(id)}`)
     })
     titlesH3.forEach((title) => {

@@ -37,7 +37,7 @@
         </article>
       </div>
       <div slot="toc">
-        <app-toc :toc="about.toc"></app-toc>
+        <table-of-content :toc="about.toc"></table-of-content>
       </div>
     </layout-main>
   </div>
@@ -51,7 +51,6 @@ export default {
     const notes = await $content('notes', { deep: true })
       .sortBy('position')
       .fetch()
-    console.log(notes)
 
     return {
       about,

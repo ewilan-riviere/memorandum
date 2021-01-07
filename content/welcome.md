@@ -12,11 +12,11 @@ features:
 
 <img src="/logo/preview.png" class="light-img" width="1280" height="640" alt=""/>
 
-<global-alert type="success">
+<alert type="success">
 
 Open-source documentation about my projects, my favorites frameworks & languages...
 
-</global-alert>
+</alert>
 
 ## Features
 

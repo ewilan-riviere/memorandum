@@ -111,9 +111,7 @@ export default {
       return route
     },
     time(time) {
-      console.log(time)
       const format = new Date(time * 1000).toISOString().substr(11, 8)
-      console.log(format)
       return format
     },
   },

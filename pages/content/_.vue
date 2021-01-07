@@ -70,23 +70,25 @@
                 </div>
               </div>
               <div class="mx-auto mt-5 prose prose-lg text-gray-500">
-                <nuxt-content :document="document" />
-                <!-- <display-document :document="document" /> -->
+                <client-only>
+                  <!-- <nuxt-content :document="document" /> -->
+                  <display-document :document="document" />
+                </client-only>
               </div>
             </div>
           </article>
         </transition>
       </div>
       <div slot="toc">
-        <app-toc :toc="document.toc"></app-toc>
+        <table-of-content :toc="document.toc"></table-of-content>
       </div>
     </layout-main>
   </div>
 </template>
 
 <script>
-// import Vue from 'vue'
-// import AppCopyButton from '~/components/global/markdown/AppCopyButton'
+import Vue from 'vue'
+import AppCopyButton from '~/components/global/markdown/copy-button'
 
 export default {
   name: 'ContentSlugShort',
@@ -131,6 +133,25 @@ export default {
       prev,
       next,
     }
+  },
+  mounted() {
+    this.setCopyBtn()
+  },
+  methods: {
+    setCopyBtn() {
+      const blocks = document.getElementsByClassName('nuxt-content-highlight')
+
+      for (const block of blocks) {
+        const lastChild = block.lastChild
+        if (lastChild.className === 'copy') {
+          block.removeChild(lastChild)
+        }
+
+        const CopyButton = Vue.extend(AppCopyButton)
+        const component = new CopyButton().$mount()
+        block.appendChild(component.$el)
+      }
+    },
   },
   head() {
     const title = `${this.document.title} in ${this.document.category}`

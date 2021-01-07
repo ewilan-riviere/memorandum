@@ -40,24 +40,16 @@
       </div>
     </div>
     <!-- navbar  -->
-    <app-sidebar ref="sidebar"></app-sidebar>
-    <app-navbar
-      class="fixed z-30 hidden w-full h-16 navbar md:block"
-    ></app-navbar>
+    <sidebar ref="sidebar"></sidebar>
+    <navbar class="fixed z-30 hidden w-full h-16 navbar md:block"></navbar>
   </div>
 </template>
 
 <script>
-import AppSidebar from '@/components/layout/AppSidebar.vue'
-import AppNavbar from '@/components/layout/AppNavbar.vue'
 import ClickOutside from 'vue-click-outside'
 
 export default {
   name: 'LayoutNavigation',
-  components: {
-    AppSidebar,
-    AppNavbar,
-  },
   directives: {
     ClickOutside,
   },

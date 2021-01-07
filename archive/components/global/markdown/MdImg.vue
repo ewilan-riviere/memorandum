@@ -122,7 +122,6 @@ export default {
       path.splice(0, 1)
       path.splice(path.length - 1, 1)
       path = path.join('/')
-      console.log(path)
       this.path = path
     },
   },

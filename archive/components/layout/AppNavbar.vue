@@ -180,7 +180,7 @@
 import ClickOutside from 'vue-click-outside'
 
 export default {
-  name: 'AppNavbar',
+  name: 'Navbar',
   directives: {
     ClickOutside,
   },

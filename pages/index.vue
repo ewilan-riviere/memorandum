@@ -20,15 +20,8 @@
 </template>
 
 <script>
-import NavPages from '@/components/layout/NavPages.vue'
-import LayoutMain from '~/components/layout/layout-main.vue'
-
 export default {
   name: 'HomeIndex',
-  components: {
-    NavPages,
-    LayoutMain,
-  },
   async asyncData({ $content }) {
     const welcome = await $content('welcome', { deep: true }).fetch()
     const content = await $content('documentation', { deep: true })

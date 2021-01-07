@@ -55,13 +55,15 @@ export default {
       this.updateHighlighteUnderlinePosition()
     },
     updateHighlighteUnderlinePosition() {
-      const activeTab = this.$refs.tabs[this.activeTabIndex]
-      if (!activeTab) {
-        return
+      if (this.$refs.tabs !== undefined) {
+        const activeTab = this.$refs.tabs[this.activeTabIndex]
+        if (!activeTab) {
+          return
+        }
+        const highlightUnderline = this.$refs['highlight-underline']
+        highlightUnderline.style.left = `${activeTab.offsetLeft}px`
+        highlightUnderline.style.width = `${activeTab.clientWidth}px`
       }
-      const highlightUnderline = this.$refs['highlight-underline']
-      highlightUnderline.style.left = `${activeTab.offsetLeft}px`
-      highlightUnderline.style.width = `${activeTab.clientWidth}px`
     },
   },
 }

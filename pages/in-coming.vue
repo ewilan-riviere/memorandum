@@ -28,7 +28,7 @@
         </article>
       </div>
       <div slot="toc">
-        <app-toc :toc="inComing.toc"></app-toc>
+        <table-of-content :toc="inComing.toc"></table-of-content>
       </div>
     </layout-main>
   </div>

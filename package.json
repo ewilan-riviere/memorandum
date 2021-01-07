@@ -36,6 +36,7 @@
     "core-js": "^3.6.5",
     "nuxt": "^2.14.8",
     "reading-time": "^1.2.1",
+    "v-tooltip": "^3.0.0-alpha.17",
     "vue-click-outside": "^1.1.0",
     "vue-read-progress": "^1.0.4",
     "vue-scrollactive": "^0.9.3",

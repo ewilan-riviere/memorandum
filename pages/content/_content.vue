@@ -79,7 +79,7 @@
         </transition>
       </div>
       <div slot="toc">
-        <app-toc :toc="article.toc"></app-toc>
+        <table-of-content :toc="article.toc"></table-of-content>
       </div>
     </layout-main>
   </div>
@@ -130,9 +130,6 @@ export default {
     }
   },
   methods: {
-    action(e) {
-      console.log(e)
-    },
     getDate(date) {
       let userLang = 'en-US'
       if (process.client) {
