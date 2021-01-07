@@ -1,6 +1,6 @@
 <template>
   <div>
-    <main-layout>
+    <layout-main>
       <div slot="aside"></div>
       <div slot="main" class="">
         <article v-if="inComing" class="relative overflow-hidden bg-white">
@@ -30,7 +30,7 @@
       <div slot="toc">
         <app-toc :toc="inComing.toc"></app-toc>
       </div>
-    </main-layout>
+    </layout-main>
   </div>
 </template>
 

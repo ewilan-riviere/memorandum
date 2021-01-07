@@ -1,6 +1,6 @@
 <template>
   <div>
-    <main-layout>
+    <layout-main>
       <div slot="aside">
         <nuxt-link
           v-for="note in notes"
@@ -39,7 +39,7 @@
       <div slot="toc">
         <app-toc :toc="about.toc"></app-toc>
       </div>
-    </main-layout>
+    </layout-main>
   </div>
 </template>
 

@@ -14,7 +14,7 @@
           {{ link.label }}
         </a> -->
         <nuxt-link to="/">
-          <logo-memo class="text-xl font-bold"></logo-memo>
+          <logo class="text-xl font-bold"></logo>
         </nuxt-link>
       </nav>
       <!-- <div class="flex justify-center mt-8 space-x-6">

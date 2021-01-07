@@ -1,6 +1,6 @@
 <template>
   <div>
-    <main-layout
+    <layout-main
       :image="$slugify(document.pathsObj.entity)"
       :back-route="{
         name: 'type-slug',
@@ -80,7 +80,7 @@
       <div slot="toc">
         <app-toc :toc="document.toc"></app-toc>
       </div>
-    </main-layout>
+    </layout-main>
   </div>
 </template>
 

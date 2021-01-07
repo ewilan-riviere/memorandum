@@ -55,7 +55,7 @@ module.exports = {
       cwd: '/home/ewilan/www/memorandum',
       args: 'start',
       env: {
-        PORT: 3001
+        PORT: 3002
       },
     },
     // ...

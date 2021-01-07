@@ -1,6 +1,6 @@
 <template>
   <div>
-    <main-layout>
+    <layout-main>
       <div slot="aside">
         <switch-categories
           :pages="pages"
@@ -91,7 +91,7 @@
         </div>
       </div>
       <div slot="toc"></div>
-    </main-layout>
+    </layout-main>
   </div>
 </template>
 

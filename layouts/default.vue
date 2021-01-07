@@ -1,9 +1,9 @@
 <template>
   <div>
-    <navigation></navigation>
+    <layout-navigation />
     <Nuxt class="min-h-screen pt-16" />
-    <app-footer></app-footer>
-    <app-back-to-top />
+    <layout-footer />
+    <layout-back-to-top />
     <client-only>
       <tailwind-helper />
     </client-only>
@@ -11,18 +11,19 @@
 </template>
 
 <script>
-import AppFooter from '@/components/layout/AppFooter'
-import AppBackToTop from '@/components/layout/AppBackToTop'
-import Navigation from '@/components/layout/Navigation.vue'
+// import AppFooter from '@/components/layout/AppFooter'
 import settings from '~/content/settings.json'
+import LayoutBackToTop from '~/components/layout/layout-back-to-top.vue'
+import LayoutFooter from '~/components/layout/layout-footer.vue'
+import LayoutNavigation from '~/components/layout/layout-navigation.vue'
 
 export default {
   name: 'LayoutDefault',
 
   components: {
-    AppFooter,
-    AppBackToTop,
-    Navigation,
+    LayoutBackToTop,
+    LayoutFooter,
+    LayoutNavigation,
   },
   data() {
     return {

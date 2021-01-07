@@ -46,6 +46,8 @@ description: 'Future documentations'
   - <https://fr.z-lib.org>
   - <https://booksjar.com>
   - <https://allbooksworld.com>
+- hub projects
+  - <https://md-interpreter.git-projects.xyz>
 
 ## Parallax
 

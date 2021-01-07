@@ -11,7 +11,7 @@
             aria-label="Nuxt Content Logo"
             class="flex-1 flex-shrink-0 text-xl font-bold nuxt-link-exact-active nuxt-link-active"
           >
-            <logo />
+            <LogoMemo></LogoMemo>
             <!-- <img
                 src="/logo-light.svg"
                 alt="Nuxt Content"
