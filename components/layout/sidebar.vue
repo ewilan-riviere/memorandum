@@ -84,10 +84,10 @@ export default {
 
 <style lang="postcss" scoped>
 .router-link-exact-active {
-  @apply text-blue-useweb;
+  @apply text-blue-600;
 }
 
 .router-link-active {
-  @apply text-blue-useweb-light;
+  @apply text-blue-500;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="split-text">
-    <span :class="colorFirst" class="text-blue-useweb">
+    <span :class="colorFirst" class="text-blue-600">
       {{ text[0] }}
     </span>
     <span :class="colorSecond" class="text-black">
