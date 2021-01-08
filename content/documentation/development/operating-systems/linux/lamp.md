@@ -25,18 +25,18 @@ sudo apt install -y mysql-server
 sudo mysql_secure_installation
 ```
 
-:::tip
+<alert type="info">
 Choose **STRONG level** password for public server and define it.
-:::
+</alert>
 
 ```bash
 sudo mysql
 ```
 
-:::tip
+<alert type="info">
 If you have set password, you can use:  
 `mysql -u root -p`
-:::
+</alert>
 
 ```sql
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';

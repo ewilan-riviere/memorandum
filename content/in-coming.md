@@ -48,13 +48,15 @@ description: 'Future documentations'
   - <https://allbooksworld.com>
 - hub projects
   - <https://md-interpreter.git-projects.xyz>
+- [ ] <https://css-tricks.com/creating-non-rectangular-headers/>
+- [ ] tools of <https://twitter.com/jesuisundev/status/1346446481155366912>
 
 ## Parallax
 
 - [ ] add example
 
 ```html
-<style>
+<style lang="postcss">
 .background {
     background-image: url('assets/images/background.png');
 }

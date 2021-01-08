@@ -5,11 +5,11 @@ position: 3
 category: 'Windows'
 ---
 
-:::warning scoop is necessary
+<alert type="warning"> scoop is necessary
 
 You can manage multiple versions of PHP on same machine with **scoop**, if you don't install it, check this guide: [**scoop**](/development/operating-systems/windows/scoop)
 
-:::
+</alert>
 
 ## Install multiple PHP versions
 

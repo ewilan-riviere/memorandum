@@ -39,12 +39,12 @@ INSTALL COMPONENT "file://component_validate_password";
 exit
 ```
 
-::: danger
+<alert type="danger">
 After installing, you will see dialog with choices about server, **don't select anything** because it's NGINX.
 Just press <kbd>&nbsp;&#8633;&nbsp;</kbd> to select `OK` with <kbd>&nbsp;Enter&nbsp;</kbd>
 
 Select **`Yes` for all questions** and **enter MySQL password** you defined for MySQL.
-:::
+</alert>
 
 Link phpMyAdmin from it folder to NGINX folder
 
@@ -52,14 +52,14 @@ Link phpMyAdmin from it folder to NGINX folder
 sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
 ```
 
-:::tip Optional
+<alert type="info"> Optional
 If you want to change phpMyAdmin URL location:
 
 ```bash
 sudo mv /var/www/html/phpmyadmin /var/www/html/other-location
 ```
 
-:::
+</alert>
 
 ## 1. Configure NGINX
 
@@ -220,9 +220,9 @@ $cfg['Servers'][$i]['AllowRoot'] = false;
 ?>
 ```
 
-:::warning
+<alert type="warning">
 This configuration will disable root login, you have to create user
-:::
+</alert>
 
 ---
 
@@ -265,9 +265,9 @@ We can see at line 14, `php7.2-fpm` which is PHP version used by phpMyAdmin caus
 sudo service nginx restart
 ```
 
-:::warning
+<alert type="warning">
 If you change PHP version, it can be missing some extensions, if phpMyAdmin display an error about extension check this part : [*missing extension*](/guides/linux/phpmyadmin/#missing-extension)
-:::
+</alert>
 
 You can check phpMyAdmin infos on dashboard of phpMyAdmin, just after connection
 
@@ -358,14 +358,14 @@ server {
 
 You have to config **php-fpm version** with **php current version**. Here, the php version is **7.4**, so php-fpm have to be 7.4 too. If your php current version is different, change php-fpm version.
 
-:::tip
+<alert type="info">
 Check your php version:
 
 ```bash
 php -v
 ```
 
-:::
+</alert>
 
 ### Error 404
 

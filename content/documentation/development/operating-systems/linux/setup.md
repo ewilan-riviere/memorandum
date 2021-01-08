@@ -7,10 +7,10 @@ category: 'Linux'
 
 This guide has been set for [**Ubuntu 20.04**](https://ubuntu.com/#download), if you have another distribution use it carefully.
 
-:::warning
+<alert type="warning">
 When I offer to create new user, I call it `jack`, you can use any other username.
 
-:::
+</alert>
 
 <update-username></update-username>
 
@@ -36,7 +36,7 @@ apt update ; apt upgrade ; adduser jack ; usermod -aG sudo jack
 sudo apt install -y ufw ; sudo ufw app list ; sudo ufw allow OpenSSH ; sudo ufw enable ; sudo ufw status
 ```
 
-:::tip If server
+<alert type="info"> If server
 
 **Copy SSH keys from *root* to *jack***
 
@@ -68,9 +68,9 @@ Find `PermitRootLogin` line and replace `yes` to `no` and restart sshd daemon. D
 systemctl restart sshd.service
 ```
 
-:::
+</alert>
 
-:::tip Optional: change root password
+<alert type="info"> Optional: change root password
 
 ```bash
 sudo -i
@@ -84,7 +84,7 @@ passwd
 exit
 ```
 
-:::
+</alert>
 
 ## 1. Useful packages
 
@@ -105,7 +105,7 @@ exit
   </code-block>
 </code-group>
 
-:::tip
+<alert type="info">
 
 - `exfat-utils` and `exfat-fuse` packages allow to use `exFAT` disks ([**see wiki**](https://doc.ubuntu-fr.org/exfat))
 - `curl` package allow to get resources with protocol
@@ -116,7 +116,7 @@ exit
 - `vim` is command line editor, very powerful
 - `ssh` package to use SSH transfers
 - `fonts-firacode` package to install [**fira code fonts**](https://github.com/tonsky/FiraCode)
-:::
+</alert>
 
 Setup `nethogs` to use it without `sudo`
 
@@ -153,7 +153,7 @@ set showcmd
 set mouse=a
 ```
 
-:::tip To have user's config
+<alert type="info"> To have user's config
 
 ```bash
 cp /usr/share/vim/vimrc ~/ ; mv ~/vimrc .vimrc
@@ -165,7 +165,7 @@ Edit `~/.vimrc` and copy the config at the end of file to enable it.
 vim ~/.vimrc
 ```
 
-:::
+</alert>
 
 #### `set paste`
 
@@ -187,11 +187,11 @@ sudo apt install -y zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-:::warning
+<alert type="warning">
 If you accept to use ZSH, you need to logout to enable it.
-:::
+</alert>
 
-:::tip
+<alert type="info">
 **Customize with theme**
 
 With *Oh my ZSH*, you can use themes to have beautiful terminal. I advice you to use [**Spaceship prompt**](https://github.com/denysdovhan/spaceship-prompt).
@@ -214,7 +214,7 @@ Edit this line of `~/.zshrc`
 ZSH_THEME="spaceship"
 ```
 
-:::
+</alert>
 
 ## 3. NodeJS: NVM
 
@@ -379,7 +379,7 @@ source .zshrc ; locale
 - Prepare boot useb key with Rufus on Windows, just use windows.iso
 - Install Windows
 
-:::tip
+<alert type="info">
 
 - In Windows, run Command Prompt as admin
 - Invoke a Safe Mode boot with the command: `bcdedit /set {current} safeboot minimal`
@@ -389,7 +389,7 @@ source .zshrc ; locale
 - Right click the Window icon and select to run the Command Prompt in Admin mode from among the various options.
 - Cancel Safe Mode booting with the command: `bcdedit /deletevalue {current} safeboot`
 - Restart your PC once more and this time it will boot up normally but with AHCI mode activated.
-:::
+</alert>
 
 Machine: Dell 15 5584
 

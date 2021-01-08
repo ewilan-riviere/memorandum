@@ -89,7 +89,7 @@ span {
 ## Word wraping
 
 ```css
-.word-wraping {
+.hyphenate {
   text-align: justify !important;
   -webkit-hyphens: auto !important;
   -moz-hyphens: auto !important;
@@ -101,7 +101,7 @@ span {
 For better display
 
 ```html
-<div class="word-wraping" lang="en">...</div>
+<div class="hyphenate" lang="en">...</div>
 ```
 
 ## Import font

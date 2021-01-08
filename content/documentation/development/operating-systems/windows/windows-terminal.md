@@ -7,11 +7,11 @@ category: 'Windows'
 
 <md-img source="windows-terminal.webp"></md-img>
 
-:::warning scoop is necessary
+<alert type="warning"> scoop is necessary
 
 You will need to have **scoop** to install Windows terminal, if you don't install it, check this guide: [**scoop**](/development/operating-systems/windows/scoop)
 
-:::
+</alert>
 
 Windows terminal is a recent terminal for Windows, by Microsoft.
 

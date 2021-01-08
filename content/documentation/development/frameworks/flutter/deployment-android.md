@@ -7,11 +7,11 @@ category: 'Flutter'
 
 ![android-versions](/documentation/flutter/google-play.jpg)
 
-:::tip Links
+<alert type="info">
 
 - [**flutter.dev/docs/deployment/android**](https://flutter.dev/docs/deployment/android)
 
-:::
+</alert>
 
 ## Sign the app
 

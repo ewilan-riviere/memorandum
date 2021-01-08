@@ -5,11 +5,11 @@ position: 5
 category: 'Flutter'
 ---
 
-:::tip Links
+<alert type="info" title="Links">
 
 - [**flutter.dev/docs/deployment/ios**](https://flutter.dev/docs/deployment/ios)
 
-:::
+</alert>
 
 ## Clean cache
 
@@ -19,7 +19,7 @@ Before to deploy iOS app, you need to clean cache
 - Execute cleaning
 
 ```bash
-flutter clean ; rm -Rf ios/Pods ; rm -Rf ios/.symlinks ; rm -Rf ios:Flutter/Flutter.framework ; rm -Rf ios/Flutter/Flutter.podspec ; rm ios/Podfile ; rm ios/Podfile.lock ; flutter clean ; flutter pub get ; cd ios ; pod update ; cd ../
+flutter clean ; rm -Rf ios/Pods ; rm -Rf ios/.symlinks ; rm -Rf ios:Flutter/Flutter.framework ; rm -Rf ios/Flutter/Flutter.podspec ; rm ios/Podfile.lock ; flutter pub get ; cd ios ; pod update ; cd ../
 ```
 
 ## Uncheck Runner

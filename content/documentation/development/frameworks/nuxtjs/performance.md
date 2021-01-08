@@ -10,7 +10,7 @@ category: 'NuxtJS'
 - <https://github.com/nuxt-community/html-validator-module>
 - <https://codeburst.io/5-steps-to-speed-up-your-image-heavy-website-65c874a86966>
 
-:::tip By pi0
+<alert type="info"> By pi0
 
 Source: [**github.com/nuxt/nuxt.js/issues/7698**](https://github.com/nuxt/nuxt.js/issues/7698#issuecomment-717449755)
 

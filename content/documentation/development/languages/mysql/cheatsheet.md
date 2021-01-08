@@ -7,9 +7,9 @@ category: 'MySQL'
 
 ## Database importation
 
-:::tip About Windows
+<alert type="info"> About Windows
 Don't use `PowerShell` to execute below commands, use `cmd` if you want to import database with correct encoding.
-:::
+</alert>
 
 ```bash
 mysql -u user -p

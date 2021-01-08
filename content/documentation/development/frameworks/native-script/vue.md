@@ -9,11 +9,11 @@ category: 'NativeScript'
 
 *Guide writed to setup NativeScript Vue on Ubuntu 18.04, 06 june 2020*
 
-:::tip
+<alert type="info">
 **How to setup NativeScript locally on Linux** : [**docs.nativescript.org**](https://docs.nativescript.org/angular/start/ns-setup-linux)
 
 This guide not follow all the NativeScript documentation but if you have problems, you can use the documentation too.
-:::
+</alert>
 
 Install NativeScript CLI to have `tns` command
 
@@ -29,14 +29,14 @@ Install dependencies and OpenJDK 8
 sudo apt-get install lib32z1 lib32ncurses5 libbz2-1.0:i386 libstdc++6:i386 g++ openjdk-8-jdk
 ```
 
-:::tip
+<alert type="info">
 With multiple jdk versions use
 
 ```bash
 sudo update-alternatives --config java
 ```
 
-:::
+</alert>
 
 Add this to `~/.bashrc` or `~/.zhsrc` to get access to Java version
 
@@ -46,13 +46,13 @@ export JAVA_HOME=$(update-alternatives --query javac | sed -n -e 's/Best: *\(.*\
 
 ## Install Android Studio
 
-:::tip
+<alert type="info">
 **How to setup Android Studio on Linux** : [**stackoverflow**](https://askubuntu.com/questions/634082/how-to-install-android-studio-on-ubuntu)
 
 **Android Studio** is not vital to develop **Native Script Vue App** for Android but it's really more practical to install it to **setup Virtual Device** to develop without an real Android smartphone. It's will be very useful to develop on virtual devices because you can change system or change phone. You can install just SDK tools without Android Studio but it can be less practical to install virtual device without graphic user interface. Check this if you want to install virtual device with command line tool : [docs.nativescript.org](https://docs.nativescript.org/angular/tooling/android-virtual-devices#creating-android-virtual-device-via-command-line-tool).
 
 The problem is size of Android Studio, it's really heavy, with ~900 Mo for just the application and ~800 Mo for a sytem image, so you need to have free disk space and a good bandswith to download all of it. If you don't have any space, the solution can be to use a real Android terminal.
-:::
+</alert>
 
 Download [**Android Studio**](https://developer.android.com/studio) archive and extract it in `/opt` dir
 
@@ -79,9 +79,9 @@ StartupNotify=true
 StartupWMClass=android-studio
 ```
 
-:::tip
+<alert type="info">
 You don't have to create an icon if you don't want to. Just go to `/opt/android-studio/bin/` if you have extract archive here and execute `./studio.sh`.
-:::
+</alert>
 
 Launch **Android Studio** and select *standard installation* and continue to *download components*. When it's finish, create an *empty project* and use <kbd>Shift</kbd> shortcut **twice** to *search everywhere*, search `AVD` and select `AVD Manager` (Android Virtual Device Manager).
 
@@ -89,9 +89,9 @@ Launch **Android Studio** and select *standard installation* and continue to *do
 
 Select `Create Virtual Device`, select a phone like `Nexus 6` and select *system image*, not too recent and not too old, **Marshmallow v6** or **Nougat v7** are good options. When virtual device is created, you can start it from `AVD Manager` in *Actions* with play icon.
 
-:::tip
+<alert type="info">
 You will build an application for Android. If we take Android fleet, we have many different smartphones with many system, if you choose a too recent system image, your application could be not compatible with old systems. With Marshmallow or Nougat, you cover almost 70% of Android fleet.
-:::
+</alert>
 
 <img src="/images/linux/android-distributions.jpg" class="" style="margin-top: 1rem" />
 

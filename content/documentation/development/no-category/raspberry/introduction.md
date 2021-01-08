@@ -7,7 +7,7 @@ category: 'Raspberry'
 
 # Get Started
 
-::: tip Basics To Begin
+</alert> tip Basics To Begin
 
 - [**raspberrypi.org**](https://www.raspberrypi.org/downloads/raspberry-pi-os/) download Raspberry PI OS (here, we will install *Raspberry Pi OS (32-bit) Lite* without desktop)
 - A Raspberry PI (I have Raspberry PI 3 B+) with power supply
@@ -16,7 +16,7 @@ category: 'Raspberry'
 - A computer with Linux (it's also possible with Windows or MacOS, check links at the end)
 - Terminal knowledge: basic to medium level (manage relative and absolute paths, know how to locate the name of a disk)
 
-:::
+</alert>
 
 ## Installation
 
@@ -28,9 +28,9 @@ Download *Raspberry Pi OS (32-bit) Lite* to have OS without desktop, just for se
 
 You will get an `img` file: `2020-05-27-raspios-buster-lite-armhf.img`
 
-:::warning
+<alert type="warning">
 Note I have a file with `2020-05-27` in it name, you will have certainly a different file name.
-:::
+</alert>
 
 Connect your SD Card to your computer and list disks with
 
@@ -38,19 +38,19 @@ Connect your SD Card to your computer and list disks with
 lsblk -p
 ```
 
-:::tip
+<alert type="info">
 Erase SD Card and create new partition with any package like with `gnome-disks`
-:::
+</alert>
 
 For example I have this output.
 
 ![alt](/documentation/raspberry/lsblk.jpg)
 
-:::tip Explanation
+<alert type="info"> Explanation
 
 My SD Card has 32 Go disk space, `lsblk` list three disks: `sda`, `sdb`, `nvme0n1` with partitions. `sdb` have **29,7 Go** in **SIZE** column, so it's my SD Card.
 
-:::
+</alert>
 
 Write OS image on SD Card with `dd`, **don't copy paste** this command, you have certainly to modify `raspios-buster-lite-armhf.img` path, like `~/2020-05-27-raspios-buster-lite-armhf.img` and modify `/dev/sdX`, like `/dev/sdb` for me.
 

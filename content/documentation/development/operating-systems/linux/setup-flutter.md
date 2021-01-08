@@ -10,9 +10,9 @@ category: 'Flutter'
 [**flutter.dev/docs/linux**](https://flutter.dev/docs/get-started/install/linux) Official Flutter
 website
 
-:::warning
+<alert type="warning">
 You need to install **Android Studio** before install **Flutter**, follow [**this guide**](/guides/flutter/android-studio/)
-:::
+</alert>
 
 ## 1. Installation
 
@@ -44,7 +44,7 @@ flutter doctor
 
 You will see some infos about Flutter setup
 
-:::tip Android licenses
+<alert type="info"> Android licenses
 
 If you see this
 
@@ -60,9 +60,9 @@ flutter doctor --android-licenses
 ```
 
 Accept all licenses.
-:::
+</alert>
 
-:::tip Android Studio
+<alert type="info"> Android Studio
 
 If you see this
 
@@ -74,13 +74,13 @@ If you see this
 
 Find `Plugins` with double tape on <kbd>N</kbd>
 Download plugin `Flutter` on Android Studio (accept Dart plugin to be installed)
-:::
+</alert>
 
-:::tip Visual Studio Code
+<alert type="info"> Visual Studio Code
 Download [**Flutter**](https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter) and [**Dart**](https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code) extensions for Visual Studio Code
-:::
+</alert>
 
-:::tip Connected device
+<alert type="info"> Connected device
 
 ```bash
 [!] Connected device
@@ -88,7 +88,7 @@ Download [**Flutter**](https://marketplace.visualstudio.com/items?itemName=Dart-
 ```
 
 Start emulator from AVD Manager in Android Studio (you can close Android Studio after this), you can also connect a Android smartphone to your computer, Flutter can check it too. If Flutter can't, check if phone is detected with `adb devices`. If this command don't see your phone, try another cable or phone.
-:::
+</alert>
 
 Run `flutter doctor` to check if evrything is okay
 

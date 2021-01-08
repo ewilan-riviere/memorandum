@@ -9,17 +9,17 @@ category: 'Linux'
 - [Digital Ocean: LEMP - Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-on-ubuntu-20-04)
 - [**LEMP - Ubuntu 20.04**](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-20-04)
 
-:::tip
+<alert type="info">
 When I offer to create new user, I call it `jack`, you can use any other username.
-:::
+</alert>
 
 ## 1. NGINX & firewall
 
-:::warning
+<alert type="warning">
 
 If you don't allow NGINX on firewall, your domain cannot be loaded.
 
-:::
+</alert>
 
 ```bash
 sudo apt update ; sudo apt install -y nginx ; sudo ufw allow 'Nginx HTTP' ; sudo ufw allow 'Nginx HTTPS' ; sudo ufw allow 'Nginx Full'
@@ -33,12 +33,12 @@ Install MySQL
 sudo apt install -y mysql-server ; sudo mysql_secure_installation
 ```
 
-:::tip About installation
+<alert type="info"> About installation
 
 - Choose password level, I advice `LOW` to avoid problems with password.
 - Define password
 - Select `Yes` for all questions after this.
-:::
+</alert>
 
 Connect to MySQL CLI
 
@@ -64,7 +64,7 @@ CREATE USER 'my_project_user'@'localhost' IDENTIFIED WITH mysql_native_password 
 GRANT ALL ON my_project_database.* TO 'my_project_user'@'localhost';
 ```
 
-:::danger Bad practice
+<alert type="danger"> Bad practice
 
 ```bash
 CREATE USER 'my_user'@'localhost' IDENTIFIED BY 'password';
@@ -72,7 +72,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'my_user'@'localhost' WITH GRANT OPTION;
 exit
 ```
 
-:::
+</alert>
 
 ### Disable `root` for phpMyAdmin
 

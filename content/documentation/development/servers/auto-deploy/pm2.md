@@ -12,13 +12,13 @@ Unlike PHP app, which just need to have Nginx/Apache configuration, a NodeJS app
 > I choose to define Nginx directory to /home/user/www/
 > The domain used is `ewilan-riviere.com` with some differents subdomains
 
-:::tip Links
+<alert type="info"> Links
 
 - [monitoring](https://pm2.keymetrics.io/docs/usage/monitoring/)
 - [ecosystem](https://pm2.keymetrics.io/docs/usage/application-declaration/)
   - [startup](https://pm2.keymetrics.io/docs/usage/startup/)
 
-:::
+</alert>
 
 ## 1. Create Nginx configuration
 
@@ -37,7 +37,7 @@ server {
 
 With this config, `server_name` is the domain to host project and `proxy_pass` have a specific port will be used by PM2 (use one specific port by app like *3001*, *3002*...).
 
-:::tip
+<alert type="info">
 
 ```bash
 # activate new nginx config
@@ -59,7 +59,7 @@ If you have this output, everything is fine, otherwise you will have some infos 
 sudo service nginx reload
 ```
 
-:::
+</alert>
 
 ## 2. Install and config PM2
 

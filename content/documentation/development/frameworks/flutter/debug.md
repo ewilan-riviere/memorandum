@@ -5,21 +5,21 @@ position: 7
 category: 'Flutter'
 ---
 
-:::tip Documentation
+<alert type="info" title="Documentation">
 
 [**flutter.dev/docs/testing/debugging**](https://flutter.dev/docs/testing/debugging)
 
-:::
+</alert>
 
 ## Log
 
 If you use `flutter run` to excute your app, you can print message directly in your terminal with `print()`. You can use `debugPrint()` with `material.dart` dependency, there is no differences but you can use `debugPrint` for static log like on a `try...catch` in `catch` and `print` just for temporary log.
 
-:::warning
+<alert type="warning">
 
 `print()` can print only basic types like `String` or `bool`, but `Object` will just print `Instance of...`.
 
-:::
+</alert>
 
 Example with default layout when a new flutter project is generated, here if use click on floating button, `My message` will appear in terminal.
 
@@ -117,15 +117,15 @@ buildscript {
 }
 ```
 
-| Plugin version |  Required Gradle version |
-|----------------|--------------------------|
-| 3.2.0 | 3.2.1 4.6+ |
-| 3.3.0 | 3.3.3 4.10.1+ |
-| 3.4.0 | 3.4.3 5.1.1+ |
-| 3.5.0 | 3.5.4 5.4.1+ |
-| 3.6.0 | 3.6.4 5.6.4+ |
-| 4.0.0+ | 6.1.1+ |
-| 4.1.0+ | 6.5+ |
+| Plugin version | Required Gradle version |
+| -------------- | ----------------------- |
+| 3.2.0          | 3.2.1 4.6+              |
+| 3.3.0          | 3.3.3 4.10.1+           |
+| 3.4.0          | 3.4.3 5.1.1+            |
+| 3.5.0          | 3.5.4 5.4.1+            |
+| 3.6.0          | 3.6.4 5.6.4+            |
+| 4.0.0+         | 6.1.1+                  |
+| 4.1.0+         | 6.5+                    |
 
 If you want to check complete array of versions, check it on [**developer.android.com/studio/releases/gradle-plugin**](https://developer.android.com/studio/releases/gradle-plugin#4-1-0)
 
@@ -148,11 +148,11 @@ Reduce size tips:
 
 ## INSTALL_PARSE_FAILED_NO_CERTIFICATES
 
-:::tip About this error
+<alert type="info">
 
 I see this error only on physical device, try to use emulator if you can.
 
-:::
+</alert>
 
 With a real device you can have an error about certificates. You can try some solutions by order of efficiency
 

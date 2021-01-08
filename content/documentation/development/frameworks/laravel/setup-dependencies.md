@@ -34,9 +34,9 @@ sudo chgrp -R www-data storage bootstrap/cache ; sudo chmod -R ug+rwx storage bo
 
 ## PHP CS Fixer
 
-:::tip GitHub
+<alert type="info"> GitHub
 [**github.com/FriendsOfPHP/PHP-CS-Fixer**](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
-:::
+</alert>
 
 Add this dependency to this project
 
@@ -97,9 +97,9 @@ Execute this command to fix all files
 
 ## Laravel IDE Helper
 
-:::tip GitHub
+<alert type="info"> GitHub
 [**github.com/barryvdh/laravel-ide-helper**](https://github.com/barryvdh/laravel-ide-helper)
-:::
+</alert>
 
 ```bash
 composer require --dev barryvdh/laravel-ide-helper
@@ -111,9 +111,9 @@ php artisan ide-helper:generate ; php artisan ide-helper:models ; php artisan id
 
 ## Laravel Swagger
 
-:::tip GitHub
+<alert type="info"> GitHub
 [**github.com/DarkaOnLine/L5-Swagger**](https://github.com/DarkaOnLine/L5-Swagger)
-:::
+</alert>
 
 Add `l5-swagger`
 
@@ -230,17 +230,17 @@ Useful with ESLint and Vue
 yarn add -D eslint eslint-plugin-vue prettier eslint-config-prettier eslint-plugin-prettier babel-eslint
 ```
 
-:::tip Automatic config
+<alert type="info"> Automatic config
 
 ```bash
 ./node_modules/.bin/eslint --init
 ```
 
-:::
+</alert>
 
 **OR**
 
-:::tip Manual config
+<alert type="info"> Manual config
 
 Create these files at the root of repository
 
@@ -278,7 +278,7 @@ indent_style = space
 indent_size = 2
 ```
 
-:::
+</alert>
 
 ## Tailwind CSS v2.0
 
@@ -320,11 +320,11 @@ mix
 
 ### Example with Breeze
 
-:::tip GitHub
+<alert type="info"> GitHub
 
 [**github.com/laravel/breeze**](https://github.com/laravel/breeze)
 
-:::
+</alert>
 
 Install Breeze
 
@@ -390,10 +390,10 @@ In `settings.json`, add this
 }
 ```
 
-:::tip Open `settings.json`
+<alert type="info"> Open `settings.json`
 
 Execute <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> to open **Preferences: Open settings (JSON)
 
-:::
+</alert>
 
 To find other settings with Blade formatter, check page extension.

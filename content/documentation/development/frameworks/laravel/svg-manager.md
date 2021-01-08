@@ -6,11 +6,11 @@ category: 'Laravel'
 type: 'development'
 ---
 
-:::tip Composer: inline-svg
+<alert type="info"> Composer: inline-svg
 
 You can easily display SVG file on Laravel without create a specific *blade* file for each SVG, just keep SVG in a defined folder and load it from a method of `helpers.php`. You will need to install **composer** dependency [**oscarotero/inline-svg**](https://github.com/oscarotero/inline-svg).
 
-:::
+</alert>
 
 ```bash
 composer require oscarotero/inline-svg
@@ -101,7 +101,7 @@ And add any SVG file in this folder, like this one
 And load SVG directly in any *blade*
 
 ```html[resources/views/welcome.blade.php]
-<style>
+<style lang="postcss">
 .my-auto {
   margin: auto 0;
 }
@@ -203,7 +203,7 @@ You will find another file into `resources/views/livewire`: `icon.blade.php`
 And now, you can call your `icon` component into any `blade` file and pass parameter with HTML attributes, like Vue files !
 
 ```html[resources/views/welcome.blade.php]
-<style>
+<style lang="postcss">
 .my-auto {
   margin: auto 0;
 }

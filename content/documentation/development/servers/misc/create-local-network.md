@@ -21,9 +21,9 @@ cd my-directory/
 python3 -m http.server
 ```
 
-:::tip
+<alert type="info">
 You can use `python -m SimpleHTTPServer` if you haven't Python 3.
-:::
+</alert>
 
 ### 2. b. Check IP of machine
 

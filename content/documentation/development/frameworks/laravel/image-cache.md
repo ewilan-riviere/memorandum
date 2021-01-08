@@ -7,14 +7,14 @@ category: 'Laravel'
 
 When a user uploads a picture, it can be very heavy. To display this image with correct proportions but keeping the original image and resizing on the fly, when necessary and keeping the resized image . You can use image caching.
 
-:::tip Requirements
+<alert type="info"> Requirements
 You will need [**spatie/image**](https://github.com/spatie/image)
 
 ```bash
 composer require spatie/image
 ```
 
-:::
+</alert>
 
 ## Setup files
 
