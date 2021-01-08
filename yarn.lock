@@ -8569,6 +8569,13 @@ num2fraction@^1.2.2:
   resolved "https://registry.yarnpkg.com/num2fraction/-/num2fraction-1.2.2.tgz#6f682b6a027a4e9ddfa4564cd2589d1d4e669ede"
   integrity sha1-b2gragJ6Tp3fpFZM0lidHU5mnt4=
 
+nuxt-vitals@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/nuxt-vitals/-/nuxt-vitals-1.1.0.tgz#35b269267e410e277d3cec92092d6c4b8dcf324b"
+  integrity sha512-K1wndgtoKejYp4Z3GU2pmhKOVbZfRSi+nBXgJ9AxofpGHackosyslf0uWM/nO1nxHuM40YcvQ4Fevzw+AJ7H8w==
+  dependencies:
+    web-vitals "^0.2.1"
+
 nuxt@^2.14.8:
   version "2.14.12"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-2.14.12.tgz#836096ff62ba72554b73744d94f5547109e563f7"
@@ -12502,6 +12509,11 @@ web-namespaces@^1.0.0:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/web-namespaces/-/web-namespaces-1.1.4.tgz#bc98a3de60dadd7faefc403d1076d529f5e030ec"
   integrity sha512-wYxSGajtmoP4WxfejAPIr4l0fVh+jeMXZb08wNc0tMg6xsfZXj3cECqIK0G7ZAqUq0PP8WlMDtaOGVBTAWztNw==
+
+web-vitals@^0.2.1:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/web-vitals/-/web-vitals-0.2.4.tgz#ec3df43c834a207fd7cdefd732b2987896e08511"
+  integrity sha512-6BjspCO9VriYy12z356nL6JBS0GYeEcA457YyRzD+dD6XYCQ75NKhcOHUMHentOE7OcVCIXXDvOm0jKFfQG2Gg==
 
 webidl-conversions@^5.0.0:
   version "5.0.0"

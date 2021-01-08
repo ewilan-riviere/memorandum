@@ -111,6 +111,20 @@ export default {
     '@nuxtjs/google-fonts',
     // https://color-mode.nuxtjs.org/
     '@nuxtjs/color-mode',
+    // https://github.com/nuxt-community/web-vitals-module
+    // [
+    //   'nuxt-vitals',
+    //   {
+    //     // Tracking ID (required) { string }
+    //     // Replace UA-XXXXXXXX-X by your Google Analytics tracking ID.
+    //     trackingID: 'UA-XXXXXXXX-X',
+    //     // Event Category (optional) { string }, default 'Web Vitals'
+    //     eventCategory: 'Some Category',
+    //     // Debug (optional) { number } default 0
+    //     debug: 1,
+    //     disabled: false,
+    //   },
+    // ],
   ],
 
   tailwindcss: {
