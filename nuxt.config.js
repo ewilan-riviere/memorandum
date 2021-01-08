@@ -65,7 +65,7 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: ['~/assets/css/markdown.css'],
+  css: ['~/assets/css/app', '~/assets/css/markdown'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
@@ -87,6 +87,7 @@ export default {
     { src: '~/plugins/vue-code-info', ssr: false },
     { src: '~/plugins/vue-helper' },
     { src: '~/plugins/global-loader' },
+    { src: '~/plugins/vue-read-progress', ssr: false },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -104,12 +105,33 @@ export default {
     '@nuxtjs/tailwindcss',
     // https://github.com/nuxt-community/router-module
     '@nuxtjs/router',
-
-    '@nuxt/components',
+    // https://github.com/nuxt/components
+    // '@nuxt/components',
+    // https://github.com/nuxt-community/google-fonts-module
+    '@nuxtjs/google-fonts',
+    // https://color-mode.nuxtjs.org/
+    '@nuxtjs/color-mode',
   ],
 
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
+  },
+
+  googleFonts: {
+    display: 'swap',
+    prefetch: true,
+    families: {
+      Quicksand: true,
+      Handlee: [400],
+      // Raleway: {
+      //   wght: [100, 400],
+      //   ital: [100]
+      // },
+    },
+  },
+
+  colorMode: {
+    classSuffix: '',
   },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
