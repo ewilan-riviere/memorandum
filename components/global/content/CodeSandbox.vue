@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex items-center justify-center w-full mx-auto mb-6 overflow-hidden text-3xl text-center text-white bg-black rounded-md codesandbox"
+    class="codesandbox w-full mb-6 mx-auto bg-black text-white text-3xl text-center flex items-center justify-center overflow-hidden rounded-md"
   >
     <iframe
       v-if="isIntersecting && src"

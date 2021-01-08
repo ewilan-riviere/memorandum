@@ -107,7 +107,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss">
 path {
   @apply transition-colors duration-300;
 }

@@ -5,11 +5,10 @@
         <nav-pages :pages="pages" route-param="type"></nav-pages>
       </div>
       <div slot="main">
-        <my-component />
         <article class="relative pb-10 overflow-hidden bg-white">
           <div class="relative px-4 sm:px-6 lg:px-8">
             <div class="mx-auto prose prose-lg text-gray-500">
-              <nuxt-content :document="welcome" />
+              <display-document :document="welcome" />
             </div>
           </div>
         </article>

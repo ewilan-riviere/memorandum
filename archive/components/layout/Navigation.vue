@@ -97,7 +97,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss">
 .navbar-shadow {
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
 }

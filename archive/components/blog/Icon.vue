@@ -5,7 +5,10 @@
 <script>
 export default {
   props: {
-    icon: String,
+    icon: {
+      type: String,
+      default: null,
+    },
     primary: {
       type: String,
       default: 'text-gray-500',

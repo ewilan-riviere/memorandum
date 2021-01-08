@@ -74,7 +74,7 @@ export default {
 }
 </style>
 
-<style>
+<style lang="postcss">
 .expand-enter-active,
 .expand-leave-active {
   transition: height 0.3s ease-in-out;

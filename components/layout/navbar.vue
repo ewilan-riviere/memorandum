@@ -1,10 +1,20 @@
 <template>
   <nav
-    class="fixed top-0 z-40 w-full bg-white border-b dark:border-gray-800 dark:bg-gray-900"
+    class="fixed top-0 z-40 w-full transition-colors duration-300 bg-white border-b dark:border-gray-800 dark:bg-gray-900"
   >
     <div class="container flex-1 px-4 mx-auto lg:px-8">
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center pr-4 lg:w-1/5">
+          <div>
+            <button
+              v-click-outside="hide"
+              aria-label="Menu"
+              class="p-2 mr-2 text-gray-700 transition-colors duration-300 rounded-md lg:hidden dark:text-gray-300 hover:bg-gray-300 focus:outline-none"
+              @click="openSidebar()"
+            >
+              <icon name="menu-design" :size="30" />
+            </button>
+          </div>
           <nuxt-link
             :to="'/'"
             aria-current="page"
@@ -12,16 +22,6 @@
             class="flex-1 flex-shrink-0 text-xl font-bold nuxt-link-exact-active nuxt-link-active"
           >
             <logo />
-            <!-- <img
-                src="/logo-light.svg"
-                alt="Nuxt Content"
-                class="h-8 max-w-full light-img"
-              />
-              <img
-                src="/logo-dark.svg"
-                alt="Nuxt Content"
-                class="h-8 max-w-full dark-img"
-              /> -->
           </nuxt-link>
         </div>
         <div class="justify-center flex-1 hidden w-4/6 lg:flex">
@@ -153,22 +153,7 @@
             >
               <icon name="github-stroke" stroke />
             </a>
-            <button
-              aria-label="Menu"
-              class="p-2 -mr-2 text-gray-700 rounded-md lg:hidden dark:text-gray-300 focus:outline-none"
-            >
-              <svg
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                class="w-5 h-5"
-              >
-                <path d="M4 6h16M4 12h16M4 18h16"></path>
-              </svg>
-            </button>
+            <color-switcher class="px-2" />
           </div>
         </div>
       </div>
@@ -211,7 +196,23 @@ export default {
       }
     },
   },
+  mounted() {
+    // prevent click outside event with popupItem.
+    this.popupItem = this.$el
+  },
   methods: {
+    openSidebar() {
+      this.$store.commit('setLayerVisible', true)
+      setTimeout(() => {
+        this.$store.commit('openSidebar')
+      }, 150)
+    },
+    hide() {
+      this.$store.commit('closeSidebar')
+      setTimeout(() => {
+        this.$store.commit('setLayerVisible', false)
+      }, 150)
+    },
     getContentParams(article) {
       const path = article.path.replace('/documentation/', '').split('/')
       const params = {

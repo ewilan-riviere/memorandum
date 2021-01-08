@@ -38,7 +38,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="postcss" scoped>
 .arrow {
   border: solid black;
   border-width: 0 3px 3px 0;

@@ -37,7 +37,7 @@
         <div
           class="flex items-center pl-8 lg:w-1/5"
           :class="{
-            'justify-between': lastRelease ; settings.layout !== 'single',
+            'justify-between': lastRelease && settings.layout !== 'single',
             'justify-end': !lastRelease || settings.layout === 'single',
           }"
         >

@@ -6,7 +6,7 @@
         class="fixed inset-0 z-40 transition-opacity duration-300 bg-black"
       ></div>
     </div>
-    <div
+    <!-- <div
       class="fixed z-30 block w-full h-16 navbar md:hidden navbar-shadow"
       :class="{ 'hidden-navbar': !showNavbar }"
     >
@@ -38,10 +38,9 @@
           <icon name="three-dots-menu" :size="30" class="my-auto" />
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- navbar  -->
-    <sidebar ref="sidebar"></sidebar>
-    <navbar class="fixed z-30 hidden w-full h-16 navbar md:block"></navbar>
+    <navbar class="fixed z-30 block w-full h-16 navbar"></navbar>
   </div>
 </template>
 
@@ -97,7 +96,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss">
 .navbar-shadow {
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
 }

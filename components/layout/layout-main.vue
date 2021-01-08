@@ -1,5 +1,8 @@
 <template>
   <main class="container px-4 mx-auto lg:px-8">
+    <sidebar ref="sidebar">
+      <slot name="aside"></slot>
+    </sidebar>
     <div class="relative flex flex-wrap">
       <aside
         class="fixed inset-0 z-30 hidden w-full mt-16 bg-white lg:w-1/5 lg:block lg:relative lg:mt-0 dark:bg-gray-900 lg:bg-transparent lg:dark:bg-transparent"
@@ -88,28 +91,6 @@ export default {
       type: Object,
       default: () => {},
     },
-  },
-  mounted() {
-    const paragraphs = document.querySelectorAll('p')
-    paragraphs.forEach((paragraph) => {
-      paragraph.setAttribute('lang', 'fr')
-    })
-    const titlesH2 = document.querySelectorAll('h2')
-    const titlesH3 = document.querySelectorAll('h3')
-    const toc = document.querySelectorAll('.scrollactive-item')
-    titlesH2.forEach((title) => {
-      const id = title.getAttribute('id')
-      title.setAttribute('id', `to-${this.$slugify(id)}`)
-    })
-    titlesH3.forEach((title) => {
-      const id = title.getAttribute('id')
-      title.setAttribute('id', `to-${this.$slugify(id)}`)
-    })
-    toc.forEach((scrollItem) => {
-      let href = scrollItem.getAttribute('href')
-      href = href.replace('#', '')
-      scrollItem.setAttribute('href', `#to-${this.$slugify(href)}`)
-    })
   },
 }
 </script>

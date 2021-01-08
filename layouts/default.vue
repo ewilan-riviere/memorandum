@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="bg-white dark:bg-gray-900">
     <layout-navigation />
     <Nuxt class="min-h-screen pt-16" />
     <layout-footer />
     <layout-back-to-top />
     <client-only>
-      <tailwind-helper />
+      <tailwind-helper sneak />
     </client-only>
   </div>
 </template>
@@ -46,7 +46,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss">
 body {
   background-color: #fff;
   color: rgba(0, 0, 0, 0.8);

@@ -60,7 +60,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss">
 /* .router-link-exact-active {
   @apply bg-gray-300;
 }

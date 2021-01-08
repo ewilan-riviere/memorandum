@@ -71,19 +71,15 @@ export default {
       )
     },
   },
-  mounted() {
-    // prevent click outside event with popupItem.
-    this.popupItem = this.$el
-  },
   methods: {
     toggleSidemenu() {
       if (!this.$store.state.sidebarOpened) {
         this.$store.commit('toggleLayerVisible')
         setTimeout(() => {
-          this.$store.commit('toggleSidebarOpened')
+          this.$store.commit('toggleSidebar')
         }, 100)
       } else {
-        this.$store.commit('toggleSidebarOpened')
+        this.$store.commit('toggleSidebar')
         setTimeout(() => {
           this.$store.commit('setLayerVisible', false)
         }, 250)

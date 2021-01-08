@@ -36,7 +36,7 @@
       </div>
       <div slot="main" class="">
         <client-only>
-          <read-progress></read-progress>
+          <vue-read-progress></vue-read-progress>
         </client-only>
         <transition name="fade">
           <article v-if="document" class="relative overflow-hidden bg-white">
@@ -87,17 +87,8 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import AppCopyButton from '~/components/global/markdown/copy-button'
-
 export default {
   name: 'ContentSlugShort',
-  components: {
-    ReadProgress: () =>
-      import('vue-read-progress')
-        .then((m) => m.default)
-        .catch(),
-  },
   middleware({ app, params, redirect }) {
     if (params.pathMatch === 'index') {
       redirect(app.localePath('/'))
@@ -133,25 +124,6 @@ export default {
       prev,
       next,
     }
-  },
-  mounted() {
-    this.setCopyBtn()
-  },
-  methods: {
-    setCopyBtn() {
-      const blocks = document.getElementsByClassName('nuxt-content-highlight')
-
-      for (const block of blocks) {
-        const lastChild = block.lastChild
-        if (lastChild.className === 'copy') {
-          block.removeChild(lastChild)
-        }
-
-        const CopyButton = Vue.extend(AppCopyButton)
-        const component = new CopyButton().$mount()
-        block.appendChild(component.$el)
-      }
-    },
   },
   head() {
     const title = `${this.document.title} in ${this.document.category}`

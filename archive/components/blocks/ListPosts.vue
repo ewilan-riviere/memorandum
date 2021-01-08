@@ -133,7 +133,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss">
 .zoom {
   transition: transform 0.3s;
 }

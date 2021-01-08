@@ -52,7 +52,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss">
 .swiper-slide {
   cursor: grabbing;
 }

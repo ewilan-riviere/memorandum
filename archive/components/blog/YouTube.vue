@@ -16,16 +16,20 @@
 <script>
 export default {
   props: {
-    url: { required: true },
+    url: {
+      type: String,
+      required: true,
+    },
   },
 }
 </script>
 
-<style lang="stylus" scoped>
-iframe
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+<style lang="postcss" scoped>
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 </style>

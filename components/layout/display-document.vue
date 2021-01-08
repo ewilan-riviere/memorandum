@@ -28,17 +28,40 @@ export default {
   watch: {
     currentDocument(newCount, oldCount) {
       console.log('Store updated!')
-      this.setCopy()
+      this.setCopyBtn()
     },
   },
   mounted() {
-    this.setCopy()
+    this.setCopyBtn()
+
+    const paragraphs = document.querySelectorAll('p')
+    paragraphs.forEach((paragraph) => {
+      paragraph.setAttribute('lang', 'en')
+    })
+
+    const titlesH2 = document.querySelectorAll('h2')
+    const titlesH3 = document.querySelectorAll('h3')
+    const toc = document.querySelectorAll('.scrollactive-item')
+
+    titlesH2.forEach((title) => {
+      const id = title.getAttribute('id')
+      title.setAttribute('id', `to-${this.$slugify(id)}`)
+    })
+    titlesH3.forEach((title) => {
+      const id = title.getAttribute('id')
+      title.setAttribute('id', `to-${this.$slugify(id)}`)
+    })
+    toc.forEach((scrollItem) => {
+      let href = scrollItem.getAttribute('href')
+      href = href.replace('#', '')
+      scrollItem.setAttribute('href', `#to-${this.$slugify(href)}`)
+    })
   },
   created() {
     this.$store.commit('setCurrentDocument', this.document)
   },
   methods: {
-    setCopy() {
+    setCopyBtn() {
       setTimeout(() => {
         const blocks = document.getElementsByClassName('nuxt-content-highlight')
 

@@ -24,7 +24,7 @@
             <div class="mb-2 text-xl font-bold text-gray-900">
               {{ librairy.title }}
             </div>
-            <div class="text-base italic text-gray-400 word-wraping" lang="en">
+            <div class="text-base italic text-gray-400 hyphenate" lang="en">
               {{ librairy.desc }}
             </div>
           </div>

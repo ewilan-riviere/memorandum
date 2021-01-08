@@ -20,7 +20,12 @@
 
 <script>
 export default {
-  props: ['skills'],
+  props: {
+    skills: {
+      type: Array,
+      default: () => [],
+    },
+  },
   methods: {
     classesFor(theme) {
       switch (theme) {

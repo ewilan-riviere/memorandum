@@ -1,8 +1,21 @@
 <template>
   <div class="p-4 mt-4 mb-4 border-l-4 alert" :class="`alert-${type}`">
-    <div class="flex items-start">
+    <div v-if="title">
+      <div class="flex items-center mb-3">
+        <div class="flex-shrink-0">
+          <component :is="icon" class="w-6 h-6 mt-px alert-icon" />
+        </div>
+        <div class="flex-grow ml-2 overflow-auto font-semibold alert-content">
+          {{ title }}
+        </div>
+      </div>
+      <div class="flex-grow ml-2 overflow-auto alert-content">
+        <slot />
+      </div>
+    </div>
+    <div v-else class="flex items-start">
       <div class="flex-shrink-0">
-        <component :is="icon" class="w-6 h-6 mt-px alert-icon" />
+        <component :is="icon" class="w-6 h-6 mt-1 alert-icon" />
       </div>
       <div class="flex-grow ml-2 overflow-auto alert-content">
         <slot />
@@ -20,6 +33,10 @@ export default {
       validator(value) {
         return ['info', 'success', 'warning', 'danger'].includes(value)
       },
+    },
+    title: {
+      type: String,
+      default: null,
     },
   },
   computed: {
@@ -48,7 +65,7 @@ export default {
 }
 
 .alert strong {
-  @apply text-lg;
+  @apply text-current;
 }
 
 .alert-content pre code {
@@ -61,7 +78,7 @@ export default {
   @apply bg-blue-100 border-blue-400;
 }
 .alert-info code {
-  @apply bg-blue-200 shadow-none border-0 text-lg;
+  @apply bg-blue-200 shadow-none border-0 text-current;
 }
 .alert-info .alert-icon {
   @apply text-blue-400;
@@ -85,7 +102,7 @@ export default {
   @apply bg-green-100 border-green-400;
 }
 .alert-success code {
-  @apply bg-green-200 shadow-none border-0 text-lg;
+  @apply bg-green-200 shadow-none border-0 text-current;
 }
 .alert-success .alert-icon {
   @apply text-green-400;
@@ -109,7 +126,7 @@ export default {
   @apply bg-yellow-100 border-yellow-400;
 }
 .alert-warning code {
-  @apply bg-yellow-200 shadow-none border-0 text-lg;
+  @apply bg-yellow-200 shadow-none border-0 text-current;
 }
 .alert-warning .alert-icon {
   @apply text-yellow-400;
@@ -133,7 +150,7 @@ export default {
   @apply bg-red-100 border-red-400;
 }
 .alert-danger code {
-  @apply bg-red-200 shadow-none border-0 text-lg;
+  @apply bg-red-200 shadow-none border-0 text-current;
 }
 .alert-danger .alert-icon {
   @apply text-red-400;

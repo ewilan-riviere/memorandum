@@ -1,14 +1,74 @@
 <template>
-  <footer class="bg-white" aria-labelledby="footerHeading">
-    <h2 id="footerHeading" class="sr-only">Footer</h2>
-    <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:py-8 lg:px-8">
-      <div class="lg:grid lg:grid-cols-3 lg:gap-20">
-        <div class="space-y-8 lg:col-span-1">
-          <logo color-logo="text-primary-400" class="navbar-logo" />
-          <p class="text-base text-gray-500">
-            Making the world a better place through constructing elegant
-            hierarchies.
-          </p>
+  <footer
+    class="relative w-full h-16 bg-white border-t dark:border-gray-800 dark:bg-gray-900"
+  >
+    <div
+      class="max-w-screen-xl px-4 py-6 mx-auto space-y-2 overflow-hidden sm:px-6 lg:px-8 dark:bg-gray-900"
+    >
+      <nav class="flex justify-center mx-auto w-max-content">
+        <nuxt-link to="/">
+          <logo class="text-xl font-bold"></logo>
+        </nuxt-link>
+        <color-switcher-toggle class="ml-8" />
+      </nav>
+      <div>
+        <div class="flex items-center justify-center">
+          <a
+            v-for="social in socialLinks"
+            :key="social.id"
+            v-tooltip="social.label"
+            class="p-3 transition-colors duration-300 rounded-md hover:bg-gray-200"
+            :href="social.link"
+            target="_blank"
+            rel="noopener noreferrer"
+            :class="`hover:icon-${social.icon}`"
+          >
+            <icon :name="social.icon" :size="20" />
+          </a>
+        </div>
+      </div>
+      <div
+        class="items-center justify-center text-base text-center text-gray-400 md:flex"
+      >
+        <div class="items-center md:flex w-max-content">
+          <a
+            href="https://creativecommons.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center px-1 py-2 text-base leading-6 text-center text-gray-400 transition-colors duration-300 rounded-md group"
+          >
+            <span
+              v-for="license in licenses"
+              :key="license.id"
+              :alt="license.label"
+              class="w-5 h-5 mr-1 text-gray-400 transition-colors duration-300 fill-current group-hover:text-gray-700"
+              v-html="license.svg"
+            ></span>
+            <span
+              class="ml-1 transition-colors duration-300 group-hover:text-gray-700"
+            >
+              {{ date(2019) }}
+            </span>
+          </a>
+          <span class="mx-1"> · </span>
+          <a
+            :href="packageJson.author.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center px-1 py-2 text-base leading-6 text-center text-gray-400 transition-colors duration-300 rounded-md hover:text-gray-600"
+          >
+            {{ packageJson.author.name }}<span class="hidden lg:block">,</span>
+          </a>
+          <a
+            :href="gitLicense()"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center px-1 py-2 text-base leading-6 text-center text-gray-400 transition-colors duration-300 rounded-md hover:text-gray-600"
+          >
+            {{ packageJson.license }} license<span class="hidden lg:block"
+              >.</span
+            >
+          </a>
           <div
             class="flex flex-wrap items-center px-1 text-base leading-6 text-gray-400 transition-colors duration-300 rounded-md w-max"
           >
@@ -20,239 +80,14 @@
               class="block w-20 py-2 mx-auto ml-1 text-gray-400 fill-current lg:ml-1 hover:nuxt-svg"
               v-html="nuxtFullSvg"
             ></a
-            >,
+            ><span class="mx-1">&</span>
             <a
               href="https://tailwindcss.com"
               target="_blank"
               rel="noopener noreferrer"
               class="block w-20 py-2 mx-auto ml-1 text-gray-400 fill-current hover:tailwind-svg"
               v-html="tailwindFullSvg"
-            ></a
-            ><span class="mx-1">&</span
-            ><a
-              href="https://laravel.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="block w-20 py-2 mx-auto ml-1 text-gray-400 fill-current hover:laravel-svg"
-              v-html="laravelFullSvg"
-            ></a
-            >.
-          </div>
-        </div>
-        <div class="lg:col-span-2">
-          <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
-            <div class="mt-8 lg:mt-0">
-              <h3
-                class="text-sm font-semibold tracking-wider text-gray-400 uppercase"
-              >
-                Solutions
-              </h3>
-              <ul class="mt-4 space-y-4">
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    Marketing
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    Analytics
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    Commerce
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    Insights
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="mt-8 lg:mt-0">
-              <h3
-                class="text-sm font-semibold tracking-wider text-gray-400 uppercase"
-              >
-                Support
-              </h3>
-              <ul class="mt-4 space-y-4">
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    Pricing
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    Documentation
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    Guides
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    API Status
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="mt-8 lg:mt-0">
-              <h3
-                class="text-sm font-semibold tracking-wider text-gray-400 uppercase"
-              >
-                Company
-              </h3>
-              <ul class="mt-4 space-y-4">
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    About
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    Blog
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    Jobs
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    Press
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    Partners
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="pt-8 mt-8 border-t border-gray-200 md:flex md:items-center md:justify-between"
-      >
-        <!-- <div class="flex mr-16 space-x-6 md:order-2">
-          <a href="#" class="text-gray-400 hover:text-gray-300">
-            <span class="sr-only">Facebook</span>
-            <svg
-              class="w-6 h-6"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </a>
-        </div> -->
-        <!-- <p class="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
-          &copy; 2020 Workflow, Inc. All rights reserved.
-        </p> -->
-        <div
-          class="items-center justify-center w-full text-base text-center text-gray-400 lg:w-max lg:flex"
-        >
-          <div
-            class="w-full mx-auto lg:mr-auto lg:items-center lg:flex lg:w-max"
-          >
-            <a
-              href="https://creativecommons.org"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex items-center justify-center px-1 py-2 text-base leading-6 text-center text-gray-400 transition-colors duration-300 rounded-md group"
-            >
-              <span
-                v-for="license in licenses"
-                :key="license.id"
-                :alt="license.label"
-                class="w-5 h-5 mr-1 text-gray-400 transition-colors duration-300 fill-current group-hover:text-gray-700"
-                v-html="license.svg"
-              ></span>
-              <span
-                class="ml-1 transition-colors duration-300 group-hover:text-gray-700"
-              >
-                {{ date(2020) }}
-              </span>
-            </a>
-            <span class="hidden mx-1 lg:block"> · </span>
-            <a
-              :href="packageJson.author.url"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex items-center justify-center px-1 py-2 text-base leading-6 text-center text-gray-400 transition-colors duration-300 rounded-md hover:text-gray-600"
-            >
-              {{ packageJson.author.name
-              }}<span class="hidden lg:block">,</span>
-            </a>
-            <a
-              :href="`${packageJson.repository.url}/-/blob/master/LICENSE`"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex items-center justify-center px-1 py-2 text-base leading-6 text-center text-gray-400 transition-colors duration-300 rounded-md hover:text-gray-600"
-            >
-              {{ packageJson.license }} license<span class="hidden lg:block"
-                >.</span
-              >
-            </a>
+            ></a>
           </div>
         </div>
       </div>
@@ -337,6 +172,16 @@ export default {
         return begin
       }
       return year
+    },
+    gitLicense() {
+      let link = `${this.packageJson.repository.url}`
+      if (link.includes('gitlab')) {
+        link += '/-/blob/master/LICENSE'
+      } else {
+        link += '/blob/master/LICENSE'
+      }
+
+      return link
     },
   },
 }

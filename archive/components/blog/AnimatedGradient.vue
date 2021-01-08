@@ -5,10 +5,13 @@
 <script>
 export default {
   props: {
-    colors: { default: () => ['#EE7752', '#E73C7E', '#23A6D5', '#23D5AB'] },
-    time: { default: '25s' },
-    degree: { default: '120deg' },
-    progress: { default: 100 },
+    colors: {
+      type: Array,
+      default: () => ['#EE7752', '#E73C7E', '#23A6D5', '#23D5AB'],
+    },
+    time: { type: String, default: '25s' },
+    degree: { type: String, default: '120deg' },
+    progress: { type: Number, default: 100 },
   },
   computed: {
     animatedGradient() {
@@ -28,7 +31,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss">
 @keyframes movingGradient {
   0% {
     background-position: 0% 50%;

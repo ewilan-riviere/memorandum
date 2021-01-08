@@ -1,13 +1,13 @@
 <template>
   <div class="code-group">
     <div
-      class="relative px-2 text-sm text-white bg-gray-800 border-b-2 border-gray-700 rounded-t-md"
+      class="rounded-t-md border-b-2 border-gray-700 px-2 bg-gray-800 text-sm text-white relative"
     >
       <button
         v-for="({ label }, i) in tabs"
         ref="tabs"
         :key="label"
-        class="px-4 py-3 font-mono font-bold text-gray-400"
+        class="px-4 py-3 text-gray-400 font-bold font-mono"
         :class="[activeTabIndex === i && 'active']"
         @click="updateTabs(i)"
       >
@@ -55,15 +55,13 @@ export default {
       this.updateHighlighteUnderlinePosition()
     },
     updateHighlighteUnderlinePosition() {
-      if (this.$refs.tabs !== undefined) {
-        const activeTab = this.$refs.tabs[this.activeTabIndex]
-        if (!activeTab) {
-          return
-        }
-        const highlightUnderline = this.$refs['highlight-underline']
-        highlightUnderline.style.left = `${activeTab.offsetLeft}px`
-        highlightUnderline.style.width = `${activeTab.clientWidth}px`
+      const activeTab = this.$refs.tabs[this.activeTabIndex]
+      if (!activeTab) {
+        return
       }
+      const highlightUnderline = this.$refs['highlight-underline']
+      highlightUnderline.style.left = `${activeTab.offsetLeft}px`
+      highlightUnderline.style.width = `${activeTab.clientWidth}px`
     },
   },
 }

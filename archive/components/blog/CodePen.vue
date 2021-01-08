@@ -21,10 +21,10 @@
 <script>
 export default {
   props: {
-    id: { required: true },
-    title: { required: true },
-    height: { default: '400' },
-    author: { default: 'lorisleiva' },
+    id: { type: Boolean, required: true },
+    title: { type: Boolean, required: true },
+    height: { type: String, default: '400' },
+    author: { type: String, default: 'lorisleiva' },
   },
 }
 </script>
