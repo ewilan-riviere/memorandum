@@ -135,6 +135,21 @@
     margin-bottom: 2rem;
     @apply text-xl font-bold;
   }
+  & h3::after {
+    content: ' ';
+    width: 80%;
+    display: block;
+    --border-opacity: 1;
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+    border-radius: 0.25rem;
+    border: 1px dashed #108775;
+    border-top-color: rgb(16, 135, 117);
+    border-right-color: rgb(16, 135, 117);
+    border-bottom-color: rgb(16, 135, 117);
+    border-left-color: rgb(16, 135, 117);
+    border-color: rgba(16, 135, 117, var(--border-opacity));
+  }
   /* list  */
   & li {
     @apply my-1;

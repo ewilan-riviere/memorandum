@@ -10,7 +10,7 @@ category: 'Tailwind CSS'
 - [**Tailwind Typography**](https://github.com/tailwindlabs/tailwindcss-typography)
 - [**@tailwindcss/aspect-ratio**](https://github.com/tailwindlabs/tailwindcss-aspect-ratio)
 - [**@tailwindcss/forms**](https://github.com/tailwindlabs/tailwindcss-forms)
-- [**@tailwindcss/line-clamp'**](https://github.com/tailwindlabs/tailwindcss-line-clamp)
+- [**@tailwindcss/line-clamp**](https://github.com/tailwindlabs/tailwindcss-line-clamp)
 
 ```bash
 yarn add @tailwindcss/forms @tailwindcss/typography @tailwindcss/aspect-ratio @tailwindcss/line-clamp

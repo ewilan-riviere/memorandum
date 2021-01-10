@@ -137,6 +137,7 @@ If you have to call `games` table and make all junctions to have same results in
 Let's take a **Game** entity. It's a Laravel Model and PHP object with some attributes like `game_id`, `game_name`, `description`... But, like any game, it has a **Hardware** minimal configuration, a potentially **Franchise** and some **Tag**s associated with. So we have **OneToOne** relationship between *one* **Game** and *one* **Hardware**, **OneToMany** relationship between *one* **Franchise** and potentially *many* **Games** and **ManyToMany** relationship between *many* **Tags** and *many* **Games** (for this relationship, we will have to create a pivot table).
 
 In this example, we could add **Hardware** attributes to **Game** entity but hardware is specific attributes, we don't need any time, we choose to check it if necessary but not every time we just need `game_name` for example. It's OneToOne relationship just to outsource hardware config in another table.
+
 </alert>
 
 ---
@@ -342,7 +343,7 @@ class CreateTagsTable extends Migration {
 ```
 
 </vue-code-info>
-</alert>
+</spoiler>
 
 And `game_tag` table, pivot table between with `games`
 
@@ -404,7 +405,7 @@ class AddRelationshipBetweenGamesAndTags extends Migration {
 ```
 
 </vue-code-info>
-</alert>
+</spoiler>
 
 ### 2. d. `hardware` table: OneToOne Relationship
 
@@ -470,7 +471,7 @@ class CreateHardwareTable extends Migration {
 ```
 
 </vue-code-info>
-</alert>
+</spoiler>
 
 ---
 
@@ -535,7 +536,7 @@ class Tag{
 Tag : games() BelongsToMany
 ```
 
-</alert>
+</spoiler>
 
 ### 3. a. Game Model
 
@@ -634,7 +635,7 @@ class Game extends Model {
 ```
 
 </vue-code-info>
-</alert>
+</spoiler>
 
 ### 3. b. Hardware Model
 
@@ -697,7 +698,7 @@ class Hardware extends Model {
 ```
 
 </vue-code-info>
-</alert>
+</spoiler>
 
 ### 3. c. Franchise Model
 
@@ -767,7 +768,7 @@ class Franchise extends Model {
 ```
 
 </vue-code-info>
-</alert>
+</spoiler>
 
 ### 3. d. Tag Model
 
@@ -835,7 +836,7 @@ class Tag extends Model {
 ```
 
 </vue-code-info>
-</alert>
+</spoiler>
 
 ---
 

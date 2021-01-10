@@ -1,21 +1,18 @@
 <template>
   <div class="p-4 mt-4 mb-4 border-l-4 alert" :class="`alert-${type}`">
-    <div v-if="title">
+    <div>
       <div class="flex items-center mb-3">
         <div class="flex-shrink-0">
           <component :is="icon" class="w-6 h-6 mt-px alert-icon" />
         </div>
         <div class="flex-grow ml-2 overflow-auto font-semibold alert-content">
-          {{ title }}
+          <span v-if="title">
+            {{ title }}
+          </span>
+          <span v-else class="uppercase">
+            {{ type }}
+          </span>
         </div>
-      </div>
-      <div class="flex-grow ml-2 overflow-auto alert-content">
-        <slot />
-      </div>
-    </div>
-    <div v-else class="flex items-start">
-      <div class="flex-shrink-0">
-        <component :is="icon" class="w-6 h-6 mt-1 alert-icon" />
       </div>
       <div class="flex-grow ml-2 overflow-auto alert-content">
         <slot />

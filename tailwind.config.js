@@ -86,18 +86,20 @@ module.exports = {
     },
   },
   variants: {
-    textColor: ['responsive', 'hover', 'focus', 'group-hover', 'dark'],
-    scale: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
-    animation: [
-      'responsive',
-      'motion-safe',
-      'motion-reduce',
-      'hover',
-      'group-hover',
-    ],
-    translate: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
-    backgroundColor: ['hover', 'focus', 'group-hover', 'dark'],
-    borderColor: ['hover', 'focus', 'group-hover', 'dark'],
+    extends: {
+      textColor: ['responsive', 'hover', 'focus', 'group-hover', 'dark'],
+      scale: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
+      animation: [
+        'responsive',
+        'motion-safe',
+        'motion-reduce',
+        'hover',
+        'group-hover',
+      ],
+      translate: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
+      backgroundColor: ['hover', 'focus', 'group-hover', 'dark'],
+      borderColor: ['hover', 'focus', 'group-hover', 'dark'],
+    },
   },
   plugins: [
     require('@tailwindcss/forms'),

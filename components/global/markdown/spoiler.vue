@@ -3,7 +3,7 @@
     <div
       :class="expanded ? 'rounded-t-lg' : 'rounded-lg'"
       class="flex items-center px-4 py-2 mt-4 font-bold transition-colors duration-300 bg-gray-200 cursor-pointer hover:bg-gray-300"
-      @click="expanded = !expanded"
+      @click="switchSpoiler"
     >
       <icon
         name="arrow-right"
@@ -34,6 +34,8 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import AppCopyButton from '@/components/global/markdown/copy-button'
 export default {
   name: 'Spoiler',
   props: {
@@ -46,6 +48,28 @@ export default {
     return {
       expanded: false,
     }
+  },
+  methods: {
+    switchSpoiler() {
+      this.expanded = !this.expanded
+      this.setCopyBtn()
+    },
+    setCopyBtn() {
+      setTimeout(() => {
+        const blocks = document.getElementsByClassName('nuxt-content-highlight')
+
+        for (const block of blocks) {
+          const lastChild = block.lastChild
+          if (lastChild.className === 'copy') {
+            block.removeChild(lastChild)
+          }
+
+          const CopyButton = Vue.extend(AppCopyButton)
+          const component = new CopyButton().$mount()
+          block.appendChild(component.$el)
+        }
+      }, 100)
+    },
   },
 }
 </script>

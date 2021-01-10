@@ -1,7 +1,7 @@
 <template>
   <div
-    class="fixed top-0 bottom-0 left-0 z-50 transition duration-500 ease-in-out transform shadow-xl sm:duration-700"
     :class="$store.state.sidebarOpened ? 'translate-x-0' : '-translate-x-full'"
+    class="fixed top-0 bottom-0 left-0 z-50 transition duration-500 ease-in-out transform shadow-xl sm:duration-700"
   >
     <div class="w-screen h-full max-w-md">
       <div class="flex flex-col h-full bg-white divide-y divide-gray-200">

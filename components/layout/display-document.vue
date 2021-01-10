@@ -18,16 +18,12 @@ export default {
   data() {
     return {
       isVisible: true,
+      currentDocument: this.document,
     }
   },
-  computed: {
-    currentDocument() {
-      return this.$store.state.currentDocument
-    },
-  },
   watch: {
-    currentDocument(newCount, oldCount) {
-      console.log('Store updated!')
+    document(newValue, OldValue) {
+      this.currentDocument = this.document
       this.setCopyBtn()
     },
   },

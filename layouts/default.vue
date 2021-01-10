@@ -11,7 +11,6 @@
 </template>
 
 <script>
-// import AppFooter from '@/components/layout/AppFooter'
 import settings from '~/content/settings.json'
 import LayoutBackToTop from '~/components/layout/layout-back-to-top.vue'
 import LayoutFooter from '~/components/layout/layout-footer.vue'

@@ -125,6 +125,7 @@ export default {
     //     disabled: false,
     //   },
     // ],
+    '@nuxtjs/google-analytics',
   ],
 
   tailwindcss: {
@@ -148,6 +149,10 @@ export default {
     classSuffix: '',
   },
 
+  googleAnalytics: {
+    id: 'G-Y4XJBB2RP7',
+  },
+
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/axios
@@ -160,6 +165,10 @@ export default {
     '@nuxtjs/svg',
     // https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
+    // https://sitemap.nuxtjs.org
+    '@nuxtjs/sitemap',
+    // https://github.com/nuxt-community/robots-module
+    '@nuxtjs/robots',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
@@ -196,6 +205,11 @@ export default {
         body: file.split('\n').map((line) => line.trim()),
       }),
     },
+  },
+
+  robots: {
+    UserAgent: '*',
+    Disallow: '/',
   },
 
   hooks: {
