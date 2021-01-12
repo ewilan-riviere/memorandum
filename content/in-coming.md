@@ -50,6 +50,7 @@ description: 'Future documentations'
   - <https://md-interpreter.git-projects.xyz>
 - [ ] <https://css-tricks.com/creating-non-rectangular-headers/>
 - [ ] tools of <https://twitter.com/jesuisundev/status/1346446481155366912>
+- [ ] scoop cache ; scoop cleanup (mysql install broken for example)
 
 ## Parallax
 
