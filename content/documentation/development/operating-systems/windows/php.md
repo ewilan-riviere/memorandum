@@ -35,6 +35,8 @@ sudo scoop install php7.4-nts
 sudo scoop install php7.3-nts
 ```
 
+### Switch PHP version
+
 By default, the last PHP installed is the current version, here I install PHP 7.3 at the last, so current version with `php -v` will be **7.3**. If I want to use PHP 7.4, I have just to use this command:
 
 ```powershell[PowerShell]
@@ -45,13 +47,13 @@ And `php -v` give me **7.4**, I can back to PHP 7.3 when I want.
 
 ## php.ini
 
-You will need to activate some extensions in `php.ini`, you will find it **for each PHP version** in each directory of PHP version installed: `C:/Users/username/scoop/apps/php*-nts/current/php.ini`. I offer an example of **php.ini** but you will need to update each **php.ini**.
+You will need to activate some extensions in `php.ini`, you will find it **for each PHP version** in each directory of PHP version installed: `C:/Users/USERNAME/scoop/apps/php*-nts/current/php.ini`. I offer an example of **php.ini** but you will need to update each **php.ini**.
 
 <spoiler label="Example of configuration">
 
 **At around line 400**
 
-```ini[C:/Users/username/scoop/apps/php*-nts/current/php.ini]
+```ini[C:/Users/USERNAME/scoop/apps/php*-nts/current/php.ini]
 ; Maximum amount of memory a script may consume (128MB)
 ; <http://php.net/memory-limit>
 memory_limit = -1
@@ -59,7 +61,7 @@ memory_limit = -1
 
 **At around line 750**
 
-```ini[C:/Users/username/scoop/apps/php*-nts/current/php.ini]
+```ini[C:/Users/USERNAME/scoop/apps/php*-nts/current/php.ini]
 ; Directory in which the loadable extensions (modules) reside.
 ; <http://php.net/extension-dir>
 ; extension_dir = "./"
@@ -69,7 +71,7 @@ extension_dir = "ext"
 
 **At around line 900**
 
-```ini[C:/Users/username/scoop/apps/php*-nts/current/php.ini]
+```ini[C:/Users/USERNAME/scoop/apps/php*-nts/current/php.ini]
 ; Notes for Windows environments :
 ;
 ; - Many DLL files are located in the extensions/ (PHP 4) or ext/ (PHP 5+)
@@ -145,28 +147,28 @@ You will have a window to create new service, two input will be important: **Pat
 
 <md-img source="nssm-php.png"></md-img>
 
-For **Path**, get **path** of **current** **php7.4-nts**, in this example, change `username` and `php7.4-nts` if you set a different PHP version in **Path**
+For **Path**, get **path** of **current** **php7.4-nts**, in this example, change `USERNAME` and `php7.4-nts` if you set a different PHP version in **Path**
 
 ```[path]
-C:\Users\username\scoop\apps\php7.4-nts\current\php-cgi.exe
+C:\Users\USERNAME\scoop\apps\php7.4-nts\current\php-cgi.exe
 ```
 
-For **Parameter**, you will need to create specific port with path of **current** **php7.4-nts**, in this example change `username`, `9074` if you want a different port and `php7.4-nts` if you set a different PHP version in **Path**
+For **Parameter**, you will need to create specific port with path of **current** **php7.4-nts**, in this example change `USERNAME`, `9074` if you want a different port and `php7.4-nts` if you set a different PHP version in **Path**
 
 ```[parameter]
--b 127.0.0.1:9074 -c C:\Users\username\scoop\apps\php7.4-nts\current\php.ini
+-b 127.0.0.1:9074 -c C:\Users\USERNAME\scoop\apps\php7.4-nts\current\php.ini
 ```
 
 Save the new service and you can install another for PHP 7.3, for example:
 
 ```[path]
-C:\Users\username\scoop\apps\php7.3-nts\current\php-cgi.exe
+C:\Users\USERNAME\scoop\apps\php7.3-nts\current\php-cgi.exe
 ```
 
 For the port, I choose `9073`
 
 ```[parameter]
--b 127.0.0.1:9073 -c C:\Users\username\scoop\apps\php7.3-nts\current\php.ini
+-b 127.0.0.1:9073 -c C:\Users\USERNAME\scoop\apps\php7.3-nts\current\php.ini
 ```
 
 ### Launch service
