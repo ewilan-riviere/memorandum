@@ -29,7 +29,7 @@ module.exports = {
       script: 'index.js',
       cwd: '/home/jack/drone-manual',
       env: {
-          PORT: 30001
+          PORT: 3001
       },
     },
     // some projects
@@ -75,6 +75,7 @@ TODO link to Nginx
 
 ```nginx{2,6,17,18}
 server {
+    listen 80;
     root /home/user/www/html;
 
     index index.html index.htm index.nginx-debian.html index.php;
@@ -87,7 +88,7 @@ server {
 
     location ~ \.php$ {
         include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/run/php/php7.1-fpm.sock;
+        fastcgi_pass unix:/run/php/php7.4-fpm.sock;
     }
 
     location /deploy {

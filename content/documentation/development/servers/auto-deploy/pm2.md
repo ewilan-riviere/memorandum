@@ -30,7 +30,7 @@ server {
 
   location / {
     include proxy_params;
-    proxy_pass http://localhost:3001;
+    proxy_pass http://localhost:3002;
   }
 }
 ```
@@ -86,7 +86,7 @@ module.exports = {
       cwd: '/home/user/www/portfolio-front',
       args: 'start',
       env: {
-        PORT: 3001
+        PORT: 3002
       },
     }
   ]

@@ -43,7 +43,7 @@ Download `composer` dependencies
 Linus setup permissions
 
 ```bash
-sudo chown -R $USER:www-data * ; echo sudo chmod -R ug+rwx storage bootstrap/cache
+sudo chown -R $USER:www-data * ; sudo chmod -R ug+rwx storage bootstrap/cache
 ```
 
 Setup `key:generate` & `storage:link`

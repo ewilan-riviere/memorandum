@@ -121,11 +121,6 @@
     margin-bottom: 0.25rem;
     border-radius: 0.25rem;
     border: 2px solid #108775;
-    border-top-color: rgb(16, 135, 117);
-    border-right-color: rgb(16, 135, 117);
-    border-bottom-color: rgb(16, 135, 117);
-    border-left-color: rgb(16, 135, 117);
-    border-color: rgba(16, 135, 117, var(--border-opacity));
   }
   & h3 {
     @apply font-quicksand w-max;
@@ -144,11 +139,6 @@
     margin-bottom: 0.25rem;
     border-radius: 0.25rem;
     border: 1px dashed #108775;
-    border-top-color: rgb(16, 135, 117);
-    border-right-color: rgb(16, 135, 117);
-    border-bottom-color: rgb(16, 135, 117);
-    border-left-color: rgb(16, 135, 117);
-    border-color: rgba(16, 135, 117, var(--border-opacity));
   }
   /* list  */
   & li {

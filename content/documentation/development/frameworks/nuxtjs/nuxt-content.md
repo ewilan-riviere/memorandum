@@ -17,3 +17,13 @@ Use Markdown files to create content pages with NuxtJS
 - [**github.com/remarkjs/remark**](https://github.com/remarkjs/remark)
 - [**github.com/rehypejs/rehype**](https://github.com/rehypejs/rehype)
 - For blog theme: [**nuxtjs.blog**](https://nuxtjs.blog)
+
+## Errors with components in markdown
+
+[github.com/nuxt/content/issues/47](https://github.com/nuxt/content/issues/47#issuecomment-643393328)
+
+```js[nuxt.config.js]
+components: [
+  { path: '~/components/global', global: true' }
+]
+```
