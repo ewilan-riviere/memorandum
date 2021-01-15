@@ -46,6 +46,8 @@ description: 'Future documentations'
   - <https://fr.z-lib.org>
   - <https://booksjar.com>
   - <https://allbooksworld.com>
+  - <https://www.bnf.fr/en>
+  - <https://api.bnf.fr/>
 - hub projects
   - <https://md-interpreter.git-projects.xyz>
 - [ ] <https://css-tricks.com/creating-non-rectangular-headers/>

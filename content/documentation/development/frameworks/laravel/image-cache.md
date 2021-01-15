@@ -20,6 +20,12 @@ composer require spatie/image
 
 Create Controller for images
 
+Check `$path` of image
+
+```php
+Image::load("$path")
+```
+
 ```php[app/Http/Controllers/ImageController.php]
 <?php
 
@@ -51,11 +57,11 @@ class ImageController extends Controller
 
     if (! $thumbnail['resolved']) {
       if ($crop) {
-        Image::load("storage/$path")
+        Image::load("$path")
           ->fit(Manipulations::FIT_MAX, $dimensions['width'], $dimensions['height'])
           ->save($thumbnail['filepath']);
       } else {
-        Image::load("storage/$path")
+        Image::load("$path")
           ->save($thumbnail['filepath']);
       }
     }
