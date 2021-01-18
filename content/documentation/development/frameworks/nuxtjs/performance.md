@@ -5,6 +5,30 @@ position: 3
 category: 'NuxtJS'
 ---
 
+## Bundle size
+
+- <https://fr.nuxtjs.org/docs/2.x/configuration-glossary/configuration-build/#analyze>
+
+```js[nuxt.config.js]
+export default {
+  build: {
+      analyze: true,
+      // or
+      analyze: {
+         analyzerMode: 'static'
+      }
+  }
+}
+```
+
+```bash
+yarn nuxt build --analyze
+```
+
+Go to [**localhost:8888**](http://localhost:8888)
+
+## Misc
+
 - <https://medium.com/weekly-webtips/web-vitals-google-search-the-state-vue-nuxt-performance-optimization-in-july-2020-71441eefc51>
 - <https://github.com/daliborgogic/nuxt-vitals>
 - <https://github.com/nuxt-community/html-validator-module>
