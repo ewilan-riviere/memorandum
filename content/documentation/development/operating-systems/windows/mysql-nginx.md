@@ -208,6 +208,37 @@ In any browser, at <http://localhost/phpmyadmin>, you have to see **phpMyAdmin w
 
 <md-img source="pma-welcome.png" legend="Welcome page of phpMyAdmin"></md-img>
 
+### Configure phpMyAdmin (optional)
+
+```bash
+cp C:/Users/$env:UserName/scoop/apps/nginx/current/html/phpmyadmin/config.sample.inc.php C:/Users/$env:UserName/scoop/apps/nginx/current/html/phpmyadmin/config.inc.php
+```
+
+In `C:/Users/$env:UserName/scoop/apps/nginx/current/html/phpmyadmin`
+
+```php[config.inc.php]
+// blowfish_secret is just a token for phpMyAdmin
+$cfg['blowfish_secret'] = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+
+/* Authentication type */
+$cfg['Servers'][$i]['auth_type'] = 'cookie';
+// Add this line to stay connected during one week
+$cfg['LoginCookieValidity'] = 604800;
+```
+
+To generate `blowfish_secret`, you can use `pwgen` with WSL.
+
+```bash
+sudo apt install pwgen ; pwgen -s 32 1
+```
+
+If you update `LoginCookieValidity`, you need to update `session.gc_maxlifetime` in current `php.ini`
+
+```php[php.ini]
+// line ~1400
+session.gc_maxlifetime = 604800
+```
+
 ## Add a new VHost
 
 Add a new VHost to **nginx.conf**: `C:\Users\username\scoop\apps\nginx\current\conf\nginx.conf`
