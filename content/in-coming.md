@@ -101,6 +101,9 @@ description: 'Future documentations'
 - [ ] [**medium.com/setting-up-laravel-8-x-with-jetstream-auth**](https://medium.com/dev-genius/setting-up-laravel-8-x-with-jetstream-auth-84bbeafc0cd3)
 - [ ] [**medium.com/how-to-use-svg-icons-in-your-vue-app**](https://medium.com/javascript-in-plain-english/how-to-use-svg-icons-in-your-vue-app-6e2c30865d7c)
 - [ ] css link border expand: <https://stackoverflow.com/questions/28623446/hover-effect-expand-bottom-border>
+  - <https://css-tricks.com/a-css-only-animated-wrapping-underline/>
+  - <https://codepen.io/mehi/pen/MyWqPM>
+  - <https://codepen.io/jstn/pen/zuDst>
 - [ ] php big files
 - [ ] Setup to upload big files
 
