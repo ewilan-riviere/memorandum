@@ -40,14 +40,15 @@ description: 'Future documentations'
 - [ ] book api
   - <https://www.googleapis.com/books/v1/volumes?q=isbn%3D2700229835>
   - <https://isbnsearch.org/isbn/9780134092669>
-  - <https://www.abebooks.fr/servlet/BookDetailsPL?bi=30809599867&searchurl=ds%3D20%26kn%3Dewilan%26sortby%3D17&cm_sp=snippet>-_-srp1-_-title1
+  - <https://www.abebooks.fr/servlet/BookDetailsPL?bi=30809599867&searchurl=ds%3D20%26kn%3Dewilan%26sortby%3D17&cm_sp=snippet-_-srp1-_-title1>
   - <https://www.isbn-international.org>
   - <http://fr.feedbooks.com/api>
   - <https://fr.z-lib.org>
   - <https://booksjar.com>
   - <https://allbooksworld.com>
   - <https://www.bnf.fr/en>
-  - <https://api.bnf.fr/>
+    - <https://api.bnf.fr/>
+  - <https://openlibrary.org/>
 - hub projects
   - <https://md-interpreter.git-projects.xyz>
 - [ ] <https://css-tricks.com/creating-non-rectangular-headers/>

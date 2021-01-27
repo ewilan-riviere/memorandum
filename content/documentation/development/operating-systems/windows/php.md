@@ -184,3 +184,33 @@ sudo nssm restart php7.4
 ```
 
 And now, you can install **NGINX** and **MySQL**, check here: [**MySQL & NGINX**](/development/operating-systems/windows/mysql-nginx)
+
+## Errors
+
+### `cURL error 60: SSL certificate problem: unable to get local issuer certificate`
+
+If you have this error, you have a problem of certificate. You can [manullay download certificate](https://curl.haxx.se/docs/caextract.html) but I advice to use `scoop`.
+
+```bash
+sudo scoop install cacert
+```
+
+Open `C:/Users/USERNAME/scoop/apps/php*-nts/current/php.ini` to update this line, at ~1900 line
+
+```ini[C:/Users/USERNAME/scoop/apps/php*-nts/current/php.ini]
+curl.cainfo = "C:\Users\USERNAME\scoop\apps\cacert\current\cacert.pem"
+```
+
+And restart PHP-FPM with NSSM
+
+```bash
+sudo nssm restart php[INSERT-HERE-VERSION]
+```
+
+<alert type="warning">
+
+You have to do this **FOR EACH** PHP version you use with you VHost. If you use `php artisan serve` with PHP 7.4 CLI, you have a VHost with PHP 7.3 and another VHost with PHP 8.0... You have to update all `php.ini` files which used by VHost or live serve with Laravel or Symfony.
+
+And you have to **RESTART EACH** version after `php.ini` file update.
+
+</alert>
