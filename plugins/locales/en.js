@@ -21,6 +21,7 @@ module.exports = {
       'Open-source UI software development kit created by Google. It is used to develop applications for Android/iOS, Linux/Mac/Windows and web from a single codebase.',
     link: 'https://flutter.dev/',
   },
+  latex: { label: 'latex' },
   laravel: { label: 'Laravel' },
   'native-script': { label: 'NativeScript' },
   nuxtjs: { label: 'NuxtJS' },
