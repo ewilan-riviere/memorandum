@@ -11,9 +11,10 @@ category: 'Tailwind CSS'
 - [**@tailwindcss/aspect-ratio**](https://github.com/tailwindlabs/tailwindcss-aspect-ratio)
 - [**@tailwindcss/forms**](https://github.com/tailwindlabs/tailwindcss-forms)
 - [**@tailwindcss/line-clamp**](https://github.com/tailwindlabs/tailwindcss-line-clamp)
+- [**Tailwind CSS Debug Screens**](https://github.com/jorenvanhee/tailwindcss-debug-screens)
 
 ```bash
-yarn add @tailwindcss/forms @tailwindcss/typography @tailwindcss/aspect-ratio @tailwindcss/line-clamp
+yarn add @tailwindcss/forms @tailwindcss/typography @tailwindcss/aspect-ratio @tailwindcss/line-clamp tailwindcss-debug-screens
 ```
 
 ```js[tailwind.config.js]
@@ -24,6 +25,7 @@ module.exports = {
     require('@tailwindcss/typography'),
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/line-clamp'),
+    require('tailwindcss-debug-screens'),
   ]
 }
 ```
@@ -69,4 +71,27 @@ A plugin that provides utilities for visually truncating text after a fixed numb
 <p class="line-clamp-3">
   Et molestiae hic earum repellat aliquid est doloribus delectus. Enim illum odio porro ut omnis dolor debitis natus. Voluptas possimus deserunt sit delectus est saepe nihil. Qui voluptate possimus et quia. Eligendi voluptas voluptas dolor cum. Rerum est quos quos id ut molestiae fugit.
 </p>
+```
+
+### Tailwind CSS Debug Screens
+
+A Tailwind CSS component that shows the currently active screen (responsive breakpoint).
+
+```vue[layouts/default.vue]
+<template>
+  <div :class="{ 'debug-screens': devMode }">
+    <Nuxt />
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'DefaultLayout',
+  data() {
+    return {
+      devMode: process.env.NODE_ENV !== 'production',
+    }
+  },
+}
+</script>
 ```
