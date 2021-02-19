@@ -39,16 +39,11 @@ Import-Module oh-my-posh
 Import-Module PSReadLine
 Set-Theme Paradox
 
-function ssh-server-simple {
-    ssh -i C:\Users\username\.ssh\id_rsa "user@server"
-}
 # with option like 'ssh-server dev.server.org'
 function ssh-server($server) {
-    ssh -i C:\Users\username\.ssh\id_rsa "user@$server"
+    ssh -i C:\Users\ewila\.ssh\id_rsa.pub "ubuntu@$server"
 }
-function lara-seed {
-    php artisan migrate:fresh --seed
-}
+
 function flutter-clean {
     flutter clean ; flutter pub get
 }
@@ -57,5 +52,41 @@ function flutter-rebuild {
 }
 function flutter-build {
     flutter build apk --split-per-abi ; cp build\app\outputs\flutter-apk\app-armeabi-v7a-release.apk
+}
+function user-go {
+    cd C:/Users/ewila
+}
+# Laravel
+function artisan-seed {
+    php artisan migrate:fresh --seed
+}
+function artisan-clear {
+    php artisan cache:clear ; php artisan config:clear ; php artisan route:clear ; php artisan view:clear
+}
+function artisan-routes {
+    php artisan route:list --compact
+}
+function artisan-helper {
+    php artisan ide-helper:generate ; php artisan ide-helper:models ; php artisan ide-helper:meta
+}
+function php-cs-fix {
+    ./vendor/bin/php-cs-fixer fix
+}
+# composer
+function composer-setup {
+    composer install ; php artisan key:generate ; php artisan storage:link
+    if(!(Test-Path -Path '.env')) {
+        New-Item .env
+    }
+}
+function composer-v {
+    composer --version
+}
+# php
+function php-7.4 {
+    scoop reset php/php7.4-nts
+}
+function php-8.0 {
+    scoop reset php/php-nts
 }
 ```
