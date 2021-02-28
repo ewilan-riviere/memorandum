@@ -9,7 +9,7 @@ category: 'Windows'
 
 **scoop** is a command-line install for Windows, it's very close to **APT** on Linux if you know it. With this tool, you can install easily many packages directly from your PowerShell terminal, check [**scoop.sh**](https://scoop.sh): to get more informations.
 
-:::tip Why install packages with scoop ?
+<alert type="info"> Why install packages with scoop ?
 
 - Packages are installed in your **User** directory by default (but you can modify it): `C:\Users\username\scoop`
 - Find all applications directly in startup menu
@@ -19,7 +19,7 @@ category: 'Windows'
 - Get last versions of your favorites languages
 - Get multiple versions of same language (if **scoop** offer it): PHP, Java...
 
-:::
+</alert>
 
 ## Setup **scoop**
 
@@ -167,6 +167,7 @@ You can find many package with **scoop**, you can see below just some examples:
 - nginx [main]
 - ngrok [main]
 - nssm [main]
+- pandoc [main]
 - phpstorm [jetbrains]
 - postman [extras]
 - Victor-Mono [nerd-fonts]

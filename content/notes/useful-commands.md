@@ -43,7 +43,7 @@ Download `composer` dependencies
 Linus setup permissions
 
 ```bash
-sudo chown -R $USER:www-data * ; echo sudo chmod -R ug+rwx storage bootstrap/cache
+sudo chown -R $USER:www-data * ; sudo chmod -R ug+rwx storage bootstrap/cache
 ```
 
 Setup `key:generate` & `storage:link`
@@ -95,12 +95,21 @@ php artisan ide-helper:generate ; php artisan ide-helper:models ; php artisan id
 ./vendor/bin/php-cs-fixer fix
 ```
 
+## MySQL database
+
+```sql
+CREATE DATABASE database_project;
+SET GLOBAL validate_password.policy=LOW;
+CREATE USER 'user_project'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password_secret';
+GRANT ALL ON database_project.* TO 'user_project'@'localhost';
+```
+
 ## Scoop update
 
 Update common packages
 
 ```bash
-sudo scoop update 7zip ; sudo scoop update cacert ; sudo scoop update composer ; sudo scoop update curl ; sudo scoop update dark ; sudo scoop update doctl ; sudo scoop update ffmpeg ; sudo scoop update firacode ; sudo scoop update git ; sudo scoop update git-with-openssh ; sudo scoop update glow ; sudo scoop update gmkvextractgui ; sudo scoop update hwmonitor ; sudo scoop update innounp ; sudo scoop update lessmsi ; sudo scoop update make ; sudo scoop update mkvtoolnix ; sudo scoop update ngrok ; sudo scoop update nssm ; sudo scoop update nvm ; sudo scoop update php-nts ; sudo scoop update python ; sudo scoop update rufus ; sudo scoop update sudo ; sudo scoop update symfony-cli ; sudo scoop update touch ; sudo scoop update Victor-Mono ; sudo scoop update vim ; sudo scoop update wget ; sudo scoop update which ; sudo scoop update windows-terminal ; sudo scoop update yarn ; sudo scoop update youtube-dl
+sudo scoop update 7zip ; sudo scoop update cacert ; sudo scoop update composer ; sudo scoop update curl ; sudo scoop update dark ; sudo scoop update doctl ; sudo scoop update ffmpeg ; sudo scoop update firacode ; sudo scoop update git ; sudo scoop update git-with-openssh ; sudo scoop update glow ; sudo scoop update gmkvextractgui ; sudo scoop update hwmonitor ; sudo scoop update innounp ; sudo scoop update lessmsi ; sudo scoop update make ; sudo scoop update mkvtoolnix ; sudo scoop update ngrok ; sudo scoop update nssm ; sudo scoop update nvm ; sudo scoop update php-nts ; sudo scoop update python ; sudo scoop update rufus ; sudo scoop update sudo ; sudo scoop update symfony-cli ; sudo scoop update touch ; sudo scoop update Victor-Mono ; sudo scoop update vim ; sudo scoop update wget ; sudo scoop update which ; sudo scoop update windows-terminal ; sudo scoop update yarn ; sudo scoop update youtube-dl ; sudo scoop update pandoc
 ```
 
 Update medium/big and/or sensible packages

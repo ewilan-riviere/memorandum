@@ -1,6 +1,6 @@
 <template>
   <div>
-    <main-layout
+    <layout-main
       :image="$slugify(article.pathsObj.entity)"
       :back-route="{
         name: 'type-slug',
@@ -71,24 +71,25 @@
                 </div>
               </div>
               <div class="mx-auto prose prose-lg text-gray-500">
-                <display-document :document="article" />
+                <nuxt-content :document="document" />
+                <!-- <display-document :document="article" /> -->
               </div>
             </div>
           </article>
         </transition>
       </div>
       <div slot="toc">
-        <app-toc :toc="article.toc"></app-toc>
+        <table-of-content :toc="article.toc"></table-of-content>
       </div>
-    </main-layout>
+    </layout-main>
   </div>
 </template>
 
 <script>
-import DisplayDocument from '~/components/blocks/DisplayDocument.vue'
+// import DisplayDocument from '~/components/blocks/DisplayDocument.vue'
 export default {
   name: 'ContentSlug',
-  components: { DisplayDocument },
+  // components: { DisplayDocument },
   // components: {
   //   ReadProgress: () =>
   //     import('vue-read-progress')
@@ -129,9 +130,6 @@ export default {
     }
   },
   methods: {
-    action(e) {
-      console.log(e)
-    },
     getDate(date) {
       let userLang = 'en-US'
       if (process.client) {

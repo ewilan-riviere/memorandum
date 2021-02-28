@@ -1,6 +1,6 @@
 <template>
   <div>
-    <main-layout>
+    <layout-main>
       <div slot="aside">
         <switch-categories
           :pages="pages"
@@ -91,21 +91,25 @@
         </div>
       </div>
       <div slot="toc"></div>
-    </main-layout>
+    </layout-main>
   </div>
 </template>
 
 <script>
-import SwitchCategories from '@/components/layout/SwitchCategories.vue'
+import SwitchCategories from '@/components/layout/switch-categories.vue'
 // eslint-disable-next-line no-unused-vars
 import groupBy from 'lodash/groupBy'
 import ListGuide from '@/components/blocks/ListGuide.vue'
+import LayoutMain from '@/components/layout/layout-main.vue'
+import CategoryCollapse from '@/components/layout/category-collapse.vue'
 
 export default {
   name: 'TypeSlug',
   components: {
     SwitchCategories,
     ListGuide,
+    LayoutMain,
+    CategoryCollapse,
   },
   async asyncData({ $content, params }) {
     const content = await $content(`documentation/${params.type}`, {

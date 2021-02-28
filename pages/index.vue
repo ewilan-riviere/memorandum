@@ -1,6 +1,6 @@
 <template>
   <div>
-    <main-layout>
+    <layout-main>
       <div slot="aside">
         <nav-pages :pages="pages" route-param="type"></nav-pages>
       </div>
@@ -8,27 +8,21 @@
         <article class="relative pb-10 overflow-hidden bg-white">
           <div class="relative px-4 sm:px-6 lg:px-8">
             <div class="mx-auto prose prose-lg text-gray-500">
-              <nuxt-content :document="welcome" />
+              <display-document :document="welcome" />
             </div>
           </div>
         </article>
       </div>
       <div slot="toc"></div>
-    </main-layout>
+    </layout-main>
   </div>
 </template>
 
 <script>
-import NavPages from '@/components/layout/NavPages.vue'
-
 export default {
   name: 'HomeIndex',
-  components: {
-    NavPages,
-  },
   async asyncData({ $content }) {
     const welcome = await $content('welcome', { deep: true }).fetch()
-
     const content = await $content('documentation', { deep: true })
       .only(['title', 'path'])
       .fetch()

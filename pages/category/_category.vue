@@ -1,6 +1,6 @@
 <template>
   <div>
-    <main-layout>
+    <layout-main>
       <div slot="aside">
         <!-- <nav-pages :pages="pages"></nav-pages> -->
       </div>
@@ -11,7 +11,7 @@
         {{ $route.params.slug }}
       </div>
       <div slot="toc"></div>
-    </main-layout>
+    </layout-main>
   </div>
 </template>
 

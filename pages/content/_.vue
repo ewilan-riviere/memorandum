@@ -1,6 +1,6 @@
 <template>
   <div>
-    <main-layout
+    <layout-main
       :image="$slugify(document.pathsObj.entity)"
       :back-route="{
         name: 'type-slug',
@@ -36,7 +36,7 @@
       </div>
       <div slot="main" class="">
         <client-only>
-          <read-progress></read-progress>
+          <vue-read-progress></vue-read-progress>
         </client-only>
         <transition name="fade">
           <article v-if="document" class="relative overflow-hidden bg-white">
@@ -70,32 +70,25 @@
                 </div>
               </div>
               <div class="mx-auto mt-5 prose prose-lg text-gray-500">
-                <!-- <nuxt-content :document="document" /> -->
-                <display-document :document="document" />
+                <client-only>
+                  <!-- <nuxt-content :document="document" /> -->
+                  <display-document :document="document" />
+                </client-only>
               </div>
             </div>
           </article>
         </transition>
       </div>
       <div slot="toc">
-        <app-toc :toc="document.toc"></app-toc>
+        <table-of-content :toc="document.toc"></table-of-content>
       </div>
-    </main-layout>
+    </layout-main>
   </div>
 </template>
 
 <script>
-// import Vue from 'vue'
-// import AppCopyButton from '~/components/global/markdown/AppCopyButton'
-
 export default {
   name: 'ContentSlugShort',
-  components: {
-    ReadProgress: () =>
-      import('vue-read-progress')
-        .then((m) => m.default)
-        .catch(),
-  },
   middleware({ app, params, redirect }) {
     if (params.pathMatch === 'index') {
       redirect(app.localePath('/'))

@@ -1,0 +1,64 @@
+article {
+  @apply bg-white dark:bg-gray-900;
+}
+
+.dark body {
+  @apply text-white bg-gray-800;
+}
+body {
+  @apply transition-colors duration-300;
+}
+
+@responsive {
+  .hyphenate {
+    text-align: justify !important;
+    -webkit-hyphens: auto !important;
+    -moz-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    hyphens: auto !important;
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+.container {
+  @apply px-5;
+}
+.badges-section img {
+  @apply inline my-1 !important;
+}
+.badges-section a {
+  @apply border-transparent !important;
+}
+.badges-section a:hover {
+  @apply bg-transparent border-transparent !important;
+}
+body {
+  @apply overflow-x-hidden;
+}
+
+/* @font-face {
+  font-family: "Roboto-Medium";
+  src: url("../fonts/roboto/Roboto-Medium.ttf");
+}
+@font-face {
+  font-family: "PTSans-Regular";
+  src: url("../fonts/pt-sans/PTSans-Regular.ttf");
+}
+@font-face {
+  font-family: "Quicksand";
+  src: url("../fonts/quicksand/Quicksand-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "Handlee-Regular";
+  src: url("../fonts/handlee/Handlee-Regular.ttf");
+} */
+
+[v-cloak] {
+  display: none;
+}

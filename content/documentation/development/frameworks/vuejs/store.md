@@ -18,7 +18,7 @@ export const state = () => ({
 })
 
 export const mutations = {
-  toggleSidebarOpened(state, data) {
+  toggleSidebar(state, data) {
     state.sidebarOpened = !state.sidebarOpened
   },
   setLayerVisible(state, data) {
@@ -47,7 +47,7 @@ export const mutations = {
 export default {
     methods: {
         toggleSidebar() {
-            this.$store.commit('toggleSidebarOpened')
+            this.$store.commit('toggleSidebar')
         },
         updateLayer(bool) {
             this.$store.commit('setLayerVisible', bool)

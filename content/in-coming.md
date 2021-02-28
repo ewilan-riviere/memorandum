@@ -40,19 +40,27 @@ description: 'Future documentations'
 - [ ] book api
   - <https://www.googleapis.com/books/v1/volumes?q=isbn%3D2700229835>
   - <https://isbnsearch.org/isbn/9780134092669>
-  - <https://www.abebooks.fr/servlet/BookDetailsPL?bi=30809599867&searchurl=ds%3D20%26kn%3Dewilan%26sortby%3D17&cm_sp=snippet>-_-srp1-_-title1
+  - <https://www.abebooks.fr/servlet/BookDetailsPL?bi=30809599867&searchurl=ds%3D20%26kn%3Dewilan%26sortby%3D17&cm_sp=snippet-_-srp1-_-title1>
   - <https://www.isbn-international.org>
   - <http://fr.feedbooks.com/api>
   - <https://fr.z-lib.org>
   - <https://booksjar.com>
   - <https://allbooksworld.com>
+  - <https://www.bnf.fr/en>
+    - <https://api.bnf.fr/>
+  - <https://openlibrary.org/>
+- hub projects
+  - <https://md-interpreter.git-projects.xyz>
+- [ ] <https://css-tricks.com/creating-non-rectangular-headers/>
+- [ ] tools of <https://twitter.com/jesuisundev/status/1346446481155366912>
+- [ ] scoop cache ; scoop cleanup (mysql install broken for example)
 
 ## Parallax
 
 - [ ] add example
 
 ```html
-<style>
+<style lang="postcss">
 .background {
     background-image: url('assets/images/background.png');
 }
@@ -94,6 +102,9 @@ description: 'Future documentations'
 - [ ] [**medium.com/setting-up-laravel-8-x-with-jetstream-auth**](https://medium.com/dev-genius/setting-up-laravel-8-x-with-jetstream-auth-84bbeafc0cd3)
 - [ ] [**medium.com/how-to-use-svg-icons-in-your-vue-app**](https://medium.com/javascript-in-plain-english/how-to-use-svg-icons-in-your-vue-app-6e2c30865d7c)
 - [ ] css link border expand: <https://stackoverflow.com/questions/28623446/hover-effect-expand-bottom-border>
+  - <https://css-tricks.com/a-css-only-animated-wrapping-underline/>
+  - <https://codepen.io/mehi/pen/MyWqPM>
+  - <https://codepen.io/jstn/pen/zuDst>
 - [ ] php big files
 - [ ] Setup to upload big files
 

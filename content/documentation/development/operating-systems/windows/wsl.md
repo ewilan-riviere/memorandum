@@ -22,11 +22,11 @@ wsl --list --verbose
 
 ## WSL 2
 
-:::tip Required
+<alert type="info"> Required
 
 You need to have Windows 10 update 2004 before execute below commands.
 
-:::
+</alert>
 
 To install WSL 1 and download [**Ubuntu**](https://www.microsoft.com/en-US/p/ubuntu/9nblggh4msv6#activetab=pivot:overviewtab) from Windows Store for example.
 
@@ -34,11 +34,11 @@ To install WSL 1 and download [**Ubuntu**](https://www.microsoft.com/en-US/p/ubu
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all
 ```
 
-:::warning
+<alert type="warning">
 
 Install any Linux distro with Windows Store and reboot after this.
 
-:::
+</alert>
 
 To switch to WSL 2 and install [**Linux Kernel**](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi) from Microsoft
 
@@ -46,11 +46,11 @@ To switch to WSL 2 and install [**Linux Kernel**](https://wslstorestorage.blob.c
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all
 ```
 
-:::warning
+<alert type="warning">
 
 Reboot after this.
 
-:::
+</alert>
 
 Convert distros to WSL 2
 
@@ -64,13 +64,13 @@ Check distros
 wsl --list --verbose
 ```
 
-:::tip Force WSL 2
+<alert type="info"> Force WSL 2
 
 ```bash
 wsl --set-version ubuntu 2
 ```
 
-:::
+</alert>
 
 ## **Internet connection troubles**
 

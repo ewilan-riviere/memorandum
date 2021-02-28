@@ -1,9 +1,28 @@
+.dark {
+  & .nuxt-content {
+    @apply text-white;
+  }
+  & h1,
+  & h2,
+  & h3 {
+    @apply text-white;
+  }
+  & code,
+  & pre,
+  & strong {
+    @apply text-white;
+  }
+  & a {
+    @apply text-gray-100 !important;
+  }
+}
+
 .nuxt-content {
   & a {
     text-decoration: none !important;
   }
   /* common text  */
-  @apply text-gray-700 font-ptsans-regular;
+  @apply font-sans text-gray-700;
   & p {
     @apply my-5 text-justify !important;
     -webkit-hyphens: auto !important;
@@ -91,7 +110,7 @@
   }
   /* titles  */
   & h2 {
-    @apply relative table mt-16 mb-8 text-2xl font-quicksand;
+    @apply relative table mt-16 mb-8 text-2xl font-quicksand w-max;
   }
   & h2::after {
     content: ' ';
@@ -102,19 +121,24 @@
     margin-bottom: 0.25rem;
     border-radius: 0.25rem;
     border: 2px solid #108775;
-    border-top-color: rgb(16, 135, 117);
-    border-right-color: rgb(16, 135, 117);
-    border-bottom-color: rgb(16, 135, 117);
-    border-left-color: rgb(16, 135, 117);
-    border-color: rgba(16, 135, 117, var(--border-opacity));
   }
   & h3 {
-    @apply font-quicksand;
+    @apply font-quicksand w-max;
     position: relative;
     display: table;
     margin-top: 2rem;
     margin-bottom: 2rem;
     @apply text-xl font-bold;
+  }
+  & h3::after {
+    content: ' ';
+    width: 80%;
+    display: block;
+    --border-opacity: 1;
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+    border-radius: 0.25rem;
+    border: 1px dashed #108775;
   }
   /* list  */
   & li {

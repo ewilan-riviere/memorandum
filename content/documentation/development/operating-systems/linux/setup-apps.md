@@ -23,7 +23,7 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > package
 
 Look at this configuration: [**code.visualstudio.com**](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc)
 
-:::tip "Visual Studio Code is unable to watch for file changes in this large workspace"
+<alert type="info"> "Visual Studio Code is unable to watch for file changes in this large workspace"
 
 ```bash
 cat /proc/sys/fs/inotify/max_user_watches
@@ -47,7 +47,7 @@ fs.inotify.max_user_watches=524288
 sudo sysctl -p
 ```
 
-:::
+</alert>
 
 ## 3. Spotify
 
@@ -94,7 +94,7 @@ mv postman.desktop ~/.local/share/applications/
 
 ---
 
-:::warning
+<alert type="warning">
 
 If you want to install next apps, you need some dependencies
 
@@ -102,7 +102,7 @@ If you want to install next apps, you need some dependencies
 sudo apt install -y libatomic1 libappindicator1 libc++1 libsecret-1-dev gconf2 ; sudo apt --fix-broken install
 ```
 
-:::
+</alert>
 
 ## 5. Mailspring
 

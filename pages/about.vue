@@ -1,6 +1,6 @@
 <template>
   <div>
-    <main-layout>
+    <layout-main>
       <div slot="aside">
         <nuxt-link
           v-for="note in notes"
@@ -37,9 +37,9 @@
         </article>
       </div>
       <div slot="toc">
-        <app-toc :toc="about.toc"></app-toc>
+        <table-of-content :toc="about.toc"></table-of-content>
       </div>
-    </main-layout>
+    </layout-main>
   </div>
 </template>
 
@@ -51,7 +51,6 @@ export default {
     const notes = await $content('notes', { deep: true })
       .sortBy('position')
       .fetch()
-    console.log(notes)
 
     return {
       about,

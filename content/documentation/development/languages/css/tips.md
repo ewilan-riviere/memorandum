@@ -89,7 +89,7 @@ span {
 ## Word wraping
 
 ```css
-.word-wraping {
+.hyphenate {
   text-align: justify !important;
   -webkit-hyphens: auto !important;
   -moz-hyphens: auto !important;
@@ -101,7 +101,7 @@ span {
 For better display
 
 ```html
-<div class="word-wraping" lang="en">...</div>
+<div class="hyphenate" lang="en">...</div>
 ```
 
 ## Import font
@@ -117,3 +117,8 @@ For better display
   font-family: 'Morpheus';
 }
 ```
+
+## Hyphens
+
+- [**css-tricks.com/almanac/properties/h/hyphenate**](https://css-tricks.com/almanac/properties/h/hyphenate)
+- [**medium.com**](https://medium.com/clear-left-thinking/all-you-need-to-know-about-hyphenation-in-css-2baee2d89179)

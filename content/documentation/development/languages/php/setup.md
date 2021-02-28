@@ -26,10 +26,10 @@ When Apache use standard PHP version, NGINX use FPM version.
 sudo apt install -y php-fpm php-mysql
 ```
 
-::: tip
+<alert>
 If not work, add this repository:  
 `sudo add-apt-repository universe`
-:::
+</alert>
 
 It's will install latest **stable** version of PHP-fpm, so you will maybe need a better version. You can upgrade PHP version now and you will be able to switch between different versions.
 
@@ -49,9 +49,9 @@ sudo apt install php7.3-fpm
 
 This will automatically update PHP CLI version, it's this version that you use when you execute `php` command into your terminal. You can check it with `php -v`. But yours VHosts can always use old version of PHP, you will have to update NGINX conf for each VHost if you want to change their version of PHP (it's optional). You can keep VHost with old version of PHP, if you let this version on your system, it's useful to update version if you use modern syntax in your PHP app, for example type of parameters is available with latests PHP versions.
 
-:::warning
+<alert type="warning">
 Following steps talks about VHost, if you don't know how it's works, read [*4. Virtual Host*](/guides/linux/lemp/#_4-virtual-host) before.
-:::
+</alert>
 
 If you want to update a VHost NGINX conf, check it in `/etc/nginx/sites-available/` and edit it, like:
 
@@ -87,9 +87,9 @@ server {
 
 And your app will use new PHP version.
 
-:::warning
+<alert type="warning">
 If you change PHP version, it can be missing some extensions, if your app display an error about extension check this part : [*missing extension*](/guides/linux/phpmyadmin/#missing-extension)
-:::
+</alert>
 
 ### 3. b. Switch between PHP versions
 
@@ -97,9 +97,9 @@ If you change PHP version, it can be missing some extensions, if your app displa
 
 If you want to switch PHP CLI version, follow these steps
 
-:::tip
+<alert type="info">
 If you just want to use another PHP version pour a Virtual host, like a old Drupal app, just change PHP version in NGINX conf.
-:::
+</alert>
 
 ```bash
 sudo update-alternatives --config php

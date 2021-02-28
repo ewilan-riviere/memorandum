@@ -17,7 +17,7 @@ category: 'Oxygen Not Included'
 
 ### Geysers
 
-:::details
+<spoiler>
 
 ```
 SS Tier [Absolute best]
@@ -86,4 +86,4 @@ C Tier [Sad that it takes up a slot]
     - Can get POX from PH20
 ```
 
-:::
+</spoiler>

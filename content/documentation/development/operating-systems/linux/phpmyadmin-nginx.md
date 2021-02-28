@@ -39,12 +39,14 @@ INSTALL COMPONENT "file://component_validate_password";
 exit
 ```
 
-::: danger
+<alert type="danger">
+
 After installing, you will see dialog with choices about server, **don't select anything** because it's NGINX.
 Just press <kbd>&nbsp;&#8633;&nbsp;</kbd> to select `OK` with <kbd>&nbsp;Enter&nbsp;</kbd>
 
 Select **`Yes` for all questions** and **enter MySQL password** you defined for MySQL.
-:::
+
+</alert>
 
 Link phpMyAdmin from it folder to NGINX folder
 
@@ -52,14 +54,15 @@ Link phpMyAdmin from it folder to NGINX folder
 sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
 ```
 
-:::tip Optional
+<alert type="info"> Optional
+
 If you want to change phpMyAdmin URL location:
 
 ```bash
 sudo mv /var/www/html/phpmyadmin /var/www/html/other-location
 ```
 
-:::
+</alert>
 
 ## 1. Configure NGINX
 
@@ -220,9 +223,9 @@ $cfg['Servers'][$i]['AllowRoot'] = false;
 ?>
 ```
 
-:::warning
+<alert type="warning">
 This configuration will disable root login, you have to create user
-:::
+</alert>
 
 ---
 
@@ -265,9 +268,9 @@ We can see at line 14, `php7.2-fpm` which is PHP version used by phpMyAdmin caus
 sudo service nginx restart
 ```
 
-:::warning
+<alert type="warning">
 If you change PHP version, it can be missing some extensions, if phpMyAdmin display an error about extension check this part : [*missing extension*](/guides/linux/phpmyadmin/#missing-extension)
-:::
+</alert>
 
 You can check phpMyAdmin infos on dashboard of phpMyAdmin, just after connection
 
@@ -358,14 +361,15 @@ server {
 
 You have to config **php-fpm version** with **php current version**. Here, the php version is **7.4**, so php-fpm have to be 7.4 too. If your php current version is different, change php-fpm version.
 
-:::tip
+<alert type="info">
+
 Check your php version:
 
 ```bash
 php -v
 ```
 
-:::
+</alert>
 
 ### Error 404
 
@@ -383,4 +387,60 @@ Check your PHP version, the PHP-FPM version into /etc/nginx/sites-available/defa
 
 ```
 sudo apt install php7.4-fpm
+```
+
+---
+
+## Debian 10 from source
+
+[**digitalocean.com**](https://www.digitalocean.com/community/tutorials/how-to-install-phpmyadmin-from-source-debian-10)
+
+```bash
+sudo apt install -y php-mbstring php-zip php-gd ; wget https://files.phpmyadmin.net/phpMyAdmin/4.9.7/phpMyAdmin-4.9.7-all-languages.tar.gz ; tar xvf phpMyAdmin-4.9.7-all-languages.tar.gz ; sudo mv phpMyAdmin-4.9.7-all-languages/ /usr/share/phpmyadmin ; sudo mkdir -p /var/lib/phpmyadmin/tmp ; sudo chown -R www-data:www-data /var/lib/phpmyadmin ; sudo cp /usr/share/phpmyadmin/config.sample.inc.php /usr/share/phpmyadmin/config.inc.php
+```
+
+```bash
+sudo vim /usr/share/phpmyadmin/config.inc.php
+```
+
+```bash
+sudo apt install -y pwgen ; pwgen -s 32 1
+```
+
+```php[/usr/share/phpmyadmin/config.inc.php]
+// ...
+
+$cfg['blowfish_secret'] = 'STRINGOFTHIRTYTWORANDOMCHARACTERS'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
+
+// ...
+
+$cfg['Servers'][$i]['controluser'] = 'root';
+$cfg['Servers'][$i]['controlpass'] = 'password';
+
+// ...
+
+/* Storage database and tables */
+$cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';
+$cfg['Servers'][$i]['bookmarktable'] = 'pma__bookmark';
+$cfg['Servers'][$i]['relation'] = 'pma__relation';
+$cfg['Servers'][$i]['table_info'] = 'pma__table_info';
+$cfg['Servers'][$i]['table_coords'] = 'pma__table_coords';
+$cfg['Servers'][$i]['pdf_pages'] = 'pma__pdf_pages';
+$cfg['Servers'][$i]['column_info'] = 'pma__column_info';
+$cfg['Servers'][$i]['history'] = 'pma__history';
+$cfg['Servers'][$i]['table_uiprefs'] = 'pma__table_uiprefs';
+$cfg['Servers'][$i]['tracking'] = 'pma__tracking';
+$cfg['Servers'][$i]['userconfig'] = 'pma__userconfig';
+$cfg['Servers'][$i]['recent'] = 'pma__recent';
+$cfg['Servers'][$i]['favorite'] = 'pma__favorite';
+$cfg['Servers'][$i]['users'] = 'pma__users';
+$cfg['Servers'][$i]['usergroups'] = 'pma__usergroups';
+$cfg['Servers'][$i]['navigationhiding'] = 'pma__navigationhiding';
+$cfg['Servers'][$i]['savedsearches'] = 'pma__savedsearches';
+$cfg['Servers'][$i]['central_columns'] = 'pma__central_columns';
+$cfg['Servers'][$i]['designer_settings'] = 'pma__designer_settings';
+$cfg['Servers'][$i]['export_templates'] = 'pma__export_templates';
+
+// AT THE END OF FILE, add this line
+$cfg['TempDir'] = '/var/lib/phpmyadmin/tmp';
 ```

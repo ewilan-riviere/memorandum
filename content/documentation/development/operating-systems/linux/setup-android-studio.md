@@ -5,7 +5,7 @@ position: 7
 category: 'Flutter'
 ---
 
-:::tip
+<alert type="info">
 
 Android Studio is optional if you want to use Flutter. But if you install it you will have two important features:
 
@@ -14,11 +14,11 @@ Android Studio is optional if you want to use Flutter. But if you install it you
 
 If you don't want Android Studio, it's your choice and you can install it after Flutter. If you want to install just SDK tools, you can download it from [official website](https://developer.android.com/studio) and install it.
 
-:::
+</alert>
 
-:::warning
+<alert type="warning">
 This guide is for Ubuntu 18.04, Android Studio 4 and Flutter 1.20. I give some tips for other distributions.
-:::
+</alert>
 
 - [**developer.android.com/studio**](https://developer.android.com/studio) website of Android Studio
 - [**doc.ubuntu-fr.org/android_sdk**](https://doc.ubuntu-fr.org/android_sdk) documentation about Linux installation
@@ -72,11 +72,11 @@ mv android-studio.desktop ~/.local/share/applications/
 
 ---
 
-:::warning After installation
+<alert type="warning"> After installation
 
 When the package is installed, search **Android Studio** in your apps and execute it and setup to keep all as default. A wizard will **download tools**, when tools configuration is finish, you can **create an basic project to use IDE**.
 
-:::
+</alert>
 
 ## 2. Platform-tools
 
@@ -111,9 +111,9 @@ Open **AVD Manager** from toolbar or search `avd` in global search (double tape 
 
 ### 3.a. AVD Manager without Android Studio
 
-:::tip
+<alert type="info">
 Android Studio have to be installed, this tip works if you want to launch emulator after create a new device with Android Studio.
-:::
+</alert>
 
 List availables emulator devices
 

@@ -5,14 +5,14 @@ position: 8
 category: 'Laravel'
 ---
 
-:::tip Links
+<alert type="info"> Links
 
 - [**backpackforlaravel.com**](https://backpackforlaravel.com): doc of Backpack
 - [**backpackforlaravel.com/docs/4.1/installation**](https://backpackforlaravel.com/docs/4.1/installation): setup Backpack
 - [**github.com/Laravel-Backpack/FileManager**](https://github.com/Laravel-Backpack/FileManager): add File manager
 - [**github.com/Laravel-Backpack/Settings**](https://github.com/Laravel-Backpack/Settings): add Settings page
 
-:::
+</alert>
 
 ## Installation
 
@@ -52,39 +52,41 @@ php artisan backpack:add-custom-route "Route::crud('tag', 'TagCrudController');"
 
 `resources/views/vendor/backpack/base/auth/login.blade.php`
 
-:::details
+<spoiler label="login.blade.php">
+
 <<< @/docs/guides/laravel/backpack/login.blade.php
-:::
+
+</spoiler>
 
 `.env`
 
-:::details
+<spoiler label=".env">
 
 ```js
 BP_ADMIN_MAIL=ewilan@dotslashplay.it
 BP_ADMIN_PASSWORD=password
 ```
 
-:::
+</spoiler>
 
 `config/app.php`
 
-:::details
+<spoiler>
 
 ```php
 'admin_mail'     => env('BP_ADMIN_MAIL'),
 'admin_password' => env('BP_ADMIN_PASSWORD'),
 ```
 
-:::
+</spoiler>
 
 ## Backpack customizations
 
 `config/backpack/base.php`
 
-:::details
+<spoiler>
 <<< @/docs/guides/laravel/backpack/config-backpack-base.php
-:::
+</spoiler>
 
 With some details
 
@@ -123,15 +125,15 @@ mix.js('resources/js/app.js', 'public/js')
 
 `resources/sass/classic-backpack.scss`
 
-:::details
+<spoiler>
 <<< @/docs/guides/laravel/backpack/classic-backpack.scss
-:::
+</spoiler>
 
 `resources/sass/app.scss`
 
-:::details
+<spoiler>
 <<< @/docs/guides/laravel/backpack/app.scss
-:::
+</spoiler>
 
 ## Sidebar
 
@@ -181,9 +183,9 @@ mix.js('resources/js/app.js', 'public/js')
 
 When you install **Backpack** with **Laravel elfinder***.
 
-:::tip
+<alert type="info">
 Laravel elfinder is a file manager you can use in Backpack and it's heavy. If you want it, just answer `yes` to this question: `Install barryvdh/laravel-elfinder to provide an admin interface for File Management? (yes/no) [no]:` when you execute the below command.
-:::
+</alert>
 
 ```bash
 php artisan backpack:install

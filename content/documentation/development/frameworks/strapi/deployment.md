@@ -7,11 +7,11 @@ category: 'Strapi'
 
 # Deployment
 
-:::tip GITHUB
+<alert type="info"> GITHUB
 
 - [**github.com/strapi/strapi-starter-nuxt-blog**](https://github.com/strapi/strapi-starter-nuxt-blog)
 - [**github.com/strapi/strapi-starter-blog**](https://github.com/strapi/strapi-starter-blog)
-:::
+</alert>
 
 - [**strapi.io: documentation/deployment => main doc**](https://strapi.io/documentation/3.0.0-beta.x/getting-started/deployment.html#hosting-provider-guides)
 - [**strapi.io: documentation/deployment => DigitalOcean configuration**](https://strapi.io/documentation/3.0.0-beta.x/deployment/digitalocean.html)

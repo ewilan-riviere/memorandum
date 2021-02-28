@@ -9,9 +9,9 @@ category: 'Visual Studio Code'
 
 [**ESLint**](https://eslint.org/) is a formatter for JS language. It's very useful, especially with JS frameworks. You can configure it with some IDE and here, we will see how to install it with [**Visual Studio Code**](https://code.visualstudio.com/):
 
-::: tip
+<alert>
 To install Visual Studio Code TODO
-:::
+</alert>
 
 ## I. Install globally ESLint
 
@@ -53,22 +53,22 @@ Use shortcut <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>P</kbd> and search `JSON` t
 
 I advice to create a new VueJS repository with `vue create`, you will can choose eslint when you create your new project. You will have all basic config for ESLint with this command.
 
-:::tip
+<alert type="info">
 To use `vue` command, install it with:
 
 ```bash
 yarn global add @vue/cli
 ```
 
-:::
+</alert>
 
 ### III. A. On existing project
 
 If your project exist without ESLint, it's possible to add package to config it.
 
-::: warning
+<alert type="warning">
 This is an exemple, you can have different configurations with ESLint and VueJS
-:::
+</alert>
 
 To use ESLint, you need to add some packages to your project. This is basics packages, with ESLint and Prettier:
 

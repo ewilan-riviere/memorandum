@@ -9,9 +9,9 @@ category: 'Tailwind CSS'
 
 From [**tailwindtoolbox.com/guides/adding-fonts-to-tailwind-css**](https://www.tailwindtoolbox.com/guides/adding-fonts-to-tailwind-css)
 
-:::tip Visual Studio Code
+<alert type="info"> Visual Studio Code
 Here, I use Visual Studio Code with extension [bradlc.vscode-tailwindcss](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss). The example use NuxtJS application but it's works with anything.
-:::
+</alert>
 
 ```
 assets/

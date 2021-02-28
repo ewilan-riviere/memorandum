@@ -13,12 +13,12 @@ Flutter is a framework to develop applications for smartphones (Android & iOS). 
 
 ## Code Organization
 
-:::tip Links
+<alert type="info"> Links
 
 - Original article: [**medium.com/flutter-community/flutter-code-organization-revised**](https://medium.com/flutter-community/flutter-code-organization-revised-b09ad5cef7f6) by **Conner Aldrich** (from Dec 15, 2019)
 - [**github.com/ConProgramming/flutter-example**](https://github.com/ConProgramming/flutter-example) : GitHub example
 
-:::
+</alert>
 
 <citation title="Flutter: Code Organization (Revised)" author="Conner Aldrich" link="https://medium.com/flutter-community/flutter-code-organization-revised-b09ad5cef7f6" excerpt="As I wrote in the first version of my article, my biggest problem when getting into Flutter development was figuring out how to manage my code..." spoiler>
 

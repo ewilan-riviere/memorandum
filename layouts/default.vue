@@ -1,28 +1,28 @@
 <template>
-  <div>
-    <navigation></navigation>
+  <div class="bg-white dark:bg-gray-900">
+    <layout-navigation />
     <Nuxt class="min-h-screen pt-16" />
-    <app-footer></app-footer>
-    <app-back-to-top />
+    <layout-footer />
+    <layout-back-to-top />
     <client-only>
-      <tailwind-helper />
+      <tailwind-helper sneak />
     </client-only>
   </div>
 </template>
 
 <script>
-import AppFooter from '@/components/layout/AppFooter'
-import AppBackToTop from '@/components/layout/AppBackToTop'
-import Navigation from '@/components/layout/Navigation.vue'
 import settings from '~/content/settings.json'
+import LayoutBackToTop from '~/components/layout/layout-back-to-top.vue'
+import LayoutFooter from '~/components/layout/layout-footer.vue'
+import LayoutNavigation from '~/components/layout/layout-navigation.vue'
 
 export default {
   name: 'LayoutDefault',
 
   components: {
-    AppFooter,
-    AppBackToTop,
-    Navigation,
+    LayoutBackToTop,
+    LayoutFooter,
+    LayoutNavigation,
   },
   data() {
     return {
@@ -45,7 +45,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss">
 body {
   background-color: #fff;
   color: rgba(0, 0, 0, 0.8);

@@ -3,7 +3,7 @@
     <client-only>
       <component
         :is="svgComponent"
-        v-if="svgExist"
+        v-if="svgExist && name"
         :width="size"
         :height="ratio ? '100%' : size"
         :class="[svg, { 'fill-current': !stroke }]"
@@ -37,8 +37,7 @@ export default {
      */
     name: {
       type: String,
-      required: true,
-      default: 'github',
+      default: null,
     },
     /**
      * Size of Icon

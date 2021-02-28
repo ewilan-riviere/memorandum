@@ -149,9 +149,11 @@ With this config, all images in assets/images/ will be loaded.
 
 In web, we have global Sass variables, in Flutter we have `ThemeData` to define main colors in the app. Some Widgets will use default color based on this list but you can define a color based of an item of this list if you want.
 
-:::tip getColorHexFromStr
+<alert type="info" title="getColorHexFromStr">
+
 `getColorHexFromStr()` is totally optional, I use it to transform hexa code to Flutter color hex.
-:::
+
+</alert>
 
 ```dart[lib/theme/style.dart]
 import 'package:flutter/material.dart';

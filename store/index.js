@@ -22,8 +22,23 @@ export const mutations = {
   setTeams(state, data) {
     state.teams = data
   },
-  toggleSidebarOpened(state, data) {
+  toggleSidebar(state, data) {
+    // state.layerVisible = !state.layerVisible
+    // setTimeout(() => {
     state.sidebarOpened = !state.sidebarOpened
+    // }, 150)
+  },
+  openSidebar(state, data) {
+    // state.layerVisible = !state.layerVisible
+    // setTimeout(() => {
+    state.sidebarOpened = true
+    // }, 150)
+  },
+  closeSidebar(state, data) {
+    state.sidebarOpened = false
+    // setTimeout(() => {
+    //   state.layerVisible = !state.layerVisible
+    // }, 150)
   },
   setSidebarOpened(state, data) {
     state.sidebarOpened = data

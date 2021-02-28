@@ -5,11 +5,11 @@ position: 4
 category: 'Windows'
 ---
 
-:::warning scoop is necessary
+<alert type="warning"> scoop is necessary
 
 For this guide, you will need to have **scoop** installed, if you don't install it, check this guide: [**scoop**](/development/operating-systems/windows/scoop)
 
-:::
+</alert>
 
 ## MySQL
 
@@ -60,11 +60,11 @@ exit
 
 ## NGINX
 
-:::warning PHP is highly recommanded
+<alert type="warning"> PHP is highly recommanded
 
 For some configurations, you will need to have **PHP** installed, if you don't install it, check this guide: [**PHP**](/development/operating-systems/windows/php)
 
-:::
+</alert>
 
 Here you will need to have **NSSM**, I give more details in [**PHP guide**](/development/operating-systems/windows/php).
 
@@ -110,11 +110,11 @@ In any browser, at <http://localhost>, you have to see **NGINX welcome** page:
 
 ## phpMyAdmin
 
-:::warning PHP is necessary
+<alert type="warning"> PHP is necessary
 
 For this guide, you will need to have **PHP** installed, if you don't install it, check this guide: [**PHP**](/development/operating-systems/windows/php)
 
-:::
+</alert>
 
 ### Download
 
@@ -143,13 +143,13 @@ Full path: `C:\Users\username\scoop\apps\nginx\current\html`
 
 ### Configure nginx.conf
 
-:::warning PHP Service
+<alert type="warning"> PHP Service
 
 Here, I suppose you have installed `php7.4-nts` with **scoop** and create php7.4 Service with **NSSM**, like in this guide: [**PHP**](/development/operating-systems/windows/php)
 
 If you want to use another version of PHP, it's not a problem, just check port `9074` to change it if you use anoter.
 
-:::
+</alert>
 
 You will need to add some infos to `nginx.conf` (you will find it where **scoop** install **NGINX** `C:\Users\username\scoop\apps\nginx\current\conf\nginx.conf`) for **phpMyAdmin**.
 
@@ -207,6 +207,37 @@ sudo nssm restart nginx
 In any browser, at <http://localhost/phpmyadmin>, you have to see **phpMyAdmin welcome** page:
 
 <md-img source="pma-welcome.png" legend="Welcome page of phpMyAdmin"></md-img>
+
+### Configure phpMyAdmin (optional)
+
+```bash
+cp C:/Users/$env:UserName/scoop/apps/nginx/current/html/phpmyadmin/config.sample.inc.php C:/Users/$env:UserName/scoop/apps/nginx/current/html/phpmyadmin/config.inc.php
+```
+
+In `C:/Users/$env:UserName/scoop/apps/nginx/current/html/phpmyadmin`
+
+```php[config.inc.php]
+// blowfish_secret is just a token for phpMyAdmin
+$cfg['blowfish_secret'] = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+
+/* Authentication type */
+$cfg['Servers'][$i]['auth_type'] = 'cookie';
+// Add this line to stay connected during one week
+$cfg['LoginCookieValidity'] = 604800;
+```
+
+To generate `blowfish_secret`, you can use `pwgen` with WSL.
+
+```bash
+sudo apt install pwgen ; pwgen -s 32 1
+```
+
+If you update `LoginCookieValidity`, you need to update `session.gc_maxlifetime` in current `php.ini`
+
+```php[php.ini]
+// line ~1400
+session.gc_maxlifetime = 604800
+```
 
 ## Add a new VHost
 
