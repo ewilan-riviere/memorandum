@@ -21,6 +21,7 @@ Windows terminal is a recent terminal for Windows, by Microsoft.
 - JSON config
 - Multiple Shell profiles (even WSL if installed)
 - Shorcuts
+- Switch tabs <kbd>Ctrl</kbd> + <kbd>Tab</kbd>
 
 **Documentation**
 
