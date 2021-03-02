@@ -140,26 +140,11 @@ You can improve your current profile with some modules, so you need to find your
 $PROFILE
 ```
 
-You will have path of your current profile, find file and open it. You can add modules like this:
-
-```powershell[C:/.../Microsoft.PowerShell_profile.ps1]
-Import-Module posh-git
-Import-Module oh-my-posh
-Import-Module PSReadLine
-Set-Theme Paradox
-```
-
-Find more example, like [**Beautify your Windows Terminal**](https://dev.to/anupa/beautify-your-windows-terminal-1la8) by Anup Aglawe. You can have a terminal exactly like you want.
-
-## Oh My Posh
+### Oh My Posh
 
 - From [**ohmyposh.dev/docs**](https://ohmyposh.dev/docs/installation/)
 
-Upgrade your PowerShell to 7+
-
-```ps1
-Install-Module oh-my-posh -Scope CurrentUser -AllowPrerelease
-```
+*Optional: upgrade your PowerShell to 7+*
 
 ```bash
 sudo scoop install Meslo-NF ; scoop install https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/oh-my-posh.json
@@ -169,8 +154,21 @@ Update `Microsoft.PowerShell_profile.ps1`, to find it, execute `$PROFILE` and yo
 
 ```ps1[Microsoft.PowerShell_profile.ps1]
 Invoke-Expression (oh-my-posh --init --shell pwsh --config "$(scoop prefix oh-my-posh)/themes/jandedobbeleer.omp.json")
-OR
-Set-PoshPrompt -Theme ~\.jandedobbeleer.omp.json
+```
+
+Add `"fontFace": "MesloLGM NF"` to Windows Terminal JSOn settings
+
+```json
+{
+    "profiles": {
+        "list": [
+            {
+                "guid": "{79285a8e-036c-446f-8a9c-78994e34bf78}",
+                "fontFace": "MesloLGM NF",
+            }
+        ]
+    }
+}
 ```
 
 ```bash
@@ -179,4 +177,15 @@ scoop update oh-my-posh
 
 ```bash
 oh-my-posh --print-shell
+```
+
+#### VS Code
+
+Open JSON Settings in VS Code
+
+```json
+{
+    "terminal.integrated.automationShell.windows": "Windows.Terminal.PowershellCore",
+    "terminal.integrated.fontFamily": "MesloLGM NF"
+}
 ```
