@@ -109,17 +109,17 @@ GRANT ALL ON database_project.* TO 'user_project'@'localhost';
 Update common packages
 
 ```bash
-sudo scoop update 7zip ; sudo scoop update cacert ; sudo scoop update composer ; sudo scoop update curl ; sudo scoop update dark ; sudo scoop update doctl ; sudo scoop update ffmpeg ; sudo scoop update firacode ; sudo scoop update git ; sudo scoop update git-with-openssh ; sudo scoop update glow ; sudo scoop update gmkvextractgui ; sudo scoop update hwmonitor ; sudo scoop update innounp ; sudo scoop update lessmsi ; sudo scoop update make ; sudo scoop update mkvtoolnix ; sudo scoop update ngrok ; sudo scoop update nssm ; sudo scoop update nvm ; sudo scoop update php-nts ; sudo scoop update python ; sudo scoop update rufus ; sudo scoop update sudo ; sudo scoop update symfony-cli ; sudo scoop update touch ; sudo scoop update Victor-Mono ; sudo scoop update vim ; sudo scoop update wget ; sudo scoop update which ; sudo scoop update windows-terminal ; sudo scoop update yarn ; sudo scoop update youtube-dl ; sudo scoop update pandoc
+sudo scoop update 7zip cacert composer curl dark doctl ffmpeg firacode git git-with-openssh glow gmkvextractgui hwmonitor innounp lessmsi make mkvtoolnix ngrok nssm nvm php-nts python rufus sudo symfony-cli touch Victor-Mono vim wget which windows-terminal yarn youtube-dl pandoc
 ```
 
 Update medium/big and/or sensible packages
 
 ```bash
-sudo scoop update discord ; sudo scoop update firefox ; sudo scoop update gimp ; sudo scoop update googlechrome ; sudo scoop update postman ; sudo scoop update rust ; sudo scoop update teamviewer ; sudo scoop update vlc ; sudo scoop update vscode ; sudo scoop update mysql ; sudo scoop update nginx
+sudo scoop update discord firefox gimp googlechrome postman rust teamviewer vlc vscode mysql nginx
 ```
 
 Update mobile development packages
 
 ```bash
-sudo scoop update adb ; sudo scoop update adopt8-hotspot ; sudo scoop update android-sdk ; sudo scoop update android-studio ; sudo scoop update flutter
+sudo scoop update adb adopt8-hotspot android-sdk android-studio flutter
 ```

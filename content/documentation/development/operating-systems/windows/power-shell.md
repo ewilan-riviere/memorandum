@@ -14,6 +14,10 @@ $env:USERPROFILE
 ```
 
 ```ps1
+$PSVersionTable
+```
+
+```ps1
 $profile
 ```
 
@@ -22,6 +26,30 @@ List all binaries in PATH
 ```ps1
 Get-ChildItem Env:
 ```
+
+## Update PowerShell
+
+- From [**github.com/PowerShell**](https://github.com/PowerShell/PowerShell#get-powershell)
+
+Download the **Windows (x86) stable .msi** version, update **Settings JSON** of Windows Terminal:
+
+```json
+{
+    "profiles": {
+        "list": [
+            {
+                "guid": "{79285a8e-036c-446f-8a9c-78994e34bf78}",
+                // "commandline": "powershell.exe",
+                "commandline": "C:\\Program Files (x86)\\PowerShell\\7\\pwsh.exe",
+            }
+        ]
+    }
+}
+```
+
+<alert>
+The path of $PROFILE will be change, check it.
+</alert>
 
 ## Custom profile
 

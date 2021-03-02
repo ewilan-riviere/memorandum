@@ -150,3 +150,33 @@ Set-Theme Paradox
 ```
 
 Find more example, like [**Beautify your Windows Terminal**](https://dev.to/anupa/beautify-your-windows-terminal-1la8) by Anup Aglawe. You can have a terminal exactly like you want.
+
+## Oh My Posh
+
+- From [**ohmyposh.dev/docs**](https://ohmyposh.dev/docs/installation/)
+
+Upgrade your PowerShell to 7+
+
+```ps1
+Install-Module oh-my-posh -Scope CurrentUser -AllowPrerelease
+```
+
+```bash
+sudo scoop install Meslo-NF ; scoop install https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/oh-my-posh.json
+```
+
+Update `Microsoft.PowerShell_profile.ps1`, to find it, execute `$PROFILE` and you will get the path
+
+```ps1[Microsoft.PowerShell_profile.ps1]
+Invoke-Expression (oh-my-posh --init --shell pwsh --config "$(scoop prefix oh-my-posh)/themes/jandedobbeleer.omp.json")
+OR
+Set-PoshPrompt -Theme ~\.jandedobbeleer.omp.json
+```
+
+```bash
+scoop update oh-my-posh
+```
+
+```bash
+oh-my-posh --print-shell
+```
