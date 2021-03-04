@@ -214,7 +214,7 @@ export default {
         },
         {
           label: 'GitLab',
-          link: 'https://gitlab.com/EwieFairy',
+          link: 'https://gitlab.com/ewilan-riviere',
           icon: 'gitlab',
         },
         {
