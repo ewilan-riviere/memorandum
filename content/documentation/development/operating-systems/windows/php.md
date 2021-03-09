@@ -49,7 +49,7 @@ And `php -v` give me **7.4**, I can back to PHP 7.3 when I want.
 
 You will need to activate some extensions in `php.ini`, you will find it **for each PHP version** in each directory of PHP version installed: `C:/Users/USERNAME/scoop/apps/php*-nts/current/php.ini`. I offer an example of **php.ini** but you will need to update each **php.ini**.
 
-- [**Example for PHP 7.1*](https://gist.github.com/ewilan-riviere/2c3ceca4441fd96fc4a7c320425b6a45)
+- [**Example for PHP 7.1**](https://gist.github.com/ewilan-riviere/2c3ceca4441fd96fc4a7c320425b6a45)
 - [**Example for PHP 7.3**](https://gist.github.com/ewilan-riviere/6b60d0f21e373e0a10d0026a3155cb67)
 - [**Example for PHP 7.4**](https://gist.github.com/ewilan-riviere/76387098c93bbdf4409347b05abb5657)
 - [**Example for PHP 8.0**](https://gist.github.com/ewilan-riviere/4dc5d283f82c4b5b6e4de97b56eae5fa)
@@ -138,6 +138,14 @@ You can install `composer` if you want to use PHP packages:
 sudo scoop install composer
 ```
 
+You can switch between composer version with
+
+```bash
+composer self-update --1
+# OR
+composer self-update --2
+```
+
 ## Setup Services for PHP
 
 If you want to create VHost with **NGINX** and **specific PHP version for each VHost**, you will need to create **Services**. To do this, you will need **NSSM** (Non-Stucking Service Manager):
@@ -175,6 +183,8 @@ Save the new service and you can install another for PHP 7.3, for example:
 ```[path]
 C:\Users\USERNAME\scoop\apps\php7.3-nts\current\php-cgi.exe
 ```
+
+<md-img source="nssm-php7.3.webp"></md-img>
 
 For the port, I choose `9073`
 
@@ -229,6 +239,8 @@ And you have to **RESTART EACH** version after `php.ini` file update.
 ### PHP ini location problem
 
 If Windows don't find `php.ini` assure yourself that this variable is set into **Windows environnement variables** for current user
+
+<md-img source="variables-php-ini.webp"></md-img>
 
 ```
 PHP_INI_SCAN_DIR => [
