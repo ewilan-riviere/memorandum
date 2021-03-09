@@ -225,3 +225,16 @@ You have to do this **FOR EACH** PHP version you use with you VHost. If you use 
 And you have to **RESTART EACH** version after `php.ini` file update.
 
 </alert>
+
+### PHP ini location problem
+
+If Windows don't find `php.ini` assure yourself that this variable is set into **Windows environnement variables** for current user
+
+```
+PHP_INI_SCAN_DIR => [
+    C:\Users\ewila\scoop\persist\php7.4-nts
+    C:\Users\ewila\scoop\apps\php7.4-nts\current\conf.d
+]
+```
+
+**Note:** theses variables change when you change your current PHP CLI version with `scoop reset php/php7.4-nts` for example
