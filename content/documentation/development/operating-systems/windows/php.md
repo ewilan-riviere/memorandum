@@ -49,7 +49,18 @@ And `php -v` give me **7.4**, I can back to PHP 7.3 when I want.
 
 You will need to activate some extensions in `php.ini`, you will find it **for each PHP version** in each directory of PHP version installed: `C:/Users/USERNAME/scoop/apps/php*-nts/current/php.ini`. I offer an example of **php.ini** but you will need to update each **php.ini**.
 
-<spoiler label="Example of configuration">
+- [**Example for PHP 7.1*](https://gist.github.com/ewilan-riviere/2c3ceca4441fd96fc4a7c320425b6a45)
+- [**Example for PHP 7.3**](https://gist.github.com/ewilan-riviere/6b60d0f21e373e0a10d0026a3155cb67)
+- [**Example for PHP 7.4**](https://gist.github.com/ewilan-riviere/76387098c93bbdf4409347b05abb5657)
+- [**Example for PHP 8.0**](https://gist.github.com/ewilan-riviere/4dc5d283f82c4b5b6e4de97b56eae5fa)
+
+<spoiler label="Example of configuration for PHP 7.4">
+
+<alert type="warning">
+
+This is a configuration for PHP 7.4, you can have different options with another PHP version.
+
+</alert>
 
 **At around line 400**
 
@@ -105,7 +116,7 @@ extension=pgsql
 extension=shmop
 
 ; The MIBS data available in the PHP distribution must be installed.
-; See <http://www.php.net/manual/en/snmp.installation.php>
+; See http://www.php.net/manual/en/snmp.installation.php
 ;extension=snmp
 
 extension=soap
@@ -187,7 +198,7 @@ And now, you can install **NGINX** and **MySQL**, check here: [**MySQL & NGINX**
 
 ## Errors
 
-### `cURL error 60: SSL certificate problem: unable to get local issuer certificate`
+### cURL error 60: SSL certificate problem: unable to get local issuer certificate
 
 If you have this error, you have a problem of certificate. You can [manullay download certificate](https://curl.haxx.se/docs/caextract.html) but I advice to use `scoop`.
 

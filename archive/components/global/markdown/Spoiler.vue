@@ -7,7 +7,7 @@
     >
       <icon
         name="arrow-right"
-        :size="20"
+        :size="16"
         :class="{ rotate: expanded }"
         class="mr-2 transition-transform duration-300"
       />
