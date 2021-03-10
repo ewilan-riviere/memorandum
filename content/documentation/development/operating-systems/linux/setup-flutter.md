@@ -36,6 +36,42 @@ export PATH="$PATH:/home/$USER/Android/flutter/bin"
 source ~/.zshrc
 ```
 
+### Multiple version
+
+- [**github.com/leoafarias/fvm**](https://github.com/leoafarias/fvm): FVM allow you to install multiple Flutter version
+
+You need to have Dart
+
+```bash
+sudo add-apt-repository ppa:hachre/dart ; sudo apt-get update ; sudo apt-get install darteditor dartsdk dartium dartvm
+```
+
+```bash
+pub global activate fvm
+```
+
+You need to add FVM path to `.profile` and `fvm` will be available.
+
+```bash
+fvm releases
+```
+
+```bash
+fvm install 1.22.6
+```
+
+```bash
+fvm list
+```
+
+```bash
+fvm use 1.22.6
+```
+
+```bash
+fvm flutter run
+```
+
 ## 2. Setup
 
 ```bash
