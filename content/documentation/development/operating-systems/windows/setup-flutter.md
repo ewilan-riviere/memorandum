@@ -11,47 +11,29 @@ category: 'Flutter'
 website
 
 <alert type="warning">
-You need to install **Android Studio** before install **Flutter**, follow [**this guide**](/guides/flutter/android-studio/)
+
+This guide will install **Android Studio** with Flutter
+
 </alert>
 
 ## 1. Installation
 
 ```bash
-scoop add bucket extras ; scoop install flutter
-```
-
-### Multiple version
-
-- [**github.com/leoafarias/fvm**](https://github.com/leoafarias/fvm): FVM allow you to install multiple Flutter version
-
-You need to have Dart
-
-```bash
-scoop install dart
+scoop install android-studio ; scoop bucket add java ; scoop bucket add extras ; scoop install flutter ; flutter upgrade --force
 ```
 
 ```bash
-pub global activate fvm
-```
-
-When FVM is enabled, you have to add it to Windows PATH, restart your terminal and `fvm` command will be available.
-
-```bash
-fvm releases
+flutter doctor -v
 ```
 
 ```bash
-fvm install 1.22.6
+flutter doctor --android-licenses
 ```
 
-```bash
-fvm list
-```
+<alert>
 
-```bash
-fvm use 1.22.6
-```
+**Multiple versions**  
 
-```bash
-fvm flutter run
-```
+If you want to use multiple versions of Flutter, you can use FVM, check this guide : [**Flutter: multiples versions**](documentation/developement/frameworks/flutter)
+
+</alert>

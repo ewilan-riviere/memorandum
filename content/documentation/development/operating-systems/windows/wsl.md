@@ -81,7 +81,7 @@ Guide from [**github.com/microsoft/WSL/issues/5336**](https://github.com/microso
 Open `cmd` as admin
 
 ```ps1
-wsl --shutdown ; netsh winsock reset ; netsh int ip reset all ; netsh winhttp reset proxy ; ipconfig /flushdns
+sudo wsl --shutdown ; sudo netsh winsock reset ; sudo netsh int ip reset all ; sudo netsh winhttp reset proxy ; sudo ipconfig /flushdns ; sudo netsh winsock reset ; sudo shutdown /r
 ```
 
 Search `Network Reset` in Windows Search, enable it and restart Windows.
