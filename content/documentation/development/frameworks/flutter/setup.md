@@ -21,6 +21,9 @@ TODO link
 
 You need to have Dart
 
+- For Linux, I offer to add `dart` to `sources.list.d` [**dart.dev/get-dart**](https://dart.dev/get-dart)
+- For Windows, I offer to use `scoop` to install `dart` [scoop.sh](https://scoop.sh)
+
 <code-group>
   <code-block label="Linux" active>
 
