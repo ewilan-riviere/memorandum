@@ -125,17 +125,17 @@ export default {
         },
         {
           label: 'GitLab',
-          link: 'https://gitlab.com/EwieFairy',
+          link: 'https://gitlab.com/ewilan-riviere',
           icon: 'gitlab',
         },
         {
           label: 'Twitter',
-          link: 'https://twitter.com/ewieSwitch',
+          link: 'https://twitter.com/ewilanriviere',
           icon: 'twitter',
         },
         {
           label: 'Portfolio',
-          link: 'http://ewilan-riviere.com',
+          link: 'https://ewilan-riviere.com',
           icon: 'briefcase',
         },
         {
