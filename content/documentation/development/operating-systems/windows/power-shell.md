@@ -7,24 +7,34 @@ category: 'Windows'
 
 ## Cheatsheet
 
+List all binaries in PATH
+
+```ps1
+Get-ChildItem Env:
+```
+
+List PATH
+
+```ps1
+$env:path -split ";"
+```
+
 Find profile
 
 ```ps1
-$env:USERPROFILE
+$env:UserName
 ```
+
+Check PowerShell version
 
 ```ps1
 $PSVersionTable
 ```
 
+Path of current PowerShell profile
+
 ```ps1
 $profile
-```
-
-List all binaries in PATH
-
-```ps1
-Get-ChildItem Env:
 ```
 
 ## Update PowerShell

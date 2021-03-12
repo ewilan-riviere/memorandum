@@ -15,8 +15,6 @@ TODO link
 
 ## Multiple versions
 
-### Multiple version
-
 - [**github.com/leoafarias/fvm**](https://github.com/leoafarias/fvm): FVM allow you to install multiple Flutter version
 
 You need to have Dart
@@ -59,11 +57,11 @@ You need to add FVM path to `.profile` or PATH on Windows and `fvm` will be avai
   </code-block>
   <code-block label="Windows">
 
-  Add `C:\Users\USERNAME\AppData\Local\Pub\Cache\bin` to user `Path` in Windows environement variables.
-
-  ```bash
-  TODO
+  ```ps1
+  $INCLUDE = "C:\Users\$env:UserName\AppData\Local\Pub\Cache\bin" ; $OLDPATH = [System.Environment]::GetEnvironmentVariable('PATH','user') ; $NEWPATH = "$OLDPATH;$INCLUDE" ; [Environment]::SetEnvironmentVariable("PATH", "$NEWPATH", "user")
   ```
+
+  This command will add `C:\Users\USERNAME\AppData\Local\Pub\Cache\bin` to user `Path` in Windows environement variables.
 
   </code-block>
 </code-group>
@@ -86,10 +84,18 @@ List all installed versions
 fvm list
 ```
 
-On the root of a project
+On the root of a project, execute `fvm use` to setup FVM Flutter version, this will create `.fvm` directory on the root and any `fvm` command will use version setup (if you install it).
 
 ```bash
 fvm use 1.22.6 # OR use just 'fvm use' to select manually
+```
+
+Example of `fvm_config.json`
+
+```json[.fvm/fvm_config.json]
+{
+  "flutterSdkVersion": "1.22.6"
+}
 ```
 
 Use `FVM` like proxy for flutter commands
