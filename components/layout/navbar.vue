@@ -68,10 +68,10 @@
                         :key="article.slug"
                         class="my-1 transition-colors duration-300 hover:bg-gray-200"
                       >
-                        <NuxtLink
-                          :to="getContentParams(article)"
+                        <nuxt-link
+                          :to="article.path"
                           class="flex justify-between p-2"
-                          @click.native="articles = []"
+                          @click.native="clearQuery"
                         >
                           <div>
                             <div class="text-sm font-semibold text-gray-500">
@@ -95,7 +95,7 @@
                             class="h-20"
                             alt=""
                           />
-                        </NuxtLink>
+                        </nuxt-link>
                       </li>
                     </ul>
                     <div
@@ -212,6 +212,10 @@ export default {
       setTimeout(() => {
         this.$store.commit('setLayerVisible', false)
       }, 150)
+    },
+    clearQuery() {
+      this.articles = []
+      this.query = ''
     },
     getContentParams(article) {
       const path = article.path.replace('/documentation/', '').split('/')

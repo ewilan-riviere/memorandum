@@ -156,6 +156,7 @@ I see this error only on physical device, try to use emulator if you can.
 
 With a real device you can have an error about certificates. You can try some solutions by order of efficiency
 
+- Use `fvm` from [github.com/leoafarias/fvm](https://github.com/leoafarias/fvm), check [this guide](/documentation/development/frameworks/flutter/setup)
 - Execute flutter clean
 - Clear cache of Play Store app
 - Check if the tested application is uninstalled before execute flutter run

@@ -72,14 +72,8 @@ $profile
 And custom it
 
 ```ps1[Microsoft.PowerShell_profile.ps1]
-Import-Module posh-git
-Import-Module oh-my-posh
-Import-Module PSReadLine
-Set-Theme Paradox
-
-# with option like 'ssh-server dev.server.org'
-function ssh-server($server) {
-    ssh -i C:\Users\ewila\.ssh\id_rsa.pub "ubuntu@$server"
+function ssh-domain {
+    ssh user@domain.com
 }
 
 function flutter-clean {
@@ -91,10 +85,19 @@ function flutter-rebuild {
 function flutter-build {
     flutter build apk --split-per-abi ; cp build\app\outputs\flutter-apk\app-armeabi-v7a-release.apk
 }
-function user-go {
+function cd {
     cd C:/Users/ewila
 }
 # Laravel
+function artisan-setup {
+    composer install ; php artisan key:generate ; php artisan storage:link
+    if(!(Test-Path -Path '.env')) {
+        New-Item .env
+    }
+}
+function artisan-serve {
+    php artisan serve
+}
 function artisan-seed {
     php artisan migrate:fresh --seed
 }
@@ -111,20 +114,33 @@ function php-cs-fix {
     ./vendor/bin/php-cs-fixer fix
 }
 # composer
-function composer-setup {
-    composer install ; php artisan key:generate ; php artisan storage:link
-    if(!(Test-Path -Path '.env')) {
-        New-Item .env
-    }
-}
 function composer-v {
     composer --version
 }
+function composer-($version) {
+    composer self-update --$version
+}
 # php
-function php-7.4 {
+function php7.2 {
+    scoop reset php/php7.2-nts
+}
+function php7.3 {
+    scoop reset php/php7.3-nts
+}
+function php7.4 {
     scoop reset php/php7.4-nts
 }
-function php-8.0 {
+function php8.0 {
     scoop reset php/php-nts
+}
+
+function add-path($path) {
+    $INCLUDE = "$path" ; $OLDPATH = [System.Environment]::GetEnvironmentVariable('PATH','user') ; $NEWPATH = "$OLDPATH;$INCLUDE" ; [Environment]::SetEnvironmentVariable("PATH", "$NEWPATH", "user")
+}
+function ll {
+    ls
+}
+function history {
+    cat (Get-PSReadlineOption).HistorySavePath
 }
 ```

@@ -61,7 +61,7 @@ You need to add FVM path to `.profile` or PATH on Windows and `fvm` will be avai
   $INCLUDE = "C:\Users\$env:UserName\AppData\Local\Pub\Cache\bin" ; $OLDPATH = [System.Environment]::GetEnvironmentVariable('PATH','user') ; $NEWPATH = "$OLDPATH;$INCLUDE" ; [Environment]::SetEnvironmentVariable("PATH", "$NEWPATH", "user")
   ```
 
-  This command will add `C:\Users\USERNAME\AppData\Local\Pub\Cache\bin` to user `Path` in Windows environement variables. You have to restart your current terminal.
+  This PowerShell command will add `C:\Users\USERNAME\AppData\Local\Pub\Cache\bin` to user `Path` in Windows environement variables. You have to restart your current terminal.
 
   </code-block>
 </code-group>
@@ -84,7 +84,7 @@ List all installed versions
 fvm list
 ```
 
-On the root of a project, execute `fvm use` to setup FVM Flutter version, this will create `.fvm` directory on the root and any `fvm` command will use version setup (if you install it).
+On the root of a project, execute `fvm use` to setup FVM Flutter version, this will create `.fvm` directory on the root of project and any `fvm` command will use version setup (if you install it).
 
 ```bash
 fvm use 1.22.6 # OR use just 'fvm use' to select manually
