@@ -169,3 +169,53 @@ With a real device you can have an error about certificates. You can try some so
   - Update `storePassword` and `keyPassword` with `android` to use default debug key
 - Restart computer
 - Try different physical device
+
+## Connect with WiFi
+
+- From [medium.com/py-bits/wireless-debugging-flutter-android-d5af4bb92dbc](https://medium.com/py-bits/wireless-debugging-flutter-android-d5af4bb92dbc)
+
+Close all virtual emulators, connect only your Android phone to your computer.
+
+- Assure yourself than **USB debugging** is enable in **Development options**
+- Check devices with `flutter devices`
+- Allow this computer fo your device
+- Find device IPv4 like `192.168.0.143` in **About phone**
+
+Install `adb`
+
+<code-group>
+  <code-block label="Linux" active>
+
+  ```bash
+  sudo apt install -y adb
+  ```
+
+  </code-block>
+  <code-block label="Windows">
+
+  ```bash
+  sudo scoop install adb
+  ```
+
+  </code-block>
+</code-group>
+
+```bash
+adb tcpip 5555
+```
+
+> restarting in TCP mode port: 5555
+
+```bash
+adb connect 192.168.0.143
+```
+
+> connected to 192.168.0.143:5555
+
+You can disconnect your device. Try to detect devices with `flutter`
+
+```bash
+flutter devices
+```
+
+If everything works, you will see your device like is connected with USB.
