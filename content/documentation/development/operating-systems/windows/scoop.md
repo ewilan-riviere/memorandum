@@ -131,57 +131,88 @@ scoop update curl
 
 You can find many package with **scoop**, you can see below just some examples:
 
-### Useful packages
+### Tools
 
-- 7zip [main]
-- curl [main]
-- git [main]
-- grep [main]
-- sudo [main]
-- touch [main]
-- vim [main]
-- wget [main]
-- windows-terminal [extras]
+| Package                         | Bucket | About | Link                                                                           |
+| :------------------------------ | :----- | :---- | :----------------------------------------------------------------------------- |
+| **7zip**                        | main   | main  | [7-zip.org](https://www.7-zip.org)                                             |
+| **curl**                        | main   | main  | [curl.se](https://curl.se)                                                     |
+| **git** or **git-with-openssh** | main   | main  | [git-scm.com](https://git-scm.com)                                             |
+| **grep**                        | main   | main  | [man7.org](https://man7.org/linux/man-pages/man1/grep.1.html)                  |
+| **ffmpeg**                      | main   | main  | [ffmpeg.org](https://www.ffmpeg.org)                                           |
+| **make**                        | main   | main  | [gnu.org](https://www.gnu.org/software/make/manual/make.html)                  |
+| **sudo**                        | main   | main  | [sudo.ws](https://www.sudo.ws)                                                 |
+| **touch**                       | main   | main  | [man7.org](https://man7.org/linux/man-pages/man1/touch.1.html)                 |
+| **vim**                         | main   | main  | [vim.org](https://www.vim.org)                                                 |
+| **which**                       | main   | main  | [gnuwin32.sourceforge.net](http://gnuwin32.sourceforge.net/packages/which.htm) |
+| **windows-terminal**            | main   | main  | [github.com/microsoft/terminal](https://github.com/microsoft/terminal)         |
+| **wget**                        | main   | main  | [gnu.org](https://www.gnu.org/software/wget)                                   |
+| **youtube-dl**                  | main   | main  | [youtube-dl.org](https://youtube-dl.org)                                       |
 
-### Languages and frameworks
+- **oh-my-posh**
+  - `scoop install https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/oh-my-posh.json`
 
-- adopt8-hotspot [java]
-- flutter [extras]
-- mysql [main]
-- nvm [main]
-- php7.3-nts [php]
-- php7.4-nts [php]
-- python [main]
-- rust [main]
-- symfony-cli [main]
+### Development
 
-### For development
+| Package        | Bucket | About | Link |
+| :------------- | :----- | :---- | :--- |
+| adb            | main   |       |      |
+| android-sdk    | extras |       |      |
+| bit            | main   |       |      |
+| cacert         | main   |       |      |
+| composer       | main   |       |      |
+| doctl          | main   |       |      |
+| docker         | main   |       |      |
+| docker-compose | main   |       |      |
+| glow           | main   |       |      |
+| flutter        | main   |       |      |
+| mysql          | main   |       |      |
+| nginx          | main   |       |      |
+| ngrok          | main   |       |      |
+| nssm           | main   |       |      |
+| nvm            | main   |       |      |
+| pandoc         | main   |       |      |
+| python         | main   |       |      |
+| rust           | main   |       |      |
+| obsidian       | extras |       |      |
+| symfony-cli    | main   |       |      |
+| yarn           | main   |       |      |
 
-- android-studio [extras]
-- composer [main]
-- docker [main]
-- docker-compose [main]
-- doctl [main]
-- firacode [nerd-fonts]
-- glow [main]
-- nginx [main]
-- ngrok [main]
-- nssm [main]
-- pandoc [main]
-- phpstorm [jetbrains]
-- postman [extras]
-- Victor-Mono [nerd-fonts]
-- vscode [extras]
-- yarn [main]
-- which [main]
+#### PHP
+
+More informations about switch between versions and configurations: [**documentation/development/operating-systems/windows/php**](/documentation/development/operating-systems/windows/php)
+
+| Package    | Bucket | About | Link |
+| :--------- | :----- | :---- | :--- |
+| php-nts    | main   |       |      |
+| php7.3-nts | php    |       |      |
+| php7.4-nts | php    |       |      |
 
 ### Softwares
 
-- discord [extras]
-- firefox [extras]
-- ffmpeg [main]
-- gimp [extras]
-- googlechrome [extras]
-- rufus [extras]
-- vlc [extras]
-- youtube-dl [main]
+<alert type="warning">
+Install softwares with scoop: some software use internal auto-update which can create some conflicts. For example, with `vscode`, I stop to install it with scoop because update not work properly.
+</alert>
+
+| Package        | Bucket    | About | Link |
+| :------------- | :-------- | :---- | :--- |
+| android-studio | extras    |       |      |
+| discord        | extras    |       |      |
+| firefox        | extras    |       |      |
+| gimp           | extras    |       |      |
+| googlechrome   | extras    |       |      |
+| mp3tag         | extras    |       |      |
+| phpstorm       | jetbrains |       |      |
+| postman        | extras    |       |      |
+| rufus          | extras    |       |      |
+| vlc            | extras    |       |      |
+| vscode         | extras    |       |      |
+
+### Fonts
+
+| Package       | Bucket     | About | Link |
+| :------------ | :--------- | :---- | :--- |
+| Cascadia-Code | nerd-fonts |       |      |
+| firacode      | nerd-fonts |       |      |
+| Meslo-NF      | nerd-fonts |       |      |
+| Victor-Mono   | nerd-fonts |       |      |

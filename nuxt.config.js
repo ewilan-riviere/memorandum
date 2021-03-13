@@ -181,6 +181,7 @@ export default {
     fullTextSearchFields: ['title', 'description', 'slug', 'text'],
     nestedProperties: ['categories.slug'],
     markdown: {
+      live: false,
       externalLinks: {},
       footnotes: {
         inlineNotes: true,
