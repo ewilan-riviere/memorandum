@@ -97,9 +97,9 @@ export default {
       const svg = `icon-${this.name}`
       // check if component exist
       if (Vue.options.components[svg] === undefined) {
-        console.error(
-          `${this.$parent._name} with Icon component\nSVG doesn't exist: ${this.name}.svg`
-        )
+        // console.error(
+        //   `${this.$parent._name} with Icon component\nSVG doesn't exist: ${this.name}.svg`
+        // )
         if (this.default) {
           this.svgExist = true
           this.svgComponent = `icon-${this.default}`

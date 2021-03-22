@@ -6,9 +6,9 @@
   <div class="overflow-hidden bg-white shadow sm:rounded-md">
     <ul>
       <li v-for="(guide, guideId) in guides" :key="guideId">
-        <nuxt-link
-          :to="{ name: 'all', path: guide.path }"
+        <span
           class="block transition duration-300 ease-in-out hover:bg-gray-200 focus:outline-none focus:bg-gray-50"
+          @click="select(guide.path)"
         >
           <div class="flex items-center px-4 py-4 sm:px-6">
             <div class="flex items-center flex-1 min-w-0">
@@ -59,7 +59,7 @@
               </svg>
             </div>
           </div>
-        </nuxt-link>
+        </span>
       </li>
     </ul>
   </div>
@@ -77,6 +77,9 @@ export default {
   methods: {
     imgError(event) {
       event.target.src = require(`~/static/documentation/logo/guides.webp`)
+    },
+    select(path) {
+      this.$emit('select', path)
     },
     getRoute(guide) {
       const path = guide.path.replace('/documentation/', '').split('/')

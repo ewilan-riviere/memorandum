@@ -6,7 +6,7 @@ export default {
   ssr: false,
   target: 'static',
   generate: {
-    crawler: false,
+    crawler: true,
     routes: getGeneratedRoutes,
   },
   // Global page headers (https://go.nuxtjs.dev/config-head)

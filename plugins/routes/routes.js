@@ -3,14 +3,10 @@ require('dotenv').config()
 
 export const getGeneratedRoutes = () => {
   // Attention, cette fonction DOIT retourner une Promise.
+  // eslint-disable-next-line no-async-promise-executor
   return new Promise(async (resolve, reject) => {
     // Je récupère les événements depuis mon API.
     const routes = []
-    const staticRoutes = ['/', '/about', '/in-coming']
-    staticRoutes.forEach((route) => {
-      routes.push(route)
-    })
-
     const types = ['/development', '/games']
     types.forEach((route) => {
       routes.push(route)

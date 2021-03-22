@@ -83,7 +83,10 @@
                   </div>
                 </div>
                 <div slot="list" class="ml-2">
-                  <list-guide :guides="entity.guides"></list-guide>
+                  <list-guide
+                    :guides="entity.guides"
+                    @select="select"
+                  ></list-guide>
                 </div>
               </category-collapse>
             </ul>
@@ -188,14 +191,23 @@ export default {
     }
   },
   methods: {
+    select(path) {
+      this.$router.push(path)
+    },
     switchAccordion(id) {
       for (let i = 0; i < this.selectedCategory.entities.length; i++) {
-        this.$refs[`collapse-${i}`][0].false()
+        if (this.$refs[`collapse-${i}`].length) {
+          this.$refs[`collapse-${i}`][0].false()
+        }
       }
-      if (this.currentOpened === id && this.switched === false) {
+      if (
+        this.currentOpened === id &&
+        this.switched === false &&
+        this.$refs[`collapse-${id}`].length
+      ) {
         this.$refs[`collapse-${id}`][0].false()
         this.switched = true
-      } else {
+      } else if (this.$refs[`collapse-${id}`].length) {
         this.$refs[`collapse-${id}`][0].open()
         this.switched = false
       }
@@ -210,7 +222,9 @@ export default {
     },
     selectCategory(data) {
       for (let i = 0; i < this.selectedCategory.entities.length; i++) {
-        this.$refs[`collapse-${i}`][0].false()
+        if (this.$refs[`collapse-${i}`].length) {
+          this.$refs[`collapse-${i}`][0].false()
+        }
       }
       const category = this.pages.filter((page) => page.label === data)
       this.selectedCategory = category[0]
