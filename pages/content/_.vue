@@ -128,10 +128,12 @@ export default {
   head() {
     const title = this.document
       ? `${this.document.title} in ${this.document.category}`
-      : null
-    const description = this.document.description
+      : 'unknown'
+    const description = this.document
       ? this.document.description
-      : 'No description'
+        ? this.document.description
+        : 'No description'
+      : 'unknown'
     const image = `${process.env.APP_URL}/documentation/logo/${this.$slugify(
       this.document.category
     )}.webp`
