@@ -4,9 +4,6 @@
     <Nuxt class="min-h-screen pt-16" />
     <layout-footer />
     <layout-back-to-top />
-    <client-only>
-      <tailwind-helper sneak />
-    </client-only>
   </div>
 </template>
 

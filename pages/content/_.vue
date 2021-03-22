@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="document.pathsObj">
     <layout-main
       :image="$slugify(document.pathsObj.entity)"
       :back-route="{
@@ -100,6 +100,7 @@ export default {
     if (!document) {
       return error({ statusCode: 404, message: 'Page not found' })
     }
+    console.log(document)
 
     const pathArray = document.path.split('/')
     pathArray.splice(0, 1)
