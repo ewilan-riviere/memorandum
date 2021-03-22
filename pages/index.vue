@@ -9,7 +9,7 @@
           <div class="relative px-4 sm:px-6 lg:px-8">
             <div class="mx-auto prose prose-lg text-gray-500">
               <img
-                src="/logo/preview.png"
+                src="/open-graph.jpg"
                 class="light-img"
                 width="1280"
                 height="640"
