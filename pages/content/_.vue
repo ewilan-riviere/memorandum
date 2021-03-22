@@ -100,7 +100,6 @@ export default {
     if (!document) {
       return error({ statusCode: 404, message: 'Page not found' })
     }
-    console.log(document)
 
     const pathArray = document.path.split('/')
     pathArray.splice(0, 1)
