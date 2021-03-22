@@ -134,6 +134,10 @@ export default {
     jit: true,
   },
 
+  routerModule: {
+    keepDefaultRouter: true,
+  },
+
   googleFonts: {
     display: 'swap',
     prefetch: true,

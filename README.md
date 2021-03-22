@@ -10,7 +10,7 @@ drone try4, update 2
 [![nodejs](https://img.shields.io/static/v1?label=NodeJS&message=v14.15&color=339933&style=flat-square&logo=node.js&logoColor=ffffff)](https://nodejs.org/en)
 [![yarn](https://img.shields.io/static/v1?label=Yarn&message=v1.2&color=2C8EBB&style=flat-square&logo=yarn&logoColor=ffffff)](https://classic.yarnpkg.com/lang/en/)
 
-![Memo](static/logo/logo-readme.png)
+![Memo](static/icon.png)
 
 > Documentation with snippets and boiler plates, built with [NuxtJS](https://nuxtjs.org) and [nuxt/content](https://content.nuxtjs.org). Markdown ❤️ for ever.
 
@@ -39,39 +39,38 @@ APP_URL='http://memorandum.website.dev'
 
 ```bash
 # build for production
-yarn build
-```
-
-Use a process manager like [pm2](https://pm2.keymetrics.io) to `start` NuxtJS app if you want SSR.
-
-```js
-// example of ~/ecosystem.config.js for pm2
-module.exports = {
-  apps : [
-    // ...
-    {
-      name: 'memorandum',
-      script: 'npm',
-      cwd: '/home/ewilan/www/memorandum',
-      args: 'start',
-      env: {
-        PORT: 3002
-      },
-    },
-    // ...
-  ]
-}
+yarn generate
 ```
 
 Use `.git/hooks/post-merge` like:
 
 ```bash
 #!/bin/bash
-yarn ; yarn build
-pm2 restart memorandum
+yarn ; yarn generate
 ```
 
 Don't forget the command `sudo chmod 775 .git/hooks/post-merge` to allow system to execute this script.
+
+Serve app with Web Server like NGINX
+
+```nginx
+server {
+  listen 80;
+  server_name memorandum.ewilan-riviere.com;
+
+  root /var/www/memorandum/dist;
+  index index.html;
+
+  location / {
+    try_files $uri $uri/ /index.html;
+  }
+
+  location ~* \.(js|css|png|jpg|jpeg|gif|ico|eot|svg|ttf|woff|woff2)$ {
+    access_log off;
+    expires max;
+  }
+}
+```
 
 To learn more, check [NuxtJS documentation](https://nuxtjs.org).
 
