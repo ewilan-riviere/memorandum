@@ -126,7 +126,9 @@ export default {
     }
   },
   head() {
-    const title = `${this.document.title} in ${this.document.category}`
+    const title = this.document
+      ? `${this.document.title} in ${this.document.category}`
+      : null
     const description = this.document.description
       ? this.document.description
       : 'No description'
