@@ -83,10 +83,7 @@
                   </div>
                 </div>
                 <div slot="list" class="ml-2">
-                  <list-guide
-                    :guides="entity.guides"
-                    @select="select"
-                  ></list-guide>
+                  <list-guide :guides="entity.guides"></list-guide>
                 </div>
               </category-collapse>
             </ul>
@@ -191,9 +188,6 @@ export default {
     }
   },
   methods: {
-    select(path) {
-      this.$router.push(path)
-    },
     switchAccordion(id) {
       for (let i = 0; i < this.selectedCategory.entities.length; i++) {
         if (this.$refs[`collapse-${i}`].length) {

@@ -19,53 +19,27 @@
 </template>
 
 <script>
+import { getPages } from '~/plugins/pages'
+
 export default {
   name: 'HomeIndex',
-  async asyncData({ $content }) {
+  async asyncData({ $content, $store }) {
     const welcome = await $content('welcome', { deep: true }).fetch()
-    const content = await $content('documentation', { deep: true })
-      .only(['title', 'path'])
-      .fetch()
-
-    let pages = []
-    content.forEach((markdownFile) => {
-      const path = markdownFile.path.replace('/documentation/', '').split('/')
-      const Page = {
-        label: path[0],
-        guides: [],
-        number: 0,
-        route: 'type-slug',
-      }
-      pages.push(Page)
-    })
-
-    const pagesAll = pages
-
-    // delete duplicates
-    pages = pages.filter(
-      (v, i, a) => a.findIndex((t) => t.label === v.label) === i
-    )
-    // alphabetic sorting
-    pages.sort((a, b) => (a.label > b.label ? 1 : -1))
-
-    pagesAll.forEach((pageA) => {
-      pages.forEach((page) => {
-        if (pageA.label === page.label) {
-          page.number += 1
-        }
-      })
-    })
-
-    // pages.unshift({ label: 'Home', iconStroke: false, route: 'home' })
 
     return {
       welcome,
-      pages,
     }
   },
   data() {
     return {
+      pages: [],
       items: [],
+    }
+  },
+  async created() {
+    await getPages(this.$content, this.$store)
+    if (this.$store.state.pages) {
+      this.pages = this.$store.state.pages
     }
   },
   head() {

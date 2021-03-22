@@ -13,9 +13,13 @@ export const state = () => ({
   settings: {},
   contentCurrentPath: '',
   currentDocument: {},
+  pages: [],
 })
 
 export const mutations = {
+  setPages(state, data) {
+    state.pages = data
+  },
   setSettings(state, data) {
     state.settings = data
   },
