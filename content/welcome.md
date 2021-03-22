@@ -10,14 +10,6 @@ features:
   - Built with NuxtJS & nuxt/content
 ---
 
-<img src="/logo/preview.png" class="light-img" width="1280" height="640" alt=""/>
-
-<alert type="success">
-
-Open-source documentation about my projects, my favorites frameworks & languages...
-
-</alert>
-
 ## Features
 
 <list :items="features"></list>

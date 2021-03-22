@@ -15,45 +15,11 @@ module.exports = {
     container: {
       center: true,
     },
-    fontFamily: {
-      quicksand: ['Quicksand'],
-      'handlee-regular': ['Handlee-Regular'],
-      sans: [
-        'system-ui',
-        'BlinkMacSystemFont',
-        '-apple-system',
-        'Segoe UI',
-        'Roboto',
-        'Oxygen',
-        'Ubuntu',
-        'Cantarell',
-        'Fira Sans',
-        'Droid Sans',
-        'Helvetica Neue',
-        'sans-serif',
-      ],
-      serif: [
-        'Constantia',
-        'Lucida Bright',
-        'Lucidabright',
-        'Lucida Serif',
-        'Lucida',
-        'DejaVu Serif',
-        'Bitstream Vera Serif',
-        'Liberation Serif',
-        'Georgia',
-        'serif',
-      ],
-      mono: [
-        'Menlo',
-        'Monaco',
-        'Consolas',
-        'Liberation Mono',
-        'Courier New',
-        'monospace',
-      ],
-    },
     extend: {
+      fontFamily: {
+        quicksand: ['Quicksand'],
+        'handlee-regular': ['Handlee-Regular'],
+      },
       screens: {
         '2xl': '1600px',
         xl: '1280px',
@@ -66,39 +32,21 @@ module.exports = {
         'primary-700': '#660066',
         'primary-300': '#993299',
       },
-      backgroundImage: {},
-      opacity: {},
-      animation: {
-        'bounce-slow': 'bounce-anim-slow 0.3s infinite',
-      },
-      keyframes: {
-        'bounce-anim-slow': {
-          '0%': {
-            transform: 'translateY(0%)',
-            animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)',
-          },
-          '100%': {
-            transform: 'translateY(-5%)',
-            animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)',
-          },
-        },
-      },
     },
   },
   variants: {
     extends: {
+      display: ['dark'],
+      opacity: ['dark'],
+      width: ['hover', 'focus'],
       textColor: ['responsive', 'hover', 'focus', 'group-hover', 'dark'],
       scale: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
-      animation: [
-        'responsive',
-        'motion-safe',
-        'motion-reduce',
-        'hover',
-        'group-hover',
-      ],
+      boxShadow: ['dark'],
       translate: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
       backgroundColor: ['hover', 'focus', 'group-hover', 'dark'],
-      borderColor: ['hover', 'focus', 'group-hover', 'dark'],
+      backgroundOpacity: ['dark'],
+      borderColor: ['hover', 'focus', 'group-hover'],
+      borderRadius: ['dark'],
     },
   },
   plugins: [

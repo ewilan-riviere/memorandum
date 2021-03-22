@@ -1,34 +1,32 @@
 <template>
-  <footer
-    class="relative w-full h-16 bg-white border-t dark:border-gray-800 dark:bg-gray-900"
-  >
-    <div
-      class="max-w-screen-xl px-4 py-6 mx-auto space-y-2 overflow-hidden sm:px-6 lg:px-8 dark:bg-gray-900"
-    >
-      <nav class="flex justify-center mx-auto w-max-content">
+  <!-- This example requires Tailwind CSS v2.0+ -->
+  <footer class="bg-white border-t dark:bg-gray-900 dark:border-gray-800">
+    <div class="px-4 py-12 mx-auto overflow-hidden max-w-7xl sm:px-6 lg:px-8">
+      <nav
+        class="flex flex-wrap justify-center -mx-5 -my-2"
+        aria-label="Footer"
+      >
         <nuxt-link to="/">
           <logo class="text-xl font-bold"></logo>
         </nuxt-link>
         <color-switcher-toggle class="ml-8" />
       </nav>
-      <div>
-        <div class="flex items-center justify-center">
-          <a
-            v-for="social in socialLinks"
-            :key="social.id"
-            v-tooltip="social.label"
-            class="p-3 transition-colors duration-300 rounded-md hover:bg-gray-200"
-            :href="social.link"
-            target="_blank"
-            rel="noopener noreferrer"
-            :class="`hover:icon-${social.icon}`"
-          >
-            <icon :name="social.icon" :size="20" />
-          </a>
-        </div>
+      <div class="flex justify-center mt-8 space-x-6">
+        <a
+          v-for="social in socialLinks"
+          :key="social.id"
+          v-tooltip="social.label"
+          class="p-3 transition-colors duration-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
+          :href="social.link"
+          target="_blank"
+          rel="noopener noreferrer"
+          :class="`hover:icon-${social.icon}`"
+        >
+          <icon :name="social.icon" :size="20" />
+        </a>
       </div>
       <div
-        class="items-center justify-center text-base text-center text-gray-400 md:flex"
+        class="items-center justify-center mt-4 text-base text-center text-gray-400 md:flex"
       >
         <div class="items-center md:flex w-max-content">
           <a

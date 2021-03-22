@@ -3,12 +3,12 @@
   Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
   Read the documentation to get started: https://tailwindui.com/documentation
 -->
-  <div class="overflow-hidden bg-white shadow sm:rounded-md">
+  <div class="overflow-hidden bg-white shadow dark:bg-gray-800 sm:rounded-md">
     <ul>
       <li v-for="(guide, guideId) in guides" :key="guideId">
         <nuxt-link
           :to="guide.path"
-          class="block transition duration-300 ease-in-out hover:bg-gray-200 focus:outline-none focus:bg-gray-50"
+          class="block transition duration-300 ease-in-out hover:bg-gray-200 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-50"
         >
           <div class="flex items-center px-4 py-4 sm:px-6">
             <div class="flex items-center flex-1 min-w-0">
@@ -25,7 +25,7 @@
               <div class="min-w-0 px-4">
                 <div>
                   <div
-                    class="text-lg font-medium leading-5 text-indigo-600 truncate"
+                    class="text-lg font-medium leading-5 text-indigo-600 truncate dark:text-indigo-300"
                   >
                     <span>{{ guideId + 1 }}.</span>
                     <span>{{ guide.title }}</span>

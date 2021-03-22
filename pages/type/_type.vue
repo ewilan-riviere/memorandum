@@ -10,12 +10,14 @@
       </div>
       <div slot="main" class="">
         <div class="">
-          <h2
-            class="p-2 mb-5 ml-2 text-2xl font-bold rounded-md font-quicksand title w-max-content"
+          <h1
+            class="p-2 mb-5 ml-2 text-2xl font-bold rounded-md font-quicksand title w-max"
           >
             {{ $t(selectedCategory.label) }}
-          </h2>
-          <div class="overflow-hidden bg-white shadow sm:rounded-md">
+          </h1>
+          <div
+            class="overflow-hidden bg-white shadow dark:bg-gray-800 sm:rounded-md"
+          >
             <ul>
               <category-collapse
                 v-for="(entity, entityId) in selectedCategory.entities"
@@ -24,13 +26,14 @@
                 :ref="`collapse-${entityId}`"
                 class="cursor-pointer"
                 :class="{
-                  'bg-green-400 bg-opacity-50': currentOpened === entityId,
+                  'bg-green-400 dark:bg-green-600 bg-opacity-50':
+                    currentOpened === entityId,
                 }"
                 @click.native="switchAccordion(entityId)"
               >
                 <div
                   slot="title"
-                  class="block transition duration-300 ease-in-out hover:bg-gray-200 focus:outline-none focus:bg-gray-50"
+                  class="block transition duration-300 ease-in-out hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-50"
                 >
                   <div class="flex items-center px-4 py-4 sm:px-6">
                     <div
@@ -51,12 +54,11 @@
                         </div>
                         <div class="min-w-0 px-4">
                           <div>
-                            <div
+                            <h2
                               class="text-lg font-semibold leading-5 text-gray-800 truncate"
                             >
                               {{ $t(entity.label) }}
-                            </div>
-                            <div></div>
+                            </h2>
                           </div>
                         </div>
                       </div>

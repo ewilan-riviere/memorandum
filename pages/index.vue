@@ -8,6 +8,21 @@
         <article class="relative pb-10 overflow-hidden bg-white">
           <div class="relative px-4 sm:px-6 lg:px-8">
             <div class="mx-auto prose prose-lg text-gray-500">
+              <img
+                src="/logo/preview.png"
+                class="light-img"
+                width="1280"
+                height="640"
+                alt=""
+              />
+            </div>
+            <div class="mx-auto mt-10 text-gray-500 max-w-prose">
+              <h1 class="text-3xl font-semibold font-quicksand">
+                Welcome to Memorandum, a documentation about my favorites
+                frameworks & languages...
+              </h1>
+            </div>
+            <div class="mx-auto prose prose-lg text-gray-500">
               <display-document :document="welcome" />
             </div>
           </div>
@@ -46,6 +61,12 @@ export default {
     return {
       title: 'Memorandum',
       titleTemplate: '',
+      link: [
+        {
+          rel: 'canonical',
+          href: `${process.env.APP_URL}`,
+        },
+      ],
     }
   },
 }

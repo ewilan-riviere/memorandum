@@ -15,6 +15,12 @@
   & a {
     @apply text-gray-100 !important;
   }
+  & code {
+    @apply bg-gray-800 !important;
+  }
+  & pre {
+    @apply bg-gray-800 !important;
+  }
 }
 
 .nuxt-content {

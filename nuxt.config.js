@@ -25,6 +25,16 @@ export default {
         content:
           'Personal documentation, in nuxt/content, on several languages, frameworks and many other topics in web & mobile development.',
       },
+      {
+        hid: 'og:type',
+        property: 'og:type',
+        content: 'website',
+      },
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content: process.env.APP_URL,
+      },
       // Open Graph
       {
         hid: 'og:title',
@@ -53,6 +63,11 @@ export default {
         name: 'twitter:description',
         content:
           'Personal documentation, in nuxt/content, on several languages, frameworks and many other topics in web & mobile development.',
+      },
+      {
+        hid: 'twitter:creator',
+        name: 'twitter:creator',
+        content: '@ewilanriviere',
       },
       {
         hid: 'twitter:image',
