@@ -89,11 +89,11 @@
 <script>
 export default {
   name: 'ContentSlugShort',
-  middleware({ app, params, redirect }) {
-    if (params.pathMatch === 'index') {
-      redirect(app.localePath('/'))
-    }
-  },
+  // middleware({ app, params, redirect }) {
+  //   if (params.pathMatch === 'index') {
+  //     redirect(app.localePath('/'))
+  //   }
+  // },
   async asyncData({ $content, store, app, params, error }) {
     const path = `/${params.pathMatch || 'index'}`
     const [document] = await $content({ deep: true }).where({ path }).fetch()
