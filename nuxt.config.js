@@ -1,9 +1,14 @@
 import { getRoutes, getGuidesRoutes } from './plugins/sitemaps/sitemap'
+import { getGeneratedRoutes } from './plugins/routes/routes'
 require('dotenv').config()
 
 export default {
+  ssr: false,
   target: 'static',
-  generate: {},
+  generate: {
+    crawler: false,
+    routes: getGeneratedRoutes,
+  },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'Documentation',

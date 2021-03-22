@@ -7,7 +7,7 @@
     <ul>
       <li v-for="(guide, guideId) in guides" :key="guideId">
         <nuxt-link
-          :to="guide.path"
+          :to="{ name: 'all', path: guide.path }"
           class="block transition duration-300 ease-in-out hover:bg-gray-200 focus:outline-none focus:bg-gray-50"
         >
           <div class="flex items-center px-4 py-4 sm:px-6">
