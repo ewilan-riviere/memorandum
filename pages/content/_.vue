@@ -1,5 +1,5 @@
 <template>
-  <div v-if="document.pathsObj">
+  <div v-if="document">
     <layout-main
       :image="$slugify(document.pathsObj.entity)"
       :back-route="{
