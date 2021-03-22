@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white dark:bg-gray-900">
+  <div :class="{ 'debug-screens': devMode }" class="bg-white dark:bg-gray-900">
     <layout-navigation />
     <Nuxt class="min-h-screen pt-16" />
     <layout-footer />
@@ -26,6 +26,7 @@ export default {
   },
   data() {
     return {
+      devMode: process.env.NODE_ENV !== 'production',
       settings,
     }
   },

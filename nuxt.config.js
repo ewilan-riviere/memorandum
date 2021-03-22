@@ -1,6 +1,9 @@
+import { getRoutes, getGuidesRoutes } from './plugins/sitemaps/sitemap'
 require('dotenv').config()
 
 export default {
+  target: 'static',
+  generate: {},
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'Documentation',
@@ -70,7 +73,6 @@ export default {
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     { src: '~/plugins/icons-loader', ssr: false },
-    { src: '~/plugins/vue-tailwind-screens', mode: 'client' },
     // { src: '~/plugins/vue-helper' },
     // https://github.com/surmon-china/vue-awesome-swiper
     // { src: '~/plugins/vue-awesome-swiper', ssr: false },
@@ -84,7 +86,6 @@ export default {
     { src: '~/plugins/vue-scrollactive' },
     // https://www.npmjs.com/package/vue-lazy-youtube-video
     // { src: '~/plugins/vue-lazy-youtube' },
-    { src: '~/plugins/vue-code-info', ssr: false },
     { src: '~/plugins/vue-helper' },
     { src: '~/plugins/global-loader' },
     { src: '~/plugins/vue-read-progress', ssr: false },
@@ -130,6 +131,7 @@ export default {
 
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
+    jit: true,
   },
 
   googleFonts: {
@@ -208,6 +210,35 @@ export default {
     },
   },
 
+  sitemap: {
+    path: '/sitemap.xml', // L'emplacement de votre fichier sitemap.
+    hostname: process.env.APP_URL, // L'adresse de votre site, que vous pouvez placer comme ici dans une variable d'environnement.
+    cacheTime: 1000 * 60 * 15, // La durée avant que le sitemap soit regénéré. Ici 15mn.
+    gzip: true,
+    generate: false, // Génère une version statique du sitemap quand activé. À utiliser avec nuxt generate.
+    exclude: [
+      // Les pages qu'on a pas trop envie de voir atterrir sur Google.
+      '**',
+    ],
+
+    sitemaps: [
+      {
+        path: '/sitemaps/sitemap.xml',
+        exclude: ['**'],
+        routes() {
+          // Nous allons utiliser une fonction personnalisée pour charger nos routes dynamiques dans le sitemap.
+          return getRoutes()
+        },
+      },
+      {
+        path: '/sitemaps/guides.xml',
+        exclude: ['**'],
+        routes: () => {
+          return getGuidesRoutes()
+        },
+      },
+    ],
+  },
   robots: {
     UserAgent: '*',
     // Disallow: '/',
