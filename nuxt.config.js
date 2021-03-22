@@ -3,7 +3,7 @@ import { getGeneratedRoutes } from './plugins/routes/routes'
 require('dotenv').config()
 
 export default {
-  ssr: false,
+  ssr: true,
   target: 'static',
   generate: {
     crawler: true,

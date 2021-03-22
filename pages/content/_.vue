@@ -116,7 +116,7 @@ export default {
     }
   },
   head() {
-    const title = `${this.document.title} in ${this.document.category}`
+    const title = `${this.document.title} - ${this.document.category}`
     const description = this.document.description
     const image = `${process.env.APP_URL}/documentation/logo/${this.$slugify(
       this.document.category
