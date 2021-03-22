@@ -98,9 +98,9 @@ export default {
     const path = `/${params.pathMatch || 'index'}`
     const [document] = await $content({ deep: true }).where({ path }).fetch()
     console.log(document)
-    if (!document) {
-      return error({ statusCode: 404, message: 'Page not found' })
-    }
+    // if (!document) {
+    //   return error({ statusCode: 404, message: 'Page not found' })
+    // }
 
     const pathArray = document.path.split('/')
     pathArray.splice(0, 1)
@@ -126,58 +126,58 @@ export default {
       // next,
     }
   },
-  head() {
-    const title = this.document
-      ? `${this.document.title} in ${this.document.category}`
-      : 'unknown'
-    const description = this.document
-      ? this.document.description
-        ? this.document.description
-        : 'No description'
-      : 'unknown'
-    const image = this.document
-      ? `${process.env.APP_URL}/documentation/logo/${this.$slugify(
-          this.document.category
-        )}.webp`
-      : 'unknown'
-    return {
-      title,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: description,
-        },
-        // Open Graph
-        { hid: 'og:title', property: 'og:title', content: title },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content: description,
-        },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: image,
-        },
-        // Twitter Card
-        {
-          hid: 'twitter:title',
-          name: 'twitter:title',
-          content: title,
-        },
-        {
-          hid: 'twitter:description',
-          name: 'twitter:description',
-          content: description,
-        },
-        {
-          hid: 'twitter:image',
-          property: 'twitter:image',
-          content: image,
-        },
-      ],
-    }
-  },
+  // head() {
+  //   const title = this.document
+  //     ? `${this.document.title} in ${this.document.category}`
+  //     : 'unknown'
+  //   const description = this.document
+  //     ? this.document.description
+  //       ? this.document.description
+  //       : 'No description'
+  //     : 'unknown'
+  //   const image = this.document
+  //     ? `${process.env.APP_URL}/documentation/logo/${this.$slugify(
+  //         this.document.category
+  //       )}.webp`
+  //     : 'unknown'
+  //   return {
+  //     title,
+  //     meta: [
+  //       {
+  //         hid: 'description',
+  //         name: 'description',
+  //         content: description,
+  //       },
+  //       // Open Graph
+  //       { hid: 'og:title', property: 'og:title', content: title },
+  //       {
+  //         hid: 'og:description',
+  //         property: 'og:description',
+  //         content: description,
+  //       },
+  //       {
+  //         hid: 'og:image',
+  //         property: 'og:image',
+  //         content: image,
+  //       },
+  //       // Twitter Card
+  //       {
+  //         hid: 'twitter:title',
+  //         name: 'twitter:title',
+  //         content: title,
+  //       },
+  //       {
+  //         hid: 'twitter:description',
+  //         name: 'twitter:description',
+  //         content: description,
+  //       },
+  //       {
+  //         hid: 'twitter:image',
+  //         property: 'twitter:image',
+  //         content: image,
+  //       },
+  //     ],
+  //   }
+  // },
 }
 </script>

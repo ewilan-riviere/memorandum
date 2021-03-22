@@ -34,8 +34,8 @@ export function createRouter() {
         component: TypeSlug,
       },
       {
-        name: 'all',
-        path: '/*',
+        name: 'document',
+        path: '/document/*',
         component: Content,
       },
     ],
