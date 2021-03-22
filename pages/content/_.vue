@@ -99,20 +99,27 @@ export default {
     path = path.replace(/\/$/, '')
     const [document] = await $content({ deep: true }).where({ path }).fetch()
 
-    const pathArray = document.path.split('/')
-    pathArray.splice(0, 1)
-    pathArray.splice(pathArray.length - 1, 1)
-    const otherDocumentsPath = pathArray.join('/')
-    const otherDocuments = await $content(otherDocumentsPath, {
-      deep: true,
-    })
-      .only(['title', 'path', 'extension', 'position'])
-      .sortBy('position')
-      .fetch()
+    if (document) {
+      const pathArray = document.path.split('/')
+      pathArray.splice(0, 1)
+      pathArray.splice(pathArray.length - 1, 1)
+      const otherDocumentsPath = pathArray.join('/')
+      const otherDocuments = await $content(otherDocumentsPath, {
+        deep: true,
+      })
+        .only(['title', 'path', 'extension', 'position'])
+        .sortBy('position')
+        .fetch()
 
-    return {
-      document,
-      otherDocuments,
+      return {
+        document,
+        otherDocuments,
+      }
+    } else {
+      return {
+        document: {},
+        otherDocuments: [],
+      }
     }
   },
   head() {

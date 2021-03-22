@@ -50,9 +50,14 @@ export default {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: `${process.env.APP_URL}/logo/preview.png`,
+        content: `${process.env.APP_URL}/open-graph.jpg`,
       },
       // Twitter Card
+      {
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      },
       {
         hid: 'twitter:title',
         name: 'twitter:title',
@@ -70,9 +75,24 @@ export default {
         content: '@ewilanriviere',
       },
       {
-        hid: 'twitter:image',
-        property: 'twitter:image',
-        content: `${process.env.APP_URL}/logo/preview.png`,
+        hid: 'twitter:image:src',
+        property: 'twitter:image:src',
+        content: `${process.env.APP_URL}/open-graph.jpg`,
+      },
+      {
+        hid: 'twitter:image:width',
+        name: 'twitter:image:width',
+        content: 1200,
+      },
+      {
+        hid: 'twitter:image:height',
+        name: 'twitter:image:height',
+        content: 600,
+      },
+      {
+        hid: 'twitter:image:alt',
+        name: 'twitter:image:alt',
+        content: 'Memorandum',
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
