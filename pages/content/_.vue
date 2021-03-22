@@ -112,17 +112,17 @@ export default {
       .sortBy('position')
       .fetch()
 
-    const [prev, next] = await $content({ deep: true })
-      .only(['title', 'path', 'to'])
-      .sortBy('position', 'asc')
-      .surround(document.path, { before: 1, after: 1 })
-      .fetch()
+    // const [prev, next] = await $content({ deep: true })
+    //   .only(['title', 'path', 'to'])
+    //   .sortBy('position', 'asc')
+    //   .surround(document.path, { before: 1, after: 1 })
+    //   .fetch()
 
     return {
       document,
       otherDocuments,
-      prev,
-      next,
+      // prev,
+      // next,
     }
   },
   head() {
@@ -134,9 +134,11 @@ export default {
         ? this.document.description
         : 'No description'
       : 'unknown'
-    const image = `${process.env.APP_URL}/documentation/logo/${this.$slugify(
-      this.document.category
-    )}.webp`
+    const image = this.document
+      ? `${process.env.APP_URL}/documentation/logo/${this.$slugify(
+          this.document.category
+        )}.webp`
+      : 'unknown'
     return {
       title,
       meta: [
