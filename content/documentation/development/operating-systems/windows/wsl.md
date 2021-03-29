@@ -20,6 +20,14 @@ wsl --list --verbose
 * Ubuntu    Running         2
 ```
 
+### Delete distribution
+
+Here for example to delete `Ubuntu` distribution
+
+```bash
+wsl --unregister Ubuntu
+```
+
 ## WSL 2
 
 <alert type="info"> Required
@@ -185,16 +193,30 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] ; \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 ```
 
-Install Node.js **14.15.1**
+Install Node.js **14.16.0**
 
 ```bash
-source ~/.profile ; nvm ls-remote ; nvm install 14.15.1 ; nvm use 14.15.1 ; nvm alias default 14.15.1 ; nvm use default ; nvm ls ; node -v
+source ~/.profile ; nvm ls-remote ; nvm install 14.16.0 ; nvm use 14.16.0 ; nvm alias default 14.16.0 ; nvm use default ; nvm ls ; node -v
 ```
 
 Install yarn
 
 ```bash
 npm install -g yarn
+```
+
+ZSH is a powerful command interpreter, better than bash. If you use it, you can improve it with [*Oh my ZSH*](https://ohmyz.sh/) which is configuration for ZSH.
+
+*Install zsh*
+
+```bash
+sudo apt install -y zsh
+```
+
+*Install oh-my-zsh*
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
 Install NGINX
@@ -209,4 +231,10 @@ sudo apt install -y php-fpm php-mysql
 
 ```bash
 sudo mv composer.phar /usr/local/bin/composer ; sudo chown -R $USER ~/.config/composer/ ; composer global require laravel/installer
+```
+
+## Tips
+
+```bash
+explorer.exe .
 ```
