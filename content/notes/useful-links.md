@@ -15,12 +15,15 @@ category: 'Work in progress'
 Libraries to get SVG files
 
 - [**Bootstrap Icons**](https://icons.getbootstrap.com)
-- [**heroicons**](https://heroicons.dev)
+- [**heroicons.dev**](https://heroicons.dev) / [**heroicons.com**](https://heroicons.com) / [**github.com/tailwindlabs/heroicons**](https://github.com/tailwindlabs/heroicons)
 - [**material.io**](https://material.io/resources/icons)
 - [**flaticon**](https://www.flaticon.com)
 - [**Font Awesome**](https://fontawesome.com)
 - [**8 Best Free Libraries For SVG**](https://www.webdesignerdepot.com/2018/02/8-best-free-libraries-for-svg)
 - [**Simple Icons**](https://simpleicons.org)
+- [**blade-ui-kit**](https://blade-ui-kit.com/blade-icons)
+- [**iconic.app**](https://iconic.app)
+- [**haikei.app**](https://haikei.app)
 
 ## Favicons
 

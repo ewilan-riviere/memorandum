@@ -133,10 +133,7 @@ export default {
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   // https://github.com/nuxt/components
-  // components: [
-  //   '~/components',
-  //   { path: '~/components/global' },
-  // ],
+  components: true,
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [

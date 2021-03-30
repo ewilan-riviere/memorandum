@@ -4,12 +4,20 @@
   Read the documentation to get started: https://tailwindui.com/documentation
 -->
   <nav>
-    <div
+    <nuxt-link
       v-for="(page, pageId) in pages"
       :key="pageId"
       class="flex items-center px-3 py-2 mt-1 text-sm font-medium leading-5 text-gray-600 transition-colors duration-300 ease-in-out rounded-md cursor-pointer group hover:text-gray-900 hover:bg-gray-300 focus:outline-none focus:text-gray-900 focus:bg-gray-200"
-      :class="{ 'bg-gray-300 dark:bg-gray-800': selected === pageId }"
-      @click="select($slugify(page.label), pageId)"
+      :class="{
+        'bg-gray-300 dark:bg-gray-800': page.label === $route.params.category,
+      }"
+      :to="{
+        name: 'type-slug',
+        params: {
+          type: $route.params.type,
+          category: page.label,
+        },
+      }"
     >
       <icon
         :name="`nav-${$slugify(page.label)}`"
@@ -26,7 +34,7 @@
       >
         {{ page.number }}
       </span>
-    </div>
+    </nuxt-link>
   </nav>
 </template>
 

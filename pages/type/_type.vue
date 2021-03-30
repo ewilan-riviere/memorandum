@@ -13,81 +13,75 @@
           <h1
             class="p-2 mb-5 ml-2 text-2xl font-bold rounded-md font-quicksand title w-max"
           >
-            {{ $t(selectedCategory.label) }}
+            {{ $t(currentPage.label) }}
           </h1>
           <div
             class="overflow-hidden bg-white shadow dark:bg-gray-800 sm:rounded-md"
           >
             <ul>
-              <category-collapse
-                v-for="(entity, entityId) in selectedCategory.entities"
-                :id="`collapse-${entityId}`"
-                :key="entityId"
-                :ref="`collapse-${entityId}`"
-                class="cursor-pointer"
-                :class="{
-                  'bg-green-400 dark:bg-green-600 bg-opacity-50':
-                    currentOpened === entityId,
-                }"
-                @click.native="switchAccordion(entityId)"
-              >
-                <div
-                  slot="title"
-                  class="block transition duration-300 ease-in-out hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-50"
-                >
-                  <div class="flex items-center px-4 py-4 sm:px-6">
-                    <div
-                      class="flex items-center justify-between flex-1 min-w-0"
+              <div class="overflow-hidden bg-white shadow sm:rounded-md">
+                <ul class="divide-y divide-gray-200">
+                  <li
+                    v-for="document in currentPage.entities"
+                    :key="document.id"
+                  >
+                    <nuxt-link
+                      :to="document.path"
+                      class="block hover:bg-gray-50"
                     >
-                      <div class="flex items-center">
-                        <div class="flex-shrink-0">
-                          <client-only>
-                            <img
-                              class="w-12 h-12"
-                              :src="`/documentation/logo/${$slugify(
-                                entity.label
-                              )}.webp`"
-                              alt=""
-                              @error="imgError"
-                            />
-                          </client-only>
-                        </div>
-                        <div class="min-w-0 px-4">
-                          <div>
-                            <h2
-                              class="text-lg font-semibold leading-5 text-gray-800 truncate"
+                      <div class="flex items-center px-4 py-4 sm:px-6">
+                        <div class="flex items-center flex-1 min-w-0">
+                          <div class="flex-shrink-0">
+                            <client-only>
+                              <img
+                                class="w-12 h-12"
+                                :src="`/documentation/logo/${$slugify(
+                                  currentPage.label
+                                )}.webp`"
+                                alt=""
+                                @error="imgError"
+                              />
+                            </client-only>
+                          </div>
+                          <div
+                            class="flex-1 min-w-0 px-4 md:grid md:grid-cols-2 md:gap-4"
+                          >
+                            <div
+                              class="my-auto text-sm font-medium text-indigo-600 truncate"
                             >
-                              {{ $t(entity.label) }}
-                            </h2>
+                              {{ document.title }}
+                            </div>
+                            <div class="hidden md:block">
+                              <div class="text-sm text-gray-900">
+                                Created at
+                                <time :datetime="document.createdAt">{{
+                                  $getDate(document.createdAt)
+                                }}</time>
+                              </div>
+                            </div>
                           </div>
                         </div>
+                        <div>
+                          <!-- Heroicon name: solid/chevron-right -->
+                          <svg
+                            class="w-5 h-5 text-gray-400"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            aria-hidden="true"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                        </div>
                       </div>
-                      <!-- <div>
-                        {{ $o(entity.label).description }}
-                        {{ $o(entity.label).link }}
-                      </div> -->
-                    </div>
-                    <div>
-                      <svg
-                        class="w-5 h-5 text-gray-400 transition-transform duration-300"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        :class="{ 'rotate-arrow': currentOpened === entityId }"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                          clip-rule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                <div slot="list" class="ml-2">
-                  <list-guide :guides="entity.guides"></list-guide>
-                </div>
-              </category-collapse>
+                    </nuxt-link>
+                  </li>
+                </ul>
+              </div>
             </ul>
           </div>
         </div>
@@ -101,23 +95,54 @@
 import SwitchCategories from '@/components/layout/switch-categories.vue'
 // eslint-disable-next-line no-unused-vars
 import groupBy from 'lodash/groupBy'
-import ListGuide from '@/components/blocks/ListGuide.vue'
 import LayoutMain from '@/components/layout/layout-main.vue'
-import CategoryCollapse from '@/components/layout/category-collapse.vue'
 
 export default {
   name: 'TypeSlug',
   components: {
     SwitchCategories,
-    ListGuide,
     LayoutMain,
-    CategoryCollapse,
+  },
+  async middleware({ app, params, route, $content, redirect }) {
+    if (route.params.category === undefined) {
+      const content = await $content(`documentation/${params.type}`, {
+        deep: true,
+      })
+        .only(['title', 'path'])
+        .fetch()
+
+      const categories = []
+      content.forEach((markdownFile) => {
+        const path = markdownFile.path.replace('/documentation/', '').split('/')
+        markdownFile.category = path[1]
+        const Page = path[1]
+        if (!categories.includes(Page)) {
+          categories.push(Page)
+        }
+      })
+      const category = categories[0]
+
+      redirect({
+        name: 'type-slug',
+        params: {
+          type: route.params.type,
+          category,
+        },
+      })
+    }
   },
   async asyncData({ $content, params }) {
     const content = await $content(`documentation/${params.type}`, {
       deep: true,
     })
-      .only(['title', 'description', 'path', 'readingTime'])
+      .only([
+        'title',
+        'description',
+        'path',
+        'readingTime',
+        'createdAt',
+        'position',
+      ])
       .sortBy('position')
       .fetch()
 
@@ -130,6 +155,7 @@ export default {
       markdownFile.entity = path[2]
       const Page = {
         label: path[1],
+        title: markdownFile.title,
         entities: [],
         number: 0,
         route: 'category-slug',
@@ -152,6 +178,10 @@ export default {
         if (page.label === markdownFile.category) {
           const entity = {
             label: markdownFile.entity,
+            title: markdownFile.title,
+            path: markdownFile.path,
+            position: markdownFile.position,
+            createdAt: markdownFile.createdAt,
             guides: [],
           }
           page.entities.pushIfNotExist(entity, function (e) {
@@ -178,9 +208,14 @@ export default {
       page.number = pageNb
     })
 
+    const currentPage = pages.find((page) => page.label === params.category)
+    currentPage.entities.sort((a, b) =>
+      a.position > b.position ? 1 : b.position > a.position ? -1 : 0
+    )
+
     return {
       pages,
-      selectedCategory: pages[0],
+      currentPage,
     }
   },
   data() {
@@ -189,46 +224,8 @@ export default {
       switched: false,
     }
   },
-  methods: {
-    switchAccordion(id) {
-      for (let i = 0; i < this.selectedCategory.entities.length; i++) {
-        if (this.$refs[`collapse-${i}`].length) {
-          this.$refs[`collapse-${i}`][0].false()
-        }
-      }
-      if (
-        this.currentOpened === id &&
-        this.switched === false &&
-        this.$refs[`collapse-${id}`].length
-      ) {
-        this.$refs[`collapse-${id}`][0].false()
-        this.switched = true
-      } else if (this.$refs[`collapse-${id}`].length) {
-        this.$refs[`collapse-${id}`][0].open()
-        this.switched = false
-      }
-
-      this.currentOpened = id
-      setTimeout(() => {
-        this.$scrollTo(`#collapse-${id}`, 500, { offset: -60 })
-      }, 400)
-    },
-    imgError(event) {
-      event.target.src = require(`~/static/documentation/logo/guides.webp`)
-    },
-    selectCategory(data) {
-      for (let i = 0; i < this.selectedCategory.entities.length; i++) {
-        if (this.$refs[`collapse-${i}`].length) {
-          this.$refs[`collapse-${i}`][0].false()
-        }
-      }
-      const category = this.pages.filter((page) => page.label === data)
-      this.selectedCategory = category[0]
-      this.$scrollTo('#__nuxt', 500)
-    },
-  },
   head() {
-    const title = `${this.$t(this.selectedCategory.label)} - ${this.$t(
+    const title = `${this.$t(this.currentPage.label)} - ${this.$t(
       this.$route.params.type
     )}`
     return {
@@ -266,6 +263,44 @@ export default {
         },
       ],
     }
+  },
+  methods: {
+    switchAccordion(id) {
+      for (let i = 0; i < this.currentPage.entities.length; i++) {
+        if (this.$refs[`collapse-${i}`].length) {
+          this.$refs[`collapse-${i}`][0].false()
+        }
+      }
+      if (
+        this.currentOpened === id &&
+        this.switched === false &&
+        this.$refs[`collapse-${id}`].length
+      ) {
+        this.$refs[`collapse-${id}`][0].false()
+        this.switched = true
+      } else if (this.$refs[`collapse-${id}`].length) {
+        this.$refs[`collapse-${id}`][0].open()
+        this.switched = false
+      }
+
+      this.currentOpened = id
+      setTimeout(() => {
+        this.$scrollTo(`#collapse-${id}`, 500, { offset: -60 })
+      }, 400)
+    },
+    imgError(event) {
+      event.target.src = require(`~/static/documentation/logo/guides.webp`)
+    },
+    selectCategory(data) {
+      for (let i = 0; i < this.currentPage.entities.length; i++) {
+        if (this.$refs[`collapse-${i}`].length) {
+          this.$refs[`collapse-${i}`][0].false()
+        }
+      }
+      const category = this.pages.filter((page) => page.label === data)
+      this.currentPage = category[0]
+      this.$scrollTo('#__nuxt', 500)
+    },
   },
 }
 </script>

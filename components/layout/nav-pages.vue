@@ -8,28 +8,31 @@
       v-for="page in pages"
       :key="page.id"
       :to="{
-        name: page.route,
+        name: 'type-slug',
         params: {
-          [routeParam]: $slugify(page.label),
+          type: page.label,
         },
       }"
-      class="flex items-center px-3 py-2 mt-1 text-sm font-medium leading-5 text-gray-600 transition-colors duration-300 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-300 focus:outline-none focus:text-gray-900 focus:bg-gray-200"
+      class="flex items-center px-3 py-2 mt-1 space-x-2 text-sm font-medium leading-5 text-gray-600 transition-colors duration-300 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-300 focus:outline-none focus:text-gray-900 focus:bg-gray-200"
     >
-      <icon
+      <!-- <icon
         :name="`nav-${$slugify(page.label)}`"
         class="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-gray-500 transition duration-150 ease-in-out group-focus:text-gray-500"
         :size="26"
         default="nav-default"
-      />
-      <span class="font-semibold truncate">
-        {{ capitalizeFirstLetter(page.label) }}
-      </span>
-      <span
-        v-if="page.number"
-        class="ml-auto inline-block py-0.5 px-3 text-xs leading-4 rounded-full text-gray-600 bg-gray-200 group-hover:bg-gray-200 group-focus:bg-gray-300 transition ease-in-out duration-150"
-      >
-        {{ page.number }}
-      </span>
+      /> -->
+      <component :is="icon(page.label)" class="w-6 h-6 text-gray-800" />
+      <div class="flex justify-between w-full">
+        <span class="font-semibold truncate">
+          {{ $t(page.label) }}
+        </span>
+        <span
+          v-if="page.number"
+          class="ml-auto inline-block py-0.5 px-3 text-xs leading-4 rounded-full text-gray-600 bg-gray-200 group-hover:bg-gray-200 group-focus:bg-gray-300 transition ease-in-out duration-150"
+        >
+          {{ page.number }}
+        </span>
+      </div>
     </nuxt-link>
   </nav>
 </template>
@@ -48,8 +51,19 @@ export default {
     },
   },
   methods: {
-    capitalizeFirstLetter(string) {
-      return string.charAt(0).toUpperCase() + string.slice(1)
+    icon(label) {
+      let component = `icon-${label}`
+      component = component.split('-')
+      let newComponent = []
+      component.forEach((part) => {
+        newComponent.push(this.$capitalizeFirst(part))
+      })
+      newComponent = newComponent.join('')
+      const isComponent = this.$options.components[newComponent]
+      if (isComponent === undefined) {
+        newComponent = 'IconDefault'
+      }
+      return newComponent
     },
   },
 }

@@ -52,13 +52,13 @@ const langs = {
   en: require('./locales/en.js'),
 }
 
-const t = (key) => {
+const t = (key, type = 'label') => {
   const translate = {
     ...langs.en,
   }
 
   return translate[key]
-    ? translate[key].label
+    ? translate[key][type]
     : key.charAt(0).toUpperCase() + key.slice(1)
 }
 
@@ -74,22 +74,23 @@ const o = (key) => {
 
 Vue.prototype.$o = o
 
+const capitalizeFirst = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}
+
+Vue.prototype.$capitalizeFirst = capitalizeFirst
+
 const getDate = (date) => {
   let userLang = 'en-US'
   if (process.client) {
     userLang = navigator.language || navigator.userLanguage
   }
-  const options = {
+
+  return new Date(date).toLocaleString(userLang, {
     year: 'numeric',
-    // weekday: 'long',
     month: 'long',
     day: 'numeric',
-    timeZone: 'UTC',
-    hour: 'numeric',
-    minute: 'numeric',
-    // second: 'numeric',
-  }
-  return new Date(date).toLocaleString(userLang, options)
+  })
 }
 
 Vue.prototype.$getDate = getDate
