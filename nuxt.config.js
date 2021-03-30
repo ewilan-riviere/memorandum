@@ -4,7 +4,7 @@ require('dotenv').config()
 
 export default {
   ssr: true,
-  target: 'static',
+  target: 'server',
   generate: {
     crawler: true,
     routes: getGeneratedRoutes,
@@ -113,7 +113,6 @@ export default {
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     { src: '~/plugins/icons-loader', ssr: false },
-    // { src: '~/plugins/vue-helper' },
     // https://github.com/surmon-china/vue-awesome-swiper
     // { src: '~/plugins/vue-awesome-swiper', ssr: false },
     { src: '~/plugins/vue-scrollto' },
