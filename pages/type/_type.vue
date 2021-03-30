@@ -3,7 +3,7 @@
     <layout-main>
       <div slot="aside">
         <switch-categories
-          :pages="pages"
+          :pages="pages.entities"
           route-param="type"
           @select-category="selectCategory"
         ></switch-categories>
@@ -18,70 +18,63 @@
           <div
             class="overflow-hidden bg-white shadow dark:bg-gray-800 sm:rounded-md"
           >
-            <ul>
-              <div class="overflow-hidden bg-white shadow sm:rounded-md">
-                <ul class="divide-y divide-gray-200">
-                  <li
-                    v-for="document in currentPage.entities"
-                    :key="document.id"
-                  >
-                    <nuxt-link
-                      :to="document.path"
-                      class="block hover:bg-gray-50"
-                    >
-                      <div class="flex items-center px-4 py-4 sm:px-6">
-                        <div class="flex items-center flex-1 min-w-0">
-                          <div class="flex-shrink-0">
-                            <client-only>
-                              <img
-                                class="w-12 h-12"
-                                :src="`/documentation/logo/${$slugify(
-                                  currentPage.label
-                                )}.webp`"
-                                alt=""
-                                @error="imgError"
-                              />
-                            </client-only>
-                          </div>
-                          <div
-                            class="flex-1 min-w-0 px-4 md:grid md:grid-cols-2 md:gap-4"
-                          >
-                            <div
-                              class="my-auto text-sm font-medium text-indigo-600 truncate"
-                            >
-                              {{ document.title }}
-                            </div>
-                            <div class="hidden md:block">
-                              <div class="text-sm text-gray-900">
-                                Created at
-                                <time :datetime="document.createdAt">{{
-                                  $getDate(document.createdAt)
-                                }}</time>
-                              </div>
-                            </div>
-                          </div>
+            <ul class="divide-y divide-gray-200 dark:divide-gray-700">
+              <li v-for="document in currentPage.guides" :key="document.id">
+                <nuxt-link
+                  :to="document.path"
+                  class="block transition-colors duration-100 hover:bg-gray-50 dark:hover:bg-gray-800"
+                >
+                  <div class="flex items-center px-4 py-4 sm:px-6">
+                    <div class="flex items-center flex-1 min-w-0">
+                      <div class="flex-shrink-0">
+                        <client-only>
+                          <img
+                            class="w-12 h-12"
+                            :src="`/documentation/logo/${$slugify(
+                              currentPage.label
+                            )}.webp`"
+                            alt=""
+                            @error="imgError"
+                          />
+                        </client-only>
+                      </div>
+                      <div
+                        class="flex-1 min-w-0 px-4 md:grid md:grid-cols-2 md:gap-4"
+                      >
+                        <div
+                          class="my-auto text-sm font-medium text-indigo-600 truncate dark:text-indigo-200"
+                        >
+                          {{ document.title }}
                         </div>
-                        <div>
-                          <!-- Heroicon name: solid/chevron-right -->
-                          <svg
-                            class="w-5 h-5 text-gray-400"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            aria-hidden="true"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                              clip-rule="evenodd"
-                            />
-                          </svg>
+                        <div class="hidden md:block">
+                          <div class="text-sm text-gray-900 dark:text-gray-100">
+                            Created at
+                            <time :datetime="document.createdAt">{{
+                              $getDate(document.createdAt)
+                            }}</time>
+                          </div>
                         </div>
                       </div>
-                    </nuxt-link>
-                  </li>
-                </ul>
-              </div>
+                    </div>
+                    <div>
+                      <!-- Heroicon name: solid/chevron-right -->
+                      <svg
+                        class="w-5 h-5 text-gray-400"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </nuxt-link>
+              </li>
             </ul>
           </div>
         </div>
@@ -92,6 +85,7 @@
 </template>
 
 <script>
+/* eslint-disable vue/no-unused-components */
 import SwitchCategories from '@/components/layout/switch-categories.vue'
 // eslint-disable-next-line no-unused-vars
 import groupBy from 'lodash/groupBy'
@@ -105,17 +99,20 @@ export default {
   },
   async middleware({ app, params, route, $content, redirect }) {
     if (route.params.category === undefined) {
-      const content = await $content(`documentation/${params.type}`, {
-        deep: true,
-      })
+      const content = await $content(
+        `documentation/${params.title}/${params.type}`,
+        {
+          deep: true,
+        }
+      )
         .only(['title', 'path'])
         .fetch()
 
       let categories = []
       content.forEach((markdownFile) => {
         const path = markdownFile.path.replace('/documentation/', '').split('/')
-        markdownFile.category = path[1]
-        const Page = path[1]
+        markdownFile.category = path[2]
+        const Page = path[2]
         if (!categories.includes(Page)) {
           categories.push(Page)
         }
@@ -126,6 +123,7 @@ export default {
       redirect({
         name: 'type-slug',
         params: {
+          title: route.params.title,
           type: route.params.type,
           category,
         },
@@ -133,9 +131,12 @@ export default {
     }
   },
   async asyncData({ $content, params }) {
-    const content = await $content(`documentation/${params.type}`, {
-      deep: true,
-    })
+    const content = await $content(
+      `documentation/${params.title}/${params.type}`,
+      {
+        deep: true,
+      }
+    )
       .only([
         'title',
         'description',
@@ -147,7 +148,7 @@ export default {
       .sortBy('position')
       .fetch()
 
-    const pages = []
+    let pages = []
     // get main categories like Frameworks, Languages...
     // define category and entity for each file
     content.forEach((markdownFile) => {
@@ -159,14 +160,11 @@ export default {
         title: markdownFile.title,
         entities: [],
         number: 0,
-        route: 'category-slug',
       }
       pages.pushIfNotExist(Page, function (e) {
         return e.label === Page.label
       })
     })
-
-    // console.log(groupBy(content, 'category'))
 
     // alphabetic sorting
     pages.sort((a, b) => (a.label > b.label ? 1 : -1))
@@ -208,9 +206,16 @@ export default {
       }
       page.number = pageNb
     })
+    pages = pages[0]
 
-    const currentPage = pages.find((page) => page.label === params.category)
-    currentPage.entities.sort((a, b) =>
+    pages.entities.forEach((pageEntity) => {
+      pageEntity.number = pageEntity.guides.length
+    })
+    // eslint-disable-next-line no-unused-vars
+    const currentPage = pages.entities.find(
+      (page) => page.label === params.category
+    )
+    currentPage.guides.sort((a, b) =>
       a.position > b.position ? 1 : b.position > a.position ? -1 : 0
     )
 

@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div class="absolute text-center center-it">
+    <div
+      class="absolute text-center transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+    >
       <div>
         <div class="text-4xl font-bold text-red-600 font-quicksand">
           Error {{ error.statusCode }}
@@ -20,12 +22,12 @@
 
 <script>
 export default {
+  layout: 'error',
   props: {
     error: {
       type: [Object, Array],
       default: () => {},
     },
-  },
-  layout: 'error', // you can set a custom layout for the error page
+  }, // you can set a custom layout for the error page
 }
 </script>

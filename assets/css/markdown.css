@@ -21,6 +21,9 @@
   & pre {
     @apply bg-gray-800 !important;
   }
+  & blockquote {
+    @apply text-gray-400 !important;
+  }
 }
 
 .nuxt-content {

@@ -88,7 +88,7 @@ export default {
       default: null,
     },
     backRoute: {
-      type: Object,
+      type: [Object, String],
       default: () => {},
     },
   },

@@ -4,13 +4,13 @@ description: ''
 position: 1
 category: ''
 features:
-  - Topics with explicits examples
-  - Boiler plates
-  - Snippets
-  - Built with NuxtJS & nuxt/content
+  - Full markdown documentation
+  - Powered by NuxtJS & nuxt/content
+  - Examples, boiler plates, snippets
+  - Built to be extensible
 ---
 
-## Features
+<!-- ## Features -->
 
 <list :items="features"></list>
 <br />

@@ -32,7 +32,6 @@ module.exports = {
 
   'c-sharp': { label: 'C#' },
   css: { label: 'CSS' },
-  git: { label: 'git' },
   js: { label: 'JavaScript' },
   ts: { label: 'TypeScript' },
   mysql: { label: 'MySQL' },
@@ -48,6 +47,9 @@ module.exports = {
   windows: { label: 'Windows' },
   regex: {
     label: 'REGEX',
+  },
+  git: {
+    label: 'Git',
   },
 
   server: { label: 'Server' },

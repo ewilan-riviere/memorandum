@@ -1,16 +1,6 @@
 <template>
   <div>
     <layout-main>
-      <div slot="aside">
-        <nuxt-link
-          v-for="note in notes"
-          :key="note.id"
-          :to="note.path"
-          class="block p-1 my-1 font-semibold transition-colors duration-300 rounded-md hover:bg-opacity-50 hover:bg-primary-500"
-        >
-          {{ note.position }}. {{ note.title }}
-        </nuxt-link>
-      </div>
       <div slot="main" class="">
         <article v-if="about" class="relative overflow-hidden bg-white">
           <div class="relative">

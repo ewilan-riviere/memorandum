@@ -57,28 +57,27 @@ You need to add FVM path to `.profile` or PATH on Windows and `fvm` will be avai
   </code-block>
   <code-block label="Windows">
 
-  ```ps1
+  ```bash
+  # This PowerShell command will add `C:\Users\USERNAME\AppData\Local\Pub\Cache\bin` to user `Path` in Windows environement variables. You have to restart your current terminal.
   $INCLUDE = "C:\Users\$env:UserName\AppData\Local\Pub\Cache\bin" ; $OLDPATH = [System.Environment]::GetEnvironmentVariable('PATH','user') ; $NEWPATH = "$OLDPATH;$INCLUDE" ; [Environment]::SetEnvironmentVariable("PATH", "$NEWPATH", "user")
   ```
-
-  This PowerShell command will add `C:\Users\USERNAME\AppData\Local\Pub\Cache\bin` to user `Path` in Windows environement variables. You have to restart your current terminal.
 
   </code-block>
 </code-group>
 
-List Flutter releases
+### List Flutter releases
 
 ```bash
 fvm releases
 ```
 
-And install which one
+### Install any version
 
 ```bash
 fvm install 1.22.6
 ```
 
-List all installed versions
+### List all installed versions
 
 ```bash
 fvm list
@@ -90,7 +89,7 @@ On the root of a project, execute `fvm use` to setup FVM Flutter version, this w
 fvm use 1.22.6 # OR use just 'fvm use' to select manually
 ```
 
-Example of `fvm_config.json`
+### Example of `fvm_config.json`
 
 ```json[.fvm/fvm_config.json]
 {

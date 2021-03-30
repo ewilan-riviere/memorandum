@@ -7,13 +7,14 @@
     <nuxt-link
       v-for="(page, pageId) in pages"
       :key="pageId"
-      class="flex items-center px-3 py-2 mt-1 text-sm font-medium leading-5 text-gray-600 transition-colors duration-300 ease-in-out rounded-md cursor-pointer group hover:text-gray-900 hover:bg-gray-300 focus:outline-none focus:text-gray-900 focus:bg-gray-200"
+      class="flex items-center px-3 py-2 mt-1 text-sm font-medium leading-5 text-gray-600 transition-colors duration-300 ease-in-out rounded-md cursor-pointer group hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:text-gray-900 focus:bg-gray-200"
       :class="{
         'bg-gray-300 dark:bg-gray-800': page.label === $route.params.category,
       }"
       :to="{
         name: 'type-slug',
         params: {
+          title: $route.params.title,
           type: $route.params.type,
           category: page.label,
         },
@@ -30,7 +31,7 @@
       </span>
       <span
         v-if="page.number"
-        class="ml-auto inline-block py-0.5 px-3 text-xs leading-4 rounded-full text-gray-600 bg-gray-200 group-hover:bg-gray-200 group-focus:bg-gray-300 transition ease-in-out duration-150"
+        class="ml-auto inline-block py-0.5 px-3 text-xs leading-4 rounded-full text-gray-600 bg-gray-200 dark:bg-gray-600 dark:group-hover:bg-gray-700 dark:text-gray-200 group-hover:bg-gray-200 group-focus:bg-gray-300 transition ease-in-out duration-150"
       >
         {{ page.number }}
       </span>

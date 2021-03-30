@@ -6,40 +6,6 @@
         class="fixed inset-0 z-40 transition-opacity duration-300 bg-black"
       ></div>
     </div>
-    <!-- <div
-      class="fixed z-30 block w-full h-16 navbar md:hidden navbar-shadow"
-      :class="{ 'hidden-navbar': !showNavbar }"
-    >
-      <div
-        class="relative z-30 flex justify-between h-16 text-white bg-opacity-95 bg-blue-useweb-light"
-      >
-        <div
-          v-click-outside="closeSidemenu"
-          class="p-4 transition-colors duration-300 cursor-pointer hover:bg-blue-useweb"
-          @click="toggleSidemenu"
-        >
-          <icon name="menu-design" :size="30" />
-        </div>
-        <div
-          class="text-4xl text-center transition-colors duration-300 font-dancing-script"
-          :class="{ 'hover:bg-blue-useweb': $route.name !== 'home' }"
-        >
-          <nuxt-link
-            v-if="$route.name !== 'home'"
-            class="px-4"
-            :to="{ name: 'home' }"
-            >Memorandum</nuxt-link
-          >
-          <span v-else>Memorandum</span>
-        </div>
-        <div
-          class="p-4 transition-colors duration-300 cursor-pointer hover:bg-blue-useweb"
-        >
-          <icon name="three-dots-menu" :size="30" class="my-auto" />
-        </div>
-      </div>
-    </div> -->
-    <!-- navbar  -->
     <navbar class="fixed z-30 block w-full h-16 navbar"></navbar>
   </div>
 </template>

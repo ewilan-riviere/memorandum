@@ -2,10 +2,7 @@
   <div v-if="document">
     <layout-main
       :image="$slugify(document.pathsObj.entity)"
-      :back-route="{
-        name: 'type-slug',
-        params: { type: document.pathsObj.type },
-      }"
+      :back-route="getBackRoute()"
     >
       <div slot="aside">
         <nuxt-link
@@ -191,6 +188,15 @@ export default {
         },
       ],
     }
+  },
+  methods: {
+    getBackRoute() {
+      let route = this.$route.fullPath
+      route = route.replace('/documentation', '')
+      route = route.replace(`/${this.document.slug}`, '')
+
+      return route
+    },
   },
 }
 </script>

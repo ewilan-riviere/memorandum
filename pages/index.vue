@@ -16,13 +16,16 @@
                 alt=""
               />
             </div>
-            <div class="mx-auto mt-10 text-gray-500 max-w-prose">
-              <h1 class="text-3xl font-semibold font-quicksand">
-                Welcome to Memorandum, a documentation about my favorites
-                frameworks & languages...
+            <div class="mt-10 text-gray-500">
+              <h1 class="text-3xl font-semibold text-center font-quicksand">
+                Welcome to Memorandum
               </h1>
+              <h2 class="mt-2 text-xl text-center font-quicksand">
+                A custom documentation about technologies, frameworks &
+                languages and my projects...
+              </h2>
             </div>
-            <div class="mx-auto prose prose-lg text-gray-500">
+            <div class="mx-auto mt-16 prose prose-lg text-gray-500">
               <display-document :document="welcome" />
             </div>
           </div>
@@ -51,12 +54,6 @@ export default {
       items: [],
     }
   },
-  async created() {
-    await getPages(this.$content, this.$store)
-    if (this.$store.state.pages) {
-      this.pages = this.$store.state.pages
-    }
-  },
   head() {
     return {
       title: 'Memorandum',
@@ -67,6 +64,12 @@ export default {
           href: `${process.env.APP_URL}`,
         },
       ],
+    }
+  },
+  async created() {
+    await getPages(this.$content, this.$store)
+    if (this.$store.state.pages) {
+      this.pages = this.$store.state.pages
     }
   },
 }
