@@ -1,6 +1,6 @@
 <template>
   <client-only>
-    <img :src="src" alt="" @error="imgError" />
+    <img :src="src" :alt="`${name} picture`" @error="imgError" />
   </client-only>
 </template>
 
@@ -13,8 +13,18 @@ export default {
       default: null,
     },
   },
+  data() {
+    return {
+      name: null,
+    }
+  },
   mounted() {
     console.log(this.src)
+    let name = this.src.split('/')
+    name = name[name.length - 1]
+    name = name.split('.')
+    name = name[0]
+    this.name = name
   },
   methods: {
     imgError(event) {

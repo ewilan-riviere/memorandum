@@ -27,16 +27,12 @@
                   <div class="flex items-center px-4 py-4 sm:px-6">
                     <div class="flex items-center flex-1 min-w-0">
                       <div class="flex-shrink-0">
-                        <client-only>
-                          <img
-                            class="w-12 h-12"
-                            :src="`/documentation/logo/${$slugify(
-                              currentPage.label
-                            )}.webp`"
-                            alt=""
-                            @error="imgError"
-                          />
-                        </client-only>
+                        <m-img
+                          class="w-12 h-12"
+                          :src="`/documentation/logo/${$slugify(
+                            currentPage.label
+                          )}.webp`"
+                        />
                       </div>
                       <div
                         class="flex-1 min-w-0 px-4 md:grid md:grid-cols-2 md:gap-4"
@@ -90,12 +86,14 @@ import SwitchCategories from '@/components/layout/switch-categories.vue'
 // eslint-disable-next-line no-unused-vars
 import groupBy from 'lodash/groupBy'
 import LayoutMain from '@/components/layout/layout-main.vue'
+import MImg from '~/components/special/m-img.vue'
 
 export default {
   name: 'TypeSlug',
   components: {
     SwitchCategories,
     LayoutMain,
+    MImg,
   },
   async middleware({ app, params, route, $content, redirect }) {
     if (route.params.category === undefined) {
@@ -293,9 +291,6 @@ export default {
       setTimeout(() => {
         this.$scrollTo(`#collapse-${id}`, 500, { offset: -60 })
       }, 400)
-    },
-    imgError(event) {
-      event.target.src = require(`~/static/documentation/logo/guides.webp`)
     },
     selectCategory(data) {
       for (let i = 0; i < this.currentPage.entities.length; i++) {
