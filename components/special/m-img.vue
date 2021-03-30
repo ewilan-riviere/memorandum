@@ -13,18 +13,14 @@ export default {
       default: null,
     },
   },
-  data() {
-    return {
-      name: null,
-    }
-  },
-  mounted() {
-    console.log(this.src)
-    let name = this.src.split('/')
-    name = name[name.length - 1]
-    name = name.split('.')
-    name = name[0]
-    this.name = name
+  computed: {
+    name() {
+      let name = this.src.split('/')
+      name = name[name.length - 1]
+      name = name.split('.')
+      name = name[0]
+      return name
+    },
   },
   methods: {
     imgError(event) {

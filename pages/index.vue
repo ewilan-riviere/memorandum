@@ -16,7 +16,7 @@
                 alt=""
               />
             </div>
-            <div class="mt-10 text-gray-500">
+            <div class="max-w-xl mx-auto mt-10 text-gray-500">
               <h1 class="text-3xl font-semibold text-center font-quicksand">
                 Welcome to Memorandum
               </h1>
