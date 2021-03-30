@@ -183,7 +183,7 @@ export default {
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
     // https://github.com/nuxt-community/svg-module
-    // '@nuxtjs/svg',
+    '@nuxtjs/svg',
     // https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     // https://sitemap.nuxtjs.org

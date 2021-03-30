@@ -12,6 +12,10 @@ export default {
       type: String,
       default: null,
     },
+    default: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     name() {
@@ -24,7 +28,11 @@ export default {
   },
   methods: {
     imgError(event) {
-      event.target.src = require(`~/static/documentation/logo/guides.webp`)
+      if (this.default) {
+        event.target.src = require(`~/static/images/default.webp`)
+      } else {
+        event.target.src = require(`~/static/documentation/logo/guides.webp`)
+      }
     },
   },
 }

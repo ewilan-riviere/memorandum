@@ -1,9 +1,6 @@
 <template>
   <div v-if="document">
-    <layout-main
-      :image="$slugify(document.pathsObj.entity)"
-      :back-route="getBackRoute()"
-    >
+    <layout-main :image="image" :back-route="getBackRoute()">
       <div slot="aside">
         <nuxt-link
           v-for="otherdocument in otherDocuments"
@@ -188,6 +185,14 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    image() {
+      let image = this.document.dir
+      image = image.split('/')
+      image = image[image.length - 1]
+      return image
+    },
   },
   methods: {
     getBackRoute() {

@@ -10,44 +10,81 @@
       </div>
       <div slot="main" class="">
         <div class="">
-          <h1
-            class="p-2 mb-5 ml-2 text-2xl font-bold rounded-md font-quicksand title w-max"
-          >
-            {{ $t(currentPage.label) }}
-          </h1>
+          <div class="mb-5">
+            <div class="flex items-center mb-3 space-x-3">
+              <m-img
+                class="object-cover w-10 h-10"
+                :src="`/documentation/logo/${$slugify(currentPage.label)}.webp`"
+              />
+              <h1 class="text-4xl font-bold rounded-md font-quicksand w-max">
+                {{ currentEntity.label || currentEntity }}
+              </h1>
+            </div>
+            <p
+              v-if="currentEntity.description"
+              class="max-w-full italic prose prose-lg hyphenate"
+            >
+              {{ currentEntity.description }}
+            </p>
+            <div
+              v-if="currentEntity.url"
+              class="flex items-center mt-2 ml-auto w-max"
+            >
+              More information:
+              <a
+                :href="currentEntity.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block ml-1 transition-colors duration-100 border-b border-black hover:text-gray-400 hover:border-gray-400"
+              >
+                {{ getDomain(currentEntity.url) }}
+              </a>
+            </div>
+          </div>
           <div
             class="overflow-hidden bg-white shadow dark:bg-gray-800 sm:rounded-md"
           >
             <ul class="divide-y divide-gray-200 dark:divide-gray-700">
-              <li v-for="document in currentPage.guides" :key="document.id">
+              <li v-for="(document, id) in currentPage.guides" :key="id">
                 <nuxt-link
                   :to="document.path"
                   class="block transition-colors duration-100 hover:bg-gray-50 dark:hover:bg-gray-800"
                 >
                   <div class="flex items-center px-4 py-4 sm:px-6">
                     <div class="flex items-center flex-1 min-w-0">
-                      <div class="flex-shrink-0">
+                      <!-- <div class="flex-shrink-0">
                         <m-img
                           class="w-12 h-12"
-                          :src="`/documentation/logo/${$slugify(
-                            currentPage.label
-                          )}.webp`"
+                          src="/documentation/logo/guides.webp"
                         />
-                      </div>
+                      </div> -->
                       <div
                         class="flex-1 min-w-0 px-4 md:grid md:grid-cols-2 md:gap-4"
                       >
                         <div
-                          class="my-auto text-sm font-medium text-indigo-600 truncate dark:text-indigo-200"
+                          class="my-auto text-base font-medium text-indigo-600 truncate dark:text-indigo-200"
                         >
+                          {{ id + 1 }}.
                           {{ document.title }}
                         </div>
-                        <div class="hidden md:block">
+                        <!-- <div class="hidden md:block">
                           <div class="text-sm text-gray-900 dark:text-gray-100">
-                            Created at
-                            <time :datetime="document.createdAt">{{
-                              $getDate(document.createdAt)
-                            }}</time>
+                            
+                          </div>
+                        </div> -->
+                        <div class="hidden md:block">
+                          <div>
+                            <p class="text-sm text-gray-900">
+                              Created at
+                              <time :datetime="document.createdAt">{{
+                                $getDate(document.createdAt)
+                              }}</time>
+                            </p>
+                            <p
+                              class="flex items-center mt-2 text-sm text-gray-500"
+                            >
+                              {{ overflow(document.description) }}
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -268,7 +305,27 @@ export default {
       ],
     }
   },
+  computed: {
+    currentEntity() {
+      return this.$getEntity(this.currentPage.label)
+    },
+  },
   methods: {
+    overflow(text, maxLength = 50) {
+      if (text) {
+        let overflow = text
+        if (text.length > maxLength) {
+          overflow = text.substring(0, maxLength)
+          overflow = `${overflow}...`
+        }
+        return overflow
+      }
+      return ''
+    },
+    getDomain(url) {
+      const matches = url.match(/^https?:\/\/([^/?#]+)(?:[/?#]|$)/i)
+      return matches && matches[1]
+    },
     switchAccordion(id) {
       for (let i = 0; i < this.currentPage.entities.length; i++) {
         if (this.$refs[`collapse-${i}`].length) {

@@ -64,6 +64,18 @@ const t = (key, type = 'label') => {
 
 Vue.prototype.$t = t
 
+const getEntity = (key) => {
+  const translate = {
+    ...langs.en,
+  }
+
+  return translate[key]
+    ? translate[key]
+    : key.charAt(0).toUpperCase() + key.slice(1)
+}
+
+Vue.prototype.$getEntity = getEntity
+
 const o = (key) => {
   const translate = {
     ...langs.en,

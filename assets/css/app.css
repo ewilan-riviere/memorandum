@@ -9,14 +9,12 @@ body {
   @apply transition-colors duration-300;
 }
 
-@responsive {
-  .hyphenate {
-    text-align: justify !important;
-    -webkit-hyphens: auto !important;
-    -moz-hyphens: auto !important;
-    -ms-hyphens: auto !important;
-    hyphens: auto !important;
-  }
+.hyphenate {
+  text-align: justify !important;
+  -webkit-hyphens: auto !important;
+  -moz-hyphens: auto !important;
+  -ms-hyphens: auto !important;
+  hyphens: auto !important;
 }
 
 .fade-enter-active,

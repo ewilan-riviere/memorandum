@@ -28,7 +28,7 @@
       /> -->
       <div class="flex items-center space-x-2">
         <m-img
-          class="object-cover h-6 rounded-full w-66"
+          class="object-cover w-6 h-6"
           :src="`/documentation/logo/${$slugify(page.label)}.webp`"
         />
         <span class="font-semibold truncate">

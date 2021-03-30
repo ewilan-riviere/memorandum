@@ -19,7 +19,7 @@ module.exports = {
     label: 'Flutter',
     description:
       'Open-source UI software development kit created by Google. It is used to develop applications for Android/iOS, Linux/Mac/Windows and web from a single codebase.',
-    link: 'https://flutter.dev/',
+    url: 'https://flutter.dev/',
   },
   latex: { label: 'latex' },
   laravel: { label: 'Laravel' },

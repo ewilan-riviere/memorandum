@@ -1,10 +1,9 @@
 ---
 title: Introduction
-description: ''
+description: 'How to use Flutter'
 position: 1
 category: 'Flutter'
 ---
-
 ## Welcome
 
 Flutter is a framework to develop applications for smartphones (Android & iOS). It's can be complicated to install it because you need to install Flutter but Android Studio is very useful too, so it's a guide about installation. Here you can find some guide to use Flutter, check installation in **Operating systems** category to install Flutter.

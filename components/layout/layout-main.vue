@@ -49,6 +49,7 @@
                 <m-img
                   :src="`/documentation/logo/${image}-banner.webp`"
                   class="object-cover object-center w-full h-40 opacity-25"
+                  default
                 />
                 <div
                   class="absolute z-10 w-full text-2xl italic text-center text-white"
