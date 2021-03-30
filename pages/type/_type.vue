@@ -111,7 +111,7 @@ export default {
         .only(['title', 'path'])
         .fetch()
 
-      const categories = []
+      let categories = []
       content.forEach((markdownFile) => {
         const path = markdownFile.path.replace('/documentation/', '').split('/')
         markdownFile.category = path[1]
@@ -120,6 +120,7 @@ export default {
           categories.push(Page)
         }
       })
+      categories = categories.sort()
       const category = categories[0]
 
       redirect({
