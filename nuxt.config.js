@@ -1,14 +1,14 @@
 import { getRoutes, getGuidesRoutes } from './plugins/sitemaps/sitemap'
-import { getGeneratedRoutes } from './plugins/routes/routes'
+// import { getGeneratedRoutes } from './plugins/routes/routes'
 require('dotenv').config()
 
 export default {
   ssr: true,
   target: 'server',
-  generate: {
-    crawler: true,
-    routes: getGeneratedRoutes,
-  },
+  // generate: {
+  //   crawler: true,
+  //   routes: getGeneratedRoutes,
+  // },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'Documentation',
@@ -24,6 +24,11 @@ export default {
         name: 'description',
         content:
           'Personal documentation, in nuxt/content, on several languages, frameworks and many other topics in web & mobile development.',
+      },
+      {
+        hid: 'google-site-verification',
+        name: 'google-site-verification',
+        content: process.env.GOOGLE_SITE_VERIFICATION_TOKEN,
       },
       {
         hid: 'og:type',
@@ -148,63 +153,37 @@ export default {
     '@nuxtjs/google-fonts',
     // https://color-mode.nuxtjs.org/
     '@nuxtjs/color-mode',
-    // https://github.com/nuxt-community/web-vitals-module
-    // [
-    //   'nuxt-vitals',
-    //   {
-    //     // Tracking ID (required) { string }
-    //     // Replace UA-XXXXXXXX-X by your Google Analytics tracking ID.
-    //     trackingID: 'UA-XXXXXXXX-X',
-    //     // Event Category (optional) { string }, default 'Web Vitals'
-    //     eventCategory: 'Some Category',
-    //     // Debug (optional) { number } default 0
-    //     debug: 1,
-    //     disabled: false,
-    //   },
-    // ],
-    '@nuxtjs/google-analytics',
   ],
 
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
     jit: true,
   },
-
   routerModule: {
     keepDefaultRouter: true,
   },
-
   googleFonts: {
     display: 'swap',
     prefetch: true,
     families: {
       Quicksand: true,
       Handlee: [400],
-      // Raleway: {
-      //   wght: [100, 400],
-      //   ital: [100]
-      // },
     },
   },
-
   colorMode: {
     classSuffix: '',
-  },
-
-  googleAnalytics: {
-    id: 'G-Y4XJBB2RP7',
   },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
+    // '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
+    // '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
     // https://github.com/nuxt-community/svg-module
-    '@nuxtjs/svg',
+    // '@nuxtjs/svg',
     // https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     // https://sitemap.nuxtjs.org
@@ -214,8 +193,7 @@ export default {
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
-
+  // axios: {},
   // Content module configuration (https://go.nuxtjs.dev/config-content)
   content: {
     apiPrefix: '_content',
@@ -229,44 +207,30 @@ export default {
         inlineNotes: true,
       },
       remarkPlugins: [
-        // ['remark-emoji'],
         'remark-squeeze-paragraphs',
         'remark-slug',
         'remark-autolink-headings',
         'remark-external-links',
         'remark-footnotes',
-        // 'remark-container',
       ],
       prism: {
-        theme: '~/assets/css/prism-vsc-dark-plus.css',
+        theme: 'prism-themes/themes/prism-vsc-dark-plus.css',
       },
     },
-    yaml: {},
-    csv: {},
-    extendParser: {
-      '.custom': (file) => ({
-        body: file.split('\n').map((line) => line.trim()),
-      }),
-    },
   },
-
   sitemap: {
-    path: '/sitemap.xml', // L'emplacement de votre fichier sitemap.
-    hostname: process.env.APP_URL, // L'adresse de votre site, que vous pouvez placer comme ici dans une variable d'environnement.
-    cacheTime: 1000 * 60 * 15, // La durée avant que le sitemap soit regénéré. Ici 15mn.
+    path: '/sitemap.xml',
+    hostname: process.env.APP_URL,
+    cacheTime: 1000 * 60 * 15,
     gzip: true,
-    generate: false, // Génère une version statique du sitemap quand activé. À utiliser avec nuxt generate.
-    exclude: [
-      // Les pages qu'on a pas trop envie de voir atterrir sur Google.
-      '**',
-    ],
+    generate: false,
+    exclude: ['**'],
 
     sitemaps: [
       {
         path: '/sitemaps/sitemap.xml',
         exclude: ['**'],
         routes() {
-          // Nous allons utiliser une fonction personnalisée pour charger nos routes dynamiques dans le sitemap.
           return getRoutes()
         },
       },
@@ -281,7 +245,6 @@ export default {
   },
   robots: {
     UserAgent: '*',
-    // Disallow: '/',
   },
 
   hooks: {
@@ -291,25 +254,8 @@ export default {
         const stats = readingTime(document.text)
 
         document.readingTime = stats
-
-        const paths = document.path.split('/')
-        paths.splice(0, 2)
-        const pathsObj = {
-          type: paths[0], // like 'development' or 'games'
-          category: paths.length === 4 ? paths[1] : null, // like 'frameworks'
-          entity: paths[paths.length - 2], // like 'flutter' or 'guild-wars'
-          file: paths[paths.length - 1], // like 'setup-flutter'
-        }
-        document.pathsObj = pathsObj
       }
     },
-    // 'content:file:beforeInsert': async (document, database) => {
-    //   if (document.extension === '.json' ; document.body) {
-    //     const data = await database.markdown.toJSON(document.body)
-
-    //     Object.assign(document, data)
-    //   }
-    // },
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
