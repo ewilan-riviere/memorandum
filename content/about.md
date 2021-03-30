@@ -8,8 +8,6 @@ features:
   - Built with NuxtJS & nuxt/content
 ---
 
-<fallout></fallout>
-
 ## Why Memorandum ?
 
 I'm Web developer since 2018, I learn a lot about some different languages, frameworks, techs... And I needed to have some place to get more than snippets. I wanted to can write some article about concepts, with boiler plates and explications. But I would to have a beautiful interface and user friendly blocks of codes, easy to copy. I try Vuepress, it was cool but when the goal is the create a really custom documentation, it's a little... tricky. When I discovered nuxt/content, I love it immediately because I love markdown and Tailwind CSS, so it's perfect.

@@ -46,7 +46,7 @@
           <div v-if="image" class="text-on-img-tailwind">
             <div class="relative w-full">
               <div class="source" style="z-index: -1">
-                <img
+                <m-img
                   :src="`/documentation/logo/${image}-banner.webp`"
                   class="object-cover object-center w-full h-40 opacity-25"
                 />
@@ -76,8 +76,10 @@
 </template>
 
 <script>
+import mImg from '../special/m-img.vue'
 export default {
   name: 'LayoutMain',
+  components: { mImg },
   props: {
     withBorders: {
       type: Boolean,
