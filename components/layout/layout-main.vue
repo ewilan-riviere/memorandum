@@ -43,7 +43,7 @@
           }"
           class="w-full lg:w-3/4"
         >
-          <div v-if="image" class="text-on-img-tailwind">
+          <div v-if="$slots.title" class="text-on-img-tailwind">
             <div class="relative w-full">
               <div class="source" style="z-index: -1">
                 <m-img

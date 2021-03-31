@@ -61,6 +61,9 @@ export const getPages = async ($content, $store) => {
       category.list = category.list.filter(
         (v, i, a) => a.findIndex((t) => t.list === v.list) === i
       )
+      category.list.sort((a, b) =>
+        a.list > b.list ? 1 : b.list > a.list ? -1 : 0
+      )
     })
 
     pages = categories

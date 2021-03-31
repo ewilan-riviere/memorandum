@@ -1,11 +1,9 @@
 ---
 title: About
-description: ''
-features:
-  - Topics with explicits examples
-  - Boiler plates
-  - Snippets
-  - Built with NuxtJS & nuxt/content
+category: Memorandum
+description: 'About Memorandum'
+sidebar: false
+banner: default
 ---
 
 ## Why Memorandum ?

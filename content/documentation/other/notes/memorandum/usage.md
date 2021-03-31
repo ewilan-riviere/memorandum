@@ -2,7 +2,7 @@
 title: Usage
 description: ''
 position: 1
-category: ''
+category: 'Memorandum'
 ---
 
 ## Spoiler

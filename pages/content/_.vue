@@ -1,7 +1,7 @@
 <template>
   <div v-if="document">
     <layout-main :image="image" :back-route="getBackRoute()">
-      <div slot="aside">
+      <div v-if="displaySidebar" slot="aside">
         <nuxt-link
           v-for="otherdocument in otherDocuments"
           :key="otherdocument.id"
@@ -191,7 +191,19 @@ export default {
       let image = this.document.dir
       image = image.split('/')
       image = image[image.length - 1]
+      if (image.length === 0) {
+        if (this.document.banner === 'default') {
+          return false
+        }
+      }
       return image
+    },
+    displaySidebar() {
+      const isDisplay = this.document.sidebar
+      if (isDisplay === undefined) {
+        return true
+      }
+      return isDisplay
     },
   },
   methods: {

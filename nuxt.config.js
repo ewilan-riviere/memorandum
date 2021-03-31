@@ -1,4 +1,4 @@
-import { getRoutes, getGuidesRoutes } from './plugins/sitemaps/sitemap'
+import { getRoutes, getContentRoutes } from './plugins/sitemaps/sitemap'
 // import { getGeneratedRoutes } from './plugins/routes/routes'
 require('dotenv').config()
 
@@ -29,6 +29,11 @@ export default {
         hid: 'google-site-verification',
         name: 'google-site-verification',
         content: process.env.GOOGLE_SITE_VERIFICATION_TOKEN,
+      },
+      {
+        hid: 'og:site_name',
+        property: 'og:site_name',
+        content: 'Memorandum',
       },
       {
         hid: 'og:type',
@@ -67,6 +72,16 @@ export default {
         hid: 'twitter:title',
         name: 'twitter:title',
         content: 'Memorandum',
+      },
+      {
+        hid: 'twitter:site',
+        name: 'twitter:site',
+        content: '@ewilanriviere',
+      },
+      {
+        hid: 'twitter:creator',
+        name: 'twitter:creator',
+        content: '@ewilanriviere',
       },
       {
         hid: 'twitter:description',
@@ -235,10 +250,10 @@ export default {
         },
       },
       {
-        path: '/sitemaps/guides.xml',
+        path: '/sitemaps/documentation.xml',
         exclude: ['**'],
         routes: () => {
-          return getGuidesRoutes()
+          return getContentRoutes()
         },
       },
     ],

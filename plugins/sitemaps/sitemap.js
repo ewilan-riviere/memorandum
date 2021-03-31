@@ -12,16 +12,6 @@ export const getRoutes = () => {
         changefreq: 'weekly',
         priority: 1,
       },
-      {
-        url: 'about',
-        changefreq: 'weekly',
-        priority: 1,
-      },
-      {
-        url: 'in-coming',
-        changefreq: 'weekly',
-        priority: 1,
-      },
     ]
     staticRoutes.forEach((route) => {
       routes.push(route)
@@ -33,7 +23,7 @@ export const getRoutes = () => {
   })
 }
 
-export const getGuidesRoutes = () => {
+export const getContentRoutes = () => {
   // eslint-disable-next-line no-async-promise-executor
   return new Promise(async (resolve, reject) => {
     const guides = await $content('documentation', { deep: true })

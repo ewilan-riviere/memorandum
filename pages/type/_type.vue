@@ -22,7 +22,7 @@
             </div>
             <p
               v-if="currentEntity.description"
-              class="max-w-full italic prose prose-lg hyphenate"
+              class="max-w-full italic prose prose-lg hyphenate dark:text-gray-400"
             >
               {{ currentEntity.description }}
             </p>
@@ -48,44 +48,39 @@
               <li v-for="(document, id) in currentPage.guides" :key="id">
                 <nuxt-link
                   :to="document.path"
-                  class="block transition-colors duration-100 hover:bg-gray-50 dark:hover:bg-gray-800"
+                  class="block transition-colors duration-100 hover:bg-gray-50 dark:hover:bg-gray-700"
                 >
                   <div class="flex items-center px-4 py-4 sm:px-6">
                     <div class="flex items-center flex-1 min-w-0">
-                      <!-- <div class="flex-shrink-0">
-                        <m-img
-                          class="w-12 h-12"
+                      <div class="flex-shrink-0">
+                        <img
+                          class="w-12 h-12 rounded-full"
                           src="/documentation/logo/guides.webp"
+                          alt="Guides logo"
                         />
-                      </div> -->
+                      </div>
                       <div
-                        class="flex-1 min-w-0 px-4 md:grid md:grid-cols-2 md:gap-4"
+                        class="flex-1 min-w-0 gap-1 px-4 md:grid md:grid-rows-2"
                       >
-                        <div
-                          class="my-auto text-base font-medium text-indigo-600 truncate dark:text-indigo-200"
-                        >
-                          {{ id + 1 }}.
-                          {{ document.title }}
+                        <div class="flex items-center justify-between">
+                          <h2
+                            class="text-base font-medium text-indigo-600 truncate dark:text-indigo-300"
+                          >
+                            {{ id + 1 }}.
+                            {{ document.title }}
+                          </h2>
+                          <p class="text-sm text-gray-400 dark:text-gray-300">
+                            Updated at
+                            <time :datetime="document.createdAt">{{
+                              $getDate(document.createdAt)
+                            }}</time>
+                          </p>
                         </div>
-                        <!-- <div class="hidden md:block">
-                          <div class="text-sm text-gray-900 dark:text-gray-100">
-                            
-                          </div>
-                        </div> -->
-                        <div class="hidden md:block">
-                          <div>
-                            <p class="text-sm text-gray-900">
-                              Created at
-                              <time :datetime="document.createdAt">{{
-                                $getDate(document.createdAt)
-                              }}</time>
-                            </p>
-                            <p
-                              class="flex items-center mt-2 text-sm text-gray-500"
-                            >
-                              {{ overflow(document.description) }}
-                            </p>
-                          </div>
+
+                        <div
+                          class="text-sm text-gray-500 dark:text-gray-300 line-clamp-1"
+                        >
+                          {{ document.description }}
                         </div>
                       </div>
                     </div>

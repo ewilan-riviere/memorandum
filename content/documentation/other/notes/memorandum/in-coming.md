@@ -1,6 +1,8 @@
 ---
 title: In coming
-description: 'Future documentations'
+description: 'Future documentation'
+position: 2
+category: 'Memorandum'
 ---
 
 - [ ] php clockwork

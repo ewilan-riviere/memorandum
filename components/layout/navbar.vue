@@ -121,19 +121,19 @@
           <span
             class="mr-4 text-base font-semibold leading-none text-gray-700 dark:text-gray-300 hover:text-primary-500 dark-hover:text-primary-500"
           >
-            v{{ this.$store.state.settings.version }}
+            v{{ settings.version }}
           </span>
           <div class="flex items-center">
             <nuxt-link
               v-tooltip="'About'"
-              :to="{ name: 'about' }"
+              to="/about"
               class="px-2 text-gray-700 transition-colors duration-300 dark:text-gray-300 hover:text-primary-500 dark-hover:text-primary-500"
             >
               <icon name="info-circle" stroke />
             </nuxt-link>
             <a
               v-tooltip="'Twitter'"
-              :href="`https://twitter.com/${this.$store.state.settings.twitter}`"
+              :href="`https://twitter.com/${settings.twitter}`"
               target="_blank"
               rel="noopener noreferrer"
               title="Twitter"
@@ -144,7 +144,7 @@
             </a>
             <a
               v-tooltip="'GitHub'"
-              :href="`https://github.com/${this.$store.state.settings.github}/${this.$store.state.settings['github-repository']}`"
+              :href="`https://github.com/${settings.github}/${settings.githubRepository}`"
               target="_blank"
               rel="noopener noreferrer"
               title="Github"
@@ -163,6 +163,7 @@
 
 <script>
 import ClickOutside from 'vue-click-outside'
+import settings from '~/content/settings.json'
 
 export default {
   name: 'Navbar',
@@ -173,6 +174,7 @@ export default {
     return {
       query: '',
       articles: [],
+      settings,
     }
   },
   watch: {
