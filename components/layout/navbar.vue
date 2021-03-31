@@ -61,11 +61,11 @@
                     <ul
                       v-if="Array.isArray(articles) && articles.length"
                       v-click-outside="hideSearch"
-                      class="absolute w-full p-3 bg-white border-b-2 border-l-2 border-r-2 border-gray-200 shadow-xl rounded-b-md"
+                      class="absolute w-full p-3 overflow-y-auto bg-white border-b-2 border-l-2 border-r-2 border-gray-200 shadow-xl rounded-b-md max-h-96"
                     >
                       <li
-                        v-for="article of articles"
-                        :key="article.slug"
+                        v-for="(article, id) of articles"
+                        :key="id"
                         class="my-1 transition-colors duration-300 hover:bg-gray-200"
                       >
                         <nuxt-link
@@ -90,10 +90,11 @@
                               </span>
                             </div>
                           </div>
-                          <img
-                            src="/documentation/logo/guides.webp"
-                            class="h-20"
-                            alt=""
+                          <m-img
+                            class="object-cover w-16 h-16"
+                            :src="`/documentation/logo/${$slugify(
+                              article.category
+                            )}.webp`"
                           />
                         </nuxt-link>
                       </li>
@@ -163,10 +164,12 @@
 
 <script>
 import ClickOutside from 'vue-click-outside'
+import mImg from '../special/m-img.vue'
 import settings from '~/content/settings.json'
 
 export default {
   name: 'Navbar',
+  components: { mImg },
   directives: {
     ClickOutside,
   },
@@ -188,7 +191,7 @@ export default {
         const articles = await this.$content('documentation', { deep: true })
           .only(['title', 'slug', 'description', 'category', 'path'])
           .sortBy('category', 'asc')
-          .limit(6)
+          .limit(30)
           .search(query)
           .fetch()
 
