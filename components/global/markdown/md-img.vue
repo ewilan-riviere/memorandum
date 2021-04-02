@@ -2,17 +2,17 @@
   <picture class="flex">
     <div
       v-if="imgFound"
-      class="relative p-2 mx-auto rounded-md shadow-md"
-      @mouseover="canZoom ? (hover = true) : ''"
-      @mouseleave="canZoom ? (hover = false) : ''"
+      class="relative p-2 mx-auto rounded-md"
+      @mouseover="zoom ? (hover = true) : ''"
+      @mouseleave="zoom ? (hover = false) : ''"
     >
       <div
-        :class="{ 'cursor-pointer zoom': canZoom }"
+        :class="{ 'cursor-pointer zoom': zoom }"
         class="transition-transform duration-300"
         @click="openInTab"
       >
         <div
-          v-if="canZoom"
+          v-if="zoom"
           :class="hover ? 'opacity-100' : 'opacity-0'"
           class="absolute top-0 right-0 z-10 p-3 leading-5 transition-opacity duration-300 bg-gray-300 bg-opacity-95"
         >
@@ -23,10 +23,10 @@
         <img
           :src="fullPath"
           :alt="metadata ? metadata : source"
-          class="mx-auto my-auto"
+          class="mx-auto my-auto shadow-sm"
           @error="handleImgError"
         />
-        <legend v-if="legend" class="mb-3 text-sm italic text-center">
+        <legend v-if="legend" class="mt-2 mb-3 text-sm italic text-center">
           {{ legend }}
         </legend>
       </div>
@@ -73,7 +73,7 @@ export default {
       type: String,
       default: null,
     },
-    canZoom: {
+    zoom: {
       type: Boolean,
       default: false,
     },

@@ -1,16 +1,22 @@
 ---
 title: Open Graph
-description: ''
+description: 'How to setup Open Graph and Twitter Card'
 position: 1
 category: 'SEO'
 ---
 
-- <https://ogp.me/>
-- <https://fr.oncrawl.com/referencement/tout-ce-que-vous-devez-savoir-sur-lopen-graph/>
-- <https://loftie.com/post/how-to-add-twitter-and-facebook-cards-to-your-vue-app/>
-- <https://www.opengraph.xyz/url/https:%2F%2Fwww.opengraph.xyz%2F/>
-- <https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards>
-- <https://www.ionos.com/digitalguide/online-marketing/social-media/open-graph/>
-- <https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started>
-- <https://www.opengraph.xyz/>
-- <https://metatags.io/>
+## About
+
+Open Graph is a preview of website when a user send a link into messaging system like Slack, Discord, Teams, Messenger or Twitter for example. It's display website title, a description and an image, it seems unimportant, but with this small card, users in conversation can have a useful presentation of website or page of a website. If this an article, we can see an abstract of body with an image which is attractive. The design of this card depends of social network or messaging system
+
+## Links
+
+- Documentation:
+  - [**ogp.me**](https://ogp.me): official Open Graph website
+  - [**developer.twitter.com**](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards): official Twitter documentation
+  - [**ionos.com/digitalguide/online-marketing/social-media/open-graph**](https://www.ionos.com/digitalguide/online-marketing/social-media/open-graph): best article about Open Graph
+- Test tools:
+  - [**metatags.io**](https://metatags.io): amazing tool to test Open Graph and Twitter card (with a lot social networks)
+  - [**opengraph.xyz**](https://www.opengraph.xyz)
+- Examples:
+  - [**loftie.com/post/how-to-add-twitter-and-facebook-cards-to-your-vue-app**](https://loftie.com/post/how-to-add-twitter-and-facebook-cards-to-your-vue-app): example for Vue app

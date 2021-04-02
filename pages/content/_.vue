@@ -119,9 +119,7 @@ export default {
   head() {
     const title = `${this.document.title} - ${this.document.category}`
     const description = this.document.description
-    const image = `${process.env.APP_URL}/documentation/logo/${this.$slugify(
-      this.document.category
-    )}.webp`
+    const image = `${process.env.APP_URL}/documentation/logo/${this.image}-banner.webp`
     const publishedTime = this.document.createdAt
     const modifiedTime = this.document.updatedAt
     const author = 'Ewilan Rivière'

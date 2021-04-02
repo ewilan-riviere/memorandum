@@ -41,13 +41,11 @@
   }
   /* links  */
   & a {
-    @apply text-black transition-colors duration-300 border-b-2 border-primary-500;
+    @apply text-black transition-colors duration-100 border-b-2 border-primary-500;
     --border-opacity: 0.25;
   }
   & a:hover {
-    @apply bg-primary-500 border-primary-500;
-    --bg-opacity: 0.25;
-    --border-opacity: 0.25;
+    @apply bg-primary-500 border-primary-500 bg-opacity-20;
   }
   /* filename and copy  */
   & .nuxt-content-highlight {
