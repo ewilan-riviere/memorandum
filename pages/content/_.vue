@@ -190,7 +190,7 @@ export default {
     return {
       '@context': 'https://schema.org',
       '@type': 'TechArticle',
-      headline: '',
+      headline: `${this.document.title} in ${this.document.category}: ${this.document.description}`,
       image: `${process.env.APP_URL}/documentation/logo/${this.image}-banner.webp`,
       name: `${this.document.title} - ${this.document.category}`,
       about: `${this.document.title} in ${this.document.category}`,
