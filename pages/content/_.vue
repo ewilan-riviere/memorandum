@@ -186,6 +186,23 @@ export default {
       ],
     }
   },
+  jsonld() {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'TechArticle',
+      name: `${this.document.title} - ${this.document.category}`,
+      about: `${this.document.title} in ${this.document.category}`,
+      abstract: this.document.description,
+      description: this.document.description,
+      dateModified: this.document.updatedAt,
+      datePublished: this.document.createdAt,
+      dependencies: this.document.category,
+      author: {
+        name: 'Ewilan Rivière',
+        image: 'https://avatars.githubusercontent.com/u/48261459?v=4',
+      },
+    }
+  },
   computed: {
     image() {
       let image = this.document.dir
