@@ -148,6 +148,8 @@ export default {
     { src: '~/plugins/vue-helper' },
     { src: '~/plugins/global-loader' },
     { src: '~/plugins/vue-read-progress', ssr: false },
+    // https://github.com/ymmooot/nuxt-jsonld#readme
+    { src: '~/plugins/jsonld' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

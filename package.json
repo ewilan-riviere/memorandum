@@ -39,6 +39,7 @@
     "@tailwindcss/typography": "^0.4.0",
     "core-js": "^3.9.1",
     "nuxt": "^2.15.1",
+    "nuxt-jsonld": "^1.5.0",
     "prism-themes": "^1.6.0",
     "reading-time": "^1.3.0",
     "tailwindcss-debug-screens": "^2.0.0",
