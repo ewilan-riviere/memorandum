@@ -27,10 +27,14 @@ Microdata and JSON-LD (JavaScript Object Notation for Linked Data) are both are 
 - [**schema.org/BlogPosting**](https://schema.org/BlogPosting): example for blog post from Schema.org
 - [**zestedesavoir.com/articles/3096/ameliorer-son-score-seo-avec-vuejs-nuxtjs**](https://zestedesavoir.com/articles/3096/ameliorer-son-score-seo-avec-vuejs-nuxtjs/#3-les-metadonnees-indispensables-pour-bien-identifier-vos-pages): example with NuxtJS (french)
 
-### Test Tools
+### Tools
+
+- [**webcode.tools**](https://webcode.tools): amazing tool for SEO, can generate data
+
+#### Test Tools
 
 - [**search.google.com/test/rich-results**](https://search.google.com/test/rich-results): test your JSON-LD on specific URL  
 
-### Plugins
+#### Plugins
 
 - [**github.com/ymmooot/nuxt-jsonld**](https://github.com/ymmooot/nuxt-jsonld): plugin for NuxtJS to create easily JSON-LD

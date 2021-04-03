@@ -62,6 +62,7 @@ To find pictures about tech
 - [**Digital Ocean**](https://dribbble.com/digitalocean)
 - [**Vue School**](https://vueschool.io/courses)
 - [**Vue Mastery**](https://www.vuemastery.com/courses)
+- [**lucid.pixsellz.io**](https://lucid.pixsellz.io)
 
 ## Tools
 
@@ -74,6 +75,7 @@ To find pictures about tech
 - [**Convertio**](https://convertio.co) : to convert any file to multiple formats
 - [**sqlmap**](http://sqlmap.org) : check security of your database
 - [**ping.eu**](https://ping.eu) : check your IP and other tools
+- [**webcode.tools**](https://webcode.tools): amazing tool for SEO, can generate data
 
 ### Crawler
 
@@ -85,3 +87,7 @@ To find pictures about tech
 
 - [**dompcomp**](https://www.domcomp.com) : list of registrars
 - [**Astral**](https://app.astralapp.com) : web app to check GitHub stars
+
+## API
+
+- [**github.com/public-apis/public-apis**](https://github.com/public-apis/public-apis)
