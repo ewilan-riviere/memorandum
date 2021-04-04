@@ -5,11 +5,38 @@ position: 1
 category: 'MacOS'
 ---
 
-// TODO
+## Setup
+
+## Keyboard
+
+- [**macOS Keyboard special**](https://www.macworld.co.uk/how-to/mac-keyboard-type-symbols-3504584/)
+
+## Visual Studio Code
+
+```json
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "alt+space",
+        "command": "editor.action.triggerSuggest",
+        "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+space",
+        "command": "toggleSuggestionDetails",
+        "when": "editorTextFocus && suggestWidgetVisible"
+    },
+    {
+        "key": "ctrl+alt+space",
+        "command": "toggleSuggestionFocus",
+        "when": "editorTextFocus && suggestWidgetVisible"
+    }
+]
+```
 
 ## Xcode
 
-### Add certificate
+## Add certificate
 
 Open Xcode, select **Xcode** into top menu, open **Preferences**, select **Accounts**, click on **+** at bottom left to add new account, use **Email** of *Apple Developer*. When new account is available, back to your project in **Project navigator**, **Targets** *Runner*, in **Signing & Capabilities**, choose account which have Distribution rights.
 
