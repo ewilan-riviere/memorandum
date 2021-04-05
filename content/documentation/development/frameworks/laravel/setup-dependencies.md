@@ -32,7 +32,9 @@ sudo chgrp -R www-data storage bootstrap/cache ; sudo chmod -R ug+rwx storage bo
   </code-block>
 </code-group>
 
-## PHP CS Fixer
+## Helpers
+
+### PHP CS Fixer
 
 <alert type="info"> GitHub
 [**github.com/FriendsOfPHP/PHP-CS-Fixer**](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
@@ -95,7 +97,7 @@ Execute this command to fix all files
 ./vendor/bin/php-cs-fixer fix
 ```
 
-## Laravel IDE Helper
+### Laravel IDE Helper
 
 <alert type="info"> GitHub
 [**github.com/barryvdh/laravel-ide-helper**](https://github.com/barryvdh/laravel-ide-helper)
@@ -108,6 +110,26 @@ composer require --dev barryvdh/laravel-ide-helper
 ```bash
 php artisan ide-helper:generate ; php artisan ide-helper:models --nowrite; php artisan ide-helper:meta ; php artisan ide-helper:eloquent
 ```
+
+### Execute with composer
+
+Add this command to `scripts` into `composer.json`
+
+```json
+{
+  "scripts": {
+    "helper": [
+      "./vendor/bin/php-cs-fixer fix",
+      "php artisan ide-helper:generate",
+      "php artisan ide-helper:models --nowrite",
+      "php artisan ide-helper:meta",
+      "php artisan ide-helper:eloquent"
+    ]
+  }
+}
+```
+
+And execute `composer helper`
 
 ## Laravel Swagger
 
