@@ -282,7 +282,7 @@ indent_size = 2
 
 ## Tailwind CSS v2.0
 
-## Vanilla
+### Vanilla
 
 ```bash
 yarn add -D postcss postcss-import tailwindcss
@@ -349,11 +349,11 @@ module.exports = {
 </html>
 ```
 
-## Starter kit
+### Starter kit
 
 First install a starter kit like [github.com/laravel/breeze](https://github.com/laravel/breeze) or [github.com/laravel/jetstream](https://github.com/laravel/jetstream), this will install Tailwind.
 
-## Tailwind JIT
+### Tailwind JIT
 
 From [dyrynda.com.au/blog/using-tailwind-jit-with-laravel-mix](https://dyrynda.com.au/blog/using-tailwind-jit-with-laravel-mix)
 
