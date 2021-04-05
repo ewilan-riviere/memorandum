@@ -280,6 +280,14 @@ indent_size = 2
 
 </alert>
 
+```json[package.json]
+{
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint resources/js/ --ext .js,.vue"
+  }
+}
+```
+
 ## Tailwind CSS v2.0
 
 ### Vanilla
