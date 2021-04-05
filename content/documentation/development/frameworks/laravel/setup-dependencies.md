@@ -106,7 +106,7 @@ composer require --dev barryvdh/laravel-ide-helper
 ```
 
 ```bash
-php artisan ide-helper:generate ; php artisan ide-helper:models ; php artisan ide-helper:meta ; php artisan ide-helper:eloquent
+php artisan ide-helper:generate ; php artisan ide-helper:models --nowrite; php artisan ide-helper:meta ; php artisan ide-helper:eloquent
 ```
 
 ## Laravel Swagger
@@ -282,96 +282,94 @@ indent_size = 2
 
 ## Tailwind CSS v2.0
 
-### Vanilla
+## Vanilla
 
 ```bash
-yarn add -D tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9 vue-template-compiler ; npx tailwindcss init
+yarn add -D postcss postcss-import tailwindcss
 ```
 
-Add this into `tailwind.config.js`
+```js[webpack.mix.js]
+const mix = require('laravel-mix');
 
-```js[tailwind.config.js]
-module.exports = {
-  purge: [
-    './resources/**/*.blade.php',
-    './resources/**/*.js',
-    './resources/**/*.vue',
-  ],
-  darkMode: false, // or 'media' or 'class'
-  theme: {
-    extend: {},
-  },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
+mix.js('resources/js/app.js', 'public/js')
+  .postCss('resources/css/app.css', 'public/css', [
+    require('postcss-import'),
+    require('tailwindcss'),
+  ]);
+
+if (mix.inProduction()) {
+  mix.version();
 }
 ```
 
-Remove all in `webpack.mix.js`
-
-```js[webpack.mix.js]
-const mix = require('laravel-mix')
-
-mix
-  .js('resources/js/app.js', 'public/js')
-  .postCss('resources/css/app.css', 'public/css', [require('tailwindcss')])
-```
-
-### Example with Breeze
-
-<alert type="info"> GitHub
-
-[**github.com/laravel/breeze**](https://github.com/laravel/breeze)
-
-</alert>
-
-Install Breeze
-
-```bash
-composer require laravel/breeze --dev ; php artisan breeze:install
-```
-
-Remove default version Tailwind in Breeze
-
-```bash
-yarn remove @tailwindcss/forms postcss-import tailwindcss autoprefixer ; rm tailwind.config.js
-```
-
-Install new Tailwind version
-
-```bash
-yarn add -D tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9 vue-template-compiler ; npx tailwindcss init
-```
-
-Add this into `tailwind.config.js`
-
 ```js[tailwind.config.js]
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
   purge: [
-    './resources/**/*.blade.php',
-    './resources/**/*.js',
-    './resources/**/*.vue',
+    './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+    './vendor/laravel/jetstream/**/*.blade.php',
+    './storage/framework/views/*.php',
+    './resources/views/**/*.blade.php',
+    './resources/js/**/*.vue',
   ],
-  darkMode: false, // or 'media' or 'class'
+
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+      },
+    },
   },
+
   variants: {
-    extend: {},
+    extend: {
+      opacity: ['disabled'],
+    },
   },
+
   plugins: [],
-}
+};
 ```
 
-Remove all in `webpack.mix.js`
+```css[resources/css/app.css]
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+```
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- ... -->
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+  </head>
+  <!-- ... -->
+</html>
+```
+
+## Starter kit
+
+First install a starter kit like [github.com/laravel/breeze](https://github.com/laravel/breeze) or [github.com/laravel/jetstream](https://github.com/laravel/jetstream), this will install Tailwind.
+
+## Tailwind JIT
+
+From [dyrynda.com.au/blog/using-tailwind-jit-with-laravel-mix](https://dyrynda.com.au/blog/using-tailwind-jit-with-laravel-mix)
+
+```bash
+yarn add -D @tailwindcss/jit tailwindcss postcss
+```
 
 ```js[webpack.mix.js]
-const mix = require('laravel-mix')
+mix.postCss("resources/css/app.css", "public/css", [
+    require("@tailwindcss/jit"),
+    require("postcss-import"),
+  ]);
+```
 
-mix
-  .js('resources/js/app.js', 'public/js')
-  .postCss('resources/css/app.css', 'public/css', [require('tailwindcss')])
+```bash
+yarn watch
 ```
 
 ## Blade Formatter
