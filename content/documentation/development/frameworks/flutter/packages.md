@@ -108,6 +108,71 @@ Don't forget to detail permissions if you use them in `ios/Runner/Info.plist`
 
 </alert>
 
+## hive_flutter
+
+<https://pub.dev/packages/hive_flutter>
+
+>I’ll start by saying that I am not a fan of NoSQL databases — I think that rigid schema creates predictability, and defines your workflow without having to worry about missing data or undefined fields where they need not be.
+>That being said, if you’re a NoSQL fan I can see why! I’m not bashing NoSQL — it has its benefits. Especially on the front-end.
+>Another perk of relational databases is the ability to manage tenancy and multiple people’s data in the same place — a single table called “Chat Messages” can hold every single chat message from every single group, and if you query correctly, you don’t have to worry about getting someone else’s messages.
+>On the front-end, that’s not a concern because you’re just storing data that either came from you, or came from the database, already filtered. That means that NoSQL has all of the upsides and none of the dangerous points… Which means Hive is my go-to solution for storing data on the front-end.
+>Simple boxes can be used as databases, allowing absolute separation. Data is always stored in an intuitive and understandable way — and to top it all off, we’re (mostly) synchronous!
+>If you’re storing heaps of data on client side, like chat logs or caches etc. I highly recommend taking a look into Hive — for me, it’s the best way to store data on the frontend.
+>(NOTE: that this one is relatively new to me! I only started with Hive in the past month, but I fell in love and just had to add it here. If you’re a learned Hive user, let me know your tips and tricks!)
+
+## fluttertoast
+
+<https://pub.dev/packages/fluttertoast>
+
+>Let me ask you a question: In the last Flutter project you wrote, what would happen if the user didn’t have an internet connection?
+>If you answered catastrophic failure, don’t be embarrassed: You’re not alone. Error handling is often last when a developer develops an app, while it should ideally be one of the first things to look at, after the happy path.
+>but giving the user feedback is hard. Most of the time, you need to code a custom message on every single page for every single error, which is just not feasible for people looking to develop an MVP.
+
+## pedantic
+
+<https://pub.dev/packages/pedantic>
+
+>Code style is important. Some people think this is…. well, pedantic, but I find that maintaining project code style is really important for the health of your project — having different conventions in different parts of the app creates a broken continuity, making adapting to parts of your code hard.
+>But, again, we’re busy developers here! We don’t have time to worry about using single quotes or double quotes — we want our product out the door.
+>Enter Pedantic.
+>Pedantic lints your whole project strictly — if you forgot to write const where something could be const, pedantic will let you know.
+>Pedantic does a great job keeping the project with similar code styles and stops your coworkers from adding comments to your PR like LINT: Use single quoted string where possible. .
+
+## auto_route
+
+<https://pub.dev/packages/auto_route>
+
+>Even with router 2.0, routing is still hard. Managing nested routers, knowing what’s ontop of your stack, having the right parameters, it’s all quite difficult.
+>Unless you use auto_route!
+>Auto route allows you to scale to large amounts of pages without increasing complexity — for instance, you can have nested routers, individual transitions, and even tabbed routers without ever worrying about managing parameters or path strings.
+>auto_route code generator will generate a lot of code for you, which should show you that not using it will waste a lot of time.
+
+## json_serializable
+
+<https://pub.dev/packages/json_serializable>
+
+>This is another no-brainer. Any modern app connects to a backend and does many, many http calls. deserializing a json string by hand takes time — especially when you’re in development and may be adding more fields.
+>This package allows a developer to just add 4 lines to a class and then make it automatically ready to be transferred over the an http call.
+>A big theme you’ll see in this list is moving as much work as possible from the developer to the compiler — and this one is no different. If I have a user field, and I add an email in the backend, I need to go to my custom deserializer and add the email. If I forget, my email will always be null. If I use json_serializable, then the compiler will tell me “Hey… Your user class has an email field, but we’re not looking for it in the serializer. Maybe you need to rerun the build generator?”
+
+## google_sign_in
+
+<https://pub.dev/packages/google_sign_in>
+
+>Okay, so this one is a little more like infra than a flutter package — but this is still my go-to sign in system for user management.
+>Why? Well, first off, I don’t trust myself to be able to manage users securely. Authentication is a minefield — if you hash passwords incorrectly, accidentally leak your password database, allow an IDOR, etc. you have a big issue with security.
+>Second, Google did a good job making this sort of authentication easy: 1. Create a privacy policy and TOS (you’d need to do this anyway), 2. Create an app on Firebase, and then allow google sign in. 3. Copy credentials where necessary. 4.Verify access token on backend.
+>Home rolling auth is difficult and error prone, so using providers is the next best thing. Login with Apple is great for iOS, but what about Android? this package makes it incredibly easy to create auth systems and I highly recommend going this route instead of manual sign in.
+>Plus, it’s a lot easier for your users! Most people have google accounts, and the percent of the market that doesn’t have a google account isn’t significant to your MVP (for most cases).
+
+## flutter_bloc
+
+<https://pub.dev/packages/flutter_bloc>
+
+>If you came from my flutter state management in 2021 article, you might be wondering why bloc is on this list and not riverpod.
+>Truth is: That article is due for an update. I hadn’t used cubit to the extent that I should have before rating it. I think that cubit solves most issues with bloc to the extent that it makes it really easy to manage state in your app, and you can swap between cubit and bloc interchangeably depending on if you have an event based or state based architecture.
+>Regardless, this spot on the list goes not only to bloc, but to any state management. My preferred state management solution is bloc, but each solution has it’s own problem and usecase, and you should pick accordingly to what you are trying to achieve.
+
 ## ToDo packages
 
 - <https://quicktype.io/> / <https://marketplace.visualstudio.com/items?itemName=quicktype.quicktype>

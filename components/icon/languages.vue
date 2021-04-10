@@ -1,15 +1,14 @@
 <template>
   <svg
+    fill="currentColor"
+    viewBox="0 0 20 20"
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    stroke-width="2"
-    stroke="currentColor"
-    fill="none"
-    stroke-linecap="round"
-    stroke-linejoin="round"
   >
-    <path d="M5 7h7m-2 -2v2a5 8 0 0 1 -5 8m1 -4a7 4 0 0 0 6.7 4"></path>
-    <path d="M11 19l4 -9l4 9m-.9 -2h-6.2"></path>
+    <path
+      fill-rule="evenodd"
+      d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
+      clip-rule="evenodd"
+    ></path>
   </svg>
 </template>
 
