@@ -86,7 +86,7 @@ php artisan route:list --compact
 [**laravel-ide-helper**](https://github.com/barryvdh/laravel-ide-helper) generate command
 
 ```bash
-php artisan ide-helper:generate ; php artisan ide-helper:models ; php artisan ide-helper:meta
+php artisan ide-helper:generate ; php artisan ide-helper:models --nowrite; php artisan ide-helper:meta ; php artisan ide-helper:eloquent
 ```
 
 [**PHP-CS-Fixer**](https://github.com/FriendsOfPHP/PHP-CS-Fixer) fix all PHP files
