@@ -11,6 +11,16 @@ category: 'MySQL'
 Don't use `PowerShell` to execute below commands, use `cmd` if you want to import database with correct encoding.
 </alert>
 
+`-u` specify user and `-p` specify connection with password, this one will be asked when command is executed.
+
+In this example, prompt is in same directory of `file.sql`, of course it's necessary to give the relative path of SQL file with this command.
+
+```bash
+mysql -u username -p db_name < file.sql
+```
+
+### With more details
+
 ```bash
 mysql -u user -p
 ```
@@ -28,16 +38,6 @@ CREATE DATABASE db_name;
 ```sql
 use db_name
 source file.sql
-```
-
-**Import database directly**
-
-`-u` specify user and `-p` specify connection with password, this one will be asked when command is executed.
-
-In this example, prompt is in same directory of `file.sql`, of course it's necessary to give the relative path of SQL file with this command.
-
-```bash
-mysql -u username -p db_name < file.sql
 ```
 
 ## Useful commands
