@@ -164,12 +164,6 @@ sudo mysql -u root -p
 
 Redefine `validate_password.policy` if necessary and `root` password if necessary
 
-```mysql[mysql]
-SET GLOBAL validate_password.policy=LOW;
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'super_secret_password';
-FLUSH PRIVILEGES;
-```
-
 <code-group>
   <code-block label="Ubuntu" active>
 
@@ -278,8 +272,9 @@ Install PPA for PHP
   <code-block label="Debian">
 
   ```bash
-  sudo apt update ; sudo apt install -y lsb-release ca-certificates apt-transport-https software-properties-common ; echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/sury-php.list
-  sudo apt update ; sudo apt install -y gnupg2 ; wget -qO - https://packages.sury.org/php/apt.gpg | sudo apt-key add - ; sudo apt update
+  sudo apt install -y lsb-release ca-certificates apt-transport-https software-properties-common
+  echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/sury-php.list && wget -qO - https://packages.sury.org/php/apt.gpg | sudo apt-key add -
+  sudo apt update ; sudo apt upgrade -y
   ```
 
   </code-block>

@@ -1,5 +1,5 @@
 ---
-title: Examples
+title: Boiler plates
 description: Examples of boiler plates NGINX configurations
 position: 2
 category: 'NGINX'
