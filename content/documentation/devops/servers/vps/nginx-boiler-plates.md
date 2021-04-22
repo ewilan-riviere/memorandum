@@ -1,8 +1,8 @@
 ---
-title: Boiler plates
+title: "NGINX boiler plates"
 description: Examples of boiler plates NGINX configurations
-position: 2
-category: 'NGINX'
+position: 5
+category: 'vps'
 ---
 
 ## Laravel

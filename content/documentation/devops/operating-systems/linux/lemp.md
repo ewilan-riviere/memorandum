@@ -377,3 +377,28 @@ sudo ln -s /etc/nginx/sites-available/my-domain.localhost /etc/nginx/sites-enabl
 And now, you can access to you domain to [**http://my-domain.localhost**](http://my-domain.localhost)
 
 **Next step: [install and configure phpMyAdmin](/guides/linux/phpmyadmin)**
+
+## Troubles
+
+List virtual hosts with Nginx
+
+```bash
+grep server_name /etc/nginx/sites-enabled/* -RiI
+```
+
+Uninstall NGINX
+
+```bash
+sudo apt-get purge nginx nginx-common
+sudo apt-get autoremove
+```
+
+### VHost works on Chrome but not on Firefox
+
+<alert type="info">
+
+[**stackoverflow.com/nginx-localhost-servername-work-fine-on-chrome-but-not-on-firefox**](https://stackoverflow.com/questions/33974691/nginx-localhost-servername-work-fine-on-chrome-but-not-on-firefox)
+
+</alert>
+
+*open Preferences -> Advanced -> Network open Settings and check manual proxy config and set proxy HTTP 127.0.0.1 and port 80*

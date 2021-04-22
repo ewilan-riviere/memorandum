@@ -1,109 +1,17 @@
 ---
 title: Setup
-description: 'How to setup Ubuntu'
+description: 'How to setup Linux'
 position: 1
 category: 'Linux'
 ---
 
-This guide has been set for [**Ubuntu 20.04**](https://ubuntu.com/#download), if you have another distribution use it carefully.
-
-<alert type="warning">
-When I offer to create new user, I call it `jack`, you can use any other username.
-
-</alert>
-
-<update-username></update-username>
-
-## SSH
-
-If it's setup of server, you have to disable ssh with root and allow it with a custom user.
-
-**First time connection**
-
-```bash
-ssh root@xxx.xx.xx.xxx
-```
-
-**Update Linux and add new user**
-
-```bash
-apt update ; apt upgrade ; adduser jack ; usermod -aG sudo jack
-```
-
-**Enable firewall**
-
-```bash
-sudo apt install -y ufw ; sudo ufw app list ; sudo ufw allow OpenSSH ; sudo ufw enable ; sudo ufw status
-```
-
-<alert type="info"> If server
-
-**Copy SSH keys from *root* to *jack***
-
-```bash
-mkdir /home/jack/.ssh/ ; cp /root/.ssh/authorized_keys /home/jack/.ssh/ ; chown -R jack:jack /home/jack/.ssh/ ; chmod -R 700 /home/jack/.ssh/
-```
-
-Exit SSH connection
-
-```bash
-exit
-```
-
-Connect to server with new user
-
-```bash
-ssh jack@xxx.xx.xx.xxx
-```
-
-**If works**, disallow ssh connection with root.
-
-```bash
-vim /etc/ssh/sshd_config
-```
-
-Find `PermitRootLogin` line and replace `yes` to `no` and restart sshd daemon. Disconnect yourself with `exit` and you won't able to connect with `root`, connect with custom user now.
-
-```bash
-systemctl restart sshd.service
-```
-
-</alert>
-
-<alert type="info"> Optional: change root password
-
-```bash
-sudo -i
-```
-
-```bash
-passwd
-```
-
-```bash
-exit
-```
-
-</alert>
+This guide has been set for [**Ubuntu 20.04**](https://ubuntu.com/#download) and Debian 10, if you have another distribution use it carefully.
 
 ## 1. Useful packages
 
-<code-group>
-  <code-block label="Desktop" active>
-
-  ```bash
-  sudo apt install -y exfat-utils exfat-fuse zip unzip curl git gimp nethogs vim ssh vlc fonts-firacode net-tools florence speedtest-cli
-  ```
-
-  </code-block>
-  <code-block label="Server">
-
-  ```bash
-  sudo apt install -y exfat-utils exfat-fuse zip unzip curl git nethogs vim ssh net-tools
-  ```
-
-  </code-block>
-</code-group>
+```bash
+sudo apt install -y exfat-utils exfat-fuse zip unzip curl git gimp nethogs vim ssh vlc fonts-firacode net-tools florence speedtest-cli
+```
 
 <alert type="info">
 
@@ -116,7 +24,6 @@ exit
 - `vim` is command line editor, very powerful
 - `ssh` package to use SSH transfers
 - `fonts-firacode` package to install [**fira code fonts**](https://github.com/tonsky/FiraCode)
-</alert>
 
 Setup `nethogs` to use it without `sudo`
 
@@ -129,6 +36,8 @@ You can check your bandswidth with
 ```bash
 speedtest
 ```
+
+</alert>
 
 ### 1. a. Vim
 
@@ -188,59 +97,62 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 ```
 
 <alert type="warning">
+
 If you accept to use ZSH, you need to logout to enable it.
+
 </alert>
 
 <alert type="info">
+
 **Customize with theme**
 
-With *Oh my ZSH*, you can use themes to have beautiful terminal. I advice you to use [**Spaceship prompt**](https://github.com/denysdovhan/spaceship-prompt).
+With *Oh my ZSH*, you can use themes to have beautiful terminal, check available themes here: [github.com/ohmyzsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes), I use `pmcgee`
 
-*Clone theme*
-
-```bash
-git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
-```
-
-*Symbolic link for theme*
+To install a new theme, just edit `.zshrc`
 
 ```bash
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+vim ~/.zshrc
 ```
 
-Edit this line of `~/.zshrc`
+Search `ZSH_THEME` at the top of file and update value
 
+```bash[.zshrc]
+ZSH_THEME="pmcgee"
 ```
-ZSH_THEME="spaceship"
+
+Update new configuration
+
+```bash
+source ~/.zshrc
 ```
 
 </alert>
 
 ## 3. NodeJS: NVM
 
-You can install basic **NPM** package but with **NVM**, you can change NodeJS version when you want. Check last version on [**NVM GitHub**](https://github.com/nvm-sh/nvm) and change it if you want latest. Here, the **NVM** version is **`0.37.2`** and **NodeJS** version is **`14.16.0`** LTS.
+You can install basic **NPM** package but with **NVM**, you can change NodeJS version when you want. Check last version on [**NVM GitHub**](https://github.com/nvm-sh/nvm) and change it if you want latest. Here, the **NVM** version is **`0.38`** and **NodeJS** version is **`14.16.1`** LTS.
 
 Download NVM
 
 ```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38/install.sh | bash
 ```
 
 Add this into ~/.zshrc
 
-```bash
+```bash[.zshrc]
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] ; \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] ; \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 ```
 
-Install Node.js v14.16.0 and config NVM to use it
+Install Node.js v14.16.1 and config NVM to use it
 
 <code-group>
   <code-block label="One command" active>
 
   ```bash
-  source ~/.zshrc ; nvm ls-remote ; nvm install 14.16.0 ; nvm use 14.16.0 ; nvm alias default 14.16.0 ; nvm use default ; nvm ls ; node -v
+  source ~/.zshrc ; nvm ls-remote ; nvm install 14.16.1 ; nvm use 14.16.1 ; nvm alias default 14.16.1 ; nvm use default ; nvm ls ; node -v
   ```
 
   </code-block>
@@ -261,19 +173,19 @@ Install Node.js v14.16.0 and config NVM to use it
   Install specific version
 
   ```bash
-  nvm install 14.16.0
+  nvm install 14.16.1
   ```
 
   Use specific version
 
   ```bash
-  nvm use 14.16.0
+  nvm use 14.16.1
   ```
 
   Assign a version to **default**
 
   ```bash
-  nvm alias default 14.16.0
+  nvm alias default 14.16.1
   ```
 
   Use default version

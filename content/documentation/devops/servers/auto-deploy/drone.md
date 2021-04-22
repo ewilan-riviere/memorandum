@@ -1,8 +1,8 @@
 ---
 title: Drone CI
-description: ''
-position: 3
-category: 'Auto-deploy'
+description: 'Auto deploy your work with Drone'
+position: 2
+category: 'auto-deploy'
 ---
 
 - <https://www.drone.io>

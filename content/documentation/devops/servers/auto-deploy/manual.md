@@ -1,8 +1,8 @@
 ---
 title: Manual
-description: ''
+description: 'Auto deploy your work from git forge'
 position: 1
-category: 'Auto-deploy'
+category: 'auto-deploy'
 ---
 
 When you push some modifications on your repo, your server not update automatically. If you use **webhooks**, you can send **push event** to your server execute `git pull` on your repo. But we need to receive this push event, it's call a **payload**, we have to configure server to receive it and update repository.
