@@ -54,7 +54,7 @@
                 ></p>
               </div>
               <div class="flex items-center justify-between my-1 text-gray-600">
-                <div class="flex items-center">
+                <div v-if="document.readingTime" class="flex items-center">
                   <icon name="clock" stroke class="mr-1" />
                   {{ document.readingTime.text }}
                 </div>
@@ -206,13 +206,16 @@ export default {
   computed: {
     image() {
       let image = this.document.dir
-      image = image.split('/')
-      image = image[image.length - 1]
-      if (image.length === 0) {
-        if (this.document.banner === 'default') {
-          return false
+      if (image) {
+        image = image.split('/')
+        image = image[image.length - 1]
+        if (image.length === 0) {
+          if (this.document.banner === 'default') {
+            return false
+          }
         }
       }
+
       return image
     },
     displaySidebar() {
