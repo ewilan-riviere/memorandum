@@ -18,7 +18,7 @@
       </div>
       <div slot="title">
         <p
-          class="text-base font-semibold leading-6 tracking-wide text-center text-indigo-600 uppercase"
+          class="text-base font-semibold leading-6 tracking-wide text-center text-indigo-600 uppercase dark:text-indigo-400"
         >
           {{ document.category }}
         </p>
@@ -40,7 +40,7 @@
                 class="relative mx-auto mb-6 text-lg font-medium leading-7 md:flex-grow max-w-prose"
               >
                 <svg
-                  class="absolute top-0 left-0 w-8 h-8 text-gray-200 transform -translate-y-2"
+                  class="absolute top-0 left-0 w-8 h-8 text-gray-200 transform -translate-y-2 dark:text-gray-600"
                   fill="currentColor"
                   viewBox="0 0 32 32"
                 >

@@ -24,6 +24,21 @@
   & blockquote {
     @apply text-gray-400 !important;
   }
+  & .tip {
+    @apply bg-green-100 border-green-300;
+  }
+  & .warning {
+    @apply bg-yellow-100 border-yellow-300;
+  }
+  & .danger {
+    @apply bg-red-100 border-red-300;
+  }
+  & .alert-info {
+    @apply bg-blue-800 bg-opacity-50 text-blue-300;
+    & a {
+      @apply text-blue-300 !important;
+    }
+  }
 }
 
 .nuxt-content {

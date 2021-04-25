@@ -4,12 +4,14 @@
     class="fixed top-0 bottom-0 left-0 z-50 transition duration-500 ease-in-out transform shadow-xl sm:duration-700"
   >
     <div class="w-screen h-full max-w-md">
-      <div class="flex flex-col h-full bg-white divide-y divide-gray-200">
+      <div
+        class="flex flex-col h-full bg-white divide-y divide-gray-200 dark:bg-gray-900"
+      >
         <div class="flex-1">
           <div class="flex flex-col justify-between flex-1">
             <button
               aria-label="Close panel"
-              class="fixed top-0 right-0 p-5 transition-colors duration-300 ease-in-out hover:bg-gray-200"
+              class="fixed top-0 right-0 p-5 transition-colors duration-300 ease-in-out hover:bg-gray-200 dark:hover:bg-gray-700"
               @click="hide"
             >
               <icon name="cross" :size="20" class="text-black" />

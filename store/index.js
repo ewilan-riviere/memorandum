@@ -13,12 +13,12 @@ export const state = () => ({
   settings: {},
   contentCurrentPath: '',
   currentDocument: {},
-  pages: [],
+  categories: null,
 })
 
 export const mutations = {
-  setPages(state, data) {
-    state.pages = data
+  setCategories(state, data) {
+    state.categories = data
   },
   setSettings(state, data) {
     state.settings = data
