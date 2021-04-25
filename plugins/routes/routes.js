@@ -18,8 +18,7 @@ export const getGeneratedRoutes = () => {
       .fetch()
 
     for (const guide of guides) {
-      let route = `${guide.path}`
-      route = route.replace('documentation/', '')
+      const route = `${guide.path}`
       routes.push(route)
     }
 
