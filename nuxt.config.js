@@ -162,7 +162,7 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
     // https://github.com/nuxt-community/router-module
-    '@nuxtjs/router',
+    // '@nuxtjs/router',
     // https://github.com/nuxt/components
     // '@nuxt/components',
     // https://github.com/nuxt-community/google-fonts-module
@@ -175,9 +175,9 @@ export default {
     cssPath: '~/assets/css/tailwind.css',
     jit: true,
   },
-  routerModule: {
-    keepDefaultRouter: true,
-  },
+  // routerModule: {
+  //   keepDefaultRouter: true,
+  // },
   googleFonts: {
     display: 'swap',
     prefetch: true,

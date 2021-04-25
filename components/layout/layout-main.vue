@@ -13,7 +13,7 @@
           <ul class="p-4 lg:py-8 lg:pl-0 lg:pr-8">
             <transition name="fade">
               <h3
-                v-if="$route.name !== 'home'"
+                v-if="$route.name !== 'index'"
                 class="flex items-center px-3 py-1 mb-3 text-sm font-bold tracking-wider text-gray-500 uppercase transition-colors duration-300 border-gray-200 rounded-md cursor-pointer lg:text-xs group hover:border-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                 @click="backRoute ? $router.push(backRoute) : $router.push('/')"
               >

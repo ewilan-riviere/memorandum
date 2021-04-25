@@ -125,13 +125,6 @@
             v{{ settings.version }}
           </span>
           <div class="flex items-center">
-            <nuxt-link
-              v-tooltip="'About'"
-              to="/about"
-              class="px-2 text-gray-700 transition-colors duration-300 dark:text-gray-300 hover:text-primary-500 dark-hover:text-primary-500"
-            >
-              <icon name="info-circle" stroke />
-            </nuxt-link>
             <a
               v-tooltip="'Twitter'"
               :href="`https://twitter.com/${settings.twitter}`"

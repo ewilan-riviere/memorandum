@@ -9,14 +9,14 @@
       :key="pageKey"
       class="flex items-center justify-between px-3 py-2 mt-1 space-x-4 text-sm font-medium leading-5 text-gray-600 transition-colors duration-300 ease-in-out rounded-md cursor-pointer group hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:text-gray-900 focus:bg-gray-200"
       :class="{
-        'bg-gray-300 dark:bg-gray-800': page.label === $route.params.category,
+        'bg-gray-300 dark:bg-gray-800': pageKey === $route.params.subject,
       }"
       :to="{
-        name: 'type-slug',
+        name: 'category-subcategory-subject',
         params: {
-          title: $route.params.title,
-          type: $route.params.type,
-          category: pageKey,
+          category: $route.params.category,
+          subcategory: $route.params.subcategory,
+          subject: pageKey,
         },
       }"
     >
@@ -66,7 +66,9 @@ export default {
   },
   methods: {
     capitalizeFirstLetter(string) {
-      return string.charAt(0).toUpperCase() + string.slice(1)
+      if (string) {
+        return string.charAt(0).toUpperCase() + string.slice(1)
+      }
     },
     select(category, id) {
       this.selected = id

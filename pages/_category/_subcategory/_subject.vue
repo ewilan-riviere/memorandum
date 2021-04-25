@@ -163,7 +163,7 @@ export default {
   async asyncData({ $content, params }) {
     const [documents, categories] = await Promise.all([
       $content(
-        `documentation/${params.title}/${params.type}/${params.category}`,
+        `documentation/${params.category}/${params.subcategory}/${params.subject}`,
         {
           deep: true,
         }
@@ -178,7 +178,7 @@ export default {
         ])
         .sortBy('position')
         .fetch(),
-      $content(`documentation/${params.title}/${params.type}`, {
+      $content(`documentation/${params.category}/${params.subcategory}`, {
         deep: true,
       })
         .only(['title', 'path', 'hierarchy'])
@@ -200,15 +200,17 @@ export default {
   },
   data() {
     return {
-      subject: this.$route.params.category,
+      subject: this.$route.params.subject,
       switched: false,
     }
   },
 
   head() {
-    const title = `${this.$t(this.subject)} - ${this.$t(
-      this.$route.params.type
-    )}`
+    // const title = `${this.$t(this.subject)} - ${this.$t(
+    //   this.$route.params.type
+    // )}`
+    const title = ''
+
     return {
       title,
       meta: [
