@@ -15,6 +15,7 @@
                 params: {
                   title: categoryKey,
                   type: subCategoryName,
+                  category: subCategory[0].hierarchy.subject,
                 },
               }"
               class="flex items-center justify-between px-2 py-2 mt-1 space-x-2 text-sm font-medium leading-5 text-gray-600 transition-colors duration-100 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-800 focus:outline-none focus:text-gray-900 focus:bg-gray-200 dark:focus:bg-gray-700"

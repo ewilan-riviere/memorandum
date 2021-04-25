@@ -3,7 +3,7 @@
     <layout-main>
       <div slot="aside">
         <switch-categories
-          :pages="pages.entities"
+          :categories="categories"
           route-param="type"
           @select-category="selectCategory"
         ></switch-categories>
@@ -14,10 +14,10 @@
             <div class="flex items-center mb-3 space-x-3">
               <m-img
                 class="object-cover w-10 h-10"
-                :src="`/documentation/logo/${$slugify(currentPage.label)}.webp`"
+                :src="`/documentation/logo/${subject}.webp`"
               />
               <h1 class="text-4xl font-bold rounded-md font-quicksand w-max">
-                {{ currentEntity.label || currentEntity }}
+                {{ currentEntity.label || subject }}
               </h1>
             </div>
             <p
@@ -45,7 +45,7 @@
             class="overflow-hidden bg-white shadow dark:bg-gray-800 sm:rounded-md"
           >
             <ul class="divide-y divide-gray-200 dark:divide-gray-700">
-              <li v-for="(document, id) in currentPage.guides" :key="id">
+              <li v-for="(document, id) in documents" :key="id">
                 <nuxt-link
                   :to="document.path"
                   class="block transition-colors duration-100 hover:bg-gray-50 dark:hover:bg-gray-700"
@@ -116,7 +116,7 @@
 /* eslint-disable vue/no-unused-components */
 import SwitchCategories from '@/components/layout/switch-categories.vue'
 // eslint-disable-next-line no-unused-vars
-import groupBy from 'lodash/groupBy'
+import { groupBy } from 'lodash'
 import LayoutMain from '@/components/layout/layout-main.vue'
 import MImg from '~/components/special/m-img.vue'
 
@@ -127,141 +127,86 @@ export default {
     LayoutMain,
     MImg,
   },
-  async middleware({ app, params, route, $content, redirect }) {
-    if (route.params.category === undefined) {
-      const content = await $content(
-        `documentation/${params.title}/${params.type}`,
+  // async middleware({ app, params, route, $content, redirect }) {
+  //   if (route.params.category === undefined) {
+  //     const content = await $content(
+  //       `documentation/${params.title}/${params.type}`,
+  //       {
+  //         deep: true,
+  //       }
+  //     )
+  //       .only(['title', 'path'])
+  //       .fetch()
+
+  //     let categories = []
+  //     content.forEach((markdownFile) => {
+  //       const path = markdownFile.path.replace('/documentation/', '').split('/')
+  //       markdownFile.category = path[2]
+  //       const Page = path[2]
+  //       if (!categories.includes(Page)) {
+  //         categories.push(Page)
+  //       }
+  //     })
+  //     categories = categories.sort()
+  //     const category = categories[0]
+
+  //     redirect({
+  //       name: 'type-slug',
+  //       params: {
+  //         title: route.params.title,
+  //         type: route.params.type,
+  //         category,
+  //       },
+  //     })
+  //   }
+  // },
+  async asyncData({ $content, params }) {
+    const [documents, categories] = await Promise.all([
+      $content(
+        `documentation/${params.title}/${params.type}/${params.category}`,
         {
           deep: true,
         }
       )
-        .only(['title', 'path'])
-        .fetch()
-
-      let categories = []
-      content.forEach((markdownFile) => {
-        const path = markdownFile.path.replace('/documentation/', '').split('/')
-        markdownFile.category = path[2]
-        const Page = path[2]
-        if (!categories.includes(Page)) {
-          categories.push(Page)
-        }
-      })
-      categories = categories.sort()
-      const category = categories[0]
-
-      redirect({
-        name: 'type-slug',
-        params: {
-          title: route.params.title,
-          type: route.params.type,
-          category,
-        },
-      })
-    }
-  },
-  async asyncData({ $content, params }) {
-    const content = await $content(
-      `documentation/${params.title}/${params.type}`,
-      {
+        .only([
+          'title',
+          'description',
+          'path',
+          'readingTime',
+          'createdAt',
+          'position',
+        ])
+        .sortBy('position')
+        .fetch(),
+      $content(`documentation/${params.title}/${params.type}`, {
         deep: true,
-      }
-    )
-      .only([
-        'title',
-        'description',
-        'path',
-        'readingTime',
-        'createdAt',
-        'position',
-      ])
-      .sortBy('position')
-      .fetch()
-
-    let pages = []
-    // get main categories like Frameworks, Languages...
-    // define category and entity for each file
-    content.forEach((markdownFile) => {
-      const path = markdownFile.path.replace('/documentation/', '').split('/')
-      markdownFile.category = path[1]
-      markdownFile.entity = path[2]
-      const Page = {
-        label: path[1],
-        title: markdownFile.title,
-        entities: [],
-        number: 0,
-      }
-      pages.pushIfNotExist(Page, function (e) {
-        return e.label === Page.label
       })
-    })
+        .only(['title', 'path', 'hierarchy'])
+        .fetch(),
+    ])
 
-    // alphabetic sorting
-    pages.sort((a, b) => (a.label > b.label ? 1 : -1))
-
-    // if 'frameworks' from pages.label === 'frameworks' of file category
-    // add entity name like 'flutter' to 'entities' if not exist in this array
-    content.forEach((markdownFile) => {
-      for (let i = 0; i < pages.length; i++) {
-        const page = pages[i]
-        if (page.label === markdownFile.category) {
-          const entity = {
-            label: markdownFile.entity,
-            title: markdownFile.title,
-            path: markdownFile.path,
-            position: markdownFile.position,
-            createdAt: markdownFile.createdAt,
-            guides: [],
-          }
-          page.entities.pushIfNotExist(entity, function (e) {
-            return e.label === entity.label
-          })
-        }
-        // push each file in category and entity
-        page.entities.forEach((entity) => {
-          if (entity.label === markdownFile.entity) {
-            entity.guides.push(markdownFile)
-          }
-        })
-        page.entities.sort((a, b) => (a.label > b.label ? 1 : -1))
-      }
-    })
-
-    // set number of guides for each type
-    pages.forEach((page) => {
-      let pageNb = 0
-      for (let i = 0; i < page.entities.length; i++) {
-        const entities = page.entities[i]
-        pageNb += entities.guides.length
-      }
-      page.number = pageNb
-    })
-    pages = pages[0]
-
-    pages.entities.forEach((pageEntity) => {
-      pageEntity.number = pageEntity.guides.length
-    })
-    // eslint-disable-next-line no-unused-vars
-    const currentPage = pages.entities.find(
-      (page) => page.label === params.category
-    )
-    currentPage.guides.sort((a, b) =>
-      a.position > b.position ? 1 : b.position > a.position ? -1 : 0
-    )
+    const newCategories = groupBy(categories, 'hierarchy.subject')
+    const categoriesOrdered = Object.keys(newCategories)
+      .sort()
+      .reduce((obj, key) => {
+        obj[key] = newCategories[key]
+        return obj
+      }, {})
 
     return {
-      pages,
-      currentPage,
+      documents,
+      categories: categoriesOrdered,
     }
   },
   data() {
     return {
-      currentOpened: null,
+      subject: this.$route.params.category,
       switched: false,
     }
   },
+
   head() {
-    const title = `${this.$t(this.currentPage.label)} - ${this.$t(
+    const title = `${this.$t(this.subject)} - ${this.$t(
       this.$route.params.type
     )}`
     return {
@@ -300,9 +245,10 @@ export default {
       ],
     }
   },
+
   computed: {
     currentEntity() {
-      return this.$getEntity(this.currentPage.label)
+      return this.$getEntity(this.$route.params.category)
     },
   },
   methods: {

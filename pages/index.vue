@@ -55,9 +55,25 @@ export default {
         if (Object.hasOwnProperty.call(categories, key)) {
           const category = categories[key]
           const subCategories = groupBy(category, 'hierarchy.subCategory')
-          categories[key] = subCategories
+          const subCategoriesOrdered = Object.keys(subCategories)
+            .sort()
+            .reduce((obj, key) => {
+              obj[key] = subCategories[key]
+              return obj
+            }, {})
+          categories[key] = subCategoriesOrdered
         }
       }
+
+      const categoriesOrdered = Object.keys(categories)
+        .sort()
+        .reduce((obj, key) => {
+          obj[key] = categories[key]
+          return obj
+        }, {})
+
+      categories = categoriesOrdered
+      // console.log(categories)
 
       store.commit('setCategories', categories)
     } else {
