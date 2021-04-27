@@ -18,7 +18,7 @@
       </div>
       <div slot="title">
         <p
-          class="text-base font-semibold leading-6 tracking-wide text-center text-indigo-600 uppercase"
+          class="text-base font-semibold leading-6 tracking-wide text-center text-indigo-600 uppercase dark:text-indigo-400"
         >
           {{ document.category }}
         </p>
@@ -40,7 +40,7 @@
                 class="relative mx-auto mb-6 text-lg font-medium leading-7 md:flex-grow max-w-prose"
               >
                 <svg
-                  class="absolute top-0 left-0 w-8 h-8 text-gray-200 transform -translate-y-2"
+                  class="absolute top-0 left-0 w-8 h-8 text-gray-200 transform -translate-y-2 dark:text-gray-600"
                   fill="currentColor"
                   viewBox="0 0 32 32"
                 >
@@ -54,7 +54,7 @@
                 ></p>
               </div>
               <div class="flex items-center justify-between my-1 text-gray-600">
-                <div class="flex items-center">
+                <div v-if="document.readingTime" class="flex items-center">
                   <icon name="clock" stroke class="mr-1" />
                   {{ document.readingTime.text }}
                 </div>
@@ -206,13 +206,16 @@ export default {
   computed: {
     image() {
       let image = this.document.dir
-      image = image.split('/')
-      image = image[image.length - 1]
-      if (image.length === 0) {
-        if (this.document.banner === 'default') {
-          return false
+      if (image) {
+        image = image.split('/')
+        image = image[image.length - 1]
+        if (image.length === 0) {
+          if (this.document.banner === 'default') {
+            return false
+          }
         }
       }
+
       return image
     },
     displaySidebar() {

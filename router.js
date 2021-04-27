@@ -18,7 +18,7 @@ export function createRouter() {
       },
       {
         name: 'type-slug',
-        path: '/:title/:type/:category?',
+        path: '/:category/:subcategory/:subject',
         component: TypeSlug,
       },
       {

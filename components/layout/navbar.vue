@@ -9,7 +9,7 @@
             <button
               v-click-outside="hide"
               aria-label="Menu"
-              class="p-2 mr-2 text-gray-700 transition-colors duration-300 rounded-md lg:hidden dark:text-gray-300 hover:bg-gray-300 focus:outline-none"
+              class="p-2 mr-2 text-gray-700 transition-colors duration-300 rounded-md lg:hidden dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 focus:outline-none"
               @click="openSidebar()"
             >
               <icon name="menu-design" :size="30" />
@@ -125,13 +125,6 @@
             v{{ settings.version }}
           </span>
           <div class="flex items-center">
-            <nuxt-link
-              v-tooltip="'About'"
-              to="/about"
-              class="px-2 text-gray-700 transition-colors duration-300 dark:text-gray-300 hover:text-primary-500 dark-hover:text-primary-500"
-            >
-              <icon name="info-circle" stroke />
-            </nuxt-link>
             <a
               v-tooltip="'Twitter'"
               :href="`https://twitter.com/${settings.twitter}`"

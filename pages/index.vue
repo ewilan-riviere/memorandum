@@ -2,7 +2,7 @@
   <div>
     <layout-main>
       <div slot="aside">
-        <nav-pages :pages="pages" route-param="type"></nav-pages>
+        <nav-pages :categories="categories" route-param="type"></nav-pages>
       </div>
       <div slot="main">
         <article class="relative pb-10 overflow-hidden bg-white">
@@ -37,15 +37,52 @@
 </template>
 
 <script>
-import { getPages } from '~/plugins/pages'
+import { groupBy } from 'lodash'
 
 export default {
   name: 'HomeIndex',
-  async asyncData({ $content, $store }) {
+  async asyncData({ $content, store }) {
     const welcome = await $content('welcome', { deep: true }).fetch()
+    let categories = {}
+    if (!store.state.categories) {
+      const documents = await $content('documentation', { deep: true })
+        .only(['title', 'path', 'hierarchy'])
+        .fetch()
+      categories = {}
+      categories = groupBy(documents, 'hierarchy.category')
+
+      for (const key in categories) {
+        if (Object.hasOwnProperty.call(categories, key)) {
+          const category = categories[key]
+          const subCategories = groupBy(category, 'hierarchy.subCategory')
+          const subCategoriesOrdered = Object.keys(subCategories)
+            .sort()
+            .reduce((obj, key) => {
+              obj[key] = subCategories[key]
+              return obj
+            }, {})
+          categories[key] = subCategoriesOrdered
+        }
+      }
+
+      const categoriesOrdered = Object.keys(categories)
+        .sort()
+        .reduce((obj, key) => {
+          obj[key] = categories[key]
+          return obj
+        }, {})
+
+      categories = categoriesOrdered
+      // console.log(categories)
+
+      store.commit('setCategories', categories)
+    } else {
+      categories = store.state.categories
+    }
 
     return {
       welcome,
+      categories,
     }
   },
   data() {
@@ -64,12 +101,6 @@ export default {
           href: `${process.env.APP_URL}`,
         },
       ],
-    }
-  },
-  async created() {
-    await getPages(this.$content, this.$store)
-    if (this.$store.state.pages) {
-      this.pages = this.$store.state.pages
     }
   },
 }

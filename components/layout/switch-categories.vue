@@ -5,18 +5,18 @@
 -->
   <nav>
     <nuxt-link
-      v-for="(page, pageId) in pages"
-      :key="pageId"
+      v-for="(page, pageKey) in categories"
+      :key="pageKey"
       class="flex items-center justify-between px-3 py-2 mt-1 space-x-4 text-sm font-medium leading-5 text-gray-600 transition-colors duration-300 ease-in-out rounded-md cursor-pointer group hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:text-gray-900 focus:bg-gray-200"
       :class="{
-        'bg-gray-300 dark:bg-gray-800': page.label === $route.params.category,
+        'bg-gray-300 dark:bg-gray-800': pageKey === $route.params.subject,
       }"
       :to="{
-        name: 'type-slug',
+        name: 'category-subcategory-subject',
         params: {
-          title: $route.params.title,
-          type: $route.params.type,
-          category: page.label,
+          category: $route.params.category,
+          subcategory: $route.params.subcategory,
+          subject: pageKey,
         },
       }"
     >
@@ -29,17 +29,16 @@
       <div class="flex items-center space-x-2">
         <m-img
           class="object-cover w-6 h-6"
-          :src="`/documentation/logo/${$slugify(page.label)}.webp`"
+          :src="`/documentation/logo/${pageKey}.webp`"
         />
         <span class="font-semibold truncate">
-          {{ $t(page.label) }}
+          {{ $t(pageKey) }}
         </span>
       </div>
       <span
-        v-if="page.number"
         class="ml-auto inline-block py-0.5 px-3 text-xs leading-4 rounded-full text-gray-600 bg-gray-200 dark:bg-gray-600 dark:group-hover:bg-gray-700 dark:text-gray-200 group-hover:bg-gray-200 group-focus:bg-gray-300 transition ease-in-out duration-150"
       >
-        {{ page.number }}
+        {{ page.length }}
       </span>
     </nuxt-link>
   </nav>
@@ -51,9 +50,9 @@ export default {
   name: 'NavPages',
   components: { mImg },
   props: {
-    pages: {
-      type: Array,
-      default: () => [],
+    categories: {
+      type: Object,
+      default: () => {},
     },
     routeParam: {
       type: String,
@@ -67,7 +66,9 @@ export default {
   },
   methods: {
     capitalizeFirstLetter(string) {
-      return string.charAt(0).toUpperCase() + string.slice(1)
+      if (string) {
+        return string.charAt(0).toUpperCase() + string.slice(1)
+      }
     },
     select(category, id) {
       this.selected = id

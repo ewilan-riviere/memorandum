@@ -1,14 +1,14 @@
 import { getRoutes, getContentRoutes } from './plugins/sitemaps/sitemap'
-// import { getGeneratedRoutes } from './plugins/routes/routes'
+import { getGeneratedRoutes } from './plugins/routes/routes'
 require('dotenv').config()
 
 export default {
-  ssr: true,
-  target: 'server',
-  // generate: {
-  //   crawler: true,
-  //   routes: getGeneratedRoutes,
-  // },
+  // ssr: true,
+  target: 'static',
+  generate: {
+    crawler: true,
+    routes: getGeneratedRoutes,
+  },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'Documentation',
@@ -138,7 +138,6 @@ export default {
     { src: '~/plugins/vue-scrollto' },
     // https://michalsnik.github.io/aos/
     // { src: '~/plugins/aos', ssr: false },
-    { src: '~/plugins/vue-perfect-scrollbar', ssr: false },
     // https://github.com/Akryum/v-tooltip
     { src: '~/plugins/v-tooltip', ssr: false },
     // https://github.com/eddiemf/vue-scrollactive
@@ -163,7 +162,7 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
     // https://github.com/nuxt-community/router-module
-    '@nuxtjs/router',
+    // '@nuxtjs/router',
     // https://github.com/nuxt/components
     // '@nuxt/components',
     // https://github.com/nuxt-community/google-fonts-module
@@ -176,9 +175,9 @@ export default {
     cssPath: '~/assets/css/tailwind.css',
     jit: true,
   },
-  routerModule: {
-    keepDefaultRouter: true,
-  },
+  // routerModule: {
+  //   keepDefaultRouter: true,
+  // },
   googleFonts: {
     display: 'swap',
     prefetch: true,
@@ -271,6 +270,20 @@ export default {
         const stats = readingTime(document.text)
 
         document.readingTime = stats
+
+        if (document.path.includes('documentation')) {
+          let path = document.path
+          path = path.split('/')
+          path.shift()
+          path.shift()
+          path.pop()
+          const hierarchy = {
+            category: path[0],
+            subCategory: path[1],
+            subject: path[2],
+          }
+          document.hierarchy = hierarchy
+        }
       }
     },
   },
