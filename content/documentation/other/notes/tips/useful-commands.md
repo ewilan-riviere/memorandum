@@ -13,6 +13,30 @@ Linux change PHP version
 sudo update-alternatives --config php
 ```
 
+## MySQL
+
+<code-group>
+  <code-block label="MySQL" active>
+
+  ```sql[mysql]
+  CREATE DATABASE my_project_database;
+  CREATE USER 'my_project_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'secret_password';
+  GRANT ALL ON my_project_database.* TO 'my_project_user'@'localhost';
+  ```
+
+  </code-block>
+  <code-block label="Debian">
+
+  ```sql[mariadb]
+  CREATE DATABASE `my_project_database`;
+  CREATE USER 'my_project_user'@localhost IDENTIFIED BY 'super_secret_password';
+  GRANT ALL privileges ON my_project_database.* TO 'my_project_user'@localhost;
+  FLUSH PRIVILEGES;
+  ```
+
+  </code-block>
+</code-group>
+
 ## Laravel
 
 Create `.env`
@@ -93,15 +117,6 @@ php artisan ide-helper:generate ; php artisan ide-helper:models --nowrite; php a
 
 ```bash
 ./vendor/bin/php-cs-fixer fix
-```
-
-## MySQL database
-
-```sql
-CREATE DATABASE database_project;
-SET GLOBAL validate_password.policy=LOW;
-CREATE USER 'user_project'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password_secret';
-GRANT ALL ON database_project.* TO 'user_project'@'localhost';
 ```
 
 ## Scoop update
