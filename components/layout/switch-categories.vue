@@ -7,7 +7,7 @@
     <nuxt-link
       v-for="(page, pageKey) in categories"
       :key="pageKey"
-      class="flex items-center justify-between px-3 py-2 mt-1 space-x-4 text-sm font-medium leading-5 text-gray-600 transition-colors duration-300 ease-in-out rounded-md cursor-pointer group hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:text-gray-900 focus:bg-gray-200"
+      class="flex items-center justify-between h-12 px-3 py-2 mt-1 space-x-4 text-sm font-medium leading-5 text-gray-600 transition-colors duration-300 ease-in-out rounded-md cursor-pointer group hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:text-gray-900 focus:bg-gray-200"
       :class="{
         'bg-gray-300 dark:bg-gray-800': pageKey === $route.params.subject,
       }"
@@ -20,17 +20,13 @@
         },
       }"
     >
-      <!-- <icon
-        :name="`nav-${$slugify(page.label)}`"
-        class="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-gray-500 transition duration-150 ease-in-out group-focus:text-gray-500"
-        :size="26"
-        default="nav-default"
-      /> -->
       <div class="flex items-center space-x-2">
-        <m-img
-          class="object-cover w-6 h-6"
-          :src="`/documentation/logo/${pageKey}.webp`"
-        />
+        <div class="w-6 aspect-w-1 aspect-h-1">
+          <m-img
+            class="object-contain"
+            :src="`/documentation/logo/${pageKey}.webp`"
+          />
+        </div>
         <span class="font-semibold truncate">
           {{ $t(pageKey) }}
         </span>

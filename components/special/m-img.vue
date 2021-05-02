@@ -1,6 +1,6 @@
 <template>
   <client-only>
-    <img :src="src" :alt="`${name} picture`" @error="imgError" />
+    <img :src="image" :alt="`${name}`" />
   </client-only>
 </template>
 
@@ -17,22 +17,26 @@ export default {
       default: false,
     },
   },
+  data() {
+    return {
+      defaultLogo: '/documentation/logo/guides.webp',
+      defaultBanner: '/images/default.webp',
+    }
+  },
   computed: {
+    image() {
+      try {
+        return require(`~/static${this.src}`)
+      } catch (e) {
+        return this.defaultLogo
+      }
+    },
     name() {
       let name = this.src.split('/')
       name = name[name.length - 1]
       name = name.split('.')
       name = name[0]
       return name
-    },
-  },
-  methods: {
-    imgError(event) {
-      if (this.default) {
-        event.target.src = require(`~/static/images/default.webp`)
-      } else {
-        event.target.src = require(`~/static/documentation/logo/guides.webp`)
-      }
     },
   },
 }

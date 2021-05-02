@@ -23,7 +23,7 @@
           {{ document.category }}
         </p>
         <h1
-          class="mt-2 mb-8 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-800 sm:text-4xl sm:leading-10"
+          class="mt-2 mb-8 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-800 sm:text-4xl sm:leading-10 dark:text-gray-200"
         >
           {{ document.title }}
         </h1>
@@ -49,11 +49,13 @@
                   />
                 </svg>
                 <p
-                  class="relative pl-3 text-xl leading-8 text-gray-500"
+                  class="relative pl-3 text-xl leading-8 text-gray-500 dark:text-gray-400"
                   v-html="document.description"
                 ></p>
               </div>
-              <div class="flex items-center justify-between my-1 text-gray-600">
+              <div
+                class="flex items-center justify-between my-1 text-gray-600 dark:text-gray-400"
+              >
                 <div v-if="document.readingTime" class="flex items-center">
                   <icon name="clock" stroke class="mr-1" />
                   {{ document.readingTime.text }}
@@ -65,7 +67,6 @@
               </div>
               <div class="mx-auto mt-5 prose prose-lg text-gray-500">
                 <client-only>
-                  <!-- <nuxt-content :document="document" /> -->
                   <display-document :document="document" />
                 </client-only>
               </div>

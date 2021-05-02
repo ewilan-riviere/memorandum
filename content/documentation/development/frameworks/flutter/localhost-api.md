@@ -7,6 +7,15 @@ category: 'Flutter'
 
 Flutter cannot communication directly with a Vhost, the app need a online API, like <https://jsonplaceholder.typicode.com> and **NOT** <http://laravel-app.localhost> (a supposed Vhost with NGINX or Apache2 for example). To communicate with localhost API, you need to use tunnelling service like **ngrok** or **expose**.
 
+## Easy way
+
+You can use `10.0.2.2` to replace `locahost`, just like that. Here you have an example with Laravel localhost
+
+```dart
+String _api = 'http://10.0.2.2:8000/api'
+// Instead of 'http://localhost:8000/api'
+```
+
 ## ngrok
 
 To use API with Flutter app, you can't directly use localhost VHost, it's necessary to use [**ngrok**](https://ngrok.com) (you need to create free account to get auth token).

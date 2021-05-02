@@ -57,7 +57,7 @@ export default {
 .alert a {
   @apply text-gray-700 !important;
 }
-.dark-mode .alert a {
+.dark .alert a {
   @apply text-gray-300 !important;
 }
 
@@ -83,13 +83,13 @@ export default {
 .alert-info .alert-content {
   @apply text-blue-700;
 }
-.dark-mode .alert-info {
+.dark .alert-info {
   @apply bg-blue-900 border-blue-700;
 }
-.dark-mode .alert-info code {
+.dark .alert-info code {
   @apply bg-blue-800;
 }
-.dark-mode .alert-info .alert-content {
+.dark .alert-info .alert-content {
   @apply text-blue-300;
 }
 
@@ -107,13 +107,13 @@ export default {
 .alert-success .alert-content {
   @apply text-green-700;
 }
-.dark-mode .alert-success {
+.dark .alert-success {
   @apply bg-green-900 border-green-700;
 }
-.dark-mode .alert-success code {
+.dark .alert-success code {
   @apply bg-green-800;
 }
-.dark-mode .alert-success .alert-content {
+.dark .alert-success .alert-content {
   @apply text-green-300;
 }
 
@@ -131,13 +131,13 @@ export default {
 .alert-warning .alert-content {
   @apply text-yellow-700;
 }
-.dark-mode .alert-warning {
+.dark .alert-warning {
   @apply bg-yellow-900 border-yellow-700;
 }
-.dark-mode .alert-warning code {
+.dark .alert-warning code {
   @apply bg-yellow-800;
 }
-.dark-mode .alert-warning .alert-content {
+.dark .alert-warning .alert-content {
   @apply text-yellow-300;
 }
 
@@ -155,13 +155,13 @@ export default {
 .alert-danger .alert-content {
   @apply text-red-700;
 }
-.dark-mode .alert-danger {
+.dark .alert-danger {
   @apply bg-red-900 border-red-700;
 }
-.dark-mode .alert-danger code {
+.dark .alert-danger code {
   @apply bg-red-800;
 }
-.dark-mode .alert-danger .alert-content {
+.dark .alert-danger .alert-content {
   @apply text-red-300;
 }
 </style>

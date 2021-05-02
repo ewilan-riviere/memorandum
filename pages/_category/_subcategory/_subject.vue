@@ -250,7 +250,7 @@ export default {
 
   computed: {
     currentEntity() {
-      return this.$getEntity(this.$route.params.category)
+      return this.$getEntity(this.$route.params.subject)
     },
   },
   methods: {
