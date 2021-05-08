@@ -92,6 +92,8 @@ Don't login with Google to Medium, just delete cookies when you reach limit, you
 - [**FR: Widget, State et Context**](https://www.didierboelens.com/fr/2018/06/widget-state-context-inheritedwidget)
 - [**Improve your Flutter app performance: split your widgets**](https://medium.com/flutter-community/improve-your-flutter-app-performance-split-your-widgets-935f97e93f7d)
 - [**My November Recommendations for Flutter Packages**](https://medium.com/better-programming/discover-flutter-november-recommendation-for-flutter-packages-4b7cb2470323)
+- [**medium.com/flutter-community/flutter-code-organization-revised**](https://medium.com/flutter-community/flutter-code-organization-revised-b09ad5cef7f6) by **Conner Aldrich** (from Dec 15, 2019)
+- [**github.com/ConProgramming/flutter-example**](https://github.com/ConProgramming/flutter-example) : GitHub example
 
 ## Features
 

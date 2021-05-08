@@ -1,5 +1,5 @@
 ---
-title: Communication with localhost API
+title: API with localhost
 description: ''
 position: 4
 category: 'Flutter'
