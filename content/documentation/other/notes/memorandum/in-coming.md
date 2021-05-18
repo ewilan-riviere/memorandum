@@ -178,3 +178,17 @@ FOR /F "tokens=*" %G IN ('dir /b *') DO ffmpeg -i "%G" "%~nG.webp"
 ```bash
 youtube-dl -x --audio-format mp3 URL
 ```
+
+---
+
+```bash
+Fatal: fast forward aborting
+
+git merge origin/master
+```
+
+Stuck in rebase
+
+```bash
+git rebase --skip
+```
