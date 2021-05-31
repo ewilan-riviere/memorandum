@@ -31,3 +31,16 @@ flutter clean ; rm -Rf ios/Pods ; rm -Rf ios/.symlinks ; rm -Rf ios:Flutter/Flut
 In Xcode, select **Runner**, select **TARGETS/Runner**, select **Build phases**, open **Copy Bundle Resources** and remove **Runner.app** if you find it into list of files.
 
 In project navigator, find `Runner/Info.plist`, open it and, at *right* side you have to see **Target membership**, uncheck Runner if checked.
+
+## Raw
+
+- [https://openclassrooms.com](https://openclassrooms.com/fr/courses/2582746-developpez-votre-premiere-application-pour-ios/3854466-profils-certificats-ids-ca-veut-dire-quoi)
+- [https://help.apple.com/xcode](https://help.apple.com/xcode/mac/current/#/dev3a05256b8)
+- Keychain Access->Request a Certificate From a Certificate Authorithy
+  - email: apple developper account
+  - Save on disk: name.certSigninRequest
+- on [developer.apple.com](https://developer.apple.com)->Certificates->Add button
+  - Apple Development->upload name.certSigninRequest->Download development.cer->click on it to add to Keychain Access
+  - Apple Distributtion->upload name.certSigninRequest->Download distribution.cer->click on it to add to Keychain Access
+- Invalid signature
+  - Build Settings->Build Options: `Enable Bitcode = Yes`
