@@ -39,6 +39,7 @@ module.exports = {
   php: { label: 'PHP' },
 
   linux: { label: 'Linux' },
+  macos: { label: 'macOS' },
   mail: { label: 'E-mail' },
   'nas-synology': { label: 'NAS Synology' },
   raspberry: { label: 'Raspberry' },

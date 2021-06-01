@@ -206,10 +206,9 @@ export default {
   },
 
   head() {
-    // const title = `${this.$t(this.subject)} - ${this.$t(
-    //   this.$route.params.type
-    // )}`
-    const title = ''
+    const title = `${this.$t(this.subject)} - ${this.$t(
+      this.$route.params.subcategory
+    )}`
 
     return {
       title,
