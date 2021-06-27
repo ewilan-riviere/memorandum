@@ -5,7 +5,7 @@ position: 1
 category: 'Git'
 ---
 
-<md-img source="cheatsheet.webp" from="https://elijahmanor.com/blog/git-branch"></md-img>
+<app-img source="cheatsheet.webp" from="https://elijahmanor.com/blog/git-branch"></app-img>
 
 ## New config
 

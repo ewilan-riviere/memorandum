@@ -22,7 +22,13 @@
             </div>
             <p
               v-if="currentEntity.description"
-              class="max-w-full italic prose prose-lg hyphenate dark:text-gray-400"
+              class="
+                max-w-full
+                italic
+                prose prose-lg
+                hyphenate
+                dark:text-gray-400
+              "
             >
               {{ currentEntity.description }}
             </p>
@@ -35,20 +41,39 @@
                 :href="currentEntity.url"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="block ml-1 transition-colors duration-100 border-b border-black hover:text-gray-400 hover:border-gray-400"
+                class="
+                  block
+                  ml-1
+                  transition-colors
+                  duration-100
+                  border-b border-black
+                  hover:text-gray-400 hover:border-gray-400
+                "
               >
                 {{ getDomain(currentEntity.url) }}
               </a>
             </div>
           </div>
           <div
-            class="overflow-hidden bg-white shadow dark:bg-gray-800 sm:rounded-md"
+            class="
+              overflow-hidden
+              bg-white
+              shadow
+              dark:bg-gray-800
+              sm:rounded-md
+            "
           >
             <ul class="divide-y divide-gray-200 dark:divide-gray-700">
               <li v-for="(document, id) in documents" :key="id">
                 <nuxt-link
                   :to="document.path"
-                  class="block transition-colors duration-100 hover:bg-gray-50 dark:hover:bg-gray-700"
+                  class="
+                    block
+                    transition-colors
+                    duration-100
+                    hover:bg-gray-50
+                    dark:hover:bg-gray-700
+                  "
                 >
                   <div class="flex items-center px-4 py-4 sm:px-6">
                     <div class="flex items-center flex-1 min-w-0">
@@ -64,7 +89,13 @@
                       >
                         <div class="flex items-center justify-between">
                           <h2
-                            class="text-base font-medium text-indigo-600 truncate dark:text-indigo-300"
+                            class="
+                              text-base
+                              font-medium
+                              text-indigo-600
+                              truncate
+                              dark:text-indigo-300
+                            "
                           >
                             {{ id + 1 }}.
                             {{ document.title }}
@@ -78,7 +109,11 @@
                         </div>
 
                         <div
-                          class="text-sm text-gray-500 dark:text-gray-300 line-clamp-1"
+                          class="
+                            text-sm text-gray-500
+                            dark:text-gray-300
+                            line-clamp-1
+                          "
                         >
                           {{ document.description }}
                         </div>

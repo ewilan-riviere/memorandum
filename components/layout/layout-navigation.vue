@@ -3,7 +3,7 @@
     <div v-if="$store.state.layerVisible">
       <div
         :class="$store.state.sidebarOpened ? 'opacity-75' : 'opacity-0'"
-        class="fixed inset-0 z-40 transition-opacity duration-300 bg-black"
+        class="fixed inset-0 z-40 transition-opacity duration-100 bg-black"
       ></div>
     </div>
     <navbar class="fixed z-30 block w-full h-16 navbar"></navbar>
@@ -12,9 +12,11 @@
 
 <script>
 import ClickOutside from 'vue-click-outside'
+import navbar from './navbar.vue'
 
 export default {
   name: 'LayoutNavigation',
+  components: { navbar },
   directives: {
     ClickOutside,
   },

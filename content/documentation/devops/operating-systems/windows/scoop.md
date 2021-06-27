@@ -5,7 +5,7 @@ position: 1
 category: 'Windows'
 ---
 
-<md-img source="scoop.webp"></md-img>
+<app-img source="scoop.webp"></app-img>
 
 **scoop** is a command-line install for Windows, it's very close to **APT** on Linux if you know it. With this tool, you can install easily many packages directly from your PowerShell terminal, check [**scoop.sh**](https://scoop.sh): to get more informations.
 

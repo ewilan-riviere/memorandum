@@ -57,7 +57,7 @@ android {
 
 - From [**en.wikipedia.org/wiki/List_of_iOS_and_iPadOS_devices**](https://en.wikipedia.org/wiki/List_of_iOS_and_iPadOS_devices)
 
-<md-img source="ios-versions.webp"></md-img>
+<app-img source="ios-versions.webp"></app-img>
 
 | Gen  | Model                                       | Life (Released - Discontinued)  |
 | :--- | :------------------------------------------ | :------------------------------ |

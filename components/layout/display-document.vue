@@ -6,7 +6,7 @@
 
 <script>
 import Vue from 'vue'
-import AppCopyButton from '@/components/global/markdown/copy-button'
+import AppCopyButton from '@/components/common/markdown/copy-button'
 export default {
   name: 'DisplayDocument',
   props: {

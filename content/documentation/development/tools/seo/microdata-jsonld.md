@@ -9,9 +9,9 @@ category: 'SEO'
 
 Microdata and JSON-LD (JavaScript Object Notation for Linked Data) are both are two sides of the same coin: it's **rich snippets**. JSON-LD is officially support by Google but theoretically microdata can work too. Browser not support it, it's only for search engines. JSON-LD is very useful to increase viewers for a blog post, a restaurant, etc... because use can check in search engine if this page can be useful.
 
-<md-img source="imdb.webp" zoom legend="Search on google about 'imdb' with website structure."></md-img>
+<app-img source="imdb.webp" zoom legend="Search on google about 'imdb' with website structure."></app-img>
 
-<md-img source="imdb-details.webp" zoom legend="Search about 'imdb avatar' with some metadata about article."></md-img>
+<app-img source="imdb-details.webp" zoom legend="Search about 'imdb avatar' with some metadata about article."></app-img>
 
 ## Documentation
 

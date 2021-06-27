@@ -9,7 +9,7 @@
           <div class="relative px-4 sm:px-6 lg:px-8">
             <div class="mx-auto prose prose-lg text-gray-500">
               <img
-                src="/open-graph.jpg"
+                src="/default.jpg"
                 class="light-img"
                 width="1280"
                 height="640"
@@ -38,9 +38,13 @@
 
 <script>
 import { groupBy } from 'lodash'
+import layoutMain from '~/components/layout/layout-main.vue'
+import NavPages from '~/components/layout/nav-pages.vue'
+import DisplayDocument from '~/components/layout/display-document.vue'
 
 export default {
   name: 'HomeIndex',
+  components: { layoutMain, NavPages, DisplayDocument },
   async asyncData({ $content, store }) {
     const welcome = await $content('welcome', { deep: true }).fetch()
     let categories = {}
@@ -98,7 +102,7 @@ export default {
       link: [
         {
           rel: 'canonical',
-          href: `${process.env.APP_URL}`,
+          href: `${process.env.BASE_URL}`,
         },
       ],
     }

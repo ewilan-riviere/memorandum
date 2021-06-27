@@ -8,7 +8,15 @@
       <li v-for="(guide, guideId) in guides" :key="guideId">
         <nuxt-link
           :to="guide.path"
-          class="block transition duration-300 ease-in-out hover:bg-gray-200 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-50"
+          class="
+            block
+            transition
+            duration-100
+            ease-in-out
+            hover:bg-gray-200
+            dark:hover:bg-gray-900
+            focus:outline-none focus:bg-gray-50
+          "
         >
           <div class="flex items-center px-4 py-4 sm:px-6">
             <div class="flex items-center flex-1 min-w-0">
@@ -25,13 +33,20 @@
               <div class="min-w-0 px-4">
                 <div>
                   <div
-                    class="text-lg font-medium leading-5 text-indigo-600 truncate dark:text-indigo-300"
+                    class="
+                      text-lg
+                      font-medium
+                      leading-5
+                      text-indigo-600
+                      truncate
+                      dark:text-indigo-300
+                    "
                   >
                     <span>{{ guideId + 1 }}.</span>
                     <span>{{ guide.title }}</span>
                   </div>
                   <div class="flex items-center my-1 text-gray-600">
-                    <icon name="clock" stroke class="mr-1" />
+                    <svg-icon name="clock" class="w-6 h-6 mr-1" />
                     {{ guide.readingTime.text }}
                   </div>
                   <div>

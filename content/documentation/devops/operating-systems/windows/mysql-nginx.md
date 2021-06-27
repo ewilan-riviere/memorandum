@@ -33,7 +33,7 @@ sudo mysqld --install MySQL --defaults-file="C:\Users\username\scoop\apps\mysql\
 
 Open **Task Manager** and find **Services** tab, search **MySQL**, click right on it to **start** this **Service**
 
-<md-img source="task-manager.webp"></md-img>
+<app-img source="task-manager.webp"></app-img>
 
 ### Create new user
 
@@ -84,7 +84,7 @@ sudo nssm install nginx
 
 You will have a window to create new service, two input will be important: **Path**
 
-<md-img source="nssm-nginx.png"></md-img>
+<app-img source="nssm-nginx.png"></app-img>
 
 For **Path**, get **path** of **current** **nginx**, in this example change `username`
 
@@ -106,7 +106,7 @@ sudo nssm restart nginx
 
 In any browser, at <http://localhost>, you have to see **NGINX welcome** page:
 
-<md-img source="nginx-welcome.png"></md-img>
+<app-img source="nginx-welcome.png"></app-img>
 
 ## phpMyAdmin
 
@@ -206,7 +206,7 @@ sudo nssm restart nginx
 
 In any browser, at <http://localhost/phpmyadmin>, you have to see **phpMyAdmin welcome** page:
 
-<md-img source="pma-welcome.png" legend="Welcome page of phpMyAdmin"></md-img>
+<app-img source="pma-welcome.png" legend="Welcome page of phpMyAdmin"></app-img>
 
 ### Configure phpMyAdmin (optional)
 

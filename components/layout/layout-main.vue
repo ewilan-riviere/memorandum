@@ -5,16 +5,52 @@
     </sidebar>
     <div class="relative flex flex-wrap">
       <aside
-        class="fixed inset-0 z-30 hidden w-full mt-16 bg-white lg:w-1/5 lg:block lg:relative lg:mt-0 dark:bg-gray-900 lg:bg-transparent lg:dark:bg-transparent"
+        class="
+          fixed
+          inset-0
+          z-30
+          hidden
+          w-full
+          mt-16
+          bg-white
+          lg:w-1/5 lg:block lg:relative lg:mt-0
+          dark:bg-gray-900
+          lg:bg-transparent lg:dark:bg-transparent
+        "
       >
         <div
-          class="lg:sticky lg:top-16 overflow-y-auto h-full lg:h-auto lg:max-h-(screen-16)"
+          class="
+            lg:sticky lg:top-16
+            overflow-y-auto
+            h-full
+            lg:h-auto lg:max-h-(screen-16)
+          "
         >
           <ul class="p-4 lg:py-8 lg:pl-0 lg:pr-8">
             <transition name="fade">
               <h3
                 v-if="$route.name !== 'index'"
-                class="flex items-center px-3 py-1 mb-3 text-sm font-bold tracking-wider text-gray-500 uppercase transition-colors duration-300 border-gray-200 rounded-md cursor-pointer lg:text-xs group hover:border-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                class="
+                  flex
+                  items-center
+                  px-3
+                  py-1
+                  mb-3
+                  text-sm
+                  font-bold
+                  tracking-wider
+                  text-gray-500
+                  uppercase
+                  transition-colors
+                  duration-100
+                  border-gray-200
+                  rounded-md
+                  cursor-pointer
+                  lg:text-xs
+                  group
+                  hover:border-gray-300 hover:bg-gray-100
+                  dark:hover:bg-gray-800
+                "
                 @click="backRoute ? $router.push(backRoute) : $router.push('/')"
               >
                 <span>Back</span>
@@ -22,7 +58,7 @@
                   name="back-to-top"
                   :size="15"
                   class="ml-2"
-                  svg-class="transition-transform duration-300 transform group-hover:-translate-y-1"
+                  svg-class="transition-transform duration-100 transform group-hover:-translate-y-1"
                 />
               </h3>
             </transition>
@@ -46,7 +82,14 @@
                   default
                 />
                 <div
-                  class="absolute z-10 w-full text-2xl italic text-center text-white"
+                  class="
+                    absolute
+                    z-10
+                    w-full
+                    text-2xl
+                    italic
+                    text-center text-white
+                  "
                   style="top: 50%; left: 50%; transform: translate(-50%, -50%)"
                 >
                   <slot name="title"></slot>
@@ -60,7 +103,12 @@
         </div>
         <div class="relative block w-full lg:w-1/4">
           <div
-            class="lg:sticky lg:top-16 overflow-y-auto h-full lg:h-auto lg:max-h-(screen-16)"
+            class="
+              lg:sticky lg:top-16
+              overflow-y-auto
+              h-full
+              lg:h-auto lg:max-h-(screen-16)
+            "
           >
             <slot name="toc"></slot>
           </div>
@@ -72,9 +120,10 @@
 
 <script>
 import mImg from '../special/m-img.vue'
+import Sidebar from './sidebar.vue'
 export default {
   name: 'LayoutMain',
-  components: { mImg },
+  components: { mImg, Sidebar },
   props: {
     withBorders: {
       type: Boolean,

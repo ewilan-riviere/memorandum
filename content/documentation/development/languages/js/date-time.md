@@ -5,7 +5,7 @@ position: 3
 category: 'JavaScript'
 ---
 
-<md-img source="dates.jpg" from="https://elijahmanor.com/blog/format-js-dates-and-times"></md-img>
+<app-img source="dates.jpg" from="https://elijahmanor.com/blog/format-js-dates-and-times"></app-img>
 
 Source :
 

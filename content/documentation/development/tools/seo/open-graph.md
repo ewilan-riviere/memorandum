@@ -9,9 +9,9 @@ category: 'SEO'
 
 Open Graph is a preview of website when a user send a link into messaging system like Slack, Discord, Teams, Messenger or Twitter for example. It's display website title, a description and an image, it seems unimportant, but with this small card, users in conversation can have a useful presentation of website or page of a website. If this an article, we can see an abstract of body with an image which is attractive. The design of this card depends of social network or messaging system. We have two type: open graph (for Facebook and some messaging systems) and twitter card (for Twitter).
 
-<md-img source="og-discord.webp" zoom legend="A preview of this website on Discord."></md-img>
+<app-img source="og-discord.webp" zoom legend="A preview of this website on Discord."></app-img>
 
-<md-img source="og-discord-details.webp" zoom legend="A preview of an article of this website on Discord."></md-img>
+<app-img source="og-discord-details.webp" zoom legend="A preview of an article of this website on Discord."></app-img>
 
 ## Links
 

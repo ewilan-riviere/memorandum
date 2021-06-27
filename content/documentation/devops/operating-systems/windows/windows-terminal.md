@@ -5,7 +5,7 @@ position: 2
 category: 'Windows'
 ---
 
-<md-img source="windows-terminal.webp"></md-img>
+<app-img source="windows-terminal.webp"></app-img>
 
 <alert type="warning"> scoop is necessary
 

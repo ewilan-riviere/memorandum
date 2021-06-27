@@ -11,36 +11,82 @@
               ? 'bg-primary-500 bg-opacity-25'
               : ''
           "
-          class="block p-1 my-1 font-semibold transition-colors duration-300 rounded-md hover:bg-opacity-50 hover:bg-primary-500"
+          class="
+            block
+            p-1
+            my-1
+            font-semibold
+            transition-colors
+            duration-100
+            rounded-md
+            hover:bg-opacity-50 hover:bg-primary-500
+          "
         >
           {{ otherdocument.position }}. {{ otherdocument.title }}
         </nuxt-link>
       </div>
       <div slot="title">
         <p
-          class="text-base font-semibold leading-6 tracking-wide text-center text-indigo-600 uppercase dark:text-indigo-400"
+          class="
+            text-base
+            font-semibold
+            leading-6
+            tracking-wide
+            text-center text-indigo-600
+            uppercase
+            dark:text-indigo-400
+          "
         >
           {{ document.category }}
         </p>
         <h1
-          class="mt-2 mb-8 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-800 sm:text-4xl sm:leading-10 dark:text-gray-200"
+          class="
+            mt-2
+            mb-8
+            text-3xl
+            font-extrabold
+            leading-8
+            tracking-tight
+            text-center text-gray-800
+            sm:text-4xl sm:leading-10
+            dark:text-gray-200
+          "
         >
           {{ document.title }}
         </h1>
       </div>
       <div slot="main" class="">
         <client-only>
-          <vue-read-progress></vue-read-progress>
+          <read-progress></read-progress>
         </client-only>
         <transition name="fade">
           <article v-if="document" class="relative overflow-hidden bg-white">
             <div class="relative mx-auto prose prose-lg">
               <div
                 v-if="document.description"
-                class="relative mx-auto mb-6 text-lg font-medium leading-7 md:flex-grow max-w-prose"
+                class="
+                  relative
+                  mx-auto
+                  mb-6
+                  text-lg
+                  font-medium
+                  leading-7
+                  md:flex-grow
+                  max-w-prose
+                "
               >
                 <svg
-                  class="absolute top-0 left-0 w-8 h-8 text-gray-200 transform -translate-y-2 dark:text-gray-600"
+                  class="
+                    absolute
+                    top-0
+                    left-0
+                    w-8
+                    h-8
+                    text-gray-200
+                    transform
+                    -translate-y-2
+                    dark:text-gray-600
+                  "
                   fill="currentColor"
                   viewBox="0 0 32 32"
                 >
@@ -49,19 +95,33 @@
                   />
                 </svg>
                 <p
-                  class="relative pl-3 text-xl leading-8 text-gray-500 dark:text-gray-400"
+                  class="
+                    relative
+                    pl-3
+                    text-xl
+                    leading-8
+                    text-gray-500
+                    dark:text-gray-400
+                  "
                   v-html="document.description"
                 ></p>
               </div>
               <div
-                class="flex items-center justify-between my-1 text-gray-600 dark:text-gray-400"
+                class="
+                  flex
+                  items-center
+                  justify-between
+                  my-1
+                  text-gray-600
+                  dark:text-gray-400
+                "
               >
                 <div v-if="document.readingTime" class="flex items-center">
-                  <icon name="clock" stroke class="mr-1" />
+                  <svg-icon name="clock" class="mr-1 w-6 h-6" />
                   {{ document.readingTime.text }}
                 </div>
                 <div class="flex items-center">
-                  <icon name="date" stroke class="mr-1" />
+                  <svg-icon name="date" class="mr-1 w-6 h-6" />
                   Last update: {{ $getDate(document.updatedAt) }}
                 </div>
               </div>
@@ -82,8 +142,21 @@
 </template>
 
 <script>
+import DisplayDocument from '~/components/layout/display-document.vue'
+import LayoutMain from '~/components/layout/layout-main.vue'
+import TableOfContent from '~/components/layout/table-of-content.vue'
 export default {
   name: 'ContentSlugShort',
+  components: {
+    // https://github.com/ajerez/vue-read-progress
+    ReadProgress: () =>
+      import('vue-read-progress')
+        .then((m) => m.default)
+        .catch(),
+    LayoutMain,
+    TableOfContent,
+    DisplayDocument,
+  },
   middleware({ app, params, redirect }) {
     if (params.pathMatch === 'index') {
       redirect(app.localePath('/'))
@@ -120,7 +193,7 @@ export default {
   head() {
     const title = `${this.document.title} - ${this.document.category}`
     const description = this.document.description
-    const image = `${process.env.APP_URL}/documentation/logo/${this.image}-banner.webp`
+    const image = `${process.env.BASE_URL}/documentation/logo/${this.image}-banner.webp`
     const publishedTime = this.document.createdAt
     const modifiedTime = this.document.updatedAt
     const author = 'Ewilan Rivière'
@@ -190,7 +263,7 @@ export default {
       '@context': 'https://schema.org',
       '@type': 'TechArticle',
       headline: `${this.document.title} in ${this.document.category}: ${this.document.description}`,
-      image: `${process.env.APP_URL}/documentation/logo/${this.image}-banner.webp`,
+      image: `${process.env.BASE_URL}/documentation/logo/${this.image}-banner.webp`,
       name: `${this.document.title} - ${this.document.category}`,
       about: `${this.document.title} in ${this.document.category}`,
       abstract: this.document.description,

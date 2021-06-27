@@ -27,10 +27,10 @@ sudo apt update ; sudo apt upgrade
 
 ## Image
 
-<md-img source="nginx-home.jpg"></md-img>
+<app-img source="nginx-home.jpg"></app-img>
 
 ```html
-<md-img source="nginx-home.jpg"></md-img>
+<app-img source="nginx-home.jpg"></app-img>
 ```
 
 ## Local links

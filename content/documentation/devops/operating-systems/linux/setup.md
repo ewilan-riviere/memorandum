@@ -230,7 +230,7 @@ Install **NGINX** or **Apache2** to have VHost, check these guides
 
 Use command line instructions of [**Composer website**](https://getcomposer.org/download/) to download and install latest version of Composer
 
-<md-img source="composer-installation-commands.jpg"></md-img>
+<app-img source="composer-installation-commands.jpg"></app-img>
 
 You have just to copy installation instructions and composer will be download, this is an example:
 

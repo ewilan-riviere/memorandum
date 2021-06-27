@@ -49,7 +49,7 @@ yarn dev
 Update `.env` with current website URL like:
 
 ```js
-APP_URL='http://memorandum.website.dev'
+BASE_URL='http://memorandum.website.dev'
 ```
 
 ```bash

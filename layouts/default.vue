@@ -8,37 +8,17 @@
 </template>
 
 <script>
-import settings from '~/content/settings.json'
-import LayoutBackToTop from '~/components/layout/layout-back-to-top.vue'
-import LayoutFooter from '~/components/layout/layout-footer.vue'
-import LayoutNavigation from '~/components/layout/layout-navigation.vue'
-
 export default {
   name: 'LayoutDefault',
-
   components: {
-    LayoutBackToTop,
-    LayoutFooter,
-    LayoutNavigation,
+    LayoutBackToTop: () => import('~/components/layout/layout-back-to-top.vue'),
+    LayoutFooter: () => import('~/components/layout/layout-footer.vue'),
+    LayoutNavigation: () => import('~/components/layout/layout-navigation.vue'),
   },
   data() {
     return {
       devMode: process.env.NODE_ENV !== 'production',
-      settings,
     }
-  },
-  created() {
-    this.configSettings()
-  },
-  methods: {
-    configSettings() {
-      if (
-        Object.keys(this.$store.state.settings).length === 0 &&
-        this.$store.state.settings.constructor === Object
-      ) {
-        this.$store.commit('setSettings', settings)
-      }
-    },
   },
 }
 </script>

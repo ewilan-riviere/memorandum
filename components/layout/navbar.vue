@@ -1,6 +1,16 @@
 <template>
   <nav
-    class="fixed top-0 z-40 w-full transition-colors duration-300 bg-white border-b dark:border-gray-800 dark:bg-gray-900"
+    class="
+      fixed
+      top-0
+      z-40
+      w-full
+      transition-colors
+      duration-100
+      bg-white
+      border-b
+      dark:border-gray-800 dark:bg-gray-900
+    "
   >
     <div class="container flex-1 px-4 mx-auto lg:px-8">
       <div class="flex items-center justify-between h-16">
@@ -9,17 +19,34 @@
             <button
               v-click-outside="hide"
               aria-label="Menu"
-              class="p-2 mr-2 text-gray-700 transition-colors duration-300 rounded-md lg:hidden dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 focus:outline-none"
+              class="
+                p-2
+                mr-2
+                text-gray-700
+                transition-colors
+                duration-100
+                rounded-md
+                lg:hidden
+                dark:text-gray-300
+                hover:bg-gray-300
+                dark:hover:bg-gray-700
+                focus:outline-none
+              "
               @click="openSidebar()"
             >
-              <icon name="menu-design" :size="30" />
+              <svg-icon name="menu" class="w-6 h-6" />
             </button>
           </div>
           <nuxt-link
             :to="'/'"
             aria-current="page"
             aria-label="Nuxt Content Logo"
-            class="flex-1 flex-shrink-0 text-xl font-bold nuxt-link-exact-active nuxt-link-active"
+            class="
+              flex-1 flex-shrink-0
+              text-xl
+              font-bold
+              nuxt-link-exact-active nuxt-link-active
+            "
           >
             <logo />
           </nuxt-link>
@@ -30,7 +57,15 @@
               <label for="search" class="sr-only">Search</label>
               <div class="relative">
                 <div
-                  class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+                  class="
+                    absolute
+                    inset-y-0
+                    left-0
+                    flex
+                    items-center
+                    pl-3
+                    pointer-events-none
+                  "
                 >
                   <svg
                     fill="none"
@@ -54,19 +89,56 @@
                     type="search"
                     autocomplete="off"
                     value=""
-                    class="block w-full py-2 pl-10 pr-3 leading-5 text-gray-700 placeholder-gray-500 truncate transition-colors duration-300 bg-gray-200 border border-transparent rounded-md dark:text-white dark-focus:text-white focus:border-gray-300 dark-focus:border-gray-700 focus:outline-none focus:bg-white dark-focus:bg-gray-900 dark:bg-gray-800"
+                    class="
+                      block
+                      w-full
+                      py-2
+                      pl-10
+                      pr-3
+                      leading-5
+                      text-gray-700
+                      placeholder-gray-500
+                      truncate
+                      transition-colors
+                      duration-100
+                      bg-gray-200
+                      border border-transparent
+                      rounded-md
+                      dark:text-white
+                      dark-focus:text-white
+                      focus:border-gray-300
+                      dark-focus:border-gray-700
+                      focus:outline-none focus:bg-white
+                      dark-focus:bg-gray-900
+                      dark:bg-gray-800
+                    "
                   />
 
                   <transition v-if="query" name="fade">
                     <ul
                       v-if="Array.isArray(articles) && articles.length"
                       v-click-outside="hideSearch"
-                      class="absolute w-full p-3 overflow-y-auto bg-white border-b-2 border-l-2 border-r-2 border-gray-200 shadow-xl rounded-b-md max-h-96"
+                      class="
+                        absolute
+                        w-full
+                        p-3
+                        overflow-y-auto
+                        bg-white
+                        border-b-2 border-l-2 border-r-2 border-gray-200
+                        shadow-xl
+                        rounded-b-md
+                        max-h-96
+                      "
                     >
                       <li
                         v-for="(article, id) of articles"
                         :key="id"
-                        class="my-1 transition-colors duration-300 hover:bg-gray-200"
+                        class="
+                          my-1
+                          transition-colors
+                          duration-100
+                          hover:bg-gray-200
+                        "
                       >
                         <nuxt-link
                           :to="article.path"
@@ -102,7 +174,15 @@
                     <div
                       v-else
                       v-click-outside="hideSearch"
-                      class="absolute w-full p-3 bg-gray-200 border-b-2 border-l-2 border-r-2 border-gray-200 shadow-xl rounded-b-md"
+                      class="
+                        absolute
+                        w-full
+                        p-3
+                        bg-gray-200
+                        border-b-2 border-l-2 border-r-2 border-gray-200
+                        shadow-xl
+                        rounded-b-md
+                      "
                     >
                       {{ articles }}
                     </div>
@@ -111,7 +191,18 @@
               </div>
             </div>
             <ul
-              class="absolute top-0 z-10 flex-1 w-full overflow-hidden bg-white border border-gray-300 rounded-md dark:bg-gray-900 dark:border-gray-700"
+              class="
+                absolute
+                top-0
+                z-10
+                flex-1
+                w-full
+                overflow-hidden
+                bg-white
+                border border-gray-300
+                rounded-md
+                dark:bg-gray-900 dark:border-gray-700
+              "
               style="margin-top: 37px; display: none"
             >
               <!---->
@@ -120,32 +211,53 @@
         </div>
         <div class="flex items-center justify-between pl-8 lg:w-1/5">
           <span
-            class="mr-4 text-base font-semibold leading-none text-gray-700 dark:text-gray-300 hover:text-primary-500 dark-hover:text-primary-500"
+            class="
+              mr-4
+              text-base
+              font-semibold
+              leading-none
+              text-gray-700
+              dark:text-gray-300
+              hover:text-primary-500
+              dark-hover:text-primary-500
+            "
           >
             v{{ settings.version }}
           </span>
           <div class="flex items-center">
             <a
-              v-tooltip="'Twitter'"
               :href="`https://twitter.com/${settings.twitter}`"
               target="_blank"
               rel="noopener noreferrer"
               title="Twitter"
               name="Twitter"
-              class="px-2 text-gray-700 dark:text-gray-300 hover:text-primary-500 dark-hover:text-primary-500"
+              class="
+                px-2
+                text-gray-700
+                dark:text-gray-300
+                hover:text-primary-500
+                dark-hover:text-primary-500
+              "
             >
-              <icon name="twitter-stroke" stroke />
+              <svg-icon name="twitter" class="w-6 h-6" />
             </a>
             <a
-              v-tooltip="'GitHub'"
               :href="`https://github.com/${settings.github}/${settings.githubRepository}`"
               target="_blank"
               rel="noopener noreferrer"
               title="Github"
               name="Github"
-              class="px-2 text-gray-700 transition-colors duration-300 dark:text-gray-300 hover:text-primary-500 dark-hover:text-primary-500"
+              class="
+                px-2
+                text-gray-700
+                transition-colors
+                duration-100
+                dark:text-gray-300
+                hover:text-primary-500
+                dark-hover:text-primary-500
+              "
             >
-              <icon name="github-stroke" stroke />
+              <svg-icon name="github" class="w-6 h-6" />
             </a>
             <color-switcher class="px-2" />
           </div>
@@ -158,11 +270,12 @@
 <script>
 import ClickOutside from 'vue-click-outside'
 import mImg from '../special/m-img.vue'
+import ColorSwitcher from './color-switcher.vue'
 import settings from '~/content/settings.json'
 
 export default {
   name: 'Navbar',
-  components: { mImg },
+  components: { mImg, ColorSwitcher },
   directives: {
     ClickOutside,
   },

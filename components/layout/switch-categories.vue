@@ -1,13 +1,31 @@
 <template>
-  <!--
-  Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
-  Read the documentation to get started: https://tailwindui.com/documentation
--->
   <nav>
     <nuxt-link
       v-for="(page, pageKey) in categories"
       :key="pageKey"
-      class="flex items-center justify-between h-12 px-3 py-2 mt-1 space-x-4 text-sm font-medium leading-5 text-gray-600 transition-colors duration-300 ease-in-out rounded-md cursor-pointer group hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:text-gray-900 focus:bg-gray-200"
+      class="
+        flex
+        items-center
+        justify-between
+        h-12
+        px-3
+        py-2
+        mt-1
+        space-x-4
+        text-sm
+        font-medium
+        leading-5
+        text-gray-600
+        transition-colors
+        duration-100
+        ease-in-out
+        rounded-md
+        cursor-pointer
+        group
+        hover:text-gray-900 hover:bg-gray-300
+        dark:hover:bg-gray-600
+        focus:outline-none focus:text-gray-900 focus:bg-gray-200
+      "
       :class="{
         'bg-gray-300 dark:bg-gray-800': pageKey === $route.params.subject,
       }"
@@ -20,19 +38,35 @@
         },
       }"
     >
-      <div class="flex items-center space-x-2">
-        <div class="w-6 aspect-w-1 aspect-h-1">
+      <div class="flex items-center">
+        <div class="w-6 h-6">
           <m-img
             class="object-contain"
             :src="`/documentation/logo/${pageKey}.webp`"
           />
         </div>
-        <span class="font-semibold truncate">
+        <span class="font-semibold truncate ml-2">
           {{ $t(pageKey) }}
         </span>
       </div>
       <span
-        class="ml-auto inline-block py-0.5 px-3 text-xs leading-4 rounded-full text-gray-600 bg-gray-200 dark:bg-gray-600 dark:group-hover:bg-gray-700 dark:text-gray-200 group-hover:bg-gray-200 group-focus:bg-gray-300 transition ease-in-out duration-150"
+        class="
+          ml-auto
+          inline-block
+          py-0.5
+          px-3
+          text-xs
+          leading-4
+          rounded-full
+          text-gray-600
+          bg-gray-200
+          dark:bg-gray-600 dark:group-hover:bg-gray-700 dark:text-gray-200
+          group-hover:bg-gray-200
+          group-focus:bg-gray-300
+          transition
+          ease-in-out
+          duration-150
+        "
       >
         {{ page.length }}
       </span>

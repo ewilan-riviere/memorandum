@@ -158,7 +158,7 @@ server {
 
 GitHub example, webhooks are available into **Settings/Webhooks**. If you haven't configure HTTPS on your Nginx config disable **SSL verification**.
 
-<md-img source="webhook-config.jpg" can-zoom></md-img>
+<app-img source="webhook-config.jpg" can-zoom></app-img>
 
 ## 3. Git hooks
 

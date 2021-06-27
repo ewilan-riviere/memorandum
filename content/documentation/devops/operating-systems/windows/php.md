@@ -164,7 +164,7 @@ sudo nssm install php7.4
 
 You will have a window to create new service, two input will be important: **Path** and **Parameter**
 
-<md-img source="nssm-php.png"></md-img>
+<app-img source="nssm-php.png"></app-img>
 
 For **Path**, get **path** of **current** **php7.4-nts**, in this example, change `USERNAME` and `php7.4-nts` if you set a different PHP version in **Path**
 
@@ -184,7 +184,7 @@ Save the new service and you can install another for PHP 7.3, for example:
 C:\Users\USERNAME\scoop\apps\php7.3-nts\current\php-cgi.exe
 ```
 
-<md-img source="nssm-php7.3.webp"></md-img>
+<app-img source="nssm-php7.3.webp"></app-img>
 
 For the port, I choose `9073`
 
@@ -240,7 +240,7 @@ And you have to **RESTART EACH** version after `php.ini` file update.
 
 If Windows don't find `php.ini` assure yourself that this variable is set into **Windows environnement variables** for current user
 
-<md-img source="variables-php-ini.webp"></md-img>
+<app-img source="variables-php-ini.webp"></app-img>
 
 ```
 PHP_INI_SCAN_DIR => [

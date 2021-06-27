@@ -18,17 +18,56 @@
                   subject: subCategory[0].hierarchy.subject,
                 },
               }"
-              class="flex items-center justify-between px-2 py-2 mt-1 space-x-2 text-sm font-medium leading-5 text-gray-600 transition-colors duration-100 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-800 focus:outline-none focus:text-gray-900 focus:bg-gray-200 dark:focus:bg-gray-700"
+              class="
+                flex
+                items-center
+                justify-between
+                px-2
+                py-2
+                mt-1
+                space-x-2
+                text-sm
+                font-medium
+                leading-5
+                text-gray-600
+                transition-colors
+                duration-100
+                ease-in-out
+                rounded-md
+                group
+                hover:text-gray-900 hover:bg-gray-300
+                dark:hover:bg-gray-800
+                focus:outline-none focus:text-gray-900 focus:bg-gray-200
+                dark:focus:bg-gray-700
+              "
             >
               <div class="flex items-center space-x-2">
-                <component
-                  :is="icon(subCategoryName)"
+                <svg-icon
+                  :name="`nav/${$slugify(subCategoryName)}`"
                   class="w-6 h-6 text-gray-800 dark:text-gray-200"
                 />
                 <span>{{ $t(subCategoryName) }}</span>
               </div>
               <span
-                class="ml-auto inline-block py-0.5 px-3 text-xs leading-4 rounded-full text-gray-600 bg-gray-200 dark:bg-gray-600 dark:group-hover:bg-gray-700 dark:text-gray-200 group-hover:bg-gray-200 group-focus:bg-gray-300 transition ease-in-out duration-150"
+                class="
+                  ml-auto
+                  inline-block
+                  py-0.5
+                  px-3
+                  text-xs
+                  leading-4
+                  rounded-full
+                  text-gray-600
+                  bg-gray-200
+                  dark:bg-gray-600
+                  dark:group-hover:bg-gray-700
+                  dark:text-gray-200
+                  group-hover:bg-gray-200
+                  group-focus:bg-gray-300
+                  transition
+                  ease-in-out
+                  duration-150
+                "
               >
                 {{ subCategory.length }}
               </span>
@@ -51,22 +90,6 @@ export default {
     routeParam: {
       type: String,
       default: '',
-    },
-  },
-  methods: {
-    icon(label) {
-      let component = `icon-${label}`
-      component = component.split('-')
-      let newComponent = []
-      component.forEach((part) => {
-        newComponent.push(this.$capitalizeFirst(part))
-      })
-      newComponent = newComponent.join('')
-      const isComponent = this.$options.components[newComponent]
-      if (isComponent === undefined) {
-        newComponent = 'IconDefault'
-      }
-      return newComponent
     },
   },
 }

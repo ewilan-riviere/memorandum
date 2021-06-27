@@ -1,7 +1,14 @@
 <template>
   <div>
     <div
-      class="absolute text-center transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+      class="
+        absolute
+        text-center
+        transform
+        -translate-x-1/2 -translate-y-1/2
+        top-1/2
+        left-1/2
+      "
     >
       <div>
         <div class="text-4xl font-bold text-red-600 font-quicksand">
@@ -13,7 +20,16 @@
       </div>
       <NuxtLink
         to="/"
-        class="block mx-auto mt-5 transition-colors duration-300 border-b border-transparent hover:border-black w-max-content"
+        class="
+          block
+          mx-auto
+          mt-5
+          transition-colors
+          duration-100
+          border-b border-transparent
+          hover:border-black
+          w-max-content
+        "
         >Go to home page</NuxtLink
       >
     </div>

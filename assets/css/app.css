@@ -6,7 +6,7 @@ article {
   @apply text-white bg-gray-800;
 }
 body {
-  @apply transition-colors duration-300;
+  @apply transition-colors duration-100;
 }
 
 .hyphenate {

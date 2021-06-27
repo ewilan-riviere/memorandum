@@ -6,14 +6,41 @@
       type="button"
       aria-pressed="false"
       :class="colorMode === 'dark' ? 'bg-indigo-600' : 'bg-gray-200'"
-      class="relative inline-flex flex-shrink-0 transition-colors duration-200 ease-in-out border-2 border-transparent rounded-full cursor-pointer toggle focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+      class="
+        relative
+        inline-flex
+        flex-shrink-0
+        transition-colors
+        duration-200
+        ease-in-out
+        border-2 border-transparent
+        rounded-full
+        cursor-pointer
+        toggle
+        focus:outline-none
+        focus:ring-2
+        focus:ring-offset-2
+        focus:ring-indigo-500
+      "
       @click="switchColorMode()"
     >
       <span class="sr-only">Use setting</span>
       <!-- On: "translate-x-5", Off: "translate-x-0" -->
       <span
         :class="colorMode === 'dark' ? 'translate-x-5' : 'translate-x-0'"
-        class="relative inline-block transition duration-200 ease-in-out transform bg-white rounded-full shadow toggle-inner ring-0"
+        class="
+          relative
+          inline-block
+          transition
+          duration-200
+          ease-in-out
+          transform
+          bg-white
+          rounded-full
+          shadow
+          toggle-inner
+          ring-0
+        "
       >
         <!-- On: "opacity-0 ease-out duration-100", Off: "opacity-100 ease-in duration-200" -->
         <span
@@ -22,12 +49,30 @@
               ? 'opacity-0 ease-out duration-100'
               : 'opacity-100 ease-in duration-200'
           "
-          class="absolute inset-0 flex items-center justify-center w-full h-full transition-opacity duration-200 ease-in opacity-100"
+          class="
+            absolute
+            inset-0
+            flex
+            items-center
+            justify-center
+            w-full
+            h-full
+            transition-opacity
+            duration-200
+            ease-in
+            opacity-100
+          "
           aria-hidden="true"
         >
           <svg
             v-if="colorMode === 'light'"
-            class="text-gray-400 transition-colors duration-300 icon-color group-hover:text-indigo-600"
+            class="
+              text-gray-400
+              transition-colors
+              duration-100
+              icon-color
+              group-hover:text-indigo-600
+            "
             fill="none"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -47,7 +92,19 @@
               ? 'opacity-100 ease-in duration-200'
               : 'opacity-0 ease-out duration-100'
           "
-          class="absolute inset-0 flex items-center justify-center w-full h-full transition-opacity duration-100 ease-out opacity-0"
+          class="
+            absolute
+            inset-0
+            flex
+            items-center
+            justify-center
+            w-full
+            h-full
+            transition-opacity
+            duration-100
+            ease-out
+            opacity-0
+          "
           aria-hidden="true"
         >
           <svg
