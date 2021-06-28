@@ -40,6 +40,16 @@ use db_name
 source file.sql
 ```
 
+## dump
+
+To save database, it's useful to dump like this
+
+```bash
+mysqldump -u user -p --databases my_database > my_database.sql
+```
+
+Source: <https://community.jaguar-network.com/sauvegarde-automatique-dune-db-mysql-avec-mysqldump>
+
 ## Useful commands
 
 ### Delete user

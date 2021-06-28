@@ -13,6 +13,15 @@ Linux change PHP version
 sudo update-alternatives --config php
 ```
 
+## Remove node_modules
+
+```bash
+find . -name 'node_modules' -type d -prune
+find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +
+```
+
+Source: <https://stackoverflow.com/questions/42950501/delete-node-modules-folder-recursively-from-a-specified-path-using-command-line>
+
 ## MySQL
 
 <code-group>
