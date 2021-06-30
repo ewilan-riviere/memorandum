@@ -59,3 +59,13 @@ scp file.txt username@to_host:/remote/directory/
 <https://winaero.com/blog/enable-openssh-server-windows-10/>
 <https://www.howtogeek.com/howto/windows-vista/allow-pings-icmp-echo-request-through-your-windows-vista-firewall/>
 <https://superuser.com/questions/627208/unable-to-ping-a-windows-machine-from-linux>
+
+## rsync
+
+```bash
+rsync -Phhr username@server:/home/path/to/dir ./
+```
+
+*-P for progress*  
+*-hh for human human readible*  
+*-r for récursif*  
