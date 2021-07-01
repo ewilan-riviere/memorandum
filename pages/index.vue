@@ -5,17 +5,9 @@
         <nav-pages :categories="categories" route-param="type"></nav-pages>
       </div>
       <div slot="main">
-        <article class="relative pb-10 overflow-hidden bg-white">
-          <div class="relative px-4 sm:px-6 lg:px-8">
-            <div class="mx-auto prose prose-lg text-gray-500">
-              <img
-                src="/default.jpg"
-                class="light-img"
-                width="1280"
-                height="640"
-                alt=""
-              />
-            </div>
+        <article class="pb-10">
+          <div class="px-4 sm:px-6 lg:px-8">
+            <img src="/default.jpg" class="light-img" alt="Memorandum" />
             <div class="max-w-xl mx-auto mt-10 text-gray-500">
               <h1 class="text-3xl font-semibold text-center font-quicksand">
                 Welcome to Memorandum

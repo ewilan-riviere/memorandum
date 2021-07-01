@@ -31,9 +31,9 @@ export default {
     height: '2px',
   },
 
-  render: {
-    // fallback: false,
-  },
+  // render: {
+  // fallback: false,
+  // },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: ['~/assets/css/app', '~/assets/css/markdown'],
@@ -49,11 +49,12 @@ export default {
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   // https://github.com/nuxt/components
-  components: [
-    { path: '~/components/common', prefix: false },
-    // { path: '~/components/common/content' },
-    // { path: '~/components/common/markdown' },
-  ],
+  // components: [
+  //   { path: '~/components/common', prefix: false },
+  //   // { path: '~/components/common/content' },
+  //   // { path: '~/components/common/markdown' },
+  // ],
+  components: false,
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
@@ -171,30 +172,30 @@ export default {
     sitemaps: sitemaps(),
   },
 
-  hooks: {
-    'content:file:beforeInsert': (document) => {
-      if (document.extension === '.md') {
-        const readingTime = require('reading-time')
-        const stats = readingTime(document.text)
+  // hooks: {
+  //   'content:file:beforeInsert': (document) => {
+  //     if (document.extension === '.md') {
+  //       const readingTime = require('reading-time')
+  //       const stats = readingTime(document.text)
 
-        document.readingTime = stats
+  //       document.readingTime = stats
 
-        if (document.path.includes('documentation')) {
-          let path = document.path
-          path = path.split('/')
-          path.shift()
-          path.shift()
-          path.pop()
-          const hierarchy = {
-            category: path[0],
-            subCategory: path[1],
-            subject: path[2],
-          }
-          document.hierarchy = hierarchy
-        }
-      }
-    },
-  },
+  //       if (document.path.includes('documentation')) {
+  //         let path = document.path
+  //         path = path.split('/')
+  //         path.shift()
+  //         path.shift()
+  //         path.pop()
+  //         const hierarchy = {
+  //           category: path[0],
+  //           subCategory: path[1],
+  //           subject: path[2],
+  //         }
+  //         document.hierarchy = hierarchy
+  //       }
+  //     }
+  //   },
+  // },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
