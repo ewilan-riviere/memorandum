@@ -48,7 +48,7 @@
               nuxt-link-exact-active nuxt-link-active
             "
           >
-            <logo />
+            <app-logo />
           </nuxt-link>
         </div>
         <div class="justify-center flex-1 hidden w-4/6 lg:flex">
@@ -102,6 +102,7 @@
                       transition-colors
                       duration-100
                       bg-gray-200
+                      dark:bg-gray-800
                       border border-transparent
                       rounded-md
                       dark:text-white
@@ -109,8 +110,8 @@
                       focus:border-gray-300
                       dark-focus:border-gray-700
                       focus:outline-none focus:bg-white
+                      dark:focus:bg-gray-800
                       dark-focus:bg-gray-900
-                      dark:bg-gray-800
                     "
                   />
 
@@ -124,6 +125,7 @@
                         p-3
                         overflow-y-auto
                         bg-white
+                        dark:bg-gray-800
                         border-b-2 border-l-2 border-r-2 border-gray-200
                         shadow-xl
                         rounded-b-md
@@ -138,6 +140,7 @@
                           transition-colors
                           duration-100
                           hover:bg-gray-200
+                          dark:hover:bg-gray-700
                         "
                       >
                         <nuxt-link
@@ -162,7 +165,7 @@
                               </span>
                             </div>
                           </div>
-                          <m-img
+                          <img
                             class="object-cover w-16 h-16"
                             :src="`/documentation/logo/${$slugify(
                               article.category
@@ -179,6 +182,7 @@
                         w-full
                         p-3
                         bg-gray-200
+                        dark:bg-gray-800
                         border-b-2 border-l-2 border-r-2 border-gray-200
                         shadow-xl
                         rounded-b-md
@@ -222,11 +226,11 @@
               dark-hover:text-primary-500
             "
           >
-            v{{ settings.version }}
+            v{{ packageJson.version }}
           </span>
           <div class="flex items-center">
             <a
-              :href="`https://twitter.com/${settings.twitter}`"
+              :href="`https://twitter.com/ewilanriviere`"
               target="_blank"
               rel="noopener noreferrer"
               title="Twitter"
@@ -242,7 +246,7 @@
               <svg-icon name="twitter" class="w-6 h-6" />
             </a>
             <a
-              :href="`https://github.com/${settings.github}/${settings.githubRepository}`"
+              :href="`https://github.com/ewilan-riviere`"
               target="_blank"
               rel="noopener noreferrer"
               title="Github"
@@ -268,22 +272,23 @@
 </template>
 
 <script>
-import ClickOutside from 'vue-click-outside'
-import mImg from '../special/m-img.vue'
-import ColorSwitcher from './color-switcher.vue'
-import settings from '~/content/settings.json'
+import vClickOutside from 'v-click-outside'
+import packageJson from '@/package.json'
+import colorSwitcher from '../special/color-switcher.vue'
+import AppLogo from './app-logo.vue'
 
 export default {
-  name: 'Navbar',
-  components: { mImg, ColorSwitcher },
+  name: 'AppNavbar',
+  components: { colorSwitcher, AppLogo },
   directives: {
-    ClickOutside,
+    clickOutside: vClickOutside.directive,
   },
   data() {
     return {
+      packageJson,
       query: '',
       articles: [],
-      settings,
+      settings: null,
     }
   },
   watch: {

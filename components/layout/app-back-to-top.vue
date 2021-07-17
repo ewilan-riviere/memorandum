@@ -34,7 +34,7 @@
 
 <script>
 export default {
-  name: 'BackToTop',
+  name: 'AppBackToTop',
   data() {
     return {
       displayBackToTop: false,

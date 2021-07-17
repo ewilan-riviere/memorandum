@@ -40,12 +40,15 @@
     >
       <div class="flex items-center">
         <div class="w-6 h-6">
-          <m-img
+          <img
             class="object-contain"
             :src="`/documentation/logo/${pageKey}.webp`"
+            alt=""
           />
         </div>
-        <span class="font-semibold truncate ml-2">
+        <span
+          class="font-semibold truncate ml-2 text-gray-900 dark:text-red-100"
+        >
           {{ $t(pageKey) }}
         </span>
       </div>
@@ -75,10 +78,8 @@
 </template>
 
 <script>
-import mImg from '../special/m-img.vue'
 export default {
-  name: 'NavPages',
-  components: { mImg },
+  name: 'AppSwitchCategories',
   props: {
     categories: {
       type: Object,

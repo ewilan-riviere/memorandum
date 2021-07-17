@@ -7,7 +7,7 @@
         aria-label="Footer"
       >
         <nuxt-link to="/">
-          <logo class="text-xl font-bold"></logo>
+          <app-logo class="text-xl font-bold" />
         </nuxt-link>
         <color-switcher-toggle class="ml-8" />
       </nav>
@@ -28,7 +28,10 @@
           rel="noopener noreferrer"
           :class="`hover:icon-${social.icon}`"
         >
-          <svg-icon :name="social.icon" class="w-6 h-6 text-gray-800" />
+          <svg-icon
+            :name="social.icon"
+            class="w-6 h-6 text-gray-800 dark:text-gray-200"
+          />
         </a>
       </div>
       <div
@@ -140,10 +143,11 @@
 
 <script>
 import packageJson from '@/package.json'
-import colorSwitcherToggle from './color-switcher-toggle.vue'
+import colorSwitcherToggle from '../special/color-switcher-toggle.vue'
+import AppLogo from './app-logo.vue'
 export default {
-  name: 'LayoutFooter',
-  components: { colorSwitcherToggle },
+  name: 'AppFooter',
+  components: { colorSwitcherToggle, AppLogo },
   data() {
     return {
       packageJson,

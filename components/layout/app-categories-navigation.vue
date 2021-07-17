@@ -6,10 +6,12 @@
           {{ $t(categoryKey) }}
         </h2>
         <ul>
-          <li>
+          <li
+            v-for="(subCategory, subCategoryName) in subCategories"
+            :key="subCategoryName"
+          >
             <nuxt-link
-              v-for="(subCategory, subCategoryName) in subCategories"
-              :key="subCategoryName"
+              v-if="subCategory[0].hierarchy"
               :to="{
                 name: 'category-subcategory-subject',
                 params: {
@@ -81,7 +83,7 @@
 
 <script>
 export default {
-  name: 'NavPages',
+  name: 'CategoriesNavigation',
   props: {
     categories: {
       type: Object,

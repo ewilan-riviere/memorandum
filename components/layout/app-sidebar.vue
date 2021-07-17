@@ -8,11 +8,10 @@
       left-0
       z-50
       transition
-      duration-500
+      duration-400
       ease-in-out
       transform
       shadow-xl
-      sm:duration-700
     "
   >
     <div class="w-screen h-full max-w-md">
@@ -45,7 +44,7 @@
               <svg-icon name="cross" class="text-black w-6 h-6" />
             </button>
             <div class="p-5">
-              <logo />
+              <app-logo />
               <div class="mt-5">
                 <slot />
               </div>
@@ -58,12 +57,14 @@
 </template>
 
 <script>
-import ClickOutside from 'vue-click-outside'
+import vClickOutside from 'v-click-outside'
+import appLogo from './app-logo.vue'
 
 export default {
   name: 'ChaptersSwitch',
+  components: { appLogo },
   directives: {
-    ClickOutside,
+    clickOutside: vClickOutside.directive,
   },
   data() {
     return {

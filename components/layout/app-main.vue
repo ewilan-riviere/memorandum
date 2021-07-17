@@ -1,8 +1,8 @@
 <template>
   <main class="container px-4 mx-auto lg:px-8">
-    <sidebar ref="sidebar">
+    <app-sidebar ref="sidebar">
       <slot name="aside"></slot>
-    </sidebar>
+    </app-sidebar>
     <div class="relative flex flex-wrap">
       <aside
         class="
@@ -11,58 +11,19 @@
           z-30
           hidden
           w-full
-          mt-16
           bg-white
           lg:w-1/5 lg:block lg:relative lg:mt-0
           dark:bg-gray-900
           lg:bg-transparent lg:dark:bg-transparent
+          pt-12
         "
       >
-        <div
-          class="
-            lg:sticky lg:top-16
-            overflow-y-auto
-            h-full
-            lg:h-auto lg:max-h-(screen-16)
-          "
-        >
-          <ul class="p-4 lg:py-8 lg:pl-0 lg:pr-8">
-            <transition name="fade">
-              <h3
-                v-if="$route.name !== 'index'"
-                class="
-                  flex
-                  items-center
-                  px-3
-                  py-1
-                  mb-3
-                  text-sm
-                  font-bold
-                  tracking-wider
-                  text-gray-500
-                  uppercase
-                  transition-colors
-                  duration-100
-                  border-gray-200
-                  rounded-md
-                  cursor-pointer
-                  lg:text-xs
-                  group
-                  hover:border-gray-300 hover:bg-gray-100
-                  dark:hover:bg-gray-800
-                "
-                @click="backRoute ? $router.push(backRoute) : $router.push('/')"
-              >
-                <span>Back</span>
-                <icon
-                  name="back-to-top"
-                  :size="15"
-                  class="ml-2"
-                  svg-class="transition-transform duration-100 transform group-hover:-translate-y-1"
-                />
-              </h3>
-            </transition>
-            <slot name="aside"></slot>
+        <div class="sticky top-16">
+          <ul class="lg:pl-0 lg:pr-8 overflow-y-auto" style="height: 85vh">
+            <app-back-to-top />
+            <div class="pt-6">
+              <slot name="aside"></slot>
+            </div>
           </ul>
         </div>
       </aside>
@@ -73,13 +34,12 @@
           }"
           class="w-full lg:w-3/4"
         >
-          <div v-if="$slots.title" class="text-on-img-tailwind">
-            <div class="relative w-full">
+          <div v-if="$slots.title" class="text-on-img-tailwind pt-16">
+            <div class="relative w-full h-40">
               <div class="source" style="z-index: -1">
-                <m-img
+                <img
                   :src="`/documentation/logo/${image}-banner.webp`"
-                  class="object-cover object-center w-full h-40 opacity-25"
-                  default
+                  class="object-cover object-center w-full opacity-25 h-40"
                 />
                 <div
                   class="
@@ -97,8 +57,8 @@
               </div>
             </div>
           </div>
-          <div class="pt-4 pb-10 lg:px-5 lg:pt-8">
-            <slot name="main"></slot>
+          <div :class="hasTitleSlot ? 'pt-6' : 'pt-20'" class="pb-10 lg:px-5">
+            <slot name="content"></slot>
           </div>
         </div>
         <div class="relative block w-full lg:w-1/4">
@@ -119,11 +79,15 @@
 </template>
 
 <script>
-import mImg from '../special/m-img.vue'
-import Sidebar from './sidebar.vue'
+import AppBackToTop from './app-back-to-top.vue'
+import AppSidebar from './app-sidebar.vue'
+
 export default {
   name: 'LayoutMain',
-  components: { mImg, Sidebar },
+  components: {
+    AppSidebar,
+    AppBackToTop,
+  },
   props: {
     withBorders: {
       type: Boolean,
@@ -138,15 +102,17 @@ export default {
       default: () => {},
     },
   },
+  computed: {
+    hasTitleSlot() {
+      return !!this.$slots.title
+    },
+  },
 }
 </script>
 
 <style lang="postcss" scoped>
-.ps {
-  height: 90vh;
-}
-.text-on-img-tailwind .source::after {
+/* .text-on-img-tailwind .source::after {
   @apply absolute top-0 left-0 right-0 bottom-0 w-full max-w-full bg-black bg-opacity-0;
   content: '';
-}
+} */
 </style>
