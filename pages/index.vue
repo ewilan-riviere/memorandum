@@ -1,42 +1,44 @@
 <template>
-  <div>
-    <layout-main>
-      <div slot="aside">
-        <nav-pages :categories="categories" route-param="type"></nav-pages>
-      </div>
-      <div slot="main">
-        <article class="pb-10">
-          <div class="px-4 sm:px-6 lg:px-8">
-            <img src="/default.jpg" class="light-img" alt="Memorandum" />
-            <div class="max-w-xl mx-auto mt-10 text-gray-500">
-              <h1 class="text-3xl font-semibold text-center font-quicksand">
-                Welcome to Memorandum
-              </h1>
-              <h2 class="mt-2 text-xl text-center font-quicksand">
-                A custom documentation about technologies, frameworks &
-                languages and my projects...
-              </h2>
-            </div>
-            <div class="mx-auto mt-16 prose prose-lg text-gray-500">
-              <display-document :document="welcome" />
-            </div>
+  <app-main>
+    <template #aside>
+      <app-categories-navigation
+        :categories="categories"
+        route-param="type"
+      ></app-categories-navigation>
+    </template>
+    <template #content>
+      <article class="pb-10">
+        <div class="px-4 sm:px-6 lg:px-8">
+          <img src="/default.jpg" class="light-img" alt="Memorandum" />
+          <div class="max-w-xl mx-auto mt-10 text-gray-500">
+            <h1 class="text-3xl font-semibold text-center font-quicksand">
+              Welcome to Memorandum
+            </h1>
+            <h2 class="mt-2 text-xl text-center font-quicksand">
+              A custom documentation about technologies, frameworks & languages
+              and my projects...
+            </h2>
           </div>
-        </article>
-      </div>
-      <div slot="toc"></div>
-    </layout-main>
-  </div>
+          <div class="mx-auto mt-16 prose prose-lg text-gray-500">
+            <display-document :document="welcome" />
+          </div>
+        </div>
+      </article>
+    </template>
+  </app-main>
 </template>
 
 <script>
 import { groupBy } from 'lodash'
-import layoutMain from '~/components/layout/layout-main.vue'
-import NavPages from '~/components/layout/nav-pages.vue'
-import DisplayDocument from '~/components/layout/display-document.vue'
+import appMain from '~/components/layout/app-main.vue'
+import AppCategoriesNavigation from '~/components/layout/app-categories-navigation.vue'
 
 export default {
-  name: 'HomeIndex',
-  components: { layoutMain, NavPages, DisplayDocument },
+  name: 'PageIndex',
+  components: {
+    appMain,
+    AppCategoriesNavigation,
+  },
   async asyncData({ $content, store }) {
     const welcome = await $content('welcome', { deep: true }).fetch()
     let categories = {}
@@ -85,18 +87,6 @@ export default {
     return {
       pages: [],
       items: [],
-    }
-  },
-  head() {
-    return {
-      title: 'Memorandum',
-      titleTemplate: '',
-      link: [
-        {
-          rel: 'canonical',
-          href: `${process.env.BASE_URL}`,
-        },
-      ],
     }
   },
 }

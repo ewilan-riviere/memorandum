@@ -1,22 +1,34 @@
 <template>
   <div>
-    <layout-main>
-      <div slot="aside">
-        <switch-categories
+    <app-main>
+      <template #aside>
+        <app-switch-categories
           :categories="categories"
           route-param="type"
           @select-category="selectCategory"
-        ></switch-categories>
-      </div>
-      <div slot="main" class="">
+        ></app-switch-categories>
+      </template>
+      <template #content>
         <div class="">
           <div class="mb-5">
-            <div class="flex items-center mb-3 space-x-3">
-              <m-img
+            <div class="flex items-center mb-3">
+              <img
                 class="object-cover w-10 h-10"
                 :src="`/documentation/logo/${subject}.webp`"
+                :alt="subject"
               />
-              <h1 class="text-4xl font-bold rounded-md font-quicksand w-max">
+              <h1
+                class="
+                  text-4xl
+                  font-bold
+                  rounded-md
+                  font-quicksand
+                  w-max
+                  ml-3
+                  text-gray-800
+                  dark:text-gray-100
+                "
+              >
                 {{ currentEntity.label || subject }}
               </h1>
             </div>
@@ -71,7 +83,7 @@
                     block
                     transition-colors
                     duration-100
-                    hover:bg-gray-50
+                    hover:bg-gray-100
                     dark:hover:bg-gray-700
                   "
                 >
@@ -141,27 +153,22 @@
             </ul>
           </div>
         </div>
-      </div>
-      <div slot="toc"></div>
-    </layout-main>
+      </template>
+      <template #toc></template>
+    </app-main>
   </div>
 </template>
 
 <script>
 /* eslint-disable vue/no-unused-components */
-import SwitchCategories from '@/components/layout/switch-categories.vue'
 // eslint-disable-next-line no-unused-vars
 import { groupBy } from 'lodash'
-import LayoutMain from '@/components/layout/layout-main.vue'
-import MImg from '~/components/special/m-img.vue'
+import appMain from '~/components/layout/app-main.vue'
+import AppSwitchCategories from '~/components/layout/app-switch-categories.vue'
 
 export default {
   name: 'TypeSlug',
-  components: {
-    SwitchCategories,
-    LayoutMain,
-    MImg,
-  },
+  components: { appMain, AppSwitchCategories },
   // async middleware({ app, params, route, $content, redirect }) {
   //   if (route.params.category === undefined) {
   //     const content = await $content(

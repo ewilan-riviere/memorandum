@@ -1,20 +1,21 @@
 <template>
   <div :class="{ 'debug-screens': devMode }" class="bg-white dark:bg-gray-900">
-    <layout-navigation />
-    <Nuxt class="min-h-screen pt-16" />
-    <layout-footer />
-    <layout-back-to-top />
+    <div class="min-h-screen">
+      <app-navbar />
+      <Nuxt />
+    </div>
+    <app-footer />
+    <app-back-to-top />
   </div>
 </template>
 
 <script>
+import AppFooter from '~/components/layout/app-footer.vue'
+import AppBackToTop from '~/components/layout/app-back-to-top.vue'
+import appNavbar from '~/components/layout/app-navbar.vue'
 export default {
   name: 'LayoutDefault',
-  components: {
-    LayoutBackToTop: () => import('~/components/layout/layout-back-to-top.vue'),
-    LayoutFooter: () => import('~/components/layout/layout-footer.vue'),
-    LayoutNavigation: () => import('~/components/layout/layout-navigation.vue'),
-  },
+  components: { appNavbar, AppFooter, AppBackToTop },
   data() {
     return {
       devMode: process.env.NODE_ENV !== 'production',
@@ -22,18 +23,3 @@ export default {
   },
 }
 </script>
-
-<style lang="postcss">
-body {
-  background-color: #fff;
-  color: rgba(0, 0, 0, 0.8);
-}
-.dark-mode body {
-  background-color: #091a28;
-  color: #ebf4f1;
-}
-.sepia-mode body {
-  background-color: #f1e7d0;
-  color: #433422;
-}
-</style>

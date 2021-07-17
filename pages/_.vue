@@ -1,10 +1,10 @@
 <template>
   <div v-if="document">
-    <layout-main :image="image" :back-route="getBackRoute()">
-      <div v-if="displaySidebar" slot="aside">
+    <app-main :image="image" :back-route="getBackRoute()">
+      <template v-if="displaySidebar" #aside>
         <nuxt-link
-          v-for="otherdocument in otherDocuments"
-          :key="otherdocument.id"
+          v-for="(otherdocument, id) in otherDocuments"
+          :key="id"
           :to="otherdocument.path"
           :class="
             otherdocument.title === document.title
@@ -22,10 +22,10 @@
             hover:bg-opacity-50 hover:bg-primary-500
           "
         >
-          {{ otherdocument.position }}. {{ otherdocument.title }}
+          {{ id + 1 }}. {{ otherdocument.title }}
         </nuxt-link>
-      </div>
-      <div slot="title">
+      </template>
+      <template #title>
         <p
           class="
             text-base
@@ -54,8 +54,8 @@
         >
           {{ document.title }}
         </h1>
-      </div>
-      <div slot="main" class="">
+      </template>
+      <template #content>
         <client-only>
           <read-progress></read-progress>
         </client-only>
@@ -133,18 +133,17 @@
             </div>
           </article>
         </transition>
-      </div>
-      <div slot="toc">
-        <table-of-content :toc="document.toc"></table-of-content>
-      </div>
-    </layout-main>
+      </template>
+      <template #toc>
+        <app-toc :toc="document.toc"></app-toc>
+      </template>
+    </app-main>
   </div>
 </template>
 
 <script>
-import DisplayDocument from '~/components/layout/display-document.vue'
-import LayoutMain from '~/components/layout/layout-main.vue'
-import TableOfContent from '~/components/layout/table-of-content.vue'
+import AppMain from '~/components/layout/app-main.vue'
+import AppToc from '~/components/layout/app-toc.vue'
 export default {
   name: 'ContentSlugShort',
   components: {
@@ -153,9 +152,8 @@ export default {
       import('vue-read-progress')
         .then((m) => m.default)
         .catch(),
-    LayoutMain,
-    TableOfContent,
-    DisplayDocument,
+    AppMain,
+    AppToc,
   },
   middleware({ app, params, redirect }) {
     if (params.pathMatch === 'index') {

@@ -38,12 +38,12 @@
 
 <script>
 export default {
-  layout: 'error',
+  layout: 'LayoutError',
   props: {
     error: {
       type: [Object, Array],
       default: () => {},
     },
-  }, // you can set a custom layout for the error page
+  },
 }
 </script>
