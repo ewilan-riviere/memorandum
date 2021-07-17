@@ -1,0 +1,13 @@
+{
+  "title": "Memorandum",
+  "url": "http://memorandum.ewilan-riviere.com",
+  "logo": {
+    "light": "/small-icon.png",
+    "dark": "/small-icon.png"
+  },
+  "author": "Ewilan Rivière",
+  "version": "3.0.0",
+  "githubRepository": "memorandum",
+  "github": "ewilan-riviere",
+  "twitter": "@ewilanriviere"
+}
