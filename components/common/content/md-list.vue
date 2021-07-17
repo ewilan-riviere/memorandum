@@ -11,6 +11,7 @@
 
 <script>
 export default {
+  name: 'MdList',
   props: {
     items: {
       type: Array,
