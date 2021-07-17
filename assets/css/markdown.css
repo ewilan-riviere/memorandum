@@ -57,11 +57,10 @@
 
     /* Add top padding to code blocks with filename */
     & > .filename + pre[class*='language-'] {
-      @apply pt-8;
     }
     /* Style copy button added in `pages/_.vue` */
     & > .copy {
-      @apply absolute top-0 right-0 px-2 py-2 mt-3 mr-3 text-sm font-semibold leading-none text-white uppercase transition-opacity duration-100 bg-gray-800 bg-opacity-75 border border-white rounded-md shadow-lg opacity-0;
+      @apply absolute top-0 right-0 px-2 py-2 mt-3 mr-3 text-sm font-semibold leading-none text-white uppercase transition-opacity duration-100 bg-gray-800 bg-opacity-75 border border-white rounded-md shadow-lg opacity-0 z-10;
 
       &:hover {
         @apply bg-gray-700;
@@ -94,6 +93,11 @@
   & pre {
     /* word-break: break-all !important; */
     /* white-space: break-spaces !important; */
+    min-height: 4rem;
+    display: flex;
+  }
+  & code {
+    margin: auto 0;
   }
   /* container  */
   & .remark-container {

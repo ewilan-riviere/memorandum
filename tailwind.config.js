@@ -1,17 +1,13 @@
 module.exports = {
   mode: 'jit',
-  purge: {
-    // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
-    enabled: process.env.NODE_ENV === 'production',
-    content: [
-      'assets/**/*.css',
-      'components/**/*.vue',
-      'layouts/**/*.vue',
-      'pages/**/*.vue',
-      'plugins/**/*.js',
-      'nuxt.config.js',
-    ],
-  },
+  purge: [
+    'assets/**/*.css',
+    'components/**/*.vue',
+    'layouts/**/*.vue',
+    'pages/**/*.vue',
+    'plugins/**/*.js',
+    'nuxt.config.js',
+  ],
   darkMode: 'class',
   theme: {
     container: {
@@ -22,22 +18,58 @@ module.exports = {
         quicksand: ['Quicksand'],
         'handlee-regular': ['Handlee-Regular'],
       },
-      screens: {
-        '2xl': '1600px',
-        xl: '1280px',
-        lg: '1050px',
-        md: '750px',
-        sm: '450px',
-      },
       colors: {
-        'primary-500': '#800080',
-        'primary-700': '#660066',
-        'primary-300': '#993299',
+        primary: {
+          100: '#e6cce6',
+          200: '#cc99cc',
+          300: '#b366b3',
+          400: '#993399',
+          500: '#800080',
+          600: '#660066',
+          700: '#4d004d',
+          800: '#330033',
+          900: '#1a001a',
+        },
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            h1: {
+              fontSize: '2rem',
+            },
+          },
+        },
+        light: {
+          css: {
+            color: '#e5e7eb',
+            h1: {
+              color: '#f3f4f6',
+            },
+            h2: {
+              color: '#f3f4f6',
+            },
+            h3: {
+              color: '#f3f4f6',
+            },
+            strong: {
+              color: '#e5e7eb',
+            },
+            blockquote: {
+              color: '#e5e7eb',
+            },
+            a: {
+              color: '#3182ce',
+              '&:hover': {
+                color: '#2c5282',
+              },
+            },
+          },
+        },
+      }),
     },
   },
   variants: {
-    extends: {
+    extend: {
       display: ['dark'],
       opacity: ['dark'],
       width: ['hover', 'focus'],
