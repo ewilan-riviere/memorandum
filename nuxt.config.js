@@ -4,9 +4,16 @@ import sitemaps from './plugins/utils/sitemaps'
 import metadataDynamic from './plugins/metadata/metadata-dynamic'
 import metadataStatic from './plugins/metadata/metadata-static'
 
+import { routes } from './plugins/utils/routes'
+
 export default {
+  target: 'static',
   publicRuntimeConfig: {
     baseURL: process.env.BASE_URL,
+  },
+  generate: {
+    crawler: true,
+    routes,
   },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -31,10 +38,10 @@ export default {
   plugins: [
     // global helper methods
     '~/plugins/utils/helpers',
+    // https://github.com/ymmooot/nuxt-jsonld#readme
+    '~/plugins/utils/jsonld',
     // https://github.com/ndelvalle/v-click-outside
     '~/plugins/v-click-outside',
-    // https://github.com/ymmooot/nuxt-jsonld#readme
-    // '~/plugins/jsonld',
     // https://github.com/eddiemf/vue-scrollactive
     '~/plugins/vue-scrollactive',
     // https://github.com/rigor789/vue-scrollto
