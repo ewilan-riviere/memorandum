@@ -91,6 +91,8 @@ category: 'Memorandum'
 - <https://www.w3schools.com/howto/howto_css_parallax.asp>
 - <https://stackoverflow.com/questions/9182978/semi-transparent-color-layer-over-background-image>
 - <https://www.sitepoint.com/community/t/making-a-parallax-background-image-stay-at-100-width-when-responding/113203>
+- <https://thinkshout.com/blog/2017/06/fade-to-black-responsive-css-gradients>
+- <https://css-tricks.com/almanac/properties/m/mask-image>
 
 ### Concepts
 
