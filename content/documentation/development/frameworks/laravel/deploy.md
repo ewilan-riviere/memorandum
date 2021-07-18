@@ -1,5 +1,5 @@
 ---
-title: Production
+title: Deployment
 description: 'How to deploy Laravel.'
 position: 7
 category: 'Laravel'
