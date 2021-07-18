@@ -15,6 +15,9 @@ export default {
     crawler: true,
     routes,
   },
+  render: {
+    fallback: false,
+  },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: metadata.tags.title,

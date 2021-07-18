@@ -40,10 +40,10 @@
     >
       <div class="flex items-center">
         <div class="w-6 h-6">
-          <img
+          <md-img
             class="object-contain"
             :src="`/documentation/logo/${pageKey}.webp`"
-            alt=""
+            title=""
           />
         </div>
         <span

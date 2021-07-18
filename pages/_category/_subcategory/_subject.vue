@@ -12,7 +12,7 @@
         <div class="">
           <div class="mb-5">
             <div class="flex items-center mb-3">
-              <img
+              <md-img
                 class="object-cover w-10 h-10"
                 :src="`/documentation/logo/${subject}.webp`"
                 :alt="subject"
@@ -92,8 +92,7 @@
                       <div class="flex-shrink-0">
                         <img
                           class="w-12 h-12 rounded-full"
-                          src="/documentation/logo/guides.webp"
-                          alt="Guides logo"
+                          src="/documentation/logo/default.webp"
                         />
                       </div>
                       <div
