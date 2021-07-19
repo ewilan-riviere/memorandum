@@ -75,6 +75,14 @@ To find pictures about tech
 - [**sqlmap**](http://sqlmap.org) : check security of your database
 - [**ping.eu**](https://ping.eu) : check your IP and other tools
 
+### Images
+
+#### Upscale
+
+- [**icons8.com/upscaler**](https://icons8.com/upscaler)
+- [**deep-image.ai**](https://deep-image.ai)
+- [**letsenhance.io**](https://letsenhance.io)
+
 ### Crawler
 
 - [**Website Carbon Calculator**](https://www.websitecarbon.com) : to know if a website can have ecological badge
