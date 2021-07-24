@@ -37,7 +37,7 @@
           <div v-if="$slots.title" class="text-on-img-tailwind pt-16">
             <div class="relative w-full h-40">
               <div class="source" style="z-index: -1">
-                <img
+                <md-img
                   :src="`/documentation/logo/${image}-banner.webp`"
                   class="object-cover object-center w-full opacity-25 h-40"
                 />

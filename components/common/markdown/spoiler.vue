@@ -12,8 +12,10 @@
         transition-colors
         duration-100
         bg-gray-200
+        dark:bg-gray-700
         cursor-pointer
         hover:bg-gray-300
+        dark:hover:bg-gray-800
       "
       @click="switchSpoiler"
     >

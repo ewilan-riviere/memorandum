@@ -24,6 +24,7 @@
             transition-opacity
             duration-100
             bg-gray-300 bg-opacity-95
+            dark:bg-gray-700
           "
         >
           Click on image
@@ -49,7 +50,15 @@
     </div>
     <div
       v-else
-      class="p-5 mx-auto border border-red-400 rounded-md shadow-lg bg-gray-50"
+      class="
+        p-5
+        mx-auto
+        border border-red-400
+        rounded-md
+        shadow-lg
+        bg-gray-50
+        dark:bg-gray-900 dark:text-gray-50
+      "
     >
       <div>
         <div class="text-6xl text-center text-red-600">Image not found</div>
@@ -58,7 +67,7 @@
         </div>
         <small>
           Search if image exist on:
-          <span class="px-1 py-1 bg-gray-200">{{
+          <span class="px-1 py-1 bg-gray-200 dark:bg-gray-700">{{
             `static/documentation/${path}/${source}`
           }}</span>
         </small>

@@ -70,12 +70,14 @@ To find pictures about tech
 - [**Sassmeister**](https://www.sassmeister.com) : translate Sass to CSS
 - [**CSSmatic**](https://www.cssmatic.com) : some CSS tools Gradient generator, Border radius, Noise texture, Box shadow
 - [**color-hex**](https://www.color-hex.com) : tool for hexadecimal colors
-- [**Optimizilla**](https://imagecompressor.com/fr) : to optimize images
-- [**Convertio**](https://convertio.co) : to convert any file to multiple formats
 - [**sqlmap**](http://sqlmap.org) : check security of your database
 - [**ping.eu**](https://ping.eu) : check your IP and other tools
 
-### Images
+### Media
+
+- [**Squoosh**](https://squoosh.app)
+- [**Optimizilla**](https://imagecompressor.com/fr) : to optimize images
+- [**Convertio**](https://convertio.co) : to convert any file to multiple formats
 
 #### Upscale
 
