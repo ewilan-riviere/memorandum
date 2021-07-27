@@ -109,3 +109,21 @@ function shuffle(a) {
   return a
 }
 ```
+
+## Replace `switch` with Object Literal
+
+```js
+function getDrink (type) {
+  var drinks = {
+    'coke': 'Coke',
+    'pepsi': 'Pepsi',
+    'lemonade': 'Lemonade',
+    'default': 'Default item'
+  };
+  return 'The drink I chose was ' + (drinks[type] || drinks['default']);
+}
+
+var drink = getDrink('coke');
+// The drink I chose was Coke
+console.log(drink);
+```
