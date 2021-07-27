@@ -15,8 +15,10 @@ sudo chown -R $USER:www-data * ; sudo chmod -R ug+rwx storage bootstrap/cache
 
 If [**spatie/laravel-medialibrary**](https://github.com/spatie/laravel-medialibrary) no create any file in `media` directory.
 
+**Assure than `public/storage` is not track by git.**
+
 ```bash
-rm -r public/storage
+rm public/storage
 php artisan storage:link
 ```
 
