@@ -5,6 +5,12 @@ position: 1
 category: 'Work in progress'
 ---
 
+## Flutter
+
+```bash
+flutter create --org com.author.application.app --project-name dart_package directory-name
+```
+
 ## PHP
 
 Linux change PHP version
