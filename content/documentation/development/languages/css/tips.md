@@ -122,3 +122,12 @@ For better display
 
 - [**css-tricks.com/almanac/properties/h/hyphenate**](https://css-tricks.com/almanac/properties/h/hyphenate)
 - [**medium.com**](https://medium.com/clear-left-thinking/all-you-need-to-know-about-hyphenation-in-css-2baee2d89179)
+
+## Scrollbar
+
+```css
+.scrollbar {
+  scrollbar-color: rgb(91, 98, 111) transparent;
+  scrollbar-width: thin;
+}
+```
