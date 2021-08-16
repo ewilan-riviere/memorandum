@@ -25,6 +25,61 @@ wsl --list --verbose
 * Ubuntu    Running         2
 ```
 
+## Commands
+
+[**single command install**](https://www.ghacks.net/2021/08/01/install-windows-subsystem-for-linux-with-a-single-command/)
+
+```bash
+wsl.exe --install
+```
+
+Installs the Ubuntu distribution and WSL on the device.
+
+```bash
+wsl --list --online
+```
+
+Lists all available Linux distributions that you may install using the wsl command. Currently, these are:
+
+- Ubuntu Ubuntu
+- Debian Debian GNU/Linux
+- kali-linux Kali Linux Rollin
+- openSUSE-42 openSUSE Leap 42
+- SLES-12 SUSE Linux Enterprise Server v12
+- Ubuntu-16.04 Ubuntu 16.04 LTS
+- Ubuntu-18.04 Ubuntu 18.04 LTS
+- Ubuntu-20.04 Ubuntu 20.04 LTS
+
+```bash
+wsl --install -d <DistroName>
+```
+
+Installs the selected distribution. Replace <DistroName> with the name of the distribution. Can be used to install additional distributions as well.
+
+```bash
+wsl --update
+```
+
+Updates the WSL Linux kernel manually.
+
+```bash
+wsl --update rollback
+```
+
+Rolls back to the previous WSL kernel version.
+
+```bash
+wsl --status
+```
+
+Displays general information about the status of the Windows Subsystem for Linux installation.
+
+```bash
+wsl --help
+```
+
+Displays the list of command parameters.
+
 ### Delete distribution
 
 Here for example to delete `Ubuntu` distribution

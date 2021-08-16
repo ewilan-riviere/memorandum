@@ -7,6 +7,8 @@ category: 'MacOS'
 
 ## Setup
 
+- [**Windows app for OSX**](https://www.numerama.com/tech/726688-perdu-apres-votre-passage-sur-macos-retrouvez-vos-habitudes-windows-grace-a-ces-logiciels.html)
+
 ## Keyboard
 
 - [**macOS Keyboard special**](https://www.macworld.co.uk/how-to/mac-keyboard-type-symbols-3504584/)

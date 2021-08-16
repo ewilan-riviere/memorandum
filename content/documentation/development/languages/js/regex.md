@@ -67,3 +67,28 @@ const getHostnameFromRegex = (url) => {
   return matches && matches[1];
 }
 ```
+
+## Email
+
+From [**4 Ways to Validate an Email with JavaScript**](https://dev.to/gaelgthomas/how-to-validate-an-email-with-javascript-25k3)
+
+```js
+function isEmailValid(email) {
+  const emailRegexp = new RegExp(
+    /^[a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1}([a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1})*[a-zA-Z0-9]@[a-zA-Z0-9][-\.]{0,1}([a-zA-Z][-\.]{0,1})*[a-zA-Z0-9]\.[a-zA-Z0-9]{1,}([\.\-]{0,1}[a-zA-Z]){0,}[a-zA-Z0-9]{0,}$/i
+  )
+
+  return emailRegexp.test(email)
+}
+
+console.log(isEmailValid('helloitsme@herewecode.io')) // true
+console.log(isEmailValid('hello-its-me@herewecode.io')) // true
+console.log(isEmailValid('hello.its.me@herewecode.io')) // true
+console.log(isEmailValid('helloitsme+test@herewecode.io')) // true
+console.log(isEmailValid('.helloitsme@herewecode.io')) // false
+console.log(isEmailValid('helloitsme.@herewecode.io')) // false
+console.log(isEmailValid('@herewecode.io')) // false
+console.log(isEmailValid('helloitsmeherewecode.io')) // false
+console.log(isEmailValid('helloitsme@herewecode')) // false
+console.log(isEmailValid('d@d.o')) // false
+```
