@@ -253,10 +253,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] ; \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 ```
 
-Install Node.js **14.16.1**
+Install Node.js **14.17.5**
 
 ```bash
-source ~/.profile ; nvm ls-remote ; nvm install 14.16.1 ; nvm use 14.16.1 ; nvm alias default 14.16.1 ; nvm use default ; nvm ls ; node -v
+source ~/.profile ; nvm ls-remote ; nvm install 14.17.5 ; nvm use 14.17.5 ; nvm alias default 14.17.5 ; nvm use default ; nvm ls ; node -v
 ```
 
 Install yarn

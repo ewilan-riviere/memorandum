@@ -130,29 +130,28 @@ source ~/.zshrc
 
 ## 3. NodeJS: NVM
 
-You can install basic **NPM** package but with **NVM**, you can change NodeJS version when you want. Check last version on [**NVM GitHub**](https://github.com/nvm-sh/nvm) and change it if you want latest. Here, the **NVM** version is **`0.38`** and **NodeJS** version is **`14.16.1`** LTS.
+You can install basic **NPM** package but with **NVM**, you can change NodeJS version when you want. Check last version on [**NVM GitHub**](https://github.com/nvm-sh/nvm) and change it if you want latest. Here, the **NVM** version is **`0.38`** and **NodeJS** version is **`14.17.5`** LTS.
 
 Download NVM
 
 ```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 ```
 
 Add this into ~/.zshrc
 
 ```bash[.zshrc]
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] ; \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] ; \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 ```
 
-Install Node.js v14.16.1 and config NVM to use it
+Install Node.js v14.17.5 and config NVM to use it
 
 <code-group>
   <code-block label="One command" active>
 
   ```bash
-  source ~/.zshrc ; nvm ls-remote ; nvm install 14.16.1 ; nvm use 14.16.1 ; nvm alias default 14.16.1 ; nvm use default ; nvm ls ; node -v
+  source ~/.zshrc ; nvm ls-remote ; nvm install 14.17.5 ; nvm use 14.17.5 ; nvm alias default 14.17.5 ; nvm use default ; nvm ls ; node -v
   ```
 
   </code-block>
@@ -173,19 +172,19 @@ Install Node.js v14.16.1 and config NVM to use it
   Install specific version
 
   ```bash
-  nvm install 14.16.1
+  nvm install 14.17.5
   ```
 
   Use specific version
 
   ```bash
-  nvm use 14.16.1
+  nvm use 14.17.5
   ```
 
   Assign a version to **default**
 
   ```bash
-  nvm alias default 14.16.1
+  nvm alias default 14.17.5
   ```
 
   Use default version
