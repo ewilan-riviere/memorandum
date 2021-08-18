@@ -181,6 +181,16 @@ Add this command to `scripts` into `composer.json`
 
 And execute `composer helper`
 
+## Assets
+
+When you use `laravel-mix` to compile assets like `css` and `js`, this will create files into `public`. Add these files to `.gitignore` cause of differences between minified files on local and production.
+
+```.gitignore[.gitignore]
+/public/css
+/public/js
+/public/mix-manifest.json
+```
+
 ## jsconfig.json
 
 If you want to use Vue.js into Laravel with Visual Studio Code, you have to setup `jsconfig.json`
@@ -189,7 +199,7 @@ If you want to use Vue.js into Laravel with Visual Studio Code, you have to setu
 touch jsconfig.json
 ```
 
-```jsconfig.json
+```json[jsconfig.json]
 {
   "compilerOptions": {
     "baseUrl": ".",
