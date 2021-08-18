@@ -431,17 +431,42 @@ indent_size = 2
 ### Vanilla
 
 ```bash
-yarn add -D postcss postcss-import tailwindcss
+yarn add -D postcss postcss-import tailwindcss @tailwindcss/forms @tailwindcss/typography
+```
+
+```json[package.json]
+{
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.2.1",
+    "@tailwindcss/typography": "^0.3.0",
+    "laravel-mix": "^6.0.6",
+    "postcss": "^8.1.14",
+    "postcss-import": "^12.0.1",
+    "tailwindcss": "^2.0.1"
+  }
+}
 ```
 
 ```js[webpack.mix.js]
 const mix = require('laravel-mix');
 
-mix.js('resources/js/app.js', 'public/js')
+/*
+ |--------------------------------------------------------------------------
+ | Mix Asset Management
+ |--------------------------------------------------------------------------
+ |
+ | Mix provides a clean, fluent API for defining some Webpack build steps
+ | for your Laravel applications. By default, we are compiling the CSS
+ | file for the application as well as bundling up all the JS files.
+ |
+ */
+
+mix.js('resources/js/app.js', 'public/js').vue()
   .postCss('resources/css/app.css', 'public/css', [
     require('postcss-import'),
     require('tailwindcss'),
-  ]);
+  ])
+  .webpackConfig(require('./webpack.config'));
 
 if (mix.inProduction()) {
   mix.version();
@@ -452,6 +477,7 @@ if (mix.inProduction()) {
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
+  mode: 'jit',
   purge: [
     './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
     './vendor/laravel/jetstream/**/*.blade.php',
@@ -468,13 +494,7 @@ module.exports = {
     },
   },
 
-  variants: {
-    extend: {
-      opacity: ['disabled'],
-    },
-  },
-
-  plugins: [],
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 };
 ```
 
@@ -484,7 +504,7 @@ module.exports = {
 @import 'tailwindcss/utilities';
 ```
 
-```html
+```html[app.blade.php]
 <!DOCTYPE html>
 <html>
   <head>
