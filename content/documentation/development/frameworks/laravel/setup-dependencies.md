@@ -357,7 +357,7 @@ php artisan l5-swagger:generate
 Useful with ESLint and Vue
 
 ```bash
-yarn add -D eslint eslint-plugin-vue prettier eslint-config-prettier eslint-plugin-prettier babel-eslint
+npm i -D eslint eslint-plugin-vue prettier eslint-config-prettier eslint-plugin-prettier babel-eslint
 ```
 
 <alert type="info"> Automatic config
@@ -373,6 +373,10 @@ yarn add -D eslint eslint-plugin-vue prettier eslint-config-prettier eslint-plug
 <alert type="info"> Manual config
 
 Create these files at the root of repository
+
+```bash
+touch .eslintrc.js
+```
 
 ```js[.eslintrc.js]
 module.exports = {
@@ -392,6 +396,10 @@ module.exports = {
     parser: 'babel-eslint',
   },
 }
+```
+
+```bash
+touch .prettierrc
 ```
 
 ```prettierrc[.prettierrc]
