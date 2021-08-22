@@ -13,6 +13,13 @@ module.exports = {
   'no-category': { label: 'No category' },
   'operating-systems': { label: 'Operating Systems' },
   servers: { label: 'Servers' },
+  vue: { label: 'Vue.js' },
+
+  'real-world-vue-3': {
+    label: 'Real World Vue 3',
+    description: 'Formation to understand how to use Vue 3 new functionality.',
+    url: 'https://www.vuemastery.com/courses/real-world-vue3/rwv3-orientation',
+  },
 
   // entities
   flutter: {
