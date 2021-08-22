@@ -19,7 +19,10 @@
         "
       >
         <div class="sticky top-16">
-          <ul class="lg:pl-0 lg:pr-8 overflow-y-auto" style="height: 85vh">
+          <ul
+            class="lg:pl-0 lg:pr-8 overflow-y-auto scrollbar-thin"
+            style="height: 85vh"
+          >
             <app-back-to-top />
             <div class="pt-6">
               <slot name="aside"></slot>
