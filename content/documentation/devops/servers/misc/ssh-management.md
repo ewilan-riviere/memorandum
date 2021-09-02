@@ -54,11 +54,11 @@ From personal computer to server
 scp file.txt username@to_host:/remote/directory/
 ```
 
-<https://devblogs.microsoft.com/powershell/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/>
-<https://www.it-swarm.dev/fr/ssh/le-demarrage-de-ssh-agent-sous-windows-10-echoue-impossible-de-demarrer-le-service-ssh-agent-erreur-1058/807399778/>
-<https://winaero.com/blog/enable-openssh-server-windows-10/>
-<https://www.howtogeek.com/howto/windows-vista/allow-pings-icmp-echo-request-through-your-windows-vista-firewall/>
-<https://superuser.com/questions/627208/unable-to-ping-a-windows-machine-from-linux>
+- <https://devblogs.microsoft.com/powershell/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/>
+- <https://www.it-swarm.dev/fr/ssh/le-demarrage-de-ssh-agent-sous-windows-10-echoue-impossible-de-demarrer-le-service-ssh-agent-erreur-1058/807399778/>
+- <https://winaero.com/blog/enable-openssh-server-windows-10/>
+- <https://www.howtogeek.com/howto/windows-vista/allow-pings-icmp-echo-request-through-your-windows-vista-firewall/>
+- <https://superuser.com/questions/627208/unable-to-ping-a-windows-machine-from-linux>
 
 ## rsync
 
