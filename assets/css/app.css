@@ -43,19 +43,19 @@ body {
 /* @font-face {
   font-family: "Roboto-Medium";
   src: url("../fonts/roboto/Roboto-Medium.ttf");
-}
-@font-face {
+} */
+/* @font-face {
   font-family: "PTSans-Regular";
   src: url("../fonts/pt-sans/PTSans-Regular.ttf");
-}
-@font-face {
-  font-family: "Quicksand";
-  src: url("../fonts/quicksand/Quicksand-VariableFont_wght.ttf");
-}
-@font-face {
-  font-family: "Handlee-Regular";
-  src: url("../fonts/handlee/Handlee-Regular.ttf");
 } */
+@font-face {
+  font-family: 'Quicksand';
+  src: url('../fonts/Quicksand-VariableFont_wght.ttf');
+}
+@font-face {
+  font-family: 'Handlee-Regular';
+  src: url('../fonts/Handlee-Regular.ttf');
+}
 
 [v-cloak] {
   display: none;
