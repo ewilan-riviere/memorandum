@@ -69,3 +69,27 @@ server {
 
 - <https://www.tecmint.com/enable-http-2-in-nginx/>
 - <https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-with-http-2-support-on-ubuntu-18-04>
+
+```nginx
+server {
+  listen [::]:80 http2;
+  listen 80 http2;
+  # ...
+}
+```
+
+If you use Certbot to enable HTTPS, you have to add manually `htpp2`
+
+```nginx
+server {
+  listen [::]:443 ssl http2;
+  listen 443 ssl http2;
+  # ...
+}
+```
+
+Check if a website use HTTP/2
+
+```bash
+curl -I -L https://bookshelves.ink
+```
