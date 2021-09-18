@@ -1,6 +1,9 @@
 .dark {
   & .nuxt-content {
     @apply text-white;
+    & kbd {
+      @apply px-2 py-1 mx-1 bg-gray-800 shadow-md;
+    }
   }
   & h1,
   & h2,
