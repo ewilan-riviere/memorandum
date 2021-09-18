@@ -21,7 +21,7 @@ sudo apt update ; sudo apt -y upgrade
 Install some useful packages
 
 ```bash
-sudo apt install -y git nethogs vim ssh zip unzip php-zip net-tools speedtest-cli ; sudo chmod u+s $(which nethogs)
+sudo apt install -y curl git nethogs vim ssh zip unzip php-zip speedtest-cli ; sudo chmod u+s $(which nethogs)
 ```
 
 ### Vim
@@ -54,7 +54,7 @@ set mouse=a
 Install NVM
 
 ```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 ```
 
 Add to path
@@ -87,16 +87,32 @@ npm install -g yarn
 
 ZSH is a powerful command interpreter, better than bash. If you use it, you can improve it with [*Oh my ZSH*](https://ohmyz.sh/) which is configuration for ZSH.
 
-*Install zsh*
-
 ```bash
 sudo apt install -y zsh
 ```
 
-*Install oh-my-zsh*
+#### `oh-my-zsh`
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+Add theme
+
+```bash
+vim ~/.zshrc
+```
+
+Default theme
+
+```bash
+ZSH_THEME="robbyrussell"
+```
+
+New theme from [**github.com/ohmyzsh/ohmyzsh/wiki/Themes**](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes)
+
+```bash
+ZSH_THEME="pmcgee"
 ```
 
 ### NGINX
