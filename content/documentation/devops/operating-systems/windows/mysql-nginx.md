@@ -226,7 +226,7 @@ $cfg['Servers'][$i]['auth_type'] = 'cookie';
 $cfg['LoginCookieValidity'] = 604800;
 ```
 
-To generate `blowfish_secret`, you can use `pwgen` with WSL.
+To generate `blowfish_secret`, you can use `pwgen` with [**WSL**](/devops/operating-systems/wsl).
 
 ```bash
 sudo apt install pwgen ; pwgen -s 32 1

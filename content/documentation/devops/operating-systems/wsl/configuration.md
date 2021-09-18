@@ -1,0 +1,116 @@
+---
+title: Configuration
+description: 'Configuration for your new distro'
+position: 6
+---
+
+## Debian like
+
+For Debian or Ubuntu
+
+### Update
+
+Update packages
+
+```bash
+sudo apt update ; sudo apt -y upgrade
+```
+
+### Add packages
+
+Install some useful packages
+
+```bash
+sudo apt install -y git nethogs vim ssh zip unzip php-zip net-tools speedtest-cli ; sudo chmod u+s $(which nethogs)
+```
+
+### Vim
+
+Add vim config
+
+```bash
+sudo vim /etc/vim/vimrc
+```
+
+Copy/paste this config at the end
+
+```bash
+set nocompatible
+set number
+set background=dark
+syntax on
+set tabstop=4
+set smartindent
+set autoindent
+set backspace=indent,eol,start
+set ignorecase
+set ruler
+set showcmd
+set mouse=a
+```
+
+### Node.js
+
+Install NVM
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+```
+
+Add to path
+
+```bash
+vim ~/.profile
+```
+
+Add this configuration at the end
+
+```bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] ; \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] ; \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+```
+
+Install Node.js **14.17.5**
+
+```bash
+source ~/.profile ; nvm ls-remote ; nvm install 14.17.5 ; nvm use 14.17.5 ; nvm alias default 14.17.5 ; nvm use default ; nvm ls ; node -v
+```
+
+Install yarn
+
+```bash
+npm install -g yarn
+```
+
+### ZSH
+
+ZSH is a powerful command interpreter, better than bash. If you use it, you can improve it with [*Oh my ZSH*](https://ohmyz.sh/) which is configuration for ZSH.
+
+*Install zsh*
+
+```bash
+sudo apt install -y zsh
+```
+
+*Install oh-my-zsh*
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+### NGINX
+
+Install NGINX
+
+```bash
+sudo apt update ; sudo apt install -y nginx ; sudo ufw allow 'Nginx HTTP'
+```
+
+```bash
+sudo apt install -y php-fpm php-mysql
+```
+
+```bash
+sudo mv composer.phar /usr/local/bin/composer ; sudo chown -R $USER ~/.config/composer/ ; composer global require laravel/installer
+```
