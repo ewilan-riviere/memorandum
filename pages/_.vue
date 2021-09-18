@@ -184,7 +184,7 @@ export default {
     }
   },
   head() {
-    const title = `${this.document.title} - ${this.document.hierarchy.category}`
+    const title = `${this.document.title} in ${this.document.hierarchy.category}`
     const description = this.document.description
     const image = `${process.env.BASE_URL}/documentation/logo/${this.image}-banner.webp`
     const publishedTime = this.document.createdAt
