@@ -21,7 +21,7 @@ sudo apt update ; sudo apt -y upgrade
 Install some useful packages
 
 ```bash
-sudo apt install -y curl git nethogs vim ssh zip unzip php-zip speedtest-cli ; sudo chmod u+s $(which nethogs)
+sudo apt install -y curl git nethogs vim ssh zip unzip php-zip speedtest-cli lsb-release ca-certificates apt-transport-https software-properties-common ; sudo chmod u+s $(which nethogs)
 ```
 
 ### Vim
@@ -115,18 +115,26 @@ New theme from [**github.com/ohmyzsh/ohmyzsh/wiki/Themes**](https://github.com/o
 ZSH_THEME="pmcgee"
 ```
 
-### NGINX
+### PHP
 
-Install NGINX
+#### Ubuntu
 
 ```bash
-sudo apt update ; sudo apt install -y nginx ; sudo ufw allow 'Nginx HTTP'
+sudo add-apt-repository ppa:ondrej/php ; sudo apt update
+```
+
+#### Debian
+
+```bash
+echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/sury-php.list ; wget -qO - https://packages.sury.org/php/apt.gpg | sudo apt-key add - ; sudo apt update
+```
+
+#### Install
+
+```bash
+sudo apt -y install php8.0-fpm
 ```
 
 ```bash
-sudo apt install -y php-fpm php-mysql
-```
-
-```bash
-sudo mv composer.phar /usr/local/bin/composer ; sudo chown -R $USER ~/.config/composer/ ; composer global require laravel/installer
+sudo apt install -y php8.0-mbstring php8.0-mysql php8.0-common php8.0-mysql php8.0-xml php8.0-curl php8.0-gd php8.0-imagick php8.0-cli php8.0-dev php8.0-imap php8.0-mbstring php8.0-opcache php8.0-soap php8.0-zip php8.0-intl php8.0-bz2
 ```
