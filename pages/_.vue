@@ -184,13 +184,13 @@ export default {
     }
   },
   head() {
-    const title = `${this.document.title} - ${this.document.category}`
+    const title = `${this.document.title} - ${this.document.hierarchy.category}`
     const description = this.document.description
     const image = `${process.env.BASE_URL}/documentation/logo/${this.image}-banner.webp`
     const publishedTime = this.document.createdAt
     const modifiedTime = this.document.updatedAt
     const author = 'Ewilan Rivière'
-    const section = `Technology: ${this.document.category}`
+    const section = `Technology: ${this.document.hierarchy.category}`
     return {
       title,
       meta: [
