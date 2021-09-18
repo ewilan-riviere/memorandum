@@ -20,7 +20,7 @@
       >
         <div class="sticky top-16">
           <ul
-            class="lg:pl-0 lg:pr-8 overflow-y-auto scrollbar-thin"
+            class="lg:pl-0 lg:pr-2 overflow-y-auto scrollbar-thin"
             style="height: 85vh"
           >
             <app-back-to-top />

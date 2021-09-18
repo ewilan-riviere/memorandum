@@ -49,6 +49,8 @@ export default {
     '~/plugins/vue-scrollactive',
     // https://github.com/rigor789/vue-scrollto
     '~/plugins/vue-scrollto',
+    // https://github.com/ajerez/vue-read-progress
+    '~/plugins/vue-read-progress.client.js',
   ],
 
   // GitHub: https://github.com/nuxt/components
@@ -164,6 +166,7 @@ export default {
       footnotes: {
         inlineNotes: true,
       },
+      tocDepth: 4,
       remarkPlugins: [
         'remark-squeeze-paragraphs',
         'remark-slug',

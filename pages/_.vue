@@ -57,7 +57,7 @@
       </template>
       <template #content>
         <client-only>
-          <read-progress></read-progress>
+          <vue-read-progress></vue-read-progress>
         </client-only>
         <transition name="fade">
           <article v-if="document" class="relative overflow-hidden bg-white">
@@ -147,11 +147,6 @@ import AppToc from '~/components/layout/app-toc.vue'
 export default {
   name: 'ContentSlugShort',
   components: {
-    // https://github.com/ajerez/vue-read-progress
-    ReadProgress: () =>
-      import('vue-read-progress')
-        .then((m) => m.default)
-        .catch(),
     AppMain,
     AppToc,
   },

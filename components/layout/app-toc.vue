@@ -55,8 +55,9 @@
                 hover:pl-1
               "
               :class="{
-                'py-2': link.depth === 2,
-                'ml-2 pb-2': link.depth === 3,
+                'py-3': link.depth === 2,
+                'ml-2 pb-3': link.depth === 3,
+                'ml-6 pb-3': link.depth === 4,
               }"
               >{{ link.text }}</a
             >

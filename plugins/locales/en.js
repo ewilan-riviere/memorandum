@@ -45,14 +45,11 @@ module.exports = {
   'npm-yarn': { label: 'NPM & Yarn' },
   php: { label: 'PHP' },
 
-  linux: { label: 'Linux' },
-  macos: { label: 'macOS' },
   mail: { label: 'E-mail' },
   'nas-synology': { label: 'NAS Synology' },
   raspberry: { label: 'Raspberry' },
   seo: { label: 'SEO' },
   'visual-studio-code': { label: 'Visual Studio Code' },
-  windows: { label: 'Windows' },
   regex: {
     label: 'REGEX',
   },
@@ -64,6 +61,16 @@ module.exports = {
   'web-server': { label: 'Web server' },
   nginx: { label: 'NGINX' },
   apache: { label: 'Apache2' },
+
+  linux: { label: 'Linux' },
+  macos: { label: 'macOS' },
+  windows: { label: 'Windows' },
+  wsl: {
+    label: 'Windows Subsystem for Linux',
+    description:
+      'On Windows you can have to install some Linux tools for dev, WSL can you help for this.',
+    url: 'https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux',
+  },
 
   'todo-list': {
     label: 'ToDo List',

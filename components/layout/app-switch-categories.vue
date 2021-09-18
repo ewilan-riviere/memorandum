@@ -4,6 +4,8 @@
       v-for="(page, pageKey) in categories"
       :key="pageKey"
       class="
+        overflow-hidden overflow-ellipsis
+        relative
         flex
         items-center
         justify-between
@@ -47,13 +49,25 @@
           />
         </div>
         <span
-          class="font-semibold truncate ml-2 text-gray-900 dark:text-red-100"
+          class="
+            font-semibold
+            truncate
+            ml-2
+            text-gray-900
+            dark:text-red-100
+            w-full
+            lg:w-24
+            xl:w-32
+            2xl:w-56
+          "
         >
           {{ $t(pageKey) }}
         </span>
       </div>
       <span
         class="
+          absolute
+          right-2
           ml-auto
           inline-block
           py-0.5
