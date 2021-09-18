@@ -98,6 +98,7 @@
     /* white-space: break-spaces !important; */
     min-height: 4rem;
     display: flex;
+    scrollbar-width: thin;
   }
   & code {
     margin: auto 0;
