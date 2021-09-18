@@ -44,6 +44,7 @@ module.exports = {
   mysql: { label: 'MySQL' },
   'npm-yarn': { label: 'NPM & Yarn' },
   php: { label: 'PHP' },
+  'power-shell': { label: 'PowerShell' },
 
   mail: { label: 'E-mail' },
   'nas-synology': { label: 'NAS Synology' },
