@@ -69,6 +69,12 @@ Check status
 sudo systemctl status meilisearch
 ```
 
+Execute service
+
+```bash
+meilisearch
+```
+
 ### Add domain
 
 For Meilisearch you need to have endpoint, so you have to create VHost for it
