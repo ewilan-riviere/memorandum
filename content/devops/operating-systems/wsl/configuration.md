@@ -115,19 +115,32 @@ New theme from [**github.com/ohmyzsh/ohmyzsh/wiki/Themes**](https://github.com/o
 ZSH_THEME="pmcgee"
 ```
 
+If you want to have NVM to path, add this configuration at the end... and every other config you have
+
+```bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] ; \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] ; \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+```
+
 ### PHP
 
-#### Ubuntu
+<code-group>
+  <code-block label="Ubuntu" active>
 
-```bash
-sudo add-apt-repository ppa:ondrej/php ; sudo apt update
-```
+    ```bash
+    sudo add-apt-repository ppa:ondrej/php ; sudo apt update
+    ```
 
-#### Debian
+  </code-block>
+  <code-block label="Debian">
 
-```bash
-echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/sury-php.list ; wget -qO - https://packages.sury.org/php/apt.gpg | sudo apt-key add - ; sudo apt update
-```
+    ```bash
+    echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/sury-php.list ; wget -qO - https://packages.sury.org/php/apt.gpg | sudo apt-key add - ; sudo apt update
+    ```
+
+  </code-block>
+</code-group>
 
 #### Install
 

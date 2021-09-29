@@ -64,6 +64,12 @@
   & code::after {
     content: none !important;
   }
+  code::selection {
+    @apply bg-gray-600;
+  }
+  code::-moz-selection {
+    @apply bg-gray-600;
+  }
 
   & img {
     @apply max-w-full object-contain mx-auto mb-10 rounded-md;

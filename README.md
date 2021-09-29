@@ -1,7 +1,7 @@
 # Memorandum <!-- omit in toc -->
 
 [![nuxtjs](https://img.shields.io/static/v1?label=NuxtJS&message=v2.15&color=00C58E&style=flat-square&logo=nuxt.js&logoColor=ffffff)](https://nuxtjs.org/)
-[![tailwindcss](https://img.shields.io/static/v1?label=Tailwind%20CSS&message=v2.0&color=38B2AC&style=flat-square&logo=tailwind-css&logoColor=ffffff)](https://tailwindcss.com/)
+[![tailwindcss](https://img.shields.io/static/v1?label=Tailwind%20CSS&message=v2.2&color=38B2AC&style=flat-square&logo=tailwind-css&logoColor=ffffff)](https://tailwindcss.com/)
 [![nuxtjs](https://img.shields.io/static/v1?label=Designed%20to%20be&message=SSG&color=00C58E&style=flat-square&logo=nuxt.js&logoColor=ffffff)](https://nuxtjs.org/docs/2.x/concepts/static-site-generation)
 
 [![nodejs](https://img.shields.io/static/v1?label=NodeJS&message=v14.16&color=339933&style=flat-square&logo=node.js&logoColor=ffffff)](https://nodejs.org/en)
@@ -12,6 +12,12 @@
 > Documentation with snippets and boiler plates, built with [NuxtJS](https://nuxtjs.org) and [nuxt/content](https://content.nuxtjs.org). Markdown ❤️ for ever.  
 > [**memorandum.ewilan-riviere.com/in-coming**](https://memorandum.ewilan-riviere.com/in-coming)  
 > Based on <https://content.nuxtjs.org> and <https://tailwindcss.nuxtjs.org>
+
+## TODO
+
+- [ ] add redirect pages to crawler
+- [ ] new crawler for sitemap
+- [ ] search engine: link, add logo
 
 ## Setup
 
