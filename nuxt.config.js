@@ -1,23 +1,24 @@
-import metadata from './plugins/metadata/metadata'
-import sitemaps from './plugins/build/sitemaps'
-import routes from './plugins/build/routes'
+import metadata from './plugins/config/metadata'
+import pwa from './plugins/config/pwa'
+import sitemaps from './plugins/config/sitemaps'
+import crawler from './plugins/config/crawler'
 
-import metadataDynamic from './plugins/metadata/metadata-dynamic'
-import metadataStatic from './plugins/metadata/metadata-static'
+import metadataDynamic from './plugins/config/metadata-dynamic'
+import metadataStatic from './plugins/config/metadata-static'
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-
+  // For `.env`
   publicRuntimeConfig: {
     baseURL: process.env.BASE_URL,
   },
-
+  // For static site generation
   generate: {
-    crawler: true,
-    routes,
+    crawler: false,
+    routes: crawler,
   },
-
+  // To prevent Nuxt to create fallback images
   render: {
     fallback: false,
   },
@@ -140,27 +141,8 @@ export default {
     'nuxt-lazy-load',
   ],
   pwa: {
-    meta: {
-      name: metadata.website.title,
-      author: metadata.website.author,
-      description: metadata.website.description,
-      theme_color: metadata.settings.color,
-      lang: metadata.settings.lang,
-      ogSiteName: metadata.og.siteName,
-      ogTitle: metadata.website.title,
-      ogDescription: metadata.website.description,
-      ogImage: `${process.env.BASE_URL}/default.jpg`,
-      ogUrl: process.env.BASE_URL,
-      twitterSite: metadata.twitter.site,
-      twitterCreator: metadata.twitter.creator,
-    },
-    manifest: {
-      name: metadata.website.title,
-      short_name: metadata.og.siteName,
-      description: metadata.website.description,
-      display: 'browser',
-      lang: metadata.settings.lang,
-    },
+    meta: pwa.meta,
+    manifest: pwa.manifest,
   },
   content: {
     apiPrefix: '_content',

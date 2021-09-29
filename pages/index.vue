@@ -80,8 +80,8 @@ export default {
     }
   },
   head() {
-    const dynamicMetadata = require('~/plugins/metadata/metadata-dynamic')
-    const meta = require('@/plugins/metadata/metadata')
+    const dynamicMetadata = require('~/plugins/config/metadata-dynamic')
+    const meta = require('@/plugins/config/metadata')
     const title =
       'Memorandum, personal development documentation with nuxt/content'
     return {
