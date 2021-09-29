@@ -1,68 +1,186 @@
+import Vue from 'vue'
+import { groupBy } from 'lodash'
+import defu from 'defu'
+
 export const state = () => ({
-  teams: {},
-  sidebarOpened: false,
-  layerVisible: false,
-  guides: [],
-  content: [],
-  routes: [
-    // { label: 'Articles', routeName: 'posts' },
-    // { label: 'Nos clients', routeName: 'clients' },
-    // { label: 'Notre équipe', routeName: 'team' },
-    // { label: 'À propos', routeName: 'about' },
-  ],
-  settings: {},
-  contentCurrentPath: '',
-  currentDocument: {},
-  categories: null,
+  categories: {},
+  releases: [],
+  settings: {
+    title: 'Nuxt Content Docs',
+    url: '',
+    defaultDir: 'docs',
+    defaultBranch: '',
+    filled: false,
+  },
 })
 
+export const getters = {
+  settings(state) {
+    return state.settings
+  },
+  githubUrls(state) {
+    const { github = '', githubApi = '' } = state.settings
+
+    // GitHub Enterprise
+    if (github.startsWith('http') && githubApi.startsWith('http')) {
+      return {
+        repo: github,
+        api: {
+          repo: githubApi,
+          // releases: `${githubApi}/releases`,
+        },
+      }
+    }
+
+    // GitHub
+    return {
+      repo: `https://github.com/${github}`,
+      // api: {
+      //   repo: `https://api.github.com/repos/${github}`,
+      //   releases: `https://api.github.com/repos/${github}/releases`,
+      // },
+    }
+  },
+  releases(state) {
+    return state.releases
+  },
+  lastRelease(state) {
+    return state.releases[0]
+  },
+}
+
 export const mutations = {
-  setCategories(state, data) {
-    state.categories = data
+  SET_CATEGORIES(state, categories) {
+    // Vue Reactivity rules since we add a nested object
+    // Vue.set(state.categories, this.$i18n.locale, categories)
+    Vue.set(state.categories, 'en', categories)
   },
-  setSettings(state, data) {
-    state.settings = data
+  SET_RELEASES(state, releases) {
+    state.releases = releases
   },
-  setTeams(state, data) {
-    state.teams = data
+  SET_DEFAULT_BRANCH(state, branch) {
+    state.settings.defaultBranch = branch
   },
-  toggleSidebar(state, data) {
-    // state.layerVisible = !state.layerVisible
-    // setTimeout(() => {
-    state.sidebarOpened = !state.sidebarOpened
-    // }, 150)
+  SET_SETTINGS(state, settings) {
+    state.settings = defu({ filled: true }, settings, state.settings)
+    if (!state.settings.url) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        'Please provide the `url` property in `content/setting.json`'
+      )
+    }
   },
-  openSidebar(state, data) {
-    // state.layerVisible = !state.layerVisible
-    // setTimeout(() => {
-    state.sidebarOpened = true
-    // }, 150)
+}
+
+export const actions = {
+  async fetchCategories({ commit, state }) {
+    // Avoid re-fetching in production
+    // if (process.dev === false && state.categories[this.$i18n.locale]) {
+    if (process.dev === false && state.categories[0]) {
+      return
+    }
+    // const docs = await this.$content(this.$i18n.locale, { deep: true })
+    const docs = await this.$content({ deep: true })
+      .only(['title', 'menuTitle', 'category', 'slug', 'version', 'to'])
+      .sortBy('position', 'asc')
+      .fetch()
+    if (state.releases.length > 0) {
+      docs.push({
+        slug: 'releases',
+        title: 'Releases',
+        category: 'Community',
+        to: '/releases',
+      })
+    }
+    const categories = groupBy(docs, 'category')
+
+    commit('SET_CATEGORIES', categories)
   },
-  closeSidebar(state, data) {
-    state.sidebarOpened = false
-    // setTimeout(() => {
-    //   state.layerVisible = !state.layerVisible
-    // }, 150)
+  async fetchReleases({ commit, state, getters }) {
+    if (!state.settings.github) {
+      return
+    }
+
+    const options = {}
+    if (this.$config.githubToken) {
+      options.headers = { Authorization: `token ${this.$config.githubToken}` }
+    }
+    let releases = []
+    try {
+      const data = await fetch(getters.githubUrls.api.releases, options)
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error(res.statusText)
+          }
+          return res
+        })
+        .then((res) => res.json())
+      releases = data
+        .filter((r) => !r.draft)
+        .map((release) => {
+          return {
+            name: (release.name || release.tag_name).replace('Release ', ''),
+            date: release.published_at,
+            body: this.$markdown(release.body),
+          }
+        })
+    } catch (e) {}
+
+    const getMajorVersion = (r) => r.name && Number(r.name.substring(1, 2))
+    releases.sort((a, b) => {
+      const aMajorVersion = getMajorVersion(a)
+      const bMajorVersion = getMajorVersion(b)
+      if (aMajorVersion !== bMajorVersion) {
+        return bMajorVersion - aMajorVersion
+      }
+      return new Date(b.date) - new Date(a.date)
+    })
+
+    commit('SET_RELEASES', releases)
   },
-  setSidebarOpened(state, data) {
-    state.sidebarOpened = data
+  async fetchDefaultBranch({ commit, state, getters }) {
+    if (!state.settings.github || state.settings.defaultBranch) {
+      return
+    }
+
+    const options = {}
+    if (this.$config.githubToken) {
+      options.headers = { Authorization: `token ${this.$config.githubToken}` }
+    }
+    let defaultBranch
+    try {
+      const data = await fetch(getters.githubUrls.api.repo, options)
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error(res.statusText)
+          }
+          return res
+        })
+        .then((res) => res.json())
+      defaultBranch = data.default_branch
+    } catch (e) {}
+
+    commit('SET_DEFAULT_BRANCH', defaultBranch || 'main')
   },
-  toggleLayerVisible(state, data) {
-    state.layerVisible = !state.layerVisible
-  },
-  setLayerVisible(state, data) {
-    state.layerVisible = data
-  },
-  setContent(state, data) {
-    state.content = data
-  },
-  setGuides(state, data) {
-    state.guides = data
-  },
-  setContentCurrentPath(state, data) {
-    state.contentCurrentPath = data
-  },
-  setCurrentDocument(state, data) {
-    state.currentDocument = data
+  async fetchSettings({ commit }) {
+    try {
+      const {
+        dir,
+        extension,
+        path,
+        slug,
+        to,
+        createdAt,
+        updatedAt,
+        ...settings
+      } = await this.$content('settings').fetch()
+
+      commit('SET_SETTINGS', settings)
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        'You can add a `settings.json` file inside the `content/` folder to customize this theme.'
+      )
+    }
   },
 }

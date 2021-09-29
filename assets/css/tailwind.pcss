@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  @variants responsive {
+    .hyphenate {
+      text-align: justify !important;
+      -webkit-hyphens: auto !important;
+      -moz-hyphens: auto !important;
+      -ms-hyphens: auto !important;
+      hyphens: auto !important;
+    }
+  }
+}
+
+@tailwind variants;

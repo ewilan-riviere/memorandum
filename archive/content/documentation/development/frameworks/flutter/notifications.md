@@ -1,0 +1,9 @@
+---
+title: Notifications
+description: 'How to manage notifications on Flutter'
+position: 15
+category: 'Flutter'
+---
+
+- <https://pub.dev/packages/awesome_notifications> : package for notifications
+- <https://stackoverflow.com/questions/46676014/how-to-change-the-android-notification-icon-status-bar-icon-for-push-notificatio> : notifications from Firebase

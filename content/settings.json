@@ -1,0 +1,15 @@
+{
+  "title": "Memorandum",
+  "url": "https://memorandum.ewilan-riviere.com",
+  "logo": {
+    "light": "/logo/logo-full-light.svg",
+    "dark": "/logo/logo-full-dark.svg"
+  },
+  "github": "ewilan-riviere",
+  "twitter": "ewilanriviere",
+  "defaultBranch": "main",
+  "algolia": {
+    "apiKey": "3677e049d48c83792ba0d2cb0715a12f",
+    "indexName": "nuxtjs_content"
+  }
+}

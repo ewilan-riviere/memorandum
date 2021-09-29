@@ -1,79 +1,101 @@
 import metadata from './plugins/metadata/metadata'
-import sitemaps from './plugins/utils/sitemaps'
+import sitemaps from './plugins/build/sitemaps'
 
 import metadataDynamic from './plugins/metadata/metadata-dynamic'
 import metadataStatic from './plugins/metadata/metadata-static'
 
-import { routes } from './plugins/utils/routes'
-
 export default {
+  // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+
   publicRuntimeConfig: {
     baseURL: process.env.BASE_URL,
   },
-  generate: {
-    crawler: true,
-    routes,
-  },
+
+  // generate: {
+  //   crawler: true,
+  //   routes,
+  // },
+
   render: {
     fallback: false,
   },
-  // Global page headers (https://go.nuxtjs.dev/config-head)
+
+  // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: metadata.tags.title,
-    titleTemplate: metadata.tags.titleTemplate,
+    title: metadata.website.title,
+    titleTemplate: metadata.website.titleTemplate,
     htmlAttrs: {
       lang: metadata.settings.locale,
     },
     meta: [...metadataStatic(), ...metadataDynamic()],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      {
+        rel: 'apple-touch-icon',
+        type: 'image/png',
+        href: '/apple-touch-icon.png',
+      },
+      { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+      { rel: 'shortcut icon', type: 'image/x-icon', href: '/favicon.svg' },
+      {
+        rel: 'manifest',
+        crossorigin: 'use-credentials',
+        href: '/manifest.webmanifest',
+      },
+    ],
   },
 
-  // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: ['~/assets/css/app.css', '~/assets/css/markdown.css'],
-
-  // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
+  // Global CSS: https://go.nuxtjs.dev/config-css
+  css: ['~/assets/css/app.pcss'],
   loading: {
     color: metadata.settings.color,
     height: '2px',
   },
 
+  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     // global helper methods
     '~/plugins/utils/helpers',
     // https://github.com/ymmooot/nuxt-jsonld#readme
-    '~/plugins/utils/jsonld',
+    // '~/plugins/utils/jsonld',
     // https://github.com/ndelvalle/v-click-outside
-    '~/plugins/v-click-outside',
+    // '~/plugins/v-click-outside',
     // https://github.com/eddiemf/vue-scrollactive
     '~/plugins/vue-scrollactive',
     // https://github.com/rigor789/vue-scrollto
     '~/plugins/vue-scrollto',
     // https://github.com/ajerez/vue-read-progress
     '~/plugins/vue-read-progress.client.js',
+
+    '~/plugins/markdown',
+    '~/plugins/init',
+    // '~/plugins/i18n.client',
+    '~/plugins/menu.client',
   ],
 
-  // GitHub: https://github.com/nuxt/components
-  // Auto import components (https://go.nuxtjs.dev/config-components)
-  components: [{ path: '~/components/common', pathPrefix: false }],
+  // Auto import components: https://go.nuxtjs.dev/config-components
+  components: true,
 
-  // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
+  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
-    // https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv',
     // https://color-mode.nuxtjs.org/#setup
     '@nuxtjs/color-mode',
     // https://github.com/nuxt-community/svg-sprite-module
     '@nuxtjs/svg-sprite',
     // https://html-validator.nuxtjs.org/
     // '@nuxtjs/html-validator',
+    // https://github.com/nuxt-community/device-module
+    '@nuxtjs/device',
   ],
+  eslint: {
+    cache: false,
+  },
   tailwindcss: {
-    cssPath: '~/assets/css/tailwind.css',
+    cssPath: '~/assets/css/tailwind.pcss',
   },
   colorMode: {
     classSuffix: '',
@@ -103,10 +125,8 @@ export default {
     },
   },
 
-  // Modules (https://go.nuxtjs.dev/config-modules)
+  // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
@@ -118,64 +138,55 @@ export default {
     // https://gitlab.com/broj42/nuxt-lazy-load
     'nuxt-lazy-load',
   ],
-
-  // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {
-    baseURL: process.env.API_URL,
-    credentials: true,
-    https: false,
-    headers: {
-      common: {
-        'X-Requested-With': 'XMLHttpRequest',
-        'Access-Control-Allow-Origin': '*',
-      },
-    },
-  },
   pwa: {
     meta: {
-      name: metadata.tags.title,
-      author: process.env.META_AUTHOR || metadata.tags.author,
-      description: metadata.tags.description,
+      name: metadata.website.title,
+      author: metadata.website.author,
+      description: metadata.website.description,
       theme_color: metadata.settings.color,
       lang: metadata.settings.lang,
       ogSiteName: metadata.og.siteName,
-      ogTitle: metadata.tags.title,
-      ogDescription: metadata.tags.description,
+      ogTitle: metadata.website.title,
+      ogDescription: metadata.website.description,
       ogImage: `${process.env.BASE_URL}/default.jpg`,
       ogUrl: process.env.BASE_URL,
       twitterSite: metadata.twitter.site,
       twitterCreator: metadata.twitter.creator,
     },
     manifest: {
-      name: metadata.tags.title,
+      name: metadata.website.title,
       short_name: metadata.og.siteName,
-      description: metadata.tags.description,
+      description: metadata.website.description,
       display: 'browser',
       lang: metadata.settings.lang,
     },
   },
-  // Content module configuration (https://go.nuxtjs.dev/config-content)
   content: {
     apiPrefix: '_content',
     dir: 'content',
     fullTextSearchFields: ['title', 'description', 'slug', 'text'],
+    live: false,
     nestedProperties: ['categories.slug'],
     markdown: {
-      live: false,
       externalLinks: {},
       footnotes: {
         inlineNotes: true,
       },
-      tocDepth: 4,
+      tocDepth: 5,
       remarkPlugins: [
         'remark-squeeze-paragraphs',
         'remark-slug',
         'remark-autolink-headings',
         'remark-external-links',
         'remark-footnotes',
+        // 'remark-hint',
+        // 'remark-strip-badges',
+        // 'remark-code-import',
+        // 'remark-code-extra',
       ],
       prism: {
-        theme: 'prism-themes/themes/prism-vsc-dark-plus.css',
+        // https://github.com/PrismJS/prism-themes
+        theme: 'assets/css/prism-vsc-dark-plus.pcss',
       },
     },
   },
@@ -206,23 +217,28 @@ export default {
 
         document.readingTime = stats
 
-        if (document.path.includes('documentation')) {
-          let path = document.path
-          path = path.split('/')
-          path.shift()
-          path.shift()
-          path.pop()
-          const hierarchy = {
-            category: path[0],
-            subCategory: path[1],
-            subject: path[2],
-          }
+        let path = document.path
+        path = path.split('/')
+        path.shift()
+        path.pop()
+
+        // - category: development
+        // - domain: frameworks
+        // - subject: flutter
+        // - guide: api-localhost
+
+        const hierarchy = {
+          category: path[0],
+          domain: path[1],
+          subject: path[2],
+        }
+        if (hierarchy.category !== 'undefined') {
           document.hierarchy = hierarchy
         }
       }
     },
   },
 
-  // Build Configuration (https://go.nuxtjs.dev/config-build)
+  // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 }

@@ -1,0 +1,27 @@
+@import './fonts.pcss';
+@import './prose.pcss';
+
+.no-content {
+  content: ' ';
+}
+
+.nuxt-content-editor {
+  @apply p-4 !important;
+  @apply rounded-md bg-gray-200;
+
+  &:focus {
+    @apply outline-none;
+  }
+}
+
+.dark-mode .nuxt-content-editor {
+  @apply bg-gray-800;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}

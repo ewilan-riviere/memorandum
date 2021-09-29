@@ -57,9 +57,11 @@ const t = (key, type = 'label') => {
     ...langs.en,
   }
 
-  return translate[key]
-    ? translate[key][type]
-    : key.charAt(0).toUpperCase() + key.slice(1)
+  if (typeof key === 'string') {
+    return translate[key]
+      ? translate[key][type]
+      : key.charAt(0).toUpperCase() + key.slice(1)
+  }
 }
 
 Vue.prototype.$t = t

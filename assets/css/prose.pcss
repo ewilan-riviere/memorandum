@@ -1,0 +1,134 @@
+.prose {
+  @apply py-4 lg:pt-8 lg:pb-8 lg:px-8;
+  @apply break-words;
+
+  & h2:first-child::before {
+    height: 25px !important;
+  }
+  & h2,
+  & h3 {
+    /* Fix anchor scrollTo */
+    &::before {
+      display: block;
+      content: ' ';
+      margin-top: -85px;
+      height: 85px;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* Style anchor links on headings added by @nuxt/content */
+    & > a {
+      @apply ml-5;
+
+      &::before {
+        content: '#';
+        @apply text-primary-500 font-normal text-xl leading-8 -ml-5 pr-2 absolute opacity-100;
+      }
+    }
+  }
+  & h1 {
+    @apply text-4xl;
+  }
+  & h2 {
+    @apply text-3xl;
+  }
+  & h3 {
+    @apply text-2xl;
+  }
+  & h4 {
+    @apply text-xl;
+  }
+  & h5 {
+    @apply text-lg;
+  }
+  & h2::after {
+    content: ' ' !important;
+  }
+  & h3::after {
+    content: ' ' !important;
+  }
+  & h4::after {
+    content: ' ' !important;
+  }
+  /* & a::before {
+      content: none !important;
+    } */
+
+  & pre {
+    @apply scrollbar-thin;
+  }
+  & code::before {
+    content: none !important;
+  }
+  & code::after {
+    content: none !important;
+  }
+
+  & img {
+    @apply max-w-full object-contain mx-auto mb-10 rounded-md;
+    max-height: 24rem;
+  }
+
+  & a {
+    @apply transition-colors duration-100 border-b-2 border-primary-500 no-underline text-gray-900 dark:text-gray-100 !important;
+    --border-opacity: 0.25;
+  }
+  & a:hover {
+    @apply bg-primary-500 border-primary-500 bg-opacity-20;
+  }
+}
+
+.article-header {
+  & h1 {
+  }
+  & h2 {
+    @apply text-primary-600 dark:text-primary-400 text-sm not-italic;
+  }
+  & .article-header__source::after {
+    @apply absolute top-0 bottom-0 left-0 right-0 w-full max-w-full bg-gray-200 dark:bg-gray-700 bg-opacity-30 dark:bg-opacity-30 text-gray-900 dark:text-gray-100;
+    content: '';
+  }
+}
+
+.nuxt-content {
+  & pre {
+    @apply py-5;
+  }
+  /* filename and copy  */
+  & .nuxt-content-highlight {
+    @apply relative;
+    /* Style filename span added by @nuxt/content */
+    & > .filename {
+      @apply absolute right-0 top-0 text-gray-100 z-10 font-mono text-sm tracking-tight leading-none mr-4 mt-3;
+    }
+    /* Add top padding to code blocks with filename */
+    & > .filename + pre[class*='language-'] {
+      @apply pt-8;
+    }
+
+    /* Style copy button added in `pages/_.vue` */
+    & > .copy {
+      @apply absolute top-2.5 right-2 leading-none shadow-lg px-2 py-2 text-white bg-gray-800 text-sm uppercase rounded-md border border-white font-semibold z-10 bg-opacity-60;
+      @apply transition-opacity duration-75 opacity-0;
+
+      &:hover {
+        @apply bg-gray-700;
+      }
+
+      &:focus {
+        @apply outline-none bg-gray-600;
+      }
+    }
+    &:hover {
+      & > .copy {
+        @apply opacity-100;
+      }
+    }
+    /* Force style on pre elements */
+    & pre[class*='language-'] {
+      /* Make pre static so the relative goes to the parent (.nuxt-content-highlight) */
+      @apply bg-gray-800 static;
+    }
+  }
+}

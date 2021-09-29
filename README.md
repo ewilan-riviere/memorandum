@@ -11,6 +11,7 @@
 
 > Documentation with snippets and boiler plates, built with [NuxtJS](https://nuxtjs.org) and [nuxt/content](https://content.nuxtjs.org). Markdown ❤️ for ever.  
 > [**memorandum.ewilan-riviere.com/in-coming**](https://memorandum.ewilan-riviere.com/in-coming)
+> Based on <https://content.nuxtjs.org> and <https://tailwindcss.nuxtjs.org>
 
 ## Setup
 

@@ -1,93 +1,109 @@
 <template>
-  <app-main>
-    <template #aside>
-      <app-categories-navigation
-        :categories="categories"
-        route-param="type"
-      ></app-categories-navigation>
-    </template>
-    <template #content>
-      <article class="pb-10">
-        <div class="px-4 sm:px-6 lg:px-8">
-          <img src="/default.jpg" class="light-img" alt="Memorandum" />
-          <div class="max-w-xl mx-auto mt-10 text-gray-500">
-            <h1 class="text-3xl font-semibold text-center font-quicksand">
-              Welcome to Memorandum
-            </h1>
-            <h2 class="mt-2 text-xl text-center font-quicksand">
-              A custom documentation about technologies, frameworks & languages
-              and my projects...
-            </h2>
-          </div>
-          <div class="mx-auto mt-16 prose prose-lg text-gray-500">
-            <display-document :document="welcome" />
-          </div>
+  <layout-page :entities="categories" type="categories">
+    <template #document>
+      <div class="px-4 sm:px-6 lg:px-8">
+        <img src="/default.jpg" class="rounded-md mt-8" alt="Memorandum" />
+        <div class="max-w-xl mx-auto mt-10 text-gray-500 dark:text-gray-400">
+          <h1 class="text-3xl font-semibold text-center font-quicksand">
+            Welcome to Memorandum
+          </h1>
+          <h2 class="mt-2 text-xl text-center font-quicksand">
+            A custom documentation about technologies, frameworks & languages
+            and my projects...
+          </h2>
         </div>
-      </article>
+        <div class="prose prose-lg dark:prose-dark mx-auto max-w-full">
+          <nuxt-content :document="welcome" />
+        </div>
+      </div>
     </template>
-  </app-main>
+    <template #toc>
+      <!-- <app-toc :toc="welcome.toc" /> -->
+    </template>
+  </layout-page>
 </template>
 
 <script>
+import { mapMutations, mapGetters } from 'vuex'
 import { groupBy } from 'lodash'
-import appMain from '~/components/layout/app-main.vue'
-import AppCategoriesNavigation from '~/components/layout/app-categories-navigation.vue'
-
 export default {
   name: 'PageIndex',
-  components: {
-    appMain,
-    AppCategoriesNavigation,
-  },
   async asyncData({ $content, store }) {
-    const welcome = await $content('welcome', { deep: true }).fetch()
-    let categories = {}
-    if (!store.state.categories) {
-      const documents = await $content('documentation', { deep: true })
-        .only(['title', 'path', 'hierarchy'])
-        .fetch()
-      categories = {}
-      categories = groupBy(documents, 'hierarchy.category')
+    try {
+      const welcome = await $content('welcome', { deep: true }).fetch()
+      let categories = {}
+      const listFromStore = store.state.pages.list
+      if (!listFromStore) {
+        const documents = await $content({ deep: true })
+          .only(['title', 'path', 'hierarchy'])
+          .fetch()
+        categories = {}
+        categories = groupBy(documents, 'hierarchy.category')
 
-      for (const key in categories) {
-        if (Object.hasOwnProperty.call(categories, key)) {
-          const category = categories[key]
-          const subCategories = groupBy(category, 'hierarchy.subCategory')
-          const subCategoriesOrdered = Object.keys(subCategories)
-            .sort()
-            .reduce((obj, key) => {
-              obj[key] = subCategories[key]
-              return obj
-            }, {})
-          categories[key] = subCategoriesOrdered
+        for (const key in categories) {
+          if (Object.hasOwnProperty.call(categories, key)) {
+            const category = categories[key]
+            const domains = groupBy(category, 'hierarchy.domain')
+            const domainsOrdered = Object.keys(domains)
+              .sort()
+              .reduce((obj, key) => {
+                obj[key] = domains[key]
+                return obj
+              }, {})
+            categories[key] = domainsOrdered
+          }
         }
+
+        const categoriesOrdered = Object.keys(categories)
+          .sort()
+          .filter((e) => e !== 'undefined')
+          .reduce((obj, key) => {
+            obj[key] = categories[key]
+            return obj
+          }, {})
+        categories = categoriesOrdered
+
+        store.commit('pages/setList', categories)
+      } else {
+        categories = listFromStore
       }
 
-      const categoriesOrdered = Object.keys(categories)
-        .sort()
-        .reduce((obj, key) => {
-          obj[key] = categories[key]
-          return obj
-        }, {})
-
-      categories = categoriesOrdered
-      // console.log(categories)
-
-      store.commit('setCategories', categories)
-    } else {
-      categories = store.state.categories
-    }
-
-    return {
-      welcome,
-      categories,
+      return {
+        welcome,
+        categories,
+      }
+    } catch (error) {
+      return {
+        welcome: {},
+        categories: {},
+      }
     }
   },
-  data() {
+  head() {
+    const dynamicMetadata = require('~/plugins/metadata/metadata-dynamic')
+    const meta = require('@/plugins/metadata/metadata')
+    const title =
+      'Memorandum, personal development documentation with nuxt/content'
     return {
-      pages: [],
-      items: [],
+      title,
+      meta: [
+        ...dynamicMetadata({
+          title,
+          description: meta.settings.description,
+          url: this.$nuxt.$route.path,
+        }),
+      ],
     }
+  },
+  computed: {
+    ...mapGetters({
+      pages: 'pages/getPages',
+    }),
+  },
+  methods: {
+    ...mapMutations({
+      setPages: 'pages/setPages',
+    }),
   },
 }
 </script>
