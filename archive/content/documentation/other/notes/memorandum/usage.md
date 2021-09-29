@@ -36,10 +36,10 @@ sudo apt update ; sudo apt upgrade
 ## Local links
 
 ```html
-<local-link url="_content/documentation/development/frameworks/flutter/setup-flutter" text="_content/documentation/.../flutter/setup-flutter"></local-link>
+<local-link url="_content/development/frameworks/flutter/setup-flutter" text="_content/.../flutter/setup-flutter"></local-link>
 ```
 
-<local-link url="_content/documentation/development/frameworks/flutter/setup-flutter" text="_content/documentation/.../flutter/setup-flutter"></local-link>
+<local-link url="_content/development/frameworks/flutter/setup-flutter" text="_content/.../flutter/setup-flutter"></local-link>
 
 ## Code group
 

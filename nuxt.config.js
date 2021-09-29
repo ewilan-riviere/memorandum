@@ -1,5 +1,6 @@
 import metadata from './plugins/metadata/metadata'
 import sitemaps from './plugins/build/sitemaps'
+import routes from './plugins/build/routes'
 
 import metadataDynamic from './plugins/metadata/metadata-dynamic'
 import metadataStatic from './plugins/metadata/metadata-static'
@@ -12,10 +13,10 @@ export default {
     baseURL: process.env.BASE_URL,
   },
 
-  // generate: {
-  //   crawler: true,
-  //   routes,
-  // },
+  generate: {
+    crawler: true,
+    routes,
+  },
 
   render: {
     fallback: false,

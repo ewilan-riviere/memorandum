@@ -1,27 +1,26 @@
-import axios from 'axios'
-// import { $content } from '@nuxt/content'
-require('dotenv').config()
+import { $content } from '@nuxt/content'
 
-const api = process.env.API_URL
+export default () => {
+  // Attention, cette fonction DOIT retourner une Promise.
+  // eslint-disable-next-line no-async-promise-executor
+  return new Promise(async (resolve, reject) => {
+    // Je récupère les événements depuis mon API.
+    const routes = []
+    // const types = ['/development', '/games']
+    // types.forEach((route) => {
+    //   routes.push(route)
+    // })
 
-export default async () => {
-  let [books, series, authors] = await Promise.all([
-    axios.get(`${api}/books?all=true`),
-    axios.get(`${api}/series?all=true`),
-    axios.get(`${api}/authors?all=true`),
-  ])
-  books = books.data.data.map((book) => {
-    return `/books/${book.meta.author}/${book.meta.slug}`
-  })
-  series = series.data.data.map((serie) => {
-    return `/series/${serie.meta.author}/${serie.meta.slug}`
-  })
-  authors = authors.data.data.map((author) => {
-    return `/authors/${author.meta.slug}`
-  })
-  const routes = []
-  routes.push(...books, ...series, ...authors)
-  console.log(routes)
+    const guides = await $content({ deep: true })
+      .only(['path', 'slug', 'created_at'])
+      .fetch()
 
-  return routes
+    for (const guide of guides) {
+      const route = `${guide.path}`
+      routes.push(route)
+    }
+
+    // Tout se passe bien, je résous ma Promise en renvoyant les routes ajoutées par ma fonction.
+    resolve(routes)
+  })
 }
