@@ -134,6 +134,15 @@ php artisan ide-helper:generate ; php artisan ide-helper:models --nowrite; php a
 ./vendor/bin/php-cs-fixer fix
 ```
 
+### socket error on `serve`
+
+In `cmd`
+
+```cmd
+sudo net stop hns
+sudo net star hns
+```
+
 ## Scoop update
 
 Update common packages
