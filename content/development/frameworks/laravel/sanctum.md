@@ -5,7 +5,237 @@ position: 5
 category: 'Laravel'
 ---
 
-## Laravel Sanctum setup
+## Setup
+
+```bash
+php artisan migrate:fresh
+```
+
+`routes/api.php`
+
+```php
+Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('api.auth.login');
+Route::post('/login', [AuthenticatedSessionController::class, 'store'])->name('api.auth.login.post');
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('api.auth.logout');
+
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/user', [UserController::class, 'user'])->name('api.user');
+});
+```
+
+`composer.json`
+
+- `laravel/jetstream` to get `fortify` for login routes
+- `laravel/sanctum`
+
+```json
+{
+    "require": {
+        "laravel/jetstream": "^2.4",
+        "laravel/sanctum": "^2.11"
+    }
+}
+```
+
+`app/Http/Kernel.php`
+
+```php
+class Kernel extends HttpKernel
+{
+    protected $middlewareGroups = [
+        
+        // ...
+
+        'api' => [
+            \Illuminate\Session\Middleware\StartSession::class,
+            \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+            'throttle:api',
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        ],
+    ];
+}
+```
+
+`config/cors.php`
+
+```php
+return [
+    'paths' => ['api/*'],
+
+    'allowed_methods' => ['*'],
+
+    'allowed_origins' => ['*'],
+
+    'allowed_origins_patterns' => [],
+
+    'allowed_headers' => ['*'],
+
+    'exposed_headers' => [],
+
+    'max_age' => 0,
+
+    'supports_credentials' => true,
+];
+```
+
+`config/sanctum.php`
+
+```php
+return [
+    'prefix' => '/api/sanctum',
+
+    // ...
+]
+```
+
+`database/seeders/UserSeeder.php`
+
+```php
+class UserSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run()
+    {
+        User::create([
+            'name' => 'Admin',
+            'email' => 'admin@mail.com',
+            'password' => Hash::make('password'),
+        ]);
+    }
+}
+```
+
+Seed database: `php artisan db:seed --class=UserSeeder`
+
+## Front (Nuxt)
+
+`nuxt.config.js`
+
+```js
+export default {
+    modules: [
+        // https://go.nuxtjs.dev/axios
+        '@nuxtjs/axios',
+    ],
+    axios: {
+        baseURL: 'http://localhost:8000/api',
+        credentials: true,
+        headers: {
+            common: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'Access-Control-Allow-Origin': '*',
+                Accept: 'application/json, text/plain, */*',
+            },
+        },
+    },
+}
+```
+
+`login-form.vue`
+
+```vue
+<script>
+export default {
+  name: 'LoginForm',
+  data() {
+    return {
+      loading: false,
+      form: {
+        email: '',
+        password: '',
+      },
+    }
+  },
+  methods: {
+    async submit() {
+      this.loading = true
+
+      try {
+        await this.$axios.$get('/sanctum/csrf-cookie')
+        await this.$axios.$post('/login', {
+          email: this.form.email,
+          password: this.form.password,
+        })
+
+        this.loading = false
+      } catch (error) {
+        console.error(error)
+
+        this.loading = false
+      }
+    },
+  },
+}
+</script>
+```
+
+## Errors
+
+- `session store not set on request`
+
+`app/Http/Kernel.php`
+
+```php
+class Kernel extends HttpKernel
+{
+    protected $middlewareGroups = [
+        
+        // ...
+
+        'api' => [
+            \Illuminate\Session\Middleware\StartSession::class,
+            \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+            'throttle:api',
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        ],
+    ];
+}
+```
+
+- 419 `csrf token mismatch`
+
+`nuxt.config.js`
+
+```js
+export default {
+    modules: [
+        // https://go.nuxtjs.dev/axios
+        '@nuxtjs/axios',
+    ],
+    axios: {
+        baseURL: 'http://localhost:8000/api',
+        credentials: true,
+        headers: {
+            common: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'Access-Control-Allow-Origin': '*',
+                Accept: 'application/json, text/plain, */*',
+            },
+        },
+    },
+}
+```
+
+OR
+
+```js
+const instance = axios.create({
+    baseURL: 'http://localhost:8000/api',
+    withCredentials: true,
+    headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+        'Access-Control-Allow-Origin': '*',
+        Accept: 'application/json, text/plain, */*',
+    },
+})
+
+await instance.get('/sanctum/csrf-cookie')
+await instance.post('/login', credentials)
+```
+
+## Old Laravel Sanctum setup
 
 - <https://github.com/laravel/sanctum>
 - <https://github.com/laravel/breeze>
