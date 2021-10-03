@@ -12,9 +12,11 @@ category: 'Tailwind CSS'
 - [**@tailwindcss/forms**](https://github.com/tailwindlabs/tailwindcss-forms)
 - [**@tailwindcss/line-clamp**](https://github.com/tailwindlabs/tailwindcss-line-clamp)
 - [**Tailwind CSS Debug Screens**](https://github.com/jorenvanhee/tailwindcss-debug-screens)
+- [**Tailwind Scrollbar**](https://www.npmjs.com/package/tailwind-scrollbar)
 
 ```bash
-yarn add @tailwindcss/forms @tailwindcss/typography @tailwindcss/aspect-ratio @tailwindcss/line-clamp tailwindcss-debug-screens
+yarn add @tailwindcss/forms @tailwindcss/typography @tailwindcss/aspect-ratio @tailwindcss/line-clamp
+yarn add -D tailwindcss-debug-screens tailwind-scrollbar
 ```
 
 ```js[tailwind.config.js]
@@ -26,6 +28,7 @@ module.exports = {
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/line-clamp'),
     require('tailwindcss-debug-screens'),
+    require('tailwind-scrollbar'),
   ]
 }
 ```
