@@ -175,6 +175,12 @@ export default {
 
 - `session store not set on request`
 
+`.env`
+
+```js
+SANCTUM_STATEFUL_DOMAINS=localhost:3000
+```
+
 `app/Http/Kernel.php`
 
 ```php
