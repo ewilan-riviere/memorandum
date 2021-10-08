@@ -65,3 +65,45 @@ npm ERR! with --force to overwrite files recklessly.
 npm ERR! A complete log of this run can be found in:
 npm ERR!     C:\Users\user\AppData\Roaming\npm-cache\_logs\2021-08-16T07_54_44_449Z-debug.log
 ```
+
+To get latest NPM version from <https://github.com/coreybutler/nvm-windows/issues/300#issuecomment-788810759>
+
+<content-code-group>
+  <content-code-block label="NVM scoop" active>
+
+  ```bash
+  cd C:\Users\USERNAME\scoop\apps\nvm\current\nodejs\v14.18.0
+  ```
+
+  </content-code-block>
+  <content-code-block label="NVM installer">
+
+  ```bash
+  cd %APPDATA%\nvm\v14.18.0
+  ```
+
+  </content-code-block>
+</content-code-group>
+
+Rename current `npm` cli
+
+```bash
+mv npm npm-old
+mv npm.cmd npm-old.cmd
+mv npx npx-old
+mv npx.cmd npx-old.cmd
+```
+
+Find current CLI
+
+```bash
+cd node_modules\
+mv npm npm-old
+cd npm-old\bin
+```
+
+Install new NPM version
+
+```bash
+node npm-cli.js i -g npm@latest
+```
