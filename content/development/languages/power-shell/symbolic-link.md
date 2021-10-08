@@ -9,3 +9,7 @@ position: 2
 ```ps1
 cmd /c mklink /J "C:\path\to\target" "C:\path\to\origin"
 ```
+
+```ps1
+New-Item -ItemType Junction -Path C:\workspace\development\flutter\current -Target C:\workspace\development\flutter\2.5.2
+```
