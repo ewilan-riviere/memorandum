@@ -93,7 +93,14 @@
       >
         <!-- :to="localePath(result.to)" -->
         <NuxtLink
-          :to="result.path || '/'"
+          :to="{
+            name: 'category-domain-subject',
+            params: {
+              category: result.hierarchy.category,
+              domain: result.hierarchy.domain,
+              subject: result.hierarchy.subject,
+            },
+          }"
           class="
             flex
             px-4
@@ -110,11 +117,17 @@
           }"
           @click="focus = false"
         >
-          <span v-if="result.category" class="font-bold">{{
-            result.category
-          }}</span>
-          <IconChevronRight v-if="result.category" class="w-3 h-3 mx-1" />
-          {{ result.title }}
+          <app-md-img
+            :src="`/documentation/logo/${result.hierarchy.subject}.webp`"
+            class="object-cover object-center h-5 w-5 hidden xl:block"
+          />
+          <span class="ml-1 flex items-center">
+            <span v-if="result.category" class="font-bold">{{
+              $t(result.category)
+            }}</span>
+            <IconChevronRight v-if="result.category" class="w-3 h-3 mx-1" />
+            {{ result.title }}
+          </span>
         </NuxtLink>
       </li>
     </ul>
@@ -152,7 +165,7 @@ export default {
         // this.results = await this.$content(this.$i18n.locale, { deep: true })
         this.results = await this.$content({ deep: true })
           .sortBy('position', 'asc')
-          .only(['title', 'slug', 'category', 'to'])
+          .only(['title', 'slug', 'category', 'hierarchy', 'to'])
           .limit(12)
           .search(q)
           .fetch()

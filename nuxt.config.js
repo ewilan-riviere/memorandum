@@ -30,7 +30,7 @@ export default {
     htmlAttrs: {
       lang: metadata.settings.locale,
     },
-    meta: [...metadataStatic(), ...metadataDynamic()],
+    meta: [...metadataStatic(), ...metadataDynamic(null, process.env.BASE_URL)],
     link: [
       {
         rel: 'apple-touch-icon',

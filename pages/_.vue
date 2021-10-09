@@ -178,12 +178,15 @@ export default {
     return {
       title,
       meta: [
-        ...dynamicMetadata({
-          title,
-          description: this.guide.description || meta.settings.description,
-          url: this.$nuxt.$route.path,
-          image,
-        }),
+        ...dynamicMetadata(
+          {
+            title,
+            description: this.guide.description || meta.settings.description,
+            url: this.$nuxt.$route.path,
+            image,
+          },
+          this.$config.baseURL
+        ),
       ],
     }
   },

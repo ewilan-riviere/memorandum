@@ -1,8 +1,5 @@
 <template>
-  <main
-    class="min-h-screen bg-cover bg-top sm:bg-top"
-    style="background-image: url('/error.webp')"
-  >
+  <main class="min-h-screen bg-cover bg-top sm:bg-top">
     <div
       class="
         max-w-7xl
@@ -18,7 +15,9 @@
         class="
           text-sm
           font-semibold
-          text-black text-opacity-50
+          text-black
+          dark:text-white
+          text-opacity-50
           uppercase
           tracking-wide
         "
@@ -38,7 +37,16 @@
       >
         Run you fool, contingency is near!
       </h1>
-      <p class="mt-2 text-lg font-medium text-black text-opacity-50">
+      <p
+        class="
+          mt-2
+          text-lg
+          font-medium
+          text-black
+          dark:text-white
+          text-opacity-50
+        "
+      >
         Memo is broken, it can become a dark AI!
       </p>
       <div class="mt-6">

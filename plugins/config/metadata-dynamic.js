@@ -1,11 +1,11 @@
 const metaGlobal = require('./metadata.js')
 
-// Settings
-const baseUrl = `${process.env.BASE_URL}`
-const homeUrl = `${baseUrl}/`
-const homeImage = `${process.env.BASE_URL}/default.jpg`
+module.exports = (meta, baseURL) => {
+  // Settings
+  const baseUrl = `${baseURL}`
+  const homeUrl = `${baseUrl}/`
+  const homeImage = `${baseURL}/default.jpg`
 
-module.exports = (meta) => {
   return [
     //
     // Meta tags
@@ -14,11 +14,11 @@ module.exports = (meta) => {
     //
     // Open Graph
     //
-    ...getOpenGraph(meta),
+    ...getOpenGraph(meta, baseUrl, homeUrl, homeImage),
     //
     // Twitter card
     //
-    ...getTwitterCard(meta),
+    ...getTwitterCard(meta, homeImage),
   ]
 }
 
@@ -39,7 +39,7 @@ function getMeta(meta) {
     },
   ]
 }
-function getOpenGraph(meta) {
+function getOpenGraph(meta, baseUrl, homeUrl, homeImage) {
   const metaLocal = meta || {}
   return [
     {
@@ -89,7 +89,7 @@ function getOpenGraph(meta) {
   ]
 }
 
-function getTwitterCard(meta) {
+function getTwitterCard(meta, homeImage) {
   const metaLocal = meta || {}
   return [
     {

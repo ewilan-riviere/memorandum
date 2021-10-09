@@ -87,11 +87,14 @@ export default {
     return {
       title,
       meta: [
-        ...dynamicMetadata({
-          title,
-          description: meta.settings.description,
-          url: this.$nuxt.$route.path,
-        }),
+        ...dynamicMetadata(
+          {
+            title,
+            description: meta.settings.description,
+            url: this.$nuxt.$route.path,
+          },
+          this.$config.baseURL
+        ),
       ],
     }
   },
