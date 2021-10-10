@@ -14,10 +14,24 @@ category: 'Tailwind CSS'
 - [**Tailwind CSS Debug Screens**](https://github.com/jorenvanhee/tailwindcss-debug-screens)
 - [**Tailwind Scrollbar**](https://www.npmjs.com/package/tailwind-scrollbar)
 
-```bash
-yarn add @tailwindcss/forms @tailwindcss/typography @tailwindcss/aspect-ratio @tailwindcss/line-clamp
-yarn add -D tailwindcss-debug-screens tailwind-scrollbar
-```
+<content-code-group>
+  <content-code-block label="Yarn" active>
+
+  ```bash
+  yarn add @tailwindcss/forms @tailwindcss/typography @tailwindcss/aspect-ratio @tailwindcss/line-clamp
+  yarn add -D tailwindcss-debug-screens tailwind-scrollbar
+  ```
+
+  </content-code-block>
+  <content-code-block label="NPM">
+
+  ```bash
+  npm i @tailwindcss/forms @tailwindcss/typography @tailwindcss/aspect-ratio @tailwindcss/line-clamp
+  npm i --save-dev tailwindcss-debug-screens tailwind-scrollbar
+  ```
+
+  </content-code-block>
+</content-code-group>
 
 ```js[tailwind.config.js]
 module.exports = {
