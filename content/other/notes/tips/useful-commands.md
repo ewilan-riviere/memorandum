@@ -85,6 +85,13 @@ Linus setup permissions
 sudo chown -R $USER:www-data * ; sudo chmod -R ug+rwx storage bootstrap/cache
 ```
 
+```bash
+sudo chown -R $USER:www-data bookshelves-back
+sudo chown -R $USER:www-data bookshelves-vivacia-back
+
+sudo usermod -a -G www-data ewilan
+```
+
 Setup `key:generate` & `storage:link`
 
 ```bash
