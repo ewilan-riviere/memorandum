@@ -194,3 +194,25 @@ Stuck in rebase
 ```bash
 git rebase --skip
 ```
+
+## Laravel
+
+- <https://laravel-news.com/rich-text-for-laravel>
+- <https://laravel-news.com/advanced-eloquent-model-filters>
+- <https://github.com/rakutentech/laravel-request-docs>
+  - <https://medium.com/web-developer/laravel-automatically-generate-api-documentation-without-annotations-a-swagger-alternative-e0699409a59e>
+- <https://github.com/shailesh-ladumor/one-signal>
+- <https://postsrc.com/code-snippets/laravel-eloquent-has-where-has-with-and-load-methods?ref=laravelnews>
+- <https://laravel-news.com/laravel-8-58-0> : Shortcut for Simple "Where" Relationship Queries (8.57)
+- <https://laravel-news.com/one-of-many-eloquent-relationship>
+- <https://laravel-news.com/laravel-8-56-0> : Blade Component Slot Attributes
+- <https://laravel.com/docs/8.x/blade#accessing-parent-data> : @aware for parent data
+- Admin panels
+  - <https://laravel-news.com/13-laravel-admin-panel-generators>
+  - <https://github.com/krayin/laravel-crm>
+- <https://github.com/artesaos/seotools>
+
+## Flutter
+
+- <https://blog.devgenius.io/5-plugins-that-i-use-in-every-flutter-project-ab2f3dc1bfc2>
+- <https://medium.com/dreamwod-tech/flutter-dio-framework-best-practices-668985fc75b7>
