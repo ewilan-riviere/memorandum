@@ -92,3 +92,19 @@ console.log(isEmailValid('helloitsmeherewecode.io')) // false
 console.log(isEmailValid('helloitsme@herewecode')) // false
 console.log(isEmailValid('d@d.o')) // false
 ```
+
+## Password
+
+```js
+/**
+ * \d => at least one digit
+ * [a-z] => at least one lower case alpha
+ * [A-Z] => at least one upper case alpha
+ * \W => at least one special character
+ * [a-zA-Z\d\W]{12,} => at least 12 characters with precedent regex
+ */
+var regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[a-zA-Z\d\W]{12,}$/;
+if(regex.test(password)) {
+  // 
+}
+```
