@@ -20,6 +20,8 @@ category: 'Tailwind CSS'
 - [**github.com/kenhyuwa/litepie-datepicker**](https://github.com/kenhyuwa/litepie-datepicker)
 - [**kutty.netlify.app/components**](https://kutty.netlify.app/components)
 - [**www.creative-tim.com/templates/tailwind**](https://www.creative-tim.com/templates/tailwind)
+- <https://wickedblocks.dev/>
+- <https://redpixelthemes.com/>
 
 ## Other
 
