@@ -10,7 +10,7 @@ This guide has been set for [**Ubuntu 20.04**](https://ubuntu.com/#download) and
 ## 1. Useful packages
 
 ```bash
-sudo apt install -y exfat-utils exfat-fuse zip unzip curl git gimp nethogs vim ssh vlc fonts-firacode net-tools florence speedtest-cli
+sudo apt install -y exfat-utils exfat-fuse zip unzip curl git gimp nethogs vim ssh vlc fonts-firacode net-tools florence speedtest-cli jpegoptim optipng pngquant optipng gifsicle webp
 ```
 
 <content-alert type="info">
@@ -130,12 +130,12 @@ source ~/.zshrc
 
 ## 3. NodeJS: NVM
 
-You can install basic **NPM** package but with **NVM**, you can change NodeJS version when you want. Check last version on [**NVM GitHub**](https://github.com/nvm-sh/nvm) and change it if you want latest. Here, the **NVM** version is **`0.38`** and **NodeJS** version is **`14.17.5`** LTS.
+You can install basic **NPM** package but with **NVM**, you can change NodeJS version when you want. Check last version on [**NVM GitHub**](https://github.com/nvm-sh/nvm) and change it if you want latest. Here, the **NVM** version is **`0.38`** and **NodeJS** version is **`16.13.0`** LTS.
 
 Download NVM
 
 ```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 ```
 
 Add this into ~/.zshrc
@@ -145,13 +145,13 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 ```
 
-Install Node.js v14.17.5 and config NVM to use it
+Install Node.js v16.13.0 and config NVM to use it
 
 <content-code-group>
   <content-code-block label="One command" active>
 
   ```bash
-  source ~/.zshrc ; nvm ls-remote ; nvm install 14.17.5 ; nvm use 14.17.5 ; nvm alias default 14.17.5 ; nvm use default ; nvm ls ; node -v
+  source ~/.zshrc ; nvm ls-remote ; nvm install 16.13.0 ; nvm use 16.13.0 ; nvm alias default 16.13.0 ; nvm use default ; nvm ls ; node -v
   ```
 
   </content-code-block>
@@ -172,19 +172,19 @@ Install Node.js v14.17.5 and config NVM to use it
   Install specific version
 
   ```bash
-  nvm install 14.17.5
+  nvm install 16.13.0
   ```
 
   Use specific version
 
   ```bash
-  nvm use 14.17.5
+  nvm use 16.13.0
   ```
 
   Assign a version to **default**
 
   ```bash
-  nvm alias default 14.17.5
+  nvm alias default 16.13.0
   ```
 
   Use default version
@@ -208,12 +208,12 @@ Install Node.js v14.17.5 and config NVM to use it
   </content-code-block>
 </content-code-group>
 
-### 3. A. Yarn
+### 3. A. Node alt package manager
 
 Yarn is package manager which use NodeJS packages like NPM but it's really more powerful and it's a excellent alternative to NPM. You can use it like NPM, just type `yarn` and the command.
 
 ```bash
-npm install -g yarn
+npm install -g yarn pnpm
 ```
 
 ## 4. PHP

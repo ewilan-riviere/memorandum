@@ -22,6 +22,12 @@ If it's setup of server, you have to disable ssh with root and allow it with a c
 ssh root@xxx.xx.xx.xxx
 ```
 
+**Check IP**
+
+```bash
+/sbin/ip -4 addr ; /sbin/ip -6 addr
+```
+
 **Update Linux and add new user**
 
 ```bash
@@ -31,7 +37,7 @@ apt update ; apt upgrade ; adduser jack ; usermod -aG sudo jack
 **Enable firewall**
 
 ```bash
-sudo apt install -y ufw ; sudo ufw app list ; sudo ufw allow OpenSSH ; sudo ufw enable ; sudo ufw status
+sudo apt install -y ufw vim ; sudo ufw app list ; sudo ufw allow OpenSSH ; sudo ufw enable ; sudo ufw status
 ```
 
 <content-alert type="info"> If server
@@ -57,13 +63,17 @@ ssh jack@xxx.xx.xx.xxx
 **If works**, disallow ssh connection with root.
 
 ```bash
-vim /etc/ssh/sshd_config
+sudo vim /etc/ssh/sshd_config
 ```
 
 Find `PermitRootLogin` line and replace `yes` to `no` and restart sshd daemon. Disconnect yourself with `exit` and you won't able to connect with `root`, connect with custom user now.
 
+```bash[/etc/ssh/sshd_config]
+PermitRootLogin no
+```
+
 ```bash
-systemctl restart sshd.service
+sudo systemctl restart sshd.service
 ```
 
 </content-alert>
@@ -87,5 +97,5 @@ exit
 ## Basic packages
 
 ```bash
-sudo apt install -y exfat-utils exfat-fuse zip unzip curl git nethogs vim ssh net-tools
+sudo apt install -y exfat-utils exfat-fuse zip unzip curl git nethogs vim ssh net-tools jpegoptim optipng pngquant optipng gifsicle webp
 ```

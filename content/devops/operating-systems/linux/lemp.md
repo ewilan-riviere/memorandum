@@ -257,7 +257,8 @@ sudo apt install -y php7.4-mbstring php7.4-mysql php7.4-common php7.4-mysql php7
 
 ### 3. a. PHP 8.0+
 
-From [**linuxize.com**](https://linuxize.com/post/how-to-install-php-8-on-ubuntu-20-04)
+- From [**linuxize.com**](https://linuxize.com/post/how-to-install-php-8-on-ubuntu-20-04)
+- [computingforgeeks.com](https://computingforgeeks.com/how-to-install-php-on-debian-linux/)
 
 Install PPA for PHP
 
@@ -272,9 +273,7 @@ Install PPA for PHP
   <content-code-block label="Debian">
 
   ```bash
-  sudo apt install -y lsb-release ca-certificates apt-transport-https software-properties-common
-  echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/sury-php.list && wget -qO - https://packages.sury.org/php/apt.gpg | sudo apt-key add -
-  sudo apt update ; sudo apt upgrade -y
+  sudo apt update ; sudo apt install -y lsb-release ca-certificates apt-transport-https software-properties-common gnupg2 gnupg gnupg1 ; echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/sury-php.list ; wget -qO - https://packages.sury.org/php/apt.gpg | sudo apt-key add - ; sudo apt update
   ```
 
   </content-code-block>

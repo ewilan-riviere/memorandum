@@ -27,13 +27,13 @@ nvm list available
 Install the last LTS
 
 ```bash
-nvm install 14.17.5
+nvm install 16.13.0
 ```
 
 Use new version
 
 ```bash
-nvm use 14.17.5
+nvm use 16.13.0
 ```
 
 ## Install your CLI
