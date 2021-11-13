@@ -208,12 +208,29 @@ Install Node.js v16.13.0 and config NVM to use it
   </content-code-block>
 </content-code-group>
 
-### 3. A. Node alt package manager
+### 3. A. Global packages
+
+Add `.npmrc`
+
+```bash
+vim .npmrc at ~/
+```
+
+```bash
+prefix=~/.npm/bin
+cache=~/.npm/cache
+```
 
 Yarn is package manager which use NodeJS packages like NPM but it's really more powerful and it's a excellent alternative to NPM. You can use it like NPM, just type `yarn` and the command.
 
 ```bash
 npm install -g yarn pnpm
+```
+
+Update npm
+
+```bash
+npm install -g npm
 ```
 
 ## 4. PHP

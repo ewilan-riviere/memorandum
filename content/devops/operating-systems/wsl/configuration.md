@@ -77,10 +77,27 @@ Install Node.js **16.13.0**
 source ~/.profile ; nvm ls-remote ; nvm install 16.13.0 ; nvm use 16.13.0 ; nvm alias default 16.13.0 ; nvm use default ; nvm ls ; node -v
 ```
 
-Install yarn
+Add `.npmrc`
 
 ```bash
-npm install -g yarn
+vim .npmrc at ~/
+```
+
+```bash[~/.npmrc]
+prefix=~/.npm/bin
+cache=~/.npm/cache
+```
+
+Install global packages
+
+```bash
+npm install -g yarn pnpm
+```
+
+Update npm
+
+```bash
+npm install -g npm
 ```
 
 ### ZSH
@@ -105,13 +122,13 @@ vim ~/.zshrc
 
 Default theme
 
-```bash
+```bash[~/.zshrc]
 ZSH_THEME="robbyrussell"
 ```
 
 New theme from [**github.com/ohmyzsh/ohmyzsh/wiki/Themes**](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes)
 
-```bash
+```bash[~/.zshrc]
 ZSH_THEME="pmcgee"
 ```
 
@@ -123,24 +140,28 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] ; \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 ```
 
+```bash
+source ~/.zshrc
+```
+
 ### PHP
 
-<code-group>
-  <code-block label="Ubuntu" active>
+<content-code-group>
+  <content-code-block label="Ubuntu" active>
 
-    ```bash
-    sudo add-apt-repository ppa:ondrej/php ; sudo apt update
-    ```
+  ```bash
+  sudo add-apt-repository ppa:ondrej/php ; sudo apt update
+  ```
 
-  </code-block>
-  <code-block label="Debian">
+  </content-code-block>
+  <content-code-block label="Debian">
 
-    ```bash
-    echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/sury-php.list ; wget -qO - https://packages.sury.org/php/apt.gpg | sudo apt-key add - ; sudo apt update
-    ```
+  ```bash
+  echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/sury-php.list ; wget -qO - https://packages.sury.org/php/apt.gpg | sudo apt-key add - ; sudo apt update
+  ```
 
-  </code-block>
-</code-group>
+  </content-code-block>
+</content-code-group>
 
 #### Install
 
