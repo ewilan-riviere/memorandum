@@ -13,7 +13,9 @@ Here, the installation wil use GNU/Linux but it can be deploy on macOS too. For 
 
 ## Setup
 
-- [**Installation**](https://docs.meilisearch.com/learn/getting_started/installation.html#download-and-launch)
+- [**installation guide**](https://docs.meilisearch.com/learn/getting_started/installation.html)
+
+### Linux/macOS/WSL
 
 The simple way to setup Meilisearch is `curl`
 
@@ -39,7 +41,45 @@ Now you can launch it
 meilisearch
 ```
 
-## Create service
+### Windows
+
+You will need to install [Rust](https://www.rust-lang.org)
+
+```bash
+scoop install rust rustup
+```
+
+Clone meilisearch
+
+```bash
+git clone https://github.com/meilisearch/MeiliSearch meilisearch ; cd meilisearch
+```
+
+Update the rust toolchain to the latest version
+
+```bash
+rustup default stable-x86_64-pc-windows-gnu
+```
+
+```bash
+rustup update
+```
+
+Compile the project
+
+```bash
+cargo build --release
+```
+
+Execute the server binary
+
+```bash
+./target/release/meilisearch
+```
+
+## Production
+
+### Create service
 
 You can create a service locally but it's often on production server.
 
@@ -49,7 +89,7 @@ Create service
 sudo vim /etc/systemd/system/meilisearch.service
 ```
 
-Add this config to service
+Add this config to service, here with password `Y0urVery-S3cureAp1K3y`
 
 ```bash[/etc/systemd/system/meilisearch.service]
 [Unit]
@@ -80,7 +120,7 @@ Check status
 sudo systemctl status meilisearch
 ```
 
-### Add domain
+### Create domain
 
 For Meilisearch you need to have endpoint, so you have to create VHost for it
 
