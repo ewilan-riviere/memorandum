@@ -69,6 +69,10 @@ deb-src http://deb.debian.org/debian testing main non-free contrib
 - [**GitHub**](https://github.com/ogham/exa)
 
 ```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+```bash
 sudo apt install exa -y
 ```
 
