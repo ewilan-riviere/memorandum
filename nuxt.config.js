@@ -147,6 +147,8 @@ export default {
     '@nuxtjs/sitemap',
     // https://gitlab.com/broj42/nuxt-lazy-load
     'nuxt-lazy-load',
+    // https://github.com/frenchrabbit/nuxt-precompress
+    'nuxt-precompress',
   ],
   pwa: {
     meta: pwa.meta,
