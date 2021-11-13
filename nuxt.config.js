@@ -92,6 +92,8 @@ export default {
     // '@nuxtjs/html-validator',
     // https://github.com/nuxt-community/device-module
     '@nuxtjs/device',
+    // https://google-fonts.nuxtjs.org
+    '@nuxtjs/google-fonts',
   ],
   eslint: {
     cache: false,
@@ -124,6 +126,12 @@ export default {
         // Unreasonable rule
         'no-inline-style': 'off',
       },
+    },
+  },
+  googleFonts: {
+    families: {
+      Quicksand: [500],
+      'DM+Mono': [400],
     },
   },
 
