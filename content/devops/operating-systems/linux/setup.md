@@ -80,6 +80,40 @@ vim ~/.vimrc
 
 - <https://coderwall.com/p/if9mda/automatically-set-paste-mode-in-vim-when-pasting-in-insert-mode>
 
+### 1. b. exa
+
+<content-alert type="info" title="For Debian">
+
+```bash
+sudo vim /etc/apt/sources.list
+```
+
+```bash[/etc/apt/sources.list]
+# ...
+
+deb http://deb.debian.org/debian testing main non-free contrib
+deb-src http://deb.debian.org/debian testing main non-free contrib
+```
+
+</content-alert>
+
+- [**GitHub**](https://github.com/ogham/exa)
+
+```bash
+sudo apt install exa -y
+```
+
+Add to your PATH
+
+```bash
+vim ~/.zshrc
+```
+
+```bash[~/.zshrc]
+alias ls="exa"
+alias ll="exa --long --"
+```
+
 ## 2. ZSH & Oh my ZSH
 
 ZSH is a powerful command interpreter, better than bash. If you use it, you can improve it with [*Oh my ZSH*](https://ohmyz.sh/) which is configuration for ZSH.
@@ -219,6 +253,10 @@ vim .npmrc at ~/
 ```bash
 prefix=~/.npm/bin
 cache=~/.npm/cache
+```
+
+```bash
+nvm use --delete-prefix v16.13.0 --silent
 ```
 
 Yarn is package manager which use NodeJS packages like NPM but it's really more powerful and it's a excellent alternative to NPM. You can use it like NPM, just type `yarn` and the command.

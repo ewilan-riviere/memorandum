@@ -4,7 +4,12 @@ description: 'How to setup Meilisearch'
 position: 1
 ---
 
+>MeiliSearch is a powerful, fast, open-source, easy to use and deploy search engine. Both searching and indexing are highly customizable. Features such as typo-tolerance, filters, and synonyms are provided out-of-the-box.
+
 Here, the installation wil use GNU/Linux but it can be deploy on macOS too. For Windows, Windows Subsytem for Linux is a excellent solution.
+
+- [**website**](https://www.meilisearch.com/)
+- [**github**](https://github.com/meilisearch/MeiliSearch)
 
 ## Setup
 
@@ -26,6 +31,12 @@ But the best solution is to add to binaries
 
 ```bash
 sudo mv ./meilisearch /usr/bin/
+```
+
+Now you can launch it
+
+```bash
+meilisearch
 ```
 
 ## Create service
@@ -69,12 +80,6 @@ Check status
 sudo systemctl status meilisearch
 ```
 
-Execute service
-
-```bash
-meilisearch
-```
-
 ### Add domain
 
 For Meilisearch you need to have endpoint, so you have to create VHost for it
@@ -94,4 +99,4 @@ server {
 }
 ```
 
-Execute `certbot` to add HTTPS and your endpoint is available on <meilisearch.example.com>.
+Execute `certbot` to add HTTPS and your endpoint is available on <http://meilisearch.example.com>.

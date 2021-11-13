@@ -24,7 +24,7 @@ Install some useful packages
 sudo apt install -y curl git nethogs vim ssh zip unzip php-zip speedtest-cli lsb-release ca-certificates apt-transport-https software-properties-common ; sudo chmod u+s $(which nethogs)
 ```
 
-### Vim
+#### Vim
 
 Add vim config
 
@@ -47,6 +47,44 @@ set ignorecase
 set ruler
 set showcmd
 set mouse=a
+```
+
+#### exa
+
+<content-alert type="info" title="For Debian">
+
+```bash
+sudo vim /etc/apt/sources.list
+```
+
+```bash[/etc/apt/sources.list]
+# ...
+
+deb http://deb.debian.org/debian testing main non-free contrib
+deb-src http://deb.debian.org/debian testing main non-free contrib
+```
+
+</content-alert>
+
+- [**GitHub**](https://github.com/ogham/exa)
+
+```bash
+sudo apt install exa -y
+```
+
+Add to your PATH
+
+```bash
+vim ~/.zshrc
+```
+
+```bash[~/.zshrc]
+alias ls="exa"
+alias ll="exa --long --"
+```
+
+```bash
+source ~/.zshrc
 ```
 
 ### Node.js
@@ -86,6 +124,10 @@ vim .npmrc at ~/
 ```bash[~/.npmrc]
 prefix=~/.npm/bin
 cache=~/.npm/cache
+```
+
+```bash
+nvm use --delete-prefix v16.13.0 --silent
 ```
 
 Install global packages
