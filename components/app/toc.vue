@@ -33,9 +33,9 @@
         <li
           v-for="link of toc"
           :key="link.id"
-          class="text-gray-700 dark:text-gray-300"
+          class="text-gray-300"
           :class="{
-            'border-t border-dashed dark:border-gray-800 first:border-t-0':
+            'border-t border-dashed border-gray-800 first:border-t-0':
               link.depth === 2,
           }"
         >

@@ -1,5 +1,5 @@
 <template>
-  <article class="prose prose-lg dark:prose-dark max-w-none lg:hyphenate">
+  <article class="prose prose-lg max-w-none lg:hyphenate">
     <client-only>
       <vue-read-progress :color="color"></vue-read-progress>
     </client-only>

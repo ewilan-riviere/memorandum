@@ -28,7 +28,7 @@
           <div class="mt-3">
             <p
               v-if="subject.description"
-              class="max-w-full italic hyphenate dark:text-gray-400"
+              class="max-w-full italic hyphenate text-gray-400"
             >
               {{ subject.description }}
             </p>

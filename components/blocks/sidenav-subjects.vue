@@ -4,7 +4,7 @@
       <div class="flex items-center">
         <svg-icon
           :name="`nav/${$route.params.domain}`"
-          class="w-5 h-5 text-gray-800 dark:text-gray-200 hidden xl:block"
+          class="w-5 h-5 text-gray-200 hidden xl:block"
         />
         <span class="xl:ml-2 sidenav-title">
           <div class="line-clamp-1">

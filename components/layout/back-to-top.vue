@@ -12,14 +12,12 @@
         mr-5
         transition-colors
         duration-100
-        bg-gray-200 bg-opacity-50
-        dark:bg-gray-600
+        bg-gray-600 bg-opacity-50
         rounded-md
         shadow-md
         cursor-pointer
         md:p-3
-        hover:bg-gray-300
-        dark:hover:bg-gray-500
+        hover:bg-gray-500
         group
       "
       @click="scrollToTop"
@@ -66,6 +64,6 @@ export default {
 
 <style lang="postcss" scoped>
 .icon::v-deep svg {
-  @apply w-5 h-5 text-gray-700 dark:text-gray-400 transition-colors duration-100 fill-current group-hover:text-gray-700 dark:group-hover:text-gray-600;
+  @apply w-5 h-5 text-gray-400 transition-colors duration-100 fill-current group-hover:text-gray-600;
 }
 </style>

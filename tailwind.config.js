@@ -12,7 +12,6 @@
 
 module.exports = {
   mode: 'jit',
-  darkMode: 'class',
   theme: {
     container: {
       center: true,
@@ -55,18 +54,29 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
+            color: theme('colors.gray.100'),
+            '[class~="lead"]': {
+              color: theme('colors.gray.100'),
+            },
             a: {
               fontWeight: theme('fontWeight.semibold'),
-              // color: theme('colors.primary.400'),
-              // margin: '0 !important',
+              color: theme('colors.primary.300'),
             },
             'a:hover': {
-              color: theme('colors.primary.600'),
+              color: theme('colors.primary.500'),
+            },
+            p: {
+              color: theme('colors.gray.100'),
+            },
+            strong: {
+              color: theme('colors.gray.100'),
             },
             h1: {
               fontFamily: theme('fontFamily.quicksand'),
+              color: theme('colors.gray.100'),
             },
             h2: {
+              color: theme('colors.gray.100'),
               'margin-top': theme('margin.12') + ' !important',
               'margin-bottom': theme('margin.8') + ' !important',
               fontSize: theme('fontSize.xl'),
@@ -83,6 +93,7 @@ module.exports = {
               'border-color': theme('borderColor.primary.600'),
             },
             h3: {
+              color: theme('colors.gray.100'),
               'margin-top': theme('margin.10') + ' !important',
               'margin-bottom': theme('margin.8') + ' !important',
               fontSize: theme('fontSize.xl'),
@@ -99,6 +110,7 @@ module.exports = {
               'border-style': 'dashed',
             },
             h4: {
+              color: theme('colors.gray.100'),
               'margin-top': theme('margin.8') + ' !important',
               'margin-bottom': theme('margin.8') + ' !important',
               fontSize: theme('fontSize.xl.text') + ' !important',
@@ -116,80 +128,31 @@ module.exports = {
               'border-style': 'solid',
             },
             h5: {
+              color: theme('colors.gray.100'),
               'margin-top': theme('margin.8') + ' !important',
               'margin-bottom': theme('margin.8') + ' !important',
               fontSize: theme('fontSize.text.lg') + ' !important',
               fontFamily: theme('fontFamily.quicksand'),
               width: 'max-content',
             },
-            blockquote: {
-              // fontWeight: '400',
-              // color: theme('colors.gray.600'),
-              // fontStyle: 'normal',
-              // quotes: '"\\201C""\\201D""\\2018""\\2019"',
-            },
-            // 'blockquote p:first-of-type::before': {
-            //   content: '',
-            // },
-            // 'blockquote p:last-of-type::after': {
-            //   content: '',
-            // },
             code: {
               fontFamily: theme('fontFamily.mono'),
-              backgroundColor: theme('colors.gray.200'),
               padding: theme('padding.1'),
               borderRadius: theme('borderRadius.sm'),
+              color: theme('colors.gray.300'),
+              backgroundColor: theme('colors.gray.800'),
             },
             pre: {
               fontFamily: theme('fontFamily.mono'),
             },
-          },
-        },
-        dark: {
-          css: {
-            color: theme('colors.gray.100'),
-            '[class~="lead"]': {
-              color: theme('colors.gray.100'),
-            },
-            a: {
-              color: theme('colors.primary.300'),
-            },
-            'a:hover': {
-              color: theme('colors.primary.500'),
-            },
-            p: {
-              color: theme('colors.gray.100'),
-            },
-            strong: {
-              color: theme('colors.gray.100'),
-            },
-            code: {
-              color: theme('colors.gray.300'),
-              backgroundColor: theme('colors.gray.800'),
-            },
-            h1: {
-              color: theme('colors.gray.100'),
-            },
-            h2: {
-              color: theme('colors.gray.100'),
-            },
-            h3: {
-              color: theme('colors.gray.100'),
-            },
-            h4: {
-              color: theme('colors.gray.100'),
-            },
-            h5: {
-              color: theme('colors.gray.100'),
+            hr: {
+              borderColor: theme('colors.gray.700'),
             },
             'ol > li::before': {
               color: theme('colors.gray.400'),
             },
             'ul > li::before': {
               backgroundColor: theme('colors.gray.600'),
-            },
-            hr: {
-              borderColor: theme('colors.gray.700'),
             },
             blockquote: {
               color: theme('colors.gray.400'),

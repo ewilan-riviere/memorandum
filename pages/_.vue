@@ -43,10 +43,9 @@
               left-0
               w-8
               h-8
-              text-gray-200
               transform
               -translate-y-2
-              dark:text-gray-600
+              text-gray-600
             "
             fill="currentColor"
             viewBox="0 0 32 32"
@@ -56,27 +55,11 @@
             />
           </svg>
           <p
-            class="
-              relative
-              pl-3
-              text-xl
-              leading-8
-              text-gray-500
-              dark:text-gray-400
-            "
+            class="relative pl-3 text-xl leading-8 text-gray-400"
             v-html="guide.description"
           ></p>
         </div>
-        <div
-          class="
-            flex
-            items-center
-            justify-between
-            my-1
-            text-gray-600
-            dark:text-gray-400
-          "
-        >
+        <div class="flex items-center justify-between my-1 text-gray-400">
           <div v-if="guide.readingTime" class="flex items-center">
             <svg-icon name="clock" class="mr-1 w-6 h-6" />
             {{ guide.readingTime.text }}

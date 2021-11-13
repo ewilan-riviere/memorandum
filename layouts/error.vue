@@ -15,9 +15,7 @@
         class="
           text-sm
           font-semibold
-          text-black
-          dark:text-white
-          text-opacity-50
+          text-white text-opacity-50
           uppercase
           tracking-wide
         "
@@ -37,16 +35,7 @@
       >
         Run you fool, contingency is near!
       </h1>
-      <p
-        class="
-          mt-2
-          text-lg
-          font-medium
-          text-black
-          dark:text-white
-          text-opacity-50
-        "
-      >
+      <p class="mt-2 text-lg font-medium text-white text-opacity-50">
         Memo is broken, it can become a dark AI!
       </p>
       <div class="mt-6">

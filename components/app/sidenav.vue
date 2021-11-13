@@ -9,9 +9,8 @@
       mt-16
       lg:mt-0
       z-30
-      bg-white
-      dark:bg-gray-900
-      lg:bg-transparent lg:dark:bg-transparent
+      bg-gray-900
+      lg:bg-transparent
       sidenav
     "
     :class="{ block: menu, hidden: !menu }"
@@ -107,13 +106,13 @@ export default {
   @apply inline-block text-lg font-semibold font-quicksand after:w-4/5 after:block after:border-b-2 after:border-primary-400 after:rounded-md;
 }
 .sidenav::v-deep .sidenav-link {
-  @apply flex p-2 rounded-md hover:bg-primary-100 dark:hover:bg-primary-700 my-2 justify-between transition-all duration-75;
+  @apply flex p-2 rounded-md hover:bg-primary-700 my-2 justify-between transition-all duration-75;
 }
 .sidenav::v-deep .sidenav-link-active {
-  @apply bg-primary-100 dark:bg-primary-800 opacity-50;
+  @apply bg-primary-800 opacity-50;
 }
 .sidenav::v-deep .sidenav-chip {
-  @apply bg-gray-100 dark:bg-gray-800 rounded-md px-2 py-1 hidden xl:block;
+  @apply bg-gray-800 rounded-md px-2 py-1 hidden xl:block;
 }
 .sidenav::v-deep .sidenav-link__wrapper {
   @apply flex items-center space-x-2;

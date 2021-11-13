@@ -3,7 +3,7 @@
     <app-sidenav :entities="entities" :type="type" />
     <div class="flex flex-wrap-reverse w-full lg:w-4/5 min-h-screen">
       <!-- <app-article-block :document="welcome" /> -->
-      <div class="w-full dark:border-gray-800 lg:w-3/4 lg:border-l lg:border-r">
+      <div class="w-full border-gray-800 lg:w-3/4 lg:border-l lg:border-r">
         <slot name="document" />
       </div>
       <!-- <app-toc :toc="welcome.toc" /> -->

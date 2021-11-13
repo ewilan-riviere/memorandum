@@ -1,15 +1,6 @@
 <template>
   <footer
-    class="
-      h-16
-      relative
-      w-full
-      border-t
-      dark:border-gray-800
-      bg-white
-      dark:bg-gray-900
-      z-20
-    "
+    class="h-16 relative w-full border-t border-gray-800 bg-gray-900 z-20"
   >
     <div
       class="
@@ -31,8 +22,7 @@
           rel="noopener"
           class="h-4 w-32"
         >
-          <icon-built-nuxt class="dark:hidden" />
-          <icon-built-nuxt dark class="hidden dark:block" />
+          <icon-built-nuxt />
         </a>
       </div>
       <div

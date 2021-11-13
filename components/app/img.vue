@@ -4,7 +4,7 @@
       v-if="imageNotExist"
       src="/icon.png"
       :alt="title"
-      class="object-cover dark:bg-gray-800 inset-0 absolute h-full w-full z-10"
+      class="object-cover bg-gray-800 inset-0 absolute h-full w-full z-10"
     />
     <transition name="fade">
       <div v-if="loading">
@@ -31,8 +31,7 @@
             duration-300
             max-size
             img
-            bg-gray-50
-            dark:bg-gray-800
+            bg-gray-800
           "
         ></div>
       </div>

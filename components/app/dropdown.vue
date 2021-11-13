@@ -30,7 +30,7 @@
           right-0
         "
       >
-        <div class="rounded-md bg-white dark:bg-gray-800 shadow-xs">
+        <div class="rounded-md bg-gray-800 shadow-xs">
           <slot />
         </div>
       </div>

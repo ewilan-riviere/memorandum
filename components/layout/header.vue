@@ -1,15 +1,6 @@
 <template>
   <nav
-    class="
-      fixed
-      top-0
-      z-40
-      w-full
-      border-b
-      dark:border-gray-800
-      bg-white
-      dark:bg-gray-900
-    "
+    class="fixed top-0 z-40 w-full border-b border-gray-800 bg-gray-900"
     :class="{ 'shadow border-transparent': scrolled }"
     @click="scrollToTop"
   >
@@ -27,31 +18,14 @@
               flex-shrink-0 flex-1
               font-bold
               text-xl
-              hover:bg-primary-100
-              dark:hover:bg-primary-800
+              hover:bg-primary-800
               p-1
               rounded-md
             "
             :aria-label="`${settings.title} Logo`"
           >
             <span v-if="!logo">{{ settings.title }}</span>
-
-            <svg-icon
-              name="logo-full"
-              class="h-8 w-44 text-black dark:text-gray-100"
-            />
-            <!-- <img
-              v-if="logo"
-              :src="logo.light"
-              class="h-8 max-w-full dark:hidden"
-              :alt="settings.title"
-            />
-            <img
-              v-if="logo"
-              :src="logo.dark"
-              class="h-8 max-w-full hidden dark:block"
-              :alt="settings.title"
-            /> -->
+            <svg-icon name="logo-full" class="h-8 w-44 text-gray-100" />
           </NuxtLink>
         </div>
         <div
@@ -73,21 +47,6 @@
             'justify-end': !lastRelease || settings.layout === 'single',
           }"
         >
-          <!-- <NuxtLink
-            v-if="lastRelease"
-            :to="localePath('/releases')"
-            class="
-              font-semibold
-              leading-none
-              text-gray-700
-              dark:text-gray-300
-              hover:text-primary-500
-              dark-hover:text-primary-500
-              text-base
-              mr-4
-            "
-            exact-active-class="text-primary-500"
-            > -->
           <a
             v-if="packageJson && packageJson.repository"
             :href="packageJson.repository.url"
@@ -96,8 +55,7 @@
             class="
               font-semibold
               leading-none
-              text-gray-700
-              dark:text-gray-300
+              text-gray-300
               hover:text-primary-500
               dark-hover:text-primary-500
               text-base
@@ -116,8 +74,7 @@
               title="Twitter"
               name="Twitter"
               class="
-                text-gray-700
-                dark:text-gray-300
+                text-gray-300
                 hover:text-primary-500
                 dark-hover:text-primary-500
                 ml-4
@@ -136,8 +93,7 @@
               title="Github"
               name="Github"
               class="
-                text-gray-700
-                dark:text-gray-300
+                text-gray-300
                 hover:text-primary-500
                 dark-hover:text-primary-500
                 ml-4
@@ -148,10 +104,6 @@
             >
               <icon-github class="w-5 h-5" />
             </a>
-            <div class="ml-3 flex space-x-3">
-              <!-- <layout-lang-switcher /> -->
-              <layout-color-switcher />
-            </div>
 
             <button
               v-if="settings.layout !== 'single'"
@@ -159,8 +111,7 @@
                 lg:hidden
                 p-2
                 rounded-md
-                text-gray-700
-                dark:text-gray-300
+                text-gray-300
                 focus:outline-none
                 -mr-2
               "
@@ -210,7 +161,6 @@ export default {
 
       return {
         light: this.settings.logo,
-        dark: this.settings.logo,
       }
     },
   },

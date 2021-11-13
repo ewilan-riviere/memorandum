@@ -3,7 +3,7 @@
     <template #document>
       <div class="px-4 sm:px-6 lg:px-8">
         <img src="/default.webp" class="rounded-md mt-8" alt="Memorandum" />
-        <div class="max-w-xl mx-auto mt-10 text-gray-500 dark:text-gray-400">
+        <div class="max-w-xl mx-auto mt-10 text-gray-400">
           <h1 class="text-3xl font-semibold text-center font-quicksand">
             Welcome to Memorandum
           </h1>
@@ -12,7 +12,7 @@
             and my projects...
           </h2>
         </div>
-        <div class="prose prose-lg dark:prose-dark mx-auto max-w-full">
+        <div class="prose prose-lg mx-auto max-w-full">
           <nuxt-content :document="welcome" />
         </div>
       </div>

@@ -20,7 +20,7 @@
         <div class="sidenav-link__wrapper">
           <svg-icon
             :name="`nav/${$slugify(domainName)}`"
-            class="w-6 h-6 text-gray-800 dark:text-gray-200"
+            class="w-6 h-6 text-gray-200"
           />
           <span class="line-clamp-1">{{ $t(domainName) }}</span>
         </div>

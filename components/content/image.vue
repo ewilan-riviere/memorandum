@@ -23,8 +23,7 @@
             leading-5
             transition-opacity
             duration-100
-            bg-gray-300 bg-opacity-95
-            dark:bg-gray-700
+            bg-opacity-95 bg-gray-700
           "
         >
           Click on image
@@ -56,8 +55,8 @@
         border border-red-400
         rounded-md
         shadow-lg
-        bg-gray-50
-        dark:bg-gray-900 dark:text-gray-50
+        bg-gray-900
+        text-gray-50
       "
     >
       <div>
@@ -67,7 +66,7 @@
         </div>
         <small>
           Search if image exist on:
-          <span class="px-1 py-1 bg-gray-200 dark:bg-gray-700">{{
+          <span class="px-1 py-1 bg-gray-700">{{
             `static/documentation/${path}/${source}`
           }}</span>
         </small>

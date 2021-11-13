@@ -33,7 +33,7 @@ export default {
       bodyAttrs: {
         class: [
           ...this.bodyClass,
-          'antialiased text-gray-700 leading-normal bg-white dark:bg-gray-900 dark:text-gray-300',
+          'antialiased leading-normal bg-gray-900 text-gray-300',
         ],
       },
       ...i18nSeo,

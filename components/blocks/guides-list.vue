@@ -1,16 +1,10 @@
 <template>
-  <div class="bg-white dark:bg-gray-800 shadow overflow-hidden sm:rounded-md">
-    <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+  <div class="bg-gray-800 shadow overflow-hidden sm:rounded-md">
+    <ul role="list" class="divide-y divide-gray-700">
       <li v-for="guide in guides" :key="guide.id">
         <nuxt-link
           :to="guide.path"
-          class="
-            block
-            hover:bg-gray-50
-            dark:hover:bg-gray-700
-            transition-colors
-            duration-75
-          "
+          class="block hover:bg-gray-700 transition-colors duration-75"
         >
           <div class="px-4 py-4 flex items-center sm:px-6">
             <div
@@ -19,12 +13,7 @@
               <div class="line-clamp-1">
                 <div class="flex text-sm">
                   <p
-                    class="
-                      font-semibold
-                      text-lg text-primary-600
-                      dark:text-primary-300
-                      line-clamp-1
-                    "
+                    class="font-semibold text-lg text-primary-300 line-clamp-1"
                   >
                     {{ guide.title }}
                   </p>
@@ -34,13 +23,7 @@
                 </div>
                 <div class="mt-2 flex">
                   <div
-                    class="
-                      flex
-                      items-center
-                      text-sm text-gray-500
-                      dark:text-gray-400
-                      line-clamp-1
-                    "
+                    class="flex items-center text-sm text-gray-400 line-clamp-1"
                   >
                     {{ guide.description }}
                     <!-- <CalendarIcon
@@ -59,13 +42,7 @@
               </div>
               <div class="mt-4 flex-shrink-0 sm:mt-0 sm:ml-5">
                 <div
-                  class="
-                    flex
-                    overflow-hidden
-                    -space-x-1
-                    text-sm text-gray-500
-                    dark:text-gray-400
-                  "
+                  class="flex overflow-hidden -space-x-1 text-sm text-gray-400"
                 >
                   <!-- <img
                     v-for="applicant in guide.applicants"
