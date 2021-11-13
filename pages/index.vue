@@ -2,7 +2,7 @@
   <layout-page :entities="categories" type="categories">
     <template #document>
       <div class="px-4 sm:px-6 lg:px-8">
-        <img src="/default.jpg" class="rounded-md mt-8" alt="Memorandum" />
+        <img src="/default.webp" class="rounded-md mt-8" alt="Memorandum" />
         <div class="max-w-xl mx-auto mt-10 text-gray-500 dark:text-gray-400">
           <h1 class="text-3xl font-semibold text-center font-quicksand">
             Welcome to Memorandum

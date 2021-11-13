@@ -7,7 +7,7 @@
 [![nodejs](https://img.shields.io/static/v1?label=NodeJS&message=v14.16&color=339933&style=flat-square&logo=node.js&logoColor=ffffff)](https://nodejs.org/en)
 [![yarn](https://img.shields.io/static/v1?label=Yarn&message=v1.2&color=2C8EBB&style=flat-square&logo=yarn&logoColor=ffffff)](https://classic.yarnpkg.com/lang/en/)
 
-![Memo](static/default.jpg)
+![Memo](static/default.webp)
 
 > Documentation with snippets and boiler plates, built with [NuxtJS](https://nuxtjs.org) and [nuxt/content](https://content.nuxtjs.org). Markdown ❤️ for ever.  
 > [**memorandum.ewilan-riviere.com/in-coming**](https://memorandum.ewilan-riviere.com/in-coming)  

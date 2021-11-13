@@ -20,7 +20,7 @@ features:
   - Extend with hooks
 ---
 
-<img src="/default.jpg" />
+<img src="/default.webp" />
 
 I'm Web developer since 2018, I learn a lot about some different languages, frameworks, techs... And I needed to have some place to get more than snippets. I wanted to can write some article about concepts, with boiler plates and explications. But I would to have a beautiful interface and user friendly blocks of codes, easy to copy.
 
@@ -61,7 +61,7 @@ if(number >= 2) {
 
 <img src="/content/icon.png" />
 
-<img src="/default.jpg" />
+<img src="/default.webp" />
 
 - item 1
 - item 2
