@@ -16,6 +16,33 @@ Update packages
 sudo apt update ; sudo apt -y upgrade
 ```
 
+### ZSH
+
+ZSH is a powerful command interpreter, better than bash. If you use it, you can improve it with [*Oh my ZSH*](https://ohmyz.sh/) which is configuration for ZSH.
+
+```bash
+sudo apt install -y zsh
+```
+
+#### `oh-my-zsh`
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+Add theme
+
+```bash
+vim ~/.zshrc
+```
+
+Default theme to new theme from [**github.com/ohmyzsh/ohmyzsh/wiki/Themes**](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes)
+
+```bash[~/.zshrc]
+# replace ZSH_THEME="robbyrussell"
+ZSH_THEME="pmcgee"
+```
+
 ### Add packages
 
 Install some useful packages
@@ -73,6 +100,11 @@ sudo apt update && sudo apt upgrade -y
 ```
 
 ```bash
+sudo add-apt-repository ppa:spvkgn/exa
+sudo apt-get update
+```
+
+```bash
 sudo apt install exa -y
 ```
 
@@ -102,7 +134,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 Add to path
 
 ```bash
-vim ~/.profile
+vim ~/.zshrc
 ```
 
 Add this configuration at the end
@@ -116,13 +148,13 @@ export NVM_DIR="$HOME/.nvm"
 Install Node.js **16.13.0**
 
 ```bash
-source ~/.profile ; nvm ls-remote ; nvm install 16.13.0 ; nvm use 16.13.0 ; nvm alias default 16.13.0 ; nvm use default ; nvm ls ; node -v
+source ~/.zshrc ; nvm ls-remote ; nvm install 16.13.0 ; nvm use 16.13.0 ; nvm alias default 16.13.0 ; nvm use default ; nvm ls ; node -v
 ```
 
 Add `.npmrc`
 
 ```bash
-vim .npmrc at ~/
+vim ~/.npmrc
 ```
 
 ```bash[~/.npmrc]
@@ -144,50 +176,6 @@ Update npm
 
 ```bash
 npm install -g npm
-```
-
-### ZSH
-
-ZSH is a powerful command interpreter, better than bash. If you use it, you can improve it with [*Oh my ZSH*](https://ohmyz.sh/) which is configuration for ZSH.
-
-```bash
-sudo apt install -y zsh
-```
-
-#### `oh-my-zsh`
-
-```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-```
-
-Add theme
-
-```bash
-vim ~/.zshrc
-```
-
-Default theme
-
-```bash[~/.zshrc]
-ZSH_THEME="robbyrussell"
-```
-
-New theme from [**github.com/ohmyzsh/ohmyzsh/wiki/Themes**](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes)
-
-```bash[~/.zshrc]
-ZSH_THEME="pmcgee"
-```
-
-If you want to have NVM to path, add this configuration at the end... and every other config you have
-
-```bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] ; \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] ; \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-```
-
-```bash
-source ~/.zshrc
 ```
 
 ### PHP
