@@ -22,7 +22,7 @@
                 ml-2
               "
             >
-              {{ $t($route.params.subject) }}
+              {{ subject.title }}
             </div>
           </div>
           <div class="mt-3">
@@ -125,7 +125,11 @@ export default {
     }
   },
   created() {
-    this.subject = this.$getEntity(this.$route.params.subject)
+    this.subject.title = this.$t(`subjects.${this.$route.params.subject}.title`)
+    this.subject.description = this.$t(
+      `subjects.${this.$route.params.subject}.description`
+    )
+    this.subject.url = this.$t(`subjects.${this.$route.params.subject}.url`)
   },
   methods: {
     getDomain(url) {

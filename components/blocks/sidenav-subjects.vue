@@ -8,24 +8,26 @@
         />
         <span class="xl:ml-2 sidenav-title">
           <div class="line-clamp-1">
-            {{ $t($route.params.domain) }}
+            {{ $t(`nav.${$route.params.domain}`) }}
           </div>
         </span>
       </div>
-      <blocks-sidenav-back :to="{ name: 'index' }" />
+      <blocks-sidenav-back :to="localePath({ name: 'index' })" />
     </div>
     <ul class="mt-2">
       <nuxt-link
         v-for="(subject, name) in subjects"
         :key="subject.id"
-        :to="{
-          name: 'category-domain-subject',
-          params: {
-            category: $route.params.category,
-            domain: $route.params.domain,
-            subject: name,
-          },
-        }"
+        :to="
+          localePath({
+            name: 'category-domain-subject',
+            params: {
+              category: $route.params.category,
+              domain: $route.params.domain,
+              subject: name,
+            },
+          })
+        "
         class="sidenav-link"
         :class="{
           'sidenav-link-active': name === $route.params.subject,
@@ -37,7 +39,7 @@
             :src="`/documentation/logo/${name}.webp`"
             title=""
           />
-          <span class="line-clamp-1">{{ $t(name) }}</span>
+          <span class="line-clamp-1">{{ $t(`subjects.${name}.title`) }}</span>
         </div>
         <span class="sidenav-chip">
           {{ subjects[name].length }}

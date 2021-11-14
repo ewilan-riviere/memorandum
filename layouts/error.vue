@@ -40,7 +40,7 @@
       </p>
       <div class="mt-6">
         <nuxt-link
-          to="/"
+          :to="localePath('/')"
           class="
             inline-flex
             items-center

@@ -128,10 +128,7 @@
           </a>
         </div>
       </div>
-      <div class="flex items-center space-x-4">
-        <!-- <layout-lang-switcher /> -->
-        <layout-color-switcher />
-      </div>
+      <div class="flex items-center space-x-4"></div>
     </div>
   </footer>
 </template>

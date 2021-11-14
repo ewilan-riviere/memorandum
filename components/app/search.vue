@@ -41,7 +41,7 @@
             text-white
             focus:text-white focus:border-gray-700
             rounded-md
-            focus:outline-none focus:bg-white
+            focus:outline-none focus:bg-gray-700
             bg-gray-800
           "
           :class="{ 'rounded-b-none': focus && (searching || results.length) }"
@@ -85,16 +85,17 @@
         @mouseenter="focusIndex = index"
         @mousedown="go"
       >
-        <!-- :to="localePath(result.to)" -->
         <NuxtLink
-          :to="{
-            name: 'category-domain-subject',
-            params: {
-              category: result.hierarchy.category,
-              domain: result.hierarchy.domain,
-              subject: result.hierarchy.subject,
-            },
-          }"
+          :to="
+            localePath({
+              name: 'category-domain-subject',
+              params: {
+                category: result.hierarchy.category,
+                domain: result.hierarchy.domain,
+                subject: result.hierarchy.subject,
+              },
+            })
+          "
           class="
             flex
             px-4

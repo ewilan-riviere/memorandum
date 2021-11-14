@@ -149,6 +149,8 @@ export default {
     'nuxt-lazy-load',
     // https://github.com/frenchrabbit/nuxt-precompress
     'nuxt-precompress',
+    // https://i18n.nuxtjs.org/setup
+    '@nuxtjs/i18n',
   ],
   pwa: {
     meta: pwa.meta,
@@ -200,6 +202,17 @@ export default {
     loadingClass: 'isLoading',
     loadedClass: 'isLoaded',
     appendClass: 'lazyLoad',
+  },
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        file: 'en.js',
+        name: 'English',
+      },
+    ],
+    defaultLocale: 'en',
+    langDir: '~locales/',
   },
 
   hooks: {

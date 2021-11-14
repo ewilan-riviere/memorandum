@@ -100,12 +100,12 @@ export default {
   },
   computed: {
     ...mapGetters({
-      pages: 'pages/getPages',
+      pages: 'pages/getList',
     }),
   },
   methods: {
     ...mapMutations({
-      setPages: 'pages/setPages',
+      setPages: 'pages/setList',
     }),
   },
 }

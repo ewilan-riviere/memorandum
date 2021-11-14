@@ -13,21 +13,23 @@
         </div>
       </div>
       <blocks-sidenav-back
-        :to="{
-          name: 'category-domain-subject',
-          params: {
-            category: hierarchy.category,
-            domain: hierarchy.domain,
-            subject: hierarchy.subject,
-          },
-        }"
+        :to="
+          localePath({
+            name: 'category-domain-subject',
+            params: {
+              category: hierarchy.category,
+              domain: hierarchy.domain,
+              subject: hierarchy.subject,
+            },
+          })
+        "
       />
     </div>
     <ul class="mt-3 mb-4">
       <nuxt-link
         v-for="(guide, id) in guides"
         :key="id"
-        :to="guide.path"
+        :to="localePath(guide.path)"
         class="sidenav-link"
         :class="{
           'sidenav-link-active': guide.slug === current,

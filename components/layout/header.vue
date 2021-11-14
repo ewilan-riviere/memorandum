@@ -7,13 +7,8 @@
     <div class="container mx-auto flex-1 px-4 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <div class="lg:w-1/5 flex items-center pr-4" @click.stop="noop">
-          <!-- <NuxtLink
-            :to="localePath('/')"
-            class="flex-shrink-0 flex-1 font-bold text-xl"
-            :aria-label="`${settings.title} Logo`"
-          > -->
           <NuxtLink
-            to="/"
+            :to="localePath('/')"
             class="
               flex-shrink-0 flex-1
               font-bold

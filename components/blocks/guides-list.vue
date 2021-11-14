@@ -3,7 +3,7 @@
     <ul role="list" class="divide-y divide-gray-700">
       <li v-for="guide in guides" :key="guide.id">
         <nuxt-link
-          :to="guide.path"
+          :to="localePath(guide.path)"
           class="block hover:bg-gray-700 transition-colors duration-75"
         >
           <div class="px-4 py-4 flex items-center sm:px-6">

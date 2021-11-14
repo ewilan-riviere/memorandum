@@ -49,31 +49,24 @@ Array.prototype.pushIfNotExist = function (element, comparer) {
 
 // eslint-disable-next-line no-unused-vars
 const langs = {
-  en: require('../locales/en.js'),
+  en: require('../../locales/en.js'),
 }
-
-const t = (key, type = 'label') => {
-  const translate = {
-    ...langs.en,
-  }
-
-  if (typeof key === 'string') {
-    return translate[key]
-      ? translate[key][type]
-      : key.charAt(0).toUpperCase() + key.slice(1)
-  }
-}
-
-Vue.prototype.$t = t
 
 const getEntity = (key) => {
-  const translate = {
-    ...langs.en,
-  }
+  console.log(key)
+  // const translate = {
+  //   ...langs.en,
+  // }
 
-  return translate[key]
-    ? translate[key]
-    : key.charAt(0).toUpperCase() + key.slice(1)
+  // return translate[key]
+  //   ? translate[key]
+  //   : key.charAt(0).toUpperCase() + key.slice(1)
+
+  return {
+    title: '',
+    description: '',
+    url: '',
+  }
 }
 
 Vue.prototype.$getEntity = getEntity

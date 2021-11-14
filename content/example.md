@@ -34,8 +34,6 @@ Empower your NuxtJS application with `@nuxt/content` module: write in a `content
 
 ## Features
 
-<p class="flex items-center">Enjoy light and dark mode:&nbsp;<layout-color-switcher class="inline-flex ml-2"></layout-color-switcher></p>
-
 ### Title
 
 Text.
