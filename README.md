@@ -17,7 +17,6 @@
 
 - [ ] add redirect pages to crawler
 - [ ] new crawler for sitemap
-- [ ] search engine: link, add logo
 
 ## Setup
 
