@@ -193,8 +193,6 @@ php artisan backpack:install
 
 You can have this output error:
 
-<vue-code-info ext="sh-output"></vue-code-info>
-
 ```bash
 Symfony\Component\Process\Exception\ProcessTimedOutException  : The process "composer require barryvdh/laravel-elfinder" exceeded the timeout of 300 seconds.
 ```
@@ -208,8 +206,6 @@ composer config --global process-timeout 2000
 ### **Backpack & NGINX**
 
 With **Nuxt** and **Laravel** on same url, **Nuxt** crush `public` directory of **Laravel**. If you want to load *CSS* and *JS* from public directory off **Laravel**, you can add it to `location` into first configuration (here, l.10), like this, here *CSS* is present and `public/css/app.css` can be loaded into back-office. Check **Network** in your dev tools if you can't find any error, *404 is the proof of problems with NGINX config*!
-
-<vue-code-info ext="nginx"></vue-code-info>
 
 ```nginx{10}
 server {

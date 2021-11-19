@@ -17,9 +17,7 @@ php artisan vendor:publish --provider="Tohidplus\Translation\TranslationServiceP
 
 And into the `config/app.php`:
 
-<vue-code-info ext="php" path="config/app.php"></vue-code-info>
-
-```php
+```php[config/app.php]
 <?php
 
 'providers' => [
@@ -29,9 +27,7 @@ And into the `config/app.php`:
 ];
 ```
 
-<vue-code-info ext="js" path="resources/js/app.js"></vue-code-info>
-
-```js
+```js[resources/js/app.js]
 window.Vue = require('vue');
 
 // If you want to add to window object
@@ -49,9 +45,7 @@ php artisan VueTranslation:generate --watch=1
 
 ### *Into VueJS component*
 
-<vue-code-info ext="vue" path="/resources/js/components/my-component.vue"></vue-code-info>
-
-```vue
+```vue[resources/js/components/my-component.vue]
 <template>
     <div>
         {{ translate('titles.home') }}

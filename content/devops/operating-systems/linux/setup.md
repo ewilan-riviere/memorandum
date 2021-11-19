@@ -9,21 +9,24 @@ This guide has been set for [**Ubuntu 20.04**](https://ubuntu.com/#download) and
 
 ## 1. Useful packages
 
+Update repo
+
 ```bash
-sudo apt install -y exfat-utils exfat-fuse zip unzip curl git gimp nethogs vim ssh vlc fonts-firacode net-tools florence speedtest-cli jpegoptim optipng pngquant optipng gifsicle webp
+sudo apt update ; sudo apt -y upgrade
 ```
 
-<content-alert type="info">
+Install packages
+
+```bash
+sudo apt install -y exfat-utils exfat-fuse zip unzip curl git nethogs vim ssh net-tools jpegoptim optipng pngquant optipng gifsicle webp lsb-release ca-certificates apt-transport-https software-properties-common
+```
 
 - `exfat-utils` and `exfat-fuse` packages allow to use `exFAT` disks ([**see wiki**](https://doc.ubuntu-fr.org/exfat))
 - `curl` package allow to get resources with protocol
 - `git` package to use git commands
-- `gimp` package to edit images
-- `chromium-browser` package, if `firefox-esr` is installed by default on Ubuntu, you will need Chrome or Chromium if you develop website to check webkit
 - `nethogs` package allow to check bandswidth usage with `sudo nethogs`
 - `vim` is command line editor, very powerful
 - `ssh` package to use SSH transfers
-- `fonts-firacode` package to install [**fira code fonts**](https://github.com/tonsky/FiraCode)
 
 Setup `nethogs` to use it without `sudo`
 
@@ -37,9 +40,7 @@ You can check your bandswidth with
 speedtest
 ```
 
-</content-alert>
-
-### 1. a. Vim
+### Vim
 
 Get basic configuration and copy it to user directory
 
@@ -47,7 +48,7 @@ Get basic configuration and copy it to user directory
 sudo vim /etc/vim/vimrc
 ```
 
-```vim
+```vim[/etc/vim/vimrc]
 set nocompatible
 set number
 set background=dark
@@ -76,47 +77,9 @@ vim ~/.vimrc
 
 </content-alert>
 
-#### `set paste`
+#### set paste
 
 - <https://coderwall.com/p/if9mda/automatically-set-paste-mode-in-vim-when-pasting-in-insert-mode>
-
-### 1. b. exa
-
-<content-alert type="info" title="For Debian">
-
-```bash
-sudo vim /etc/apt/sources.list
-```
-
-```bash[/etc/apt/sources.list]
-# ...
-
-deb http://deb.debian.org/debian testing main non-free contrib
-deb-src http://deb.debian.org/debian testing main non-free contrib
-```
-
-</content-alert>
-
-- [**GitHub**](https://github.com/ogham/exa)
-
-```bash
-sudo apt update && sudo apt upgrade -y
-```
-
-```bash
-sudo apt install exa -y
-```
-
-Add to your PATH
-
-```bash
-vim ~/.zshrc
-```
-
-```bash[~/.zshrc]
-alias ls="exa"
-alias ll="exa --long --"
-```
 
 ## 2. ZSH & Oh my ZSH
 
@@ -140,9 +103,7 @@ If you accept to use ZSH, you need to logout to enable it.
 
 </content-alert>
 
-<content-alert type="info">
-
-**Customize with theme**
+### Customize with theme
 
 With *Oh my ZSH*, you can use themes to have beautiful terminal, check available themes here: [github.com/ohmyzsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes), I use `pmcgee`
 
@@ -154,8 +115,9 @@ vim ~/.zshrc
 
 Search `ZSH_THEME` at the top of file and update value
 
-```bash[.zshrc]
-ZSH_THEME="pmcgee"
+```diff[~/.zshrc]
+-ZSH_THEME="robbyrussell"
++ZSH_THEME="pmcgee"
 ```
 
 Update new configuration
@@ -164,7 +126,91 @@ Update new configuration
 source ~/.zshrc
 ```
 
-</content-alert>
+## Additional apps
+
+### exa: a replacement for ‘ls’
+
+- [GitHub](https://github.com/ogham/exa)
+
+<content-code-group>
+  <content-code-block label="Ubuntu" active>
+
+  ```bash
+  sudo add-apt-repository ppa:ondrej/php
+  ```
+
+  </content-code-block>
+  <content-code-block label="Debian">
+
+  ```bash
+  sudo vim /etc/apt/sources.list
+  ```
+
+  Add `test` repositories
+
+  ```bash[/etc/apt/sources.list]
+  # ...
+
+  deb http://deb.debian.org/debian testing main non-free contrib
+  deb-src http://deb.debian.org/debian testing main non-free contrib
+  ```
+
+  </content-code-block>
+</content-code-group>
+
+Refresh repo
+
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+Install `exa`
+
+```bash
+sudo apt install exa -y
+```
+
+Make alias in your PATH
+
+```bash
+vim ~/.zshrc
+```
+
+```bash[~/.zshrc]
+alias ls="exa"
+alias ll="exa --long --"
+```
+
+```bash
+source ~/.zshrc
+```
+
+Now you can use `exa` with `ls`.
+
+### thefuck: corrects your command
+
+Magnificent app which corrects your previous console command.
+
+- [GitHub](https://github.com/nvbn/thefuck#installation)
+
+```bash
+sudo apt update
+sudo apt install python3-dev python3-pip python3-setuptools
+pip3 install thefuck --user
+```
+
+```bash
+vim ~/.zshrc
+```
+
+```bash[~/.zshrc]
+export PATH=~/.local/bin:$PATH
+eval "$(thefuck --alias)"
+```
+
+```bash
+source ~/.zshrc
+```
 
 ## 3. NodeJS: NVM
 
@@ -176,85 +222,35 @@ Download NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 ```
 
-Add this into ~/.zshrc
+Add this into `~/.zshrc`
 
 ```bash[.zshrc]
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 ```
 
-Install Node.js v16.13.0 and config NVM to use it
+Now you can use `nvm`, install Node.js `v16.13.0` and config `nvm` to use it
 
-<content-code-group>
-  <content-code-block label="One command" active>
-
-  ```bash
-  source ~/.zshrc ; nvm ls-remote ; nvm install 16.13.0 ; nvm use 16.13.0 ; nvm alias default 16.13.0 ; nvm use default ; nvm ls ; node -v
-  ```
-
-  </content-code-block>
-  <content-code-block label="With more details">
-
-  Update `.zshrc` for **PATH**
-
-  ```bash
-  source ~/.zshrc
-  ```
-
-  List all Node.js  available versions with NVM
-
-  ```bash
-  nvm ls-remote
-  ```
-
-  Install specific version
-
-  ```bash
-  nvm install 16.13.0
-  ```
-
-  Use specific version
-
-  ```bash
-  nvm use 16.13.0
-  ```
-
-  Assign a version to **default**
-
-  ```bash
-  nvm alias default 16.13.0
-  ```
-
-  Use default version
-
-  ```bash
-  nvm use default
-  ```
-
-  List installed versions
-
-  ```bash
-  nvm ls
-  ```
-
-  Get current version
-
-  ```bash
-  node -v
-  ```
-
-  </content-code-block>
-</content-code-group>
+```bash
+source ~/.zshrc
+nvm ls-remote
+nvm install 16.13.0
+nvm use 16.13.0 
+nvm alias default 16.13.0
+nvm use default
+nvm ls
+node -v
+```
 
 ### 3. A. Global packages
 
-Add `.npmrc`
+If you want to keep your global `npm` packagesn you can set global path
 
 ```bash
-vim .npmrc at ~/
+vim ~/.npmrc
 ```
 
-```bash
+```bash[~/.npmrc]
 prefix=~/.npm/bin
 cache=~/.npm/cache
 ```
@@ -263,10 +259,10 @@ cache=~/.npm/cache
 nvm use --delete-prefix v16.13.0 --silent
 ```
 
-Yarn is package manager which use NodeJS packages like NPM but it's really more powerful and it's a excellent alternative to NPM. You can use it like NPM, just type `yarn` and the command.
+Now you can install additional useful packages
 
 ```bash
-npm install -g yarn pnpm
+npm install -g yarn pnpm svgo
 ```
 
 Update npm
@@ -277,14 +273,41 @@ npm install -g npm
 
 ## 4. PHP
 
-### A. Installation
+To get latest versions of PHP
 
-Install **NGINX** or **Apache2** to have VHost, check these guides
+<content-code-group>
+  <content-code-block label="Ubuntu" active>
 
-- [**NGINX: LEMP**](/development/operating-systems/linux/lemp)
-- [**Apache2: LAMP**](/development/operating-systems/linux/lamp)
+  ```bash
+  sudo add-apt-repository ppa:ondrej/php
+  sudo apt update
+  ```
 
-### B. Composer
+  </content-code-block>
+  <content-code-block label="Debian">
+
+  ```bash
+  echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/sury-php.list
+  wget -qO - https://packages.sury.org/php/apt.gpg | sudo apt-key add -
+  sudo apt update
+  ```
+
+  </content-code-block>
+</content-code-group>
+
+Install latest PHP version.
+
+```bash
+sudo apt -y install php8.0-fpm
+```
+
+Add PHP extension
+
+```bash
+sudo apt install -y php8.0-mbstring php8.0-mysql php8.0-common php8.0-mysql php8.0-xml php8.0-curl php8.0-gd php8.0-imagick php8.0-cli php8.0-dev php8.0-imap php8.0-mbstring php8.0-opcache php8.0-soap php8.0-zip php8.0-intl php8.0-bz2
+```
+
+### Composer
 
 Use command line instructions of [**Composer website**](https://getcomposer.org/download/) to download and install latest version of Composer
 
@@ -301,8 +324,25 @@ composer global require laravel/installer
 Add this to `.zshrc`
 
 ```bash
+vim ~/.zshrc
+```
+
+```bash[~/.zshrc]
 export PATH=~/.config/composer/vendor/bin:$PATH
 ```
+
+```bash
+source ~/.zshrc
+```
+
+Now you can use `composer`.
+
+### Stack
+
+Install **NGINX** or **Apache2** to have VHost, check these guides
+
+- [**NGINX: LEMP**](/development/operating-systems/linux/lemp)
+- [**Apache2: LAMP**](/development/operating-systems/linux/lamp)
 
 ## 5. Graphics drivers
 
@@ -339,7 +379,8 @@ export LANGUAGE="en_US.UTF-8"
 ```
 
 ```bash
-source .zshrc ; locale
+source ~/.zshrc
+locale
 ```
 
 ---

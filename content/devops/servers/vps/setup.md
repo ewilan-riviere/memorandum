@@ -10,8 +10,6 @@ When I offer to create new user, I call it `jack`, you can use any other usernam
 
 </content-alert>
 
-<update-username></update-username>
-
 ## SSH
 
 If it's setup of server, you have to disable ssh with root and allow it with a custom user.
@@ -40,9 +38,7 @@ apt update ; apt upgrade ; adduser jack ; usermod -aG sudo jack
 sudo apt install -y ufw vim ; sudo ufw app list ; sudo ufw allow OpenSSH ; sudo ufw enable ; sudo ufw status
 ```
 
-<content-alert type="info"> If server
-
-**Copy SSH keys from *root* to *jack***
+### Copy SSH keys from *root* to *jack*
 
 ```bash
 mkdir /home/jack/.ssh/ ; cp /root/.ssh/authorized_keys /home/jack/.ssh/ ; chown -R jack:jack /home/jack/.ssh/ ; chmod -R 700 /home/jack/.ssh/
@@ -68,17 +64,16 @@ sudo vim /etc/ssh/sshd_config
 
 Find `PermitRootLogin` line and replace `yes` to `no` and restart sshd daemon. Disconnect yourself with `exit` and you won't able to connect with `root`, connect with custom user now.
 
-```bash[/etc/ssh/sshd_config]
-PermitRootLogin no
+```diff[/etc/ssh/sshd_config]
+-PermitRootLogin yes
++PermitRootLogin no
 ```
 
 ```bash
 sudo systemctl restart sshd.service
 ```
 
-</content-alert>
-
-<content-alert type="info"> Optional: change root password
+### Change root password
 
 ```bash
 sudo -i
@@ -92,13 +87,9 @@ passwd
 exit
 ```
 
-</content-alert>
+## Add packages
 
-## Basic packages
-
-```bash
-sudo apt install -y exfat-utils exfat-fuse zip unzip curl git nethogs vim ssh net-tools jpegoptim optipng pngquant optipng gifsicle webp
-```
+Check [**Linux guide**](/devops/operating-systems/linux/setup).
 
 ## MOTD
 

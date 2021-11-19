@@ -41,44 +41,46 @@ module.exports = {
         'Open-source UI software development kit created by Google. It is used to develop applications for Android/iOS, Linux/Mac/Windows and web from a single codebase.',
       url: 'https://flutter.dev/',
     },
-    latex: { title: 'latex' },
-    laravel: { title: 'Laravel' },
-    'native-script': { title: 'NativeScript' },
-    nuxtjs: { title: 'NuxtJS' },
-    strapi: { title: 'strapi' },
-    'tailwind-css': { title: 'Tailwind CSS' },
-    vuejs: { title: 'Vue.js' },
-    vuepress: { title: 'Vuepress' },
+    latex: { title: 'latex', description: '' },
+    laravel: { title: 'Laravel', description: '' },
+    'native-script': { title: 'NativeScript', description: '' },
+    nuxtjs: { title: 'NuxtJS', description: '' },
+    strapi: { title: 'strapi', description: '' },
+    'tailwind-css': { title: 'Tailwind CSS', description: '' },
+    vuejs: { title: 'Vue.js', description: '' },
+    vuepress: { title: 'Vuepress', description: '' },
 
-    'c-sharp': { title: 'C#' },
-    css: { title: 'CSS' },
-    js: { title: 'JavaScript' },
-    ts: { title: 'TypeScript' },
-    mysql: { title: 'MySQL' },
-    'npm-yarn': { title: 'NPM & Yarn' },
-    php: { title: 'PHP' },
-    'power-shell': { title: 'PowerShell' },
+    'c-sharp': { title: 'C#', description: '' },
+    css: { title: 'CSS', description: '' },
+    js: { title: 'JavaScript', description: '' },
+    ts: { title: 'TypeScript', description: '' },
+    mysql: { title: 'MySQL', description: '' },
+    'npm-yarn': { title: 'NPM & Yarn', description: '' },
+    php: { title: 'PHP', description: '' },
+    'power-shell': { title: 'PowerShell', description: '' },
 
     mail: { title: 'E-mail' },
-    'nas-synology': { title: 'NAS Synology' },
-    raspberry: { title: 'Raspberry' },
-    seo: { title: 'SEO' },
-    'visual-studio-code': { title: 'Visual Studio Code' },
+    'nas-synology': { title: 'NAS Synology', description: '' },
+    raspberry: { title: 'Raspberry', description: '' },
+    seo: { title: 'SEO', description: '' },
+    'visual-studio-code': { title: 'Visual Studio Code', description: '' },
     regex: {
       title: 'REGEX',
+      description: '',
     },
     git: {
       title: 'Git',
+      description: '',
     },
 
-    server: { title: 'Server' },
-    'web-server': { title: 'Web server' },
-    nginx: { title: 'NGINX' },
-    apache: { title: 'Apache2' },
+    server: { title: 'Server', description: '' },
+    'web-server': { title: 'Web server', description: '' },
+    nginx: { title: 'NGINX', description: '' },
+    apache: { title: 'Apache2', description: '' },
 
-    linux: { title: 'Linux' },
-    macos: { title: 'macOS' },
-    windows: { title: 'Windows' },
+    linux: { title: 'Linux', description: '' },
+    macos: { title: 'macOS', description: '' },
+    windows: { title: 'Windows', description: '' },
     wsl: {
       title: 'Windows Subsystem for Linux',
       description:
@@ -86,14 +88,37 @@ module.exports = {
       url: 'https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux',
     },
 
-    'useful-links': {
-      title: 'Useful links',
+    memorandum: {
+      title: 'Memorandum',
+      description: '',
+    },
+    tips: {
+      title: 'Tips',
+      description: '',
     },
 
-    'animal-crossings': { title: 'Animal Crossings' },
-    'guild-wars': { title: 'Guild Wars' },
-    'oxygen-not-included': { title: 'Oxygen Not Included' },
-    switch: { title: 'Nintendo Switch' },
+    'useful-links': {
+      title: 'Useful links',
+      description: '',
+    },
+
+    'auto-deploy': {
+      title: 'Auto-deploy',
+      description: '',
+    },
+    misc: {
+      title: 'Misc',
+      description: '',
+    },
+    vps: {
+      title: 'VPS',
+      description: '',
+    },
+
+    'animal-crossings': { title: 'Animal Crossings', description: '' },
+    'guild-wars': { title: 'Guild Wars', description: '' },
+    'oxygen-not-included': { title: 'Oxygen Not Included', description: '' },
+    switch: { title: 'Nintendo Switch', description: '' },
   },
   /**
    * guide
