@@ -255,6 +255,20 @@ prefix=~/.npm/bin
 cache=~/.npm/cache
 ```
 
+Add to `~/.zshrc`
+
+```bash
+vim ~/.zshrc
+```
+
+```bash[~/.zshrc]
+export PATH=~/.npm/bin:$PATH
+```
+
+```bash
+source ~/.zshrc
+```
+
 ```bash
 nvm use --delete-prefix v16.13.0 --silent
 ```
@@ -262,7 +276,7 @@ nvm use --delete-prefix v16.13.0 --silent
 Now you can install additional useful packages
 
 ```bash
-npm install -g yarn pnpm svgo
+npm install -g yarn pnpm svgo npm-check-updates
 ```
 
 Update npm

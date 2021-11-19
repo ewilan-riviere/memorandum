@@ -22,5 +22,5 @@ ncu -u
 Execute updates
 
 ```bash
-npm install
+npm update
 ```
