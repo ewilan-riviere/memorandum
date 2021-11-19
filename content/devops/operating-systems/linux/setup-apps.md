@@ -5,6 +5,12 @@ position: 2
 category: 'Linux'
 ---
 
+## Common apps
+
+```bash
+sudo apt install -y vlc speedtest-cli gimp
+```
+
 ## 1. NPM: global installations
 
 - [Vue CLI](https://cli.vuejs.org/guide)
