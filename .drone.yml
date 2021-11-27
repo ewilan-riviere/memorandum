@@ -11,6 +11,7 @@ steps:
       - cd /home/$USER/www/${DRONE_REPO_NAME} && git pull
       - echo $PATH
       - export NVM_DIR="/usr/local/nvm"
+      - . "$NVM_DIR/nvm.sh"
       - nvm
       - docker
 
