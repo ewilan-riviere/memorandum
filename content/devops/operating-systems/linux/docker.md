@@ -61,3 +61,10 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 docker-compose --version
 ```
+
+Now, you can create `docker-compose.yml` into any directory
+
+```bash
+docker-compose pull
+docker-composer up -d
+```
