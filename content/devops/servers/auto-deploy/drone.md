@@ -49,8 +49,8 @@ vim docker-compose.yml
 version: '3.7'
 
 services:
-  drone-server:
-    container_name: drone_server
+  drone:
+    container_name: drone
     image: drone/drone:2
     ports:
       - 7777:80
@@ -72,8 +72,8 @@ services:
       - DRONE_LOGS_PRETTY=true
       - DRONE_LOGS_COLOR=true
 
-  drone-agent:
-    container_name: drone_agent
+  runner:
+    container_name: runner
     image: drone/drone-runner-docker:1
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
@@ -197,3 +197,12 @@ docker-compose up -d
 ```
 
 Now Drone is available on <https://drone.domain.com>
+
+## Install CLI
+
+From <https://github.com/harness/drone-cli>
+
+```bash
+curl -L https://github.com/harness/drone-cli/releases/latest/download/drone_linux_amd64.tar.gz | tar zx
+sudo install -t /usr/local/bin drone
+```
