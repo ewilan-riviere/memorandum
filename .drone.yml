@@ -11,7 +11,10 @@ steps:
       - cd /home/$USER/www/${DRONE_REPO_NAME} && git pull
       - export NVM_DIR="/usr/local/nvm"
       - . "$NVM_DIR/nvm.sh"
+      - node -v
+      - nvm install 16.13.0
       - nvm use 16.13.0
+      - node -v
 
   - name: deploy
     commands:
