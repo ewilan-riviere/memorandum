@@ -9,6 +9,7 @@ steps:
   - name: update
     commands:
       - cd /home/$USER/www/${DRONE_REPO_NAME} && git pull
+      - echo $PATH
       - nvm
       - docker
 
