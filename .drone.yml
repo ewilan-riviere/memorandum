@@ -12,7 +12,6 @@ steps:
 
   - name: deploy
     commands:
-      - export PATH="/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin"
       - cd /home/$USER/www/${DRONE_REPO_NAME}
       - npm i
       - npm run generate
@@ -21,7 +20,16 @@ steps:
 
   - name: notify
     commands:
-      - echo "Success build by ${DRONE_COMMIT_AUTHOR_EMAIL}"
+      # - echo "Success build by ${DRONE_COMMIT_AUTHOR_EMAIL}"
+      - docker run --rm \
+        -e WEBHOOK_ID=914189993424064622 \
+        -e WEBHOOK_TOKEN=gf9Soxdun4B0HAus-af7rT54bwWwpJXpjugTzPSt_fZwMDlzB1OjkuX-tbBfKBGucFxP \
+        # -e WAIT=false \
+        # -e TTS=false \
+        # -e USERNAME=test \
+        # -e AVATAR_URL=http://example.com/xxxx.png \
+        -e MESSAGE=test \
+        appleboy/drone-discord
     depends_on:
       - deploy
 
