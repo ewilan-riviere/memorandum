@@ -13,8 +13,8 @@ steps:
   - name: deploy
     commands:
       - cd /home/$USER/www/${DRONE_REPO_NAME}
-      - npm i
-      - npm run generate
+      - npm-16.13.0 i
+      - npm-16.13.0 run generate
     depends_on:
       - update
 
