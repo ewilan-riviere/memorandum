@@ -10,6 +10,7 @@ steps:
     commands:
       - echo $USER
       - cd /home/$USER/www/${DRONE_REPO_NAME} && git pull
+      - echo "$PATH"
 
   - name: deploy
     commands:
