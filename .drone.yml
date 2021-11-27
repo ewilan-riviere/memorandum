@@ -10,7 +10,6 @@ steps:
     commands:
       - echo $USER
       - cd /home/$USER/www/${DRONE_REPO_NAME} && git pull
-      - which npm
 
   - name: deploy
     commands:
