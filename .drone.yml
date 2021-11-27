@@ -13,6 +13,8 @@ steps:
 
   - name: deploy
     commands:
+      - export PM2_HOME=/home/$USER/.pm2
+      - pm2
       - cd /home/$USER/www/${DRONE_REPO_NAME}
       - npm i
       - npm run generate
