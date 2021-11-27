@@ -9,16 +9,14 @@ steps:
   - name: update
     commands:
       - cd /home/$USER/www/${DRONE_REPO_NAME} && git pull
-      - export NVM_DIR="/usr/local/nvm"
-      - . "$NVM_DIR/nvm.sh"
-      - . /usr/local/nvm-16.13.0.sh
-      - node -v
+      # - export NVM_DIR="/usr/local/nvm"
+      # - . "$NVM_DIR/nvm.sh"
 
   - name: deploy
     commands:
       - cd /home/$USER/www/${DRONE_REPO_NAME}
-      - npm i
-      - npm run generate
+      - /root/.nvm/versions/node/v16.13.0/bin/npm i
+      - /root/.nvm/versions/node/v16.13.0/bin/npm run generate
     depends_on:
       - update
 
