@@ -1,0 +1,29 @@
+kind: pipeline
+type: exec
+name: default
+
+clone:
+  disable: true
+
+steps:
+  - name: update
+    commands:
+      - cd /home/$USER/www/${DRONE_REPO_NAME} && git pull
+
+  - name: deploy
+    commands:
+      - cd /home/$USER/www/${DRONE_REPO_NAME}
+      - npm i
+      - npm run generate
+    depends_on:
+      - update
+
+  - name: notify
+    commands:
+      - echo "Success build by ${DRONE_COMMIT_AUTHOR_EMAIL}"
+    depends_on:
+      - deploy
+
+trigger:
+  branch:
+    - master
