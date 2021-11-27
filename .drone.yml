@@ -8,11 +8,11 @@ clone:
 steps:
   - name: update
     commands:
-      - export PATH="/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin"
       - cd /home/$USER/www/${DRONE_REPO_NAME} && git pull
 
   - name: deploy
     commands:
+      - export PATH="/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin"
       - cd /home/$USER/www/${DRONE_REPO_NAME}
       - npm i
       - npm run generate
