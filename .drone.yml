@@ -10,11 +10,9 @@ steps:
     commands:
       - echo $USER
       - cd /home/$USER/www/${DRONE_REPO_NAME} && git pull
-      - echo "$PATH"
 
   - name: deploy
     commands:
-      - export PATH=$PATH/home/ewilan/.nvm/versions/node/v16.13.0/bin
       - cd /home/$USER/www/${DRONE_REPO_NAME}
       - npm i
       - npm run generate
@@ -26,6 +24,12 @@ steps:
       - echo "Success build by ${DRONE_COMMIT_AUTHOR_EMAIL}"
     depends_on:
       - deploy
+
+  - name: discord notification
+    image: appleboy/drone-discord
+    settings:
+      webhook_id: 914189993424064622
+      webhook_token: gf9Soxdun4B0HAus-af7rT54bwWwpJXpjugTzPSt_fZwMDlzB1OjkuX-tbBfKBGucFxP
 
 trigger:
   branch:
