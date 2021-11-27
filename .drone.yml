@@ -8,7 +8,6 @@ clone:
 steps:
   - name: update
     commands:
-      - echo $USER
       - cd /home/$USER/www/${DRONE_REPO_NAME} && git pull
 
   - name: deploy
@@ -24,12 +23,6 @@ steps:
       - echo "Success build by ${DRONE_COMMIT_AUTHOR_EMAIL}"
     depends_on:
       - deploy
-
-  - name: discord notification
-    image: appleboy/drone-discord
-    settings:
-      webhook_id: 914189993424064622
-      webhook_token: gf9Soxdun4B0HAus-af7rT54bwWwpJXpjugTzPSt_fZwMDlzB1OjkuX-tbBfKBGucFxP
 
 trigger:
   branch:
