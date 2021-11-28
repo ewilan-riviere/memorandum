@@ -325,6 +325,12 @@ Add PHP extension
 sudo apt install -y php8.0-mbstring php8.0-mysql php8.0-common php8.0-mysql php8.0-xml php8.0-curl php8.0-gd php8.0-imagick php8.0-cli php8.0-dev php8.0-imap php8.0-mbstring php8.0-opcache php8.0-soap php8.0-zip php8.0-intl php8.0-bz2
 ```
 
+To change PHP version
+
+```bash
+sudo update-alternatives --config php
+```
+
 ### Composer
 
 Use command line instructions of [**Composer website**](https://getcomposer.org/download/) to download and install latest version of Composer

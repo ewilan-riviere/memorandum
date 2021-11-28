@@ -192,11 +192,14 @@ sudo certbot --nginx
 
 ```bash
 cd ~/www/drone
+```
+
+```bash
 docker-compose pull
 docker-compose up -d
 ```
 
-Now Drone is available on <https://drone.domain.com>
+Now Drone is available on `https://drone.domain.com`
 
 ## Install CLI
 
