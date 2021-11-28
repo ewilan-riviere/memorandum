@@ -316,13 +316,13 @@ To get latest versions of PHP
 Install latest PHP version.
 
 ```bash
-sudo apt -y install php8.0-fpm
+sudo apt -y install php8.1-fpm
 ```
 
 Add PHP extension
 
 ```bash
-sudo apt install -y php8.0-mbstring php8.0-mysql php8.0-common php8.0-mysql php8.0-xml php8.0-curl php8.0-gd php8.0-imagick php8.0-cli php8.0-dev php8.0-imap php8.0-mbstring php8.0-opcache php8.0-soap php8.0-zip php8.0-intl php8.0-bz2
+sudo apt install -y php8.1-mbstring php8.1-mysql php8.1-common php8.1-mysql php8.1-xml php8.1-curl php8.1-gd php8.1-imagick php8.1-cli php8.1-dev php8.1-imap php8.1-mbstring php8.1-opcache php8.1-soap php8.1-zip php8.1-intl php8.1-bz2
 ```
 
 To change PHP version
