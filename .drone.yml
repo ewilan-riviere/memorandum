@@ -13,6 +13,8 @@ steps:
       - pwd
       - cd /
       - ls
+      - cd /home/
+      - ls
   # - name: update
   #   commands:
   #     - cd /home/$USER/www/${DRONE_REPO_NAME} && git pull
