@@ -9,7 +9,7 @@ steps:
   - name: update
     image: node:16.13.1
     commands:
-      - cd /home/$USER/www/${DRONE_REPO_NAME} && git pull
+      - cd /home/ewilan/www/${DRONE_REPO_NAME} && git pull
   # - name: update
   #   commands:
   #     - cd /home/$USER/www/${DRONE_REPO_NAME} && git pull
@@ -17,7 +17,7 @@ steps:
   - name: deploy
     image: node:16.13.1
     commands:
-      - cd /home/$USER/www/${DRONE_REPO_NAME}
+      - cd /home/ewilan/www/${DRONE_REPO_NAME}
       - npm i
       - npm run generate
   #   commands:
