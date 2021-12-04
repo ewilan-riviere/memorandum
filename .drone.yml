@@ -9,7 +9,8 @@ steps:
   - name: update
     image: node:16.13.1
     commands:
-      - cd /home/ewilan/www/${DRONE_REPO_NAME} && git pull
+      # - cd /home/ewilan/www/${DRONE_REPO_NAME} && git pull
+      - pwd
   # - name: update
   #   commands:
   #     - cd /home/$USER/www/${DRONE_REPO_NAME} && git pull
