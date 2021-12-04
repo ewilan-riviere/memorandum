@@ -6,27 +6,44 @@ clone:
   disable: true
 
 steps:
-  - name: node
-    image: node:16.13.1
+  - name: update
     commands:
-      - npm
+      - cd /home/$USER/www/${DRONE_REPO_NAME} && git pull
   # - name: update
   #   commands:
   #     - cd /home/$USER/www/${DRONE_REPO_NAME} && git pull
 
-  # - name: deploy
+  - name: deploy
+    image: node:16.13.1
+    commands:
+      - cd /home/$USER/www/${DRONE_REPO_NAME}
+      - npm i
+      - npm run generate
   #   commands:
   #     - cd /home/$USER/www/${DRONE_REPO_NAME}
   #     - /home/ewilan/.nvm/versions/node/v16.13.0/bin/npm i
   #     - /home/ewilan/.nvm/versions/node/v16.13.0/bin/npm run generate
-  #   depends_on:
-  #     - update
+    depends_on:
+      - update
 
   # - name: notify
   #   commands:
   #     - drone-discord --webhook-id 914189993424064622 --webhook-token gf9Soxdun4B0HAus-af7rT54bwWwpJXpjugTzPSt_fZwMDlzB1OjkuX-tbBfKBGucFxP --message {{#success build.status}} build {{build.number}} succeeded. Good job. {{else}} build {{build.number}} failed. Fix me please. {{/success}}
     # depends_on:
     #   - deploy
+  - name: discord notification
+    image: appleboy/drone-discord
+    settings:
+      webhook_id: 914189993424064622
+      webhook_token: gf9Soxdun4B0HAus-af7rT54bwWwpJXpjugTzPSt_fZwMDlzB1OjkuX-tbBfKBGucFxP
+      message: >
+        {{#success build.status}}
+          build {{build.number}} succeeded. Good job.
+        {{else}}
+          build {{build.number}} failed. Fix me please.
+        {{/success}}
+    depends_on:
+      - deploy
 
 trigger:
   branch:
