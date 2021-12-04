@@ -20,7 +20,7 @@ steps:
 
   - name: notify
     commands:
-      drone-discord --webhook-id 914189993424064622 --webhook-token gf9Soxdun4B0HAus-af7rT54bwWwpJXpjugTzPSt_fZwMDlzB1OjkuX-tbBfKBGucFxP --message 'Success build by ${DRONE_REPO_NAME}'
+      - drone-discord --webhook-id 914189993424064622 --webhook-token gf9Soxdun4B0HAus-af7rT54bwWwpJXpjugTzPSt_fZwMDlzB1OjkuX-tbBfKBGucFxP --message 'Success build by ${DRONE_REPO_NAME}'
     depends_on:
       - deploy
 
