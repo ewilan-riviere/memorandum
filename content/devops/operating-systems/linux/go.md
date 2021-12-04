@@ -18,6 +18,8 @@ vim ~/.zshrc
 
 ```bash[~/.zshrc]
 export PATH=$PATH:/usr/local/go/bin
+export GOPATH="$HOME/go"
+PATH="$GOPATH/bin:$PATH"
 ```
 
 ```bash

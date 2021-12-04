@@ -209,3 +209,43 @@ From <https://github.com/harness/drone-cli>
 curl -L https://github.com/harness/drone-cli/releases/latest/download/drone_linux_amd64.tar.gz | tar zx
 sudo install -t /usr/local/bin drone
 ```
+
+## Feedback
+
+You can install plugin to get feedback after deployment, like [**drone-discord**](https://github.com/appleboy/drone-discord), you will need to install [**Go language**](https://go.dev/) [**check this guide**](/devops/operating-systems/linux/go).
+
+### Discord
+
+If you have a [**Discord server**](https://discord.com/), you can setup a webhook to setup plugin.
+
+1. On your server, go to *Server settings*
+2. Choose *Integrations*, select *Webhooks*
+3. Create a *new webhook* and *copy webhook URL*
+
+You will have an URL like `https://discord.com/api/webhooks/914189993424064622/gf9Soxdun4B0HAus-af7rT54bwWwpJXpjugTzPSt_fZwMDlzB1OjkuX-tbBfKBGucFxP`
+
+- `914189993424064622`: WEBHOOK_ID
+- `gf9Soxdun4B0HAus-af7rT54bwWwpJXpjugTzPSt_fZwMDlzB1OjkuX-tbBfKBGucFxP`: WEBHOOK_TOKEN
+
+Now you can install `drone-discord`
+
+```bash
+go install github.com/appleboy/drone-discord@latest
+```
+
+Check if command works
+
+```bash
+drone-discord
+```
+
+If it's works, try to use webhook
+
+```bash
+drone-discord \
+  --webhook-id WEBHOOK_ID \
+  --webhook-token WEBHOOK_TOKEN \
+  --message "Test Message"
+```
+
+If everythings is works, you will have a new notification on your server.

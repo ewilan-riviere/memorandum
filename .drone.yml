@@ -20,7 +20,7 @@ steps:
 
   - name: notify
     commands:
-      - docker run --rm -e WEBHOOK_ID=914189993424064622 -e WEBHOOK_TOKEN=gf9Soxdun4B0HAus-af7rT54bwWwpJXpjugTzPSt_fZwMDlzB1OjkuX-tbBfKBGucFxP -e WAIT=false -e TTS=false -e MESSAGE='Success build for ${DRONE_REPO_NAME}' appleboy/drone-discord
+      - drone-discord --webhook-id 914189993424064622 --webhook-token gf9Soxdun4B0HAus-af7rT54bwWwpJXpjugTzPSt_fZwMDlzB1OjkuX-tbBfKBGucFxP --message {{#success build.status}} build {{build.number}} succeeded. Good job. {{else}} build {{build.number}} failed. Fix me please. {{/success}}
     depends_on:
       - deploy
 
