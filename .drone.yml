@@ -14,13 +14,13 @@ steps:
     commands:
       - cd /home/$USER/www/${DRONE_REPO_NAME}
       - /home/$USER/.nvm/versions/node/v16.13.0/bin/npm i
-      # - /home/$USER/.nvm/versions/node/v16.13.0/bin/npm run generate
+      - /home/$USER/.nvm/versions/node/v16.13.0/bin/npm run generate
     depends_on:
       - update
 
   - name: notify
     commands:
-      - drone-discord --webhook-id 914189993424064622 --webhook-token gf9Soxdun4B0HAus-af7rT54bwWwpJXpjugTzPSt_fZwMDlzB1OjkuX-tbBfKBGucFxP --message 'Success build by ${DRONE_REPO_NAME}'
+      - drone-discord --webhook-id 914189993424064622 --webhook-token gf9Soxdun4B0HAus-af7rT54bwWwpJXpjugTzPSt_fZwMDlzB1OjkuX-tbBfKBGucFxP --message 'Success build for ${DRONE_REPO_NAME}'
     depends_on:
       - deploy
 
