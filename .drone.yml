@@ -7,6 +7,7 @@ clone:
 
 steps:
   - name: update
+    image: node:16.13.1
     commands:
       - cd /home/$USER/www/${DRONE_REPO_NAME} && git pull
   # - name: update
