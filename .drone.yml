@@ -19,22 +19,20 @@ steps:
     depends_on:
       - update
 
-  - name: failed
-    commands:
-      - echo 'failed'
-    when:
-      status:
-      - failure
-
   - name: notify
     commands:
       # - docker run --rm -e WEBHOOK_ID=914189993424064622 -e WEBHOOK_TOKEN=gf9Soxdun4B0HAus-af7rT54bwWwpJXpjugTzPSt_fZwMDlzB1OjkuX-tbBfKBGucFxP -e WAIT=false -e TTS=false -e MESSAGE='Success build for ${DRONE_REPO_NAME}' appleboy/drone-discord
       - echo 'success'
+      when:
+        status:
+        - success
+      - echo 'failed'
+      when:
+        status:
+        - failure
+
     depends_on:
       - deploy
-    when:
-      status:
-      - success
 
 trigger:
   branch:
