@@ -10,7 +10,8 @@ steps:
     image: node:16.13.1
     commands:
       # - cd /home/ewilan/www/${DRONE_REPO_NAME} && git pull
-      - pwd
+      # - pwd
+      - git remote -v
   # - name: update
   #   commands:
   #     - cd /home/$USER/www/${DRONE_REPO_NAME} && git pull
