@@ -158,7 +158,7 @@ export default {
         this.searching = true
         // this.results = await this.$content(this.$i18n.locale, { deep: true })
         this.results = await this.$content({ deep: true })
-          .sortBy('position', 'asc')
+          .sortBy('updated_at', 'desc')
           .only(['title', 'slug', 'category', 'hierarchy', 'to'])
           .limit(12)
           .search(q)
