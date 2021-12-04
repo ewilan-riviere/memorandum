@@ -216,7 +216,7 @@ You can install plugin to get feedback after deployment, like [**drone-discord**
 
 ### Discord
 
-If you have a [**Discord server**](https://discord.com/), you can setup a webhook to setup plugin.
+If you have a [**Discord server**](https://discord.com/), you can setup a webhook to setup [**drone-discord**](https://github.com/appleboy/drone-discord) plugin.
 
 1. On your server, go to *Server settings*
 2. Choose *Integrations*, select *Webhooks*
