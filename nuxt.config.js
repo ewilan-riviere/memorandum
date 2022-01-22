@@ -1,6 +1,6 @@
 import metadata from './plugins/config/metadata'
 import pwa from './plugins/config/pwa'
-import sitemaps from './plugins/config/sitemaps'
+// import sitemaps from './plugins/config/sitemaps'
 import crawler from './plugins/config/crawler'
 
 import metadataDynamic from './plugins/config/metadata-dynamic'
@@ -142,9 +142,9 @@ export default {
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
     // https://www.npmjs.com/package/@nuxtjs/robots
-    '@nuxtjs/robots',
+    // '@nuxtjs/robots',
     // https://sitemap.nuxtjs.org/guide/setup
-    '@nuxtjs/sitemap',
+    // '@nuxtjs/sitemap',
     // https://gitlab.com/broj42/nuxt-lazy-load
     'nuxt-lazy-load',
     // https://github.com/frenchrabbit/nuxt-precompress
@@ -185,18 +185,18 @@ export default {
       },
     },
   },
-  robots: {
-    Disallow: metadata.settings.disallow.split(','),
-    Sitemap: `${process.env.BASE_URL}/sitemap.xml`,
-  },
-  sitemap: {
-    path: '/sitemap.xml',
-    hostname: process.env.BASE_URL,
-    cacheTime: 1000 * 60 * 15,
-    gzip: true,
-    exclude: metadata.settings.disallow.split(','),
-    sitemaps: sitemaps(),
-  },
+  // robots: {
+  //   Disallow: metadata.settings.disallow.split(','),
+  //   Sitemap: `${process.env.BASE_URL}/sitemap.xml`,
+  // },
+  // sitemap: {
+  //   path: '/sitemap.xml',
+  //   hostname: process.env.BASE_URL,
+  //   cacheTime: 1000 * 60 * 15,
+  //   gzip: true,
+  //   exclude: metadata.settings.disallow.split(','),
+  //   sitemaps: sitemaps(),
+  // },
   'nuxt-lazy-load': {
     directiveOnly: true,
     loadingClass: 'isLoading',
