@@ -5,4 +5,4 @@ position: 3
 category: 'Laravel'
 ---
 
-- <https://laravel-news.com/typescript-laravel>
+Typescript

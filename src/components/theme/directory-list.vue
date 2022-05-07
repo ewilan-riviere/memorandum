@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import { useContentStore } from '@/src/stores/content';
-import {
-  SearchIcon,
-  FilterIcon,
-} from '@heroicons/vue/solid'
+import { useContentStore } from '@/src/stores/content'
+import { SearchIcon, FilterIcon } from '@heroicons/vue/solid'
 
 const directory = {
   A: [
@@ -211,39 +208,50 @@ const directory = {
 }
 
 const store = useContentStore()
-
-const domain = computed(() => store.domain)
-const subject = computed(() => store.subject)
 </script>
 
 <template>
-  <aside class="hidden xl:order-first xl:flex xl:flex-col flex-shrink-0 w-96 border-r border-gray-700">
+  <aside
+    class="hidden xl:order-first xl:flex xl:flex-col flex-shrink-0 w-64 border-r border-gray-700"
+  >
     <div class="px-6 pt-6 pb-4">
-      <h2 class="text-lg font-medium text-gray-100">Directory</h2>
-      <p class="mt-1 text-sm text-gray-400">
-        Search directory of 3,018 employees
-      </p>
+      <h2 class="text-lg font-medium text-gray-100">
+        {{ store.domain.label
+        }}<span v-if="store.displaySubject"> / {{ store.subject.label }}</span>
+      </h2>
+      <p class="mt-1 text-sm text-gray-400">Search content</p>
       <form class="mt-6 flex space-x-4" action="#">
         <div class="flex-1 min-w-0">
           <label for="search" class="sr-only">Search</label>
           <div class="relative rounded-md shadow-sm">
-            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <div
+              class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+            >
               <SearchIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
             </div>
-            <input type="search" name="search" id="search"
-              class="focus:ring-pink-500 focus:border-pink-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
-              placeholder="Search" />
+            <input
+              type="search"
+              name="search"
+              id="search"
+              class="focus:ring-pink-500 focus:border-pink-500 block w-full pl-10 sm:text-sm border-gray-700 bg-gray-700 placeholder-white rounded-md"
+              placeholder="Search"
+            />
           </div>
         </div>
-        <button type="submit"
-          class="inline-flex justify-center px-3.5 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-300 bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
+        <button
+          type="submit"
+          class="inline-flex justify-center px-3.5 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-300 bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
+        >
           <FilterIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
           <span class="sr-only">Search</span>
         </button>
       </form>
     </div>
     <!-- Directory list -->
-    <nav class="flex-1 min-h-0 overflow-y-auto scrollbar-thin" aria-label="Directory">
+    <nav
+      class="flex-1 min-h-0 overflow-y-auto scrollbar-thin"
+      aria-label="Directory"
+    >
       <!-- <div v-for="letter in Object.keys(directory)" :key="letter" class="relative">
         <div
           class="z-10 sticky top-0 border-t border-b border-gray-700 bg-gray-800 px-6 py-1 text-sm font-medium text-gray-400">
@@ -271,13 +279,22 @@ const subject = computed(() => store.subject)
           </li>
         </ul>
       </div> -->
-      <ul v-if="!subject.files?.length" role="list" class="relative z-0 divide-y divide-gray-700">
-        <li v-for="subject in domain.subjects" :key="subject.slug">
+      <ul
+        v-if="!store.displaySubject"
+        role="list"
+        class="relative z-0 divide-y divide-gray-700"
+      >
+        <li v-for="subject in store.domain.subjects" :key="subject.slug">
           <button
             class="relative px-6 py-5 flex items-center space-x-3 hover:bg-gray-700 transition-colors duration-75 focus-within:ring-2 focus-within:ring-inset focus-within:ring-pink-500 w-full text-left"
-            @click="store.setSubject(subject)">
+            @click="store.setSubject(subject)"
+          >
             <div class="flex-shrink-0">
-              <app-img class="h-8 w-8" :src="`/content/logo/${subject.slug}.webp`" alt="" />
+              <app-img
+                class="h-8 w-8"
+                :src="`/content/logo/${subject.slug}.webp`"
+                alt=""
+              />
             </div>
             <div class="flex-1 min-w-0">
               <div class="focus:outline-none">
@@ -311,12 +328,22 @@ const subject = computed(() => store.subject)
           </div> -->
         </li>
       </ul>
-      <ul role="list" class="relative z-0 divide-y divide-gray-700">
-        <li v-for="file in subject.files" :key="file.slug">
-          <router-link :to="file.route"
-            class="relative px-6 py-5 flex items-center space-x-3 hover:bg-gray-700 transition-colors duration-75 focus-within:ring-2 focus-within:ring-inset focus-within:ring-pink-500 w-full text-left">
+      <ul
+        v-if="store.displaySubject"
+        role="list"
+        class="relative z-0 divide-y divide-gray-700"
+      >
+        <li v-for="file in store.subject.files" :key="file.slug">
+          <router-link
+            :to="file.route"
+            class="relative px-6 py-5 flex items-center space-x-3 hover:bg-gray-700 transition-colors duration-75 focus-within:ring-2 focus-within:ring-inset focus-within:ring-pink-500 w-full text-left"
+          >
             <div class="flex-shrink-0">
-              <app-img class="h-8 w-8" :src="`/content/logo/${subject.slug}.webp`" alt="" />
+              <app-img
+                class="h-8 w-8"
+                :src="`/content/logo/${store.subject.slug}.webp`"
+                alt=""
+              />
             </div>
             <div class="flex-1 min-w-0">
               <div class="focus:outline-none">

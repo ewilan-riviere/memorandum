@@ -17,12 +17,10 @@ useHead({
   ],
 })
 
-const { navigation } = useContent()
+const { navigation, objectIsEmpty } = useContent()
 const { domain, setDomain } = useContentStore()
 
-if (domain
-  && Object.keys(domain).length === 0
-  && Object.getPrototypeOf(domain) === Object.prototype) {
+if (objectIsEmpty(domain)) {
   if (navigation && navigation[0] && navigation[0].domains && navigation[0].domains[0]) {
     setDomain(navigation[0].domains[0])
   }

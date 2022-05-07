@@ -8,6 +8,7 @@ specifiers:
   '@tailwindcss/forms': ^0.5.1
   '@tailwindcss/line-clamp': ^0.4.0
   '@tailwindcss/typography': ^0.5.2
+  '@traptitech/markdown-it-spoiler': ^1.1.6
   '@types/markdown-it-link-attributes': ^3.0.1
   '@types/node': ^17.0.31
   '@vitejs/plugin-vue': ^2.3.1
@@ -23,8 +24,17 @@ specifiers:
   eslint-plugin-vue: ^8.7.1
   front-matter-markdown: ^0.4.5
   jsdom: ^19.0.0
+  markdown-it-anchor: ^8.6.3
+  markdown-it-codetabs: ^1.2.0
+  markdown-it-container: ^3.0.0
+  markdown-it-copy: ^1.2.0
+  markdown-it-fence: ^0.1.3
   markdown-it-link-attributes: ^4.0.0
+  markdown-it-multimd-table: ^4.1.3
+  markdown-it-named-code-blocks: ^0.1.0
   markdown-it-prism: ^2.2.4
+  markdown-it-table-of-contents: ^0.6.0
+  markdown-it-task-lists: ^2.1.1
   nprogress: ^0.2.0
   pinia: ^2.0.14
   pnpm: ^7.0.0
@@ -52,8 +62,18 @@ specifiers:
 
 dependencies:
   '@headlessui/vue': 1.6.1_vue@3.2.33
+  '@traptitech/markdown-it-spoiler': 1.1.6
   '@vueuse/core': 8.3.1_vue@3.2.33
   '@vueuse/head': 0.7.6_vue@3.2.33
+  markdown-it-anchor: 8.6.3
+  markdown-it-codetabs: 1.2.0
+  markdown-it-container: 3.0.0
+  markdown-it-copy: 1.2.0
+  markdown-it-fence: 0.1.3
+  markdown-it-multimd-table: 4.1.3
+  markdown-it-named-code-blocks: 0.1.0
+  markdown-it-table-of-contents: 0.6.0
+  markdown-it-task-lists: 2.1.1
   nprogress: 0.2.0
   pinia: 2.0.14_ytvqwwdyss532bvoq2clv4ed5m
   prism-theme-vars: 0.2.2
@@ -354,6 +374,10 @@ packages:
     resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}
     engines: {node: '>= 10'}
     dev: true
+
+  /@traptitech/markdown-it-spoiler/1.1.6:
+    resolution: {integrity: sha512-tH/Fk1WMsnSuLpuRsXw8iHtdivoCEI5V08hQ7doVm6WmzAnBf/cUzyH9+GbOldPq9Hwv9v9tuy5t/MxmdNAGXg==}
+    dev: false
 
   /@trysound/sax/0.2.0:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
@@ -2422,7 +2446,6 @@ packages:
   /he/1.2.0:
     resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
     hasBin: true
-    dev: true
 
   /hosted-git-info/2.8.9:
     resolution: {integrity: sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==}
@@ -2972,9 +2995,42 @@ packages:
       sourcemap-codec: 1.4.8
     dev: true
 
+  /markdown-it-anchor/8.6.3:
+    resolution: {integrity: sha512-3IiHYh/kJHY2IcuKv5qv+IKNxDwXjVoYQ5FvbBUPywcwCQ4ICLIw5z0QrhYBtcD7h88MfFK3zKAkABTvPMxm7A==}
+    peerDependencies:
+      '@types/markdown-it': '*'
+      markdown-it: '*'
+    dev: false
+
+  /markdown-it-codetabs/1.2.0:
+    resolution: {integrity: sha512-kF0ec56hKmBZ4xMSFm1pIOuRT37iInD8uvTq+uaWpVKnja6mAg6gkGMLaeLeBiRx4fAMJmrWy417WPf8GgNWxg==}
+    dev: false
+
+  /markdown-it-container/3.0.0:
+    resolution: {integrity: sha512-y6oKTq4BB9OQuY/KLfk/O3ysFhB3IMYoIWhGJEidXt1NQFocFK2sA2t0NYZAMyMShAGL6x5OPIbrmXPIqaN9rw==}
+    dev: false
+
+  /markdown-it-copy/1.2.0:
+    resolution: {integrity: sha512-8Pm/cF7kpr+9VArhICCndb31zmz75hMR0WpmelUNn1RYe8vkqumLKt0xaInTT4mELhMqmnIr+8dm30w7Pzqc4A==}
+    dev: false
+
+  /markdown-it-fence/0.1.3:
+    resolution: {integrity: sha512-mdZbkwJUyZXhyDX4QzD+WnIhxWBq9oIIJU22E6jCT7MHgIp79oEOJfwXIl/HqmfIxnXEdC47sBGn4h6chM4DKw==}
+    dev: false
+
   /markdown-it-link-attributes/4.0.0:
     resolution: {integrity: sha512-ssjxSLlLfQBkX6BvAx1rCPrx7ZoK91llQQvS3P7KXvlbnVD34OUkfXwWecN7su/7mrI/HOW0RI5szdJOIqYC3w==}
     dev: true
+
+  /markdown-it-multimd-table/4.1.3:
+    resolution: {integrity: sha512-cXvJ+l8dMRmUZLrn34W/8tfLYjC40R7S0wRwcb95emuvQ3uiWNf9vB/IyeRh6XqEq95eXh70+UDNZ29qcOI+Dg==}
+    dev: false
+
+  /markdown-it-named-code-blocks/0.1.0:
+    resolution: {integrity: sha512-n4ylExmRpMODQtkBeLWVUA5hR5ClfS7IRwbwZsWKUED0TwSFRL1cr6Y4SeokPVuR6WJFQgPFOGq9eYpwkP8c2w==}
+    dependencies:
+      node-html-parser: 1.4.9
+    dev: false
 
   /markdown-it-prism/2.2.4:
     resolution: {integrity: sha512-7oQVppKjiZqVQo7s7eLTIs3o/0hdvqAWDW8lvRel6eUCGD4iXjKbSZjvdHZFA2ZnCkQUF47kbvtWZDVQrv7zyQ==}
@@ -2982,6 +3038,15 @@ packages:
     dependencies:
       prismjs: 1.28.0
     dev: true
+
+  /markdown-it-table-of-contents/0.6.0:
+    resolution: {integrity: sha512-jHvEjZVEibyW97zEYg19mZCIXO16lHbvRaPDkEuOfMPBmzlI7cYczMZLMfUvwkhdOVQpIxu3gx6mgaw46KsNsQ==}
+    engines: {node: '>6.4.0'}
+    dev: false
+
+  /markdown-it-task-lists/2.1.1:
+    resolution: {integrity: sha512-TxFAc76Jnhb2OUu+n3yz9RMu4CwGfaT788br6HhEDlvWfdeJcLUsxk1Hgw2yJio0OXsxv7pyIPmvECY7bMbluA==}
+    dev: false
 
   /markdown-it/13.0.1:
     resolution: {integrity: sha512-lTlxriVoy2criHP0JKRhO2VDG9c2ypWCsT237eDiLqi09rmbKoUetyGHq2uOIRoRS//kfoJckS0eUzzkDR+k2Q==}
@@ -3101,6 +3166,12 @@ packages:
     dependencies:
       lower-case: 1.1.4
     dev: true
+
+  /node-html-parser/1.4.9:
+    resolution: {integrity: sha512-UVcirFD1Bn0O+TSmloHeHqZZCxHjvtIeGdVdGMhyZ8/PWlEiZaZ5iJzR189yKZr8p0FXN58BUeC7RHRkf/KYGw==}
+    dependencies:
+      he: 1.2.0
+    dev: false
 
   /node-releases/2.0.4:
     resolution: {integrity: sha512-gbMzqQtTtDz/00jQzZ21PQzdI9PyLYqUSvD0p3naOhX4odFji0ZxYdnVwPTxmSwkmxhcFImpozceidSG+AgoPQ==}

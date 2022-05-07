@@ -12,25 +12,130 @@
 html .prose {
   --prism-foreground: #d4cfbf;
   --prism-background: #151515;
-  --prism-comment: #758575;
-  --prism-string: #d48372;
+
   --prism-literal: #429988;
-  --prism-keyword: #4d9375;
-  --prism-boolean: #1c6b48;
-  --prism-number: #6394bf;
-  --prism-variable: #c2b36e;
-  --prism-function: #a1b567;
-  --prism-deleted: #a14f55;
-  --prism-class: #54b1bf;
-  --prism-builtin: #e0a569;
-  --prism-property: #dd8e6e;
-  --prism-namespace: #db889a;
-  --prism-punctuation: #858585;
   --prism-decorator: #bd8f8f;
-  --prism-regex: #ab5e3f;
   --prism-json-property: #6b8b9e;
   --prism-line-number: #888888;
   --prism-line-number-gutter: #eeeeee;
   --prism-line-highlight-background: #444444;
   --prism-selection-background: #444444;
+
+  --prism-comment: rgb(99, 119, 119);
+  --prism-prolog: rgb(99, 119, 119);
+  --prism-cdata: rgb(99, 119, 119);
+
+  --prism-string: rgb(173, 219, 103);
+  --prism-url: rgb(173, 219, 103);
+  --prism-entity: rgb(173, 219, 103);
+
+  --prism-punctuation: rgb(199, 146, 234);
+  --prism-namespace: rgb(178, 204, 214);
+
+  --prism-deleted: rgba(239, 83, 80, 0.56);
+
+  --prism-symbol: rgb(128, 203, 196);
+  --prism-property: rgb(128, 203, 196);
+
+  --prism-tag: rgb(127, 219, 202);
+  --prism-operator: rgb(127, 219, 202);
+  --prism-keyword: rgb(127, 219, 202);
+
+  --prism-boolean: rgb(255, 88, 116);
+
+  --prism-number: rgb(247, 140, 108);
+
+  --prism-constant: rgb(130, 170, 255);
+  --prism-function: rgb(130, 170, 255);
+  --prism-builtin: rgb(130, 170, 255);
+  --prism-char: rgb(130, 170, 255);
+
+  --prism-selector: rgb(199, 146, 234);
+  --prism-doctype: rgb(199, 146, 234);
+
+  --prism-attr-name: rgb(173, 219, 103);
+  --prism-inserted: rgb(173, 219, 103);
+
+  --prism-class-name: rgb(255, 203, 139);
+  --prism-class: rgb(255, 203, 139);
+  --prism-atrule: rgb(255, 203, 139);
+  --prism-attr-value: rgb(255, 203, 139);
+
+  --prism-regex: rgb(214, 222, 235);
+  --prism-important: rgb(214, 222, 235);
+  --prism-variable: rgb(214, 222, 235);
+}
+
+pre .comment,
+.prolog,
+.cdata,
+.deleted,
+.italic,
+.selector .doctype,
+.attr-name,
+.inserted {
+  font-style: italic;
+}
+
+pre .important,
+.bold {
+  font-weight: bold;
+}
+
+pre {
+  @apply relative !bg-gray-800;
+}
+
+.named-fence-filename {
+  @apply absolute right-1 top-1 bg-gray-900 px-2 py-0.5 rounded-md z-10;
+}
+
+.m-mdic-copy-wrapper .u-mdic-copy-code_lang {
+  @apply absolute top-1 right-1 bg-gray-900 px-2 py-0.5 rounded-md;
+}
+
+.m-mdic-copy-wrapper div {
+  @apply absolute left-2 top-2 bg-gray-900 px-2 py-0.5 rounded-md hidden;
+}
+
+.m-mdic-copy-wrapper button {
+  @apply absolute right-0 bottom-0 bg-gray-900 px-2 py-0.5 rounded-tl-md border-t border-l hover:bg-gray-800 border-gray-600 transition-colors duration-75;
+}
+
+.warning {
+  background-color: rgba(146, 64, 14, var(--tw-bg-opacity));
+  --tw-bg-opacity: 0.25;
+  color: rgba(254, 243, 199, var(--tw-text-opacity));
+}
+
+.info {
+  background-color: rgba(7, 89, 133, var(--tw-bg-opacity));
+  --tw-bg-opacity: 0.25;
+  color: rgba(186, 230, 253, var(--tw-text-opacity));
+}
+
+.alert p {
+  @apply m-0;
+}
+
+.spoiler {
+  @apply bg-gray-800 px-2 py-0.5 rounded-md cursor-default;
+}
+.spoiler,
+.spoiler > * {
+  transition: color 0.5s, opacity 0.5s;
+}
+.spoiler:not(:hover) {
+  color: transparent;
+}
+.spoiler:not(:hover) > * {
+  opacity: 0;
+}
+
+input {
+  @apply !bg-gray-800 !border-gray-700;
+}
+
+.container {
+  @apply text-white;
 }

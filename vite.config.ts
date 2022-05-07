@@ -58,7 +58,6 @@ export default defineConfig({
         '@vueuse/core',
       ],
       dts: 'src/auto-imports.d.ts',
-
     }),
 
     // https://github.com/antfu/unplugin-vue-components
@@ -76,9 +75,44 @@ export default defineConfig({
     Markdown({
       headEnabled: true,
       markdownItSetup(md) {
+        md.use(require('markdown-it-anchor')) // https://www.npmjs.com/package/markdown-it-anchor
+        md.use(require('markdown-it-multimd-table')) // https://www.npmjs.com/package/markdown-it-multimd-table
+        md.use(require('markdown-it-table-of-contents')) // https://www.npmjs.com/package/markdown-it-table-of-contents
+        md.use(require('markdown-it-container'), 'classname', {
+          validate: (name: string) => name.trim().length,
+          render: (tokens: any, idx: string) => {
+            let emojis = {
+              'warning': '🚧',
+              'info': '👉',
+              default: ''
+            }
+
+            if (tokens[idx].nesting === 1) {
+              return `<div class="p-4 mt-4 mb-4 rounded-lg alert text-sm leading-relaxed ${tokens[idx].info.trim()}">
+              <div class="flex items-start">
+                <span class="container-label capitalize inline-flex mr-2 w-5 h-5 justify-center items-center text-1.2rem">
+                  ${emojis[tokens[idx].info.trim()] || emojis['default']}
+                </span>
+                <div class="flex-grow alert-content">\n`;
+            } else {
+              return '</div></div></div>\n';
+            }
+          }
+        }) // https://www.npmjs.com/package/markdown-it-container
+        md.use(require('markdown-it-task-lists')) // https://www.npmjs.com/package/markdown-it-task-lists
+        md.use(require('@traptitech/markdown-it-spoiler')) // https://www.npmjs.com/package/@traptitech/markdown-it-spoiler
+        md.use(require('markdown-it-named-code-blocks')) // https://www.npmjs.com/package/markdown-it-named-code-blocks
+        md.use(require('markdown-it-copy'), {
+          btnText: 'Copy',
+          failText: 'Failed',
+          successText: 'Success',
+          successTextDelay: '1500',
+          showCodeLanguage: true,
+        }) // https://www.npmjs.com/package/markdown-it-copy
+        md.use(require('markdown-it-codetabs'))
         // https://prismjs.com/
-        md.use(Prism)
-        md.use(LinkAttributes, {
+        md.use(Prism) // https://www.npmjs.com/package/markdown-it-prism
+        md.use(LinkAttributes, { // https://www.npmjs.com/package/markdown-it-link-attributes
           matcher: (link: string) => /^https?:\/\//.test(link),
           attrs: {
             target: '_blank',
