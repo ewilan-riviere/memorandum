@@ -42,7 +42,9 @@ export default defineConfig({
       extensions: ['vue', 'md'],
     }),
 
-    svgLoader(),
+    svgLoader({
+      defaultImport: 'component',
+    }),
 
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
     Layouts(),
