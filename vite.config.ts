@@ -92,71 +92,71 @@ export default defineConfig(({ command, mode }) => {
 
       // https://github.com/antfu/vite-plugin-md
       // Don't need this? Try vitesse-lite: https://github.com/antfu/vitesse-lite
-      Markdown({
-        headEnabled: true,
-        markdownItSetup(md) {
-          md.use(require('markdown-it-anchor')) // https://www.npmjs.com/package/markdown-it-anchor
-          md.use(require('markdown-it-multimd-table')) // https://www.npmjs.com/package/markdown-it-multimd-table
-          md.use(require('markdown-it-container'), 'classname', {
-            // https://www.npmjs.com/package/markdown-it-container
-            validate: (name: string) => name.trim().length,
-            render: (tokens: any, idx: string) => {
-              const name = tokens[idx].info.trim() as
-                | 'warning'
-                | 'see'
-                | 'tips'
-                | 'info'
-                | 'read'
-                | 'danger'
-              const emojis = {
-                warning: '🚧',
-                see: '👉',
-                tips: '💡',
-                info: 'ℹ️',
-                read: '🔎',
-                danger: '🚨',
-                default: '',
-              }
-              let label = emojis[name] || emojis['default']
-              const isHidden = name.includes('hide')
-              label = isHidden
-                ? ''
-                : `<span class="container-label capitalize inline-flex mr-2 w-5 h-5 justify-center items-center text-1.2rem">${label}</span>`
+      // Markdown({
+      //   headEnabled: true,
+      //   markdownItSetup(md) {
+      //     md.use(require('markdown-it-anchor')) // https://www.npmjs.com/package/markdown-it-anchor
+      //     md.use(require('markdown-it-multimd-table')) // https://www.npmjs.com/package/markdown-it-multimd-table
+      //     md.use(require('markdown-it-container'), 'classname', {
+      //       // https://www.npmjs.com/package/markdown-it-container
+      //       validate: (name: string) => name.trim().length,
+      //       render: (tokens: any, idx: string) => {
+      //         const name = tokens[idx].info.trim() as
+      //           | 'warning'
+      //           | 'see'
+      //           | 'tips'
+      //           | 'info'
+      //           | 'read'
+      //           | 'danger'
+      //         const emojis = {
+      //           warning: '🚧',
+      //           see: '👉',
+      //           tips: '💡',
+      //           info: 'ℹ️',
+      //           read: '🔎',
+      //           danger: '🚨',
+      //           default: '',
+      //         }
+      //         let label = emojis[name] || emojis['default']
+      //         const isHidden = name.includes('hide')
+      //         label = isHidden
+      //           ? ''
+      //           : `<span class="container-label capitalize inline-flex mr-2 w-5 h-5 justify-center items-center text-1.2rem">${label}</span>`
 
-              if (tokens[idx].nesting === 1) {
-                return `<div class="p-4 mt-4 mb-4 rounded-lg alert text-sm leading-relaxed ${name}">
-                <div class="flex items-start">
-                  ${label}
-                  <div class="flex-grow alert-content">\n`
-              } else {
-                return '</div></div></div>\n'
-              }
-            },
-          })
-          md.use(require('markdown-it-task-lists')) // https://www.npmjs.com/package/markdown-it-task-lists
-          md.use(require('@traptitech/markdown-it-spoiler')) // https://www.npmjs.com/package/@traptitech/markdown-it-spoiler
-          md.use(require('markdown-it-named-code-blocks')) // https://www.npmjs.com/package/markdown-it-named-code-blocks
-          md.use(require('markdown-it-copy'), {
-            // https://www.npmjs.com/package/markdown-it-copy
-            btnText: '<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>',
-            failText: 'Failed',
-            successText: 'Success',
-            successTextDelay: '1500',
-            showCodeLanguage: true,
-          })
-          md.use(require('markdown-it-mermaid')) // https://github.com/tylingsoft/markdown-it-mermaid
-          // https://prismjs.com/
-          md.use(Prism) // https://www.npmjs.com/package/markdown-it-prism
-          md.use(LinkAttributes, {
-            // https://www.npmjs.com/package/markdown-it-link-attributes
-            matcher: (link: string) => /^https?:\/\//.test(link),
-            attrs: {
-              target: '_blank',
-              rel: 'noopener',
-            },
-          })
-        },
-      }),
+      //         if (tokens[idx].nesting === 1) {
+      //           return `<div class="p-4 mt-4 mb-4 rounded-lg alert text-sm leading-relaxed ${name}">
+      //           <div class="flex items-start">
+      //             ${label}
+      //             <div class="flex-grow alert-content">\n`
+      //         } else {
+      //           return '</div></div></div>\n'
+      //         }
+      //       },
+      //     })
+      //     md.use(require('markdown-it-task-lists')) // https://www.npmjs.com/package/markdown-it-task-lists
+      //     md.use(require('@traptitech/markdown-it-spoiler')) // https://www.npmjs.com/package/@traptitech/markdown-it-spoiler
+      //     md.use(require('markdown-it-named-code-blocks')) // https://www.npmjs.com/package/markdown-it-named-code-blocks
+      //     md.use(require('markdown-it-copy'), {
+      //       // https://www.npmjs.com/package/markdown-it-copy
+      //       btnText: '<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>',
+      //       failText: 'Failed',
+      //       successText: 'Success',
+      //       successTextDelay: '1500',
+      //       showCodeLanguage: true,
+      //     })
+      //     md.use(require('markdown-it-mermaid')) // https://github.com/tylingsoft/markdown-it-mermaid
+      //     // https://prismjs.com/
+      //     md.use(Prism) // https://www.npmjs.com/package/markdown-it-prism
+      //     md.use(LinkAttributes, {
+      //       // https://www.npmjs.com/package/markdown-it-link-attributes
+      //       matcher: (link: string) => /^https?:\/\//.test(link),
+      //       attrs: {
+      //         target: '_blank',
+      //         rel: 'noopener',
+      //       },
+      //     })
+      //   },
+      // }),
     ],
 
     // https://github.com/antfu/vite-ssg

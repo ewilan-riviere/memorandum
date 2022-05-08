@@ -10,6 +10,7 @@ declare global {
   interface NavigationItem {
     name?: string
     href?: string
+    // eslint-disable-next-line @typescript-eslint/ban-types
     icon?: FunctionalComponent<HTMLAttributes & VNodeProps, {}>
     current?: boolean
   }
@@ -39,6 +40,7 @@ declare global {
     title?: string
     firstChar?: string
     slug?: string
+    slugPath?: string
     fullPath?: string
     path?: string
     route?: string
@@ -97,8 +99,6 @@ declare global {
     children?: TocItem[]
   }
 }
-
-
 
 export class TocItem implements ITocItem {
   constructor(

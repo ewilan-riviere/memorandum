@@ -33,7 +33,6 @@ specifiers:
   markdown-it-multimd-table: ^4.1.3
   markdown-it-named-code-blocks: ^0.1.0
   markdown-it-prism: ^2.2.4
-  markdown-it-table-of-contents: ^0.6.0
   markdown-it-task-lists: ^2.1.1
   meilisearch: ^0.25.0
   nprogress: ^0.2.0
@@ -102,7 +101,6 @@ devDependencies:
   markdown-it-multimd-table: 4.1.3
   markdown-it-named-code-blocks: 0.1.0
   markdown-it-prism: 2.2.4
-  markdown-it-table-of-contents: 0.6.0
   markdown-it-task-lists: 2.1.1
   postcss: 8.4.13
   prettier: 2.6.2
@@ -2816,11 +2814,6 @@ packages:
     engines: {node: '>=6.0.0'}
     dependencies:
       prismjs: 1.28.0
-    dev: true
-
-  /markdown-it-table-of-contents/0.6.0:
-    resolution: {integrity: sha512-jHvEjZVEibyW97zEYg19mZCIXO16lHbvRaPDkEuOfMPBmzlI7cYczMZLMfUvwkhdOVQpIxu3gx6mgaw46KsNsQ==}
-    engines: {node: '>6.4.0'}
     dev: true
 
   /markdown-it-task-lists/2.1.1:

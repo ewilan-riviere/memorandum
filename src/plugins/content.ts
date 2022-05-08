@@ -6,6 +6,9 @@ import parseMarkdown from 'front-matter-markdown'
 import { Index, MeiliSearch } from 'meilisearch'
 import MarkdownIt from 'markdown-it'
 import jsdom from 'jsdom'
+import path from 'path'
+
+const contentPath = './node_modules/.pnpm/vite-content'
 
 const groupBy = <T, K extends keyof T>(
   array: T[],
@@ -51,8 +54,6 @@ const getToc = (text: string): ITocItem[] => {
    * */
   const parse = (headingSet: NodeListOf<HTMLElement>) => {
     const tocData: ITocItem[] = []
-    const curLevel = 0
-    const preTocItem: ITocItem = {}
     headingSet.forEach((heading) => {
       const tocItem: ITocItem = {}
       const hLevel = heading.outerHTML.match(/<h([\d]).*>/)
@@ -162,26 +163,34 @@ const getContentFiles = async (opts: PluginOptions): Promise<ContentFile[]> => {
     const md = new MarkdownIt();
     const result = md.render(text);
 
-    if (pathList.length) {
-      contentList.push({
-        title: front.title,
-        firstChar: front.title?.charAt(0),
-        slug: slug,
-        fullPath: fullPath,
-        path: path,
-        route: route,
-        time: readingTime(text),
-        front: front,
-        hierarchy: hierarchy,
-        toc: getToc(text),
-        image: image,
-      })
-    }
+    const slugPath = slugify(`${hierarchy.category} ${hierarchy.domain} ${hierarchy.subject} ${slug}`)
+    fs.writeFile(`${contentPath}/${slugPath}.html`, result, (err) => {
+      if (err) {
+        return console.log(err)
+      }
+    })
+
+    contentList.push({
+      title: front.title,
+      firstChar: front.title?.charAt(0),
+      slug: slug,
+      slugPath: slugPath,
+      fullPath: fullPath,
+      path: path,
+      route: route,
+      time: readingTime(text),
+      front: front,
+      hierarchy: hierarchy,
+      toc: getToc(text),
+      image: image,
+    })
   })
 
   if (opts.search === 'meilisearch') {
     await addToMeilisearch(contentList)
   }
+  console.log(contentList);
+
 
   return contentList
 }
@@ -271,7 +280,17 @@ const generateContentFile = async (opts: PluginOptions) => {
   const categories = getCategories(contentList)
   const jsonString = JSON.stringify(categories)
 
-  fs.writeFile('./node_modules/.pnpm/content.json', jsonString, (err) => {
+  fs.mkdir(path.join(contentPath), (err) => {
+    if (err) {
+      return console.error(err);
+    }
+  });
+  fs.rmdir(path.join(contentPath), (err) => {
+    if (err) {
+      return console.error(err);
+    }
+  });
+  fs.writeFile(`${contentPath}/index.json`, jsonString, (err) => {
     if (err) {
       return console.log(err)
     }

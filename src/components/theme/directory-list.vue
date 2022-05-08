@@ -208,6 +208,10 @@ const directory = {
 }
 
 const store = useContentStore()
+const router = useRouter()
+const go = (route: string) => {
+  if (route) router.push(`${route}`)
+}
 </script>
 
 <template>
@@ -334,9 +338,9 @@ const store = useContentStore()
         class="relative z-0 divide-y divide-gray-700"
       >
         <li v-for="file in store.subject.files" :key="file.slug">
-          <router-link
-            :to="file.route"
+          <button
             class="relative px-6 py-5 flex items-center space-x-3 hover:bg-gray-700 transition-colors duration-75 focus-within:ring-2 focus-within:ring-inset focus-within:ring-pink-500 w-full text-left"
+            @click="go(file.route!)"
           >
             <div class="flex-shrink-0">
               <app-img
@@ -356,7 +360,7 @@ const store = useContentStore()
                 </p>
               </div>
             </div>
-          </router-link>
+          </button>
         </li>
       </ul>
     </nav>
