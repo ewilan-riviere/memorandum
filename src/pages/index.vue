@@ -23,22 +23,7 @@
             <h3>This is Tab 2</h3>
           </app-tab>
         </app-tabs>
-        <!-- <app-tabs>
-          <app-tab name="Books" :selected="true">
-            <div>A lot of books.</div>
-          </app-tab>
-          <app-tab name="Authors">
-            <div>Amazing authors.</div>
-          </app-tab>
-          <app-tab name="Series">
-            <div>So much books into series.</div>
-          </app-tab>
-        </app-tabs> -->
       </div>
     </div>
-    <RouterLink to="/about"> about </RouterLink>
-    <router-link to="/content/development/frameworks/flutter/os-versions">
-      os
-    </router-link>
   </div>
 </template>

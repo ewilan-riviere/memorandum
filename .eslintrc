@@ -30,6 +30,10 @@
     "vue/html-self-closing": "off",
     "prefer-const": "warn",
     "@typescript-eslint/no-var-requires": "off",
-    "no-undef": "off"
+    "no-undef": "off",
+    "@typescript-eslint/no-non-null-asserted-optional-chain": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "no-useless-escape": "off"
   }
 }

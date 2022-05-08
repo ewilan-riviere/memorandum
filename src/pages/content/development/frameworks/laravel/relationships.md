@@ -191,10 +191,9 @@ Schema::create('franchises', function (Blueprint $table): void {
 });
 ```
 
-<spoiler label="Complete migration for franchises table">
-<vue-code-info ext="php" path="database/migrations/2020_04_07_053742_create_franchises_table.php">
+#### Complete migration for franchises table
 
-```php
+```php:database/migrations/2020_04_07_053742_create_franchises_table.php
 <?php
 
 use Illuminate\Support\Facades\Schema;
@@ -226,9 +225,6 @@ class CreateFranchisesTable extends Migration {
 }
 ```
 
-</vue-code-info>
-</spoiler>
-
 ### 2. b. `games` table: main table
 
 In this table, we have a foreign key of `franchises` table, a previous created table.
@@ -250,10 +246,9 @@ Schema::create('games', function (Blueprint $table): void {
 });
 ```
 
-<spoiler label="Complete migration for games table">
-<vue-code-info ext="php" path="database/migrations/2020_05_08_200000_create_games_images_table.php">
+#### Complete migration for games table
 
-```php
+```php:database/migrations/2020_05_08_200000_create_games_images_table.php
 <?php
 
 use Illuminate\Support\Facades\Schema;
@@ -294,9 +289,6 @@ class CreateGamesTable extends Migration {
 }
 ```
 
-</vue-code-info>
-</spoiler>
-
 ### 2. c. `tags` table: ManyToMany Relationship
 
 The `tags` table
@@ -308,10 +300,9 @@ Schema::create('tags', function (Blueprint $table): void {
 });
 ```
 
-<spoiler label="Complete migration for tags table">
-<vue-code-info ext="php" path="database/migrations/2020_07_18_053809_create_tags_table.php">
+#### Complete migration for tags table
 
-```php
+```php:database/migrations/2020_07_18_053809_create_tags_table.php
 <?php
 
 use Illuminate\Support\Facades\Schema;
@@ -342,9 +333,6 @@ class CreateTagsTable extends Migration {
 }
 ```
 
-</vue-code-info>
-</spoiler>
-
 And `game_tag` table, pivot table between with `games`
 
 ```php
@@ -362,10 +350,9 @@ Schema::create('game_tag', function (Blueprint $table): void {
 });
 ```
 
-<spoiler label="Complete migration for game_tag table">
-<vue-code-info ext="php" path="database/migrations/2020_07_18_053856_add_relationship_between_games_and_tags.php">
+#### Complete migration for game_tag table
 
-```php
+```php:database/migrations/2020_07_18_053856_add_relationship_between_games_and_tags.php
 <?php
 
 use Illuminate\Support\Facades\Schema;
@@ -404,9 +391,6 @@ class AddRelationshipBetweenGamesAndTags extends Migration {
 }
 ```
 
-</vue-code-info>
-</spoiler>
-
 ### 2. d. `hardware` table: OneToOne Relationship
 
 ```php
@@ -426,10 +410,9 @@ Schema::create('hardware', function (Blueprint $table): void {
 });
 ```
 
-<spoiler label="Complete migration for hardware table">
-<vue-code-info ext="php" path="database/migrations/2020_07_18_053823_create_hardware_table.php">
+#### Complete migration for hardware table
 
-```php
+```php:database/migrations/2020_07_18_053823_create_hardware_table.php
 <?php
 
 use Illuminate\Support\Facades\Schema;
@@ -470,16 +453,14 @@ class CreateHardwareTable extends Migration {
 }
 ```
 
-</vue-code-info>
-</spoiler>
-
 ---
 
 ## 3. Models
 
 We will define models for Eloquent, it's just PHP class that extends `Model`, it's a magic class of Laravel to associate all manipulation methods to any Model.
 
-<spoiler label="Overview of models diagrams">
+### Overview of models diagrams
+
 If you want to have diagrams before design classes, you can find it below, but all classes are available after that.
 
 ```mermaid
@@ -536,8 +517,6 @@ class Tag{
 Tag : games() BelongsToMany
 ```
 
-</spoiler>
-
 ### 3. a. Game Model
 
 Game model refer to `games` table, it's on it we have all relationships.
@@ -566,10 +545,9 @@ class Game extends Model {
 }
 ```
 
-<spoiler label="Complete model for Game">
-<vue-code-info ext="php" path="app/Models/Game.php">
+### Complete model for Game
 
-```php
+```php:app/Models/Game.php
 <?php
 
 namespace App\Models;
@@ -634,9 +612,6 @@ class Game extends Model {
 }
 ```
 
-</vue-code-info>
-</spoiler>
-
 ### 3. b. Hardware Model
 
 ```php
@@ -660,10 +635,9 @@ class Hardware extends Model {
 }
 ```
 
-<spoiler label="Complete model for Hardware">
-<vue-code-info ext="php" path="app/Models/Hardware.php">
+### Complete model for Hardware
 
-```php
+```php:app/Models/Hardware.php
 <?php
 
 namespace App\Models;
@@ -697,9 +671,6 @@ class Hardware extends Model {
 }
 ```
 
-</vue-code-info>
-</spoiler>
-
 ### 3. c. Franchise Model
 
 ```php
@@ -720,10 +691,9 @@ class Franchise extends Model {
 }
 ```
 
-<spoiler label="Complete model for Franchise">
-<vue-code-info ext="php" path="app/Models/Franchise.php">
+### Complete model for Franchise
 
-```php
+```php:app/Models/Franchise.php
 <?php
 
 namespace App\Models;
@@ -767,9 +737,6 @@ class Franchise extends Model {
 }
 ```
 
-</vue-code-info>
-</spoiler>
-
 ### 3. d. Tag Model
 
 ```php
@@ -789,10 +756,9 @@ class Tag extends Model {
 }
 ```
 
-<spoiler label="Complete model for Tag">
-<vue-code-info ext="php" path="app/Models/Tag.php">
+### Complete model for Tag
 
-```php
+```php:app/Models/Tag.php
 <?php
 
 namespace App\Models;
@@ -834,9 +800,6 @@ class Tag extends Model {
  }
 }
 ```
-
-</vue-code-info>
-</spoiler>
 
 ---
 

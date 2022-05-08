@@ -91,7 +91,7 @@ sudo vim /etc/systemd/system/meilisearch.service
 
 Add this config to service, here with password `Y0urVery-S3cureAp1K3y`
 
-```bash[/etc/systemd/system/meilisearch.service]
+```bash:/etc/systemd/system/meilisearch.service
 [Unit]
 Description=MeiliSearch
 After=systemd-user-sessions.service
@@ -124,7 +124,7 @@ sudo systemctl status meilisearch
 
 For Meilisearch you need to have endpoint, so you have to create VHost for it
 
-```nginx[/etc/nginx/sites-available/meilisearch.example.com.conf]
+```nginx:/etc/nginx/sites-available/meilisearch.example.com.conf
 server {
     listen 80;
     listen [::]:80;

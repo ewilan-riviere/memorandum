@@ -57,6 +57,7 @@ watch(
       </div>
     </div>
 
+    <content-toc :toc="store.file.toc" />
     <div class="prose prose-invert px-16 py-6 max-w-4xl mx-auto">
       <slot />
     </div>

@@ -1,9 +1,9 @@
 ---
 title: API with localhost
-description: ''
 position: 4
-category: 'Flutter'
 ---
+
+## API localhost
 
 Flutter cannot communication directly with a Vhost, the app need a online API, like <https://jsonplaceholder.typicode.com> and **NOT** <http://laravel-app.localhost> (a supposed Vhost with NGINX or Apache2 for example). To communicate with localhost API, you need to use tunnelling service like **ngrok** or **expose**.
 
@@ -24,28 +24,17 @@ To use API with Flutter app, you can't directly use localhost VHost, it's necess
 
 **ngrok** on Linux : [github.com/inconshreveable/ngrok/issues/447](https://github.com/inconshreveable/ngrok/issues/447)
 
-<content-code-group>
-  <content-code-block label="Windows" active>
-
-  ```bash
-  scoop install ngrok
-  ```
-
-  </content-code-block>
-  <content-code-block label="Linux">
-
-  ```bash
-  # TODO
-  ```
-
-  </content-code-block>
-</content-code-group>
+```bash
+# windows
+scoop install ngrok
+```
 
 Save token just once after install (to have it, you need to create an account and check your dashboard : [**dashboard.ngrok.com/auth/your-authtoken**](https://dashboard.ngrok.com/auth/your-authtoken))
 
 ```bash
 ngrok authtoken random_token
 ```
+
 
 **2 - Execute serve on your back-end application**
 

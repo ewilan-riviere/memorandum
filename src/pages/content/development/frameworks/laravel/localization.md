@@ -45,7 +45,7 @@ php artisan VueTranslation:generate --watch=1
 
 ### *Into VueJS component*
 
-```vue[resources/js/components/my-component.vue]
+```html:resources/js/components/my-component.vue
 <template>
     <div>
         {{ translate('titles.home') }}

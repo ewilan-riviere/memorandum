@@ -14,6 +14,8 @@ declare global {
     current?: boolean
   }
 
+  type ContentSearch = 'local' | 'meilisearch'
+
   interface FrontMatterMarkdownContent {
     title: string
     path: string
@@ -37,12 +39,26 @@ declare global {
     title?: string
     firstChar?: string
     slug?: string
-    fullPath: string
+    fullPath?: string
     path?: string
     route?: string
     time?: ReadTimeResults
     front?: FrontMatterMarkdown
     hierarchy?: ContentHierarchy
+    toc?: ITocItem[]
+    image?: string
+    text?: string
+  }
+
+  interface ContentFileSearch {
+    id?: number
+    title?: string
+    firstChar?: string
+    slug?: string
+    hierarchyCategory?: string
+    hierarchyDomain?: string
+    hierarchySubject?: string
+    image?: string
   }
 
   interface ContentNavigation {
@@ -71,5 +87,31 @@ declare global {
     slug?: string
     subject?: string
     files?: ContentFile[]
+  }
+
+  interface ITocItem {
+    text?: string
+    level?: number
+    id?: string
+    parent?: TocItem
+    children?: TocItem[]
+  }
+}
+
+
+
+export class TocItem implements ITocItem {
+  constructor(
+    text?: string,
+    level?: number,
+    id?: string,
+    parent?: TocItem,
+    children?: []
+  ) {
+    this.text = text
+    this.level = level
+    this.id = id
+    this.parent = parent
+    this.children = children
   }
 }

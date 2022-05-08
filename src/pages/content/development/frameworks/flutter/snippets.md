@@ -123,8 +123,6 @@ class _UserListState extends State<UserList> {
 
 [**stackoverflow.com**](https://stackoverflow.com/questions/46779563/tabbarview-and-bottomnavigationbar-to-control-what-displays-at-body-of-scaffold) by Rainer Wittmann
 
-![android-versions](/documentation/flutter/tabbar-bottombar.gif)
-
 ```dart[lib/main.dart]
 import 'package:flutter/material.dart';
 

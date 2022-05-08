@@ -5,13 +5,17 @@ position: 10
 category: 'Flutter'
 ---
 
-<content-alert type="info" title="About Medium limit reading">
+## Articles
+
+:::
+
+About Medium limit reading
 
 Many of the tutorials here come from **Medium**'s website, which sets **a reading limit**. To lift this limit, simply **go to the development tools `storage`** and **delete the cookies linked to Medium** in order to reset this limit.
 
 Don't login with Google to Medium, just delete cookies when you reach limit, you will have **to do this several times** if you read a lot of articles.
 
-</content-alert>
+:::
 
 ## Networking
 

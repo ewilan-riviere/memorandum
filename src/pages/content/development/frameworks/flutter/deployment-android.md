@@ -5,7 +5,6 @@ position: 5
 category: 'Flutter'
 ---
 
-![android-versions](/documentation/flutter/google-play.jpg)
 
 <content-alert type="info">
 
