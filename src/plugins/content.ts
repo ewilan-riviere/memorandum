@@ -123,6 +123,7 @@ const getCategories = (contentList: ContentFile[]): ContentNavigation => {
         subjectItems.push({
           label: capitalizeFirstLetter(subjectKey),
           slug: slugify(subjectKey),
+          subject: slugify(subjectKey),
           files: subject,
         })
       }
@@ -130,6 +131,7 @@ const getCategories = (contentList: ContentFile[]): ContentNavigation => {
       domainItems.push({
         label: capitalizeFirstLetter(domainKey),
         slug: slugify(domainKey),
+        domain: slugify(domainKey),
         subjects: subjectItems,
       })
     }
@@ -137,6 +139,7 @@ const getCategories = (contentList: ContentFile[]): ContentNavigation => {
     contentNavigation.items?.push({
       label: capitalizeFirstLetter(categoryKey),
       slug: slugify(categoryKey),
+      category: slugify(categoryKey),
       domains: domainItems,
     })
   }

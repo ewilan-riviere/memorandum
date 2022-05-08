@@ -7,14 +7,30 @@
 [![node](https://img.shields.io/static/v1?label=NodeJS&message=v16.15&color=339933&style=flat-square&logo=node.js&logoColor=ffffff)](https://nodejs.org/en)
 [![pnpm](https://img.shields.io/static/v1?label=pnpm&message=v7.*&color=F69220&style=flat-square&logo=pnpm&logoColor=ffffff)](https://pnpm.io)
 
+Based on [**Vitesse**](https://github.com/antfu/vitesse). Blog & documentation based on Vite, Vue and Markdown.
+
 <p align='center'>
-  <img src='./public/default.webp' alt='Vitesse - Opinionated Vite Starter Template' width='650'/>
+  <img src='./public/default.webp' alt='Memorandum' width='650'/>
 </p>
 
-Based on [**Vitesse**](https://github.com/antfu/vitesse)
-
-📀 [**repository**](https://gitlab.com/ewilan-riviere/memorandum) : Bookshelves repository  
+📀 [**repository**](https://gitlab.com/ewilan-riviere/memorandum) : repository  
 💻 [**memorandum.ewilan-riviere.com**](https://memorandum.ewilan-riviere.com): demo  
+
+## Setup
+
+```bash
+pnpm i
+```
+
+```bash
+pnpm dev
+```
+
+### Production
+
+```bash
+pnpm build
+```
 
 ## Features
 

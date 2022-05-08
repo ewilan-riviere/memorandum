@@ -15,7 +15,7 @@ html .prose {
 
   --prism-literal: #429988;
   --prism-decorator: #bd8f8f;
-  --prism-json-property: #6b8b9e;
+  --prism-json-property: rgb(128, 203, 196);
   --prism-line-number: #888888;
   --prism-line-number-gutter: #eeeeee;
   --prism-line-highlight-background: #444444;
@@ -39,7 +39,7 @@ html .prose {
 
   --prism-tag: rgb(127, 219, 202);
   --prism-operator: rgb(127, 219, 202);
-  --prism-keyword: rgb(127, 219, 202);
+  --prism-keyword: rgb(199, 146, 234);
 
   --prism-boolean: rgb(255, 88, 116);
 
@@ -82,8 +82,26 @@ pre .important,
   font-weight: bold;
 }
 
+kbd {
+  @apply bg-gray-800 px-2 py-1 rounded-md shadow;
+}
+
+code {
+  @apply before:!content-[''] after:!content-[''] bg-gray-800 p-1 rounded-md;
+}
+
 pre {
-  @apply relative !bg-gray-800;
+  @apply relative !bg-gray-800 !overflow-hidden !p-0;
+}
+pre code {
+  @apply !w-full overflow-auto !px-4 !py-5 block;
+}
+
+pre:hover .m-mdic-copy-wrapper button {
+  @apply opacity-100;
+}
+pre .m-mdic-copy-wrapper button {
+  @apply opacity-0 transition-opacity duration-75;
 }
 
 .named-fence-filename {
@@ -91,15 +109,15 @@ pre {
 }
 
 .m-mdic-copy-wrapper .u-mdic-copy-code_lang {
-  @apply absolute top-1 right-1 bg-gray-900 px-2 py-0.5 rounded-md text-xs;
+  @apply absolute top-1 right-1 bg-gray-900 px-2 py-0.5 rounded-md text-xs bg-opacity-10;
 }
 
 .m-mdic-copy-wrapper div {
-  @apply absolute left-2 top-2 bg-gray-900 px-2 py-0.5 rounded-md hidden text-xs;
+  @apply absolute right-8 bottom-1 bg-gray-900 px-2 py-0.5 rounded-md hidden text-xs bg-opacity-10;
 }
 
 .m-mdic-copy-wrapper button {
-  @apply absolute right-1 bottom-1 bg-gray-900 px-1 py-0.5 rounded-md hover:bg-gray-800 border-gray-600 transition-colors duration-75 text-xs;
+  @apply absolute right-1 bottom-1 bg-gray-900 p-1 rounded-md hover:bg-gray-700 border-gray-600 transition-colors duration-75 text-sm;
 }
 
 .warning {
@@ -124,7 +142,10 @@ pre {
 }
 
 .alert p {
-  @apply m-0;
+  @apply m-0 mb-1 text-base;
+}
+.alert li {
+  @apply text-base;
 }
 
 .spoiler {

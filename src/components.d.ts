@@ -6,6 +6,10 @@ import '@vue/runtime-core'
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AppImg: typeof import('./components/app/img.vue')['default']
+    AppTab: typeof import('./components/app/tab.vue')['default']
+    AppTabs: typeof import('./components/app/tabs.vue')['default']
+    ContentCodeBlock: typeof import('./components/content/code-block.vue')['default']
+    ContentCodeGroup: typeof import('./components/content/code-group.vue')['default']
     Counter: typeof import('./components/Counter.vue')['default']
     Footer: typeof import('./components/Footer.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

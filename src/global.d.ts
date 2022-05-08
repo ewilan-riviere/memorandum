@@ -1,7 +1,7 @@
 import { ReadTimeResults } from 'reading-time'
 import { FunctionalComponent, HTMLAttributes, VNodeProps } from 'vue'
 
-export {}
+export { }
 
 /**
  * From https://bobbyhadz.com/blog/typescript-make-types-global
@@ -53,6 +53,7 @@ declare global {
   interface ContentCategoryItem {
     label?: string
     slug?: string
+    category?: string
     domains?: ContentDomainItem[]
   }
 
@@ -60,6 +61,7 @@ declare global {
   interface ContentDomainItem {
     label?: string
     slug?: string
+    domain?: string
     subjects?: ContentSubjectItem[]
   }
 
@@ -67,6 +69,7 @@ declare global {
   interface ContentSubjectItem {
     label?: string
     slug?: string
+    subject?: string
     files?: ContentFile[]
   }
 }

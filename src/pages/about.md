@@ -2,6 +2,8 @@
 title: About
 ---
 
+This is {{frontmatter.title}}
+
 <div class="text-center">
   <!-- You can use Vue components inside markdown -->
   <div i-carbon-dicom-overlay class="text-4xl -mb-6 m-auto" />
@@ -19,3 +21,37 @@ function vitesse() {
 ```
 
 Check out the [GitHub repo](https://github.com/antfu/vitesse) for more details.
+
+## Usage
+
+[[toc]]
+
+!!serie spoiler!!
+
+::: info
+Alert!
+:::
+
+::: info hide
+Alert!
+:::
+
+```js:hello.js
+// hey
+console.log("Hello World!")
+```
+
+```js [group:tab]
+console.log('hello')
+```
+
+```js [g1:JavaScript]
+console.log('hello')
+```
+
+```py [g1:Python3]
+print("hello")
+```
+
+- [x] a
+- [ ] b

@@ -1,0 +1,290 @@
+---
+title: Image cache
+description: 'Increase loading speed of image with cache for images'
+position: 5
+category: 'Laravel'
+---
+
+When a user uploads a picture, it can be very heavy. To display this image with correct proportions but keeping the original image and resizing on the fly, when necessary and keeping the resized image . You can use image caching.
+
+You will need [**spatie/image**](https://github.com/spatie/image)
+
+```bash
+composer require spatie/image
+```
+
+## Setup files
+
+Create Controller for images
+
+Check `$path` of image
+
+```php
+Image::load("$path")
+```
+
+```php[app/Http/Controllers/ImageController.php]
+<?php
+
+namespace App\Http\Controllers;
+
+use Spatie\Image\Image;
+use Spatie\Image\Manipulations;
+use Spatie\Image\Exceptions\InvalidManipulation;
+
+class ImageController extends Controller
+{
+  /**
+    * @param $size
+    * @param $path
+    *
+    * @throws InvalidManipulation
+    *
+    * @return mixed
+    */
+  public static function thumbnail($size, $path, $crop = true)
+  {
+    $dimensions = config("image.thumbnails.$size");
+
+    if (! $dimensions) {
+      return abort(404);
+    }
+
+    $thumbnail = get_thumbnail($path, $size);
+
+    if (! $thumbnail['resolved']) {
+      if ($crop) {
+        Image::load("$path")
+          ->fit(Manipulations::FIT_MAX, $dimensions['width'], $dimensions['height'])
+          ->save($thumbnail['filepath']);
+      } else {
+        Image::load("$path")
+          ->save($thumbnail['filepath']);
+      }
+    }
+
+    return response()->file($thumbnail['filepath']);
+  }
+}
+```
+
+Add two global methods in `helpers.php`
+
+```php[app/helpers.php]
+<?php
+
+use App\Http\Controllers\ImageController;
+
+if (! function_exists('image_cache')) {
+  /**
+    * Resolve image url.
+    *
+    * @param $path
+    * @param $size
+    *
+    * @return string
+    */
+  function image_cache($path, $size, $crop = true)
+  {
+    if (false !== strpos($path, 'http')) {
+      return $path;
+    }
+
+    $thumbnail = get_thumbnail($path, $size);
+
+    if (! $thumbnail['resolved']) {
+      return asset("cache/resolve/$size/$path");
+    }
+
+    return asset($thumbnail['filepath']);
+  }
+}
+
+if (! function_exists('get_thumbnail')) {
+  /**
+    * Resolve image url.
+    *
+    * @param $path
+    * @param $size
+    *
+    * @return array
+    */
+  function get_thumbnail($path, $size, $crop = true)
+  {
+    $filename = md5("$size/$path").'.'.pathinfo($path, PATHINFO_EXTENSION);
+    $thumbnailPath = "storage/cache/$filename";
+
+    return [
+      'resolved' => file_exists($thumbnailPath),
+      'filename' => $filename,
+      'filepath' => $thumbnailPath,
+    ];
+  }
+}
+```
+
+Autoload the new helper
+
+```json[composer.json]
+"autoload": {
+  // ...
+  "files": [
+    "app/helpers.php"
+  ]
+},
+```
+
+Create config to have images size
+
+```php[config/image.php]
+<?php
+
+return [
+  /*
+  |--------------------------------------------------------------------------
+  | Image Driver
+  |--------------------------------------------------------------------------
+  |
+  | Intervention Image supports "GD Library" and "Imagick" to process images
+  | internally. You may choose one of them according to your PHP
+  | configuration. By default PHP's "GD Library" implementation is used.
+  |
+  | Supported: "gd", "imagick"
+  |
+  */
+
+  'driver' => 'gd',
+
+  'thumbnails' => [
+    // Classic
+    'admin_preview' => [
+      'width'  => 200,
+      'height' => 200,
+    ],
+    'small' => [
+      'width'  => 400,
+      'height' => 400,
+    ],
+    'medium' => [
+      'width'  => 900,
+      'height' => 900,
+    ],
+    'large' => [
+      'width'  => 1800,
+      'height' => 1800,
+    ],
+
+    // Custom sizes
+    'post' => [
+      'width'  => 600,
+      'height' => 500,
+    ],
+    'newsletter_feature' => [
+      'width'  => 500,
+      'height' => 250,
+    ],
+    'avatar' => [
+      'width'  => 100,
+      'height' => 100,
+    ],
+  ],
+];
+```
+
+`routes/web.php`
+
+```php[routes/web.php]
+Route::get('cache/resolve/{size}/{path}', 'ImageController@thumbnail')->where('path', '.*');
+```
+
+## Create `cache`
+
+Make sure to link storage
+
+```bash
+php artisan storage:link
+```
+
+Create a folder into `public/storage`
+
+```bash
+📦laravel-app
+ ┣ 📂app
+ ┣ 📂bootstrap
+ ┣ 📂config
+ ┣ 📂...
+ ┗ 📂storage
+   ┗ 📂app
+     ┗ 📂public
+       ┣📜 .gitignore
+       ┗ 📂cache
+         ┗ 📜.gitignore
+```
+
+```.gitignore[storage/app/public]
+*
+!cache/
+!.gitignore
+```
+
+```.gitignore[storage/app/public/cache]
+*
+!.gitignore
+```
+
+## Setup rights
+
+```bash
+sudo chown -R $USER:www-data
+```
+
+```bash
+sudo chmod ug+rwx storage bootstrap/cache
+```
+
+```bash
+php artisan cache:clear ; php artisan config:clear ; php artisan route:clear
+```
+
+## Usage
+
+Example with *Post* model and *transformer* of [**spatie/laravel-fractal**](https://github.com/spatie/laravel-fractal)
+
+```php[app/Transformers/PostTransformer.php]
+<?php
+
+namespace App\Transformers;
+
+use App\Models\Post;
+use League\Fractal\TransformerAbstract;
+
+class PostTransformer extends TransformerAbstract
+{
+  protected $availableIncludes = [
+    'tags',
+  ];
+
+  public function transform(Post $post)
+  {
+    $url = request()->getSchemeAndHttpHost();
+
+    return [
+      'title'            => $post->title,
+      'slug'             => $post->slug,
+      'body'             => str_replace('src="/', "src=\"{$url}/", $post->body),
+      'publication_date' => $post->publication_date,
+      'image'            => $post->image ? image_cache($post->image, 'post') : null,
+      'author_name'      => $post->author_name,
+      'author_photo'     => $post->author_photo ? image_cache($post->author_photo, 'avatar') : null,
+      'links'            => [
+        'self' => route('blog.posts.show', $post->slug),
+      ],
+    ];
+  }
+
+  public function includeTags(Post $post)
+  {
+    return $this->collection($post->tags, new TagTransformer());
+  }
+}
+```
