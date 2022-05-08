@@ -51,20 +51,20 @@ const getFilesList = (dirPath: string, filesList: string[] = []): string[] => {
 
 const getContentFiles = (dirPath: string): ContentFile[] => {
   const files = getFilesList(dirPath)
-  let contentList: ContentFile[] = []
+  const contentList: ContentFile[] = []
 
   files.forEach((file) => {
     const text = fs.readFileSync(file, 'utf8')
-    let fullPath = file.replace('//', '/')
+    const fullPath = file.replace('//', '/')
 
-    let front: FrontMatterMarkdown = parseMarkdown(text)
+    const front: FrontMatterMarkdown = parseMarkdown(text)
 
-    let path = file.replace(dirPath, '')
-    let pathList = path.split('/')
+    const path = file.replace(dirPath, '')
+    const pathList = path.split('/')
     pathList.shift()
     pathList.pop()
 
-    let hierarchy: ContentHierarchy = {
+    const hierarchy: ContentHierarchy = {
       category: pathList[0], // Development
       domain: pathList[1], // Frameworks
       subject: pathList[2], // Laravel
@@ -99,7 +99,7 @@ const getCategories = (contentList: ContentFile[]): ContentNavigation => {
   /**
    * group by category, aka 'development'
    */
-  let groupByCategories = groupBy(
+  const groupByCategories = groupBy(
     contentList,
     (file) => file.hierarchy?.category!
   )
@@ -107,12 +107,12 @@ const getCategories = (contentList: ContentFile[]): ContentNavigation => {
   for (const categoryKey in groupByCategories) {
     const category = groupByCategories[categoryKey]
 
-    let domainItems: ContentDomainItem[] = []
+    const domainItems: ContentDomainItem[] = []
     const groupByDomains = groupBy(category, (file) => file.hierarchy?.domain!)
     for (const domainKey in groupByDomains) {
       const domain = groupByDomains[domainKey]
 
-      let subjectItems: ContentSubjectItem[] = []
+      const subjectItems: ContentSubjectItem[] = []
       const groupBySubjects = groupBy(
         domain,
         (file) => file.hierarchy?.subject!
@@ -166,10 +166,9 @@ const DEFAULT_OPTIONS: PluginOptions = {
 
 const generateContentFile = (opts: PluginOptions) => {
   const contentList = getContentFiles(opts.path!)
-  let categories = getCategories(contentList)
-  let jsonString = JSON.stringify(categories)
+  const categories = getCategories(contentList)
+  const jsonString = JSON.stringify(categories)
 
-  fs.createWriteStream('content.json')
   fs.writeFile('./node_modules/.pnpm/content.json', jsonString, (err) => {
     if (err) {
       return console.log(err)
