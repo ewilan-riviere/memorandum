@@ -1,25 +1,14 @@
 {
   "root": true,
   "env": {
-    "browser": true,
-    "node": true,
+    "node": true
   },
   "extends": [
-    "plugin:vue/vue3-recommended",
     "eslint:recommended",
-    "@vue/typescript/recommended",
-    // Add under other rules
-    "@vue/prettier",
-    "@vue/prettier/@typescript-eslint"
+    "plugin:vue/vue3-recommended",
+    "prettier"
   ],
   "rules": {
-    "lines-between-class-members": [
-      "error",
-      "always",
-      {
-        "exceptAfterSingleLine": true
-      }
-    ],
     "space-before-function-paren": "off",
     "vue/multi-word-component-names": "off",
     "no-console": "off",
@@ -37,6 +26,8 @@
     "vue/singleline-html-element-content-newline": "off",
     "vue/multiline-html-element-content-newline": "off",
     "comma-dangle": "off",
-    "vue/html-self-closing": "off"
+    "vue/html-self-closing": "off",
+    "prefer-const": "warn",
+    "no-undef": "off"
   }
 }

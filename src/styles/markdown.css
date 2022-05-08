@@ -87,19 +87,19 @@ pre {
 }
 
 .named-fence-filename {
-  @apply absolute right-1 top-1 bg-gray-900 px-2 py-0.5 rounded-md z-10;
+  @apply absolute right-1 top-1 bg-gray-900 px-2 py-0.5 rounded-md z-10 text-xs;
 }
 
 .m-mdic-copy-wrapper .u-mdic-copy-code_lang {
-  @apply absolute top-1 right-1 bg-gray-900 px-2 py-0.5 rounded-md;
+  @apply absolute top-1 right-1 bg-gray-900 px-2 py-0.5 rounded-md text-xs;
 }
 
 .m-mdic-copy-wrapper div {
-  @apply absolute left-2 top-2 bg-gray-900 px-2 py-0.5 rounded-md hidden;
+  @apply absolute left-2 top-2 bg-gray-900 px-2 py-0.5 rounded-md hidden text-xs;
 }
 
 .m-mdic-copy-wrapper button {
-  @apply absolute right-0 bottom-0 bg-gray-900 px-2 py-0.5 rounded-tl-md border-t border-l hover:bg-gray-800 border-gray-600 transition-colors duration-75;
+  @apply absolute right-1 bottom-1 bg-gray-900 px-1 py-0.5 rounded-md hover:bg-gray-800 border-gray-600 transition-colors duration-75 text-xs;
 }
 
 .warning {
@@ -108,10 +108,19 @@ pre {
   color: rgba(254, 243, 199, var(--tw-text-opacity));
 }
 
-.info {
+.info,
+.see,
+.tips,
+.read {
   background-color: rgba(7, 89, 133, var(--tw-bg-opacity));
   --tw-bg-opacity: 0.25;
   color: rgba(186, 230, 253, var(--tw-text-opacity));
+}
+
+.danger {
+  background-color: rgba(153, 27, 27, var(--tw-bg-opacity));
+  --tw-bg-opacity: 0.25;
+  color: rgba(254, 226, 226, var(--tw-text-opacity));
 }
 
 .alert p {
@@ -121,15 +130,16 @@ pre {
 .spoiler {
   @apply bg-gray-800 px-2 py-0.5 rounded-md cursor-default;
 }
+
 .spoiler,
 .spoiler > * {
-  transition: color 0.5s, opacity 0.5s;
+  @apply transition-colors duration-150;
 }
 .spoiler:not(:hover) {
-  color: transparent;
+  @apply text-transparent;
 }
 .spoiler:not(:hover) > * {
-  opacity: 0;
+  @apply opacity-0;
 }
 
 input {

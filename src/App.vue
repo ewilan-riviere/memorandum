@@ -3,8 +3,8 @@
 // you can use this to manipulate the document head in any components,
 // they will be rendered correctly in the html results with vite-ssg
 
-import { useContent } from './composables/useContent';
-import { useContentStore } from './stores/content';
+import { useContent } from './composables/useContent'
+import { useContentStore } from './stores/content'
 
 useHead({
   title: 'Vitesse',
@@ -21,7 +21,12 @@ const { navigation, objectIsEmpty } = useContent()
 const { domain, setDomain } = useContentStore()
 
 if (objectIsEmpty(domain)) {
-  if (navigation && navigation[0] && navigation[0].domains && navigation[0].domains[0]) {
+  if (
+    navigation &&
+    navigation[0] &&
+    navigation[0].domains &&
+    navigation[0].domains[0]
+  ) {
     setDomain(navigation[0].domains[0])
   }
 }
