@@ -29,6 +29,7 @@
     "comma-dangle": "off",
     "vue/html-self-closing": "off",
     "prefer-const": "warn",
+    "@typescript-eslint/no-var-requires": "off",
     "no-undef": "off"
   }
 }

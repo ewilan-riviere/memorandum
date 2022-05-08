@@ -80,37 +80,47 @@ export default defineConfig({
         md.use(require('markdown-it-anchor')) // https://www.npmjs.com/package/markdown-it-anchor
         md.use(require('markdown-it-multimd-table')) // https://www.npmjs.com/package/markdown-it-multimd-table
         md.use(require('markdown-it-table-of-contents')) // https://www.npmjs.com/package/markdown-it-table-of-contents
-        md.use(require('markdown-it-container'), 'classname', {// https://www.npmjs.com/package/markdown-it-container
+        md.use(require('markdown-it-container'), 'classname', {
+          // https://www.npmjs.com/package/markdown-it-container
           validate: (name: string) => name.trim().length,
           render: (tokens: any, idx: string) => {
-            let name = tokens[idx].info.trim() as 'warning' | 'see' | 'tips' | 'info' | 'read' | 'danger'
-            let emojis = {
-              'warning': '🚧',
-              'see': '👉',
-              'tips': '💡',
-              'info': 'ℹ️',
-              'read': '🔎',
-              'danger': '🚨',
-              default: ''
+            const name = tokens[idx].info.trim() as
+              | 'warning'
+              | 'see'
+              | 'tips'
+              | 'info'
+              | 'read'
+              | 'danger'
+            const emojis = {
+              warning: '🚧',
+              see: '👉',
+              tips: '💡',
+              info: 'ℹ️',
+              read: '🔎',
+              danger: '🚨',
+              default: '',
             }
             let label = emojis[name] || emojis['default']
-            let isHidden = name.includes('hide')
-            label = isHidden ? '' : `<span class="container-label capitalize inline-flex mr-2 w-5 h-5 justify-center items-center text-1.2rem">${label}</span>`
+            const isHidden = name.includes('hide')
+            label = isHidden
+              ? ''
+              : `<span class="container-label capitalize inline-flex mr-2 w-5 h-5 justify-center items-center text-1.2rem">${label}</span>`
 
             if (tokens[idx].nesting === 1) {
               return `<div class="p-4 mt-4 mb-4 rounded-lg alert text-sm leading-relaxed ${name}">
               <div class="flex items-start">
                 ${label}
-                <div class="flex-grow alert-content">\n`;
+                <div class="flex-grow alert-content">\n`
             } else {
-              return '</div></div></div>\n';
+              return '</div></div></div>\n'
             }
-          }
+          },
         })
         md.use(require('markdown-it-task-lists')) // https://www.npmjs.com/package/markdown-it-task-lists
         md.use(require('@traptitech/markdown-it-spoiler')) // https://www.npmjs.com/package/@traptitech/markdown-it-spoiler
         md.use(require('markdown-it-named-code-blocks')) // https://www.npmjs.com/package/markdown-it-named-code-blocks
-        md.use(require('markdown-it-copy'), { // https://www.npmjs.com/package/markdown-it-copy
+        md.use(require('markdown-it-copy'), {
+          // https://www.npmjs.com/package/markdown-it-copy
           btnText: 'copy',
           failText: 'Failed',
           successText: 'Success',
@@ -119,7 +129,8 @@ export default defineConfig({
         })
         // https://prismjs.com/
         md.use(Prism) // https://www.npmjs.com/package/markdown-it-prism
-        md.use(LinkAttributes, { // https://www.npmjs.com/package/markdown-it-link-attributes
+        md.use(LinkAttributes, {
+          // https://www.npmjs.com/package/markdown-it-link-attributes
           matcher: (link: string) => /^https?:\/\//.test(link),
           attrs: {
             target: '_blank',
@@ -134,7 +145,9 @@ export default defineConfig({
   ssgOptions: {
     script: 'async',
     formatting: 'minify',
-    onFinished() { generateSitemap() },
+    onFinished() {
+      generateSitemap()
+    },
   },
 
   // https://github.com/vitest-dev/vitest

@@ -6,13 +6,15 @@ export const useContent = () => {
 
   const objectIsEmpty = (object: object): boolean => {
     const isEmpty =
-      object && Object.keys(object).length === 0 && object.constructor === Object
+      object &&
+      Object.keys(object).length === 0 &&
+      object.constructor === Object
     return isEmpty || object === undefined
   }
 
   return {
     list,
     navigation,
-    objectIsEmpty
+    objectIsEmpty,
   }
 }

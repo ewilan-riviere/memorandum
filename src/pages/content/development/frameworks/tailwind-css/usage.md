@@ -25,11 +25,11 @@ console.log("Hello World!")
 ```
 
 ```js [group:tab]
-console.log("hello");
+console.log('hello')
 ```
 
 ```js [g1:JavaScript]
-console.log("hello");
+console.log('hello')
 ```
 
 ```py [g1:Python3]

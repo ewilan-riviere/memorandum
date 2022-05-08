@@ -9,9 +9,7 @@ const router = useRouter()
     </div>
     <RouterView />
     <div>
-      <button btn text-sm m="3 t8" @click="router.back()">
-        back
-      </button>
+      <button btn text-sm m="3 t8" @click="router.back()">back</button>
     </div>
   </main>
 </template>

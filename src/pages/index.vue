@@ -8,9 +8,7 @@
 <template>
   <div>
     <div>Hello</div>
-    <RouterLink to="/about">
-      about
-    </RouterLink>
+    <RouterLink to="/about"> about </RouterLink>
     <router-link to="/content/development/frameworks/flutter/os-versions">
       os
     </router-link>

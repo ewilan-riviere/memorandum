@@ -12,7 +12,7 @@ export const useContentStore = defineStore('content', {
       if (domain) {
         this.$patch({
           domain: domain,
-          displaySubject: false
+          displaySubject: false,
         })
       }
     },
@@ -20,7 +20,7 @@ export const useContentStore = defineStore('content', {
       if (subject) {
         this.$patch({
           subject: subject,
-          displaySubject: true
+          displaySubject: true,
         })
         if (subject.files && subject.files[0]) {
           this.setFile(subject.files[0])
@@ -30,9 +30,9 @@ export const useContentStore = defineStore('content', {
     setFile(file?: ContentFile) {
       if (file) {
         this.$patch({
-          file: file
+          file: file,
         })
       }
-    }
+    },
   },
 })

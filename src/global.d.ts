@@ -1,7 +1,7 @@
 import { ReadTimeResults } from 'reading-time'
 import { FunctionalComponent, HTMLAttributes, VNodeProps } from 'vue'
 
-export { }
+export {}
 
 /**
  * From https://bobbyhadz.com/blog/typescript-make-types-global

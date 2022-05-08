@@ -1,12 +1,8 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <nav text-xl mt-6 inline-flex gap-2>
-    <RouterLink class="icon-btn mx-2" to="/" title="home">
-      home
-    </RouterLink>
+    <RouterLink class="icon-btn mx-2" to="/" title="home"> home </RouterLink>
 
     <RouterLink class="icon-btn mx-2" to="/about" title="about">
       about

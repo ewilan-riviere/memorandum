@@ -230,9 +230,9 @@ const store = useContentStore()
               <SearchIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
             </div>
             <input
+              id="search"
               type="search"
               name="search"
-              id="search"
               class="focus:ring-pink-500 focus:border-pink-500 block w-full pl-10 sm:text-sm border-gray-700 bg-gray-700 placeholder-white rounded-md"
               placeholder="Search"
             />
