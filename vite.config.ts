@@ -18,6 +18,8 @@ import LinkAttributes from 'markdown-it-link-attributes'
 import Content from './src/plugins/content'
 import svgLoader from 'vite-svg-loader'
 
+import Inspector from "vite-plugin-vue-inspector"
+
 export default defineConfig({
   resolve: {
     alias: {
@@ -48,6 +50,9 @@ export default defineConfig({
 
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
     Layouts(),
+
+    // https://github.com/webfansplz/vite-plugin-vue-inspector
+    Inspector(),
 
     // https://github.com/antfu/unplugin-auto-import
     AutoImport({

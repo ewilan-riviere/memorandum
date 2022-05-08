@@ -1,85 +1,64 @@
-<p align='center'>
-  <img src='https://user-images.githubusercontent.com/11247099/111864893-a457fd00-899e-11eb-9f05-f4b88987541d.png' alt='Vitesse - Opinionated Vite Starter Template' width='600'/>
-</p>
+# Bookshelves · Front <!-- omit in toc -->
 
-<h6 align='center'>
-<a href="https://vitesse-lite.netlify.app/">Live Demo</a>
-</h6>
+[![vite](https://img.shields.io/static/v1?label=Nuxt&message=v2.*&color=646CFF&style=flat-square&logo=vite&logoColor=ffffff)](https://vitejs.dev/)
+[![vue](https://img.shields.io/static/v1?label=Vue&message=v3.*&color=4FC08D&style=flat-square&logo=vue.js&logoColor=ffffff)](https://vuejs.org/)
+[![tailwindcss](https://img.shields.io/static/v1?label=Tailwind%20CSS&message=v3.*&color=38B2AC&style=flat-square&logo=tailwind-css&logoColor=ffffff)](https://tailwindcss.com/)
 
-<h5 align='center'>
-<b>Lightweight version of <a href="https://github.com/antfu/vitesse">Vitesse</a></b>
-</h5>
+[![node](https://img.shields.io/static/v1?label=NodeJS&message=v16.15&color=339933&style=flat-square&logo=node.js&logoColor=ffffff)](https://nodejs.org/en)
+[![pnpm](https://img.shields.io/static/v1?label=pnpm&message=v7.*&color=F69220&style=flat-square&logo=pnpm&logoColor=ffffff)](https://pnpm.io)
 
-<br>
+[![vite-ssr](https://img.shields.io/static/v1?label=Designed%20to%20be&message=SSR&color=646CFF&style=flat-square&logo=vite&logoColor=ffffff)](https://github.com/antfu/vite-ssg)
+[![markdown](https://img.shields.io/static/v1?label=Markdown&message=vite-plugin-md&color=000000&style=flat-square&logo=markdown&logoColor=ffffff)](https://github.com/antfu/vite-plugin-md)
+[![vitest](https://img.shields.io/static/v1?label=Vitest&message=v0.10&color=646CFF&style=flat-square&logo=vite&logoColor=ffffff)](https://vitest.dev/)  
+[![vitesse](https://img.shields.io/static/v1?label=Vitesse&message=@antfu&color=646CFF&style=flat-square&logo=vite&logoColor=ffffff)](https://github.com/antfu/vitesse)
 
-<p align='center'>
-<b>English</b> | <a href="https://github.com/antfu/vitesse-lite/blob/main/README.zh-CN.md">简体中文</a>
-<!-- Contributors: Thanks for geting interested, however we DON'T accept new transitions to the README, thanks. -->
-</p>
+📀 [**repository**](https://gitlab.com/ewilan-riviere/memorandum) : Bookshelves repository  
+💻 [**memorandum.ewilan-riviere.com**](https://memorandum.ewilan-riviere.com): demo  
 
 ## Features
 
 - ⚡️ [Vue 3](https://github.com/vuejs/vue-next), [Vite 2](https://github.com/vitejs/vite), [pnpm](https://pnpm.js.org/), [ESBuild](https://github.com/evanw/esbuild) - born with fastness
-
 - 🗂 [File based routing](./src/pages)
-
 - 📦 [Components auto importing](./src/components)
-
-- 🎨 [UnoCSS](https://github.com/antfu/unocss) - The instant on-demand atomic CSS engine.
-
-- 😃 Use icons from any icon sets in [Pure CSS](https://github.com/antfu/unocss/tree/main/packages/preset-icons)
-
-- 🔥 Use the [new `<script setup>` style](https://github.com/vuejs/rfcs/pull/227)
-
-- ✅ Use [Vitest](http://vitest.dev/) for unit and components testing
-
-- 🦾 TypeScript, of course
-
+- 🍍 [State Management via Pinia](https://pinia.esm.dev/)
+- 📑 [Layout system](./src/layouts)
+- 🗒 [Markdown Support](https://github.com/antfu/vite-plugin-md)
+- 🤙🏻 [Reactivity Transform](https://vuejs.org/guide/extras/reactivity-transform.html) enabled
+- 📥 [APIs auto importing](https://github.com/antfu/unplugin-auto-import) - use Composition API and others directly
+- 🖨 Static-site generation (SSG) via [vite-ssg](https://github.com/antfu/vite-ssg)
+- ⚙️ Unit Testing with [Vitest](https://github.com/vitest-dev/vitest), E2E Testing with [Cypress](https://cypress.io/) on [GitHub Actions](https://github.com/features/actions)
 - ☁️ Deploy on Netlify, zero-config
-
-<br>
-
-See [Vitesse](https://github.com/antfu/vitesse) for full featureset.
-
-## Dropped Features from [Vitesse](https://github.com/antfu/vitesse)
-
-- ~~i18n~~
-- ~~Layouts~~
-- ~~SSG~~
-- ~~PWA~~
-- ~~Markdown~~
-
-## Pre-packed
-
-### UI Frameworks
-
-- [UnoCSS](https://github.com/antfu/unocss) - The instant on-demand atomic CSS engine.
-
-### Icons
-
-- [Iconify](https://iconify.design) - use icons from any icon sets [🔍Icônes](https://icones.netlify.app/)
-- [Pure CSS Icons via UnoCSS](https://github.com/antfu/unocss/tree/main/packages/preset-icons)
 
 ### Plugins
 
 - [Vue Router](https://github.com/vuejs/vue-router)
   - [`vite-plugin-pages`](https://github.com/hannoeru/vite-plugin-pages) - file system based routing
-- [`unplugin-auto-import`](https://github.com/antfu/unplugin-auto-import) - Directly use Vue Composition API and others without importing
+  - [`vite-plugin-vue-layouts`](https://github.com/JohnCampionJr/vite-plugin-vue-layouts) - layouts for pages
+- [Pinia](https://pinia.esm.dev) - Intuitive, type safe, light and flexible Store for Vue using the composition api
 - [`unplugin-vue-components`](https://github.com/antfu/unplugin-vue-components) - components auto import
+- [`unplugin-auto-import`](https://github.com/antfu/unplugin-auto-import) - Directly use Vue Composition API and others without importing
+- [`vite-plugin-md`](https://github.com/antfu/vite-plugin-md) - Markdown as components / components in Markdown
+  - [`markdown-it-prism`](https://github.com/jGleitz/markdown-it-prism) - [Prism](https://prismjs.com/) for syntax highlighting
+  - [`prism-theme-vars`](https://github.com/antfu/prism-theme-vars) - customizable Prism.js theme using CSS variables
 - [VueUse](https://github.com/antfu/vueuse) - collection of useful composition APIs
+- [`vite-ssg-sitemap`](https://github.com/jbaubree/vite-ssg-sitemap) - Sitemap generator
+- [`@vueuse/head`](https://github.com/vueuse/head) - manipulate document head reactively
+- [`vite-plugin-vue-inspector`](https://github.com/webfansplz/vite-plugin-vue-inspector) - jump to local IDE source code while click the element of browser automatically
 
-## Try it now!
+### Coding Style
 
-### GitHub Template
+- Use Composition API with [`<script setup>` SFC syntax](https://github.com/vuejs/rfcs/pull/227)
+- [ESLint](https://eslint.org/) with [@antfu/eslint-config](https://github.com/antfu/eslint-config), single quotes, no semi.
 
-[Create a repo from this template on GitHub](https://github.com/antfu/vitesse-lite/generate).
+### Dev tools
 
-### Clone to local
-
-If you prefer to do it manually with the cleaner git history
-
-```bash
-npx degit antfu/vitesse-lite my-vitesse-app
-cd my-vitesse-app
-pnpm i # If you don't have pnpm installed, run: npm install -g pnpm
-```
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vitest](https://github.com/vitest-dev/vitest) - Unit testing powered by Vite
+- [pnpm](https://pnpm.js.org/) - fast, disk space efficient package manager
+- [`vite-ssg`](https://github.com/antfu/vite-ssg) - Static-site generation
+  - [critters](https://github.com/GoogleChromeLabs/critters) - Critical CSS
+- [Netlify](https://www.netlify.com/) - zero-config deployment
+- [VS Code Extensions](./.vscode/extensions.json)
+  - [Vite](https://marketplace.visualstudio.com/items?itemName=antfu.vite) - Fire up Vite server automatically
+  - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - Vue 3 `<script setup>` IDE support
+  - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
