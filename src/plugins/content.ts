@@ -134,59 +134,8 @@ const getCategories = (contentList: ContentFile[]): ContentNavigation => {
       slug: slugify(categoryKey),
       domains: domainItems
     })
-
-
-    // const category = categories[categoryKey]
-    // const domains = groupBy(category, file => file.hierarchy?.domain!)
-    // for (const domainKey in domains) {
-    //   const subject = domains[domainKey]
-    //   const subjects = groupBy(subject, file => file.hierarchy?.subject!)
-    //   console.log(subjects);
-
-    // }
-
-    // const domainsOrdered = Object.keys(domains)
-    //   .sort()
-    //   .reduce((obj, key) => {
-    //     // @ts-ignore
-    //     obj[key] = domains[key]
-    //     return obj
-    //   }, {})
-    // // @ts-ignore
-    // categories[key] = domainsOrdered
   }
   // console.log(categories);
-
-
-  // let categoryItems: ContentCategoryItem[] = []
-  // Object.entries(categories).forEach((item) => {
-  //   let category = item[0]
-  //   let content = item[1]
-
-  //   let domainItems: ContentDomainItem[] = []
-  //   Object.entries(content).forEach((subItem) => {
-  //     let domain = subItem[0]
-  //     let contentList = subItem[1]
-  //     domainItems.push({
-  //       label: capitalizeFirstLetter(domain),
-  //       slug: slugify(domain),
-  //       items: contentList
-  //     })
-  //   })
-
-  //   categoryItems.push({
-  //     label: capitalizeFirstLetter(category),
-  //     slug: slugify(category),
-  //     items: domainItems
-  //   })
-  // })
-  // let navigation: ContentNavigation = {
-  //   items: categoryItems
-  // }
-  // navigation.forEach(element => {
-  //   console.log(element.content);
-  // });
-
 
   return contentNavigation
 }
@@ -210,27 +159,27 @@ const DEFAULT_OPTIONS: PluginOptions = {
   // },
 }
 
+const generateContentFile = (opts: PluginOptions) => {
+  const contentList = getContentFiles(opts.path!)
+  let categories = getCategories(contentList)
+  let jsonString = JSON.stringify(categories);
+
+  fs.createWriteStream("content.json");
+  fs.writeFile("./node_modules/.pnpm/content.json", jsonString, (err) => {
+    if (err) {
+      return console.log(err);
+    }
+  });
+}
+
 
 export default (options: PluginOptions = {}): Plugin => {
   const opts: PluginOptions = Object.assign({}, DEFAULT_OPTIONS, options)
 
-  const transforms: {
-    [key: string]: any
-  } = {}
-
   return {
     name: 'vite:content',
     buildStart(options) {
-      const contentList = getContentFiles(opts.path!)
-      let categories = getCategories(contentList)
-      let jsonString = JSON.stringify(categories);
-
-      fs.createWriteStream("content.json");
-      fs.writeFile("./node_modules/.vite/content.json", jsonString, (err) => {
-        if (err) {
-          return console.log(err);
-        }
-      });
+      generateContentFile(opts)
     },
     handleHotUpdate({ file, server }) {
       if (file.endsWith('.md')) {

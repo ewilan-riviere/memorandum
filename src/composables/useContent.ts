@@ -1,4 +1,4 @@
-import content from '@/node_modules/.vite/content.json'
+import content from '@/node_modules/.pnpm/content.json'
 
 export const useContent = () => {
   const list: ContentNavigation = content
