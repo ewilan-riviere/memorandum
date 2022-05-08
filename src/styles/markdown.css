@@ -66,6 +66,10 @@ html .prose {
   --prism-variable: rgb(214, 222, 235);
 }
 
+pre .token .interpolation {
+  color: var(--prism-constant);
+}
+
 pre .comment,
 .prolog,
 .cdata,
