@@ -7,6 +7,7 @@ const props = defineProps<{
 }>()
 
 const route = useRoute()
+const router = useRouter()
 const store = useNavigationStore()
 
 const tag = ref('button')
@@ -45,6 +46,9 @@ watch(
   () => route.path,
   (newVal) => {
     checkCurrentCategory()
+    router.options.scrollBehavior = () => {
+      return { left: 0, top: 0 }
+    }
   }
 )
 
@@ -66,11 +70,11 @@ onMounted(() => {
       @click="toggle"
     >
       <span class="flex items-center">
-        <app-img
+        <!-- <app-img
           class="h-4 w-4 mr-2"
           :src="`/content/logo/${slugify(node.title)}.webp`"
           alt=""
-        />
+        /> -->
         {{ node.title }}
       </span>
       <svg-icon
