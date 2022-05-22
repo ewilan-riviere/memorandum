@@ -1,5 +1,19 @@
 <script setup lang="ts">
 const sidebarOpen = ref(false)
+const content = ref<HTMLElement>()
+
+const route = useRoute()
+
+watch(
+  () => route.path,
+  (newVal) => {
+    content.value?.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    })
+  }
+)
 </script>
 
 <template>
@@ -33,6 +47,7 @@ const sidebarOpen = ref(false)
       </div>
       <div class="flex-1 relative z-0 flex overflow-hidden">
         <main
+          ref="content"
           class="flex-1 relative z-0 overflow-y-auto focus:outline-none xl:order-last"
         >
           <!-- Breadcrumb -->

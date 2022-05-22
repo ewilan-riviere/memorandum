@@ -27,6 +27,8 @@ const checkCurrentCategory = () => {
 
   if (route.path === props.node._path || result) {
     display.value = true
+  } else {
+    store.toggleCategory()
   }
 }
 
@@ -46,9 +48,6 @@ watch(
   () => route.path,
   (newVal) => {
     checkCurrentCategory()
-    router.options.scrollBehavior = () => {
-      return { left: 0, top: 0 }
-    }
   }
 )
 
