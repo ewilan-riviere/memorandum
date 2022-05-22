@@ -69,11 +69,11 @@ onMounted(() => {
       @click="toggle"
     >
       <span class="flex items-center">
-        <!-- <app-img
+        <app-img
           class="h-4 w-4 mr-2"
           :src="`/content/logo/${slugify(node.title)}.webp`"
           alt=""
-        /> -->
+        />
         {{ node.title }}
       </span>
       <svg-icon
