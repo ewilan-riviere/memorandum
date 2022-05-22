@@ -1,0 +1,71 @@
+# About Content v2
+
+[Back home](/)
+
+
+::card
+The content of the card
+::
+
+::block-hero
+---
+announcement:
+
+- 'Announcing Nuxt Content v2'
+- /blog/announcing-v2
+cta:
+- Get Started
+- /get-started
+secondary:
+- Star on GitHub
+- <https://github.com/nuxt/content>
+snippet: yarn add --dev @nuxt/content
+
+---
+
+# title
+Content made easy for developers
+
+# description
+Nuxt Content reads the `content/` directory in your project, parses `.md`, `.yml`, `.csv` or `.json` files and creates a powerful data layer for your application. Bonus, use Vue components in Markdown with the MDC syntax.
+::
+
+::list{icon="heroicons-outline:badge-check"}
+
+- The [MDC Syntax](/guide/writing/mdc) for Components in Markdown
+- Internationalization support
+- [Navigation generation](/guide/displaying/navigation)
+- [Fully typed](/guide/displaying/typescript)
+- [Multiple sources](/api/configuration#sources) (experimental)
+- Live preview edition (coming soon)
+::
+
+::alert{type="success"}
+The content of the card
+::
+
+::alert{type=info}
+  ::details
+    :summary[Before getting started, please **make sure to have installed the recommended setup**:]
+    * Follow the [Nuxt 3 Prerequisites](https://v3.nuxtjs.org/getting-started/quick-start#prerequisites)
+
+    * Download the [VS Code **MDC Extension**](https://marketplace.visualstudio.com/items?itemName=Nuxt.mdc)
+  ::
+::
+
+::alert{type="success"}
+✨ Well done! A browser window should automatically open for <http://localhost:3000>
+::
+
+::alert{type="info"}
+👉 Next step is to head over the [Writing section](/guide/writing/content-directory) to learn how to use Nuxt Content.
+::
+
+::code-group
+  ```bash [npx]
+  npx nuxi init content-app -t content-v2
+  ```
+  ```bash [pnpm]
+  pnpm dlx nuxi init content-app -t content-v2
+  ```
+::

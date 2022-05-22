@@ -1,11 +1,7 @@
-.DS_Store
-.vite-ssg-dist
-.vite-ssg-temp
-*.local
-dist
-dist-ssr
 node_modules
-.idea/
-*.log
-
-content.json
+*.log*
+.nuxt
+.nitro
+.cache
+.output
+.env
