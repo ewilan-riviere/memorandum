@@ -2,12 +2,12 @@ import { defineStore } from 'pinia'
 
 export const useNavigationStore = defineStore('navigation', {
   state: () => ({
-    categoriIsOpened: false,
+    switchCategories: false,
   }),
   actions: {
     toggleCategory() {
       this.$patch({
-        categoriIsOpened: !this.categoriIsOpened,
+        switchCategories: !this.switchCategories,
       })
     },
   },

@@ -8,40 +8,35 @@ const props = defineProps<{
 
 const route = useRoute()
 const store = useNavigationStore()
+
+const tag = ref('button')
 const display = ref(false)
 
-store.toggleCategory()
-
 const toggle = () => {
-  if (display.value) {
-    store.toggleCategory()
-  } else {
-    store.toggleCategory()
-    setTimeout(() => {
-      display.value = !display.value
-    }, 200)
+  store.toggleCategory()
+  if (!display.value) {
+    nextTick(() => (display.value = !display.value))
   }
 }
-
-const selected = (path: string | null | undefined) => {
-  if (path && route.path === path) {
-    return true
-  }
-  return false
-}
-
 const checkCurrentCategory = () => {
-  if (route.path === props.node._path) {
+  var searchin = route.path.toLowerCase()
+  var str = props.node._path
+  str = str.replace(/[*]/g, '.*').toLowerCase().trim()
+  let result = new RegExp('^' + str + '*').test(searchin)
+
+  if (route.path === props.node._path || result) {
     display.value = true
   }
 }
-checkCurrentCategory()
 
-const isDirectory = ref(false)
-const tag = ref('router-link')
+const isDirectory = props.node.children !== undefined
+const selected = (path: string | null | undefined) =>
+  path && route.path === path
+
+store.toggleCategory()
 
 watch(
-  () => store.categoriIsOpened,
+  () => store.switchCategories,
   (newVal) => {
     display.value = false
   }
@@ -54,10 +49,10 @@ watch(
 )
 
 onMounted(() => {
-  isDirectory.value = props.node.children !== undefined
-  if (isDirectory) {
-    tag.value = 'button'
+  if (!isDirectory) {
+    tag.value = 'router-link'
   }
+  checkCurrentCategory()
 })
 </script>
 
@@ -97,11 +92,6 @@ onMounted(() => {
             :class="{ selected: selected(subNode._path) }"
             class="link"
           >
-            <app-img
-              class="h-4 w-4 mr-2"
-              :src="`/content/logo/${slugify(subNode.title)}.webp`"
-              alt=""
-            />
             {{ subNode.title }}
           </nuxt-link>
         </div>

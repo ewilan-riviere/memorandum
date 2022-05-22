@@ -1,24 +1,10 @@
 <script setup lang="ts">
-// import {
-//   CalendarIcon,
-//   CogIcon,
-//   HomeIcon,
-//   MapIcon,
-//   MenuIcon,
-//   SearchCircleIcon,
-//   SpeakerphoneIcon,
-//   UserGroupIcon,
-//   ViewGridAddIcon,
-// } from '@heroicons/vue/outline'
-// import { ChevronLeftIcon } from '@heroicons/vue/solid'
-
 const sidebarOpen = ref(false)
 </script>
 
 <template>
   <div class="h-screen flex">
     <!-- <theme-sidebar :opened="sidebarOpen" /> -->
-    <!-- Static sidebar for desktop -->
     <theme-sidebar-static />
     <div class="flex flex-col min-w-0 flex-1 overflow-hidden">
       <div class="lg:hidden">

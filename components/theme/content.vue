@@ -34,7 +34,6 @@ watch(
 
 <template>
   <article>
-    <!-- Profile header -->
     <div v-if="document">
       <div>
         <app-img
@@ -71,7 +70,6 @@ watch(
 
     <app-toc :toc="document.body.toc" />
     <div class="prose prose-invert px-8 xl:px-16 py-6 max-w-4xl mx-auto">
-      <!-- <slot /> -->
       <ContentRenderer :value="document" />
     </div>
   </article>

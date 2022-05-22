@@ -4,7 +4,7 @@ import { ComputedGetter } from 'vue'
 export const useMetadata = (meta?: HeadMeta) => {
   const config = useRuntimeConfig()
 
-  let title = config.appName
+  let title = 'Memorandum'
   if (meta?.title) {
     title = `${meta.title} · ${config.appName}`
     title = title.replace('APP_NAME', config.appName)

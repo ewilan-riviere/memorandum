@@ -1,6 +1,4 @@
-<script setup lang="ts">
-const isDirectory = (node: any) => node.children
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="hidden lg:flex lg:flex-shrink-0">
@@ -13,32 +11,24 @@ const isDirectory = (node: any) => node.children
             <svg-icon name="logo" class="h-8 w-auto" />
           </router-link>
           <nav class="mt-5 flex-1" aria-label="Sidebar">
-            <div class="px-2 space-y-1">
-              <ContentNavigation v-slot="{ navigation }">
-                <div v-for="node of navigation" :key="node._path">
-                  <span v-if="isDirectory(node)" class="title">
-                    {{ node.title }}
-                  </span>
-                  <div v-for="subNode in node.children" :key="subNode._path">
-                    <navigation-category :node="subNode" />
-                  </div>
-                </div>
-              </ContentNavigation>
-            </div>
-            <hr class="border-t border-gray-700 my-5" aria-hidden="true" />
-            <div class="flex-1 px-2 space-y-1">
-              <ContentNavigation v-slot="{ navigation }">
-                <div v-for="node of navigation" :key="node._path">
-                  <nuxt-link
-                    v-if="!isDirectory(node)"
-                    :to="node._path"
-                    class="link"
-                  >
-                    {{ node.title }}
-                  </nuxt-link>
-                </div>
-              </ContentNavigation>
-            </div>
+            <ContentNavigation v-slot="{ navigation }">
+              <div class="px-2 space-y-1">
+                <navigation-directory
+                  v-for="node of navigation"
+                  :key="node._path"
+                  :node="node"
+                />
+              </div>
+              <hr class="border-t border-gray-700 my-5" aria-hidden="true" />
+              <div class="flex-1 px-2 space-y-1">
+                <navigation-directory
+                  v-for="node of navigation"
+                  :key="node._path"
+                  :node="node"
+                  directory
+                />
+              </div>
+            </ContentNavigation>
           </nav>
         </div>
       </div>

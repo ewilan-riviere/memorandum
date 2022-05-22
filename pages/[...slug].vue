@@ -4,9 +4,12 @@
 // })
 useHead({
   title: 'Memorandum title',
+  titleTemplate: '',
 })
 </script>
 
 <template>
-  <slot />
+  <div>
+    <slot />
+  </div>
 </template>
