@@ -1,8 +1,6 @@
 ---
-title: Useful commands
+title: Commands
 description: ''
-position: 1
-category: 'Work in progress'
 ---
 
 ## Flutter

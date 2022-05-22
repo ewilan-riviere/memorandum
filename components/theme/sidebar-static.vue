@@ -11,77 +11,36 @@ const isDirectory = (node: any) => node.children
       >
         <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
           <router-link to="/" class="flex items-center flex-shrink-0 px-4">
-            <img class="h-8 w-auto" src="/logo-text.svg" alt="Workflow" />
+            <!-- <img class="h-8 w-auto" src="/logo-text.svg" alt="Workflow" /> -->
+            <svg-icon name="logo" class="h-8 w-auto" />
           </router-link>
           <nav class="mt-5 flex-1" aria-label="Sidebar">
             <div class="px-2 space-y-1">
               <ContentNavigation v-slot="{ navigation }">
-                <div v-for="firstNode of navigation" :key="firstNode._path">
-                  <span v-if="isDirectory(firstNode)" class="title">
-                    {{ firstNode.title }}
+                <div v-for="node of navigation" :key="node._path">
+                  <span v-if="isDirectory(node)" class="title">
+                    {{ node.title }}
                   </span>
-                  <nuxt-link :to="firstNode._path" class="group" v-else>
-                    {{ firstNode.title }}
-                  </nuxt-link>
-                  <div
-                    v-for="secondNode in firstNode.children"
-                    :key="secondNode._path"
-                  >
-                    <navigation-category :node="secondNode" />
+                  <div v-for="subNode in node.children" :key="subNode._path">
+                    <navigation-category :node="subNode" />
                   </div>
-                  <!-- <div class="flex">
-                    <nuxt-link
-                      v-for="secondNode in firstNode.children"
-                      :key="secondNode._path"
-                      :to="secondNode._path"
-                      class="pl-4"
-                    >
-                      {{ secondNode.title }}
-                    </nuxt-link>
-                  </div> -->
-                  <!-- <nuxt-link
-                    v-for="secondNode in firstNode.children"
-                    :key="secondNode._path"
-                    :to="secondNode._path"
-                    class="pl-4"
-                  >
-                    {{ secondNode.title }}
-                    <nuxt-link
-
-                      :to="thirdNode._path"
-                      class="pl-4"
-                    >
-                      {{ thirdNode.title }}
-                      <nuxt-link
-                        v-for="fourNode in thirdNode.children"
-                        :key="fourNode._path"
-                        :to="fourNode._path"
-                        class="pl-4"
-                      >
-                        {{ fourNode.title }}
-                      </nuxt-link>
-                    </nuxt-link>
-                  </nuxt-link> -->
                 </div>
               </ContentNavigation>
-              <!-- <a v-for="category in navigation" :key="category.name" :href="category.href" :class="[
-                category.current
-                  ? 'bg-gray-700 text-gray-100'
-                  : 'text-gray-400 hover:bg-gray-700 hover:text-gray-100',
-                'group flex items-center px-2 py-2 text-sm font-medium rounded-md',
-              ]" :aria-current="category.current ? 'page' : undefined">
-                <component :is="category.icon" :class="[
-                  category.current
-                    ? 'text-gray-400'
-                    : 'text-gray-400 group-hover:text-gray-400',
-                  'mr-3 flex-shrink-0 h-6 w-6',
-                ]" aria-hidden="true" />
-                {{ category }}
-              </a> -->
             </div>
-            <!-- <hr class="border-t border-gray-700 my-5" aria-hidden="true" />
+            <hr class="border-t border-gray-700 my-5" aria-hidden="true" />
             <div class="flex-1 px-2 space-y-1">
-              <a
+              <ContentNavigation v-slot="{ navigation }">
+                <div v-for="node of navigation" :key="node._path">
+                  <nuxt-link
+                    v-if="!isDirectory(node)"
+                    :to="node._path"
+                    class="link"
+                  >
+                    {{ node.title }}
+                  </nuxt-link>
+                </div>
+              </ContentNavigation>
+              <!-- <a
                 v-for="item in secondaryNavigation"
                 :key="item.name"
                 :href="item.href"
@@ -93,8 +52,8 @@ const isDirectory = (node: any) => node.children
                   aria-hidden="true"
                 />
                 {{ item.name }}
-              </a>
-            </div> -->
+              </a> -->
+            </div>
           </nav>
         </div>
       </div>
@@ -102,4 +61,14 @@ const isDirectory = (node: any) => node.children
   </div>
 </template>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+:deep(.selected) {
+  @apply bg-gray-700;
+}
+:deep(.category) {
+  @apply text-white hover:bg-gray-700 hover:text-gray-100 flex items-center px-2 py-2 text-sm font-medium rounded-md w-full capitalize mt-2;
+}
+:deep(.link) {
+  @apply text-white hover:bg-gray-700 hover:text-gray-100 flex items-center px-2 py-2 text-sm font-medium rounded-md w-full capitalize;
+}
+</style>

@@ -1,8 +1,6 @@
 ---
-title: Useful links
+title: Links
 description: ''
-position: 2
-category: 'Work in progress'
 ---
 
 ## Cheatsheets

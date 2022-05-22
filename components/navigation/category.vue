@@ -91,15 +91,3 @@ watch(
     </Transition>
   </div>
 </template>
-
-<style lang="css" scoped>
-.selected {
-  @apply bg-gray-700;
-}
-.category {
-  @apply text-white hover:bg-gray-700 hover:text-gray-100 flex items-center px-2 py-2 text-sm font-medium rounded-md w-full capitalize mt-2;
-}
-.link {
-  @apply text-white hover:bg-gray-700 hover:text-gray-100 flex items-center px-2 py-2 text-sm font-medium rounded-md w-full capitalize;
-}
-</style>

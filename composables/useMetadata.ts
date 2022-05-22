@@ -73,6 +73,7 @@ export const useMetadata = (meta?: HeadMeta) => {
       },
     ],
   }
+  console.log(metadata)
 
   useHead(metadata)
 }

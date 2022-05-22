@@ -1,6 +1,4 @@
 <script setup lang="ts">
-// import { SearchIcon } from '@heroicons/vue/solid'
-
 const route = useRoute()
 const navigation = ref()
 
@@ -54,8 +52,11 @@ watch(
             <div
               class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
             >
-              <!-- <SearchIcon class="h-5 w-5 text-gray-400" aria-hidden="true" /> -->
-              Search
+              <svg-icon
+                name="search"
+                class="h-5 w-5 text-gray-400"
+                aria-hidden="true"
+              />
             </div>
             <input
               id="search"
