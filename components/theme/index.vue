@@ -17,7 +17,7 @@ const sidebarOpen = ref(false)
 
 <template>
   <div class="h-screen flex">
-    <theme-sidebar :opened="sidebarOpen" />
+    <!-- <theme-sidebar :opened="sidebarOpen" /> -->
     <!-- Static sidebar for desktop -->
     <theme-sidebar-static />
     <div class="flex flex-col min-w-0 flex-1 overflow-hidden">
@@ -70,7 +70,6 @@ const sidebarOpen = ref(false)
             <slot />
           </theme-content>
         </main>
-        <theme-directory-list />
       </div>
     </div>
   </div>

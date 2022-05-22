@@ -7,7 +7,9 @@ useHead({
 </script>
 
 <template>
-  <theme :class="{ 'debug-screens': isDev }">
-    <NuxtPage />
-  </theme>
+  <NuxtLayout>
+    <theme :class="{ 'debug-screens': isDev }">
+      <NuxtPage />
+    </theme>
+  </NuxtLayout>
 </template>

@@ -1,13 +1,16 @@
 <script setup lang="ts">
+import { useContentStore } from '~~/store/content'
 import { slugify } from '~~/utils/methods'
 
 const route = useRoute()
 
+const store = useContentStore()
 const document = ref()
 
 const getContent = async () => {
   const contentQuery = queryContent(route.path)
   document.value = await contentQuery.findOne()
+  store.setDocumentation(document.value)
 }
 await getContent()
 
