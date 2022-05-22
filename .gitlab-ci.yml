@@ -5,6 +5,7 @@
 
 variables:
   NODE_VERSION: '16.15.0'
+  PM2: 'memorandum'
 
 stages:
   - deploy
@@ -26,6 +27,7 @@ deploy-job:
       git pull &&
       /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm i &&
       /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm build &&
+      /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pm2 restart $PM2 &&
       discord-queerotronic.sh '$CI_PROJECT_TITLE'"
   only:
     - main

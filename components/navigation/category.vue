@@ -53,7 +53,7 @@ watch(
   <div>
     <button
       :to="node._path"
-      :class="display ? 'bg-gray-700' : ''"
+      :class="display ? 'bg-gray-500' : ''"
       class="pl-4 category flex items-center justify-between"
       @click="toggle"
     >

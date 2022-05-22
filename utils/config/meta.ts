@@ -16,67 +16,61 @@ const meta = [
   {
     hid: 'robots',
     name: 'robots',
-    content: process.env.META_ROBOT,
+    content: 'index, follow',
   },
-  { name: 'msapplication-TileColor', content: process.env.PRIMARY_COLOR_500 },
-  { name: 'theme-color', content: process.env.PRIMARY_COLOR_500 },
+  { name: 'msapplication-TileColor', content: '#6c63ff' },
+  { name: 'theme-color', content: '#6c63ff' },
   { name: 'viewport', content: 'width=device-width, initial-scale=1' },
   {
     hid: 'author',
     name: 'author',
-    content: process.env.META_AUTHOR,
+    content: 'Ewilan Rivière',
   },
   {
     hid: 'language',
     name: 'language',
-    content: process.env.META_LANG,
+    content: 'en_US',
   },
   {
     hid: 'designer',
     name: 'designer',
-    content: process.env.META_AUTHOR,
+    content: 'Ewilan Rivière',
   },
   {
     hid: 'publisher',
     name: 'publisher',
-    content: process.env.APP_NAME,
+    content: 'Memorandum',
   },
   {
     hid: 'copyright',
     name: 'copyright',
-    content: process.env.APP_NAME,
+    content: 'MIT',
   },
   {
     hid: 'og:site_name',
     property: 'og:site_name',
-    content: process.env.APP_NAME,
+    content: 'Memorandum',
   },
   {
     hid: 'og:locale',
     property: 'og:locale',
-    content: process.env.META_LANG,
+    content: 'en_US',
   },
-  process.env.META_TWITTER_SITE
-    ? {
-        hid: 'twitter:url',
-        name: 'twitter:url',
-        content: process.env.META_TWITTER_SITE,
-      }
-    : {},
-  process.env.META_TWITTER_CREATOR
-    ? {
-        hid: 'twitter:creator',
-        name: 'twitter:creator',
-        content: process.env.META_TWITTER_CREATOR,
-      }
-    : {},
-  process.env.GOOGLE_SITE_VERIFICATION_TOKEN
-    ? {
-        hid: 'google-site-verification',
-        name: 'google-site-verification',
-        content: process.env.GOOGLE_SITE_VERIFICATION_TOKEN,
-      }
-    : {},
+  {
+    hid: 'twitter:url',
+    name: 'twitter:url',
+    content: '@ewilanriviere',
+  },
+  {
+    hid: 'twitter:creator',
+    name: 'twitter:creator',
+    content: '@ewilanriviere',
+  },
+  {
+    hid: 'google-site-verification',
+    name: 'google-site-verification',
+    content: process.env.GOOGLE_SITE_VERIFICATION_TOKEN,
+  },
   {
     hid: 'og:type',
     property: 'og:type',
@@ -90,7 +84,7 @@ const meta = [
   {
     hid: 'og:image:alt',
     property: 'og:image:alt',
-    content: process.env.APP_NAME,
+    content: 'Memorandum',
   },
   {
     hid: 'twitter:card',
@@ -98,10 +92,6 @@ const meta = [
     content: 'summary_large_image',
   },
 ]
-const script = [
-  {
-    src: '/color-mode.js',
-  },
-]
+const script: any[] = []
 
 export default { link, meta, script }

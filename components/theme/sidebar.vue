@@ -70,7 +70,8 @@ watch(
                 @click="sidebarOpen = false"
               >
                 <span class="sr-only">Close sidebar</span>
-                <XIcon class="h-6 w-6 text-white" aria-hidden="true" />
+                <!-- <XIcon class="h-6 w-6 text-white" aria-hidden="true" /> -->
+                close
               </button>
             </div>
           </TransitionChild>

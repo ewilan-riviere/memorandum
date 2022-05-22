@@ -21,7 +21,7 @@ git clone https://gitlab.com/ewilan-riviere/drone drone-manual
 
 Create **ecosystem** file
 
-```js[~/ecosystem.config.js]
+```js [~/ecosystem.config.js]
 module.exports = {
   apps : [
     {
@@ -39,7 +39,7 @@ module.exports = {
 
 Then configure `.env` file, just copy `.env.example` to `.env` and fill it with infos:
 
-```yaml[~/drone-manual/.env]
+```yaml [~/drone-manual/.env]
 PORT=3001
 WEBHOOK_PATH=/deploy
 WEBSCRIPT_PATH=

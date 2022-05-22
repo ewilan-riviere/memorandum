@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+useMetadata({
+  title: 'Memorandum',
+})
+</script>
 
 <template>
   <slot />
