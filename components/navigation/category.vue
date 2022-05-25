@@ -69,11 +69,16 @@ onMounted(() => {
       @click="toggle"
     >
       <span class="flex items-center">
-        <app-img
+        <!-- <app-img
           class="h-4 w-4 mr-2"
           :src="`/content/logo/${slugify(node.title)}.webp`"
           alt=""
-        />
+        /> -->
+        <!-- <img
+          :src="`/content/logo/${slugify(node.title)}.webp`"
+          class="h-4 w-4 mr-2"
+          alt=""
+        /> -->
         {{ node.title }}
       </span>
       <svg-icon
@@ -83,22 +88,22 @@ onMounted(() => {
         class="w-4 h-4 transition-transform duration-100"
       />
     </component>
-    <Transition>
-      <div v-if="display && isDirectory" class="mt-1">
-        <div
-          v-for="subNode in node.children"
-          :key="subNode._path"
-          class="pl-3 my-1"
+    <!-- <Transition> -->
+    <div v-if="display && isDirectory" class="mt-1">
+      <!-- <div
+        v-for="subNode in node.children"
+        :key="subNode._path"
+        class="pl-3 my-1"
+      >
+        <nuxt-link
+          :to="subNode._path"
+          :class="{ selected: selected(subNode._path) }"
+          class="link"
         >
-          <nuxt-link
-            :to="subNode._path"
-            :class="{ selected: selected(subNode._path) }"
-            class="link"
-          >
-            {{ subNode.title }}
-          </nuxt-link>
-        </div>
-      </div>
-    </Transition>
+          {{ subNode.title }}
+        </nuxt-link>
+      </div> -->
+    </div>
+    <!-- </Transition> -->
   </div>
 </template>

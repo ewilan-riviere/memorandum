@@ -5,9 +5,9 @@ useMetadata()
 </script>
 
 <template>
-  <NuxtLayout>
-    <theme :class="{ 'debug-screens': isDev }">
+  <div :class="{ 'debug-screens': isDev }">
+    <NuxtLayout>
       <NuxtPage />
-    </theme>
-  </NuxtLayout>
+    </NuxtLayout>
+  </div>
 </template>

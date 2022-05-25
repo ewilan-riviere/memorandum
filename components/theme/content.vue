@@ -36,19 +36,19 @@ watch(
   <article>
     <div v-if="document">
       <div>
-        <app-img
+        <!-- <app-img
           class="h-32 w-full object-cover lg:h-48"
           :src="`/content/banner/${slug}.webp`"
           default="/content/banner/default.webp"
-        />
+        /> -->
       </div>
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="-mt-12 sm:-mt-16 sm:flex sm:items-end sm:space-x-5">
           <div class="flex">
-            <app-img
+            <!-- <app-img
               class="h-24 w-24 rounded-full ring-4 ring-gray-800 sm:h-32 sm:w-32 bg-gray-800"
               :src="`/content/logo/${slug}.webp`"
-            />
+            /> -->
           </div>
           <div
             class="mt-6 sm:flex-1 sm:min-w-0 sm:flex sm:items-center sm:justify-end sm:space-x-6 sm:pb-1"

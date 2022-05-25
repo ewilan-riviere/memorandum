@@ -1,60 +1,77 @@
 import { VueUseNuxtOptions } from '@vueuse/nuxt'
-import { ModuleOptions } from '@nuxt/schema'
+import { ModuleOptions, NuxtModule } from '@nuxt/schema'
 
-const tailwindcss: Partial<ModuleOptions> = {
-  exposeConfig: true,
+interface NuxtConfig {
+  ['content']?: typeof import('@nuxt/content').default extends NuxtModule<
+    infer O
+  >
+    ? Partial<O>
+    : Record<string, any>
+  ['tailwindcss']?: typeof import('@nuxtjs/tailwindcss').default extends NuxtModule<
+    infer O
+  >
+    ? Partial<O>
+    : Record<string, any>
 }
-const vueuse: VueUseNuxtOptions = {
-  ssrHandlers: true,
-}
-const content: Partial<ModuleOptions> = {
-  markdown: {
-    remarkPlugins: [
-      // 'remark-emoji'
-    ],
-    toc: { depth: 3, searchDepth: 3 },
-  },
+
+const content: NuxtConfig['content'] = {
   highlight: {
     preload: [
       'apache',
       'bash',
-      'blade',
+      'cmd',
       'dart',
       'diff',
-      'dotenv',
       'css',
       'html',
       'groovy',
+      'ini',
       'js',
+      'javascript',
       'json',
+      'latex',
+      'lua',
       'nginx',
       'php',
       'powershell',
       'ps1',
       'ruby',
+      'tex',
+      'typescript',
+      'ts',
+      'sass',
+      'scss',
+      'sql',
       'vue',
       'vue-html',
       'vim',
       'yaml',
       'xml',
     ],
+    // See the available themes on https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme
     theme: 'vitesse-dark',
   },
+  markdown: {
+    remarkPlugins: [
+      // 'remark-emoji'
+    ],
+    toc: { depth: 3, searchDepth: 3 },
+  },
+  navigation: {
+    fields: ['navTitle'],
+  },
 }
-
-/**
- * https://vue-schema-org.netlify.app/guide/setup/nuxt.html#_2-configure-the-module
- */
-let schemaOrg = {
-  // set to your production domain
-  canonicalHost: 'https://nuxtjs.org',
+const tailwindcss: NuxtConfig['tailwindcss'] = {
+  exposeConfig: true,
+}
+const vueuse: VueUseNuxtOptions = {
+  ssrHandlers: true,
 }
 
 const modules: ModuleOptions = {
   content: content,
   tailwindcss: tailwindcss,
   vueuse: vueuse,
-  schemaOrg: schemaOrg,
 }
 
 export default modules

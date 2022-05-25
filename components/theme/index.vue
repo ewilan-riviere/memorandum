@@ -55,17 +55,13 @@ watch(
             class="flex items-start px-4 py-3 sm:px-6 lg:px-8 xl:hidden"
             aria-label="Breadcrumb"
           >
-            <a
+            <!-- <a
               href="#"
               class="inline-flex items-center space-x-3 text-sm font-medium text-gray-100"
             >
-              <!-- <ChevronLeftIcon
-                class="-ml-2 h-5 w-5 text-gray-400"
-                aria-hidden="true"
-              /> -->
               ChevronLeftIcon
               <span>Directory</span>
-            </a>
+            </a> -->
           </nav>
           <theme-content>
             <slot />
