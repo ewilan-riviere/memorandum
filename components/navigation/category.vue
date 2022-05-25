@@ -69,16 +69,11 @@ onMounted(() => {
       @click="toggle"
     >
       <span class="flex items-center">
-        <!-- <app-img
+        <app-img
           class="h-4 w-4 mr-2"
           :src="`/content/logo/${slugify(node.title)}.webp`"
           alt=""
-        /> -->
-        <!-- <img
-          :src="`/content/logo/${slugify(node.title)}.webp`"
-          class="h-4 w-4 mr-2"
-          alt=""
-        /> -->
+        />
         {{ node.title }}
       </span>
       <svg-icon
@@ -90,7 +85,7 @@ onMounted(() => {
     </component>
     <!-- <Transition> -->
     <div v-if="display && isDirectory" class="mt-1">
-      <!-- <div
+      <div
         v-for="subNode in node.children"
         :key="subNode._path"
         class="pl-3 my-1"
@@ -102,7 +97,7 @@ onMounted(() => {
         >
           {{ subNode.title }}
         </nuxt-link>
-      </div> -->
+      </div>
     </div>
     <!-- </Transition> -->
   </div>
