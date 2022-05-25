@@ -7,7 +7,7 @@
     "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
-    "@nuxt/content-edge": "2.0.0-27555461.4c365fc",
+    "@nuxt/content-edge": "2.0.0-27556898.5fd673e",
     "@nuxtjs/tailwindcss": "^5.1.2",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/forms": "^0.5.2",
