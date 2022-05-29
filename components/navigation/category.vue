@@ -100,25 +100,13 @@ onMounted(() => {
         :key="subNode._path"
         class="pl-3 my-1"
       >
-        <component
-          :is="subNode.children !== undefined ? 'button' : 'nuxt-link'"
+        <nuxt-link
           :to="subNode._path"
           :class="{ selected: selected(subNode._path) }"
           class="link"
         >
           {{ subNode.title }}
-        </component>
-        <span v-if="subNode.children !== undefined" class="pl-2">
-          <nuxt-link
-            v-for="childNode in subNode.children"
-            :key="childNode._path"
-            :to="childNode._path"
-            :class="{ selected: selected(childNode._path) }"
-            class="link"
-          >
-            {{ childNode.title }}
-          </nuxt-link>
-        </span>
+        </nuxt-link>
       </div>
     </div>
   </div>
