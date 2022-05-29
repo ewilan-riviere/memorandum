@@ -19,9 +19,7 @@ ip a
 
 I have large output with these informations:
 
-<vue-code-info ext="sh-output"></vue-code-info>
-
-```bash{7}
+```bash
 2: enp3s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN group default qlen 1000
     link/ether 6c:2b:59:70:38:4d brd ff:ff:ff:ff:ff:ff
 3: wlp4s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000

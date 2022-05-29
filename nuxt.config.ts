@@ -1,8 +1,8 @@
 import { defineNuxtConfig } from 'nuxt'
-import config from './utils/config'
 import svgLoader from 'vite-svg-loader'
+import config from './utils/config'
 
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
+// https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   // @ts-ignore
   build: config.build,
@@ -10,7 +10,7 @@ export default defineNuxtConfig({
     global: true,
     dirs: ['~/components'],
   },
-  css: ['@/assets/css/tailwind.css'],
+  css: ['~/assets/css/main.css', '~/assets/css/tailwind.css'],
   meta: {
     link: config.meta.link,
     meta: config.meta.meta,
@@ -25,11 +25,6 @@ export default defineNuxtConfig({
   content: config.modules.content,
   tailwindcss: config.modules.tailwindcss,
   vueuse: config.modules.vueuse,
-  // http://v3.nuxtjs.org/guide/features/runtime-config
-  runtimeConfig: {
-    ...config.runtimeConfigPrivate,
-    public: config.runtimeConfigPublic,
-  },
   typescript: {
     strict: true, // for pinia
     shim: false, // with Take Over Mode from https://github.com/johnsoncodehk/volar/discussions/471
@@ -39,5 +34,8 @@ export default defineNuxtConfig({
     plugins: [
       svgLoader(), // https://github.com/jpkleemans/vite-svg-loader#readme
     ],
+    vue: {
+      reactivityTransform: true,
+    },
   },
 })

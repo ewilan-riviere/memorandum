@@ -1,11 +1,7 @@
 ---
 title: Create local network
 description: ''
-position: 2
-category: 'Misc'
 ---
-
-<img src="/images/python.jpg" class="cover-img" />
 
 How to establish a local network between two computers with Python.
 

@@ -2,19 +2,17 @@
 import { useClipboard } from '@vueuse/core'
 import { ref } from '#imports'
 
-const props = defineProps({
-  content: {
-    type: String,
-    default: '',
-  },
-})
+interface Props {
+  content?: string
+}
+const { content = '' } = defineProps<Props>()
 
 const { copy: copyToClipboard } = useClipboard()
 
 const state = ref('init')
 
 const copy = (e: MouseEvent) => {
-  copyToClipboard(props.content)
+  copyToClipboard(content)
     .then(() => {
       state.value = 'copied'
 
