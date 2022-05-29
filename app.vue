@@ -5,7 +5,7 @@ useMetadata()
 </script>
 
 <template>
-  <div>
+  <div :class="{ 'debug-screens': isDev }">
     <Html lang="en" />
     <Meta property="og:image" content="/cover.jpg" />
     <Meta name="twitter:card" content="summary_large_image" />

@@ -63,9 +63,7 @@ watch(
               <span>Directory</span>
             </a> -->
           </nav>
-          <layout-content>
-            <slot />
-          </layout-content>
+          <slot />
         </main>
       </div>
     </div>

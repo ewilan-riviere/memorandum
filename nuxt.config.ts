@@ -25,6 +25,11 @@ export default defineNuxtConfig({
   content: config.modules.content,
   tailwindcss: config.modules.tailwindcss,
   vueuse: config.modules.vueuse,
+  // https://v3.nuxtjs.org/guide/features/runtime-config
+  runtimeConfig: {
+    ...config.runtimeConfigPrivate,
+    public: config.runtimeConfigPublic,
+  },
   typescript: {
     strict: true, // for pinia
     shim: false, // with Take Over Mode from https://github.com/johnsoncodehk/volar/discussions/471
@@ -34,6 +39,7 @@ export default defineNuxtConfig({
     plugins: [
       svgLoader(), // https://github.com/jpkleemans/vite-svg-loader#readme
     ],
+    // @ts-ignore
     vue: {
       reactivityTransform: true,
     },

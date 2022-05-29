@@ -107,7 +107,7 @@ const vueuse: VueUseNuxtOptions = {
   ssrHandlers: true,
 }
 
-const modules: ModuleOptions = {
+const modules = {
   content,
   tailwindcss,
   vueuse,

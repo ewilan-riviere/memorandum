@@ -26,10 +26,6 @@ const { data: navigation } = await useAsyncData<any>('navigation', () => {
           :node="node"
         />
       </div>
-      <!-- <Navbar /> -->
-      <!-- <ContentNavigation v-slot="{ navigation }">
-
-      </ContentNavigation> -->
     </nav>
   </div>
 </template>

@@ -1,3 +1,4 @@
+@import url('./alert.css');
 /* https://github.com/antfu/prism-theme-vars */
 
 :root {
@@ -36,4 +37,12 @@ pre {
 .list-leave-to {
   opacity: 0;
   transform: translateX(30px);
+}
+
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  @apply bg-purple-400 opacity-75 fixed z-50 top-0 left-0 w-full h-1;
 }
