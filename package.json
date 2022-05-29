@@ -5,6 +5,7 @@
     "build": "nuxi build",
     "generate": "nuxi generate",
     "preview": "nuxi preview",
+    "start": "node .output/server/index.mjs",
     "lint": "eslint ."
   },
   "devDependencies": {
