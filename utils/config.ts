@@ -1,5 +1,4 @@
 import build from './config/build'
-import hooks from './config/hooks'
 import meta from './config/meta'
 import modules from './config/modules'
 import {
@@ -9,7 +8,6 @@ import {
 
 const config = {
   build,
-  hooks,
   meta,
   modules,
   runtimeConfigPublic,

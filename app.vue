@@ -5,9 +5,18 @@ useMetadata()
 </script>
 
 <template>
-  <NuxtLayout>
-    <theme :class="{ 'debug-screens': isDev }">
+  <div :class="{ 'debug-screens': isDev }">
+    <Html lang="en" />
+    <Meta property="og:image" content="/cover.jpg" />
+    <Meta name="twitter:card" content="summary_large_image" />
+    <layout>
       <NuxtPage />
-    </theme>
-  </NuxtLayout>
+    </layout>
+  </div>
 </template>
+
+<style lang="postcss">
+body {
+  @apply bg-gray-900 text-white;
+}
+</style>

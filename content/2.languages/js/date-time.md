@@ -5,7 +5,7 @@ position: 3
 category: 'JavaScript'
 ---
 
-<content-image source="dates.jpg" from="https://elijahmanor.com/blog/format-js-dates-and-times"></content-image>
+<!-- <content-image source="dates.jpg" from="https://elijahmanor.com/blog/format-js-dates-and-times"></content-image> -->
 
 Source :
 

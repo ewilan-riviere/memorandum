@@ -39,7 +39,7 @@ defineProps({
 
     <CopyButton
       :content="code"
-      class="copy-button transition-base absolute right-1 bottom-1 scale-0 opacity-0"
+      class="copy-button transition-base absolute right-1 bottom-1 scale-0 opacity-0 transition-opacity duration-100"
     />
   </div>
 </template>
@@ -60,7 +60,7 @@ div {
 
       .line::before {
         content: '>';
-        @apply top-0 select-none -left-[0.1rem] absolute block text-primary-500 font-mono font-bold;
+        @apply top-0 select-none -left-[0.1rem] absolute block text-purple-500 font-mono font-bold;
       }
     }
   }

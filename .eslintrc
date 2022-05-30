@@ -1,0 +1,14 @@
+{
+  "extends": "@nuxtjs/eslint-config-typescript",
+  "rules": {
+    "comma-dangle": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "vue/multi-word-component-names": "off",
+    "vue/html-self-closing": "off",
+    "indent": "off",
+    "space-before-function-paren": "off",
+    "arrow-parens": "off",
+    "vue/singleline-html-element-content-newline": "off",
+    "no-console": "off"
+  }
+}

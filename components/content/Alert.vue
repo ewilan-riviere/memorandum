@@ -1,4 +1,9 @@
 <script setup lang="ts">
+// interface Props {
+//   icon?: string
+//   type?: 'info' | 'success' | 'warning' | 'danger' | 'primary'
+// }
+// const { icon = '', type = 'info' } = defineProps<Props>()
 defineProps({
   /**
    * @values info, success, warning, danger
@@ -14,6 +19,21 @@ defineProps({
 </script>
 
 <template>
+  <!-- <div class="p-4 rounded-md bg-yellow-50">
+    <div class="flex">
+      <div v-if="icon" class="flex-shrink-0 mr-3">
+        <Icon class="w-5 h-5 text-yellow-400" aria-hidden="true" :name="icon" />
+      </div>
+      <div>
+        <h4 class="m-0 text-base font-medium text-yellow-800">
+          <Markdown :use="$slots.title" unwrap="div" />
+        </h4>
+        <div class="mt-2 text-sm text-yellow-700">
+          <Markdown :use="$slots.default" unwrap="p" />
+        </div>
+      </div>
+    </div>
+  </div> -->
   <div
     class="px-4 py-3 mt-4 mb-4 text-sm leading-relaxed alert rounded-xl"
     :class="[type]"

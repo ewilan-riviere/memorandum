@@ -1,8 +1,8 @@
 import { defineNuxtConfig } from 'nuxt'
-import config from './utils/config'
 import svgLoader from 'vite-svg-loader'
+import config from './utils/config'
 
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
+// https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   // @ts-ignore
   build: config.build,
@@ -10,71 +10,26 @@ export default defineNuxtConfig({
     global: true,
     dirs: ['~/components'],
   },
-  css: ['@/assets/css/tailwind.css'],
+  css: ['~/assets/css/main.css', '~/assets/css/tailwind.css'],
   meta: {
     link: config.meta.link,
     meta: config.meta.meta,
     script: config.meta.script,
   },
   modules: [
-    '@nuxt/content-edge', // https://content-v2.nuxtjs.org
+    '@nuxt/content', // https://content-v2.nuxtjs.org
     '@nuxtjs/tailwindcss', // https://tailwindcss.nuxtjs.org
     '@pinia/nuxt', // https://pinia.vuejs.org/ssr/nuxt.html
     '@vueuse/nuxt', // https://vueuse.org/guide
   ],
-  // content: config.modules.content,
-  content: {
-    markdown: {
-      remarkPlugins: [
-        // 'remark-emoji'
-      ],
-      toc: { depth: 3, searchDepth: 3 },
-    },
-    highlight: {
-      preload: [
-        'apache',
-        'bash',
-        'cmd',
-        'dart',
-        'diff',
-        'css',
-        'html',
-        'groovy',
-        'ini',
-        'js',
-        'javascript',
-        'json',
-        'latex',
-        'lua',
-        'nginx',
-        'php',
-        'powershell',
-        'ps1',
-        'ruby',
-        'tex',
-        'typescript',
-        'ts',
-        'sass',
-        'scss',
-        'sql',
-        'vue',
-        'vue-html',
-        'vim',
-        'yaml',
-        'xml',
-      ],
-      theme: 'vitesse-dark',
-    },
-  },
+  content: config.modules.content,
   tailwindcss: config.modules.tailwindcss,
   vueuse: config.modules.vueuse,
-  schemaOrg: config.modules.schemaOrg,
-  // http://v3.nuxtjs.org/guide/features/runtime-config
+  // https://v3.nuxtjs.org/guide/features/runtime-config
   runtimeConfig: {
     ...config.runtimeConfigPrivate,
     public: config.runtimeConfigPublic,
   },
-
   typescript: {
     strict: true, // for pinia
     shim: false, // with Take Over Mode from https://github.com/johnsoncodehk/volar/discussions/471
@@ -84,5 +39,9 @@ export default defineNuxtConfig({
     plugins: [
       svgLoader(), // https://github.com/jpkleemans/vite-svg-loader#readme
     ],
+    // @ts-ignore
+    vue: {
+      reactivityTransform: true,
+    },
   },
 })
