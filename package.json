@@ -61,7 +61,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-vue": "^7.12.1",
-    "marked": "^3.0.4",
+    "marked": "^4.0.10",
     "postcss": "^8.3.5",
     "prettier": "^2.3.2",
     "remark-code-import": "^0.3.0",
