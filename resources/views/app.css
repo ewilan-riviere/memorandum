@@ -1,0 +1,94 @@
+@import url('./css/markdown.css');
+@import url('./css/night-owl.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Handlee;
+  src: url('/assets/fonts/Handlee-Regular.ttf');
+}
+@font-face {
+  font-family: FiraCode;
+  src: url('/assets/fonts/FiraCode-Regular.ttf');
+}
+
+.prettyprint {
+  @apply relative;
+}
+.copy-code-button {
+  @apply absolute z-10 bottom-1 right-1 hover:bg-gray-700 transition-colors duration-75 p-1 rounded-md border border-gray-700 bg-gray-800 bg-opacity-60;
+}
+
+pre {
+  @apply scrollbar-thin !overflow-hidden !p-0;
+}
+code {
+  @apply before:!content-[] after:!content-[] bg-gray-800 p-0.5 rounded-md;
+}
+pre code {
+  @apply before:!content-[] after:!content-[] bg-gray-800 !p-3 rounded-md scrollbar-thin overflow-auto w-full block;
+}
+.table-of-contents {
+  @apply hidden;
+}
+.toc {
+  @apply space-y-2;
+}
+.toc ul {
+  @apply pl-6 mt-1;
+}
+.toc a {
+  @apply block rounded-md px-2 py-1 my-1 w-max bg-transparent;
+}
+.toc .active a {
+  @apply bg-gray-800;
+}
+
+pre code {
+  @apply max-h-[45rem];
+}
+pre .filename {
+  @apply absolute top-0 right-0 text-xs m-1 bg-gray-700 p-1 rounded-md;
+}
+
+.line-number {
+  @apply mr-3;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  @apply !block w-max;
+}
+
+::-webkit-scrollbar {
+  @apply w-2 h-2 bg-gray-700;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400;
+  -webkit-border-radius: 1ex;
+}
+
+::-webkit-scrollbar-corner {
+  @apply bg-gray-700;
+}
+
+.prose a {
+  @apply font-semibold;
+}
+.prose a {
+  @apply inline-block no-underline hover:text-primary-100 bg-gradient-to-r from-primary-600 to-primary-300 bg-no-repeat;
+  /* @apply relative z-10 after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-1 after:h-2 after:bg-primary-400 after:bg-opacity-20 after:-z-10; */
+  background-position: 0% 85%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size 0.5s, color 0.5s;
+}
+.prose a:hover {
+  background-size: 100% 2px;
+}

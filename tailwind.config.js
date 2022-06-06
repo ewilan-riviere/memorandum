@@ -1,13 +1,7 @@
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
-  content: [
-    'components/**/*.{vue,js}',
-    'layouts/**/*.vue',
-    'pages/**/*.vue',
-    'plugins/**/*.{js,ts}',
-    'app.vue',
-  ],
+  content: ['./resources/**/*.{vue,js,ts,jsx,tsx,php}'],
   theme: {
     container: {
       padding: '1.25rem',
@@ -37,6 +31,7 @@ module.exports = {
       },
       fontFamily: {
         handlee: ['Handlee'],
+        firacode: ['FiraCode'],
       },
       keyframes: {
         life: {
@@ -45,12 +40,62 @@ module.exports = {
         },
       },
       animation: {
-        life: 'life 3750ms linear forwards',
+        life: 'life 1900ms linear forwards',
       },
+      typography: ({ theme }) => ({
+        primary: {
+          css: {
+            h1: {
+              fontFamily: 'Handlee',
+            },
+            h2: {
+              fontFamily: 'Handlee',
+            },
+            code: {
+              fontFamily: 'FiraCode',
+            },
+            blockquote: {
+              fontFamily: 'Handlee',
+            },
+            '--tw-prose-body': theme('colors.white'),
+            '--tw-prose-headings': theme('colors.primary[400]'),
+            '--tw-prose-lead': theme('colors.primary[400]'),
+            '--tw-prose-links': theme('colors.primary[400]'),
+            '--tw-prose-bold': theme('colors.primary[400]'),
+            '--tw-prose-counters': theme('colors.primary[400]'),
+            '--tw-prose-bullets': theme('colors.primary[400]'),
+            '--tw-prose-hr': theme('colors.primary[300]'),
+            '--tw-prose-quotes': theme('colors.primary[400]'),
+            '--tw-prose-quote-borders': theme('colors.primary[300]'),
+            '--tw-prose-captions': theme('colors.primary[400]'),
+            '--tw-prose-code': theme('colors.primary[400]'),
+            '--tw-prose-pre-code': theme('colors.primary[100]'),
+            '--tw-prose-pre-bg': theme('colors.gray[800]'),
+            '--tw-prose-th-borders': theme('colors.primary[300]'),
+            '--tw-prose-td-borders': theme('colors.primary[200]'),
+            '--tw-prose-invert-body': theme('colors.primary[200]'),
+            '--tw-prose-invert-headings': theme('colors.white'),
+            '--tw-prose-invert-lead': theme('colors.primary[300]'),
+            '--tw-prose-invert-links': theme('colors.white'),
+            '--tw-prose-invert-bold': theme('colors.white'),
+            '--tw-prose-invert-counters': theme('colors.primary[400]'),
+            '--tw-prose-invert-bullets': theme('colors.primary[600]'),
+            '--tw-prose-invert-hr': theme('colors.primary[700]'),
+            '--tw-prose-invert-quotes': theme('colors.primary[100]'),
+            '--tw-prose-invert-quote-borders': theme('colors.primary[700]'),
+            '--tw-prose-invert-captions': theme('colors.primary[400]'),
+            '--tw-prose-invert-code': theme('colors.white'),
+            '--tw-prose-invert-pre-code': theme('colors.primary[300]'),
+            '--tw-prose-invert-pre-bg': 'rgb(0 0 0 / 50%)',
+            '--tw-prose-invert-th-borders': theme('colors.primary[600]'),
+            '--tw-prose-invert-td-borders': theme('colors.primary[700]'),
+          },
+        },
+      }),
     },
   },
   plugins: [
-    plugin(({ addComponents, theme }) => {
+    plugin(({ addComponents }) => {
       addComponents({
         '.main-content': {
           '@apply container !max-w-7xl lg:pt-6 pt-5 text-black dark:text-white':
@@ -64,7 +109,7 @@ module.exports = {
           '@apply min-h-[70vh]': {},
         },
         '.internal-link': {
-          '@apply text-gray-900 transition-colors duration-100 border-b border-gray-500 dark:border-gray-100 dark:hover:border-gray-400 hover:border-gray-400 dark:text-gray-100 hover:text-gray-400 dark:hover:text-gray-400 !important':
+          '@apply text-gray-900 transition-colors duration-100 underline underline-offset-2 dark:border-gray-100 dark:hover:border-gray-400 hover:border-gray-400 dark:text-gray-100 hover:text-gray-400 dark:hover:text-gray-400 !important':
             {},
         },
         '.word-wraping': {
@@ -84,8 +129,20 @@ module.exports = {
         '.scrollbar-thin': {
           'scrollbar-width': 'thin',
         },
-        '.title': {
-          '@apply inline-block text-white font-semibold after:w-4/5 after:block after:border-b-2 after:border-purple-400 after:rounded-md':
+        '.prose-title-h1': {
+          '@apply inline-block text-primary-400 font-semibold after:w-4/5 after:block after:border-b-2 after:border-primary-400 after:rounded-md':
+            {},
+        },
+        '.prose-title-h2': {
+          '@apply inline-block text-primary-400 font-semibold after:w-4/5 after:block after:border-b-2 after:border-primary-400 after:rounded-md mt-16':
+            {},
+        },
+        '.prose-title-h3': {
+          '@apply inline-block text-primary-400 font-semibold border-b-2 border-primary-400':
+            {},
+        },
+        '.prose-title-h4': {
+          '@apply inline-block text-primary-400 font-semibold border-b-2 border-primary-400 border-dashed':
             {},
         },
         '.debug-screens': {

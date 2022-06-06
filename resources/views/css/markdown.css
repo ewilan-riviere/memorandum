@@ -1,0 +1,16 @@
+.prose a {
+  @apply !no-underline;
+}
+
+.prose h1 {
+  @apply prose-title-h1;
+}
+.prose h2 {
+  @apply prose-title-h2;
+}
+.prose h3 {
+  @apply prose-title-h3;
+}
+.prose h4 {
+  @apply prose-title-h4;
+}

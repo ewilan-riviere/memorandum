@@ -1,6 +1,0 @@
----
-title: Home
-description: ''
----
-
-home
