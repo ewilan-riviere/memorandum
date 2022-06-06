@@ -13,10 +13,12 @@ class MainController extends Controller
 {
     public function index(?string $params = '.index')
     {
-        // Cache::flush();
+        Cache::flush();
         $navigation = Cache::get('navigation');
         if (null === $navigation) {
-            Artisan::call('migrate:fresh');
+            Artisan::call('migrate:fresh', [
+                '--force' => true,
+            ]);
             ContentDocument::removeAllFromSearch();
             $navigation = MarkdownNavigation::create(base_path(MarkdownService::getMarkdownPath()));
             Cache::add('navigation', $navigation);
