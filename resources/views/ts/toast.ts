@@ -41,33 +41,3 @@ const toast = {
 }
 
 export default toast
-
-// const toastHandler = () => ({
-//   toasts: [] as Toast[],
-//   visible: [] as Toast[],
-//   add(toast: Toast) {
-//     toast.id = Date.now()
-//     this.toasts.push(toast)
-
-//     this.fire(toast.id)
-//   },
-//   fire(id: number) {
-//     let toast = this.toasts.find((toast) => toast.id == id)
-//     if (toast) {
-//       this.visible.push(toast)
-//       const timeShown = 2000 * this.visible.length
-//       setTimeout(() => {
-//         this.remove(id)
-//       }, timeShown)
-//     }
-//   },
-//   remove(id: number) {
-//     const toast = this.visible.find((toast) => toast.id == id)
-//     if (toast) {
-//       const index = this.visible.indexOf(toast)
-//       this.visible.splice(index, 1)
-//     }
-//   },
-// })
-
-// export default toastHandler

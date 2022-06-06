@@ -31,8 +31,8 @@
     <div class="max-w-6xl mx-auto px-6 pb-6 mt-6">
         <div class="border-t-2 border-gray-600 pt-5">
             <a href="{{ $edit_link }}" target="_blank" rel="noopener noreferrer"
-                class="flex items-center hover:bg-gray-800 w-max p-2 rounded-md">
-                @svg('edit', 'w-8 h-8')
+                class="flex items-center hover:bg-gray-800 w-max p-2 rounded-md text-sm text-gray-400 hover:text-gray-300">
+                @svg('edit', 'w-6 h-6')
                 <span class="ml-1">Edit this page</span>
             </a>
         </div>

@@ -128,7 +128,7 @@ const markdown = () => ({
     this.copied = true
     let success = false
     if (text) {
-      if (navigator.clipboard && window.isSecureContext) {
+      if (navigator.clipboard) {
         await navigator.clipboard.writeText(text).then(() => (success = true))
       }
     }

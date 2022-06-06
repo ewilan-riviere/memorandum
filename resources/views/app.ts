@@ -8,7 +8,7 @@ import markdown from './ts/markdown'
 import tocItem from './ts/toc-item'
 import sidebar from './ts/sidebar'
 import quill from './ts/quill'
-import editor from './ts/editor'
+// import editor from './ts/editor'
 
 typescript()
 
@@ -20,6 +20,6 @@ Alpine.data('markdown', markdown)
 Alpine.data('tocItem', tocItem)
 Alpine.store('sidebar', sidebar)
 Alpine.data('quill', quill)
-Alpine.data('editor', editor)
+// Alpine.data('editor', editor)
 
 Alpine.start()
