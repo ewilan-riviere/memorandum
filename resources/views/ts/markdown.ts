@@ -127,13 +127,17 @@ const markdown = () => ({
 
     this.copied = true
     let success = false
+    let error = undefined
     if (text) {
       if (navigator.clipboard) {
-        await navigator.clipboard.writeText(text).then(() => (success = true))
+        await navigator.clipboard
+          .writeText(text)
+          .then(() => (success = true))
+          .catch((e) => {
+            error = e
+          })
       }
     }
-
-    // this.$dispatch('toast', { type: 'success', text: 'Copied' })
 
     if (!success) {
       this.$store.toast.push({

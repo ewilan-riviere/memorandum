@@ -18,7 +18,10 @@
   @apply relative;
 }
 .copy-code-button {
-  @apply absolute z-10 bottom-1 right-1 hover:bg-gray-700 transition-colors duration-75 p-1 rounded-md border border-gray-700 bg-gray-800 bg-opacity-60;
+  @apply absolute z-10 bottom-1 right-1 hover:bg-gray-700 p-1 rounded-md border border-gray-700 bg-gray-800 bg-opacity-60 opacity-0 transition duration-75;
+}
+pre:hover .copy-code-button {
+  @apply opacity-100;
 }
 
 pre {
@@ -50,7 +53,7 @@ pre code {
   @apply max-h-[45rem];
 }
 pre .filename {
-  @apply absolute top-0 right-0 text-xs m-1 bg-gray-700 p-1 rounded-md;
+  @apply absolute top-0 right-0 text-xs m-1 bg-gray-700 bg-opacity-50 p-1 rounded-md;
 }
 
 .line-number {
