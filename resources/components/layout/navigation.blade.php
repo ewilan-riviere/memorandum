@@ -1,13 +1,15 @@
-<div class="flex-1 flex flex-col pt-5 overflow-y-auto">
+<div x-data="{ display: false }" x-init="setTimeout(() => {
+    display = true
+}, 50)" class="flex-1 flex flex-col pt-5 overflow-y-auto">
     <a href="/" class="flex items-center flex-shrink-0 px-4">
         <img class="h-8 w-auto" src="{{ asset('memorandum-text.svg') }}" alt="Workflow">
     </a>
-    <nav class="mt-5 flex-1" aria-label="Sidebar">
+    <nav x-show="display" x-transition class="mt-5 flex-1" aria-label="Sidebar">
         <div class="px-2 space-y-1">
             @each('components.toc-item', $navigation->toc, 'toc_item')
         </div>
     </nav>
-    <div class="flex-shrink-0 flex border-t border-gray-700 p-2">
+    <div class="flex-shrink-0 flex border-t border-gray-700 p-2 mt-auto">
         <a href="https://github.com/ewilan-riviere/memorandum" target="_blank" rel="noopener noreferrer"
             class="flex-shrink-0 w-full hover:bg-gray-700 transition-colors duration-75 block p-2 rounded-md">
             <div class="flex items-center">
