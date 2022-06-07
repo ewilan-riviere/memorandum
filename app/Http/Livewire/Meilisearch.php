@@ -41,7 +41,6 @@ class Meilisearch extends Component
 
     public function doSearch()
     {
-        dump('search');
         if (! empty($this->search)) {
             $this->getSearch();
         } else {

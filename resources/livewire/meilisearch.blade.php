@@ -60,9 +60,16 @@
                         placeholder="Search..." wire:model.debounce.500ms="search">
                 </div>
 
+                <div wire:loading wire:target="search" class="w-full py-6">
+                    <div>
+                        <x-loading class="w-6 h-6 mx-auto" />
+                    </div>
+                </div>
+
                 @if (sizeof($hits) === 0)
                     <!-- Empty state, show/hide based on command palette state. -->
-                    <div class="py-14 px-6 text-center sm:px-14">
+                    <div wire:loading.class="hidden" wire:target="search"
+                        class="py-14 px-6 text-center sm:px-14">
                         <!-- Heroicon name: outline/folder -->
                         <svg class="mx-auto h-6 w-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -74,7 +81,8 @@
                     </div>
                 @else
                     <!-- Default state, show/hide based on command palette state. -->
-                    <ul class="max-h-80 scroll-py-2 divide-y divide-gray-500 divide-opacity-20 overflow-y-auto">
+                    <ul wire:loading.class="hidden"
+                        class="max-h-80 scroll-py-2 divide-y divide-gray-500 divide-opacity-20 overflow-y-auto">
                         @foreach ($hits as $hit)
                             <!-- Active: "bg-gray-100" -->
                             <a href="{{ route('page', ['params' => $hit->params_inline]) }}"
