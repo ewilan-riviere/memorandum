@@ -1,5 +1,6 @@
 let refsAlpine: {
   inputSearch: HTMLInputElement
+  results: HTMLElement
 }
 
 const meilisearch = () => ({
@@ -12,6 +13,7 @@ const meilisearch = () => ({
     refsAlpine = this.$refs
 
     refsAlpine.inputSearch.dispatchEvent(new Event('input'))
+    refsAlpine.results.classList.remove('hidden')
   },
   toggle() {
     if (this.opened) {
