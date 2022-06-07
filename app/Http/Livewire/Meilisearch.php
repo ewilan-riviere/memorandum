@@ -18,6 +18,33 @@ class Meilisearch extends Component
     {
         $this->clear();
         if (! empty($this->search)) {
+            $this->searchEngine();
+        } else {
+            $this->clear();
+        }
+
+        return $this->hits;
+    }
+
+    public function searchEngine()
+    {
+        $mode = config('scout.driver');
+
+        if ('collection' === $mode) {
+            $hits = ContentDocument::whereLike([
+                'title',
+                'params_inline',
+                'category',
+                'parent',
+                'description',
+                'headings',
+            ], $this->search)
+                ->get()
+            ;
+            foreach ($hits as $hit) {
+                array_push($this->hits, (object) $hit);
+            }
+        } else {
             $item = new ContentDocument();
             $this->index_name = $item->searchableAs();
             $this->client = new Client(config('scout.meilisearch.host'), config('scout.meilisearch.key'));
@@ -27,11 +54,7 @@ class Meilisearch extends Component
             foreach ($hits as $hit) {
                 array_push($this->hits, (object) $hit);
             }
-        } else {
-            $this->clear();
         }
-
-        return $this->hits;
     }
 
     public function mount()

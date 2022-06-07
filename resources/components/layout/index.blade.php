@@ -1,10 +1,10 @@
 <x-app>
     <div class="h-full flex">
         <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
-        <x-layout.sidebar :navigation="$navigation" />
+        <x-layout.sidebar />
 
         <!-- Static sidebar for desktop -->
-        <x-layout.sidebar-static :navigation="$navigation" />
+        <x-layout.sidebar-static />
         <div class="flex flex-col min-w-0 flex-1 overflow-hidden">
             <div class="lg:hidden">
                 <div class="flex items-center justify-between bg-gray-800 border-b border-gray-700 px-4 py-1.5">

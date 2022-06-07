@@ -62,43 +62,66 @@ class MarkdownItem
     ) {
     }
 
-    public static function create(string $path, ?int $depth = 0): MarkdownItem
+    public static function create(string $path, ?int $depth = 0, ?bool $convert = false): MarkdownItem
     {
+        /**
+         * Get file metadata.
+         */
         $splFileInfo = new SplFileInfo($path);
 
         $markdown_item = new MarkdownItem();
 
+        /**
+         * Set path.
+         */
         $markdown_item->path = $splFileInfo->getPathname();
         if (! $splFileInfo->isDir()) {
             $markdown_item->filename = pathinfo($path)['filename'];
         } else {
             $markdown_item->filename = $splFileInfo->getFilename();
         }
+
         $markdown_item->extension = $splFileInfo->getExtension();
-        $date = File::lastModified($path);
-        $date = gmdate('Y/m/d H:m', $date);
-        $markdown_item->date = $date;
         $markdown_item->size = $splFileInfo->getSize();
         $markdown_item->is_dir = $splFileInfo->isDir();
         $markdown_item->depth = $depth;
+
+        /**
+         * Set modified date.
+         */
+        $date = File::lastModified($path);
+        $date = gmdate('Y/m/d H:m', $date);
+        $markdown_item->date = $date;
 
         $markdown_item->name = $markdown_item->setName($markdown_item->filename);
         $markdown_item = $markdown_item->setParams();
         $markdown_item = $markdown_item->setFrontMatter();
         $markdown_item->slug = Str::slug($markdown_item->removeOrderNumber($markdown_item->name));
 
-        if (! $markdown_item->is_dir) {
+        /**
+         * If not directory convert Markdown to HTML.
+         */
+        if (! $markdown_item->is_dir && $convert) {
             $markdown_item->content = File::get($path);
             $markdown_item->replaceConfig();
-            MarkdownConfig::create($markdown_item);
+            $markdown_item = $markdown_item->convert();
         }
+        /**
+         * Set category from $depth.
+         */
         if (0 === $markdown_item->depth) {
             $markdown_item->icon = "category-{$markdown_item->slug}";
         }
+        /**
+         * Hide files begin with `.`.
+         */
         if (str_starts_with($splFileInfo->getFilename(), '.')) {
             $markdown_item->is_draft = true;
         }
 
+        /**
+         * Set `params_inline`.
+         */
         if (! empty($markdown_item->params_inline)) {
             $split = explode('/', $markdown_item->params_inline);
             foreach ($split as $value) {
@@ -107,18 +130,29 @@ class MarkdownItem
                 array_push($markdown_item->breadcrumb, $breadcrumb_item);
             }
         }
+        /**
+         * Create breadcrumb.
+         */
         if (sizeof($markdown_item->breadcrumb) >= 2) {
             $markdown_item->category = $markdown_item->breadcrumb[1]->slug;
         }
+        /**
+         * Set category.
+         */
         if ('default' !== $markdown_item->category) {
             $markdown_item->front_matter->category = $markdown_item->setName($markdown_item->category);
         }
-        $parent = explode(DIRECTORY_SEPARATOR, $markdown_item->path);
-        array_pop($parent);
-        $parent = $parent[sizeof($parent) - 1];
-        if ('markdown' !== $parent) {
-            $markdown_item->parent = $parent;
-            $markdown_item->front_matter->parent = $markdown_item->setName($markdown_item->parent);
+        /**
+         * Set parent.
+         */
+        if (! $markdown_item->is_dir) {
+            $parent = explode(DIRECTORY_SEPARATOR, $markdown_item->path);
+            array_pop($parent);
+            $parent = $parent[sizeof($parent) - 1];
+            if ('markdown' !== $parent) {
+                $markdown_item->parent = $parent;
+                $markdown_item->front_matter->parent = $markdown_item->setName($markdown_item->parent);
+            }
         }
 
         return $markdown_item;
@@ -151,6 +185,11 @@ class MarkdownItem
         }
 
         return $front_matter;
+    }
+
+    public function convert(): ?MarkdownItem
+    {
+        return MarkdownConfig::create($this);
     }
 
     private function replaceConfig(): static

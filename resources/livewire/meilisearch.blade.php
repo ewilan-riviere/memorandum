@@ -19,7 +19,7 @@
             </button>
         </div>
     </div>
-    <div x-ref="results" class="relative z-10 hidden" role="dialog" aria-modal="true">
+    <div x-ref="results" class="relative z-10" role="dialog" aria-modal="true">
         <!--
       Background backdrop, show/hide based on modal state.
 

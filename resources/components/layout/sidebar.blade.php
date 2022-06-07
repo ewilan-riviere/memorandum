@@ -51,7 +51,7 @@
                 </button>
             </div>
 
-            <x-layout.navigation :navigation="$navigation" />
+            <x-layout.navigation />
         </div>
 
         <div class="flex-shrink-0 w-14" aria-hidden="true">

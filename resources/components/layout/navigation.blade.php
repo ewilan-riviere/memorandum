@@ -1,13 +1,16 @@
-<div x-data="{ display: false }" x-init="setTimeout(() => {
-    display = true
-}, 50)" class="flex-1 flex flex-col pt-5 overflow-y-auto">
+<div x-data="{ display: false }" x-init="() => {
+    $refs.nav.classList.remove('hidden')
+    setTimeout(() => {
+        display = true
+    }, 50)
+}" class="flex-1 flex flex-col pt-5 overflow-y-auto">
     <a href="/" class="flex items-center flex-shrink-0 px-4">
         <img class="h-8 w-auto" src="{{ asset('memorandum-text.svg') }}" alt="Workflow">
     </a>
     <div class="mt-3 px-3">
         <livewire:meilisearch />
     </div>
-    <nav x-show="display" x-transition class="mt-3 flex-1" aria-label="Sidebar">
+    <nav x-show="display" x-ref="nav" x-transition class="mt-3 flex-1 hidden" aria-label="Sidebar">
         <div class="px-2 space-y-1">
             @each('components.toc-item', $navigation->toc, 'toc_item')
         </div>

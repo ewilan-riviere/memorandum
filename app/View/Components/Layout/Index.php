@@ -3,7 +3,6 @@
 namespace App\View\Components\Layout;
 
 use App\Services\Markdown\MarkdownItem;
-use App\Services\MarkdownNavigation;
 use Illuminate\View\Component;
 
 class Index extends Component
@@ -12,7 +11,6 @@ class Index extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public MarkdownNavigation $navigation,
         public MarkdownItem $markdown,
     ) {
     }

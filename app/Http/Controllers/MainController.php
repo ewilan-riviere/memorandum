@@ -6,6 +6,7 @@ use App\Services\MarkdownNavigation;
 use App\Services\MarkdownService;
 use Cache;
 use SEO;
+use View;
 
 class MainController extends Controller
 {
@@ -30,6 +31,7 @@ class MainController extends Controller
             SEO::setTitle($title);
             Seo::setDescription($markdown->front_matter?->description);
         }
+        View::share('navigation', $navigation);
 
         return view('views.pages.index', compact('markdown', 'navigation'));
     }

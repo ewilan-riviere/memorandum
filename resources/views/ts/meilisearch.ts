@@ -13,7 +13,9 @@ const meilisearch = () => ({
     refsAlpine = this.$refs
 
     refsAlpine.inputSearch.dispatchEvent(new Event('input'))
-    refsAlpine.results.classList.remove('hidden')
+    setTimeout(() => {
+      refsAlpine.results.classList.remove('hidden')
+    }, 250)
   },
   toggle() {
     if (this.opened) {

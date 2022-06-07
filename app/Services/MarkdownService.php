@@ -13,7 +13,7 @@ class MarkdownService
         $file_path = "{$path}{$filename}.md";
 
         if (File::exists($file_path)) {
-            return MarkdownItem::create($file_path);
+            return MarkdownItem::create($file_path, convert: true);
         }
 
         return null;

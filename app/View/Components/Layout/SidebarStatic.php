@@ -2,7 +2,6 @@
 
 namespace App\View\Components\Layout;
 
-use App\Services\MarkdownNavigation;
 use Illuminate\View\Component;
 
 class SidebarStatic extends Component
@@ -11,7 +10,6 @@ class SidebarStatic extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public MarkdownNavigation $navigation
     ) {
     }
 
