@@ -109,7 +109,7 @@ class ScoutCommand extends Command
                 'parent' => $front_matter?->parent,
                 'description' => $front_matter?->description,
                 'headings' => $markdown_item?->headings_inline,
-                'image' => config('app.url').'/content/logo/'.$markdown_item?->category.'.svg',
+                'image' => 'content/logo/'.$markdown_item?->category.'.svg',
                 'content' => $markdown_item?->markdown,
             ]);
         }

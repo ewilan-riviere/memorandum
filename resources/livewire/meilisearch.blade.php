@@ -1,4 +1,5 @@
 <div x-data="meilisearch">
+    {{-- fake search input --}}
     <div class="max-w-lg w-full lg:max-w-xs">
         <label for="search" class="sr-only">Search</label>
         <div class="relative">
@@ -19,31 +20,12 @@
             </button>
         </div>
     </div>
+    {{-- meilisearch modal --}}
     <div x-ref="results" class="relative z-10" role="dialog" aria-modal="true">
-        <!--
-      Background backdrop, show/hide based on modal state.
-
-      Entering: "ease-out duration-300"
-        From: "opacity-0"
-        To: "opacity-100"
-      Leaving: "ease-in duration-200"
-        From: "opacity-100"
-        To: "opacity-0"
-    -->
         <div x-show="opened" :class="openedBackdrop ? 'opacity-100' : 'opacity-0'"
             class="fixed inset-0 bg-gray-500 bg-opacity-25 transition-opacity ease-out duration-300"></div>
 
         <div x-show="opened" class="fixed inset-0 z-10 overflow-y-auto p-4 sm:p-6 md:p-20">
-            <!--
-        Command palette, show/hide based on modal state.
-
-        Entering: "ease-out duration-300"
-          From: "opacity-0 scale-95"
-          To: "opacity-100 scale-100"
-        Leaving: "ease-in duration-200"
-          From: "opacity-100 scale-100"
-          To: "opacity-0 scale-95"
-      -->
             <div x-show="opened" :class="openModal ? 'opacity-100 scale-100' : 'opacity-0 scale-95'"
                 class="mx-auto max-w-2xl transform divide-y divide-gray-500 divide-opacity-20 overflow-hidden rounded-xl bg-gray-900 shadow-2xl transition-all ease-out duration-30"
                 @click.outside="close()">
@@ -90,14 +72,7 @@
                                 role="option" tabindex="-1">
                                 <div class="flex h-10 w-10 flex-none items-center justify-center">
                                     <!-- Active: "text-white", Not Active: "text-gray-500" -->
-                                    <!-- Heroicon name: outline/folder -->
-                                    {{-- <svg class="h-6 w-6 flex-none text-gray-500" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                        aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-                                    </svg> --}}
-                                    <img src="{{ $hit->image }}" alt="" class="h-6 w-6 flex-none" />
+                                    <x-app-img src="{{ $hit->image }}" alt="" class="h-6 w-6 flex-none" />
                                 </div>
                                 <div class="ml-4 flex-auto">
                                     <p class="text-sm font-medium text-gray-100">{{ $hit->title }}</p>
