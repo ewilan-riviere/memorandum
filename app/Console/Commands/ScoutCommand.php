@@ -2,6 +2,12 @@
 
 namespace App\Console\Commands;
 
+use App\Models\ContentDocument;
+use App\Services\Markdown\FrontMatter;
+use App\Services\Markdown\MarkdownItem;
+use App\Services\Markdown\NavigationItem;
+use App\Services\MarkdownNavigation;
+use App\Services\MarkdownService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 
@@ -39,9 +45,18 @@ class ScoutCommand extends Command
         $this->alert('Scout Fresh');
         $this->warn($this->description);
 
-        $app = config('app.name');
+        Artisan::call('migrate:fresh', [
+            '--force' => true,
+        ]);
+
+        $navigation = MarkdownNavigation::create(base_path(MarkdownService::getMarkdownPath()));
+        $this->setModels($navigation->toc);
+
+        $item = new ContentDocument();
+        $index_name = $item->searchableAs();
+
         $models = [
-            'ContentDocument' => "{$app}_content_document",
+            'ContentDocument' => $index_name,
         ];
         $path = 'App\\\\Models\\\\';
 
@@ -61,5 +76,40 @@ class ScoutCommand extends Command
         Artisan::call('cache:clear', [], $this->getOutput());
         Artisan::call('route:clear', [], $this->getOutput());
         Artisan::call('config:cache', [], $this->getOutput());
+    }
+
+    /**
+     * @param NavigationItem[] $navigation_toc
+     */
+    private function setModels(array $navigation_toc)
+    {
+        foreach ($navigation_toc as $navigation) {
+            if ($navigation->markdown_item && ! $navigation->markdown_item->is_dir) {
+                $this->setModel($navigation->markdown_item->front_matter, $navigation->markdown_item);
+            }
+            if (sizeof($navigation->nodes) > 0) {
+                foreach ($navigation->nodes as $node_navigation) {
+                    $this->setModel($node_navigation->markdown_item->front_matter, $node_navigation->markdown_item);
+                    $this->setModels($node_navigation->nodes);
+                }
+            }
+        }
+    }
+
+    private function setModel(?FrontMatter $front_matter = null, ?MarkdownItem $markdown_item = null)
+    {
+        if (! $markdown_item->is_draft && ! $markdown_item->is_dir) {
+            ContentDocument::create([
+                'title' => $front_matter?->title,
+                'path' => $markdown_item->path,
+                'params_inline' => $markdown_item->params_inline,
+                'category' => $front_matter?->category,
+                'parent' => $front_matter?->parent,
+                'description' => $front_matter?->description,
+                'headings' => $markdown_item?->headings_inline,
+                'image' => config('app.url').'/content/logo/'.$markdown_item?->category.'.svg',
+                'content' => $markdown_item?->markdown,
+            ]);
+        }
     }
 }

@@ -14,7 +14,9 @@ return new class() extends Migration {
             $table->id();
             $table->string('title')->nullable();
             $table->text('path')->nullable();
+            $table->string('params_inline')->nullable();
             $table->string('category')->nullable();
+            $table->string('parent')->nullable();
             $table->string('description')->nullable();
             $table->text('headings')->nullable();
             $table->string('image')->nullable();

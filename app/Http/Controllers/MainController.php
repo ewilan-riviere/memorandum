@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ContentDocument;
 use App\Services\MarkdownNavigation;
 use App\Services\MarkdownService;
-use Artisan;
 use Cache;
 use SEO;
 
@@ -16,10 +14,6 @@ class MainController extends Controller
         // Cache::flush();
         $navigation = Cache::get('navigation');
         if (null === $navigation) {
-            Artisan::call('migrate:fresh', [
-                '--force' => true,
-            ]);
-            ContentDocument::removeAllFromSearch();
             $navigation = MarkdownNavigation::create(base_path(MarkdownService::getMarkdownPath()));
             Cache::add('navigation', $navigation);
         }

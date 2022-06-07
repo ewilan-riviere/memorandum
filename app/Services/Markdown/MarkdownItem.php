@@ -54,6 +54,7 @@ class MarkdownItem
         public ?string $extension = null,
         public ?string $date = null,
         public ?string $category = 'default',
+        public ?string $parent = null,
         public ?int $size = 0,
         public ?bool $is_dir = false,
         public ?int $depth = 0,
@@ -111,6 +112,13 @@ class MarkdownItem
         }
         if ('default' !== $markdown_item->category) {
             $markdown_item->front_matter->category = $markdown_item->setName($markdown_item->category);
+        }
+        $parent = explode(DIRECTORY_SEPARATOR, $markdown_item->path);
+        array_pop($parent);
+        $parent = $parent[sizeof($parent) - 1];
+        if ('markdown' !== $parent) {
+            $markdown_item->parent = $parent;
+            $markdown_item->front_matter->parent = $markdown_item->setName($markdown_item->parent);
         }
 
         return $markdown_item;

@@ -9,6 +9,7 @@ import tocItem from './ts/toc-item'
 import sidebar from './ts/sidebar'
 import quill from './ts/quill'
 // import editor from './ts/editor'
+import meilisearch from './ts/meilisearch'
 
 typescript()
 
@@ -21,5 +22,6 @@ Alpine.data('tocItem', tocItem)
 Alpine.store('sidebar', sidebar)
 Alpine.data('quill', quill)
 // Alpine.data('editor', editor)
+Alpine.data('meilisearch', meilisearch)
 
 Alpine.start()

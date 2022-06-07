@@ -15,7 +15,9 @@ class ContentDocument extends Model
     protected $fillable = [
         'title',
         'path',
+        'params_inline',
         'category',
+        'parent',
         'description',
         'headings',
         'image',
@@ -31,7 +33,9 @@ class ContentDocument extends Model
     {
         return [
             'title' => $this->title,
+            'params_inline' => $this->params_inline,
             'category' => $this->category,
+            'parent' => $this->parent,
             'description' => $this->description,
             'headings' => $this->headings,
             'image' => $this->image,
