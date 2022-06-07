@@ -8,6 +8,7 @@ use App\Services\Markdown\MarkdownItem;
 use App\Services\Markdown\NavigationItem;
 use App\Services\MarkdownNavigation;
 use App\Services\MarkdownService;
+use Cache;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 
@@ -48,6 +49,7 @@ class ScoutCommand extends Command
         Artisan::call('migrate:fresh', [
             '--force' => true,
         ]);
+        Cache::flush();
 
         $navigation = MarkdownNavigation::create(base_path(MarkdownService::getMarkdownPath()));
         $this->setModels($navigation->toc);

@@ -12,7 +12,6 @@ class MainController extends Controller
 {
     public function index(?string $params = '.index')
     {
-        // Cache::flush();
         $navigation = Cache::get('navigation');
         if (null === $navigation) {
             $navigation = MarkdownNavigation::create(base_path(MarkdownService::getMarkdownPath()));
