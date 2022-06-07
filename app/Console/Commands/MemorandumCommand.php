@@ -12,21 +12,21 @@ use Cache;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 
-class ScoutCommand extends Command
+class MemorandumCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'scout:fresh';
+    protected $signature = 'memorandum';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Manage models to search engine with Laravel Scout.';
+    protected $description = 'Setup Memorandum app.';
 
     /**
      * Create a new command instance.
@@ -43,7 +43,7 @@ class ScoutCommand extends Command
      */
     public function handle()
     {
-        $this->alert('Scout Fresh');
+        $this->alert('Memorandum');
         $this->warn($this->description);
 
         Artisan::call('migrate:fresh', [

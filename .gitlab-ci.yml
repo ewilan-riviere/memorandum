@@ -27,7 +27,7 @@ deploy-job:
       git pull &&
       /usr/bin/php$PHP_VERSION /usr/local/bin/composer install --no-dev &&
       php$PHP_VERSION artisan optimize &&
-      php$PHP_VERSION artisan scout:fresh &&
+      php$PHP_VERSION artisan memorandum &&
       /usr/bin/php$PHP_VERSION /usr/local/bin/composer dump-autoload &&
       php$PHP_VERSION artisan config:cache &&
       php$PHP_VERSION artisan cache:clear &&

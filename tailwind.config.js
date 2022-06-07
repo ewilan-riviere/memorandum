@@ -1,7 +1,7 @@
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
-  content: ['./resources/**/*.{vue,js,ts,jsx,tsx,php}'],
+  content: ['./resources/**/*.{vue,js,ts,jsx,tsx,php,md}'],
   theme: {
     container: {
       padding: '1.25rem',

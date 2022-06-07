@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\MarkdownNavigation;
 use App\Services\MarkdownService;
+use Artisan;
 use Cache;
 use SEO;
 use View;
@@ -33,5 +34,10 @@ class MainController extends Controller
         View::share('navigation', $navigation);
 
         return view('views.pages.index', compact('markdown', 'navigation'));
+    }
+
+    public function refresh()
+    {
+        Artisan::call('memorandum');
     }
 }
