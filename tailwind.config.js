@@ -1,6 +1,6 @@
 const plugin = require('tailwindcss/plugin')
 
-/** @type {import('tailwindcss/tailwind-config').TailwindConfig} */
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./resources/**/*.{vue,js,ts,jsx,tsx,php,md}'],
   theme: {
