@@ -27,10 +27,10 @@ deploy-job:
       git pull &&
       /usr/bin/php$PHP_VERSION /usr/local/bin/composer install --no-dev &&
       php$PHP_VERSION artisan optimize &&
-      php$PHP_VERSION artisan memorandum &&
       /usr/bin/php$PHP_VERSION /usr/local/bin/composer dump-autoload &&
       php$PHP_VERSION artisan config:cache &&
       php$PHP_VERSION artisan cache:clear &&
+      php$PHP_VERSION artisan memorandum &&
       /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm i &&
       /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm build &&
       discord-queerotronic.sh '$CI_PROJECT_TITLE'"

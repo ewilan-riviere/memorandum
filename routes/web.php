@@ -14,5 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/refresh', [MainController::class, 'refresh'])->name('refresh');
 Route::get('/{params?}', [MainController::class, 'index'])->where('params', '.*')->name('page');
