@@ -38,6 +38,7 @@ class MainController extends Controller
 
     public function refresh()
     {
-        Artisan::call('memorandum');
+        // Artisan::call('memorandum');
+        Cache::flush();
     }
 }
