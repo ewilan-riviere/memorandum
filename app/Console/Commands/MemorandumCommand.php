@@ -70,6 +70,8 @@ class MemorandumCommand extends Command
             Artisan::call('scout:import "'.$path.$key.'"', [], $this->getOutput());
         }
 
+        $navigation = MarkdownNavigation::get();
+
         return 0;
     }
 

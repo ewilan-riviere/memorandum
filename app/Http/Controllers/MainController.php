@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Services\MarkdownNavigation;
 use App\Services\MarkdownService;
-use Cache;
 use SEO;
 use View;
 
@@ -12,11 +11,7 @@ class MainController extends Controller
 {
     public function index(?string $params = '.index')
     {
-        $navigation = Cache::get('navigation');
-        if (null === $navigation) {
-            $navigation = MarkdownNavigation::create(base_path(MarkdownService::getMarkdownPath()));
-            Cache::add('navigation', $navigation);
-        }
+        $navigation = MarkdownNavigation::get();
         $markdown = MarkdownService::create($params);
         if (null === $markdown) {
             return redirect()->route('page');

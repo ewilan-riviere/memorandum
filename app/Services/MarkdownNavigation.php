@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Services\Markdown\NavigationItem;
+use Cache;
 use DirectoryIterator;
 use IteratorIterator;
 
@@ -14,6 +15,17 @@ class MarkdownNavigation
     public function __construct(
         public ?string $path = null,
     ) {
+    }
+
+    public static function get()
+    {
+        $navigation = Cache::get('navigation');
+        if (null === $navigation) {
+            $navigation = MarkdownNavigation::create(base_path(MarkdownService::getMarkdownPath()));
+            Cache::add('navigation', $navigation);
+        }
+
+        return $navigation;
     }
 
     /**
