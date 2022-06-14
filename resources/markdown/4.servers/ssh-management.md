@@ -1,8 +1,6 @@
 ---
 title: SSH management
 description: ''
-position: 1
-category: 'Misc'
 ---
 
 ## Connection to server
