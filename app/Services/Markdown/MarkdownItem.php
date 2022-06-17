@@ -38,6 +38,7 @@ class MarkdownItem
 
     public ?FrontMatter $front_matter = null;
     public ?string $slug = null;
+    public ?string $slug_nav = null;
     public ?string $icon = null;
 
     public ?string $markdown = null;
@@ -97,6 +98,7 @@ class MarkdownItem
         $markdown_item = $markdown_item->setParams();
         $markdown_item = $markdown_item->setFrontMatter();
         $markdown_item->slug = Str::slug($markdown_item->removeOrderNumber($markdown_item->name));
+        $markdown_item->slug_nav = "{$markdown_item->slug}-article";
 
         /**
          * If not directory convert Markdown to HTML.
@@ -240,6 +242,7 @@ class MarkdownItem
             array_pop($this->params);
             array_push($this->params, $this->filename);
             $this->params_inline = str_replace('.md', '', implode('/', $this->params));
+            $this->params_inline = "{$this->params_inline}-article";
         }
 
         return $this;

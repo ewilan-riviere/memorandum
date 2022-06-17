@@ -11,7 +11,8 @@ class Main extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public MarkdownItem $markdown,
+        public ?MarkdownItem $markdown,
+        public bool $withHeader = true,
     ) {
     }
 

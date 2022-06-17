@@ -4,17 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Services\MarkdownNavigation;
 use App\Services\MarkdownService;
+use Cache;
 use SEO;
 use View;
 
 class MainController extends Controller
 {
-    public function index(?string $params = '.index')
+    public function index(?string $params = '.index-article')
     {
+        // Cache::flush();
+        $params = str_replace('-article', '', $params);
         $navigation = MarkdownNavigation::get();
         $markdown = MarkdownService::create($params);
+
+        View::share('navigation', $navigation);
         if (null === $markdown) {
-            return redirect()->route('page');
+            return view('views.pages.404', compact('markdown'));
         }
 
         if ('Memorandum' !== $markdown->front_matter?->title) {
@@ -25,8 +30,7 @@ class MainController extends Controller
             SEO::setTitle($title);
             Seo::setDescription($markdown->front_matter?->description);
         }
-        View::share('navigation', $navigation);
 
-        return view('views.pages.index', compact('markdown', 'navigation'));
+        return view('views.pages.index', compact('markdown'));
     }
 }

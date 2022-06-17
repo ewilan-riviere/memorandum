@@ -8,7 +8,7 @@
         <img class="h-8 w-auto" src="{{ asset('memorandum-text.svg') }}" alt="Workflow">
     </a>
     <div class="mt-3 px-3">
-        <livewire:meilisearch />
+        <livewire:search />
     </div>
     <nav x-show="display" x-ref="nav" x-transition class="mt-3 flex-1 hidden" aria-label="Sidebar">
         <div class="px-2 space-y-1">

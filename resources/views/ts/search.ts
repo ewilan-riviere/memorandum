@@ -3,7 +3,7 @@ let refsAlpine: {
   results: HTMLElement
 }
 
-const meilisearch = () => ({
+const search = () => ({
   opened: false,
   openedBackdrop: false,
   openModal: false,
@@ -15,7 +15,7 @@ const meilisearch = () => ({
     refsAlpine.inputSearch.dispatchEvent(new Event('input'))
     setTimeout(() => {
       refsAlpine.results.classList.remove('hidden')
-    }, 500)
+    }, 2500)
   },
   toggle() {
     if (this.opened) {
@@ -50,4 +50,4 @@ const meilisearch = () => ({
   },
 })
 
-export default meilisearch
+export default search

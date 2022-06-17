@@ -1,4 +1,4 @@
-<div x-data="meilisearch">
+<div x-data="search">
     {{-- fake search input --}}
     <div class="max-w-lg w-full lg:max-w-xs">
         <label for="search" class="sr-only">Search</label>
@@ -20,7 +20,7 @@
             </button>
         </div>
     </div>
-    {{-- meilisearch modal --}}
+    {{-- search modal --}}
     <div x-ref="results" class="relative z-10" role="dialog" aria-modal="true">
         <div x-show="opened" :class="openedBackdrop ? 'opacity-100' : 'opacity-0'"
             class="fixed inset-0 bg-gray-500 bg-opacity-25 transition-opacity ease-out duration-300"></div>

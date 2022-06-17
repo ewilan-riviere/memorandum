@@ -6,7 +6,7 @@ use App\Models\ContentDocument;
 use Livewire\Component;
 use MeiliSearch\Client;
 
-class Meilisearch extends Component
+class Search extends Component
 {
     public ?string $search = null;
     /** @var ContentDocument[] */
@@ -75,6 +75,6 @@ class Meilisearch extends Component
         $this->clear();
         $hits = $this->getSearch();
 
-        return view('livewire.meilisearch', compact('hits'));
+        return view('livewire.search', compact('hits'));
     }
 }
