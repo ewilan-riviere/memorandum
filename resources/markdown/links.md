@@ -93,3 +93,32 @@ To find pictures about tech
 
 - [**dompcomp**](https://www.domcomp.com) : list of registrars
 - [**Astral**](https://app.astralapp.com) : web app to check GitHub stars
+
+## Development tools
+
+- <https://devhints.io>
+- <https://learnxinyminutes.com>
+- <https://learnxinyminutes.com>
+- <https://jsoneditoronline.org>
+- <https://speed.cloudflare.com>
+- <https://bundlephobia.com>
+- <https://www.remove.bg>
+- <https://www.remove.bg>
+- <https://rahuldkjain.github.io/gh-profile-readme-generator>
+- <https://github.com/othneildrew/Best-README-Template>
+- <https://everytimezone.com>
+- <https://www.makeareadme.com>
+- <https://github.com/dec0dOS/amazing-github-template>
+- <https://github.com/dguo/make-a-readme>
+- <https://rahuldkjain.github.io/gh-profile-readme-generator>
+- <https://github.com/sarawrmas/readme-generator>
+- <https://medium.com/swlh/generate-a-slick-readme-for-your-next-github-repo-quickly-c1d9eabe914e>
+- <https://medium.com/@silentlad/how-to-write-beautiful-and-meaningful-readme-md-for-your-next-project-897045e3f991>
+- <https://devtools.best>
+- <https://replit.com/languages/nodejs>
+- <https://kapeli.com/dash> (macOS)
+- <https://www.alfredapp.com> (macOS)
+- <https://devdocs.io>
+- <https://carbon.now.sh>
+- <https://hoppscotch.io>
+- <https://crontab.guru>
