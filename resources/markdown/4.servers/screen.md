@@ -7,8 +7,6 @@ description: Processes running in Screen will continue to run when their window 
 Original article: [linuxize.com/post/how-to-use-linux-screen](https://linuxize.com/post/how-to-use-linux-screen)
 ::
 
-## Cheatsheet
-
 ### Installation
 
 ```bash [Ubuntu/Debian]
@@ -18,6 +16,22 @@ sudo apt update ; sudo apt install screen
 ```bash [CentOS/Fedora]
 sudo yum install screen
 ```
+
+## Usage
+
+Execute a new screen.
+
+```bash
+screen
+```
+
+Valid screen with `Enter` key and you are into a screen, you can execute any command with a really long time of execution. After this, you can `detach` screen with `Ctrl`+`A` `D`. You will be back into SSH session, you can get back your screen with `screen -r` to `reattach` it if you have one screen.
+
+Now you can check yours screens with `screen -ls` and `reattach` any with ID like `10835.pts-0.linuxize-desktop (Detached)` with `screen -r 10835`.
+
+Of course you can exit SSH session and screen will continue to execute command in background.
+
+## Cheatsheet
 
 ### Version
 
