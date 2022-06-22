@@ -17,7 +17,7 @@ const search = () => ({
   toggle() {
     if (this.opened) {
       this.close()
-      refsAlpine.results.classList.remove('hidden')
+      refsAlpine.results.classList.add('hidden')
     } else {
       refsAlpine.results.classList.remove('hidden')
       this.open()
