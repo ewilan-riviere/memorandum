@@ -13,9 +13,6 @@ const search = () => ({
     refsAlpine = this.$refs
 
     refsAlpine.inputSearch.dispatchEvent(new Event('input'))
-    setTimeout(() => {
-      refsAlpine.results.classList.remove('hidden')
-    }, 2500)
   },
   toggle() {
     if (this.opened) {
@@ -31,9 +28,12 @@ const search = () => ({
     this.opened = true
 
     setTimeout(() => {
-      this.openedBackdrop = true
+      refsAlpine.results.classList.remove('hidden')
       setTimeout(() => {
-        this.openModal = true
+        this.openedBackdrop = true
+        setTimeout(() => {
+          this.openModal = true
+        }, 150)
       }, 150)
     }, 150)
   },
@@ -44,6 +44,9 @@ const search = () => ({
       this.openedBackdrop = false
       setTimeout(() => {
         this.opened = false
+        setTimeout(() => {
+          refsAlpine.results.classList.remove('hidden')
+        }, 150)
       }, 150)
     }, 150)
     refsAlpine.inputSearch.value = ''
