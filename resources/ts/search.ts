@@ -13,13 +13,14 @@ const search = () => ({
     refsAlpine = this.$refs
 
     refsAlpine.inputSearch.dispatchEvent(new Event('input'))
+    setTimeout(() => {
+      refsAlpine.results.classList.remove('hidden')
+    }, 2500)
   },
   toggle() {
     if (this.opened) {
       this.close()
-      refsAlpine.results.classList.add('hidden')
     } else {
-      refsAlpine.results.classList.remove('hidden')
       this.open()
       setTimeout(() => {
         refsAlpine.inputSearch.focus()
