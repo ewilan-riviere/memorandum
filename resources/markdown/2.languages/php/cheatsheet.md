@@ -1,8 +1,6 @@
 ---
 title: Cheatsheet
 description: ''
-position: 2
-category: 'PHP'
 ---
 
 ## Switch between PHP versions
