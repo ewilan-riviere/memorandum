@@ -21,7 +21,7 @@
         </div>
     </div>
     {{-- search modal --}}
-    <div x-ref="results" class="relative z-10" role="dialog" aria-modal="true">
+    <div x-ref="results" class="relative z-10 hidden" role="dialog" aria-modal="true">
         <div x-show="opened" :class="openedBackdrop ? 'opacity-100' : 'opacity-0'"
             class="fixed inset-0 bg-gray-500 bg-opacity-25 transition-opacity ease-out duration-300"></div>
 
@@ -50,8 +50,7 @@
 
                 @if (sizeof($hits) === 0)
                     <!-- Empty state, show/hide based on command palette state. -->
-                    <div wire:loading.class="hidden" wire:target="search"
-                        class="py-14 px-6 text-center sm:px-14">
+                    <div wire:loading.class="hidden" wire:target="search" class="py-14 px-6 text-center sm:px-14">
                         <!-- Heroicon name: outline/folder -->
                         <svg class="mx-auto h-6 w-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
