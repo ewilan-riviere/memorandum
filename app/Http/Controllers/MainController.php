@@ -19,7 +19,7 @@ class MainController extends Controller
 
         View::share('navigation', $navigation);
         if (null === $markdown) {
-            return view('views.pages.404', compact('markdown'));
+            return view('pages.404', compact('markdown'));
         }
 
         if ('Memorandum' !== $markdown->front_matter?->title) {
@@ -31,6 +31,6 @@ class MainController extends Controller
             Seo::setDescription($markdown->front_matter?->description);
         }
 
-        return view('views.pages.index', compact('markdown'));
+        return view('pages.index', compact('markdown'));
     }
 }
