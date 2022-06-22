@@ -17,7 +17,9 @@ const search = () => ({
   toggle() {
     if (this.opened) {
       this.close()
+      refsAlpine.results.classList.remove('hidden')
     } else {
+      refsAlpine.results.classList.remove('hidden')
       this.open()
       setTimeout(() => {
         refsAlpine.inputSearch.focus()
@@ -28,12 +30,9 @@ const search = () => ({
     this.opened = true
 
     setTimeout(() => {
-      refsAlpine.results.classList.remove('hidden')
+      this.openedBackdrop = true
       setTimeout(() => {
-        this.openedBackdrop = true
-        setTimeout(() => {
-          this.openModal = true
-        }, 150)
+        this.openModal = true
       }, 150)
     }, 150)
   },
@@ -44,9 +43,6 @@ const search = () => ({
       this.openedBackdrop = false
       setTimeout(() => {
         this.opened = false
-        setTimeout(() => {
-          refsAlpine.results.classList.remove('hidden')
-        }, 150)
       }, 150)
     }, 150)
     refsAlpine.inputSearch.value = ''
