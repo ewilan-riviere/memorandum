@@ -7,6 +7,7 @@ const search = () => ({
   opened: false,
   openedBackdrop: false,
   openModal: false,
+  displaySearchBlock: false,
 
   init() {
     // @ts-ignore
@@ -14,8 +15,8 @@ const search = () => ({
 
     refsAlpine.inputSearch.dispatchEvent(new Event('input'))
     setTimeout(() => {
-      refsAlpine.results.classList.remove('hidden')
-    }, 2500)
+      this.displaySearchBlock = true
+    }, 150)
   },
   toggle() {
     if (this.opened) {
