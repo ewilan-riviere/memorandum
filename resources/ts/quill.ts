@@ -16,11 +16,11 @@ const quill = () => ({
     //   console.log(quill.root.innerHTML)
     //   // this.$dispatch('input', quill.root.innerHTML)
     // })
-    var toolbarOptions = [
+    const toolbarOptions = [
       ['bold', 'italic'],
       ['link', 'image'],
     ]
-    let quill = new Quill(refsAlpine.quillEditor, {
+    const quill = new Quill(refsAlpine.quillEditor, {
       theme: 'snow',
       modules: {
         toolbar: toolbarOptions,

@@ -10,7 +10,7 @@ const toast = {
     this.fire(toast.id)
   },
   fire(id: number) {
-    let toast = this.toasts.find((toast) => toast.id == id)
+    const toast = this.toasts.find((toast) => toast.id == id)
     if (toast) {
       this.visible.push(toast)
       const timeShown = 2000

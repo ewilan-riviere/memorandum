@@ -14,13 +14,14 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
 
-    @vite('views', 'app.ts', 3100)
+    @vite()
 
     @livewireStyles
     @stack('styles')
 </head>
 
-<body x-data class="bg-gray-900 text-white overflow-hidden {{ config('app.env') === 'local' ? 'debug-screens' : '' }}">
+<body x-data
+    class="bg-gray-900 text-white overflow-hidden {{ config('app.env') === 'local' ? 'debug-screens' : '' }}">
     <x-toast />
     <div class="h-screen">
         {{ $slot }}

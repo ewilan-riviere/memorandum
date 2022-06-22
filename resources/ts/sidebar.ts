@@ -3,7 +3,6 @@ const sidebar = {
   openedBackdrop: false,
   openedSidebar: false,
 
-  init() {},
   toggle() {
     if (this.opened) {
       this.close()

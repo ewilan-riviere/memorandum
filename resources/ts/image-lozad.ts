@@ -38,7 +38,7 @@ const imageLozad = () => ({
       }
       refsAlpine.media.onerror = () => {
         this.error = true
-        let appImg = document.getElementById(this.token)
+        const appImg = document.getElementById(this.token)
         appImg?.childNodes.forEach((node) => {
           if (node.nodeName === 'IMG') {
             // @ts-ignore

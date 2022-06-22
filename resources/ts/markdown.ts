@@ -3,8 +3,8 @@ import hljs from 'highlight.js/lib/common'
 let refsAlpine: {
   proseDocument: HTMLElement
 }
-let clipboardRaw = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>`
-let clipboardCheckRaw = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>`
+const clipboardRaw = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>'
+const clipboardCheckRaw = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>'
 
 const markdown = () => ({
   copied: false,
@@ -25,10 +25,10 @@ const markdown = () => ({
     this.scrollSpy()
   },
   setHighlight() {
-    let preBlocks = refsAlpine.proseDocument.querySelectorAll('pre')
+    const preBlocks = refsAlpine.proseDocument.querySelectorAll('pre')
     preBlocks.forEach((pre) => {
-      let html = hljs.highlightAuto(pre.innerText).value
-      let code = document.createElement('code')
+      const html = hljs.highlightAuto(pre.innerText).value
+      const code = document.createElement('code')
       code.innerHTML = html
       pre.innerHTML = ''
       pre.appendChild(code)
@@ -67,11 +67,11 @@ const markdown = () => ({
     })
   },
   setFilename() {
-    let preList = refsAlpine.proseDocument.querySelectorAll('pre')
+    const preList = refsAlpine.proseDocument.querySelectorAll('pre')
     preList.forEach((pre) => {
-      let filename = pre.getAttribute('data-filename')
+      const filename = pre.getAttribute('data-filename')
       if (filename !== '') {
-        let fnBlock = document.createElement('span')
+        const fnBlock = document.createElement('span')
         fnBlock.classList.add('filename')
         fnBlock.textContent = filename
         pre.appendChild(fnBlock)
@@ -79,25 +79,25 @@ const markdown = () => ({
     })
   },
   moveToc() {
-    let tocItems = document.getElementsByClassName('table-of-contents')
-    let tocItem = tocItems[0]
+    const tocItems = document.getElementsByClassName('table-of-contents')
+    const tocItem = tocItems[0]
     if (tocItem) {
-      let tocPlacement = document.getElementById('toc')
-      let newToc = tocItem
+      const tocPlacement = document.getElementById('toc')
+      const newToc = tocItem
       newToc.classList.remove('table-of-contents')
       newToc.classList.add('toc')
       tocPlacement?.appendChild(newToc)
     }
   },
   setCopyBtn() {
-    let preList = refsAlpine.proseDocument.querySelectorAll('pre')
+    const preList = refsAlpine.proseDocument.querySelectorAll('pre')
     preList.forEach((pre) => {
-      let clipboardSvg = new DOMParser().parseFromString(
+      const clipboardSvg = new DOMParser().parseFromString(
         clipboardRaw,
         'text/html'
       ).body.firstElementChild
 
-      let button = document.createElement('button')
+      const button = document.createElement('button')
       if (clipboardSvg) {
         button.appendChild(clipboardSvg)
       }
@@ -116,10 +116,10 @@ const markdown = () => ({
   },
   async copy(element: HTMLElement) {
     let text = ''
-    let preElement = element.parentElement
+    const preElement = element.parentElement
 
     preElement?.childNodes.forEach((node) => {
-      let nodeEl = node as HTMLElement
+      const nodeEl = node as HTMLElement
       if (nodeEl.tagName === 'CODE') {
         text = nodeEl.innerText
       }

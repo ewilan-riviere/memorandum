@@ -7,7 +7,7 @@ export const typescript = () => {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault()
-      let element = e.target as unknown as HTMLElement
+      const element = e.target as unknown as HTMLElement
 
       document
         .querySelector(element.getAttribute('href') as 'a')

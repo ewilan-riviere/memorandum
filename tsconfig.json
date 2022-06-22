@@ -11,42 +11,18 @@
     "skipLibCheck": true,
     "noImplicitAny": false,
     "baseUrl": ".",
-    "lib": [
-      "esnext",
-      "dom"
-    ],
-    "types": [
-      "vite/client"
-    ],
-    "typeRoots": [
-      "./node_modules/@types",
-      "resources/**/*.d.ts"
-    ],
+    "lib": ["esnext", "dom"],
+    "types": ["vite/client"],
+    "typeRoots": ["./node_modules/@types", "resources/**/*.d.ts"],
     "plugins": [],
     "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "~": [
-        "./"
-      ],
-      "~/*": [
-        "./*"
-      ],
-      "~/views": [
-        "resources/views"
-      ],
-      "~/views/*": [
-        "resources/views/*"
-      ]
+      "@/*": ["./*"],
+      "~": ["./"],
+      "~/*": ["./*"],
+      "~/app": ["resources"],
+      "~/app/*": ["resources/*"]
     }
   },
-  "include": [
-    "resources/**/*.ts",
-    "resources/**/*.d.ts",
-    "resources/**/*.vue"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["resources/**/*.ts", "resources/**/*.d.ts", "resources/**/*.vue"],
+  "exclude": ["node_modules"]
 }
