@@ -7,17 +7,10 @@ use Illuminate\Support\Facades\File;
 
 class LaravelViteManifest
 {
-    public const NAME = 'views';
-    public const ENTRY = 'app.ts';
-    public const PORT = 3100;
     private $manifestCache = [];
 
-    public function embed(): string
+    public function embed(?string $name = 'views', ?string $entry = 'app.ts', ?int $port = 3100): string
     {
-        $name = self::NAME;
-        $entry = self::ENTRY;
-        $port = self::PORT;
-
         if (Config::get('vite.dev_server')) {
             $host = Config::get('vite.dev_server_host');
 
@@ -28,8 +21,8 @@ class LaravelViteManifest
 
         if ($assets = $this->productionAssets($name, $entry)) {
             return $this->jsImports($assets)
-      .$this->jsPreloadImports($name, $entry)
-      .$this->cssImports($name, $entry);
+                . $this->jsPreloadImports($name, $entry)
+                . $this->cssImports($name, $entry);
         }
 
         return '';
@@ -37,7 +30,7 @@ class LaravelViteManifest
 
     private function getManifest(string $name): array
     {
-        if (! empty($this->manifestCache[$name])) {
+        if (!empty($this->manifestCache[$name])) {
             return $this->manifestCache[$name];
         }
 
@@ -70,9 +63,9 @@ class LaravelViteManifest
         $urls = [];
         $manifest = $this->getManifest($name);
 
-        if (! empty($manifest[$entry]['imports'])) {
+        if (!empty($manifest[$entry]['imports'])) {
             foreach ($manifest[$entry]['imports'] as $imports) {
-                $urls[] = asset("assets/dist/{$name}/".$manifest[$imports]['file']);
+                $urls[] = asset("assets/dist/{$name}/" . $manifest[$imports]['file']);
             }
         }
 
@@ -94,7 +87,7 @@ class LaravelViteManifest
         $urls = [];
         $manifest = $this->getManifest($name);
 
-        if (! empty($manifest[$entry]['css'])) {
+        if (!empty($manifest[$entry]['css'])) {
             foreach ($manifest[$entry]['css'] as $file) {
                 $urls[] = asset("assets/dist/{$name}/{$file}");
             }
@@ -107,10 +100,10 @@ class LaravelViteManifest
     {
         $manifest = $this->getManifest($name);
 
-        if (! isset($manifest[$entry])) {
+        if (!isset($manifest[$entry])) {
             return '';
         }
 
-        return asset("assets/dist/{$name}/".$manifest[$entry]['file']);
+        return asset("assets/dist/{$name}/" . $manifest[$entry]['file']);
     }
 }
