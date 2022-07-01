@@ -91,6 +91,6 @@ h5 {
   background-size: 100% 2px;
 }
 
-img {
+.prose img {
   @apply !rounded-md px-20;
 }
