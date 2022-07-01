@@ -90,3 +90,7 @@ h5 {
 .prose a:hover {
   background-size: 100% 2px;
 }
+
+img {
+  @apply !rounded-md px-20;
+}

@@ -1,13 +1,15 @@
 @isset($markdown)
-    <div x-data="markdown" id="markdown"
-        class="flex flex-col lg:grid lg:grid-cols-3 lg:gap-6 px-6 items-start pb-6 max-w-6xl mx-auto">
+    <div x-data="markdown"
+         id="markdown"
+         class="mx-auto flex max-w-6xl flex-col items-start px-6 pb-6 lg:grid lg:grid-cols-3 lg:gap-6">
         <main @class([
             'max-w-full',
             'col-span-3 order-2' => $markdown->front_matter?->has_full_layout,
-            'lg:col-span-2 order-2 lg:order-1' => !$markdown->front_matter
+            'lg:col-span-2 order-2 lg:order-1 mt-6' => !$markdown->front_matter
                 ?->has_full_layout,
         ])>
-            <div x-ref="proseDocument" class="prose lg:prose-lg prose-invert prose-primary mt-6 prose-img:px-20 max-w-full">
+            <div x-ref="proseDocument"
+                 class="prose lg:prose-lg prose-invert prose-primary max-w-full">
                 {!! $markdown->html !!}
             </div>
         </main>
@@ -19,19 +21,22 @@
             @if ($markdown->has_toc)
                 <div>
                     <div class="text-gray-400">On this page</div>
-                    <nav id="toc" class="mt-1 section-nav"></nav>
+                    <nav id="toc"
+                         class="section-nav mt-1"></nav>
                 </div>
                 <button @click="scrollToTop()"
-                    class="hidden lg:block bg-gray-800 hover:bg-gray-700 p-1 rounded-md mt-2 w-10 ml-auto">
-                    <x-icons.arrow class="w-6 h-6 -rotate-90 mx-auto" />
+                        class="mt-2 ml-auto hidden w-10 rounded-md bg-gray-800 p-1 hover:bg-gray-700 lg:block">
+                    <x-icons.arrow class="mx-auto h-6 w-6 -rotate-90" />
                 </button>
             @endif
         </aside>
     </div>
-    <div class="max-w-6xl mx-auto px-6 pb-6 mt-6">
+    <div class="mx-auto mt-6 max-w-6xl px-6 pb-6">
         <div class="border-t-2 border-gray-600 pt-5">
-            <a href="{{ $edit_link }}" target="_blank" rel="noopener noreferrer"
-                class="flex items-center hover:bg-gray-800 w-max p-2 rounded-md text-sm text-gray-400 hover:text-gray-300">
+            <a href="{{ $edit_link }}"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="flex w-max items-center rounded-md p-2 text-sm text-gray-400 hover:bg-gray-800 hover:text-gray-300">
                 @svg('edit', 'w-6 h-6')
                 <span class="ml-1">Edit this page</span>
             </a>
