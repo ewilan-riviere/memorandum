@@ -215,6 +215,27 @@ const clear = () => {
 </template>
 ```
 
+With Tailwind CSS, you can animation life
+
+```js [tailwind.config.js]
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  theme: {
+    extend: {
+      keyframes: {
+        life: {
+          '0%': { width: '100%' },
+          '100%': { width: '0%' },
+        },
+      },
+      animation: {
+        life: 'life 1900ms linear forwards',
+      },
+    },
+  },
+}
+```
+
 ## Usage
 
 ```vue [app.vue]
