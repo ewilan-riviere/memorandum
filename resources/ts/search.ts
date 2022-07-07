@@ -16,7 +16,7 @@ const search = () => ({
     refsAlpine.inputSearch.dispatchEvent(new Event('input'))
     setTimeout(() => {
       this.displaySearchBlock = true
-    }, 150)
+    }, 500)
   },
   toggle() {
     if (this.opened) {
