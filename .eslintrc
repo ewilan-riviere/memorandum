@@ -6,7 +6,9 @@
     "node": true
   },
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
+  "plugins": [
+    "@typescript-eslint"
+  ],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
@@ -29,6 +31,10 @@
     ],
     "comma-dangle": "off",
     "vue/html-self-closing": "off",
+    "semi": [
+      "error",
+      "never"
+    ],
     "vue/max-attributes-per-line": "off",
     "vue/singleline-html-element-content-newline": "off",
     "func-call-spacing": "off",
