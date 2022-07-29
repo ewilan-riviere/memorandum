@@ -1,8 +1,6 @@
 ---
 title: REGEX
-description: 'Examples of REGEX'
-position: 2
-category: 'REGEX'
+description: Examples of REGEX
 ---
 
 ## Slugify
@@ -107,4 +105,12 @@ var regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[a-zA-Z\d\W]{12,}$/;
 if(regex.test(password)) {
   // 
 }
+```
+
+## Phone
+
+### French
+
+```bash
+/^(0|\+33 )[1-9]([-. ]?[0-9]{2} ){3}([-. ]?[0-9]{2})$/
 ```
