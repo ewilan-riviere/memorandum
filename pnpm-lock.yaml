@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@algolia/client-search': ^4.14.2
   '@antfu/eslint-config': ^0.26.1
+  '@cmfcmf/docusaurus-search-local': ^0.11.0
   '@docusaurus/core': 2.0.1
   '@docusaurus/module-type-aliases': 2.0.1
   '@docusaurus/preset-classic': 2.0.1
@@ -19,6 +20,7 @@ specifiers:
 
 dependencies:
   '@algolia/client-search': 4.14.2
+  '@cmfcmf/docusaurus-search-local': 0.11.0_@docusaurus+core@2.0.1
   '@docusaurus/core': 2.0.1_5qpitrjyk5jdxbdbsfbonihzzi
   '@docusaurus/preset-classic': 2.0.1_nrqrclkemfqqsrwb2tv4vf2x7m
   '@mdx-js/react': 1.6.22_react@17.0.2
@@ -44,6 +46,21 @@ packages:
       '@algolia/autocomplete-shared': 1.7.1
     dev: false
 
+  /@algolia/autocomplete-js/1.7.1_qs6lk5nhygj2o3hj4sf6xnr724:
+    resolution: {integrity: sha512-m8xQiH1qdthovVOD9O8/ur9P5us+sljskIpB1HFQIFmsfchorJNFlpMT+zE8V55tbJOwusUrp85c9t+6lkOllg==}
+    peerDependencies:
+      '@algolia/client-search': ^4.5.1
+    dependencies:
+      '@algolia/autocomplete-core': 1.7.1
+      '@algolia/autocomplete-preset-algolia': 1.7.1_qs6lk5nhygj2o3hj4sf6xnr724
+      '@algolia/autocomplete-shared': 1.7.1
+      '@algolia/client-search': 4.14.2
+      htm: 3.1.1
+      preact: 10.10.2
+    transitivePeerDependencies:
+      - algoliasearch
+    dev: false
+
   /@algolia/autocomplete-preset-algolia/1.7.1_qs6lk5nhygj2o3hj4sf6xnr724:
     resolution: {integrity: sha512-pJwmIxeJCymU1M6cGujnaIYcY3QPOVYZOXhFkWVM7IxKzy272BwCvMFMyc5NpG/QmiObBxjo7myd060OeTNJXg==}
     peerDependencies:
@@ -57,6 +74,10 @@ packages:
 
   /@algolia/autocomplete-shared/1.7.1:
     resolution: {integrity: sha512-eTmGVqY3GeyBTT8IWiB2K5EuURAqhnumfktAEoHxfDY2o7vg2rSnO16ZtIG0fMgt3py28Vwgq42/bVEuaQV7pg==}
+    dev: false
+
+  /@algolia/autocomplete-theme-classic/1.7.1:
+    resolution: {integrity: sha512-Uh2AuRMjgbwCgOQX+oZQ5RIaqIDZ2os4EDZd3WClnIYQl03VTvSD/JRPmlz/+agWpfoN/fX8XvmLUGt/d4DbYg==}
     dev: false
 
   /@algolia/cache-browser-local-storage/4.14.2:
@@ -1605,6 +1626,26 @@ packages:
       '@babel/helper-string-parser': 7.18.10
       '@babel/helper-validator-identifier': 7.18.6
       to-fast-properties: 2.0.0
+    dev: false
+
+  /@cmfcmf/docusaurus-search-local/0.11.0_@docusaurus+core@2.0.1:
+    resolution: {integrity: sha512-UzJ0G7JfrhuXJ9h79vforQZs05C5rWhXqrK7C5ie1ImHLTC4RPW7FHagIpZULhcA2PbDkc4ewnWVIufLKq+KzA==}
+    peerDependencies:
+      '@docusaurus/core': ^v2.0.0-beta.21
+      nodejieba: ^2.5.0
+    peerDependenciesMeta:
+      nodejieba:
+        optional: true
+    dependencies:
+      '@algolia/autocomplete-js': 1.7.1_qs6lk5nhygj2o3hj4sf6xnr724
+      '@algolia/autocomplete-theme-classic': 1.7.1
+      '@algolia/client-search': 4.14.2
+      '@docusaurus/core': 2.0.1_5qpitrjyk5jdxbdbsfbonihzzi
+      algoliasearch: 4.14.2
+      cheerio: 1.0.0-rc.12
+      clsx: 1.2.1
+      lunr-languages: 1.9.0
+      mark.js: 8.11.1
     dev: false
 
   /@colors/colors/1.5.0:
@@ -5533,6 +5574,10 @@ packages:
       wbuf: 1.7.3
     dev: false
 
+  /htm/3.1.1:
+    resolution: {integrity: sha512-983Vyg8NwUE7JkZ6NmOqpCZ+sh1bKv2iYTlUkzlWmA5JD2acKoxd4KVxbMmxX/85mtfdnDmTFoNKcg5DGAvxNQ==}
+    dev: false
+
   /html-entities/2.3.3:
     resolution: {integrity: sha512-DV5Ln36z34NNTDgnz0EWGBLZENelNAtkiFA4kyNOG2tDI6Mz1uSWiq1wAKdyjnJwyDiDO7Fa2SO1CTxPXL8VxA==}
     dev: false
@@ -6264,11 +6309,19 @@ packages:
     dependencies:
       yallist: 4.0.0
 
+  /lunr-languages/1.9.0:
+    resolution: {integrity: sha512-Be5vFuc8NAheOIjviCRms3ZqFFBlzns3u9DXpPSZvALetgnydAN0poV71pVLFn0keYy/s4VblMMkqewTLe+KPg==}
+    dev: false
+
   /make-dir/3.1.0:
     resolution: {integrity: sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==}
     engines: {node: '>=8'}
     dependencies:
       semver: 6.3.0
+    dev: false
+
+  /mark.js/8.11.1:
+    resolution: {integrity: sha512-1I+1qpDt4idfgLQG+BNWmrqku+7/2bi5nLf4YwF8y8zXvmfiTBY3PV3ZibfrjBueCByROpuBjLLFCajqkgYoLQ==}
     dev: false
 
   /markdown-escapes/1.0.4:
@@ -7277,6 +7330,10 @@ packages:
       nanoid: 3.3.4
       picocolors: 1.0.0
       source-map-js: 1.0.2
+    dev: false
+
+  /preact/10.10.2:
+    resolution: {integrity: sha512-GUXSsfwq4NKhlLYY5ctfNE0IjFk7Xo4952yPI8yMkXdhzeQmQ+FahZITe7CeHXMPyKBVQ8SoCmGNIy9TSOdhgQ==}
     dev: false
 
   /prelude-ls/1.2.1:
