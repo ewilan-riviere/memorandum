@@ -25,6 +25,7 @@ deploy-job:
       cd /home/ewilan/www/$CI_PROJECT_NAME &&
       git pull &&
       /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm i &&
+      node -v &&
       /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm build &&
       discord-queerotronic.sh '$CI_PROJECT_TITLE'"
   only:
