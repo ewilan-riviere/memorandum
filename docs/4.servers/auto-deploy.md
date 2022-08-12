@@ -19,7 +19,7 @@ git clone https://gitlab.com/ewilan-riviere/drone drone-manual
 
 Create **ecosystem** file
 
-```js [~/ecosystem.config.js]
+```js title="~/ecosystem.config.js"
 module.exports = {
   apps : [
     {
@@ -51,7 +51,7 @@ PROJECTS_ROOT=/home/jack/www/
 
 Then create `repositories.json` into repo. It will useful only if remote have different name of cloned repo. But you need to have this file, even it's empty file.
 
-```json [~/drone-manual/repositories.json]
+```json title="~/drone-manual/repositories.json"
 {
     "portfolio-front": [
         "portfolio-front"

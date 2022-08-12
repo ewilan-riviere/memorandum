@@ -26,7 +26,7 @@ Download [**ESLint extension**](https://github.com/Microsoft/vscode-eslint) for 
 
 Use shortcut <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>P</kbd> and search `JSON` to select `Preferences: Open Settings(JSON)`. This will open JSON configuration of Visual Studo Code, you have just to add this on your current config:
 
-```json [title="settings.json"]
+```json title="settings.json"
 {
   "eslint.validate": [
     "vue",
@@ -171,7 +171,7 @@ trim_trailing_whitespace = true
 indent_style = space
 indent_size = 4
 
-[*.vue]
+[*.vue"
 indent_style = space
 indent_size = 2
 

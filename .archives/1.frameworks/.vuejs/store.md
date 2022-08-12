@@ -11,7 +11,7 @@ Store is useful to stock some variables globally and we can access to them from 
 
 ## Example
 
-```js [store/index.js]
+```js title="store/index.js"
 export const state = () => ({
   sidebarOpened: false,
   layerVisible: false,
@@ -27,7 +27,7 @@ export const mutations = {
 }
 ```
 
-```vue [src/components/MyComponent.vue]
+```vue title="src/components/MyComponent.vue"
 <template>
     <button @click="toggleSidebar">
         Open sidebar

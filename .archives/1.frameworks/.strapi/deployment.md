@@ -18,7 +18,7 @@ category: 'Strapi'
 - [**strapi.io: documentation/deployment => NGINX configuration**](https://strapi.io/documentation/3.0.0-beta.x/deployment/nginx-proxy.html)
 - [**strapi.io: documentation/deployment => another doc**](https://strapi.io/blog/how-to-deploy-a-strapi-application)
 
-```js [ecosystem.config.js]
+```js title="ecosystem.config.js"
 module.exports = {
   apps : [
     {

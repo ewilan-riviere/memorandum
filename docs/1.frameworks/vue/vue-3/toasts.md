@@ -9,7 +9,7 @@ This guide use Pinia as store [**pinia.vuejs.org**](https://pinia.vuejs.org) and
 
 ## Create store
 
-```ts [store/toast.ts]
+```ts title="store/toast.ts"
 import { defineStore } from 'pinia'
 
 /**
@@ -66,7 +66,7 @@ export const useToastStore = defineStore('toast', {
 
 ## Create interface
 
-```ts [types/toast.d.ts]
+```ts title="types/toast.d.ts"
 declare type ToastAuto = 'success' | 'error'
 
 declare type ToastType =
@@ -87,7 +87,7 @@ declare interface Toast {
 
 ## Create composable (optional)
 
-```ts [composables/useToast.ts]
+```ts title="composables/useToast.ts"
 import { useToastStore } from '~~/store/toast'
 
 /**
@@ -110,7 +110,7 @@ export const useToast = () => {
 
 ## Create components
 
-```vue [components/app/toasts.vue]
+```vue title="components/app/toasts.vue"
 <script setup lang="ts">
 import AppToast from '@/components/app/toast.vue'
 import { useToastStore } from '~/store/toast'
@@ -217,7 +217,7 @@ const clear = () => {
 
 With Tailwind CSS, you can animation life
 
-```js [tailwind.config.js]
+```js title="tailwind.config.js"
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
@@ -238,7 +238,7 @@ module.exports = {
 
 ## Usage
 
-```vue [app.vue]
+```vue title="app.vue"
 <script setup lang="ts">
 import useToast from '~/composables/useToast.ts'
 

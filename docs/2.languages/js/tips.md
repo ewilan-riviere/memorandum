@@ -40,7 +40,7 @@ export default {
 
 Get data from hand...
 
-```js [config-file.js]
+```js title="config-file.js"
 module.exports = {
   getData: (param) => {
     // Do something
@@ -51,7 +51,7 @@ module.exports = {
 
 ...manage data in other hand
 
-```js [use-data.js]
+```js title="use-data.js"
 const myConfig = require('./config/config-file')
 
 useData() {

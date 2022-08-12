@@ -9,7 +9,7 @@ description: Errors with Vue
 touch jsconfig.json
 ```
 
-```json [jsconfig.json]
+```json title="jsconfig.json"
 {
   "compilerOptions": {
     "jsx": "preserve",

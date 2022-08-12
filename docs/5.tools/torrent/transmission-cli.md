@@ -15,7 +15,7 @@ sudo systemctl stop transmission-daemon.service
 sudo vim /etc/transmission-daemon/settings.json
 ```
 
-```diff[/etc/transmission-daemon/settings.json]
+```diff[/etc/transmission-daemon/settings.json"
 -"rpc-authentication-required": true,
 +"rpc-authentication-required": false,
 ```

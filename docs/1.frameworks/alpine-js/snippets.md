@@ -5,7 +5,7 @@ description: Same snippets to use with AlpineJS
 
 ## Alpine Data
 
-```ts [ts/dropdown.ts]
+```ts title="ts/dropdown.ts"
 const dropdown = () => ({
   open: false,
 
@@ -19,7 +19,7 @@ export default dropdown
 
 Import it into `app.ts`
 
-```ts [app.ts]
+```ts title="app.ts"
 import dropdown from './ts/dropdown'
 
 Alpine.data('dropdown', dropdown)
@@ -41,7 +41,7 @@ In any HTML file
 
 ## Alpine Store
 
-```ts [ts/item-store.ts]
+```ts title="ts/item-store.ts"
 const itemStore = {
   items: [] as Item[],
 
@@ -58,7 +58,7 @@ export default itemStore
 
 Import it into `app.ts`
 
-```ts [app.ts]
+```ts title="app.ts"
 import itemStore from './ts/item-store'
 
 Alpine.store('itemStore', itemStore)
