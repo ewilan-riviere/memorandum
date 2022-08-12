@@ -22,6 +22,7 @@ deploy-job:
     - chmod 644 ~/.ssh/known_hosts
   script:
     - ssh $SSH_USER@$SSH_IP "
+      source /home/ewilan/.nvm/nvm.sh &&
       nvm use $NODE_VERSION &&
       node -v &&
       cd /home/ewilan/www/$CI_PROJECT_NAME &&
