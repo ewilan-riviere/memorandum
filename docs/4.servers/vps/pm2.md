@@ -79,7 +79,7 @@ vim ~/ecosystem.config.js
 
 ```js
 module.exports = {
-  apps : [
+  apps: [
     {
       name: 'portfolio',
       script: 'npm',
@@ -90,7 +90,7 @@ module.exports = {
       },
     }
   ]
-};
+}
 ```
 
 - `name` is PM2 id for this app
@@ -102,13 +102,13 @@ In this example, portfolio-front is a NuxtJS app with theses scripts into packag
 
 ```json title="/home/user/www/portfolio-front/package.json"
 {
-  //...
+  // ...
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate"
-  },
+  }
   // ...
 }
 ```

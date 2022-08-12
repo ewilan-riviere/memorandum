@@ -23,12 +23,12 @@ const getDate = (date) => { // the param is raw DateTime from API like 2020-10-1
   // define options
   let userLang = 'en'
   // for Nuxt
-  if (process.client) {
+  if (process.client)
     userLang = navigator.language || navigator.userLanguage
-  }
+
   // for vanilla js
   userLang = navigator.language || navigator.userLanguage
-  
+
   const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
 
   const dateOptions = {

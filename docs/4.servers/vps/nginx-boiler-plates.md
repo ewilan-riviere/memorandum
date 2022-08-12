@@ -133,7 +133,7 @@ With `ecosystem.config.js`
 ```js
 // ecosystem.config.js
 module.exports = {
-  apps : [
+  apps: [
     // ...
     {
       name: 'my-project',
@@ -145,5 +145,5 @@ module.exports = {
       },
     }
   ]
-};
+}
 ```

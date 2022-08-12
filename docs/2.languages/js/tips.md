@@ -12,28 +12,28 @@ category: 'JavaScript'
 ## Decode / Encode HTML entities
 
 ```vue
-<template>
-  <div>
-    {{ decodeHTMLEntities('&#9986;') }}
-  </div>
-</template>
-
 <script>
 export default {
   methods: {
     decodeHTMLEntities(text) {
-      var textArea = document.createElement('textarea')
+      const textArea = document.createElement('textarea')
       textArea.innerHTML = text
       return textArea.value
     },
     encodeHTMLEntities(text) {
-      var textArea = document.createElement('textarea')
+      const textArea = document.createElement('textarea')
       textArea.innerText = text
       return textArea.innerHTML
     },
   },
 }
 </script>
+
+<template>
+  <div>
+    {{ decodeHTMLEntities('&#9986;') }}
+  </div>
+</template>
 ```
 
 ## Export modules
@@ -70,12 +70,12 @@ Sure the code does work, but I'm pretty sure it doesn't do what you expect it to
 If you want to read the files in sequence, **you cannot use `forEach` indeed**. Just use a modern `for … of` loop instead, in which `await` will work as expected:
 
 ```js
-async function printFiles () {
-  const files = await getFilePaths();
+async function printFiles() {
+  const files = await getFilePaths()
 
   for (const file of files) {
-    const contents = await fs.readFile(file, 'utf8');
-    console.log(contents);
+    const contents = await fs.readFile(file, 'utf8')
+    console.log(contents)
   }
 }
 ```
@@ -85,13 +85,13 @@ async function printFiles () {
 If you want to read the files in parallel, **you cannot use `forEach` indeed**. Each of the `async` callback function calls does return a promise, but you're throwing them away instead of awaiting them. Just use `map` instead, and you can await the array of promises that you'll get with `Promise.all`:
 
 ```js
-async function printFiles () {
-  const files = await getFilePaths();
+async function printFiles() {
+  const files = await getFilePaths()
 
   await Promise.all(files.map(async (file) => {
     const contents = await fs.readFile(file, 'utf8')
     console.log(contents)
-  }));
+  }))
 }
 ```
 
@@ -113,17 +113,17 @@ function shuffle(a) {
 ## Replace `switch` with Object Literal
 
 ```js
-function getDrink (type) {
-  var drinks = {
-    'coke': 'Coke',
-    'pepsi': 'Pepsi',
-    'lemonade': 'Lemonade',
-    'default': 'Default item'
-  };
-  return 'The drink I chose was ' + (drinks[type] || drinks['default']);
+function getDrink(type) {
+  const drinks = {
+    coke: 'Coke',
+    pepsi: 'Pepsi',
+    lemonade: 'Lemonade',
+    default: 'Default item'
+  }
+  return `The drink I chose was ${drinks[type] || drinks.default}`
 }
 
-var drink = getDrink('coke');
+const drink = getDrink('coke')
 // The drink I chose was Coke
-console.log(drink);
+console.log(drink)
 ```

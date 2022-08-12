@@ -22,12 +22,12 @@ You will have to choose between several fonts. It's not like any font, it's mono
 
 ```json
 {
-    "workbench.iconTheme": "material-icon-theme",
-    "window.zoomLevel": 1,
-    "workbench.colorTheme": "Night Owl",
-    "editor.fontFamily": "Victor Mono",
-    "editor.fontLigatures": true,
-    "files.eol": "\n",
-    // ...
+  "workbench.iconTheme": "material-icon-theme",
+  "window.zoomLevel": 1,
+  "workbench.colorTheme": "Night Owl",
+  "editor.fontFamily": "Victor Mono",
+  "editor.fontLigatures": true,
+  "files.eol": "\n"
+  // ...
 }
 ```

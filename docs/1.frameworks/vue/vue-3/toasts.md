@@ -53,7 +53,7 @@ export const useToastStore = defineStore('toast', {
     deleteToast(payload: Toast) {
       const toasts = this.toasts
 
-      const index = toasts.findIndex((key) => key.id === payload.id)
+      const index = toasts.findIndex(key => key.id === payload.id)
       toasts.splice(index, 1)
 
       this.$patch({
@@ -121,7 +121,7 @@ const toastStore = useToastStore()
 <template>
   <div class="fixed top-0 right-0 z-50">
     <transition-group name="list" tag="section">
-      <app-toast v-for="(toast, id) in toastStore.toastsList" :key="id" :toast="toast" />
+      <AppToast v-for="(toast, id) in toastStore.toastsList" :key="id" :toast="toast" />
     </transition-group>
   </div>
 </template>
@@ -175,7 +175,7 @@ const clear = () => {
     <div class="p-4">
       <div class="flex items-start">
         <div class="shrink-0">
-          <svg-icon
+          <SvgIcon
             :name="toast.type ? `toast-${toast.type}` : 'information'"
             :class="color"
             class="h-6 w-6"
@@ -245,9 +245,9 @@ import useToast from '~/composables/useToast.ts'
 const { pushToast } = useToast()
 const sendToast = () => {
   pushToast({
-    title: "Hello",
-    text: "This is a toast.",
-    type: "success"
+    title: 'Hello',
+    text: 'This is a toast.',
+    type: 'success'
   })
 }
 </script>

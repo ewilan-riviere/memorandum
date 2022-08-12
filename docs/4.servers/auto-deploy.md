@@ -21,18 +21,18 @@ Create **ecosystem** file
 
 ```js title="~/ecosystem.config.js"
 module.exports = {
-  apps : [
+  apps: [
     {
       name: 'deploy',
       script: 'index.js',
       cwd: '/home/jack/drone-manual',
       env: {
-          PORT: 3001
+        PORT: 3001
       },
     },
     // some projects
   ]
-};
+}
 ```
 
 Then configure `.env` file, just copy `.env.example` to `.env` and fill it with infos:
@@ -53,9 +53,9 @@ Then create `repositories.json` into repo. It will useful only if remote have di
 
 ```json title="~/drone-manual/repositories.json"
 {
-    "portfolio-front": [
-        "portfolio-front"
-    ]
+  "portfolio-front": [
+    "portfolio-front"
+  ]
 }
 ```
 

@@ -192,161 +192,161 @@ sudo scoop update windows-terminal
 // To view the default settings, hold "alt" while clicking on the "Settings" button.
 // For documentation on these settings, see: https://aka.ms/terminal-documentation
 {
-    "$schema": "https://aka.ms/terminal-profiles-schema",
-    "defaultProfile": "{79285a8e-036c-446f-8a9c-78994e34bf78}",
-    "multiLinePasteWarning": false,
-    // You can add more global application settings here.
-    // To learn more about global settings, visit https://aka.ms/terminal-global-settings
-    // If enabled, selections are automatically copied to your clipboard.
-    "copyOnSelect": false,
-    // If enabled, formatted data is also copied to your clipboard
-    "copyFormatting": false,
-    "confirmCloseAllTabs": false,
-    // A profile specifies a command to execute paired with information about how it should look and feel.
-    // Each one of them will appear in the 'New Tab' dropdown,
-    //   and can be invoked from the commandline with `wt.exe -p xxx`
-    // To learn more about profiles, visit https://aka.ms/terminal-profile-settings
-    "profiles": {
-        "defaults": {
-            // Put settings here that you want to apply to all profiles.
-            "fontFace": "MesloLGM NF",
-            "colorScheme": "Konsole",
-            "acrylicOpacity": 0.8,
-            "backgroundImageOpacity": 0.7,
-            "backgroundImageStretchMode": "uniformToFill",
-            "closeOnExit": false,
-            "cursorHeight": 25,
-            "cursorShape": "vintage",
-            "fontSize": 12,
-            "historySize": 9001,
-            "padding": "8",
-            "snapOnInput": true,
-            "startingDirectory": "C:/workspace",
-            "useAcrylic": true
-        },
-        "list": [
-            {
-                // Make changes here to the powershell.exe profile.
-                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-                "name": "Windows PowerShell",
-                "commandline": "powershell.exe",
-                "padding": "8",
-                "hidden": false
-            },
-            {
-                // Make changes here to the cmd.exe profile.
-                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-                "name": "Invite de commandes",
-                "commandline": "cmd.exe",
-                "padding": "8",
-                "hidden": false
-            },
-            {
-                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-                "hidden": false,
-                "name": "Azure Cloud Shell",
-                "source": "Windows.Terminal.Azure"
-            },
-            {
-                "guid": "{79285a8e-036c-446f-8a9c-78994e34bf78}",
-                "hidden": false,
-                "name": "Konsole",
-                // "commandline": "powershell.exe",
-                "commandline": "C:\\Program Files (x86)\\PowerShell\\7\\pwsh.exe",
-                "icon": "C:/Users/ewila/OneDrive/Documents/WindowsPowerShell/favicon.ico"
-            },
-            {
-                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-                "hidden": false,
-                "name": "Ubuntu",
-                "source": "Windows.Terminal.Wsl"
-            },
-            {
-                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-                "hidden": false,
-                "name": "PowerShell",
-                "source": "Windows.Terminal.PowershellCore"
-            }
-        ]
+  "$schema": "https://aka.ms/terminal-profiles-schema",
+  "defaultProfile": "{79285a8e-036c-446f-8a9c-78994e34bf78}",
+  "multiLinePasteWarning": false,
+  // You can add more global application settings here.
+  // To learn more about global settings, visit https://aka.ms/terminal-global-settings
+  // If enabled, selections are automatically copied to your clipboard.
+  "copyOnSelect": false,
+  // If enabled, formatted data is also copied to your clipboard
+  "copyFormatting": false,
+  "confirmCloseAllTabs": false,
+  // A profile specifies a command to execute paired with information about how it should look and feel.
+  // Each one of them will appear in the 'New Tab' dropdown,
+  //   and can be invoked from the commandline with `wt.exe -p xxx`
+  // To learn more about profiles, visit https://aka.ms/terminal-profile-settings
+  "profiles": {
+    "defaults": {
+      // Put settings here that you want to apply to all profiles.
+      "fontFace": "MesloLGM NF",
+      "colorScheme": "Konsole",
+      "acrylicOpacity": 0.8,
+      "backgroundImageOpacity": 0.7,
+      "backgroundImageStretchMode": "uniformToFill",
+      "closeOnExit": false,
+      "cursorHeight": 25,
+      "cursorShape": "vintage",
+      "fontSize": 12,
+      "historySize": 9001,
+      "padding": "8",
+      "snapOnInput": true,
+      "startingDirectory": "C:/workspace",
+      "useAcrylic": true
     },
-    // Add custom color schemes to this array.
-    // To learn more about color schemes, visit https://aka.ms/terminal-color-schemes
-    "schemes": [
-        {
-            "name": "Konsole",
-            //
-            "cursorColor": "#00FF00",
-            "selectionBackground": "#FFFFFF",
-            //
-            "background": "#000000",
-            "foreground": "#33FF00",
-            //
-            "black": "#2d3748",
-            "blue": "#3465A4",
-            "cyan": "#06989A",
-            "green": "#b6b6b6",
-            "purple": "#75507B",
-            "red": "#7a0000",
-            "white": "#fff",
-            "yellow": "#9c8000",
-            "brightBlack": "#fff",
-            "brightBlue": "#729FCF",
-            "brightCyan": "#34E2E2",
-            "brightGreen": "#8AE234",
-            "brightPurple": "#AD7FA8",
-            "brightRed": "#EF2929",
-            "brightWhite": "#b1b1b1",
-            "brightYellow": "#FCE94F"
-        }
-    ],
-    // Add custom actions and keybindings to this array.
-    // To unbind a key combination from your defaults.json, set the command to "unbound".
-    // To learn more about actions and keybindings, visit https://aka.ms/terminal-keybindings
-    "actions": [
-        // Copy and paste are bound to Ctrl+Shift+C and Ctrl+Shift+V in your defaults.json.
-        // These two lines additionally bind them to Ctrl+C and Ctrl+V.
-        // To learn more about selection, visit https://aka.ms/terminal-selection
-        {
-            "command": {
-                "action": "copy",
-                "singleLine": false
-            },
-            "keys": "ctrl+c"
-        },
-        {
-            "command": "paste",
-            "keys": "ctrl+v"
-        },
-        // Press Ctrl+Shift+F to open the search box
-        {
-            "command": "find",
-            "keys": "ctrl+shift+f"
-        },
-        // Press Alt+Shift+D to open a new pane.
-        // - "split": "auto" makes this pane open in the direction that provides the most surface area.
-        // - "splitMode": "duplicate" makes the new pane use the focused pane's profile.
-        // To learn more about panes, visit https://aka.ms/terminal-panes
-        {
-            "command": {
-                "action": "splitPane",
-                "split": "auto",
-                "splitMode": "duplicate"
-            },
-            "keys": "alt+shift+d"
-        },
-        {
-            "command": "closePane",
-            "keys": [
-                "ctrl+w"
-            ]
-        },
-        {
-            "command": "newTab",
-            "keys": [
-                "ctrl+t"
-            ]
-        }
+    "list": [
+      {
+        // Make changes here to the powershell.exe profile.
+        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+        "name": "Windows PowerShell",
+        "commandline": "powershell.exe",
+        "padding": "8",
+        "hidden": false
+      },
+      {
+        // Make changes here to the cmd.exe profile.
+        "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+        "name": "Invite de commandes",
+        "commandline": "cmd.exe",
+        "padding": "8",
+        "hidden": false
+      },
+      {
+        "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+        "hidden": false,
+        "name": "Azure Cloud Shell",
+        "source": "Windows.Terminal.Azure"
+      },
+      {
+        "guid": "{79285a8e-036c-446f-8a9c-78994e34bf78}",
+        "hidden": false,
+        "name": "Konsole",
+        // "commandline": "powershell.exe",
+        "commandline": "C:\\Program Files (x86)\\PowerShell\\7\\pwsh.exe",
+        "icon": "C:/Users/ewila/OneDrive/Documents/WindowsPowerShell/favicon.ico"
+      },
+      {
+        "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+        "hidden": false,
+        "name": "Ubuntu",
+        "source": "Windows.Terminal.Wsl"
+      },
+      {
+        "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+        "hidden": false,
+        "name": "PowerShell",
+        "source": "Windows.Terminal.PowershellCore"
+      }
     ]
+  },
+  // Add custom color schemes to this array.
+  // To learn more about color schemes, visit https://aka.ms/terminal-color-schemes
+  "schemes": [
+    {
+      "name": "Konsole",
+      //
+      "cursorColor": "#00FF00",
+      "selectionBackground": "#FFFFFF",
+      //
+      "background": "#000000",
+      "foreground": "#33FF00",
+      //
+      "black": "#2d3748",
+      "blue": "#3465A4",
+      "cyan": "#06989A",
+      "green": "#b6b6b6",
+      "purple": "#75507B",
+      "red": "#7a0000",
+      "white": "#fff",
+      "yellow": "#9c8000",
+      "brightBlack": "#fff",
+      "brightBlue": "#729FCF",
+      "brightCyan": "#34E2E2",
+      "brightGreen": "#8AE234",
+      "brightPurple": "#AD7FA8",
+      "brightRed": "#EF2929",
+      "brightWhite": "#b1b1b1",
+      "brightYellow": "#FCE94F"
+    }
+  ],
+  // Add custom actions and keybindings to this array.
+  // To unbind a key combination from your defaults.json, set the command to "unbound".
+  // To learn more about actions and keybindings, visit https://aka.ms/terminal-keybindings
+  "actions": [
+    // Copy and paste are bound to Ctrl+Shift+C and Ctrl+Shift+V in your defaults.json.
+    // These two lines additionally bind them to Ctrl+C and Ctrl+V.
+    // To learn more about selection, visit https://aka.ms/terminal-selection
+    {
+      "command": {
+        "action": "copy",
+        "singleLine": false
+      },
+      "keys": "ctrl+c"
+    },
+    {
+      "command": "paste",
+      "keys": "ctrl+v"
+    },
+    // Press Ctrl+Shift+F to open the search box
+    {
+      "command": "find",
+      "keys": "ctrl+shift+f"
+    },
+    // Press Alt+Shift+D to open a new pane.
+    // - "split": "auto" makes this pane open in the direction that provides the most surface area.
+    // - "splitMode": "duplicate" makes the new pane use the focused pane's profile.
+    // To learn more about panes, visit https://aka.ms/terminal-panes
+    {
+      "command": {
+        "action": "splitPane",
+        "split": "auto",
+        "splitMode": "duplicate"
+      },
+      "keys": "alt+shift+d"
+    },
+    {
+      "command": "closePane",
+      "keys": [
+        "ctrl+w"
+      ]
+    },
+    {
+      "command": "newTab",
+      "keys": [
+        "ctrl+t"
+      ]
+    }
+  ]
 }
 ```
 

@@ -112,8 +112,7 @@ For Nuxt 3, you have to add `client-only`.
   <span>
     <client-only>
       <component :is="currentIcon" :class="attrs.class" />
-      <template #fallback>
-      </template>
+      <template #fallback />
     </client-only>
   </span>
 </template>

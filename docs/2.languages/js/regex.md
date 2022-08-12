@@ -11,12 +11,12 @@ category: 'REGEX'
 function slugify(text) {
   if (text !== null && text !== undefined) {
     return text
-    .toString()
-    .toLowerCase()
-    .replace(/["']/i, '-')
-    .replace(/\s+/g, '-')
-    .normalize('NFD')
-    .replace(/[\u0300-\u036F]/g, '')
+      .toString()
+      .toLowerCase()
+      .replace(/["']/i, '-')
+      .replace(/\s+/g, '-')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036F]/g, '')
   }
 }
 ```
@@ -26,9 +26,9 @@ function slugify(text) {
 ```js
 const overflow = (text) => {
   let overflow = text.replace(/^(.{80}[^\s]*).*/, '$1')
-  if (text.length > 80) {
+  if (text.length > 80)
     overflow = `${overflow}...`
-  }
+
   return overflow
 }
 ```
@@ -53,7 +53,7 @@ With URL object
 ```js
 const getHostname = (url) => {
   // use URL constructor and return hostname
-  return new URL(url).hostname;
+  return new URL(url).hostname
 }
 ```
 
@@ -62,9 +62,9 @@ With REGEX
 ```js
 const getHostnameFromRegex = (url) => {
   // run against regex
-  const matches = url.match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i);
+  const matches = url.match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i)
   // extract hostname (will be null if no match is found)
-  return matches && matches[1];
+  return matches && matches[1]
 }
 ```
 
@@ -103,8 +103,8 @@ console.log(isEmailValid('d@d.o')) // false
  * \W => at least one special character
  * [a-zA-Z\d\W]{12,} => at least 12 characters with precedent regex
  */
-var regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[a-zA-Z\d\W]{12,}$/;
-if(regex.test(password)) {
-  // 
+const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])[a-zA-Z\d\W]{12,}$/
+if (regex.test(password)) {
+  //
 }
 ```
