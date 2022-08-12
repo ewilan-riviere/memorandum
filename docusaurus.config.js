@@ -10,7 +10,7 @@ const config = {
   tagline: 'Personal documentation',
   url: 'https://memorandum.ewilan-riviere.com',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
 

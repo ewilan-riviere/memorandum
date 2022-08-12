@@ -9,7 +9,7 @@ When you push some modifications on your repo, your server not update automatica
 
 > Drone project is designed by [**adr1enbe4udou1n**](https://github.com/adr1enbe4udou1n), I just clone his project, thanks to him!
 
-To watch **payloads**, we need to have a tool to receive it. It's goal of [**drone project**](https://gitlab.com/ewilan-riviere/drone), just clone it on your server, where you want, here I choose to clone it to `/home/jack/drone-manual`. It's NodeJS app, so use [PM2](/guides/server-nodejs-pm2.html) to manage it.
+To watch **payloads**, we need to have a tool to receive it. It's goal of [**drone project**](https://gitlab.com/ewilan-riviere/drone), just clone it on your server, where you want, here I choose to clone it to `/home/jack/drone-manual`. It's NodeJS app, so use **PM2** to manage it.
 
 Create drone with `git clone` in `~/`
 

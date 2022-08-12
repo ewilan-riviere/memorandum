@@ -135,7 +135,7 @@ sudo service nginx restart
 sudo service php7.4-fpm restart
 ```
 
-Check on phpinfo() if your config is correct. You can add this to `/var/www/html`, give it `phpinfo.php` name and acces to [**localhost/phpinfo.php**](localhost/phpinfo.php)
+Check on phpinfo() if your config is correct. You can add this to `/var/www/html`, give it `phpinfo.php` name and acces to <http://localhost/phpinfo.php>
 
 ```bash
 <?php

@@ -24,7 +24,6 @@ deploy-job:
     - ssh $SSH_USER@$SSH_IP "
       source /home/ewilan/.nvm/nvm.sh &&
       nvm use $NODE_VERSION &&
-      node -v &&
       cd /home/ewilan/www/$CI_PROJECT_NAME &&
       git pull &&
       /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm i &&

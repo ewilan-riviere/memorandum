@@ -89,7 +89,7 @@ exit
 
 ## Add packages
 
-Check [**Linux guide**](/devops/operating-systems/linux/setup).
+Check **Linux guide**.
 
 ## MOTD
 

@@ -5,11 +5,11 @@ description: Create VHosts on Windows
 
 ## PHP
 
-If you want to create a PHP VHost, you have to install PHP service with NSSM, check [PHP on Windows article](/3.operating-systems/windows/5.php-article). Here, we assume you installed PHP with NSSM.
+If you want to create a PHP VHost, you have to install PHP service with NSSM, check **PHP on Windows article**. Here, we assume you installed PHP with NSSM.
 
 ## NGINX
 
-If you want to create a VHost, you have to install NGINX service with NSSM, check [MySQL & NGINX on Windows article](/3.operating-systems/windows/4.mysql-nginx-article). Here, we assume you installed NGINX with NSSM.
+If you want to create a VHost, you have to install NGINX service with NSSM, check **MySQL & NGINX on Windows article**. Here, we assume you installed NGINX with NSSM.
 
 ## Create VHost
 

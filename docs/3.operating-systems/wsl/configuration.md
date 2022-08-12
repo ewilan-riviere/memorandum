@@ -4,4 +4,4 @@ description: 'Configuration for your new distro'
 position: 6
 ---
 
-Check [**Linux configuration guide**](/devops/operating-systems/linux/setup).
+Check **Linux configuration guide**.

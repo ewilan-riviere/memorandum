@@ -4,7 +4,7 @@ description: Manage toasts with Vue 3 / Nuxt 3
 ---
 
 ::alert{type=info}
-This guide use Pinia as store [**pinia.vuejs.org**](https://pinia.vuejs.org) and SVG icons use [**vite-svg-loader**](https://github.com/jpkleemans/vite-svg-loader), you can use [**SVG guide for Vue 3**](/1.frameworks/vue/vue-3/toasts-article) to install it.
+This guide use Pinia as store [**pinia.vuejs.org**](https://pinia.vuejs.org) and SVG icons use [**vite-svg-loader**](https://github.com/jpkleemans/vite-svg-loader), you can use [**SVG guide for Vue 3**](/docs/frameworks/vue/vue-3/toasts) to install it.
 ::
 
 ## Create store

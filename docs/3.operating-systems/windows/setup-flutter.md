@@ -34,6 +34,6 @@ flutter doctor --android-licenses
 
 **Multiple versions**  
 
-If you want to use multiple versions of Flutter, you can use FVM, check this guide : [**Flutter: multiples versions**](documentation/developement/frameworks/flutter)
+If you want to use multiple versions of Flutter, you can use FVM, check this guide : **Flutter: multiples versions**
 
 ::
