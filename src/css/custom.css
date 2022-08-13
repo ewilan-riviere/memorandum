@@ -28,3 +28,7 @@
   --ifm-color-primary-lightest: #c4c1ff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+pre {
+  max-height: 32rem;
+}

@@ -41,6 +41,14 @@ Example to change to vim editor
 git config --global core.editor "vim"
 ```
 
+## Auto setup remote
+
+From <https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushautoSetupRemote>
+
+```bash
+git config --global push.autoSetupRemote true
+```
+
 ## Erase a branch with another
 
 Erase a branch with another

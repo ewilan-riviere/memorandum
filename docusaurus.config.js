@@ -86,6 +86,7 @@ const config = {
           },
           { to: '/docs/commands', label: 'Commands', position: 'left' },
           { to: '/docs/links', label: 'Links', position: 'left' },
+          { to: '/docs/configs', label: 'Configs', position: 'left' },
           { to: '/blog', label: 'Blog', position: 'left' },
           {
             href: 'https://github.com/ewilan-riviere/memorandum',
@@ -140,8 +141,8 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Memorandum, Inc. Built with Docusaurus.`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: require('prism-react-renderer/themes/nightOwl'),
+        darkTheme: require('prism-react-renderer/themes/nightOwl'),
       },
     }),
 }
