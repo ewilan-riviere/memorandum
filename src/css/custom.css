@@ -32,3 +32,10 @@
 pre {
   max-height: 32rem;
 }
+
+.hero-memorandum {
+  width: 100%;
+  height: 30rem;
+  object-fit: contain;
+  border-radius: 0.25rem;
+}

@@ -52,14 +52,14 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://gitlab.com/ewilan-riviere/memorandum/-/tree/main/',
+            'https://github.com/ewilan-riviere/memorandum/-/tree/main/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://gitlab.com/ewilan-riviere/memorandum/-/tree/main/',
+            'https://github.com/ewilan-riviere/memorandum/-/tree/main/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -87,7 +87,7 @@ const config = {
           { to: '/docs/commands', label: 'Commands', position: 'left' },
           { to: '/docs/links', label: 'Links', position: 'left' },
           { to: '/docs/configs', label: 'Configs', position: 'left' },
-          { to: '/blog', label: 'Blog', position: 'left' },
+          // { to: '/blog', label: 'Blog', position: 'left' },
           {
             href: 'https://github.com/ewilan-riviere/memorandum',
             label: 'GitHub',
@@ -138,11 +138,13 @@ const config = {
         //     ],
         //   },
         // ],
-        copyright: `Copyright © ${new Date().getFullYear()} Memorandum, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Memorandum. Built with Docusaurus.`,
       },
       prism: {
         theme: require('prism-react-renderer/themes/nightOwl'),
         darkTheme: require('prism-react-renderer/themes/nightOwl'),
+        // restart manually to apply changes
+        additionalLanguages: ['php'],
       },
     }),
 }
