@@ -7,8 +7,7 @@ stages:
   - deploy
 
 variables:
-  NODE_VERSION: '16.15.0'
-  PHP_VERSION: '8.1'
+  NODE_VERSION: '16.16.0'
 
 deploy-job:
   stage: deploy
@@ -23,16 +22,12 @@ deploy-job:
     - chmod 644 ~/.ssh/known_hosts
   script:
     - ssh $SSH_USER@$SSH_IP "
+      source /home/ewilan/.nvm/nvm.sh &&
+      nvm use $NODE_VERSION &&
       cd /home/ewilan/www/$CI_PROJECT_NAME &&
       git pull &&
-      /usr/bin/php$PHP_VERSION /usr/local/bin/composer install &&
-      php$PHP_VERSION artisan optimize &&
-      /usr/bin/php$PHP_VERSION /usr/local/bin/composer dump-autoload &&
-      php$PHP_VERSION artisan config:cache &&
-      php$PHP_VERSION artisan cache:clear &&
-      php$PHP_VERSION artisan memorandum &&
-      /usr/bin/php$PHP_VERSION /usr/local/bin/composer install --no-dev &&
       /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm i &&
+      node -v &&
       /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm build &&
       discord-queerotronic.sh '$CI_PROJECT_TITLE'"
   only:

@@ -1,19 +1,27 @@
 # Memorandum
 
-## Packages
+[![docusaurus](https://img.shields.io/static/v1?label=Docusaurus&message=v2.x&color=25c2a0&style=flat-square&logo=react&logoColor=ffffff)](https://docusaurus.io)
+[![react](https://img.shields.io/static/v1?label=React&message=v17.x&color=61DAFB&style=flat-square&logo=react&logoColor=ffffff)](https://reactjs.org)
 
-- <https://github.com/erusev/parsedown>
-- <https://github.com/michelf/php-markdown>
-- <https://github.com/GrahamCampbell/Laravel-Markdown>
+[![node](https://img.shields.io/static/v1?label=NodeJS&message=v16.16.x&color=339933&style=flat-square&logo=node.js&logoColor=ffffff)](https://nodejs.org/en)
+[![pnpm](https://img.shields.io/static/v1?label=pnpm&message=v7.x&color=F69220&style=flat-square&logo=pnpm&logoColor=ffffff)](https://pnpm.io)
 
-## Highlight
+> Personal documentation.
 
-- <https://torchlight.dev/docs/clients/laravel>
+Deploy on [memorandum.ewilan-riviere.com](https://memorandum.ewilan-riviere.com), built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
-## Commonmark
+## Setup
 
-- <https://github.com/thephpleague/commonmark/issues/606>
-- <https://github.com/thephpleague/commonmark/issues/504>
-- <https://github.com/thephpleague/commonmark/issues/611>
-- <https://github.com/thephpleague/commonmark/issues/594>
-- <https://packagist.org/packages/league/commonmark?type=commonmark-extension>
+```
+pnpm i
+```
+
+```
+pnpm start
+```
+
+### Build
+
+```
+pnpm build
+```
