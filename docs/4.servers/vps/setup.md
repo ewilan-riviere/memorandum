@@ -136,6 +136,7 @@ sudo vim /etc/update-motd.d/00-hostname
 
 printf "\n"$LIGHT_RED
 figlet "  "$(hostname -s)
+# figlet "server name"
 printf $NONE
 printf "\n"
 ```
@@ -165,31 +166,56 @@ sudo vim /etc/update-motd.d/20-sysinfo
 ```bash[/etc/update-motd.d/20-sysinfo]
 #!/bin/sh
 
-upSeconds="$(/usr/bin/cut -d. -f1 /proc/uptime)"
-secs=$((${upSeconds}%60))
-mins=$((${upSeconds}/60%60))
-hours=$((${upSeconds}/3600%24))
-days=$((${upSeconds}/86400))
-UPTIME=`printf "%d days, %02dh%02dm%02ds" "$days" "$hours" "$mins" "$secs"`
-proc=`(echo $(more /proc/cpuinfo | grep processor | wc -l ) "x" $(more /proc/cpuinfo | grep 'model name' | uniq |awk -F":"  '{print $2}') )`
+# Simple system performance counter retriever
+
+# current date
+date=`date`
+ 
+# current cpu load
+cpu_load=`cat /proc/loadavg | awk '{print $1*100 "%"}'`
+ 
+# used memory
+memory_usage=`free | awk '/Mem/{printf("%.2f%"), $3/$2*100}'`
 memfree=`cat /proc/meminfo | grep MemFree | awk {'print $2'}`
 memtotal=`cat /proc/meminfo | grep MemTotal | awk {'print $2'}`
-uptime=`uptime -p`
-addrip=`hostname -I | cut -d " " -f1`
-# Récupérer le loadavg
-read one five fifteen rest < /proc/loadavg
+
+# used swap memory
+# swap_usage=`free -m | awk '($1=="Swap:"){swapTotal=$2; swapUsed=$3} END{printf "%.1f%%", swapUsed/swapTotal * 100}'`
+ 
+# used disk space
+disk_usage=`df -h | awk '{if($(NF) == "/") {print $(NF-1); exit;}}'`
+disk_available=`df --output=avail -h "$PWD" | sed '1d;s/[^0-9]//g'`
+disk_used=`df --output=used -h "$PWD" | sed '1d;s/[^0-9]//g'`
+disk_total=`df --output=size -h "$PWD" | sed '1d;s/[^0-9]//g'`
+ 
+# number of open user sessions
+user_sessions=`users | wc -l`
+ 
+# system uptime
+sys_uptime=`uptime | awk '{print $3 " " $4}' | sed s'/.$//'`
+ 
+# running processes
+running_processes=`ps aux | wc -l`
+
+ip_address_v4=`ip a | grep glo | awk '{print $2}' | head -1 | cut -f1 -d/`
+ip_address_v6=`wget -q -O - http://icanhazip.com/ | tail`
+
+COLOR_DEFAULT="\033[0m"
+COLOR_INFO="\033[0;37m"
+LIGHT_RED="\033[1;31m"
 
 printf "\n"
 printf "\n"
-printf "Uptime.............: ${uptime}"
-printf "\n"
-printf "Memory.............: $(($memfree/1024))MB used / $(($memtotal/1024))MB"
-printf "\n"
-printf "Load Averages......: ${one}, ${five}, ${fifteen} (1, 5, 15 min)"
-printf "\n"
-printf "Running Processes..: `ps ax | wc -l | tr -d " "`"
-printf "\n"
-printf "IP Addresses.......: v4 `ip a | grep glo | awk '{print $2}' | head -1 | cut -f1 -d/`, v6 `wget -q -O - http://icanhazip.com/ | tail`"
+printf "${COLOR_INFO}CPU Usage         - ${LIGHT_RED} %s\n" "${cpu_load}"
+printf "${COLOR_INFO}Memory Usage      - ${LIGHT_RED} %s\n" "${memory_usage}"
+printf "${COLOR_INFO}Memory info       - ${LIGHT_RED} %s\n" "$(($memfree/1024)) MB/$(($memtotal/1024)) MB"
+printf "${COLOR_INFO}System Uptime     - ${LIGHT_RED} %s\n" "${sys_uptime}"
+printf "${COLOR_INFO}Total Disk Usage  - ${LIGHT_RED} %s\n" "${disk_usage}"
+printf "${COLOR_INFO}Disk info         - ${LIGHT_RED} %s\n" "${disk_used} G/${disk_total} G"
+printf "${COLOR_INFO}Running Processes - ${LIGHT_RED} %s\n" "${running_processes}"
+printf "${COLOR_INFO}IP address v4     - ${LIGHT_RED} %s\n" "${ip_address_v4}"
+printf "${COLOR_INFO}IP address v6     - ${LIGHT_RED} %s\n" "${ip_address_v6}"
+printf "${COLOR_DEFAULT}"
 ```
 
 ### Enable it
