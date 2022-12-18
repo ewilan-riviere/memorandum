@@ -7,7 +7,7 @@ stages:
   - deploy
 
 variables:
-  NODE_VERSION: '16.16.0'
+  NODE_VERSION: '18.12.1'
 
 deploy-job:
   stage: deploy
@@ -27,8 +27,7 @@ deploy-job:
       cd /home/ewilan/www/$CI_PROJECT_NAME &&
       git pull &&
       /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm i &&
-      node -v &&
-      /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm build &&
+      /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm generate &&
       discord-queerotronic.sh '$CI_PROJECT_TITLE'"
   only:
     - main
