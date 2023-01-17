@@ -1,8 +1,8 @@
 ---
 title: Setup Flutter
-description: 'How to setup Flutter on Windows'
+description: "How to setup Flutter on Windows"
 position: 8
-category: 'Flutter'
+category: "Flutter"
 ---
 
 ## Flutter
@@ -19,7 +19,15 @@ This guide will install **Android Studio** with Flutter
 ## 1. Installation
 
 ```bash
-scoop install android-studio ; scoop bucket add java ; scoop bucket add extras ; scoop install flutter ; flutter upgrade --force
+scoop install android-studio
+scoop bucket add java
+scoop bucket add extras
+scoop install openjdk15
+```
+
+```bash
+scoop install flutter
+flutter upgrade --force
 ```
 
 ```bash
@@ -32,7 +40,7 @@ flutter doctor --android-licenses
 
 ::alert{type="info"}
 
-**Multiple versions**  
+**Multiple versions**
 
 If you want to use multiple versions of Flutter, you can use FVM, check this guide : **Flutter: multiples versions**
 
