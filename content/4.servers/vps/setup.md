@@ -1,8 +1,8 @@
 ---
 title: "Setup VPS"
-description: 'Additional steps to setup a VPS on Linux'
+description: "Additional steps to setup a VPS on Linux"
 position: 2
-category: 'vps'
+category: "vps"
 ---
 
 ::alert{type="warning"}>
@@ -38,7 +38,7 @@ apt update ; apt upgrade ; adduser jack ; usermod -aG sudo jack
 sudo apt install -y ufw vim ; sudo ufw app list ; sudo ufw allow OpenSSH ; sudo ufw enable ; sudo ufw status
 ```
 
-### Copy SSH keys from *root* to *jack*
+### Copy SSH keys from _root_ to _jack_
 
 ```bash
 mkdir /home/jack/.ssh/ ; cp /root/.ssh/authorized_keys /home/jack/.ssh/ ; chown -R jack:jack /home/jack/.ssh/ ; chmod -R 700 /home/jack/.ssh/
@@ -170,10 +170,10 @@ sudo vim /etc/update-motd.d/20-sysinfo
 
 # current date
 date=`date`
- 
+
 # current cpu load
 cpu_load=`cat /proc/loadavg | awk '{print $1*100 "%"}'`
- 
+
 # used memory
 memory_usage=`free | awk '/Mem/{printf("%.2f%"), $3/$2*100}'`
 memfree=`cat /proc/meminfo | grep MemFree | awk {'print $2'}`
@@ -181,19 +181,19 @@ memtotal=`cat /proc/meminfo | grep MemTotal | awk {'print $2'}`
 
 # used swap memory
 # swap_usage=`free -m | awk '($1=="Swap:"){swapTotal=$2; swapUsed=$3} END{printf "%.1f%%", swapUsed/swapTotal * 100}'`
- 
+
 # used disk space
 disk_usage=`df -h | awk '{if($(NF) == "/") {print $(NF-1); exit;}}'`
 disk_available=`df --output=avail -h "$PWD" | sed '1d;s/[^0-9]//g'`
 disk_used=`df --output=used -h "$PWD" | sed '1d;s/[^0-9]//g'`
 disk_total=`df --output=size -h "$PWD" | sed '1d;s/[^0-9]//g'`
- 
+
 # number of open user sessions
 user_sessions=`users | wc -l`
- 
+
 # system uptime
 sys_uptime=`uptime | awk '{print $3 " " $4}' | sed s'/.$//'`
- 
+
 # running processes
 running_processes=`ps aux | wc -l`
 
@@ -206,15 +206,19 @@ LIGHT_RED="\033[1;31m"
 
 printf "\n"
 printf "\n"
-printf "${COLOR_INFO}CPU Usage         - ${LIGHT_RED} %s\n" "${cpu_load}"
-printf "${COLOR_INFO}Memory Usage      - ${LIGHT_RED} %s\n" "${memory_usage}"
-printf "${COLOR_INFO}Memory info       - ${LIGHT_RED} %s\n" "$(($memfree/1024)) MB/$(($memtotal/1024)) MB"
-printf "${COLOR_INFO}System Uptime     - ${LIGHT_RED} %s\n" "${sys_uptime}"
-printf "${COLOR_INFO}Total Disk Usage  - ${LIGHT_RED} %s\n" "${disk_usage}"
-printf "${COLOR_INFO}Disk info         - ${LIGHT_RED} %s\n" "${disk_used}/${disk_total} Go"
-printf "${COLOR_INFO}Running Processes - ${LIGHT_RED} %s\n" "${running_processes}"
-printf "${COLOR_INFO}IP address v4     - ${LIGHT_RED} %s\n" "${ip_address_v4}"
-printf "${COLOR_INFO}IP address v6     - ${LIGHT_RED} %s\n" "${ip_address_v6}"
+printf "${COLOR_INFO}System Uptime     ${LIGHT_RED} %s\n" "${sys_uptime}"
+printf "\n"
+printf "${COLOR_INFO}CPU Usage         ${LIGHT_RED} %s\n" "${cpu_load}"
+printf "${COLOR_INFO}Running Processes ${LIGHT_RED} %s\n" "${running_processes}"
+printf "\n"
+printf "${COLOR_INFO}Memory Usage      ${LIGHT_RED} %s\n" "${memory_usage}"
+printf "${COLOR_INFO}Memory info       ${LIGHT_RED} %s\n" "$(($memfree/1024)) / $(($memtotal/1024)) MB"
+printf "\n"
+printf "${COLOR_INFO}Total Disk Usage  ${LIGHT_RED} %s\n" "${disk_usage}"
+printf "${COLOR_INFO}Disk info         ${LIGHT_RED} %s\n" "${disk_used} / ${disk_total} GB"
+printf "\n"
+printf "${COLOR_INFO}IP address v4     ${LIGHT_RED} %s\n" "${ip_address_v4}"
+printf "${COLOR_INFO}IP address v6     ${LIGHT_RED} %s\n" "${ip_address_v6}"
 printf "${COLOR_DEFAULT}"
 ```
 
