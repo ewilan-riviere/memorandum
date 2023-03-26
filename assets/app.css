@@ -4,6 +4,9 @@
 img {
   border-radius: 0.375rem;
 }
+.section.center {
+  z-index: 250;
+}
 
 .alert .alert-content .prose-code pre code {
   background-color: transparent !important;
