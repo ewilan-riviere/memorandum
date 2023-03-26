@@ -1,10 +1,8 @@
 # Memorandum
 
-[![nuxtjs](https://img.shields.io/static/v1?label=Nuxt&message=v3.x&color=00DC82&style=flat-square&logo=nuxt.js&logoColor=ffffff)](https://nuxt.com/)
-[![docus](https://img.shields.io/static/v1?label=Docus&message=v1.x&color=00DC82&style=flat-square&logo=nuxt.js&logoColor=ffffff)](https://docus.dev/)
-
-[![node](https://img.shields.io/static/v1?label=NodeJS&message=v18.x&color=339933&style=flat-square&logo=node.js&logoColor=ffffff)](https://nodejs.org/en)
-[![pnpm](https://img.shields.io/static/v1?label=pnpm&message=v7.x&color=F69220&style=flat-square&logo=pnpm&logoColor=ffffff)](https://pnpm.io)
+[![nuxt][nuxt-version-src]][nuxt-version-href]
+[![docus][docus-src]][docus-href]
+[![node][node-src]][node-href]
 
 > Personal documentation.
 
@@ -52,3 +50,10 @@ pnpm preview
 ---
 
 For a detailed explanation of how things work, check out [Docus](https://docus.dev).
+
+[nuxt-version-src]: https://img.shields.io/static/v1?style=flat-square&label=Nuxt&message=v3.x&color=00DC82&logo=nuxt.js&logoColor=ffffff&labelColor=18181b
+[nuxt-version-href]: https://nuxt.com/
+[docus-src]: https://img.shields.io/static/v1?style=flat-square&label=Docus&message=v1.x&color=00DC82&logoColor=ffffff&labelColor=18181b
+[docus-href]: https://packagist.org/packages/kiwilan/php-archive
+[node-src]: https://img.shields.io/static/v1?style=flat-square&label=Node.js&message=v18.x&color=00DC82&logoColor=ffffff&labelColor=18181b
+[node-href]: https://nodejs.org/en
