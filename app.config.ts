@@ -2,7 +2,7 @@ export default defineAppConfig({
   docus: {
     title: 'Memorandum',
     description: 'The best place to start your documentation.',
-    image: '/images/default.jpg',
+    image: 'https://raw.githubusercontent.com/ewilan-riviere/memorandum/main/public/images/default.jpg',
     socials: {
       twitter: 'ewilanriviere',
       github: 'ewilan-riviere/memorandum',
@@ -10,20 +10,20 @@ export default defineAppConfig({
     aside: {
       level: 1,
       collapsed: true,
-      exclude: []
+      exclude: [],
     },
     header: {
       logo: true,
       showLinkIcon: true,
-      exclude: []
+      exclude: [],
     },
     footer: {
       iconLinks: [
         {
           href: 'https://nuxt.com',
-          icon: 'IconNuxtLabs'
-        }
-      ]
-    }
-  }
+          icon: 'simple-icons:nuxtdotjs',
+        },
+      ],
+    },
+  },
 })

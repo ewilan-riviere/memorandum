@@ -52,4 +52,3 @@ pnpm preview
 ---
 
 For a detailed explanation of how things work, check out [Docus](https://docus.dev).
-

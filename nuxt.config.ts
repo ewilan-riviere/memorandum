@@ -1,8 +1,11 @@
 export default defineNuxtConfig({
+  css: [
+    'assets/app.css',
+  ],
   content: {
     highlight: {
-      preload: ['diff', 'json', 'js', 'ts', 'css', 'shell', 'html', 'md', 'yaml', 'php']
-    }
+      preload: ['diff', 'json', 'js', 'ts', 'css', 'shell', 'html', 'md', 'yaml', 'php'],
+    },
   },
-  extends: '@nuxt-themes/docus'
+  extends: '@nuxt-themes/docus',
 })

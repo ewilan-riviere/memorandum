@@ -1,0 +1,14 @@
+.page-body {
+  min-height: 70vh;
+}
+img {
+  border-radius: 0.375rem;
+}
+
+.alert .alert-content .prose-code pre code {
+  background-color: transparent !important;
+}
+
+.callout .content .prose-code pre code {
+  background-color: transparent !important;
+}
