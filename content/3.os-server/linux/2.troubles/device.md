@@ -1,37 +1,8 @@
 ---
-title: Errors
+title: Device
 ---
 
-# Errors
-
-## Paths errors
-
-Add this to /home/$USER/.zshrc
-
-```bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] ; \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] ; \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export PATH="$PATH:$(yarn global bin)"
-export PATH=~/.config/composer/vendor/bin:$PATH
-```
-
-## Locale error
-
-Add this to `.zshrc` or similar
-
-```bash
-export LC_ALL="en_US.UTF-8"
-export LANG="en_US.UTF-8"
-export LANGUAGE="en_US.UTF-8"
-```
-
-```bash
-source ~/.zshrc
-locale
-```
-
-## Troubles
+# Troubles with device
 
 - Prepare boot useb key with Rufus on Windows, just use windows.iso
 - Install Windows
@@ -47,7 +18,7 @@ locale
 - Restart your PC once more and this time it will boot up normally but with AHCI mode activated.
 ::
 
-Machine: Dell 15 5584
+## Machine: Dell 15 5584
 
 - Delete any program for Intel Storage Rapid
 - Right click on Windows logo, choose execute, type `msconfig`
@@ -57,7 +28,7 @@ Machine: Dell 15 5584
 - On Windows, you can login with password of Microsoft account (and not with secret code). If you have problems, keep _shift_ and select _reboot_ at the bottom right to trigger safe mode options
 - When you are login, disable safe mode and reboot, your system will be repaired now!
 
-With MSI XPG X570 motherboard
+## With MSI XPG X570 motherboard
 
 - make sure in UEFI settings to select USB key to boot on it
 - install linux (keep uefi install on nvme, choose any disk for root)

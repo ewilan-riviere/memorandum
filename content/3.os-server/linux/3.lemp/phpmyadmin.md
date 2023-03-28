@@ -104,6 +104,27 @@ And phpMyAdmin is available on [**http://localhost/phpmyadmin**](http://localhos
 
 You can connect to phpMyAdmin with MySQL informations, so basically if you follow **LEMP MySQL** steps, you can use `root` as *username* and `password` as *password* if you not setup a high level of security. It's better to use a custom user to connect to phpMyAdmin for security reasons (because `root` have ALL rights and it's better to disable `root` connection).
 
+## Disable `root` for phpMyAdmin
+
+Open phpMyAdmin config
+
+```bash
+sudo vim /usr/share/phpmyadmin/config.inc.php
+```
+
+Find `$cfg['Servers'][$i]['auth_type'] = 'cookie';` line and add this line `$cfg['Servers'][$i]['AllowRoot'] = FALSE;`
+
+```php [/usr/share/phpmyadmin/config.inc.php]
+if (!empty($dbname)) {
+  /* Authentication type */
+  $cfg['Servers'][$i]['auth_type'] = 'cookie';
+  $cfg['Servers'][$i]['AllowRoot'] = FALSE; // add this line
+  // ...
+}
+```
+
+Now `root` user is forbidden with phpMyadmin but allowed with MySQL CLI.
+
 ## Fix phpMyAdmin errors
 
 You can have some errors when you use phpMyAdmin, search here if your error exist below.
