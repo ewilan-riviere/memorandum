@@ -18,10 +18,10 @@ Add user to sudoers
 usermod -aG sudo username
 ```
 
-Add user to sudoers without password
+Add user to sudoers
 
 ```bash
-echo "username  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/username
+echo "username  ALL=(ALL:ALL) ALL" | sudo tee /etc/sudoers.d/username
 ```
 
 Disconnect and reconnect to apply changes
