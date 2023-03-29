@@ -1,7 +1,6 @@
 ---
 title: Node.js
 description: "Install Node.js and NPM on Windows"
-position: 1
 ---
 
 # Node.js
@@ -34,14 +33,6 @@ Use new version
 
 ```bash
 nvm use 18.15.0
-```
-
-## Install your CLI
-
-Now you can install your CLI like `yarn`
-
-```bash
-npm i -g yarn
 ```
 
 ## Error npm update

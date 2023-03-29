@@ -7,11 +7,11 @@ description: 'Some tips for Windows'
 
 From <https://github.com/thebookisclosed/ViVe> and <https://pureinfotech.com/enable-tabs-file-explorer-windows-11>
 
-:::danger Windows update
-
+::alert{type="warning"}
+Windows update
+>
 You have to use Windows 11 22H2 or later
-
-:::
+::
 
 ```bash
 scoop install vivetool

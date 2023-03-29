@@ -31,11 +31,11 @@ scoop install openjdk
 
 In Windows environement variables, scoop add some variables.
 
-```
+```ps1
 JAVA_HOME => C:\Users\USERNAME\scoop\apps\openjdk\current
 ```
 
-```
+```ps1
 Path => [
     C:\Users\USERNAME\scoop\apps\openjdk\current\bin
 ]

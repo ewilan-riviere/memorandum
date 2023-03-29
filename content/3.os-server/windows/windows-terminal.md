@@ -1,14 +1,11 @@
 ---
 title: Windows terminal
 description: 'A nice terminal on Windows'
-position: 2
-category: 'Windows'
 ---
 
 # Windows terminal
 
 ::alert{type="warning"}
-
 **scoop is necessary**
 >
 You will need to have **scoop** to install Windows terminal, if you don't install it, check this guide: **scoop**.
@@ -34,17 +31,20 @@ Windows terminal is a recent terminal for Windows, by Microsoft.
 You can easily install it with **scoop** (from *bucket extras*). You can install it from **Windows Store** instead, if you like it.
 
 ```powershell [PowerShell]
-sudo scoop install windows-terminal
+scoop install windows-terminal
 ```
 
 You will find Windows Terminal in startup menu, launch it and you will see the new terminal, click on <kbd>⌵</kbd> and select **Settings** (<kbd>Ctrl</kbd> + <kbd>,</kbd>), this will open JSON configuration. Any update will be applied directly.
 
-
-::callout
-#summary
+::alert{type="info"}
 Here it's just an example, check [**official documentation**](https://docs.microsoft.com/fr-fr/windows/terminal/) if you want to know more about Windows terminal configuration.
 
 This example will give you a terminal with black background, green font and two shortcuts: <kbd>Ctrl</kbd> + <kbd>W</kbd> to close tab and <kbd>Ctrl</kbd> + <kbd>T</kbd> to open new tab.
+::
+
+::callout
+#summary
+Terminal configuration example
 #content
 ```json
 // ...
@@ -74,7 +74,6 @@ This example will give you a terminal with black background, green font and two 
         "cursorShape": "vintage",
         "fontFace": "Fira Code",
         "fontSize": 12,
-        "icon": "C:/Users/username/Documents/WindowsPowerShell/icon.ico",
         "historySize": 9001,
         "padding": "0, 0, 0, 0",
         "snapOnInput": true,

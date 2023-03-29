@@ -1,5 +1,5 @@
 ---
-title: Setup Flutter
+title: Flutter
 description: "How to setup Flutter on Windows"
 position: 8
 category: "Flutter"
