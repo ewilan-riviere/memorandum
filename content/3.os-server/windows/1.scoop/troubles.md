@@ -6,7 +6,7 @@ title: Troubles
 
 ## scoop udpdate: fast-forward not possible
 
-```bash
+```powershell [PowerShell]
 cd C:\Users\USERNAME\scoop\bucket\main
 ```
 

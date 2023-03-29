@@ -5,10 +5,10 @@ description: How to setup PHP on Windows with multiple versions
 
 # PHP
 
-::alert{type="warning"} scoop is necessary
-
-You can manage multiple versions of PHP on same machine with **scoop**, if you don't install it, check this guide: [**scoop**](/docs/operating-systems/windows/scoop)
-
+::alert{type="warning"}
+**scoop is necessary**
+>
+You can manage multiple versions of PHP on same machine with **scoop**, if you don't install it, check this guide: [**scoop**](/os-server/windows/scoop/install)
 ::
 
 ## Install multiple PHP versions

@@ -6,12 +6,10 @@ position: 1
 
 # Node.js
 
-## Setup
-
-::alert{type="warning"} scoop is necessary
-
-For this guide, you will need to have **scoop** installed, if you don't install it, check this guide: [**scoop**](/docs/operating-systems/windows/scoop)
-
+::alert{type="warning"}
+**scoop is necessary**
+>
+You can manage multiple versions of PHP on same machine with **scoop**, if you don't install it, check this guide: [**scoop**](/os-server/windows/scoop/install)
 ::
 
 Install [**NVM**](https://github.com/coreybutler/nvm-windows)

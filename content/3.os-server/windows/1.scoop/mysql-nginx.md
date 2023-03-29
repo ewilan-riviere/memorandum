@@ -7,10 +7,10 @@ category: 'Windows'
 
 # MySQL & NGINX
 
-::alert{type="warning"} scoop is necessary
-
-For this guide, you will need to have **scoop** installed, if you don't install it, check this guide: **scoop**.
-
+::alert{type="warning"}
+**scoop is necessary**
+>
+You can manage multiple versions of PHP on same machine with **scoop**, if you don't install it, check this guide: [**scoop**](/os-server/windows/scoop/install)
 ::
 
 ## MySQL
