@@ -27,6 +27,6 @@ deploy-job:
       git pull &&
       /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm i &&
       /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm generate &&
-      notify main '$CI_PROJECT_TITLE'"
+      notify main '$CI_PROJECT_TITLE deployed'"
   only:
     - main
