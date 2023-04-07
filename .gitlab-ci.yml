@@ -11,22 +11,9 @@ variables:
 
 deploy-job:
   stage: deploy
-  image: alpine:latest
-  before_script:
-    - "command -v ssh-agent >/dev/null || ( apk add --update openssh )"
-    - eval $(ssh-agent -s)
-    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
-    - mkdir -p ~/.ssh
-    - chmod 700 ~/.ssh
-    - ssh-keyscan $SSH_IP >> ~/.ssh/known_hosts
-    - chmod 644 ~/.ssh/known_hosts
+  image: php:8.2-cli
   script:
-    - ssh $SSH_USER@$SSH_IP "
-      . ~/.zshrc &&
-      cd /home/ewilan/www/$CI_PROJECT_NAME &&
-      git pull &&
-      /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm i &&
-      /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm generate &&
-      notify main '$CI_PROJECT_TITLE deployed'"
+    - echo "Deploying to production"
+    - php -v
   only:
     - main
