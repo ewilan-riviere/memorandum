@@ -110,4 +110,9 @@ sudo certbot --nginx
 ```
 
 Now you have to create a MySQL matomo user and database. Go to **matomo.example.com** and setup Matomo with guide.
-w
+
+## Update
+
+```bash
+sudo chmod 777 /home/user/www/matomo
+```
