@@ -1,8 +1,6 @@
 ---
-title: Install
-description: 'How to setup Matomo'
-position: 3
-category: 'SEO'
+title: Install Matomo
+description: How to setup Matomo
 ---
 
 # Install Matomo
