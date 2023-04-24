@@ -251,6 +251,26 @@ EOF
 }
 ```
 
+## Backup
+
+From [spatie/laravel-backup](https://spatie.be/docs/laravel-backup)
+
+```bash
+composer require spatie/laravel-backup
+```
+
+```bash
+php artisan vendor:publish --provider="Spatie\Backup\BackupServiceProvider"
+```
+
+```php title="app/Console/Kernel.php"
+protected function schedule(Schedule $schedule)
+{
+   $schedule->command('backup:clean')->daily()->at('01:00');
+   $schedule->command('backup:run')->daily()->at('01:30');
+}
+```
+
 ## After install
 
 ```bash
