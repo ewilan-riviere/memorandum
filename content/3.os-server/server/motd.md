@@ -24,7 +24,7 @@ sudo chmod 644 /update-motd.d
 sudo vim /etc/update-motd.d/colors
 ```
 
-```bash[/etc/update-motd.d/colors]
+```bash [/etc/update-motd.d/colors]
 NONE="\033[m"
 WHITE="\033[1;37m"
 GREEN="\033[1;32m"
@@ -42,7 +42,7 @@ LIGHT_RED="\033[1;31m"
 sudo vim /etc/update-motd.d/00-hostname
 ```
 
-```bash[/etc/update-motd.d/00-hostname]
+```bash [/etc/update-motd.d/00-hostname]
 #!/bin/sh
 
 . /etc/update-motd.d/colors
@@ -60,7 +60,7 @@ printf "\n"
 sudo vim /etc/update-motd.d/10-banner
 ```
 
-```bash[/etc/update-motd.d/10-banner]
+```bash [/etc/update-motd.d/10-banner]
 #!/bin/sh
 
 printf "`date +"%A, %e %B %Y, %r"`"
@@ -76,7 +76,7 @@ printf "`lsb_release -s -d`$(tput setaf 1)"
 sudo vim /etc/update-motd.d/20-sysinfo
 ```
 
-```bash[/etc/update-motd.d/20-sysinfo]
+```bash [/etc/update-motd.d/20-sysinfo]
 #!/bin/sh
 
 # Simple system performance counter retriever
@@ -88,7 +88,8 @@ date=`date`
 cpu_load=`cat /proc/loadavg | awk '{print $1*100 "%"}'`
 
 # used memory
-memory_usage=`free | awk '/Mem/{printf("%.2f%"), $3/$2*100}'`
+memory_usage=`free | awk '/Mem/{printf("%.0f%"), $3/$2*100}'`
+memavailable=`cat /proc/meminfo | grep MemAvailable | awk {'print $2'}`
 memfree=`cat /proc/meminfo | grep MemFree | awk {'print $2'}`
 memtotal=`cat /proc/meminfo | grep MemTotal | awk {'print $2'}`
 
@@ -119,19 +120,22 @@ LIGHT_RED="\033[1;31m"
 
 printf "\n"
 printf "\n"
-printf "${COLOR_INFO}System Uptime     ${LIGHT_RED} %s\n" "${sys_uptime}"
+printf "${COLOR_INFO}System uptime..........${LIGHT_RED} %s\n" "${sys_uptime}"
 printf "\n"
-printf "${COLOR_INFO}CPU Usage         ${LIGHT_RED} %s\n" "${cpu_load}"
-printf "${COLOR_INFO}Running Processes ${LIGHT_RED} %s\n" "${running_processes}"
+printf "${COLOR_INFO}CPU usage..............${LIGHT_RED} %s\n" "${cpu_load}"
+printf "${COLOR_INFO}Running processes......${LIGHT_RED} %s\n" "${running_processes}"
 printf "\n"
-printf "${COLOR_INFO}Memory Usage      ${LIGHT_RED} %s\n" "${memory_usage}"
-printf "${COLOR_INFO}Memory info       ${LIGHT_RED} %s\n" "$(($memfree/1024)) / $(($memtotal/1024)) MB"
+printf "${COLOR_INFO}Memory usage...........${LIGHT_RED} %s\n" "${memory_usage}"
+printf "${COLOR_INFO}Memory available.......${LIGHT_RED} %s\n" "$(($memavailable/1024)) MB"
+printf "${COLOR_INFO}Memory free............${LIGHT_RED} %s\n" "$(($memfree/1024)) MB"
+printf "${COLOR_INFO}Memory total...........${LIGHT_RED} %s\n" "$(($memtotal/1024)) MB"
 printf "\n"
-printf "${COLOR_INFO}Total Disk Usage  ${LIGHT_RED} %s\n" "${disk_usage}"
-printf "${COLOR_INFO}Disk info         ${LIGHT_RED} %s\n" "${disk_used} / ${disk_total} GB"
+printf "${COLOR_INFO}Disk usage.............${LIGHT_RED} %s\n" "${disk_usage}"
+printf "${COLOR_INFO}Disk used..............${LIGHT_RED} %s\n" "${disk_used} GB"
+printf "${COLOR_INFO}Disk total.............${LIGHT_RED} %s\n" "${disk_total} GB"
 printf "\n"
-printf "${COLOR_INFO}IP address v4     ${LIGHT_RED} %s\n" "${ip_address_v4}"
-printf "${COLOR_INFO}IP address v6     ${LIGHT_RED} %s\n" "${ip_address_v6}"
+printf "${COLOR_INFO}IP address v4..........${LIGHT_RED} %s\n" "${ip_address_v4}"
+printf "${COLOR_INFO}IP address v6..........${LIGHT_RED} %s\n" "${ip_address_v6}"
 printf "${COLOR_DEFAULT}"
 ```
 
@@ -147,7 +151,7 @@ sudo chmod 755 /etc/update-motd.d/20-sysinfo
 sudo vim /etc/ssh/sshd_config
 ```
 
-```bash[/etc/ssh/sshd_config]
+```bash [/etc/ssh/sshd_config]
 PrintMotd yes
 ```
 
