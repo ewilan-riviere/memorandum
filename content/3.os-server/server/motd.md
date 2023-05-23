@@ -64,10 +64,6 @@ sudo vim /etc/update-motd.d/10-banner
 #!/bin/sh
 
 printf "`date +"%A, %e %B %Y, %r"`"
-printf "\n"
-printf "`uname -srmo`$(tput setaf 1)"
-printf "\n"
-printf "`lsb_release -s -d`$(tput setaf 1)"
 ```
 
 ## Add sysinfo
@@ -83,6 +79,33 @@ sudo vim /etc/update-motd.d/20-sysinfo
 
 # current date
 date=`date`
+
+# Linux 5.10.0-21-amd64 x86_64 GNU/Linux
+linux=`uname -srmo`$(tput setaf 1)
+
+os_architecture=`lscpu | grep Architecture | awk {'print $2'}` # x86_64
+os_id=`lsb_release -s -i` # Debian
+os_description=`lsb_release -s -d` # Debian GNU/Linux 11 (bullseye)
+os_release=`lsb_release -s -r` # 11
+os_code=`lsb_release -s -c` # bullseye
+
+host=`hostname`
+current_auth="${USER}@${host}"
+
+ram_info=$(free -m | grep Mem)
+total_ram=$(echo $ram_info | awk '{print $2}') # 4072
+used_ram=$(echo $ram_info | awk '{print $3}') # 3182
+available_ram=$(echo $ram_info | awk '{print $7}') # 7767
+
+kernel=`uname -r`
+uptime_days=`uptime | awk '{print $3 " " $4}' | sed s'/.$//'`
+uptime=`uptime -p`
+packages=`dpkg -l | wc -l`
+shell_type=`echo $SHELL`
+shell_version=`${shell_type} --version | head -n1 | awk {'print $1" "$2'}`
+cpu=`lscpu | grep 'Model name' | awk {'print $3" "$4" "$5" "$6" "$7" "$8" "$9'}`
+cpu_speed=`lscpu | grep 'CPU MHz' | awk {'print $3'}`
+memory=`free -h | awk '/^Mem:/ {print $3 " / " $2}'`
 
 # current cpu load
 cpu_load=`cat /proc/loadavg | awk '{print $1*100 "%"}'`
@@ -117,25 +140,31 @@ ip_address_v6=`wget -q -O - http://icanhazip.com/ | tail`
 COLOR_DEFAULT="\033[0m"
 COLOR_INFO="\033[0;37m"
 LIGHT_RED="\033[1;31m"
+LIGHT_GREEN="\033[1;32m"
+GREEN="\033[1;32m"
 
 printf "\n"
 printf "\n"
-printf "${COLOR_INFO}System uptime..........${LIGHT_RED} %s\n" "${sys_uptime}"
+printf "${COLOR_INFO}Host...................${LIGHT_GREEN} %s\n" "${host}"
+printf "${COLOR_INFO}User...................${LIGHT_GREEN} %s\n" "${logname}"
+printf "${COLOR_INFO}Kernel.................${LIGHT_GREEN} %s\n" "${kernel}"
+printf "${COLOR_INFO}System uptime..........${LIGHT_GREEN} %s\n" "${uptime_days} ($uptime)"
+printf "${COLOR_INFO}Shell..................${LIGHT_GREEN} %s\n" "${shell_version}"
 printf "\n"
-printf "${COLOR_INFO}CPU usage..............${LIGHT_RED} %s\n" "${cpu_load}"
-printf "${COLOR_INFO}Running processes......${LIGHT_RED} %s\n" "${running_processes}"
+printf "${COLOR_INFO}CPU usage..............${GREEN} %s\n" "${cpu_load}"
+printf "${COLOR_INFO}CPU....................${LIGHT_GREEN} %s\n" "${cpu}@${cpu_speed} MHz"
+printf "${COLOR_INFO}Running processes......${LIGHT_GREEN} %s\n" "${running_processes}"
+printf "${COLOR_INFO}Packages...............${LIGHT_GREEN} %s\n" "${packages} (dpkg)"
 printf "\n"
-printf "${COLOR_INFO}Memory usage...........${LIGHT_RED} %s\n" "${memory_usage}"
-printf "${COLOR_INFO}Memory available.......${LIGHT_RED} %s\n" "$(($memavailable/1024)) MB"
-printf "${COLOR_INFO}Memory free............${LIGHT_RED} %s\n" "$(($memfree/1024)) MB"
-printf "${COLOR_INFO}Memory total...........${LIGHT_RED} %s\n" "$(($memtotal/1024)) MB"
+printf "${COLOR_INFO}Memory usage...........${GREEN} %s\n" "${memory_usage}"
+printf "${COLOR_INFO}Memory.................${LIGHT_GREEN} %s\n" "${used_ram} MB / ${total_ram} MB"
+# printf "${COLOR_INFO}Memory free............${GREEN} %s\n" "$(($memfree/1024)) MB"
 printf "\n"
-printf "${COLOR_INFO}Disk usage.............${LIGHT_RED} %s\n" "${disk_usage}"
-printf "${COLOR_INFO}Disk used..............${LIGHT_RED} %s\n" "${disk_used} GB"
-printf "${COLOR_INFO}Disk total.............${LIGHT_RED} %s\n" "${disk_total} GB"
+printf "${COLOR_INFO}Disk usage.............${GREEN} %s\n" "${disk_usage}"
+printf "${COLOR_INFO}Disk...................${LIGHT_GREEN} %s\n" "${disk_used} GB / ${disk_total} GB"
 printf "\n"
-printf "${COLOR_INFO}IP address v4..........${LIGHT_RED} %s\n" "${ip_address_v4}"
-printf "${COLOR_INFO}IP address v6..........${LIGHT_RED} %s\n" "${ip_address_v6}"
+printf "${COLOR_INFO}IP address v4..........${LIGHT_GREEN} %s\n" "${ip_address_v4}"
+printf "${COLOR_INFO}IP address v6..........${LIGHT_GREEN} %s\n" "${ip_address_v6}"
 printf "${COLOR_DEFAULT}"
 ```
 
@@ -157,7 +186,7 @@ PrintMotd yes
 
 ## Show MOTD
 
-You can disconnect SSH sessin and reconnect to show your `motd`
+You can disconnect SSH session and reconnect to show your `motd`.
 
 ## Errors
 
