@@ -194,8 +194,8 @@ class EmptySeeder extends Seeder
     {
         User::factory()->create([
             'name' => 'Super Admin',
-            'email' => 'superadmin@example.com',
-            'password' => Hash::make('password'),
+            'email' => config('app.admin.email'),
+            'password' => config('app.admin.password'),
         ]);
     }
 }
@@ -239,6 +239,54 @@ class User extends Authenticatable implements FilamentUser
         return str_ends_with($this->email, '@yourdomain.com') && $this->hasVerifiedEmail();
     }
 }
+```
+
+```bash
+mkdir -p app/Filament/Pages/Auth
+cat > app/Filament/Pages/Auth/Login.php << EOF
+<?php
+
+namespace App\Filament\Pages\Auth;
+
+use Filament\Http\Livewire\Auth\Login as BasePage;
+
+class Login extends BasePage
+{
+    public function mount(): void
+    {
+        parent::mount();
+
+        if ('local' === config('app.env')) {
+            $this->form->fill([
+                'email' => config('app.admin.email'),
+                'password' => config('app.admin.password'),
+                'remember' => true,
+            ]);
+        }
+    }
+}
+EOF
+```
+
+```php [config/filament.php]
+return [
+    'auth' => [
+        'guard' => env('FILAMENT_AUTH_GUARD', 'web'),
+        'pages' => [
+            'login' => \App\Filament\Pages\Auth\Login::class,
+            // 'login' => \Filament\Http\Livewire\Auth\Login::class,
+        ],
+    ],
+];
+```
+
+```php [config/app.php]
+return [
+  'admin' => [
+      'email' => env('APP_ADMIN_EMAIL', 'superadmin@example.com'),
+      'password' => env('APP_ADMIN_PASSWORD', 'password'),
+  ],
+];
 ```
 
 ## Front
