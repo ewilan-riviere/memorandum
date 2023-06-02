@@ -67,7 +67,7 @@ sudo systemctl status docker
 
 ## Dockerfile
 
-```dockerfile
+```docker
 FROM [IMAGE]
 
 RUN [COMMAND]

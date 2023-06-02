@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   ],
   content: {
     highlight: {
-      preload: ['diff', 'json', 'js', 'ts', 'css', 'shell', 'html', 'md', 'yaml', 'php'],
+      preload: ['diff', 'json', 'js', 'ts', 'css', 'shell', 'html', 'md', 'yaml', 'php', 'docker'],
     },
   },
   extends: '@nuxt-themes/docus',

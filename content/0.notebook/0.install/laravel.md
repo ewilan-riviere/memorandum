@@ -17,7 +17,7 @@ pnpm i
 [https://github.com/kiwilan/steward-laravel](https://github.com/kiwilan/steward-laravel)
 
 ```bash
-composer require kiwilan/steward-laravel
+composer require kiwilan/steward-laravel:dev-main
 php artisan vendor:publish --tag="steward-config"
 mkdir .vscode
 cat > .vscode/settings.json << EOF
@@ -142,6 +142,33 @@ php artisan vendor:publish --tag="typescriptable-config"
 pnpm add @kiwilan/typescriptable-laravel -D
 ```
 
+## Tailwind CSS
+
+```bash
+mv postcss.config.js postcss.config.cjs
+mv tailwind.config.js tailwind.config.cjs
+```
+
+```js [postcss.config.cjs]
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
+```
+
+```js [tailwind.config.cjs]
+const defaultTheme = require('tailwindcss/defaultTheme')
+const forms = require('@tailwindcss/forms')
+const typography = require('@tailwindcss/typography')
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  // ...
+}
+```
+
 ## Filament
 
 [filament/filament](https://filamentphp.com/)
@@ -176,10 +203,48 @@ EOF
 php artisan db:seed --class=EmptySeeder
 ```
 
+```php [database/seeders/DatabaseSeeder.php]
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+
+class DatabaseSeeder extends Seeder
+{
+    public function run(): void
+    {
+        $this->call([
+            EmptySeeder::class
+        ]);
+    }
+}
+```
+
+
+```php [app/Models/User.php]
+<?php
+
+namespace App\Models;
+
+use Filament\Models\Contracts\FilamentUser;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class User extends Authenticatable implements FilamentUser
+{
+    // ...
+
+    public function canAccessFilament(): bool
+    {
+        return str_ends_with($this->email, '@yourdomain.com') && $this->hasVerifiedEmail();
+    }
+}
+```
+
 ## Front
 
 ```bash
-pnpm add -D tailwindcss @tailwindcss/forms @tailwindcss/typography @tailwindcss/aspect-ratio @tailwindcss/line-clamp postcss autoprefixer
+pnpm add -D tailwindcss @tailwindcss/forms @tailwindcss/typography @tailwindcss/aspect-ratio postcss autoprefixer
 npx tailwindcss init -p
 pnpm add -D eslint typescript @antfu/eslint-config
 cat > .eslintrc << EOF
@@ -234,6 +299,36 @@ cat > tsconfig.json << EOF
 EOF
 ```
 
+## Vite
+
+```bash
+mv vite.config.js vite.config.ts
+```
+
+```ts [vite.config.ts]
+import { defineConfig } from 'vite'
+import laravel from 'laravel-vite-plugin/dist'
+import vue from '@vitejs/plugin-vue'
+
+export default defineConfig({
+  plugins: [
+    laravel({
+      input: 'resources/js/app.js',
+      ssr: 'resources/js/ssr.js',
+      refresh: true,
+    }),
+    vue({
+      template: {
+        transformAssetUrls: {
+          base: null,
+          includeAbsolute: false,
+        },
+      },
+    }),
+  ],
+})
+```
+
 -   replace `app.js` with `app.ts`
 -   tasks
 -   typescriptable
@@ -242,7 +337,7 @@ EOF
 
 `package.json`
 
-```json
+```json [package.json]
 {
   "scripts": {
     "lint": "eslint .",
@@ -263,13 +358,179 @@ composer require spatie/laravel-backup
 php artisan vendor:publish --provider="Spatie\Backup\BackupServiceProvider"
 ```
 
-```php title="app/Console/Kernel.php"
+```php [config/app.php]
+return [
+    'debug' => (bool) env('APP_DEBUG', false),
+
+    'backup' => (bool) env('APP_BACKUP', false),
+];
+```
+
+
+```php [app/Console/Kernel.php]
 protected function schedule(Schedule $schedule)
 {
-   $schedule->command('backup:clean')->daily()->at('01:00');
-   $schedule->command('backup:run')->daily()->at('01:30');
+  if (config('app.backup')) {
+    $schedule->command('backup:clean')->daily()->at('01:00');
+    $schedule->command('backup:run')->daily()->at('01:30')
+        ->onFailure(function () {
+            $name = config('app.name');
+            NotifyService::make()
+                ->message("[{$name}] The backup failed to run. Please check the logs.")
+                ->send()
+            ;
+        })
+        ->onSuccess(function () {
+            $name = config('app.name');
+            NotifyService::make()
+                ->message("[{$name}] The backup successfully ran.")
+                ->send()
+            ;
+        })
+    ;
+  }
 }
 ```
+
+## Health
+
+From [spatie/laravel-health](https://spatie.be/docs/laravel-health)
+
+```bash
+composer require spatie/laravel-health
+```
+
+```bash
+php artisan vendor:publish --tag="health-config"
+```
+
+```bash
+php artisan vendor:publish --tag="health-migrations"
+php artisan migrate
+```
+
+```php [app/Console/Kernel.php]
+protected function schedule(Schedule $schedule)
+{
+  $schedule->command(RunHealthChecksCommand::class)->everyMinute();
+  $schedule->command(ScheduleCheckHeartbeatCommand::class)->everyMinute();
+  $schedule->command(DispatchQueueCheckJobsCommand::class)->everyMinute();
+}
+```
+
+```php [app/Providers/AppServiceProvider.php]
+use Health;
+use Illuminate\Support\ServiceProvider;
+use Spatie\Health\Checks\Checks\CacheCheck;
+use Spatie\Health\Checks\Checks\DatabaseCheck;
+use Spatie\Health\Checks\Checks\DebugModeCheck;
+use Spatie\Health\Checks\Checks\EnvironmentCheck;
+use Spatie\Health\Checks\Checks\MeiliSearchCheck;
+use Spatie\Health\Checks\Checks\OptimizedAppCheck;
+use Spatie\Health\Checks\Checks\PingCheck;
+use Spatie\Health\Checks\Checks\QueueCheck;
+use Spatie\Health\Checks\Checks\ScheduleCheck;
+use Spatie\Health\Checks\Checks\UsedDiskSpaceCheck;
+
+class AppServiceProvider extends ServiceProvider
+{
+    public function boot(): void
+    {
+        Health::checks([
+            OptimizedAppCheck::new(),
+            DebugModeCheck::new(),
+            EnvironmentCheck::new(),
+            CacheCheck::new(),
+            DatabaseCheck::new(),
+            MeiliSearchCheck::new(),
+            PingCheck::new()->url(config('app.url')),
+            QueueCheck::new(),
+            // RedisCheck::new(),
+            ScheduleCheck::new(),
+            UsedDiskSpaceCheck::new(),
+            // HorizonCheck::new(),
+            // SecurityAdvisoriesCheck::new(), // composer require spatie/security-advisories-health-check
+            // CpuLoadCheck::new() // composer require spatie/cpu-load-health-check
+            //     ->failWhenLoadIsHigherInTheLast5Minutes(2.0)
+            //     ->failWhenLoadIsHigherInTheLast15Minutes(1.5),
+            // DatabaseConnectionCountCheck::new() // composer require doctrine/dbal
+            //     ->failWhenMoreConnectionsThan(100)
+            // DatabaseTableSizeCheck::new() // composer require doctrine/dbal
+            //     ->table('your_table_name', maxSizeInMb: 1_000)
+            //     ->table('another_table_name', maxSizeInMb: 2_000),
+        ]);
+    }
+}
+```
+
+## Production config
+
+```php [app/Providers/AppServiceProvider.php]
+<?php
+
+namespace App\Providers;
+
+use Filament\Facades\Filament;
+use Filament\Navigation\NavigationItem;
+use Health;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\ServiceProvider;
+use Opcodes\LogViewer\Facades\LogViewer;
+
+class AppServiceProvider extends ServiceProvider
+{
+    public function boot(): void
+    {
+        // https://laravel.com/docs/10.x/eloquent-relationships#preventing-lazy-loading
+        Model::preventLazyLoading(! $this->app->environment('production'));
+
+        LogViewer::auth(function (Request $request) {
+            if (! $this->app->environment('production')) {
+                return true;
+            }
+
+            $user = Auth::user();
+
+            if (! $user) {
+                return false;
+            }
+
+            return $user->is_admin || $user->is_super_admin;
+        });
+
+        Health::checks([
+
+        ]);
+
+        Filament::serving(function () {
+            Filament::registerViteTheme('resources/css/filament.css');
+            Filament::registerNavigationItems([
+                NavigationItem::make('Analytics')
+                    ->url('https://matomo.git-projects.xyz', shouldOpenInNewTab: true)
+                    ->icon('heroicon-o-presentation-chart-line')
+                    ->activeIcon('heroicon-s-presentation-chart-line')
+                    ->group('Settings')
+                    ->sort(1),
+                NavigationItem::make('Documentation')
+                    ->url('/docs', shouldOpenInNewTab: true)
+                    ->icon('heroicon-o-information-circle')
+                    ->activeIcon('heroicon-s-information-circle')
+                    ->group('Settings')
+                    ->sort(1),
+                NavigationItem::make('Log viewer')
+                    ->url('/log-viewer', shouldOpenInNewTab: true)
+                    ->icon('heroicon-o-chat')
+                    ->activeIcon('heroicon-s-chat')
+                    ->group('Settings')
+                    ->sort(1),
+            ]);
+        });
+    }
+}
+```
+
 
 ## After install
 
@@ -286,7 +547,7 @@ php artisan ide-helper:eloquent
 
 ## Scripts
 
-```json
+```json [composer.json]
 {
   "scripts": {
     "post-update-cmd": [

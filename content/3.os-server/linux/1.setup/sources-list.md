@@ -14,7 +14,7 @@ Edit `/etc/apt/sources.list` and add `contrib` and `non-free` to the end of each
 sudo vim /etc/apt/sources.list
 ```
 
-```yml [/etc/apt/sources.list]
+```yaml [/etc/apt/sources.list]
 deb http://deb.debian.org/debian bullseye main contrib non-free
 deb-src http://deb.debian.org/debian bullseye main contrib non-free
 

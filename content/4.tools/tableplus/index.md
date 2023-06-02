@@ -9,7 +9,7 @@ description: TablePlus is a modern, native tool for working with relational data
 
 ![local](/docs/tableplus-local.jpg)
 
-```yml
+```yaml
 name: localhost
 host: 127.0.0.1
 port: 3306
@@ -21,7 +21,7 @@ password: root
 
 ![remote](/docs/tableplus-remote.jpg)
 
-```yml
+```yaml
 name: server
 host: 127.0.0.1
 port: 3306
@@ -34,7 +34,7 @@ server: <server-ipv4>
 
 SSH config
 
-```yml
+```yaml
 port: 22
 user: <server-username>
 use_ssh_key: <import-ssh-key-private>
