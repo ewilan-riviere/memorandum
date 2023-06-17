@@ -80,3 +80,15 @@ Check if a website use HTTP/2
 ```bash
 curl -I -L https://bookshelves.ink
 ```
+
+If you use NGINX version 1.22.0 or higher.
+
+```nginx
+server {
+  listen [::]:80;
+  listen 80;
+
+  http2 on;
+  # ...
+}
+```
