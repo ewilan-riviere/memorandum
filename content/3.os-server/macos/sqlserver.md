@@ -9,7 +9,7 @@ Install [SQL Server on macOS](https://docs.docker.com/desktop/install/mac-instal
 Pull the image:
 
 ```bash
-docker pull mcr.microsoft.com/mssql/server:2019-latest
+docker pull mcr.microsoft.com/mssql/server:2022-latest
 ```
 
 On M1 Macs, you have to enable `Use Rosetta for x86/amd64 emulation on Apple Silicon` into settings.
@@ -19,5 +19,15 @@ On M1 Macs, you have to enable `Use Rosetta for x86/amd64 emulation on Apple Sil
 Run the container:
 
 ```bash
-docker run --name SQLServer -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=12345OHdf%e' -e 'MSSQL_PID=Express' -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-latest
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=12345OHdf%e" \
+  -p 1433:1433 --name sqlserver --hostname sqlserver \
+  -d \
+  mcr.microsoft.com/mssql/server:2022-latest
 ```
+
+You can connect to the server.
+
+- `host`: `127.0.0.1`
+- `port`: `1433`
+- `login`: `sa`
+- `password`: `12345OHdf%e`
