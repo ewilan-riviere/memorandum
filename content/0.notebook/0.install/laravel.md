@@ -453,6 +453,10 @@ EOF
 ```
 
 ```bash
+pnpm add @types/alpinejs -D
+```
+
+```bash
 cat > global.d.ts << EOF
 /// <reference types="vite/client" />
 
