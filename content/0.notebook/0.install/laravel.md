@@ -169,13 +169,18 @@ module.exports = {
 }
 ```
 
-## Filament
+## Admin
 
-[filament/filament](https://filamentphp.com/)
+```php [config/app.php]
+return [
+  'admin' => [
+      'email' => env('APP_ADMIN_EMAIL', 'superadmin@example.com'),
+      'password' => env('APP_ADMIN_PASSWORD', 'password'),
+  ],
+];
+```
 
 ```bash
-composer require filament/filament:"^2.0"
-php artisan vendor:publish --tag=filament-config
 cat > database/seeders/EmptySeeder.php << EOF
 <?php
 
@@ -219,6 +224,15 @@ class DatabaseSeeder extends Seeder
         ]);
     }
 }
+```
+
+## Filament
+
+[filament/filament](https://filamentphp.com/)
+
+```bash
+composer require filament/filament:"^2.0"
+php artisan vendor:publish --tag=filament-config
 ```
 
 
@@ -281,20 +295,18 @@ return [
 ];
 ```
 
-```php [config/app.php]
-return [
-  'admin' => [
-      'email' => env('APP_ADMIN_EMAIL', 'superadmin@example.com'),
-      'password' => env('APP_ADMIN_PASSWORD', 'password'),
-  ],
-];
-```
-
 ## Front
+
+### Tailwind CSS
 
 ```bash
 pnpm add -D tailwindcss @tailwindcss/forms @tailwindcss/typography @tailwindcss/aspect-ratio postcss autoprefixer
 npx tailwindcss init -p
+```
+
+### ESLint
+
+```bash
 pnpm add -D eslint typescript @antfu/eslint-config
 cat > .eslintrc << EOF
 {
@@ -316,35 +328,65 @@ echo "[*.{json,js,ts,vue,blade}]" >> .editorconfig
 echo "indent_size = 2" >> .editorconfig
 ```
 
+## Typescript
+
 ```bash
 cat > tsconfig.json << EOF
 {
-    "compilerOptions": {
-        "target": "esnext",
-        "module": "esnext",
-        "moduleResolution": "node",
-        "strict": true,
-        "jsx": "preserve",
-        "sourceMap": true,
-        "resolveJsonModule": true,
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "noImplicitAny": false,
-        "lib": ["esnext", "dom"],
-        "types": ["vite/client"],
-        "typeRoots": ["./node_modules/@types", "resources/**/*.d.ts"],
-        "paths": {
-            "@/*": ["./resources/js/*"],
-            "@": ["./resources/js"]
-        }
-    },
-    "include": [
-        "resources/**/*.ts",
-        "resources/**/*.{js,jsx,ts,tsx,vue}",
-        "components.d.ts",
-        "auto-imports.d.ts"
-    ]
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "lib": ["esnext", "dom"],
+    "typeRoots": ["./node_modules/@types", "resources/**/*.d.ts"],
+    "paths": {
+      "@/*": ["./resources/js/*"],
+      "@": ["./resources/js"],
+      "~": ["./"],
+      "~/*": ["./*"]
+    }
+  },
+  "include": [
+    "resources/**/*.tsx",
+    "resources/**/*.vue",
+    "resources/**/*.d.ts",
+    "resources/**/*.ts",
+    "resources/**/*.tsx",
+    "resources/**/*.vue",
+    "*.d.ts",
+    "components.d.ts",
+    "auto-imports.d.ts",
+    "global.d.ts"
+  ]
 }
+EOF
+```
+
+```bash
+cat > global.d.ts << EOF
+/// <reference types="vite/client" />
+
+import type { Axios } from 'axios'
+import type { Alpine as AlpineType } from 'alpinejs'
+
+declare global {
+  interface Window {
+    axios: Axios
+    Alpine: Alpine
+  }
+}
+
+window.axios = window.axios || {}
+window.Alpine = window.Alpine || {}
+
+export {}
 EOF
 ```
 
@@ -357,28 +399,27 @@ mv vite.config.js vite.config.ts
 ```ts [vite.config.ts]
 import { defineConfig } from 'vite'
 import laravel from 'laravel-vite-plugin/dist'
-import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   plugins: [
     laravel({
-      input: 'resources/js/app.js',
-      ssr: 'resources/js/ssr.js',
+      input: [
+        'resources/css/app.css',
+        'resources/js/app.js',
+      ],
       refresh: true,
-    }),
-    vue({
-      template: {
-        transformAssetUrls: {
-          base: null,
-          includeAbsolute: false,
-        },
-      },
     }),
   ],
 })
 ```
 
--   replace `app.js` with `app.ts`
+## `app.js`
+
+```bash
+mv resources/js/app.js resources/js/app.ts
+mv resources/js/bootstrap.js resources/js/bootstrap.ts
+```
+
 -   tasks
 -   typescriptable
     -   "route" => "$route"
@@ -393,6 +434,10 @@ export default defineConfig({
     "lint:fix": "eslint . --fix"
   }
 }
+```
+
+```bash
+pnpm lint:fix
 ```
 
 ## Backup
@@ -521,21 +566,17 @@ namespace App\Providers;
 
 use Filament\Facades\Filament;
 use Filament\Navigation\NavigationItem;
-use Health;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
-use Opcodes\LogViewer\Facades\LogViewer;
 
 class AppServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        // https://laravel.com/docs/10.x/eloquent-relationships#preventing-lazy-loading
-        Model::preventLazyLoading(! $this->app->environment('production'));
+        \Illuminate\Database\Eloquent\Model::preventLazyLoading(! $this->app->environment('production'));
 
-        LogViewer::auth(function (Request $request) {
+        \Opcodes\LogViewer\Facades\LogViewer::auth(function (Request $request) {
             if (! $this->app->environment('production')) {
                 return true;
             }
@@ -549,7 +590,7 @@ class AppServiceProvider extends ServiceProvider
             return $user->is_admin || $user->is_super_admin;
         });
 
-        Health::checks([
+        \Health::checks([
 
         ]);
 
@@ -635,7 +676,7 @@ php artisan ide-helper:eloquent
       "Composer\\Config::disableProcessTimeout",
       "phpunit-watcher watch --filter"
     ],
-    "queue:listen": [
+    "queue": [
       "Composer\\Config::disableProcessTimeout",
       "php artisan queue:listen --tries=3 --timeout=3600"
     ]
