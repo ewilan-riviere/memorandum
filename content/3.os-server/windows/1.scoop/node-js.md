@@ -26,13 +26,13 @@ nvm list available
 Install the last LTS
 
 ```bash
-nvm install 18.15.0
+nvm install 18.17.0
 ```
 
 Use new version
 
 ```bash
-nvm use 18.15.0
+nvm use 18.17.0
 ```
 
 ## Error npm update

@@ -50,8 +50,7 @@ sudo vim /etc/update-motd.d/00-hostname
 . /etc/update-motd.d/colors
 
 printf "\n"$LIGHT_RED
-figlet "  "$(hostname -s)
-# figlet "server name"
+figlet "Server name" # $(hostname -s)
 printf $NONE
 printf "\n"
 ```

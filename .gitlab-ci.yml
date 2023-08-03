@@ -23,10 +23,10 @@ deploy-job:
   script:
     - ssh $SSH_USER@$SSH_IP "
       . ~/.zshrc &&
-      cd /home/ewilan/www/$CI_PROJECT_NAME &&
+      cd ~/www/$CI_PROJECT_NAME &&
       git pull &&
-      /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm i &&
-      /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm generate &&
-      notify main '$CI_PROJECT_TITLE deployed'"
+      ~/.nvm/versions/node/v$NODE_VERSION/bin/pnpm i &&
+      ~/.nvm/versions/node/v$NODE_VERSION/bin/pnpm generate &&
+      notifier '$CI_PROJECT_TITLE deployed'"
   only:
     - main

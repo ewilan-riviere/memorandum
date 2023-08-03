@@ -53,7 +53,7 @@ source ~/.zshrc
 ```
 
 ```bash
-nvm use --delete-prefix v18.15.0 --silent
+nvm use --delete-prefix v18.17.0 --silent
 ```
 
 Now you can install additional useful packages
