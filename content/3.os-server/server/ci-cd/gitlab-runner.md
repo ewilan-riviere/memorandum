@@ -107,6 +107,12 @@ docker
 Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded!
 ```
 
+Start GitLab Runner
+
+```bash
+sudo gitlab-runner start my-runner
+```
+
 ### Commands
 
 #### Start GitLab Runner

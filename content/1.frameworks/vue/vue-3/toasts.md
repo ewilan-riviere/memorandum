@@ -4,7 +4,7 @@ description: Manage toasts with Vue 3 / Nuxt 3
 ---
 
 ::alert{type=info}
-This guide use Pinia as store [**pinia.vuejs.org**](https://pinia.vuejs.org) and SVG icons use [**vite-svg-loader**](https://github.com/jpkleemans/vite-svg-loader), you can use [**SVG guide for Vue 3**](/docs/frameworks/vue/vue-3/toasts) to install it.
+This guide use Pinia as store [**pinia.vuejs.org**](https://pinia.vuejs.org) and SVG icons use [**vite-svg-loader**](https://github.com/jpkleemans/vite-svg-loader), you can use [**SVG guide for Vue 3**](/frameworks/vue/vue-3/toasts) to install it.
 ::
 
 ## Create store
@@ -93,7 +93,7 @@ import { useToastStore } from '~~/store/toast'
 /**
  * Toast composable
  */
-export const useToast = () => {
+export function useToast() {
   /**
    * Push toast to store
    */
@@ -157,7 +157,7 @@ const color = computed(() => {
   }
   return colors[type]
 })
-const clear = () => {
+function clear() {
   const toast = useToastStore()
   toast.deleteToast(props.toast!)
 }
@@ -243,7 +243,7 @@ module.exports = {
 import useToast from '~/composables/useToast.ts'
 
 const { pushToast } = useToast()
-const sendToast = () => {
+function sendToast() {
   pushToast({
     title: 'Hello',
     text: 'This is a toast.',
