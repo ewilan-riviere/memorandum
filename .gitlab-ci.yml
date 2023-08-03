@@ -7,7 +7,7 @@ stages:
   - deploy
 
 variables:
-  NODE_VERSION: "18.12.1"
+  NODE_VERSION: "18.17.0"
 
 deploy-job:
   stage: deploy
