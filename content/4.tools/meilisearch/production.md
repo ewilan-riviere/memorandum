@@ -160,7 +160,11 @@ sudo systemctl status meilisearch
 
 For Meilisearch you need to have endpoint, so you have to create VHost for it
 
-```nginx title="/etc/nginx/sites-available/meilisearch.example.com.conf"
+```bash
+sudo vim /etc/nginx/sites-available/meilisearch.example.com.conf
+```
+
+```nginx [/etc/nginx/sites-available/meilisearch.example.com.conf]
 server {
     listen 80;
     listen [::]:80;
