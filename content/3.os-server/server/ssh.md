@@ -1,5 +1,5 @@
 ---
-title: SSH Key
+title: SSH
 description: Generate and manage SSH keys
 ---
 

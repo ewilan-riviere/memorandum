@@ -79,6 +79,19 @@ After creating a new runner, you will see a token. You will need it to register 
 
 ### Register GitLab Runner
 
+#### Automatic
+
+```bash
+sudo gitlab-runner register  --url https://gitlab.com  --token TOKEN
+```
+
+- `Enter the GitLab instance URL (for example, https://gitlab.com/)`: depends if you use GitLab.com or your own GitLab instance.
+- `Enter a name for the runner. This is stored only in the local config.toml file`: I let the default value.
+- `Enter an executor: docker, parallels, shell, virtualbox, docker-autoscaler, docker+machine, custom, ssh, instance, kubernetes, docker-windows`: I select `docker`.
+- `Enter the default Docker image (for example, ruby:2.7)`: I choose `alpine:latest`.
+
+#### Manually
+
 ```bash
 sudo gitlab-runner register
 ```

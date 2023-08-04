@@ -14,8 +14,8 @@ sudo apt-get install -y figlet
 ## Setup `motd`
 
 ```bash
-sudo mkdir /update-motd.d
-sudo chmod 644 /update-motd.d
+sudo mkdir /etc/update-motd.d
+sudo chmod 644 /etc/update-motd.d
 ```
 
 ## Add colors
@@ -101,23 +101,23 @@ current_auth="${USER}@${host}"
 
 memory_usage=$(free | awk '/Mem/{printf("%.0f%"), $3/$2*100}')
 memory_info=$(free -m | grep Mem)
-memory_total=$(echo $memory_info | awk '{print $2}')  # 4072
-memory_used=$(echo $memory_info | awk '{print $3}')   # 3182
+memory_used=$(free -m | awk 'NR==2 { printf "%.2f GB\n", $3/1024 }')   # 3182
+memory_total=$(free -m | awk 'NR==2 { printf "%.2f GB\n", $2/1024 }')  # 4072
 available_ram=$(echo $memory_info | awk '{print $7}') # 7767
 
 uptime_days=$(uptime | awk '{print $3 " " $4}' | sed s'/.$//')
 uptime=$(uptime -p)
 packages=$(dpkg -l | wc -l)
 cpu=$(lscpu | grep 'Model name' | awk {'print $3" "$4" "$5" "$6" "$7" "$8" "$9'})
-cpu_speed=$(lscpu | grep 'CPU MHz' | awk {'print $3'})
+cpu_speed=$(fgrep MHz /proc/cpuinfo | awk '{ print $4 }' | head -1)
 
 # current cpu load
 cpu_load=$(cat /proc/loadavg | awk '{print $1*100 "%"}')
 
 disk_usage=$(df -h | awk '{if($(NF) == "/") {print $(NF-1); exit;}}')
 disk_available=$(df --output=avail -h "$PWD" | sed '1d;s/[^0-9]//g')
-disk_used=$(df --output=used -h "$PWD" | sed '1d;s/[^0-9]//g')
-disk_total=$(df --output=size -h "$PWD" | sed '1d;s/[^0-9]//g')
+disk_used=$(df --output=used -BM "$PWD" | sed '1d;s/[^0-9]//g' | awk '{ printf "%.0f GB", $1/1024 }')
+disk_total=$(df --output=size -BM "$PWD" | sed '1d;s/[^0-9]//g' | awk '{ printf "%.0f GB", $1/1024 }')
 
 # number of open user sessions
 user_sessions=$(users | wc -l)
@@ -150,11 +150,11 @@ printf "${COLOR_INFO}CPU type...............${LIGHT_GREEN} %s\n" "${cpu}"
 printf "${COLOR_INFO}CPU speed..............${LIGHT_GREEN} %s\n" "${cpu_speed} MHz"
 printf "\n"
 printf "${COLOR_INFO}Memory usage...........${LIGHT_GREEN} %s\n" "${memory_usage}"
-printf "${COLOR_INFO}Memory.................${LIGHT_GREEN} %s\n" "${memory_used} MB / ${memory_total} MB"
+printf "${COLOR_INFO}Memory.................${LIGHT_GREEN} %s\n" "${memory_used} / ${memory_total}"
 # printf "${COLOR_INFO}Memory free............${GREEN} %s\n" "$(($memfree/1024)) MB"
 printf "\n"
 printf "${COLOR_INFO}Disk usage.............${LIGHT_GREEN} %s\n" "${disk_usage}"
-printf "${COLOR_INFO}Disk...................${LIGHT_GREEN} %s\n" "${disk_used} GB / ${disk_total} GB"
+printf "${COLOR_INFO}Disk...................${LIGHT_GREEN} %s\n" "${disk_used} / ${disk_total}"
 printf "\n"
 printf "${COLOR_INFO}IP address v4..........${LIGHT_GREEN} %s\n" "${ip_address_v4}"
 printf "${COLOR_INFO}IP address v6..........${LIGHT_GREEN} %s\n" "${ip_address_v6}"
@@ -177,12 +177,24 @@ sudo vim /etc/ssh/sshd_config
 PrintMotd yes
 ```
 
+```bash
+sudo systemctl restart sshd.service
+```
+
 ## Show MOTD
 
 You can disconnect SSH session and reconnect to show your `motd`, or use command:
 
 ```bash
 run-parts /etc/update-motd.d
+```
+
+## Update original MOTD
+
+You can update original MOTD with:
+
+```bash
+sudo vim /etc/motd
 ```
 
 ## Errors
