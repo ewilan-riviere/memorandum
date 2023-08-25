@@ -51,6 +51,7 @@ sudo systemctl status docker
 
 ```bash
 sudo gpasswd -a $USER docker
+newgrp docker
 ```
 
 ## Login to Docker Hub
