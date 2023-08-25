@@ -47,6 +47,12 @@ Check if docker is running
 sudo systemctl status docker
 ```
 
+## Allow non-root user to run docker
+
+```bash
+sudo gpasswd -a $USER docker
+```
+
 ## Login to Docker Hub
 
 ```bash
