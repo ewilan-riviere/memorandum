@@ -45,3 +45,34 @@ Interface name: Wi-Fi
 ```
 
 In this example, the WiFi adapter supports 802.11b, 802.11g, 802.11n, 802.11a, and 802.11ac, in WiFi is 3, 4, 5, 2, and 5 respectively.
+
+### macOS
+
+```bash
+system_profiler SPAirPortDataType
+```
+
+Example:
+
+```
+Wi-Fi:
+
+      Software Versions:
+          CoreWLAN: 16.0 (1657)
+          CoreWLANKit: 16.0 (1657)
+          Menu Extra: 17.0 (1728)
+          System Information: 15.0 (1502)
+          IO80211 Family: 12.0 (1200.13.0)
+          Diagnostics: 11.0 (1163)
+          AirPort Utility: 6.3.9 (639.22)
+      Interfaces:
+        en0:
+          Card Type: Wi-Fi  (0x14E4, 0x4387)
+          Firmware Version: wl0: Aug  8 2023 04:27:44 version 20.10.1062.3.8.7.162 FWID 01-8e237e8f
+          MAC Address: bc:d0:74:ad:3d:34
+          Locale: ETSI
+          Country Code: FR
+          Supported PHY Modes: 802.11 a/b/g/n/ac/ax
+```
+
+In this example, the WiFi adapter supports 802.11a, 802.11b, 802.11g, 802.11n, 802.11ac, and 802.11ax, in WiFi is 2, 1, 3, 4, 5, and 6 respectively.
