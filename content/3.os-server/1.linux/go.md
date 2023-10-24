@@ -9,9 +9,9 @@ position: 6
 Check latest version on [**GoLang**](https://golang.org/dl/) and change it if you want latest. Here, the **Go** version is **`1.20.7`**.
 
 ```bash
-wget -c https://golang.org/dl/go1.20.7.linux-amd64.tar.gz
+wget -c https://golang.org/dl/go1.21.3.linux-amd64.tar.gz
 sudo rm -rf /usr/local/go
-sudo tar -C /usr/local -xzf go1.20.7.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.21.3.linux-amd64.tar.gz
 ```
 
 ```bash
@@ -26,4 +26,12 @@ PATH="$GOPATH/bin:$PATH"
 
 ```bash
 source ~/.zshrc
+```
+
+## Update Go
+
+```bash
+wget -c https://golang.org/dl/go1.21.3.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf go1.21.3.linux-amd64.tar.gz
 ```

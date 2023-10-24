@@ -200,7 +200,7 @@ class EmptySeeder extends Seeder
         User::factory()->create([
             'name' => 'Super Admin',
             'email' => config('app.admin.email'),
-            'password' => config('app.admin.password'),
+            'password' => Hash::make(config('app.admin.password')),
         ]);
     }
 }
@@ -261,7 +261,6 @@ cat > app/Filament/Pages/Auth/Login.php << EOF
 <?php
 
 namespace App\Filament\Pages\Auth;
-use Illuminate\Support\Facades\Hash;
 
 use Filament\Http\Livewire\Auth\Login as BasePage;
 
@@ -274,7 +273,7 @@ class Login extends BasePage
         if ('local' === config('app.env')) {
             $\this->form->fill([
                 'email' => config('app.admin.email'),
-                'password' => Hash::make(config('app.admin.password')),
+                'password' => config('app.admin.password'),
                 'remember' => true,
             ]);
         }
