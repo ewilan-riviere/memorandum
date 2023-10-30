@@ -14,6 +14,8 @@ composer create-project laravel/laravel example-app
 pnpm i
 ```
 
+### Steward
+
 [https://github.com/kiwilan/steward-laravel](https://github.com/kiwilan/steward-laravel)
 
 ```bash
@@ -27,12 +29,16 @@ cat > .vscode/settings.json << EOF
 EOF
 ```
 
+### IDE helper
+
 [https://github.com/barryvdh/laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper)
 
 ```bash
 composer require --dev barryvdh/laravel-ide-helper
 php artisan vendor:publish --provider="Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider" --tag=config
 ```
+
+### Telescope
 
 [laravel/telescope](https://laravel.com/docs/10.x/telescope)
 [fruitcake/laravel-telescope-toolbar](https://github.com/fruitcake/laravel-telescope-toolbar)
@@ -44,12 +50,25 @@ php artisan migrate
 composer require fruitcake/laravel-telescope-toolbar --dev
 ```
 
+### Clockwork
+
+[itsgoingd/clockwork](https://github.com/itsgoingd/clockwork)
+
+```bash
+composer require itsgoingd/clockwork
+php artisan vendor:publish --provider="Clockwork\Support\Laravel\ClockworkServiceProvider"
+```
+
+### Log viewer
+
 [opcodesio/log-viewer](https://github.com/opcodesio/log-viewer)
 
 ```bash
 composer require opcodesio/log-viewer
 php artisan vendor:publish --tag="log-viewer-config"
 ```
+
+### Route attributes
 
 [spatie/laravel-route-attributes](https://github.com/spatie/laravel-route-attributes)
 
@@ -58,11 +77,15 @@ composer require spatie/laravel-route-attributes
 php artisan vendor:publish --provider="Spatie\RouteAttributes\RouteAttributesServiceProvider" --tag="config"
 ```
 
+### Ray
+
 [spatie/laravel-ray](https://spatie.be/docs/ray)
 
 ```bash
 composer require spatie/laravel-ray
 ```
+
+### larastan
 
 [nunomaduro/larastan](https://github.com/nunomaduro/larastan)
 
