@@ -11,22 +11,29 @@ Here an example of how to setup Meilisearch into production on Debian server.
 
 ## Install Meilisearch
 
-Add Meilisearch package
+Install Meilisearch with `curl`
 
 ```bash
-echo "deb [trusted=yes] https://apt.fury.io/meilisearch/ /" | sudo tee /etc/apt/sources.list.d/fury.list
-```
-
-Update APT and install Meilisearch
-
-```bash
-sudo apt update && sudo apt install meilisearch
+curl -L https://install.meilisearch.com | sh
 ```
 
 Launch Meilisearch
 
 ```bash
-meilisearch
+./meilisearch
+```
+
+Move it to `/usr/bin`
+
+```bash
+sudo mv ./meilisearch /usr/bin/meilisearch
+```
+
+Set permissions
+
+```bash
+sudo chown root:root /usr/bin/meilisearch
+sudo chmod +x /usr/bin/meilisearch
 ```
 
 ## Create Meilisearch user
