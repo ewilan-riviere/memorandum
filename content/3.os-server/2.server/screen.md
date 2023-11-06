@@ -47,7 +47,7 @@ screen --version
 screen -ls
 ```
 
-```output
+```bash
 There are screens on:
 10835.pts-0.linuxize-desktop (Detached)
 10366.pts-0.linuxize-desktop (Detached)

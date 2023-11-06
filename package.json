@@ -1,7 +1,11 @@
 {
   "name": "docus-starter",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "dev": "nuxi dev",
     "build": "nuxi build",
@@ -11,11 +15,12 @@
     "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.40.0",
-    "@nuxt-themes/docus": "^1.14.6",
-    "@nuxt/eslint-config": "^0.1.1",
-    "eslint": "^8.46.0",
-    "nuxt": "^3.6.5",
-    "typescript": "^5.1.6"
+    "@antfu/eslint-config": "^1.1.0",
+    "@nuxt-themes/docus": "latest",
+    "@nuxt/devtools": "^1.0.0",
+    "@nuxtjs/plausible": "^0.2.3",
+    "@types/node": "^20.8.2",
+    "eslint": "^8.53.0",
+    "nuxt": "^3.7.4"
   }
 }

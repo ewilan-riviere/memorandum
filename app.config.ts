@@ -6,24 +6,33 @@ export default defineAppConfig({
     socials: {
       twitter: 'ewilanriviere',
       github: 'ewilan-riviere/memorandum',
+      nuxt: {
+        label: 'Nuxt',
+        icon: 'simple-icons:nuxtdotjs',
+        href: 'https://nuxt.com',
+      },
+    },
+    github: {
+      dir: '',
+      branch: 'main',
+      repo: 'memorandum',
+      owner: 'ewilan-riviere',
+      edit: true,
     },
     aside: {
       level: 1,
       collapsed: true,
       exclude: [],
     },
+    main: {
+      padded: true,
+      fluid: true,
+    },
     header: {
       logo: true,
       showLinkIcon: true,
       exclude: [],
-    },
-    footer: {
-      iconLinks: [
-        {
-          href: 'https://nuxt.com',
-          icon: 'simple-icons:nuxtdotjs',
-        },
-      ],
+      fluid: true,
     },
   },
 })

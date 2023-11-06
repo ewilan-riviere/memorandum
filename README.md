@@ -3,6 +3,7 @@
 [![nuxt][nuxt-version-src]][nuxt-version-href]
 [![docus][docus-src]][docus-href]
 [![node][node-src]][node-href]
+[![code style](https://antfu.me/badge-code-style.svg)](https://github.com/antfu/eslint-config)
 
 > Personal documentation.
 
@@ -51,9 +52,9 @@ pnpm preview
 
 For a detailed explanation of how things work, check out [Docus](https://docus.dev).
 
-[nuxt-version-src]: https://img.shields.io/static/v1?style=flat-square&label=Nuxt&message=v3.x&color=00DC82&logo=nuxt.js&logoColor=ffffff&labelColor=18181b
+[nuxt-version-src]: https://img.shields.io/badge/dynamic/json?label=Nuxt&query=devDependencies[%27nuxt%27]&url=https://raw.githubusercontent.com/ewilan-riviere/memorandum/main/package.json&color=28CF8D&logo=nuxt.js&logoColor=ffffff&labelColor=18181b
 [nuxt-version-href]: https://nuxt.com/
-[docus-src]: https://img.shields.io/static/v1?style=flat-square&label=Docus&message=v1.x&color=00DC82&logoColor=ffffff&labelColor=18181b
+[docus-version-src]: https://img.shields.io/badge/dynamic/json?label=Docus&query=devDependencies[%27@nuxt-themes/docus%27]&url=https://raw.githubusercontent.com/ewilan-riviere/memorandum/main/package.json&color=28CF8D&labelColor=18181b
 [docus-href]: https://packagist.org/packages/kiwilan/php-archive
-[node-src]: https://img.shields.io/static/v1?style=flat-square&label=Node.js&message=v18.x&color=00DC82&logoColor=ffffff&labelColor=18181b
+[node-src]: https://img.shields.io/badge/dynamic/json?label=Node.js&query=engines[%27node%27]&url=https://raw.githubusercontent.com/ewilan-riviere/memorandum/main/package.json&color=28CF8D&labelColor=18181b
 [node-href]: https://nodejs.org/en

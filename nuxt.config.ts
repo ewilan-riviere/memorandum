@@ -1,11 +1,19 @@
 export default defineNuxtConfig({
-  css: [
-    'assets/app.css',
-  ],
+  // https://github.com/nuxt-themes/docus
+  extends: ['@nuxt-themes/docus'],
+  devtools: { enabled: true },
+  css: ['assets/app.css'],
   content: {
     highlight: {
-      preload: ['diff', 'json', 'js', 'ts', 'css', 'shell', 'html', 'md', 'yaml', 'php', 'docker'],
+      preload: ['diff', 'json', 'js', 'ts', 'css', 'shell', 'html', 'md', 'yaml', 'php', 'docker', 'powershell', 'c', 'lua', 'dart', 'groovy'],
     },
   },
-  extends: '@nuxt-themes/docus',
+  modules: [],
+  typescript: {
+    tsConfig: {
+      compilerOptions: {
+        verbatimModuleSyntax: false,
+      },
+    },
+  },
 })
