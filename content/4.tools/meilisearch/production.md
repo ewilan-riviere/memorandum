@@ -42,6 +42,12 @@ sudo chmod +x /usr/bin/meilisearch
 sudo useradd -d /var/lib/meilisearch -b /bin/false -m -r meilisearch
 ```
 
+Add current user to `meilisearch` group
+
+```bash
+sudo usermod -a -G meilisearch $USER
+```
+
 ## Create configuration
 
 Create configuration file
@@ -62,18 +68,23 @@ Edit it
 sudo vim /etc/meilisearch.toml
 ```
 
-You can generate a 16 bytes key with `openssl` for `MASTERKEY`
+You can generate a 16 bytes key with `openssl` for `YOUR_MASTER_KEY_VALUE`
 
 ```bash
 openssl rand -hex 16
 ```
 
+Replace `YOUR_MASTER_KEY_VALUE` with your key
+
 ```toml title="/etc/meilisearch.toml"
-db_path = "/var/lib/meilisearch/data"
-env = "production"
+# This file shows configuration of Meilisearch.
+# All variables are defined here: https://www.meilisearch.com/docs/learn/configuration/instance_options#environment-variables
+
+db_path = "/var/lib/meilisearch/data" # default "./data.ms"
+env = "production" # default "development"
 http_addr = "localhost:7700"
-master_key = "MASTERKEY"
-no_analytics = true
+master_key = "YOUR_MASTER_KEY_VALUE"
+no_analytics = true # default false
 http_payload_size_limit = "100 MB"
 log_level = "INFO"
 # max_indexing_memory = "2 GiB"
@@ -83,7 +94,7 @@ log_level = "INFO"
 ### DUMPS ###
 #############
 
-dump_dir = "/var/lib/meilisearch/dumps"
+dump_dir = "/var/lib/meilisearch/dumps" # default "dumps/"
 # import_dump = "./path/to/my/file.dump"
 ignore_missing_dump = false
 ignore_dump_if_db_exists = false
@@ -93,7 +104,7 @@ ignore_dump_if_db_exists = false
 #################
 
 schedule_snapshot = false
-snapshot_dir = "/var/lib/meilisearch/snapshots"
+snapshot_dir = "/var/lib/meilisearch/snapshots" # default "snapshots/"
 # import_snapshot = "./path/to/my/snapshot"
 ignore_missing_snapshot = false
 ignore_snapshot_if_db_exists = false
@@ -109,6 +120,13 @@ ignore_snapshot_if_db_exists = false
 ssl_require_auth = false
 ssl_resumption = false
 ssl_tickets = false
+
+#############################
+### Experimental features ###
+#############################
+
+experimental_enable_metrics = false
+experimental_reduce_indexing_memory_usage = false
 ```
 
 ## Set permissions
@@ -116,7 +134,7 @@ ssl_tickets = false
 ```bash
 sudo mkdir /var/lib/meilisearch/data /var/lib/meilisearch/dumps /var/lib/meilisearch/snapshots
 sudo chown -R meilisearch:meilisearch /var/lib/meilisearch
-sudo chmod 750 /var/lib/meilisearch
+sudo chmod 755 /var/lib/meilisearch
 ```
 
 ## Create service
@@ -129,7 +147,7 @@ Create service
 sudo vim /etc/systemd/system/meilisearch.service
 ```
 
-Add this config to service, here with password `MASTERKEY`
+Add this config to service, here with password `YOUR_MASTER_KEY_VALUE`
 
 ```bash title="/etc/systemd/system/meilisearch.service"
 [Unit]
@@ -139,7 +157,7 @@ After=systemd-user-sessions.service
 [Service]
 Type=simple
 WorkingDirectory=/var/lib/meilisearch
-ExecStart=/usr/bin/meilisearch --config-file-path /etc/meilisearch.toml --env production --master-key MASTERKEY
+ExecStart=/usr/bin/meilisearch --config-file-path /etc/meilisearch.toml --env production --master-key YOUR_MASTER_KEY_VALUE
 User=meilisearch
 Group=meilisearch
 
