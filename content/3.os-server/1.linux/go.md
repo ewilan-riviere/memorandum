@@ -32,11 +32,13 @@ sudo rm -rf /usr/local/go
 sudo tar -C /usr/local -xzf go.tar.gz
 ```
 
+Add to PATH, if you haven't ZSH, you can use `~/.bashrc` instead of `~/.zshrc`.
+
 ```bash
 vim ~/.zshrc
 ```
 
-```bash[~/.zshrc]
+```bash [~/.zshrc]
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH="$HOME/go"
 PATH="$GOPATH/bin:$PATH"
@@ -60,8 +62,15 @@ rm go.tar.gz
 
 ## Update Go
 
+Download new version of **Go**.
+
 ```bash
 wget -c https://golang.org/dl/go1.21.4.linux-amd64.tar.gz -O go.tar.gz
+```
+
+Delete old **Go** installation and extract new one.
+
+```bash
 sudo rm -rf /usr/local/go
 sudo tar -C /usr/local -xzf go.tar.gz
 ```
