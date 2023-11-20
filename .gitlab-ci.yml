@@ -21,6 +21,12 @@ deploy-job:
     - ssh-keyscan -p $SSH_PORT $SSH_IP >> ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
   script:
-    - echo "Deploying to $SSH_IP"
+    - ssh -p $SSH_PORT $SSH_USER@$SSH_IP "
+      . ~/.zshrc &&
+      cd ~/www/$CI_PROJECT_NAME &&
+      git pull &&
+      ~/.nvm/versions/node/v$NODE_VERSION/bin/pnpm i &&
+      ~/.nvm/versions/node/v$NODE_VERSION/bin/pnpm generate &&
+      notifier discord '$CI_PROJECT_TITLE deployed'"
   only:
     - main
