@@ -21,8 +21,7 @@ deploy-job:
     - ssh-keyscan $SSH_IP >> ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
   script:
-    - echo $SSH_USER
-    - ssh $SSH_USER@$SSH_IP "
+    - ssh -p 100 kiwilan@$SSH_IP "
       . ~/.zshrc &&
       cd ~/www/$CI_PROJECT_NAME &&
       git pull &&
