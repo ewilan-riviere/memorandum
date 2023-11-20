@@ -18,10 +18,10 @@ deploy-job:
     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
-    - ssh-keyscan $SSH_IP >> ~/.ssh/known_hosts
+    - ssh-keyscan -p $SSH_PORT $SSH_IP >> ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
   script:
-    - ssh -p 100 kiwilan@$SSH_IP "
+    - ssh -p $SSH_PORT $SSH_USER@$SSH_IP "
       . ~/.zshrc &&
       cd ~/www/$CI_PROJECT_NAME &&
       git pull &&
