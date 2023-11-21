@@ -79,13 +79,30 @@ By default, SSH uses port 22. You can change it by editing the `/etc/ssh/sshd_co
 vim /etc/ssh/sshd_config
 ```
 
+Change the port number.
+
 ```sh [/etc/ssh/sshd_config]
-Port 22
+Port <port>
 ```
 
 ```bash
 systemctl restart sshd
 ```
+
+::alert{type="warning"}
+Don't forget to open the port in your firewall. If you use UFW, you can use:
+
+```bash
+ufw allow <port>
+```
+
+And check the status:
+
+```bash
+ufw status
+```
+::
+
 
 To use SSH on a different port, you need to specify the port number when connecting.
 
