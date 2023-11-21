@@ -107,6 +107,27 @@ You can use `-o` option to specify `IdentitiesOnly` to prevent SSH from trying o
 ssh -o "IdentitiesOnly=yes" -i <private key filename> <user>@<hostname>
 ```
 
+### Config
+
+You can create a `~/.ssh/config` file to store your SSH configuration.
+
+```bash
+vim ~/.ssh/config
+```
+
+```sh [~/.ssh/config]
+Host <myserver>
+  HostName <hostname_or_ip_address>
+  User <username>
+  Port <port>
+  IdentityFile <private key filename path>
+  IdentitiesOnly yes
+```
+
+```bash
+ssh <myserver>
+```
+
 ## SCP
 
 SCP is a command-line utility that allows you to securely copy files and directories between two locations. This command use same authentication method as SSH.
