@@ -101,6 +101,12 @@ And check the status:
 ```bash
 ufw status
 ```
+
+You can delete old port:
+
+```bash
+ufw delete allow <old port>
+```
 ::
 
 
