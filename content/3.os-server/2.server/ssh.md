@@ -3,15 +3,17 @@ title: SSH
 description: Generate and manage SSH keys
 ---
 
-# SSH Key
+## SSH
 
-## Generate
+### Generate
 
-::info
-From [tutox.fr/2020/04/16/generer-des-cles-ssh-qui-tiennent-la-route](https://tutox.fr/2020/04/16/generer-des-cles-ssh-qui-tiennent-la-route/)
+From [Create ed25519 key](https://github.com/kirkmicz/Cheat-Sheet/blob/master/Linux%20&%20Unix/Create%20ed25519%20key.md)
 
 ::code-group
   ```bash [ed25519]
+  ssh-keygen -t ed25519 -b 4096 -C "user@mail"
+  ```
+  ```bash [ed25519 (no mail)]
   ssh-keygen -t ed25519
   ```
   ```bash [rsa]
@@ -19,51 +21,95 @@ From [tutox.fr/2020/04/16/generer-des-cles-ssh-qui-tiennent-la-route](https://tu
   ```
 ::
 
-## Add to server
+### Add to server
 
-Open `~/.ssh/known_hosts`
+Connect to your remote server and add your public key to `~/.ssh/authorized_keys`.
 
 ```bash
-vim ~/.ssh/known_hosts
+vim ~/.ssh/authorized_keys
+```
+
+```sh [~/.ssh/authorized_keys]
+ssh-ed25519 AAAAC3Nza...
 ```
 
 And add your `id_ed25519.pub` or `id_rsa.pub`.
 
+Exit your remote server and try SSH connection.
 
-## Usage
+### Usage
 
-### Connection to server
-
-You need server's IP address, username and password for basic server. If it's server with high level of security, you need to have your SSH Key in `/home/username/.ssh/authorized_keys` for username with which use to connect.
-
-#### Example with local network
-
-I check local IP with this command:
+::alert{type="info"}
+To find your IP address, you can use:
 
 ```bash
-ip a
+ip a | grep glo | awk '{print $2}' | head -1 | cut -f1 -d/
 ```
+::
 
-I have large output with these informations:
-
-```[output]
-2: enp3s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN group default qlen 1000
-    link/ether 6c:2b:59:70:38:4d brd ff:ff:ff:ff:ff:ff
-3: wlp4s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
-    link/ether ec:5c:68:48:9f:fb brd ff:ff:ff:ff:ff:ff
-    inet 192.168.1.30/24 brd 192.168.1.255 scope global dynamic noprefixroute wlp4s0
-       valid_lft 81161sec preferred_lft 81161sec
-    inet6 fe80::e765:c338:16e:ee00/64 scope link noprefixroute
-       valid_lft forever preferred_lft forever
-```
-
-I haven't ethernet cable, so **`enp3s0` is empty**, so I check just **`wlp4s0`** with **w for WiFi** and I can see IP address: **192.168.1.30**. And now, I can connect my host machine to my other machine:
+Here, `user` is your username, `hostname` is your server hostname or IP address.
 
 ```bash
-username@192.168.1.30
+ssh <user>@<hostname>
 ```
 
-### Copy file with SSH: SCP command
+If it works, you can disable password authentication.
+
+#### Disable password authentication
+
+You can disable password authentication by editing the `/etc/ssh/sshd_config` file on your server.
+
+```bash
+vim /etc/ssh/sshd_config
+```
+
+```sh [/etc/ssh/sshd_config]
+PasswordAuthentication no
+```
+
+```bash
+systemctl restart sshd
+```
+
+#### Use different port
+
+By default, SSH uses port 22. You can change it by editing the `/etc/ssh/sshd_config` file on your server.
+
+```bash
+vim /etc/ssh/sshd_config
+```
+
+```sh [/etc/ssh/sshd_config]
+Port 22
+```
+
+```bash
+systemctl restart sshd
+```
+
+To use SSH on a different port, you need to specify the port number when connecting.
+
+```bash
+ssh -p <port> <user>@<hostname>
+```
+
+#### Use different private key
+
+By default, SSH uses `~/.ssh/id_ed25519` or `~/.ssh/id_rsa` as private key. You can use different private key by using `-i` option.
+
+```bash
+ssh -i <private key filename> <user>@<hostname>
+```
+
+You can use `-o` option to specify `IdentitiesOnly` to prevent SSH from trying other authentication methods.
+
+```bash
+ssh -o "IdentitiesOnly=yes" -i <private key filename> <user>@<hostname>
+```
+
+## SCP
+
+SCP is a command-line utility that allows you to securely copy files and directories between two locations. This command use same authentication method as SSH.
 
 [Tutorial](https://haydenjames.io/linux-securely-copy-files-using-scp/)
 
@@ -79,13 +125,9 @@ From personal computer to server
 scp file.txt username@to_host:/remote/directory/
 ```
 
-- <https://devblogs.microsoft.com/powershell/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/>
-- <https://www.it-swarm.dev/fr/ssh/le-demarrage-de-ssh-agent-sous-windows-10-echoue-impossible-de-demarrer-le-service-ssh-agent-erreur-1058/807399778/>
-- <https://winaero.com/blog/enable-openssh-server-windows-10/>
-- <https://www.howtogeek.com/howto/windows-vista/allow-pings-icmp-echo-request-through-your-windows-vista-firewall/>
-- <https://superuser.com/questions/627208/unable-to-ping-a-windows-machine-from-linux>
+## RSYNC
 
-### rsync
+Good alternative to SCP, [rsync](https://www.digitalocean.com/community/tutorials/how-to-use-rsync-to-sync-local-and-remote-directories-on-a-vps) is a fast and versatile command-line utility for synchronizing files and directories between two locations over a remote shell, or from/to a remote RSYNC daemon. It uses an algorithm that minimizes the amount of data copied by only moving the portions of files that have changed.
 
 ```bash
 rsync -Phhr username@server:/home/path/to/dir ./
