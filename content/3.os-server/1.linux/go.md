@@ -4,9 +4,11 @@ description: 'Install Go on Linux'
 position: 6
 ---
 
-## Install Go
+# Go
 
-Check latest version on [**GoLang**](https://golang.org/dl/) and change it if you want latest. Here, the **Go** version is **`1.21.4`**.
+## Install
+
+Check latest version on [**GoLang**](https://golang.org/dl/) and change it if you want latest. Here, the **Go** version is **`1.21.5`**.
 
 You have to know CPU architecture, you can check it with `uname -m` command.
 
@@ -18,10 +20,10 @@ You can have another architecture, check it on [**GoLang**](https://golang.org/d
 
 ::code-group
   ```bash [AMD]
-  wget -c https://golang.org/dl/go1.21.4.linux-amd64.tar.gz -O go.tar.gz
+  wget -c https://golang.org/dl/go1.21.5.linux-amd64.tar.gz -O go.tar.gz
   ```
   ```bash [ARM]
-  wget -c https://golang.org/dl/go1.21.4.linux-arm64.tar.gz -O go.tar.gz
+  wget -c https://golang.org/dl/go1.21.5.linux-arm64.tar.gz -O go.tar.gz
   ```
 ::
 
@@ -60,12 +62,12 @@ Now you can delete **Go** archive.
 rm go.tar.gz
 ```
 
-## Update Go
+## Update
 
 Download new version of **Go**.
 
 ```bash
-wget -c https://golang.org/dl/go1.21.4.linux-amd64.tar.gz -O go.tar.gz
+wget -c https://golang.org/dl/go1.21.5.linux-amd64.tar.gz -O go.tar.gz
 ```
 
 Delete old **Go** installation and extract new one.

@@ -8,12 +8,12 @@ title: Node.js
 Here we will install `nvm` to use multiple NodeJS version.
 ::
 
-You can install basic **Node.js** package but with **NVM**, you can change NodeJS version when you want. Check last version on [**NVM GitHub**](https://github.com/nvm-sh/nvm) and change it if you want latest. Here, the **NVM** version is **`0.39`** and **NodeJS** version is **`18.17.0`** LTS.
+You can install basic **Node.js** package but with **NVM**, you can change NodeJS version when you want. Check last version on [**NVM GitHub**](https://github.com/nvm-sh/nvm) and change it if you want latest. Here, the **NVM** version is **`0.39`** and **NodeJS** version is **`20.10.0`** LTS.
 
 Download NVM
 
 ```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 ```
 
 Add this into `~/.zshrc`
@@ -31,13 +31,16 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 source ~/.zshrc
 ```
 
-Now you can use `nvm`, install Node.js `v18.17.0` and config `nvm` to use it
+Now you can use `nvm`, install Node.js `v20.10.0` and config `nvm` to use it
 
 ```bash
 nvm ls-remote
-nvm install 18.17.0
-nvm use 18.17.0
-nvm alias default 18.17.0
+```
+
+```bash
+nvm install 20.10.0
+nvm use 20.10.0
+nvm alias default 20.10.0
 nvm use default
 nvm ls
 node -v
