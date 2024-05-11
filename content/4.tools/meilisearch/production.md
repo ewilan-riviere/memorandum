@@ -205,3 +205,53 @@ server {
 ```
 
 Execute `certbot` to add HTTPS and your endpoint is available on [http://meilisearch.example.com](http://meilisearch.example.com).
+
+## Update Meilisearch
+
+```bash
+sudo service meilisearch stop
+```
+
+```bash
+mkdir -p ~/sandbox
+cd ~/sandbox
+curl -L https://install.meilisearch.com | sh
+sudo mv ./meilisearch /usr/bin/
+sudo chown root:root /usr/bin/meilisearch
+sudo chmod +x /usr/bin/meilisearch
+```
+
+```bash
+sudo vim /var/lib/meilisearch/update.sh
+```
+
+```bash title="/var/lib/meilisearch/update.sh"
+#!/bin/bash
+
+sudo rm -rf /var/lib/meilisearch/data
+sudo rm -rf /var/lib/meilisearch/dumps
+sudo rm -rf /var/lib/meilisearch/snapshots
+
+sudo mkdir -p /var/lib/meilisearch/data
+sudo mkdir -p /var/lib/meilisearch/dumps
+sudo mkdir -p /var/lib/meilisearch/snapshots
+
+sudo chown -R meilisearch:meilisearch /var/lib/meilisearch
+sudo chmod -R 755 /var/lib/meilisearch
+```
+
+```bash
+sudo chmod +x /var/lib/meilisearch/update.sh
+```
+
+```bash
+/var/lib/meilisearch/update.sh
+```
+
+```bash
+sudo service meilisearch start
+```
+
+```bash
+sudo service meilisearch status
+```
