@@ -22,18 +22,9 @@ source ~/.zshrc
 cargo
 ```
 
-# Bun
-
-## Install
+## Update
 
 ```bash
-curl -fsSL https://bun.sh/install | bash
-```
-
-```bash
-source ~/.zshrc
-```
-
-```bash
-bun
+rustup update
+cargo -vV
 ```
