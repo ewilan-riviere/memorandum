@@ -1,6 +1,6 @@
 ---
-title: Go
-description: 'Install Go on Linux'
+title: Go (golang)
+description: Install Go on Linux
 position: 6
 ---
 
@@ -8,22 +8,30 @@ position: 6
 
 ## Install
 
-Check latest version on [**GoLang**](https://golang.org/dl/) and change it if you want latest. Here, the **Go** version is **`1.21.5`**.
+Check latest version on [**GoLang**](https://golang.org/dl/) and change it if you want latest. Here, the **Go** version is **`1.22.4`**.
 
-You have to know CPU architecture, you can check it with `uname -m` command.
+You have to know CPU architecture, you can check it with this command:
+
+```bash
+uname -m
+```
 
 - `x86_64` is AMD
 - `aarch64` is ARM
 - `arm64` is ARM
 
+```sh [output]
+x86_64 # this is an example
+```
+
 You can have another architecture, check it on [**GoLang**](https://golang.org/dl/) website.
 
 ::code-group
   ```bash [AMD]
-  wget -c https://golang.org/dl/go1.21.5.linux-amd64.tar.gz -O go.tar.gz
+  wget -c https://golang.org/dl/go1.22.4.linux-amd64.tar.gz -O go.tar.gz
   ```
   ```bash [ARM]
-  wget -c https://golang.org/dl/go1.21.5.linux-arm64.tar.gz -O go.tar.gz
+  wget -c https://golang.org/dl/go1.22.4.linux-arm64.tar.gz -O go.tar.gz
   ```
 ::
 
@@ -67,7 +75,7 @@ rm go.tar.gz
 Download new version of **Go**.
 
 ```bash
-wget -c https://golang.org/dl/go1.21.5.linux-amd64.tar.gz -O go.tar.gz
+wget -c https://golang.org/dl/go1.22.4.linux-amd64.tar.gz -O go.tar.gz
 ```
 
 Delete old **Go** installation and extract new one.
