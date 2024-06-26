@@ -1,11 +1,5 @@
-node_modules
-*.iml
-.idea
-*.log*
-.nuxt
+node_modules/
+.vitepress/cache
+.vitepress/examples
 .DS_Store
-coverage
-dist
-sw.*
-.env
-.output
+.vscode/temp

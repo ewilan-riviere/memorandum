@@ -1,0 +1,14 @@
+.named-fence-block {
+  position: relative;
+}
+
+.named-fence-filename {
+  position: absolute;
+  top: 2px;
+  right: 8px;
+  z-index: 2;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--vp-code-lang-color);
+  background-color: var(--vp-code-block-bg);
+}

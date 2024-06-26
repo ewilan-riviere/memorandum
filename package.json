@@ -1,26 +1,26 @@
 {
-  "name": "docus-starter",
-  "version": "0.1.0",
-  "type": "module",
+  "name": "memorandum",
+  "version": "4.0.0",
   "private": true,
+  "author": "Ewilan Rivière",
+  "license": "MIT",
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   },
   "scripts": {
-    "dev": "nuxi dev",
-    "build": "nuxi build",
-    "generate": "nuxi generate",
-    "preview": "nuxi preview",
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^1.1.0",
-    "@nuxt-themes/docus": "latest",
-    "@nuxt/devtools": "^1.0.0",
-    "@nuxtjs/plausible": "^0.2.3",
-    "@types/node": "^20.8.2",
-    "eslint": "^8.53.0",
-    "nuxt": "^3.7.4"
+    "@antfu/eslint-config": "^2.21.1",
+    "@mdit/plugin-footnote": "^0.12.0",
+    "@types/node": "^20.14.9",
+    "eslint": "^8.57.0",
+    "markdown-it-named-code-blocks": "^1.0.5",
+    "typescript": "^5.5.2",
+    "vitepress": "^1.2.3"
   }
 }
