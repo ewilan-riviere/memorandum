@@ -1,13 +1,13 @@
 ---
 title: "Setup"
-description: 'Setup LaTeX'
+description: "Setup LaTeX"
 position: 1
-category: 'Latex'
+category: "Latex"
 ---
 
 ## Windows
 
-```bash
+```sh
 sudo scoop install latex
 ```
 
@@ -25,19 +25,19 @@ Uncheck `Always show this dialog`
 
 LaTeX with xetex engine and Pandoc
 
-```bash
+```sh
 sudo apt install -y texlive texlive-xetex pandoc
 ```
 
 Extra usefull packages
 
-```bash
+```sh
 sudo apt install -y texlive-lang-french texlive-latex-extra
 ```
 
 Full installation
 
-```bash
+```sh
 sudo apt install -y texlive-full
 ```
 
@@ -47,14 +47,14 @@ sudo apt install -y texlive-full
 - [**doc.ubuntu-fr.org/latex**](https://doc.ubuntu-fr.org/latex)
 - [**itsfoss.com/latex-editors-linux**](https://itsfoss.com/latex-editors-linux)
 
-```bash
+```sh
 sudo apt -y update ; sudo apt -y install texlive
 ```
 
-```bash
+```sh
 sudo add-apt-repository ppa:lyx-devel/release ; sudo apt update ; sudo apt -y install lyx
 ```
 
-```bash
+```sh
 sudo apt -y install pandoc
 ```

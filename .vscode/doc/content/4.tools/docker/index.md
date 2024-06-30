@@ -12,43 +12,43 @@ description: How to use Docker
 
 Install dependencies
 
-```bash
+```sh
 sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
 ```
 
 Add Docker’s official GPG key
 
-```bash
+```sh
 sudo curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 ```
 
 Add Docker’s stable repository
 
-```bash
+```sh
 sudo echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list
 ```
 
 Update APT and install Docker
 
-```bash
+```sh
 sudo apt-get update && sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
 
 Add user to `docker` group
 
-```bash
+```sh
 sudo usermod -aG docker $USER
 ```
 
 Reboot
 
-```bash
+```sh
 sudo reboot
 ```
 
 Check Docker service
 
-```bash
+```sh
 sudo systemctl status docker
 ```
 
@@ -83,7 +83,7 @@ CMD [COMMAND]
 
 - <https://docs.docker.com/compose/install>
 
-```bash
+```sh
 sudo curl -L ""
 ```
 

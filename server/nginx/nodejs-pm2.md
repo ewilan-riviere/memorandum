@@ -3,7 +3,11 @@ title: Node.js & PM2
 description: How to manage Node.js applications
 ---
 
-# Node.js with PM2
+# {{ $frontmatter.title }}
+
+{{ $frontmatter.description }}
+
+When you have a NodeJS app, you need to manage it on your server.
 
 Unlike PHP app, which just need to have Nginx/Apache configuration, a NodeJS app can have two production options : **generate static project** or **launch server**. With the first, you compile your project into _html_, _js_ and _css_ files, and you can host it with a basic Nginx/Apache config like PHP app. It's easy but if you want to update infos of your app with a back-office via an API, infos won't update on your app because it's static app (you will have to re generate your app each time...). The solution is the second option, build a server, it will update infos of your app if you change it with a back-office. To manage a NodeJS app like this, you need a manager to keep live your app and **PM2** is here for it.
 
@@ -41,12 +45,12 @@ With this config, `server_name` is the domain to host project and `proxy_pass` h
 
 ::alert{type="info"}
 
-```bash
+```sh
 # activate new nginx config
 sudo ln -s /etc/nginx/sites-available/portfolio /etc/nginx/sites-enabled
 ```
 
-```bash
+```sh
 # check nginx config
 sudo nginx -t
 ```
@@ -56,7 +60,7 @@ If you have this output, everything is fine, otherwise you will have some infos 
 > nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
 > nginx: configuration file /etc/nginx/nginx.conf test is successful
 
-```bash
+```sh
 # reload nginx
 sudo service nginx reload
 ```
@@ -67,7 +71,7 @@ sudo service nginx reload
 
 Use NPM globally:
 
-```bash
+```sh
 npm install pm2@latest -g
 ```
 
@@ -75,7 +79,7 @@ npm install pm2@latest -g
 
 PM2 is now available on your server, you can use it on different ways but here, we use _ecosystem_ solution. With this, it's easy to maintain a lot of NodeJS app with just JSON. You have just to create `ecosystem.config.js` anywhere on your server:
 
-```bash
+```sh
 vim ~/ecosystem.config.js
 ```
 
@@ -117,7 +121,7 @@ In this example, portfolio is a NuxtJS app with theses scripts into package.json
 
 ### Link PM2 with ecosystem
 
-```bash
+```sh
 # in the directory where you create ecosystem.config.js
 pm2 start ecosystem.config.js
 # save this config to restart automatically apps when server reboot
@@ -128,7 +132,7 @@ pm2 ls
 
 You have to see this output:
 
-```bash
+```sh
 ┌────┬────────────────────┬──────────┬──────┬───────────┬──────────┬──────────┐
 │ id │ name               │ mode     │ ↺    │ status    │ cpu      │ memory   │
 ├────┼────────────────────┼──────────┼──────┼───────────┼──────────┼──────────┤
@@ -143,7 +147,7 @@ If everything is fine, your app is online and you can access to it via server_na
 - [PM2 doc](https://pm2.keymetrics.io/docs/usage/pm2-doc-single-page/)
 - [PM2 doc: ecosytem file](https://pm2.keymetrics.io/docs/usage/application-declaration/)
 
-```bash
+```sh
 # list pm2 apps with status
 pm2 ls
 # pm2 start ecosytem.config.js

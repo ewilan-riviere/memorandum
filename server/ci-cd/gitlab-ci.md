@@ -1,8 +1,11 @@
 ---
 title: GitLab CI
+description: GitLab CI/CD deployment
 ---
 
-# GitLab CI
+# {{ $frontmatter.title }}
+
+{{ $frontmatter.description }}
 
 ## Run Docker instance
 
@@ -10,38 +13,38 @@ GitLab CI use Docker container to run jobs. To deploy on your server, you have t
 
 You can create a local Docker `alpine:latest` to test CI.
 
-```bash
+```sh
 docker pull alpine:latest
 ```
 
 Run with interactive mode
 
-```bash
+```sh
 docker run -it alpine:latest sh
 ```
 
 Init SSH
 
-```bash
+```sh
 command -v ssh-agent >/dev/null || ( apk add --update openssh )
 eval $(ssh-agent -s)
 ```
 
 ### Create SSH key
 
-```bash
+```sh
 ssh-keygen -t ed25519
 ```
 
 Now you can add the public key **to your server** `~/.ssh/authorized_keys` file.
 
-```bash
+```sh
 cat ~/.ssh/id_ed25519.pub
 ```
 
 And private key to GitLab CI/CD Variables.
 
-```bash
+```sh
 cat ~/.ssh/id_ed25519
 ```
 
@@ -49,7 +52,7 @@ cat ~/.ssh/id_ed25519
 
 Set variables:
 
-```bash
+```sh
 SSH_IP=xxx.xxx.xxx.xxx
 SSH_USER=linux_user_on_your_server
 SSH_PRIVATE_KEY=`cat ~/.ssh/id_ed25519`
@@ -57,7 +60,7 @@ SSH_PRIVATE_KEY=`cat ~/.ssh/id_ed25519`
 
 Setup SSH
 
-```bash
+```sh
 echo -e "${SSH_PRIVATE_KEY}" | tr -d '\r' | ssh-add - > /dev/null
 mkdir -p ~/.ssh
 chmod 700 ~/.ssh
@@ -67,13 +70,13 @@ chmod 644 ~/.ssh/known_hosts
 
 Test SSH
 
-```bash
+```sh
 ssh -${SSH_USER}@${SSH_IP}
 ```
 
 If it works, you can exit.
 
-```bash
+```sh
 exit
 ```
 
@@ -83,9 +86,10 @@ You can find variables in `Settings > CI/CD > Variables`.
 
 ::alert{type="info"}
 You have two ways to set variables:
+
 - **Project variables** are available only for this project.
 - **Group variables** are available for all projects in this group.
-::
+  ::
 
 ![gitlab-ci](/docs/gitlab-ci.webp)
 
@@ -109,7 +113,7 @@ deploy-job:
   stage: deploy
   image: alpine:latest
   before_script:
-    - 'command -v ssh-agent >/dev/null || ( apk add --update openssh )'
+    - "command -v ssh-agent >/dev/null || ( apk add --update openssh )"
     - eval $(ssh-agent -s)
     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
     - mkdir -p ~/.ssh
@@ -135,4 +139,4 @@ deploy-job:
 - `~/.nvm/versions/node/v$NODE_VERSION/bin/pnpm` is the path to pnpm binary.
 - `notifier` is a custom script with `go` to send notification to Discord, you can find it here [notifier](https://gitlab.com/kiwilan/notifier)
 
-Now you can install your own runner on your server with [this guide](/os-server/server/ci-cd/gitlab-runner).
+Now you can install your own runner on your server with [this guide](/server/ci-cd/gitlab-runner).

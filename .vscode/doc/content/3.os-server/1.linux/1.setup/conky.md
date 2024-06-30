@@ -4,11 +4,11 @@ title: Conky
 
 # Conky
 
-```bash
+```sh
 sudo apt install -y conky-all lm-sensors
 ```
 
-```bash
+```sh
 vim ~/.conkyrc
 ```
 
@@ -16,6 +16,7 @@ vim ~/.conkyrc
 #summary
 Config
 #content
+
 ```lua [~/.conkyrc]
 conky.config = {
   background = true,
@@ -145,19 +146,20 @@ conky.text = [[
   ${color #787878}${top_mem name 4} $alignr${top_mem pid 4} ${top_mem cpu 4} ${top_mem mem 4}
 ]]
 ```
+
 ::
 
 ## Update Network infos
 
 Check network infos
 
-```bash
+```sh
 ip a
 ```
 
 You will have output like this
 
-```bash
+```sh
 2: enp3s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN group default qlen 1000
     link/ether 6c:2b:59:70:38:4d brd ff:ff:ff:ff:ff:ff
 3: wlp4s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
@@ -174,21 +176,21 @@ In `.conkyrc`, you have to replace `enp3s0` and `wlp4s0` with your infos.
 
 ## Autostart
 
-```bash
+```sh
 vim ~/.config/autostart/conky
 ```
 
-```bash
+```sh
 #!/bin/bash
 conky -b
 ```
 
-```bash
+```sh
 sudo chmod 775 ~/.config/autostart/conky
 ```
 
 restart or execute
 
-```bash
+```sh
 conky -b
 ```

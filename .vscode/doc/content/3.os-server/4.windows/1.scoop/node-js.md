@@ -7,31 +7,31 @@ description: "Install Node.js and NPM on Windows"
 
 ::alert{type="warning"}
 **scoop is necessary**
->
-You can manage multiple versions of PHP on same machine with **scoop**, if you don't install it, check this guide: [**scoop**](/os-server/windows/scoop/install)
-::
+
+> You can manage multiple versions of PHP on same machine with **scoop**, if you don't install it, check this guide: [**scoop**](/os-server/windows/scoop/install)
+> ::
 
 Install [**NVM**](https://github.com/coreybutler/nvm-windows)
 
-```bash
+```sh
 scoop install nvm
 ```
 
 Check all versions
 
-```bash
+```sh
 nvm list available
 ```
 
 Install the last LTS
 
-```bash
+```sh
 nvm install 18.17.0
 ```
 
 Use new version
 
-```bash
+```sh
 nvm use 18.17.0
 ```
 
@@ -39,13 +39,13 @@ nvm use 18.17.0
 
 When you try to update npm
 
-```bash
+```sh
 npm i -g npm
 ```
 
 You will have this error
 
-```bash
+```sh
 npm ERR! code EEXIST
 npm ERR! path C:\Users\user\scoop\apps\nvm\current\nodejs\nodejs\npm.cmd
 npm ERR! Refusing to delete C:\Users\user\scoop\apps\nvm\current\nodejs\nodejs\npm.cmd: is outside C:\Users\user\scoop\apps\nvm\current\nodejs\nodejs\node_modules\npm and not a link
@@ -62,14 +62,14 @@ To get latest NPM version from <https://github.com/coreybutler/nvm-windows/issue
 <content-code-group>
   <content-code-block label="NVM scoop" active>
 
-```bash
+```sh
 cd C:\Users\USERNAME\scoop\apps\nvm\current\nodejs\v14.18.0
 ```
 
   </content-code-block>
   <content-code-block label="NVM installer">
 
-```bash
+```sh
 cd %APPDATA%\nvm\v14.18.0
 ```
 
@@ -78,7 +78,7 @@ cd %APPDATA%\nvm\v14.18.0
 
 Rename current `npm` cli
 
-```bash
+```sh
 mv npm npm-old
 mv npm.cmd npm-old.cmd
 mv npx npx-old
@@ -87,7 +87,7 @@ mv npx.cmd npx-old.cmd
 
 Find current CLI
 
-```bash
+```sh
 cd node_modules\
 mv npm npm-old
 cd npm-old\bin
@@ -95,6 +95,6 @@ cd npm-old\bin
 
 Install new NPM version
 
-```bash
+```sh
 node npm-cli.js i -g npm@latest
 ```

@@ -6,14 +6,14 @@ title: Bun
 
 ## Install
 
-```bash
+```sh
 curl -fsSL https://bun.sh/install | bash
 ```
 
-```bash
+```sh
 source ~/.zshrc
 ```
 
-```bash
+```sh
 bun
 ```

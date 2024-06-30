@@ -13,38 +13,38 @@ Here an example of how to setup Meilisearch into production on Debian server.
 
 Install Meilisearch with `curl`
 
-```bash
+```sh
 curl -L https://install.meilisearch.com | sh
 ```
 
 Launch Meilisearch
 
-```bash
+```sh
 ./meilisearch
 ```
 
 Move it to `/usr/bin`
 
-```bash
+```sh
 sudo mv ./meilisearch /usr/bin/meilisearch
 ```
 
 Set permissions
 
-```bash
+```sh
 sudo chown root:root /usr/bin/meilisearch
 sudo chmod +x /usr/bin/meilisearch
 ```
 
 ## Create Meilisearch user
 
-```bash
+```sh
 sudo useradd -d /var/lib/meilisearch -b /bin/false -m -r meilisearch
 ```
 
 Add current user to `meilisearch` group
 
-```bash
+```sh
 sudo usermod -a -G meilisearch $USER
 ```
 
@@ -52,25 +52,25 @@ sudo usermod -a -G meilisearch $USER
 
 Create configuration file
 
-```bash
+```sh
 curl https://raw.githubusercontent.com/meilisearch/meilisearch/latest/config.toml > ~/meilisearch.toml
 ```
 
 Move it to `/etc/meilisearch.toml`
 
-```bash
+```sh
 sudo mv ~/meilisearch.toml /etc/meilisearch.toml
 ```
 
 Edit it
 
-```bash
+```sh
 sudo vim /etc/meilisearch.toml
 ```
 
 You can generate a 16 bytes key with `openssl` for `YOUR_MASTER_KEY_VALUE`
 
-```bash
+```sh
 openssl rand -hex 16
 ```
 
@@ -131,7 +131,7 @@ experimental_reduce_indexing_memory_usage = false
 
 ## Set permissions
 
-```bash
+```sh
 sudo mkdir /var/lib/meilisearch/data /var/lib/meilisearch/dumps /var/lib/meilisearch/snapshots
 sudo chown -R meilisearch:meilisearch /var/lib/meilisearch
 sudo chmod 755 /var/lib/meilisearch
@@ -143,13 +143,13 @@ You can create a service locally but it's often on production server.
 
 Create service
 
-```bash
+```sh
 sudo vim /etc/systemd/system/meilisearch.service
 ```
 
 Add this config to service, here with password `YOUR_MASTER_KEY_VALUE`
 
-```bash title="/etc/systemd/system/meilisearch.service"
+```sh title="/etc/systemd/system/meilisearch.service"
 [Unit]
 Description=Meilisearch
 After=systemd-user-sessions.service
@@ -167,17 +167,17 @@ WantedBy=multi-user.target
 
 Enable it
 
-```bash
+```sh
 sudo systemctl enable meilisearch
 ```
 
-```bash
+```sh
 sudo systemctl start meilisearch
 ```
 
 Check status
 
-```bash
+```sh
 sudo systemctl status meilisearch
 ```
 
@@ -185,7 +185,7 @@ sudo systemctl status meilisearch
 
 For Meilisearch you need to have endpoint, so you have to create VHost for it
 
-```bash
+```sh
 sudo vim /etc/nginx/sites-available/meilisearch.example.com.conf
 ```
 
@@ -208,11 +208,11 @@ Execute `certbot` to add HTTPS and your endpoint is available on [http://meilise
 
 ## Update Meilisearch
 
-```bash
+```sh
 sudo service meilisearch stop
 ```
 
-```bash
+```sh
 mkdir -p ~/sandbox
 cd ~/sandbox
 curl -L https://install.meilisearch.com | sh
@@ -221,11 +221,11 @@ sudo chown root:root /usr/bin/meilisearch
 sudo chmod +x /usr/bin/meilisearch
 ```
 
-```bash
+```sh
 sudo vim /var/lib/meilisearch/update.sh
 ```
 
-```bash title="/var/lib/meilisearch/update.sh"
+```sh title="/var/lib/meilisearch/update.sh"
 #!/bin/bash
 
 sudo rm -rf /var/lib/meilisearch/data
@@ -240,18 +240,18 @@ sudo chown -R meilisearch:meilisearch /var/lib/meilisearch
 sudo chmod -R 755 /var/lib/meilisearch
 ```
 
-```bash
+```sh
 sudo chmod +x /var/lib/meilisearch/update.sh
 ```
 
-```bash
+```sh
 /var/lib/meilisearch/update.sh
 ```
 
-```bash
+```sh
 sudo service meilisearch start
 ```
 
-```bash
+```sh
 sudo service meilisearch status
 ```

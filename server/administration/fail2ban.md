@@ -1,25 +1,38 @@
 ---
-title: Fail2ban
+title: fail2ban
+description: Protect SSH with fail2ban on Debian
 ---
 
-# Fail2ban
+# {{ $frontmatter.title }}
+
+{{ $frontmatter.description }}
+
+::: info
 
 - Official: <https://www.fail2ban.org/wiki/index.php/Main_Page>
 - Digital Ocean: <https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-debian-11>
 - LinuxCapable: <https://www.linuxcapable.com/how-to-install-fail2ban-on-debian-linux/>
 
-```bash
+:::
+
+## Installation
+
+Install the package.
+
+```sh
 sudo apt update
 sudo apt install -y fail2ban
 ```
 
 ## Configuration
 
-```bash
+Create a copy of the default configuration file.
+
+```sh
 sudo vim /etc/fail2ban/jail.local
 ```
 
-```bash [/etc/fail2ban/jail.local]
+```sh:/etc/fail2ban/jail.local
 [DEFAULT]
 # Set the ban time in seconds (e.g., 3600 seconds = 1 hour)
 bantime = 3600
@@ -55,61 +68,71 @@ enabled = true
 
 Check if `/var/log/fail2ban.log` exists.
 
-```bash
+```sh
 sudo rm /var/log/fail2ban.log
 sudo touch /var/log/fail2ban.log
 ```
 
-```bash
+Remove optional IPv6 support.
+
+```sh
 sudo vim /etc/fail2ban/fail2ban.local
 ```
 
-```bash [/etc/fail2ban/fail2ban.local]
+```sh [/etc/fail2ban/fail2ban.local]
 [Definition]
 allowipv6 = no
 ```
 
 ## Enable
 
-```bash
+Enable and start the service.
+
+```sh
 sudo systemctl enable fail2ban
 sudo systemctl start fail2ban
 ```
 
-You can restart it with:
+Check the status.
 
-```bash
-sudo systemctl restart fail2ban
-```
-
-And check status with:
-
-```bash
+```sh
 sudo systemctl status fail2ban
 ```
 
 ## Commands
 
+### Restart
+
+```sh
+sudo systemctl restart fail2ban
+```
+
+### Status
+
+```sh
+sudo systemctl status fail2ban
+```
+
 ### Check
 
-```bash
+```sh
 sudo fail2ban-client status
 ```
 
 ### Logs
 
-```bash
+```sh
 sudo tail -f /var/log/fail2ban.log
 ```
 
 ### Unban
 
-```bash
+```sh
 sudo fail2ban-client set sshd unbanip
 ```
 
 ### Check banned IPs
 
-```bash
+```sh
 sudo fail2ban-client status sshd
 ```

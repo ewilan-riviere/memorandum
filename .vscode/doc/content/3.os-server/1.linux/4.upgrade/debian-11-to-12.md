@@ -8,23 +8,23 @@ From <https://www.tecmint.com/upgrade-debian-11-to-12/>
 
 Upgrade to latest packages.
 
-```bash
+```sh
 sudo apt update && sudo apt upgrade -y
 ```
 
 Purge old packages.
 
-```bash
+```sh
 sudo apt --purge autoremove
 ```
 
 Update APT
 
-```bash
+```sh
 sudo vim /etc/apt/sources.list
 ```
 
-```bash [/etc/apt/sources.list]
+```sh [/etc/apt/sources.list]
 deb https://deb.debian.org/debian/ bookworm contrib main non-free non-free-firmware
 # deb-src https://deb.debian.org/debian/ bookworm contrib main non-free non-free-firmware
 
@@ -43,31 +43,31 @@ deb https://security.debian.org/debian-security/ bookworm-security contrib main 
 
 Check if you have some extra sources in `/etc/apt/sources.list.d/`
 
-```bash
+```sh
 ls /etc/apt/sources.list.d/
 ```
 
 Remove all `sources.list` files into `/etc/apt/sources.list.d/`
 
-```bash
+```sh
 sudo rm /etc/apt/sources.list.d/*
 ```
 
 Upgrade to Debian 12
 
-```bash
+```sh
 sudo apt update
 ```
 
 Upgrade packages
 
-```bash
+```sh
 sudo apt upgrade --without-new-pkgs
 ```
 
 Upgrade distribution
 
-```bash
+```sh
 sudo apt full-upgrade
 ```
 
@@ -77,11 +77,11 @@ Now you can reinstall all extra `sources.list` files into `/etc/apt/sources.list
 
 ### Unmet dependencies
 
-```bash
+```sh
 sudo dpkg --purge --force-depends libpcre2-posix3
 ```
 
-```bash
+```sh
 $ sudo apt install libpcre2-posix3                                                                               [10:01:27]
 Reading package lists... Done
 Building dependency tree... Done
@@ -97,7 +97,7 @@ The following packages have unmet dependencies:
 E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).
 ```
 
-```bash
+```sh
 sudo apt download libpcre2-posix3
 sudo dpkg -i --force-overwrite libpcre2-posix3_10.42-1_amd64.deb
 sudo apt install libpcre2-dev

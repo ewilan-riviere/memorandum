@@ -1,6 +1,6 @@
 ---
 title: Android Studio
-description: 'How to setup Android Studio on Linux'
+description: "How to setup Android Studio on Linux"
 ---
 
 # Android Studio
@@ -27,33 +27,33 @@ This guide is for Ubuntu 18.04, Android Studio 4 and Flutter 1.20. I give some t
 
 Android Studio is not available with APT but on Ubuntu we can add a PPA to add it to APT.
 
-```bash
+```sh
 sudo apt-add-repository ppa:maarten-fonville/android-studio
 sudo apt install -y android-studio
 ```
 
 ### On another distribution
 
-You have two choices, you can download directly archive [on official website](https://developer.android.com/studio) or with terminal and *wget*. If you choose this method, this is an example with a version of Android Studio (september 2020), if you want a recent version, check on [official website](https://developer.android.com/studio) if you can find most recent Android Studio - you can update link and download it with terminal.
+You have two choices, you can download directly archive [on official website](https://developer.android.com/studio) or with terminal and _wget_. If you choose this method, this is an example with a version of Android Studio (september 2020), if you want a recent version, check on [official website](https://developer.android.com/studio) if you can find most recent Android Studio - you can update link and download it with terminal.
 
-```bash
+```sh
 wget -O android-studio.tar.gz "https://redirector.gvt1.com/edgedl/android/studio/ide-zips/4.0.1.0/android-studio-ide-193.6626763-linux.tar.gz"
 ```
 
 Move archive to `/opt` and extract it
 
-```bash
+```sh
 sudo mv android-studio*.tar.gz /opt
 sudo tar xf /opt/android-studio*.tar.gz
 ```
 
 Create an application launcher
 
-```bash
+```sh
 vim ~/.local/share/applications/android-studio.desktop
 ```
 
-```bash [~/.local/share/applications/android-studio.desktop]
+```sh [~/.local/share/applications/android-studio.desktop]
 [Desktop Entry]
 Encoding=UTF-8
 Name=Android Studio
@@ -71,9 +71,9 @@ Categories=Development;
 ::alert{type="warning"}
 
 **After installation**
->
-When the package is installed, search **Android Studio** in your apps and execute it and setup to keep all as default. A wizard will **download tools**, when tools configuration is finish, you can **create an basic project to use IDE**.
-::
+
+> When the package is installed, search **Android Studio** in your apps and execute it and setup to keep all as default. A wizard will **download tools**, when tools configuration is finish, you can **create an basic project to use IDE**.
+> ::
 
 ## Platform-tools
 
@@ -81,18 +81,18 @@ When the package is installed, search **Android Studio** in your apps and execut
 
 In `.profile`, `.bashrc` or `.zshrc`
 
-```bash [~/.zshrc]
+```sh [~/.zshrc]
 export PATH=${PATH}:/home/ewilan/Android/Sdk/tools
 export PATH=${PATH}:/home/ewilan/Android/Sdk/tools:/home/ewilan/Android/Sdk/platform-tools
 ```
 
 And check if you have `adb` command
 
-```bash
+```sh
 adb devices
 ```
 
-```bash
+```sh
 source ~/.zshrc
 ```
 
@@ -112,13 +112,13 @@ Android Studio have to be installed, this tip works if you want to launch emulat
 
 List availables emulator devices
 
-```bash
+```sh
 ~/Android/Sdk/tools/emulator -list-avds
 ```
 
 Start an emulator where `Pixel_2` is emulator's name
 
-```bash
+```sh
 ~/Android/Sdk/tools/emulator -avd Pixel_2
 ```
 
@@ -126,19 +126,19 @@ Start an emulator where `Pixel_2` is emulator's name
 
 If you have this error in AVD Manager
 
-```bash
+```sh
 /dev/kvm permission denied
 ```
 
 Setup KVM with this
 
-```bash
+```sh
 sudo apt install qemu-kvm
 ls -al /dev/kvm\n
 grep kvm /etc/group\n
 ```
 
-```bash
+```sh
 sudo adduser $USER kvm
 ```
 
@@ -146,6 +146,6 @@ Restart / Logout
 
 If nothing work:
 
-```bash
+```sh
 sudo chown $USER /dev/kvm
 ```

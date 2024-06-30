@@ -13,7 +13,7 @@ Matomo is an alternative to collect website data: [**Matomo website**](https://m
 
 Connect on your server
 
-```bash
+```sh
 cd /home/user/www/
 wget https://builds.matomo.org/matomo.zip && unzip matomo.zip
 rm How\ to\ install\ Matomo.html && rm matomo.zip
@@ -21,7 +21,7 @@ sudo chown -R www-data:www-data /home/user/www/matomo
 sudo find /home/user/www/matomo/tmp -type f -exec chmod 644 {} \; && sudo find /home/user/www/matomo/tmp -type d -exec chmod 755 {} \;
 ```
 
-```bash
+```sh
 cd /etc/nginx/sites-available
 sudo vim matomo.example.com.conf
 ```
@@ -102,7 +102,7 @@ server {
 
 ```
 
-```bash
+```sh
 sudo ln -s /etc/nginx/sites-available/matomo.example.com.conf /etc/nginx/sites-enabled
 sudo certbot --nginx
 ```
@@ -111,6 +111,6 @@ Now you have to create a MySQL matomo user and database. Go to **matomo.example.
 
 ## Update
 
-```bash
+```sh
 sudo chmod 777 /home/user/www/matomo
 ```

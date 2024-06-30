@@ -11,25 +11,25 @@ description: How to setup Meilisearch
 
 The simple way to setup Meilisearch is `curl`
 
-```bash
+```sh
 curl -L https://install.meilisearch.com | sh
 ```
 
 Now you can launch Meilisearch
 
-```bash
+```sh
 ./meilisearch
 ```
 
 But the best solution is to add to binaries
 
-```bash
+```sh
 sudo mv ./meilisearch /usr/bin/
 ```
 
 Now you can launch it
 
-```bash
+```sh
 meilisearch
 ```
 
@@ -37,13 +37,13 @@ meilisearch
 
 The simple way to setup Meilisearch is `homebrew`
 
-```bash
+```sh
 brew update && brew install meilisearch
 ```
 
 Now you can launch Meilisearch
 
-```bash
+```sh
 meilisearch
 ```
 
@@ -53,13 +53,13 @@ You will need to install [Docker](https://www.docker.com)
 
 Pull the image
 
-```bash
+```sh
 docker pull getmeili/meilisearch:v1.0
 ```
 
 Execute the image
 
-```bash
+```sh
 docker run -it --rm \
     -p 7700:7700 \
     -e MEILI_ENV='development' \

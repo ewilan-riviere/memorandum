@@ -1,11 +1,11 @@
 ---
 title: Cheatsheet
-description: ''
+description: ""
 ---
 
 ## Switch between PHP versions
 
-*Source: [**stackexchange.com/how-to-switch-between-php-versions-on-ubuntu-nginx**](https://magento.stackexchange.com/questions/272815/how-to-switch-between-php-versions-on-ubuntu-nginx)*
+_Source: [**stackexchange.com/how-to-switch-between-php-versions-on-ubuntu-nginx**](https://magento.stackexchange.com/questions/272815/how-to-switch-between-php-versions-on-ubuntu-nginx)_
 
 If you want to switch PHP CLI version, follow these steps
 
@@ -13,13 +13,13 @@ If you want to switch PHP CLI version, follow these steps
 If you just want to use another PHP version pour a Virtual host, like a old Drupal app, just change PHP version in NGINX conf.
 ::
 
-```bash
+```sh
 sudo update-alternatives --config php
 ```
 
 You will have a menu to choose PHP CLI version
 
-```bash
+```sh
   Selection    Path             Priority   Status
 ------------------------------------------------------------
 * 0            /usr/bin/php7.4   74        auto mode
@@ -30,7 +30,7 @@ You will have a menu to choose PHP CLI version
 
 After change PHP version restart NGINX and restart PHP version you choose
 
-```bash
+```sh
 sudo service nginx restart
 # example if you choose php7.2
 sudo service php7.2-fpm restart
@@ -71,7 +71,7 @@ Check return data like:
 public function getData() : Collection
 {
   $data = Data::all();
-  
+
   return $data;
 }
 ```

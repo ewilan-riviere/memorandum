@@ -5,7 +5,7 @@ description: Errors with Vue
 
 ## About JSX compiler
 
-```bash
+```sh
 touch jsconfig.json
 ```
 
@@ -15,18 +15,11 @@ touch jsconfig.json
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "resources/js/*"
-      ],
-      "@Components/*": [
-        "resources/js/Components/*"
-      ]
+      "@/*": ["resources/js/*"],
+      "@Components/*": ["resources/js/Components/*"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "public"
-  ],
+  "exclude": ["node_modules", "public"],
   "vueCompilerOptions": {
     "experimentalDisableTemplateSupport": true
   }

@@ -1,11 +1,11 @@
 ---
 title: Commands
-description: ''
+description: ""
 ---
 
 ## Flutter
 
-```bash
+```sh
 flutter create --org com.author.application.app --project-name dart_package directory-name
 ```
 
@@ -13,13 +13,13 @@ flutter create --org com.author.application.app --project-name dart_package dire
 
 Linux change PHP version
 
-```bash
+```sh
 sudo update-alternatives --config php
 ```
 
 ## Remove node_modules
 
-```bash
+```sh
 find . -name 'node_modules' -type d -prune
 find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +
 ```
@@ -31,21 +31,21 @@ Source: <https://stackoverflow.com/questions/42950501/delete-node-modules-folder
 <content-code-group>
   <content-code-block label="MySQL" active>
 
-  ```sql[mysql]
-  CREATE DATABASE my_project_database;
-  CREATE USER 'my_project_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'secret_password';
-  GRANT ALL ON my_project_database.* TO 'my_project_user'@'localhost';
-  ```
+```sql[mysql]
+CREATE DATABASE my_project_database;
+CREATE USER 'my_project_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'secret_password';
+GRANT ALL ON my_project_database.* TO 'my_project_user'@'localhost';
+```
 
   </content-code-block>
   <content-code-block label="Debian">
 
-  ```sql[mariadb]
-  CREATE DATABASE `my_project_database`;
-  CREATE USER 'my_project_user'@localhost IDENTIFIED BY 'super_secret_password';
-  GRANT ALL privileges ON my_project_database.* TO 'my_project_user'@localhost;
-  FLUSH PRIVILEGES;
-  ```
+```sql[mariadb]
+CREATE DATABASE `my_project_database`;
+CREATE USER 'my_project_user'@localhost IDENTIFIED BY 'super_secret_password';
+GRANT ALL privileges ON my_project_database.* TO 'my_project_user'@localhost;
+FLUSH PRIVILEGES;
+```
 
   </content-code-block>
 </content-code-group>
@@ -54,7 +54,7 @@ Source: <https://stackoverflow.com/questions/42950501/delete-node-modules-folder
 
 Create `.env`
 
-```bash
+```sh
 cp .env.example .env
 ```
 
@@ -63,27 +63,27 @@ Download `composer` dependencies
 <content-code-group>
   <content-code-block label="Composer" active>
 
-  ```bash
-  composer install
-  ```
+```sh
+composer install
+```
 
   </content-code-block>
   <content-code-block label="Ignore">
 
-  ```bash
-  composer install --ignore-platform-reqs
-  ```
+```sh
+composer install --ignore-platform-reqs
+```
 
   </content-code-block>
 </content-code-group>
 
 Linus setup permissions
 
-```bash
+```sh
 sudo chown -R $USER:www-data * ; sudo chmod -R ug+rwx storage bootstrap/cache
 ```
 
-```bash
+```sh
 sudo chown -R $USER:www-data bookshelves-back
 sudo chown -R $USER:www-data bookshelves-vivacia-back
 
@@ -92,7 +92,7 @@ sudo usermod -a -G www-data ewilan
 
 Setup `key:generate` & `storage:link`
 
-```bash
+```sh
 php artisan key:generate ; php artisan storage:link
 ```
 
@@ -101,41 +101,41 @@ Migrate database
 <content-code-group>
   <content-code-block label="Migrate" active>
 
-  ```bash
-  php artisan migrate:fresh
-  ```
+```sh
+php artisan migrate:fresh
+```
 
   </content-code-block>
   <content-code-block label="Seeding">
 
-  ```bash
-  php artisan migrate:fresh --seed
-  ```
+```sh
+php artisan migrate:fresh --seed
+```
 
   </content-code-block>
 </content-code-group>
 
 Clear all
 
-```bash
+```sh
 php artisan cache:clear ; php artisan config:clear ; php artisan route:clear
 ```
 
 List routes (compact mode)
 
-```bash
+```sh
 php artisan route:list --compact
 ```
 
 [**laravel-ide-helper**](https://github.com/barryvdh/laravel-ide-helper) generate command
 
-```bash
+```sh
 php artisan ide-helper:generate ; php artisan ide-helper:models --nowrite; php artisan ide-helper:meta ; php artisan ide-helper:eloquent
 ```
 
 [**PHP-CS-Fixer**](https://github.com/FriendsOfPHP/PHP-CS-Fixer) fix all PHP files
 
-```bash
+```sh
 ./vendor/bin/php-cs-fixer fix
 ```
 
@@ -152,31 +152,31 @@ sudo net star hns
 
 Update common packages
 
-```bash
+```sh
 sudo scoop update 7zip cacert composer curl dark doctl ffmpeg firacode git glow hwmonitor innounp lessmsi make ngrok nssm nvm python rufus sudo symfony-cli touch Victor-Mono vim wget which youtube-dl nginx Cascadia-Code
 ```
 
 Update language packages
 
-```bash
+```sh
 sudo scoop update php-nts php7.3-nts php7.4-nts rust mysql
 ```
 
 Update medium/big packages
 
-```bash
+```sh
 sudo scoop update discord gimp postman teamviewer vlc
 ```
 
 Update mobile development packages
 
-```bash
+```sh
 sudo scoop update adb adopt8-hotspot android-sdk android-studio flutter
 ```
 
 To update `windows-terminal`, you need to close it and execute below command from classic PowerShell terminal
 
-```bash
+```sh
 sudo scoop update windows-terminal
 ```
 
@@ -336,15 +336,11 @@ sudo scoop update windows-terminal
     },
     {
       "command": "closePane",
-      "keys": [
-        "ctrl+w"
-      ]
+      "keys": ["ctrl+w"]
     },
     {
       "command": "newTab",
-      "keys": [
-        "ctrl+t"
-      ]
+      "keys": ["ctrl+t"]
     }
   ]
 }

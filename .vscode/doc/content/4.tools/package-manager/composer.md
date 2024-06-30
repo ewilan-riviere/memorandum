@@ -7,10 +7,10 @@ description: Useful commands for Composer
 
 ## Switch between Composer version
 
-```bash
+```sh
 composer self-update --1
 ```
 
-```bash
+```sh
 composer self-update --2
 ```

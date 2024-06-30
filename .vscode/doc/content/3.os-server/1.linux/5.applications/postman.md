@@ -6,7 +6,7 @@ title: Postman
 
 [**Postman**](https://www.postman.com/)
 
-```bash
+```sh
 curl -L  https://dl.pstmn.io/download/latest/linux64 -o postman.tar.gz
 tar -xzf postman*.tar.gz
 sudo rm -rf /opt/Postman
@@ -16,13 +16,13 @@ sudo ln -s /opt/Postman/Postman /usr/bin/postman
 
 Create icon to launch Postman from your apps
 
-```bash
+```sh
 vim ~/.local/share/applications/postman.desktop
 ```
 
 Copy these infos into this new file
 
-```bash [~/.local/share/applications/postman.desktop]
+```sh [~/.local/share/applications/postman.desktop]
 [Desktop Entry]
 Encoding=UTF-8
 Name=Postman
@@ -40,8 +40,9 @@ Categories=Development;
 ::alert{type="warning"}
 If you want to install next apps, you need some dependencies
 
-```bash
+```sh
 sudo apt install -y libatomic1 libappindicator1 libc++1 libsecret-1-dev gconf2
 sudo apt --fix-broken install
 ```
+
 ::

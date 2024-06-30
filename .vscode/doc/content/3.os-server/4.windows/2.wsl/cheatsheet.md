@@ -1,18 +1,18 @@
 ---
 title: Cheatsheet
-description: 'Commands cheatsheet'
+description: "Commands cheatsheet"
 position: 4
 ---
 
 # Cheatsheet
 
-```bash
+```sh
 wsl --help
 ```
 
 Displays general information about the status of the Windows Subsystem for Linux installation.
 
-```bash
+```sh
 wsl --status
 ```
 
@@ -20,13 +20,13 @@ wsl --status
 
 List distro available
 
-```bash
+```sh
 wsl --list --online
 ```
 
 List installed distro
 
-```bash
+```sh
 wsl --list --verbose
 ```
 
@@ -34,13 +34,13 @@ wsl --list --verbose
 
 Update WSL
 
-```bash
+```sh
 wsl --update
 ```
 
 Rolls back to the previous WSL kernel version.
 
-```bash
+```sh
 wsl --update rollback
 ```
 
@@ -48,7 +48,7 @@ wsl --update rollback
 
 Here for example to delete `Ubuntu` distribution
 
-```bash
+```sh
 wsl --unregister Ubuntu
 ```
 
@@ -56,6 +56,6 @@ wsl --unregister Ubuntu
 
 To open file explorer of distro files
 
-```bash
+```sh
 explorer.exe .
 ```

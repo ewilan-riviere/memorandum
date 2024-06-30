@@ -1,6 +1,6 @@
 ---
 title: WSL 2
-description: 'Improve performances'
+description: "Improve performances"
 position: 3
 ---
 
@@ -16,7 +16,7 @@ WSL 2 improve performances for WSL.
 
 ## Enable Virtual Machine feature
 
-```bash
+```sh
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 ```
 
@@ -30,18 +30,18 @@ Reboot after this.
 
 ## Set WSL 2 as your default version
 
-```bash
+```sh
 wsl --set-default-version 2
 ```
 
 Check your distro
 
-```bash
+```sh
 wsl --list --verbose
 ```
 
 If any distro is in version 1, you can force version update
 
-```bash
+```sh
 wsl --set-version Ubuntu 2
 ```

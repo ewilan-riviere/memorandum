@@ -26,20 +26,12 @@ title: Configs
     },
     "no_empty_comment": false,
     "no_extra_blank_lines": {
-      "tokens": [
-        "extra",
-        "throw",
-        "use"
-      ]
+      "tokens": ["extra", "throw", "use"]
     },
     "no_unused_imports": true,
     "not_operator_with_successor_space": true,
     "ordered_imports": {
-      "imports_order": [
-        "class",
-        "function",
-        "const"
-      ],
+      "imports_order": ["class", "function", "const"],
       "sort_algorithm": "alpha"
     },
     "php_unit_internal_class": false,
@@ -143,19 +135,10 @@ return $config->setFinder($finder)
     "format": [
       "pint" // or "php-cs-fixer fix --ansi" with php-cs-fixer
     ],
-    "analyse": [
-      "phpstan analyse --ansi --memory-limit=4G"
-    ],
-    "serve": [
-      "Composer\\Config::disableProcessTimeout",
-      "php artisan serve"
-    ],
-    "test": [
-      "@php artisan test"
-    ],
-    "test:filter": [
-      "@php artisan test --filter"
-    ],
+    "analyse": ["phpstan analyse --ansi --memory-limit=4G"],
+    "serve": ["Composer\\Config::disableProcessTimeout", "php artisan serve"],
+    "test": ["@php artisan test"],
+    "test:filter": ["@php artisan test --filter"],
     "test:watch": [
       "Composer\\Config::disableProcessTimeout",
       "phpunit-watcher watch"
@@ -174,7 +157,7 @@ return $config->setFinder($finder)
 
 #### @antfu
 
-```bash
+```sh
 pnpm add -D eslint @antfu/eslint-config
 touch .eslintrc ; touch .eslintignore
 ```
@@ -219,10 +202,7 @@ touch .eslintrc ; touch .eslintignore
     "no-console": [
       "warn",
       {
-        "allow": [
-          "error",
-          "warn"
-        ]
+        "allow": ["error", "warn"]
       }
     ],
     "no-unused-vars": "warn",
@@ -230,10 +210,7 @@ touch .eslintrc ; touch .eslintignore
     "vue/first-attribute-linebreak": "warn",
     "vue/no-v-html": "off",
     "@typescript-eslint/no-unused-vars": "warn",
-    "object-curly-spacing": [
-      "error",
-      "always"
-    ],
+    "object-curly-spacing": ["error", "always"],
     "no-multi-spaces": "warn",
     "no-trailing-spaces": [
       "error",
@@ -241,10 +218,7 @@ touch .eslintrc ; touch .eslintignore
         "skipBlankLines": true
       }
     ],
-    "indent": [
-      "error",
-      2
-    ],
+    "indent": ["error", 2],
     "quotes": [
       2,
       "single",
@@ -252,10 +226,7 @@ touch .eslintrc ; touch .eslintignore
         "avoidEscape": true
       }
     ],
-    "semi": [
-      "error",
-      "never"
-    ],
+    "semi": ["error", "never"],
     "comma-dangle": "off",
     "vue/html-self-closing": "off",
     "vue/max-attributes-per-line": "warn",
@@ -279,17 +250,14 @@ touch .eslintrc ; touch .eslintignore
     "vue/no-irregular-whitespace": "warn",
     "vue/no-empty-pattern": "warn",
     "vue/block-spacing": "warn",
-    "padded-blocks": [
-      "error",
-      "never"
-    ]
+    "padded-blocks": ["error", "never"]
   }
 }
 ```
 
 ### .eslintignore
 
-```bash [.eslintignore]
+```sh [.eslintignore]
 .nuxt
 build
 dist
@@ -323,11 +291,6 @@ vendor
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "eslint.validate": [
-    "javascript",
-    "js",
-    "typescript",
-    "vue"
-  ]
+  "eslint.validate": ["javascript", "js", "typescript", "vue"]
 }
 ```

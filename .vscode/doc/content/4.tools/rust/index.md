@@ -6,25 +6,25 @@ title: Rust
 
 ## Install
 
-```bash
+```sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
-```bash
+```sh
 source "$HOME/.cargo/env"
 ```
 
-```bash
+```sh
 source ~/.zshrc
 ```
 
-```bash
+```sh
 cargo
 ```
 
 ## Update
 
-```bash
+```sh
 rustup update
 cargo -vV
 ```

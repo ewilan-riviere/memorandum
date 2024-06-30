@@ -1,13 +1,13 @@
 ---
 title: PHP FPM
-description: ''
+description: ""
 position: 2
-category: 'PHP'
+category: "PHP"
 ---
 
 When Apache use standard PHP version, NGINX use FPM version.
 
-```bash
+```sh
 sudo apt install -y php-fpm php-mysql
 ```
 
@@ -22,25 +22,25 @@ It's will install latest **stable** version of PHP-fpm, so you will maybe need a
 
 You can check PHP version with `php -v`, if you want to upgrade this version follow next steps. You have to add new source for `apt`
 
-```bash
+```sh
 sudo add-apt-repository -y ppa:ondrej/php ; sudo apt update
 ```
 
 Now you can download new PHP version
 
-```bash
+```sh
 sudo apt install php7.3-fpm
 ```
 
 This will automatically update PHP CLI version, it's this version that you use when you execute `php` command into your terminal. You can check it with `php -v`. But yours VHosts can always use old version of PHP, you will have to update NGINX conf for each VHost if you want to change their version of PHP (it's optional). You can keep VHost with old version of PHP, if you let this version on your system, it's useful to update version if you use modern syntax in your PHP app, for example type of parameters is available with latests PHP versions.
 
 ::alert{type="warning"}
-Following steps talks about VHost, if you don't know how it's works, read [*4. Virtual Host*](/guides/linux/lemp/#_4-virtual-host) before.
+Following steps talks about VHost, if you don't know how it's works, read [_4. Virtual Host_](/guides/linux/lemp/#_4-virtual-host) before.
 ::
 
 If you want to update a VHost NGINX conf, check it in `/etc/nginx/sites-available/` and edit it, like:
 
-```bash
+```sh
 sudo vim /etc/nginx/sites-available/my-domain
 ```
 
@@ -73,12 +73,12 @@ server {
 And your app will use new PHP version.
 
 ::alert{type="warning"}
-If you change PHP version, it can be missing some extensions, if your app display an error about extension check this part : [*missing extension*](/guides/linux/phpmyadmin/#missing-extension)
+If you change PHP version, it can be missing some extensions, if your app display an error about extension check this part : [_missing extension_](/guides/linux/phpmyadmin/#missing-extension)
 ::
 
 ## 2. Switch between PHP versions
 
-*Source: [**stackexchange.com/how-to-switch-between-php-versions-on-ubuntu-nginx**](https://magento.stackexchange.com/questions/272815/how-to-switch-between-php-versions-on-ubuntu-nginx)*
+_Source: [**stackexchange.com/how-to-switch-between-php-versions-on-ubuntu-nginx**](https://magento.stackexchange.com/questions/272815/how-to-switch-between-php-versions-on-ubuntu-nginx)_
 
 If you want to switch PHP CLI version, follow these steps
 
@@ -86,13 +86,13 @@ If you want to switch PHP CLI version, follow these steps
 If you just want to use another PHP version pour a Virtual host, like a old Drupal app, just change PHP version in NGINX conf.
 ::
 
-```bash
+```sh
 sudo update-alternatives --config php
 ```
 
 You will have a menu to choose PHP CLI version
 
-```bash
+```sh
   Selection    Path             Priority   Status
 ------------------------------------------------------------
 * 0            /usr/bin/php7.4   74        auto mode
@@ -103,7 +103,7 @@ You will have a menu to choose PHP CLI version
 
 After change PHP version restart NGINX and restart PHP version you choose
 
-```bash
+```sh
 sudo service nginx restart
 # example if you choose php7.2
 sudo service php7.2-fpm restart
@@ -115,7 +115,7 @@ NGINX default conf allow 2 Mo files max in upload, if you want to change it foll
 
 - For NGINX
 
-```bash
+```sh
 sudo vim /etc/nginx/nginx.conf
 ```
 
@@ -132,7 +132,7 @@ http {
 
 Check PHP version used by your application, `php -v` give you just PHP CLI version, if don't setup VHost, it's PHP version of your app but if you have a VHost you have to check PHP version of conf. And update current `php.ini`
 
-```bash
+```sh
 # for example if current version is 7.4
 sudo vim /etc/php/7.4/fpm/php.ini
 ```
@@ -147,9 +147,9 @@ upload_max_filesize = 500M
 
 Restart NGINX and PHP
 
-```bash
+```sh
 sudo service nginx restart
 sudo service php7.4-fpm restart
 ```
 
-You can check with `phpinfo()`, if you don't setup it, check it here: [*Change phpMyAdmin PHP version*](/guides/linux/phpmyadmin/#_4-change-phpmyadmin-php-version)
+You can check with `phpinfo()`, if you don't setup it, check it here: [_Change phpMyAdmin PHP version_](/guides/linux/phpmyadmin/#_4-change-phpmyadmin-php-version)

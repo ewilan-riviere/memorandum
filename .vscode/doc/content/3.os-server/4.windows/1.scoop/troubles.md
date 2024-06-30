@@ -10,10 +10,10 @@ title: Troubles
 cd C:\Users\USERNAME\scoop\bucket\main
 ```
 
-```bash
+```sh
 git reset --hard origin/master
 ```
 
-```bash
+```sh
 scoop update
 ```

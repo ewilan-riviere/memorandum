@@ -1,15 +1,15 @@
 ---
 title: Windows terminal
-description: 'A nice terminal on Windows'
+description: "A nice terminal on Windows"
 ---
 
 # Windows terminal
 
 ::alert{type="warning"}
 **scoop is necessary**
->
-You will need to have **scoop** to install Windows terminal, if you don't install it, check this guide: **scoop**.
-::
+
+> You will need to have **scoop** to install Windows terminal, if you don't install it, check this guide: **scoop**.
+> ::
 
 Windows terminal is a recent terminal for Windows, by Microsoft.
 
@@ -28,7 +28,7 @@ Windows terminal is a recent terminal for Windows, by Microsoft.
 
 ## Installation
 
-You can easily install it with **scoop** (from *bucket extras*). You can install it from **Windows Store** instead, if you like it.
+You can easily install it with **scoop** (from _bucket extras_). You can install it from **Windows Store** instead, if you like it.
 
 ```powershell [PowerShell]
 scoop install windows-terminal
@@ -46,6 +46,7 @@ This example will give you a terminal with black background, green font and two 
 #summary
 Terminal configuration example
 #content
+
 ```json
 // ...
 {
@@ -113,24 +114,20 @@ Terminal configuration example
   ],
   // ...
   "actions": [
-
     // ...
 
     {
       "command": "closePane",
-      "keys": [
-        "ctrl+w"
-      ]
+      "keys": ["ctrl+w"]
     },
     {
       "command": "newTab",
-      "keys": [
-        "ctrl+t"
-      ]
+      "keys": ["ctrl+t"]
     }
   ]
 }
 ```
+
 ::
 
 ## Profile
@@ -145,9 +142,9 @@ $PROFILE
 
 - From [**ohmyposh.dev/docs**](https://ohmyposh.dev/docs/installation/)
 
-*Optional: upgrade your PowerShell to 7+*
+_Optional: upgrade your PowerShell to 7+_
 
-```bash
+```sh
 sudo scoop install Meslo-NF ; scoop install https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/oh-my-posh.json
 ```
 
@@ -172,11 +169,11 @@ Add `"fontFace": "MesloLGM NF"` to Windows Terminal JSOn settings
 }
 ```
 
-```bash
+```sh
 scoop update oh-my-posh
 ```
 
-```bash
+```sh
 oh-my-posh --print-shell
 ```
 

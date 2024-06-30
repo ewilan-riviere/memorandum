@@ -6,23 +6,24 @@ description: Useful commands
 # Git
 
 ![elijahmanor.com](https://elijahmanor.com/images/git-branch/git-branch.png)
+
 > Fron elijahmanor.com
 
 ## New user
 
-```bash
+```sh
 git config --global user.email "you@example.com"
 ```
 
-```bash
+```sh
 git config --global user.name "Your Name"
 ```
 
 ## Conflicts with end of file
 
-It's cause of Windows end of file (CRLF) conflict with Linux end of file  (LF), just update global git core
+It's cause of Windows end of file (CRLF) conflict with Linux end of file (LF), just update global git core
 
-```bash
+```sh
 git config --global core.autocrlf false
 ```
 
@@ -32,7 +33,7 @@ And re-clone repository
 
 > “Pulling without specifying how to reconcile divergent branches is discouraged”
 
-```bash
+```sh
 git config --global pull.ff only
 ```
 
@@ -40,7 +41,7 @@ git config --global pull.ff only
 
 Example to change to vim editor
 
-```bash
+```sh
 git config --global core.editor "vim"
 ```
 
@@ -48,14 +49,14 @@ git config --global core.editor "vim"
 
 Erase a branch with another
 
-```bash
+```sh
 git checkout branch_to_erase
 git reset --hard branch_to_keep
 ```
 
 ## Delete branch
 
-```bash
+```sh
 # local
 git branch -d branch_to_delete
 # on origin remote
@@ -64,7 +65,7 @@ git push origin --delete branch_to_delete
 
 ## Commit changes on other branch
 
-```bash
+```sh
 git stash
 git checkout other_branch
 git stash pop
@@ -72,32 +73,32 @@ git stash pop
 
 ## Unstage all files
 
-```bash
+```sh
 git reset
 ```
 
 ## Add files and commit
 
-```bash
+```sh
 git commit -am
 ```
 
 ## Pull to overwrite local files
 
-*Source : [stackoverflow.com](https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files)*
+_Source : [stackoverflow.com](https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files)_
 
-```bash
+```sh
 git fetch --all
 ```
 
 Take master branch to overwrite local
 
-```bash
+```sh
 git reset --hard origin/master
 ```
 
 With another branch
 
-```bash
+```sh
 git reset --hard origin/branch_name
 ```

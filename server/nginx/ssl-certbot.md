@@ -1,8 +1,11 @@
 ---
 title: SSL & Certbot
+description: Secure your website with HTTPS
 ---
 
-# SSL with Certbot
+# {{ $frontmatter.title }}
+
+{{ $frontmatter.description }}
 
 - [**Guide from digitalocean.com**](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-debian-10): install Certbot without snap
 
@@ -16,7 +19,7 @@ You can install **snap** or use **Python** (personaly I dislike snap, so I insta
 
 ## Optional: install `snap` on Debian
 
-```bash
+```sh
 sudo apt update
 sudo apt install snapd
 sudo snap install core
@@ -26,12 +29,12 @@ sudo snap install core
 
 ::code-group
 
-```bash [snap]
+```sh [snap]
 sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 ```
 
-```bash [python]
+```sh [python]
 sudo apt install python3-acme python3-certbot python3-mock python3-openssl python3-pkg-resources python3-pyparsing python3-zope.interface
 sudo apt install python3-certbot-nginx
 sudo ufw status
@@ -41,29 +44,29 @@ sudo ufw status
 
 ## Execute `certbot`
 
-```bash
+```sh
 sudo certbot --nginx
 ```
 
 ## Automatic renewal
 
-```bash
+```sh
 sudo crontab -e
 ```
 
 Add this line
 
-```bash
+```sh
 0 3 * * * /usr/bin/certbot renew --quiet
 ```
 
 ### Clean script
 
-```bash
+```sh
 sudo vim /usr/local/bin/clean
 ```
 
-```bash
+```sh
 #!/bin/bash
 
 sudo rm -rf /var/log/*.gz
@@ -73,17 +76,17 @@ sudo journalctl --vacuum-size=30M
 sudo sh -c 'rm -rf /var/lib/snapd/cache/*'
 ```
 
-```bash
+```sh
 sudo chmod +x /usr/local/bin/clean
 ```
 
 Add to cron
 
-```bash
+```sh
 sudo crontab -e
 ```
 
-```bash
+```sh
 0 1 * * * sh /usr/local/bin/clean
 ```
 
@@ -136,7 +139,7 @@ server {
 
 Check if a website use HTTP/2
 
-```bash
+```sh
 curl -I -L https://bookshelves.ink
 ```
 

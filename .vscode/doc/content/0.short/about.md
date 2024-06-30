@@ -1,6 +1,6 @@
 ---
 title: About
-description: ''
+description: ""
 ---
 
 - [ ] php clockwork
@@ -61,27 +61,27 @@ description: ''
 
 ```html
 <style lang="css">
-.background {
-    background-image: url('assets/images/background.png');
-}
-.parallax {
+  .background {
+    background-image: url("assets/images/background.png");
+  }
+  .parallax {
     /* The image used */
-    background-image: url('assets/images/background.png');
+    background-image: url("assets/images/background.png");
 
     /* Full height */
-    height: 100%; 
+    height: 100%;
 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
+  }
 </style>
-<div class="fixed w-full h-screen bg-gray-100 bg-center bg-no-repeat bg-cover opacity-10 background"></div>
-<div>
-    content
-</div>
+<div
+  class="fixed w-full h-screen bg-gray-100 bg-center bg-no-repeat bg-cover opacity-10 background"
+></div>
+<div>content</div>
 ```
 
 - <https://www.digitalocean.com/community/tutorials/css-pure-css-parallax>
@@ -119,8 +119,8 @@ http {
 }
 ```
 
-For current PHP FPM version `/etc/php/7.4/fpm/php.ini`  
-*Check current version with `php -v`*
+For current PHP FPM version `/etc/php/7.4/fpm/php.ini`
+_Check current version with `php -v`_
 
 ```ini
 post_max_size = 500M
@@ -130,14 +130,14 @@ upload_max_filesize = 500M
 
 Restart NGINX and PHP FPM :
 
-```bash
+```sh
 sudo service nginx restart
 sudo service php7.4-fpm restart
 ```
 
 Check on phpinfo() if your config is correct. You can add this to `/var/www/html`, give it `phpinfo.php` name and acces to <http://localhost/phpinfo.php>
 
-```bash
+```sh
 <?php
 phpinfo();
 ?>
@@ -175,13 +175,13 @@ FOR /F "tokens=*" %G IN ('dir /b *') DO ffmpeg -i "%G" "%~nG.webp"
   - <https://github.com/l1ving/youtube-dl>
   - <https://korben.info/comment-utiliser-et-maitriser-youtube-dl-pour-telecharger-des-videos-comme-un-champion.html>
 
-```bash
+```sh
 youtube-dl -x --audio-format mp3 URL
 ```
 
 ---
 
-```bash
+```sh
 Fatal: fast forward aborting
 
 git merge origin/master
@@ -189,7 +189,7 @@ git merge origin/master
 
 Stuck in rebase
 
-```bash
+```sh
 git rebase --skip
 ```
 

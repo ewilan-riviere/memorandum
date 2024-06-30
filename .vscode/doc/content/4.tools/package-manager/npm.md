@@ -9,19 +9,19 @@ description: Useful commands for NPM
 
 Install globally `npm-check-updates`
 
-```bash
+```sh
 npm i -g npm-check-updates
 ```
 
 Check updates
 
-```bash
+```sh
 ncu -u
 ```
 
 Execute updates
 
-```bash
+```sh
 npm update
 ```
 
@@ -29,30 +29,30 @@ npm update
 
 If you want to keep your global `npm` packages you can set global path
 
-```bash
+```sh
 vim ~/.npmrc
 ```
 
-```bash[~/.npmrc]
+```sh[~/.npmrc]
 prefix=~/.npm/bin
 cache=~/.npm/cache
 ```
 
 Add to `~/.zshrc`
 
-```bash
+```sh
 vim ~/.zshrc
 ```
 
-```bash[~/.zshrc]
+```sh[~/.zshrc]
 export PATH=~/.npm/bin:$PATH
 ```
 
-```bash
+```sh
 source ~/.zshrc
 ```
 
-```bash
+```sh
 nvm use --delete-prefix v18.17.0 --silent
 ```
 
@@ -62,6 +62,6 @@ Now you can install additional useful packages
 
 Update npm
 
-```bash
+```sh
 npm install -g npm
 ```

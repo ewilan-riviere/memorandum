@@ -1,15 +1,15 @@
 ---
 title: Applications
-description: 'Add some applications to Ubuntu'
+description: "Add some applications to Ubuntu"
 position: 2
-category: 'Linux'
+category: "Linux"
 ---
 
 # Applications
 
 Common apps
 
-```bash
+```sh
 sudo apt install -y vlc gimp
 ```
 
@@ -19,10 +19,10 @@ sudo apt install -y vlc gimp
 
 ## Remove KDE and Gnome applications
 
-```bash
+```sh
 sudo apt remove -y kontact kmail thunderbird kontact plasma-discover akregator kdepim-themeeditors pim-sieve-editor ktnef ktorrent
 ```
 
-```bash
+```sh
 sudo apt remove -y pim-data-exporter gnome-mines gnome-sudoku aisleriot gnome-mahjongg
 ```

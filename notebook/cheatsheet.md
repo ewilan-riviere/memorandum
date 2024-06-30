@@ -1,11 +1,11 @@
 ---
 title: Notebook
-description: ""
+description: Notes on various topics
 ---
 
 # Notebook
 
-Welcome on Notebook.
+{{ $frontmatter.description }}
 
 ## MySQL / MariaDB
 

@@ -48,7 +48,7 @@ In this example, the WiFi adapter supports 802.11b, 802.11g, 802.11n, 802.11a, a
 
 ### macOS
 
-```bash
+```sh
 system_profiler SPAirPortDataType
 ```
 

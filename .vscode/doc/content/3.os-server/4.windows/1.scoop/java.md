@@ -7,23 +7,23 @@ description: A command-line installer for Windows
 
 ::alert{type="warning"}
 **scoop is necessary**
->
-You can manage multiple versions of PHP on same machine with **scoop**, if you don't install it, check this guide: [**scoop**](/os-server/windows/scoop/install)
-::
+
+> You can manage multiple versions of PHP on same machine with **scoop**, if you don't install it, check this guide: [**scoop**](/os-server/windows/scoop/install)
+> ::
 
 ## Add bucket
 
-```bash
+```sh
 scoop update
 ```
 
-```bash
+```sh
 scoop bucket add java
 ```
 
 ## Install openjdk
 
-```bash
+```sh
 scoop install openjdk
 ```
 
@@ -45,6 +45,6 @@ Path => [
 
 **Restart your terminal** and try execute Java.
 
-```bash
+```sh
 java
 ```

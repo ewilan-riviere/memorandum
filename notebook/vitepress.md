@@ -1,8 +1,11 @@
 ---
 title: Vitepress
+description: Notes on Vitepress
 ---
 
 # Vitepress
+
+{{ $frontmatter.description }}
 
 Memorandum uses [Vitepress](https://vitepress.dev/) to generate the site. This page contains notes on how to use Vitepress.
 
@@ -113,8 +116,8 @@ Adding the `// [!code --]` or `// [!code ++]` comments on a line will create a d
 export default {
   data () {
     return {
-      msg: 'Removed' // [!!code --]
-      msg: 'Added' // [!!code ++]
+      msg: 'Removed' // [!!code --] (replace `!!` with `!`)
+      msg: 'Added' // [!!code ++] (replace `!!` with `!`)
     }
   }
 }
@@ -145,8 +148,8 @@ Adding the `// [!code warning]` or `// [!code error]` comments on a line will co
 export default {
   data () {
     return {
-      msg: 'Error', // [!!code error]
-      msg: 'Warning' // [!!code warning]
+      msg: 'Error', // [!!code error] (replace `!!` with `!`)
+      msg: 'Warning' // [!!code warning] (replace `!!` with `!`)
     }
   }
 }
@@ -178,7 +181,7 @@ export default {
 };
 ```
 
-Please see [`markdown` options](../reference/site-config#markdown) for more details.
+Please see [`markdown` options](https://vitepress.dev/reference/site-config#markdown) for more details.
 
 You can add `:line-numbers` / `:no-line-numbers` mark in your fenced code blocks to override the value set in config.
 
@@ -443,6 +446,90 @@ The value of `@` corresponds to the source root. By default it's the VitePress p
 
 :::
 
+## Markdown File Inclusion
+
+You can include a markdown file in another markdown file, even nested.
+
+::: tip
+You can also prefix the markdown path with `@`, it will act as the source root. By default, it's the VitePress project root, unless `srcDir` is configured.
+:::
+
+For example, you can include a relative markdown file using this:
+
+**Input**
+
+```md
+# Docs
+
+## Basics
+
+<!--@include: ./parts/basics.md-->
+```
+
+**Part file** (`parts/basics.md`)
+
+```md
+Some getting started stuff.
+
+### Configuration
+
+Can be created using `.foorc.json`.
+```
+
+**Equivalent code**
+
+```md
+# Docs
+
+## Basics
+
+Some getting started stuff.
+
+### Configuration
+
+Can be created using `.foorc.json`.
+```
+
+It also supports selecting a line range:
+
+**Input**
+
+```md
+# Docs
+
+## Basics
+
+<!--@include: ./parts/basics.md{3,}-->
+```
+
+**Part file** (`parts/basics.md`)
+
+```md
+Some getting started stuff.
+
+### Configuration
+
+Can be created using `.foorc.json`.
+```
+
+**Equivalent code**
+
+```md
+# Docs
+
+## Basics
+
+### Configuration
+
+Can be created using `.foorc.json`.
+```
+
+The format of the selected line range can be: `{3,}`, `{,10}`, `{1,10}`
+
+::: warning
+Note that this does not throw errors if your file is not present. Hence, when using this feature make sure that the contents are being rendered as expected.
+:::
+
 ## Emoji :tada:
 
 **Input**
@@ -486,4 +573,4 @@ export default defineConfig({
 });
 ```
 
-See full list of configurable properties in [Config Reference: App Config](../reference/site-config#markdown).
+See full list of configurable properties in [Config Reference: App Config](https://vitepress.dev/reference/site-config#markdown).

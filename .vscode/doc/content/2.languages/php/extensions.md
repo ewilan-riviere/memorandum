@@ -9,13 +9,13 @@ description: Add extensions to PHP
 
 Find PHP version.
 
-```bash
+```sh
 php -i | find "PHP Version"
 ```
 
 Find if PHP use thread safe or NTS
 
-```bash
+```sh
 php -i | find "Thread Safety"
 ```
 
@@ -27,7 +27,7 @@ Download ImageMagick DLL from [ImageMagick binaries](https://imagemagick.org/scr
 
 Alternative is scoop but, when I write this guide the download link is broken.
 
-```bash
+```sh
 scoop install imagemagick
 ```
 
@@ -45,7 +45,7 @@ extension=imagick
 
 You can find your `php.ini` with this command.
 
-```bash
+```sh
 php --ini
 ```
 
@@ -55,7 +55,7 @@ php --ini
 
 Try to find `imagick` in the output of this command.
 
-```bash
+```sh
 php -i
 ```
 

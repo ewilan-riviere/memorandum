@@ -1,6 +1,6 @@
 ---
 title: Graphic User Interface
-description: 'Add GUI'
+description: "Add GUI"
 position: 7
 ---
 
@@ -16,29 +16,29 @@ All this article was from korben.info
 
 [**Download VcXsrv**](https://sourceforge.net/projects/vcxsrv/).
 
-Now you can setup it, when you have to choose *Display settings*, you can choose *One large windows* to have a Linux desktop in window.
+Now you can setup it, when you have to choose _Display settings_, you can choose _One large windows_ to have a Linux desktop in window.
 
-Add `vim-gtk` on your distro to have *vim* with GUI
+Add `vim-gtk` on your distro to have _vim_ with GUI
 
-```bash
+```sh
 sudo apt-get install vim-gtk
 ```
 
 Launch it
 
-```bash
+```sh
 gvim
 ```
 
 If this not work, you have to update WSL
 
-```bash
+```sh
 wsl --update
 ```
 
 But you can add this to your `.profile`
 
-```bash
+```sh
 export DISPLAY=:0
 ```
 
@@ -46,12 +46,12 @@ export DISPLAY=:0
 
 Here with XFCE
 
-```bash
+```sh
 sudo apt-get install xfce4
 ```
 
 When is installed
 
-```bash
+```sh
 xfce4-session
 ```

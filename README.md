@@ -24,13 +24,13 @@ Check the [VitePress Deployment Guide](https://vitepress.dev/guide/deploy) for m
 
 Build the project:
 
-```bash
+```sh
 pnpm build
 ```
 
 Preview the project:
 
-```bash
+```sh
 pnpm preview
 ```
 

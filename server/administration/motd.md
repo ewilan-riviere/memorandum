@@ -1,30 +1,39 @@
 ---
 title: MOTD
+description: Message of the Day is a message that is displayed when a user logs into a Unix system. It is often used to send important messages to users.
 ---
 
-# MOTD
+# {{ $frontmatter.title }}
 
-On Debian [cloriou.fr/2020/04/02/ajouter-motd-dynamique-debian/](https://cloriou.fr/2020/04/02/ajouter-motd-dynamique-debian/)
+{{ $frontmatter.description }}
 
-```bash
-sudo apt-get update
-sudo apt-get install -y figlet
+A guide is available at [cloriou.fr/2020/04/02/ajouter-motd-dynamique-debian](https://cloriou.fr/2020/04/02/ajouter-motd-dynamique-debian/).
+
+## Installation
+
+`figlet` is a program that creates ASCII art text banners. Install it with:
+
+```sh
+sudo apt update
+sudo apt install -y figlet
 ```
 
-## Setup `motd`
+Create a directory for MOTD scripts
 
-```bash
+```sh
 sudo mkdir /etc/update-motd.d
 sudo chmod 644 /etc/update-motd.d
 ```
 
-## Add colors
+### Add colors
 
-```bash
+To use different colors in your MOTD, create a file with colors
+
+```sh
 sudo vim /etc/update-motd.d/colors
 ```
 
-```bash [/etc/update-motd.d/colors]
+```sh:[/etc/update-motd.d/colors
 #!/bin/sh
 
 NONE="\033[m"
@@ -38,13 +47,15 @@ LIGHT_GREEN="\033[1;32m"
 LIGHT_RED="\033[1;31m"
 ```
 
-## Add hostname
+### Add hostname
 
-```bash
+To display the hostname in your MOTD, create a file with the hostname
+
+```sh
 sudo vim /etc/update-motd.d/00-hostname
 ```
 
-```bash [/etc/update-motd.d/00-hostname]
+```sh:/etc/update-motd.d/00-hostname
 #!/bin/sh
 
 . /etc/update-motd.d/colors
@@ -55,13 +66,15 @@ printf $NONE
 printf "\n"
 ```
 
-## Add banner
+### Add banner
 
-```bash
+To display a banner in your MOTD, create a file with the banner
+
+```sh
 sudo vim /etc/update-motd.d/10-banner
 ```
 
-```bash [/etc/update-motd.d/10-banner]
+```sh:/etc/update-motd.d/10-banner
 #!/bin/sh
 
 apt_upgradable=`apt list --upgradable 2>/dev/null | wc -l` # 0
@@ -72,13 +85,15 @@ printf "${apt_upgradable} packages can be updated"
 printf "\n"
 ```
 
-## Add sysinfo
+### Add sysinfo
 
-```bash
+To display system information in your MOTD, create a file with the system information
+
+```sh
 sudo vim /etc/update-motd.d/20-sysinfo
 ```
 
-```bash [/etc/update-motd.d/20-sysinfo]
+```sh:[/etc/update-motd.d/20-sysinfo
 #!/bin/sh
 
 # Simple system performance counter retriever
@@ -161,31 +176,37 @@ printf "${COLOR_INFO}IP address v6..........${LIGHT_GREEN} %s\n" "${ip_address_v
 printf "${COLOR_DEFAULT}"
 ```
 
-## Enable it
+### Enable it
 
-```bash
+To enable the MOTD, make the scripts executable
+
+```sh
 sudo chmod 755 /etc/update-motd.d/00-hostname
 sudo chmod 755 /etc/update-motd.d/10-banner
 sudo chmod 755 /etc/update-motd.d/20-sysinfo
 ```
 
-```bash
+Allow MOTD in SSH
+
+```sh
 sudo vim /etc/ssh/sshd_config
 ```
 
-```bash [/etc/ssh/sshd_config]
+```sh:/etc/ssh/sshd_config
 PrintMotd yes
 ```
 
-```bash
+Restart SSH service
+
+```sh
 sudo systemctl restart sshd.service
 ```
 
-## Show MOTD
+## Test MOTD
 
 You can disconnect SSH session and reconnect to show your `motd`, or use command:
 
-```bash
+```sh
 run-parts /etc/update-motd.d
 ```
 
@@ -193,7 +214,7 @@ run-parts /etc/update-motd.d
 
 You can update original MOTD with:
 
-```bash
+```sh
 sudo vim /etc/motd
 ```
 
@@ -201,6 +222,6 @@ sudo vim /etc/motd
 
 Check if your motd is correct
 
-```bash
+```sh
 run-parts /etc/update-motd.d/ > /dev/null
 ```

@@ -18,23 +18,23 @@ This guide will install **Android Studio** with Flutter
 
 ## 1. Installation
 
-```bash
+```sh
 scoop install android-studio
 scoop bucket add java
 scoop bucket add extras
 scoop install openjdk15
 ```
 
-```bash
+```sh
 scoop install flutter
 flutter upgrade --force
 ```
 
-```bash
+```sh
 flutter doctor -v
 ```
 
-```bash
+```sh
 flutter doctor --android-licenses
 ```
 

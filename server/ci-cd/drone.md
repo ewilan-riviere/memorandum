@@ -1,95 +1,96 @@
 ---
 title: Drone
-description: 'Auto deploy your work from git forge'
+description: Auto deploy your work from git forge
 ---
 
-# Drone
+# {{ $frontmatter.title }}
+
+{{ $frontmatter.description }}
 
 When you push some modifications on your repo, your server not update automatically. If you use **webhooks**, you can send **push event** to your server execute `git pull` on your repo. But we need to receive this push event, it's call a **payload**, we have to configure server to receive it and update repository.
 
-## Setup drone to watch push events
+## Install drone
 
 > Drone project is designed by [**adr1enbe4udou1n**](https://github.com/adr1enbe4udou1n), I just clone his project, thanks to him!
 
-To watch **payloads**, we need to have a tool to receive it. It's goal of [**drone project**](https://gitlab.com/ewilan-riviere/drone), just clone it on your server, where you want, here I choose to clone it to `/home/jack/drone-manual`. It's NodeJS app, so use **PM2** to manage it.
+To watch **payloads**, we need to have a tool to receive it. It's goal of [**drone project**](https://gitlab.com/ewilan-riviere/drone), just clone it on your server, where you want. It's NodeJS app, so use **PM2** to manage it.
 
-Create drone with `git clone` in `~/`
+::: warning
+If you don't have PM2 or Node.js installed, check [**Node.js**](/server/binaries/nodejs) and [**PM2**](/server/nginx/nodejs-pm2) documentation.
+:::
 
-```bash
-git clone https://gitlab.com/ewilan-riviere/drone drone-manual
+Clone project
+
+```sh
+cd ~
+git clone https://gitlab.com/ewilan-riviere/drone
 ```
 
-Create **ecosystem** file
+Create `ecosystem.config.js` file
 
-```js title="~/ecosystem.config.js"
+::: info
+Replace `my-user` with your username.
+:::
+
+```js:~/ecosystem.config.js
 module.exports = {
   apps: [
     {
-      name: 'deploy',
-      script: 'index.js',
-      cwd: '/home/jack/drone-manual',
+      name: "drone",
+      script: "index.js",
+      cwd: "/home/my-user/drone",
       env: {
-        PORT: 3001
+        PORT: 3000,
       },
     },
-    // some projects
-  ]
-}
+  ],
+};
 ```
 
 Then configure `.env` file, just copy `.env.example` to `.env` and fill it with infos:
 
 ```yaml [~/drone-manual/.env]
-PORT=3001
+PORT=3000
 WEBHOOK_PATH=/deploy
 WEBSCRIPT_PATH=
 SCRIPT_KEY=
-PROJECTS_ROOT=/home/jack/www/
+PROJECTS_ROOT=/home/my-user/www/
 ```
 
 - `PORT`: port to deploy drone, 3000 by default
-- `WEBHOOK_PATH`: url where drone listen, when we will configure Nginx, we use `dev.ewilan-riviere.com`, so listen url will be `dev.ewilan-riviere.com/deploy`
+- `WEBHOOK_PATH`: url where drone listen, when we will configure Nginx, we use `deploy.domain.com`, so listen url will be `deploy.domain.com/deploy`
 - `PROJECTS_ROOT`: absolute path where repositories cloned
 
 Then create `repositories.json` into repo. It will useful only if remote have different name of cloned repo. But you need to have this file, even it's empty file.
 
-```json title="~/drone-manual/repositories.json"
+```json:~/drone/repositories.json
 {
-  "portfolio-front": [
-    "portfolio-front"
-  ]
+  "portfolio": ["portfolio"]
 }
 ```
 
-Then configure Nginx like it:
+::: info
+Int his example, we use a domain `deploy.domain.com` to receive payloads. You have to buy a domain from any registrar, then configure it to point on your server.
+:::
 
-- `root`: default root with just `index.php`
-- `server_name`: example url `dev.ewilan-riviere.com`
+Then configure NGINX like it:
+
+- `server_name`: example url `deploy.domain.com`
 - `location /deploy`: like **WEBHOOK_PATH** define in `.env` file
 - `proxy_pass`: **3000** is the **PORT** define in `.env` file
 
 Don't forget to enable this config.
 
-::callout
-#summary
-Config
-#content
-```nginx
+::: details NGINX config
+
+```nginx:/etc/nginx/conf.d/deploy.domain.com.conf
 server {
     listen 80;
-    root /home/user/www/html;
 
-    index index.html index.htm index.nginx-debian.html index.php;
-
-    server_name dev.ewilan-riviere.com;
+    server_name deploy.domain.com;
 
     location / {
         try_files $uri $uri/ =404;
-    }
-
-    location ~ \.php$ {
-        include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/run/php/php7.4-fpm.sock;
     }
 
     location /deploy {
@@ -154,78 +155,17 @@ server {
     }
 }
 ```
-::
 
-## Setup repository webhook
+:::
+
+## Git forge payload
 
 GitHub example, webhooks are available into **Settings/Webhooks**. If you haven't configure HTTPS on your Nginx config disable **SSL verification**.
 
-## Git hooks
+## Deployment
 
-When repo is updated, you need to execute some commands like `npm install` or `npm build` for example. To do this, you can use **git hooks**, it's script that you can configure when git event triggered. Check `repo/.git/hooks/` directory, it's available on all repositories and not gittable. If you want to execute commands after `git pull`, create a new script and name it `post-merge`.
+When Drone is activated, it will execute a `git pull` on server's repository when you push anything on this repository. The next step is to configure a Git hook to execute some commands like `npm install` or `composer install` for example.
 
-At the root of repository create new bash script
+To know more about this, check [**Git hooks**](/server/ci-cd/git-hooks) documentation.
 
-```bash
-vim .git/hooks/post-merge
-```
-
-Add commands to build app
-
-```bash [.git/hooks/post-merge]
-#!/bin/bash
-
-yarn ; yarn build
-```
-
-Change rights on this file with this command:
-
-```bash
-sudo chmod 775 .git/hooks/post-merge
-```
-
-```bash
-./.git/hooks/post-merge
-```
-
-All commands in this scripts will be executed after *git pull*.
-
-### Git hooks examples
-
-#### **Laravel**
-
-```bash
-#!/bin/bash
-
-php artisan cache:clear
-php artisan config:clear
-php artisan view:clear
-
-composer install
-php artisan migrate:fresh --seed --force
-php artisan config:cache
-php artisan view:cache
-php artisan route:cache
-composer install --no-dev
-
-pnpm i ; pnpm prod
-```
-
-#### **VueJS with Yarn**
-
-```bash [.git/hooks/post-merge]
-#!/bin/bash
-
-pnpm i ; pnpm build
-```
-
-#### **NuxtJS with pm2 - SSR mode**
-
-> in this example it's NuxtJS application, `yarn` will build the app and pm2 restart daemon with `pm2 restart app_id` where `app_id` is the `name` of app in `ecosystem.config.js`
-
-```bash [.git/hooks/post-merge]
-#!/bin/bash
-
-pnpm i ; pnpm build
-pm2 restart app_id
-```
+When your `post-merge` hook is ready, Drone will automatically execute it on each push.

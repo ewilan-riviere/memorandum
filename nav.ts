@@ -49,20 +49,21 @@ function sidebarNotebook(): DefaultTheme.SidebarItem[] {
 function sidebarServer(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: 'Introduction',
-      collapsed: false,
       items: [
-        { text: 'Welcome', link: '/' },
-        { text: 'Screen', link: 'screen' },
-        { text: 'SSH', link: 'ssh' },
+        { text: 'Welcome', link: 'welcome' },
       ],
     },
     {
       text: 'Administration',
       collapsed: false,
       items: [
+        { text: 'SSH', link: 'administration/ssh' },
+        { text: 'Prepare server', link: 'administration/prepare-server' },
+        { text: 'Basic packages', link: 'administration/basic-packages' },
+        { text: 'Screen', link: 'administration/screen' },
         { text: 'fail2ban', link: 'administration/fail2ban' },
         { text: 'Message of the day (MOTD)', link: 'administration/motd' },
+        { text: 'Sudoers', link: 'administration/sudoers' },
       ],
     },
     {
@@ -71,6 +72,7 @@ function sidebarServer(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'Go', link: 'binaries/golang' },
         { text: 'Node.js', link: 'binaries/nodejs' },
+        { text: 'Rust', link: 'binaries/rust-lang' },
       ],
     },
     {
@@ -87,14 +89,14 @@ function sidebarServer(): DefaultTheme.SidebarItem[] {
       text: 'Docker',
       collapsed: false,
       items: [
-        { text: 'Setup Docker', link: 'docker' },
+        { text: 'Setup Docker', link: 'docker/install' },
       ],
     },
     {
       text: 'NGINX',
       collapsed: false,
       items: [
-        { text: 'Setup NGINX', link: 'nginx' },
+        { text: 'Setup NGINX', link: 'nginx/install' },
         { text: 'SSL & Certbot', link: 'nginx/ssl-certbot' },
         { text: 'Node.js & PM2', link: 'nginx/nodejs-pm2' },
       ],

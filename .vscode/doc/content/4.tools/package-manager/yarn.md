@@ -1,15 +1,15 @@
 ---
 title: Yarn
-description: 'Useful commands for Yarn'
+description: "Useful commands for Yarn"
 position: 2
-category: 'Package manager'
+category: "Package manager"
 ---
 
 # Yarn
 
 ## Upgrade dependencies
 
-```bash
+```sh
 yarn upgrade --lastest
 ```
 
@@ -17,10 +17,10 @@ yarn upgrade --lastest
 
 Yarn cache can take disk space on prod
 
-```bash
+```sh
 yarn cache clean
 ```
 
 ## Errors with prod
 
-If you works on **Windows** on *local* and you've a **Linux** *prod*, when you execute `yarn`, `yarn.lock` will change on *prod*. It's cause by differences between **Windows** and **Linux**. You can copy `yarn.lock` from *prod* with `scp` command to your *local* and you won't have any other problems with **yarn**.
+If you works on **Windows** on _local_ and you've a **Linux** _prod_, when you execute `yarn`, `yarn.lock` will change on _prod_. It's cause by differences between **Windows** and **Linux**. You can copy `yarn.lock` from _prod_ with `scp` command to your _local_ and you won't have any other problems with **yarn**.

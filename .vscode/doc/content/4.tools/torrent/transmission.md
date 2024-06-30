@@ -1,6 +1,6 @@
 ---
 title: Transmission
-description: ''
+description: ""
 position: 1
 ---
 
@@ -8,11 +8,11 @@ position: 1
 
 ## Ubuntu or Debian
 
-```bash
+```sh
 sudo apt install -y python3-transmissionrpc python-transmissionrpc-doc transmission-daemon
 ```
 
-```bash
+```sh
 sudo systemctl stop transmission-daemon.service
 sudo vim /etc/transmission-daemon/settings.json
 ```
@@ -22,11 +22,11 @@ sudo vim /etc/transmission-daemon/settings.json
 +"rpc-authentication-required": false,
 ```
 
-```bash
+```sh
 sudo systemctl start transmission-daemon.service
 ```
 
-```bash
+```sh
 transmission-daemon --no-auth
 sudo /etc/init.d/transmission-daemon restart
 ```

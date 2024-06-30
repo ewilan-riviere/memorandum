@@ -1,6 +1,6 @@
 ---
 title: Troubles
-description: 'Problems with WSL'
+description: "Problems with WSL"
 position: 5
 ---
 
@@ -10,7 +10,7 @@ position: 5
 
 Guide from [**github.com/microsoft/WSL/issues/5336**](https://github.com/microsoft/WSL/issues/5336#issuecomment-653881695)
 
-### ***Reset network***
+### **_Reset network_**
 
 Open `cmd` as admin
 
@@ -22,22 +22,22 @@ Search `Network Reset` in Windows Search, enable it and restart Windows.
 
 If doesn't work go to next step.
 
-### ***WSL reset network config***
+### **_WSL reset network config_**
 
 On WSL terminal
 
-```bash
+```sh
 sudo rm /etc/resolv.conf || true
 sudo rm /etc/wsl.conf || true
 ```
 
 Open wsl.conf to edit it:
 
-```bash
+```sh
 sudo vim /etc/wsl.conf
 ```
 
-```bash
+```sh
 [network]
 generateResolvConf = false
 
@@ -49,23 +49,23 @@ mountFsTab = false
 
 Open resolv.conf to edit it:
 
-```bash
+```sh
 sudo vim /etc/resolv.conf
 ```
 
-```bash
+```sh
 nameserver 8.8.8.8
 nameserver 8.8.4.4
 ```
 
 Exit WSL and in `cmd` admin
 
-```bash
+```sh
 wsl --shutdown
 ```
 
 If doesn't work go to next step.
 
-### ***Misc***
+### **_Misc_**
 
 - Disable Hyper-V feature
