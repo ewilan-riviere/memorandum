@@ -16,6 +16,7 @@ export default defineConfig({
   lastUpdated: true,
   cleanUrls: true,
   metaChunk: true,
+  ignoreDeadLinks: true,
 
   markdown: {
     // anchor: {
