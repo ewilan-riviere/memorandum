@@ -11,15 +11,15 @@ description: How to use NGINX
 
 ## Install
 
-::alert{type="important"}
+::: tip
 This guide is for Debian 10/11, if you have another distribution, you can see the official documentation.
-::
+:::
 
 ### From default SourcesList (deprecated)
 
-::alert{type="warning"}
+::: warning
 This method will install an old version of NGINX, you should use the official repository.
-::
+:::
 
 Install standard version
 
@@ -36,9 +36,9 @@ sudo apt install -y nginx
 
 ### From NGINX Repository
 
-::alert{type="info"}
+::: info
 This method is recommended to have the latest version of NGINX, you will have access to the latest features like new syntax for `http2`.
-::
+:::
 
 From <http://nginx.org/en/linux_packages.html#Debian>
 
@@ -275,9 +275,9 @@ To                         Action      From
 
 Ports 80 and 443 are open.
 
-::alert{type="warning"}
+::: warning
 You can only open 443 if you have an SSL certificate, but if your certificate is not valid, website will not work, port 80 is used as a fallback.
-::
+:::
 
 ## Domains
 
@@ -290,7 +290,7 @@ The place of configuration files is different between default and official repos
 - Default repository (1.22.4): `/etc/nginx/sites-available/`
 - Official repository (1.26.0): `/etc/nginx/conf.d/`
 
-::alert{type="info"}
+::: info
 With the default repository, you need to create a symbolic link to `sites-enabled` to activate the domain.
 
 ```sh
@@ -298,7 +298,7 @@ sudo ln -s /etc/nginx/sites-available/my-website /etc/nginx/sites-enabled
 ```
 
 For the official repository, you don't need to create a symbolic link, just create a new file in `conf.d` directory.
-::
+:::
 
 Here we will see how to create a new domain with the official repository.
 

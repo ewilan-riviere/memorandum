@@ -103,7 +103,7 @@ Add this line to execute it every day at 1am
 
 And follow the guide, I advice to choose **Redirect** when `certbot` ask about it, it's more secure.
 
-::alert{type="info"}
+::: info
 If you want to keep `/etc/nginx/sites-available/default`, update `server_name _` to `server_name your-domain.com`. It can generate some errors if you keep original config and `certbot` will skill this config.
 
 ```diff[/etc/nginx/sites-available/default]
@@ -121,7 +121,7 @@ server {
 }
 ```
 
-::
+:::
 
 ### HTTP/2
 

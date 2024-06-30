@@ -84,12 +84,13 @@ exit
 
 You can find variables in `Settings > CI/CD > Variables`.
 
-::alert{type="info"}
+::: info
 You have two ways to set variables:
 
 - **Project variables** are available only for this project.
 - **Group variables** are available for all projects in this group.
-  ::
+
+::
 
 ![gitlab-ci](/docs/gitlab-ci.webp)
 
