@@ -3,7 +3,7 @@ title: NGINX
 description: How to use NGINX
 ---
 
-# {{ $frontmatter.title }}
+# NGINX
 
 {{ $frontmatter.description }}
 

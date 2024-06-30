@@ -1,9 +1,9 @@
 ---
-title: Basic Linux packages
+title: Basic packages
 description: Basic Linux packages to install on a server
 ---
 
-# {{ $frontmatter.title }}
+# Basic packages
 
 {{ $frontmatter.description }}
 

@@ -3,7 +3,7 @@ title: Rust
 description: How to install Rust on your system.
 ---
 
-# {{ $frontmatter.title }}
+# Rust
 
 {{ $frontmatter.description }}
 

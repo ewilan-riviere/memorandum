@@ -3,7 +3,7 @@ title: Node.js & PM2
 description: How to manage Node.js applications
 ---
 
-# {{ $frontmatter.title }}
+# Node.js & PM2
 
 {{ $frontmatter.description }}
 

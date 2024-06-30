@@ -3,7 +3,7 @@ title: GitLab CI
 description: GitLab CI/CD deployment
 ---
 
-# {{ $frontmatter.title }}
+# GitLab CI
 
 {{ $frontmatter.description }}
 

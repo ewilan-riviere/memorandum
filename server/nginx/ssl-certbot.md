@@ -3,7 +3,7 @@ title: SSL & Certbot
 description: Secure your website with HTTPS
 ---
 
-# {{ $frontmatter.title }}
+# SSL & Certbot
 
 {{ $frontmatter.description }}
 

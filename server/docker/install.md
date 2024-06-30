@@ -3,7 +3,7 @@ title: Docker
 description: Docker installation on Debian
 ---
 
-# {{ $frontmatter.title }}
+# Docker
 
 {{ $frontmatter.description }}
 

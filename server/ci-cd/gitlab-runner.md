@@ -3,7 +3,7 @@ title: GitLab Runner
 description: GitLab Runner is a service that runs jobs in CI/CD pipeline on your server. You can use shared runners from GitLab or install your own runner.
 ---
 
-# {{ $frontmatter.title }}
+# GitLab Runner
 
 {{ $frontmatter.description }}
 

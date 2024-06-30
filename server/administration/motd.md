@@ -3,7 +3,7 @@ title: MOTD
 description: Message of the Day is a message that is displayed when a user logs into a Unix system. It is often used to send important messages to users.
 ---
 
-# {{ $frontmatter.title }}
+# MOTD
 
 {{ $frontmatter.description }}
 

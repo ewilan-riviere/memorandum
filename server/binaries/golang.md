@@ -3,7 +3,7 @@ title: Go (golang)
 description: Install Go on Linux
 ---
 
-# {{ $frontmatter.title }}
+# Go (golang)
 
 {{ $frontmatter.description }}
 

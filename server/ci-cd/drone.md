@@ -3,7 +3,7 @@ title: Drone
 description: Auto deploy your work from git forge
 ---
 
-# {{ $frontmatter.title }}
+# Drone
 
 {{ $frontmatter.description }}
 

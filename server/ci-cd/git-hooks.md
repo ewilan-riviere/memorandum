@@ -3,7 +3,7 @@ title: Git hooks
 description: Git hooks examples
 ---
 
-# {{ $frontmatter.title }}
+# Git hooks
 
 {{ $frontmatter.description }}
 

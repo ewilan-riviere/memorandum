@@ -3,7 +3,7 @@ title: Prepare server
 description: Prepare server for hosting
 ---
 
-# {{ $frontmatter.title }}
+# Prepare server
 
 {{ $frontmatter.description }}
 

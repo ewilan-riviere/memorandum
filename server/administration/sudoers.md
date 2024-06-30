@@ -3,7 +3,7 @@ title: Sudoers
 description: Add user to sudoers
 ---
 
-# {{ $frontmatter.title }}
+# Sudoers
 
 {{ $frontmatter.description }}
 

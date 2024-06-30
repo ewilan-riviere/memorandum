@@ -3,7 +3,7 @@ title: Screen
 description: Processes running in Screen will continue to run when their window is not visible even if you get disconnected
 ---
 
-# {{ $frontmatter.title }}
+# Screen
 
 {{ $frontmatter.description }}
 
