@@ -88,8 +88,8 @@ function sidebarServer(): DefaultTheme.SidebarItem[] {
       text: 'CI/CD',
       collapsed: false,
       items: [
-        { text: 'Drone', link: 'ci-cd/drone' },
         { text: 'Git hooks', link: 'ci-cd/git-hooks' },
+        { text: 'Drone', link: 'ci-cd/drone' },
         { text: 'GitLab CI', link: 'ci-cd/gitlab-ci' },
         { text: 'GitLab Runner', link: 'ci-cd/gitlab-runner' },
       ],
