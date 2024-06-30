@@ -97,6 +97,7 @@ function sidebarServer(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: 'Setup NGINX', link: 'nginx/install' },
+        { text: 'Examples', link: 'nginx/examples' },
         { text: 'SSL & Certbot', link: 'nginx/ssl-certbot' },
         { text: 'Node.js & PM2', link: 'nginx/nodejs-pm2' },
       ],

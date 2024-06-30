@@ -498,3 +498,13 @@ server {
   }
 }
 ```
+
+### Block crawlers
+
+Add the following to the server block in the nginx config:
+
+```conf:my-domain.com.conf
+server {
+  add_header X-Robots-Tag "noindex, nofollow, nosnippet, noarchive, noimageindex, noodp, notranslate, noyaca, noydir";
+}
+```
