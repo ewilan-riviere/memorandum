@@ -440,3 +440,38 @@ server {
   }
 }
 ```
+
+## Misc
+
+### Two apps on the same domain
+
+Config to use differents `root` with differents URL. Here, this example display Vue.js SPA at `/` of website and display api from Laravel app at `api/`
+
+```nginx
+map $request_uri $app {
+    "~api" /var/www/backend-app;
+    default /var/www/frontend-app;
+}
+server {
+  listen 80;
+  server_name domain.com;
+  root $app;
+  index index.html index.php;
+
+  error_log /var/log/nginx/domain-error.log warn;
+  access_log /var/log/nginx/v-access.log;
+
+  location / {
+    try_files $uri $uri/ /index.php?$query_string;
+  }
+
+  location ~ \.php$ {
+    include snippets/fastcgi-php.conf;
+    fastcgi_pass unix:/var/run/php/php8.2-fpm.sock;
+  }
+
+  location ~ /\.ht {
+    deny all;
+  }
+}
+```

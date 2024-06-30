@@ -470,7 +470,8 @@ my-website-admin:my-secret-password
 
 Add the following to the location block in the nginx config:
 
-```conf:my-domain.com.conf
+```
+:my-domain.com.conf
 server {
   auth_basic "Administrator’s Area";
   auth_basic_user_file /etc/apache2/.htpasswd;
@@ -488,7 +489,8 @@ sudo service nginx reload
 
 You can only protect a part of the website:
 
-```conf:my-domain.com.conf
+```
+:my-domain.com.conf
 server {
   location /admin {
     auth_basic "Administrator’s Area";
@@ -503,7 +505,8 @@ server {
 
 Add the following to the server block in the nginx config:
 
-```conf:my-domain.com.conf
+```
+:my-domain.com.conf
 server {
   add_header X-Robots-Tag "noindex, nofollow, nosnippet, noarchive, noimageindex, noodp, notranslate, noyaca, noydir";
 }

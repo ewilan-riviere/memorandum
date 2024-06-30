@@ -14,7 +14,7 @@ hero:
       link: /notebook/cheatsheet
     - theme: alt
       text: Quickstart
-      link: /guide/getting-started
+      link: /server/welcome
   image:
     src: /logo.svg
     alt: VitePress
