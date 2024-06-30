@@ -66,10 +66,10 @@ Add this line
 sudo vim /usr/local/bin/clean
 ```
 
-- Remove logs
-- Remove docker images
-- Remove journalctl logs
-- Remove snap cache
+- Remove logs with `rm -rf /var/log/*.gz`
+- Remove docker images with `docker system prune -af`
+- Remove journalctl logs with `journalctl --vacuum-size=30M`
+- Remove snap cache with `rm -rf /var/lib/snapd/cache/*`
 
 ```sh
 #!/bin/bash
@@ -81,6 +81,8 @@ sudo journalctl --vacuum-size=30M
 sudo sh -c 'rm -rf /var/lib/snapd/cache/*'
 ```
 
+Make it executable
+
 ```sh
 sudo chmod +x /usr/local/bin/clean
 ```
@@ -90,6 +92,8 @@ Add to cron
 ```sh
 sudo crontab -e
 ```
+
+Add this line to execute it every day at 1am
 
 ```sh
 0 1 * * * sh /usr/local/bin/clean
