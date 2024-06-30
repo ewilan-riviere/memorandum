@@ -100,236 +100,9 @@ sudo apt install nginx
 - The default web root is `/usr/share/nginx/html/`
 - Web server configuration is in `/etc/nginx/conf.d/`
 
-## Permissions
-
-You can add NGINX user to current user group for permissions
-
-- For default repository: `www-data`
-- For official repository: `nginx`
-
-::alert{type="info"}
-To know NGINX user, you can see the configuration file `/etc/nginx/nginx.conf` and search for `user` directive.
-
-```nginx [/etc/nginx/nginx.conf]
-user  nginx; # this is the default user, can be www-data too
-```
-
-::
-
-```sh
-sudo usermod -a -G $USER nginx # or www-data
-```
-
-Create `/var/www` directory if it doesn't exist
-
-```sh
-sudo mkdir /var/www
-```
-
-Change the owner of `/var/www` directory
-
-::alert{type="warning"}
-If you use the default repository, you need to change the owner to `www-data`.
-::
-
-```sh
-sudo chown -R $USER:nginx /var/www
-sudo chmod -R 755 /var/www
-```
-
-## Firewall
-
-Allow NGINX in firewall
-
-```sh
-sudo ufw allow 'Nginx HTTP'
-sudo ufw allow 'Nginx HTTPS'
-sudo ufw allow 'Nginx Full'
-```
-
-See firewall rules
-
-```sh
-sudo ufw status
-```
-
-You will see something like this
-
-```sh
-Status: active
-
-To                         Action      From
---                         ------      ----
-80                         ALLOW       Anywhere
-443                        ALLOW       Anywhere
-80 (v6)                    ALLOW       Anywhere (v6)
-443 (v6)                   ALLOW       Anywhere (v6)
-```
-
-Ports 80 and 443 are open.
-
-::alert{type="warning"}
-You can only open 443 if you have an SSL certificate, but if your certificate is not valid, website will not work, port 80 is used as a fallback.
-::
-
-## Version
-
-```sh
-sudo nginx -V
-```
-
-You will see something like this a version like `nginx/1.22.4` for default repository or `nginx/1.26.0` for the official repository.
-
-## Restart
-
-When you change the configuration, you need to restart the service.
-
-```sh
-sudo service nginx reload
-```
-
-## Update
-
-To update NGINX, you can use this command
-
-```sh
-sudo apt update
-sudo apt upgrade -y nginx
-```
-
-## Create new domain
-
-To create a new domain, you can create a new configuration file.
-
-The place of configuration files is different between default and official repositories.
-
-- Default repository (1.22.4): `/etc/nginx/sites-available/`
-- Official repository (1.26.0): `/etc/nginx/conf.d/`
-
-::alert{type="info"}
-With the default repository, you need to create a symbolic link to `sites-enabled` to activate the domain.
-
-```sh
-sudo ln -s /etc/nginx/sites-available/my-website /etc/nginx/sites-enabled
-```
-
-For the official repository, you don't need to create a symbolic link, just create a new file in `conf.d` directory.
-::
-
-Here we will see how to create a new domain with the official repository.
-
-```sh
-sudo vim /etc/nginx/conf.d/my-website.conf
-```
-
-```nginx [/etc/nginx/conf.d/my-website.conf]
-server {
-  listen 80;
-  server_name my-website.com www.my-website.com;
-
-  location / {
-    root /var/www/my-website;
-    index index.html;
-  }
-}
-```
-
-Create a new directory for the website
-
-```sh
-sudo mkdir /var/www/my-website
-sudo chown -R $USER:nginx /var/www/my-website
-sudo chmod -R 755 /var/www/my-website
-```
-
-Create a new HTML file
-
-```sh
-echo "<html><body><h1>Hello World</h1></body></html>" | sudo tee /var/www/my-website/index.html
-```
-
-Reload NGINX
-
-```sh
-sudo nginx -t
-sudo service nginx reload
-```
-
-If you have this output, everything is fine, otherwise you will have some infos to fix it:
-
-```sh [output]
-nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
-nginx: configuration file /etc/nginx/nginx.conf test is successful
-```
-
-## SSL
-
-To use SSL, you need to have a certificate. You can use Let's Encrypt to have a free certificate, to install it you have a guide here: [SSL Certbot](/server/nginx/ssl-certbot).
-
-You will have some questions to answer, and after that, you will have a certificate. Certbot will update your configuration files to use HTTPS.
-
-<details>
-<summary>Automatic HTTP to HTTPS</summary>
-
-```nginx [/etc/nginx/conf.d/my-website.conf]
-server {
-  # ...
-  listen [::]:443 ssl ipv6only=on; # managed by Certbot
-  listen 443 ssl; # managed by Certbot
-  ssl_certificate /etc/letsencrypt/live/bookshelves.ink/fullchain.pem; # managed by Certbot
-  ssl_certificate_key /etc/letsencrypt/live/bookshelves.ink/privkey.pem; # managed by Certbot
-  include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-  ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-}
-server {
-  if ($host = bookshelves.ink) {
-    return 301 https://$host$request_uri;
-  } # managed by Certbot
-
-  listen 80;
-  listen [::]:80;
-  server_name bookshelves.ink;
-  return 404; # managed by Certbot
-}
-```
-
-</details>
-
-```sh
-sudo nginx -t
-sudo service nginx reload
-```
-
-If you have an error, you can see the logs in `/var/log/nginx/error.log`.
-
-## Node.js application
-
-To host PHP application or HTML files, you can use NGINX, but if you want to host a Node.js application, you can use PM2 to manage your application with NGINX as a reverse proxy.
-
-You can see a guide here: [Node.js with PM2](/server/nginx/nodejs-pm2).
-
-## Remove domain
-
-To remove a domain, you can delete the configuration file with official repository and remove the symbolic link with default repository.
-
-```sh
-sudo rm /etc/nginx/conf.d/my-website.conf
-```
-
-```sh
-sudo nginx -t
-sudo service nginx reload
-```
-
-## See all NGINX domains
-
-To see all domains in NGINX, you can use this command
-
-```sh
-sudo nginx -T | grep "server_name "
-```
-
 ## Configuration
+
+### NGINX
 
 The main configuration file is `/etc/nginx/nginx.conf`, but you can include other files in this file.
 
@@ -429,3 +202,299 @@ http {
 ```
 
 </details>
+
+### Permissions
+
+You can add NGINX user to current user group for permissions
+
+- For default repository: `www-data`
+- For official repository: `nginx`
+
+::: info
+To know NGINX user, you can see the configuration file `/etc/nginx/nginx.conf` and search for `user` directive.
+
+```nginx [/etc/nginx/nginx.conf]
+user  nginx; # this is the default user, can be www-data too
+```
+
+:::
+
+```sh
+sudo usermod -a -G $USER nginx # or www-data
+```
+
+Create `/var/www` directory if it doesn't exist
+
+```sh
+sudo mkdir /var/www
+```
+
+Change the owner of `/var/www` directory
+
+::: warning
+If you use the default repository, you need to change the owner to `www-data`.
+:::
+
+```sh
+sudo chown -R $USER:nginx /var/www
+sudo chmod -R 755 /var/www
+```
+
+### Firewall
+
+::: info
+If you don't have a firewall, you can skip this step or install firewall with [this guide](/server/administration/prepare-server#firewall).
+:::
+
+Allow NGINX in firewall
+
+```sh
+sudo ufw allow 'Nginx HTTP'
+sudo ufw allow 'Nginx HTTPS'
+sudo ufw allow 'Nginx Full'
+```
+
+See firewall rules
+
+```sh
+sudo ufw status
+```
+
+You will see something like this
+
+```sh
+Status: active
+
+To                         Action      From
+--                         ------      ----
+80                         ALLOW       Anywhere
+443                        ALLOW       Anywhere
+80 (v6)                    ALLOW       Anywhere (v6)
+443 (v6)                   ALLOW       Anywhere (v6)
+```
+
+Ports 80 and 443 are open.
+
+::alert{type="warning"}
+You can only open 443 if you have an SSL certificate, but if your certificate is not valid, website will not work, port 80 is used as a fallback.
+::
+
+## Domains
+
+### New domain
+
+To create a new domain, you can create a new configuration file.
+
+The place of configuration files is different between default and official repositories.
+
+- Default repository (1.22.4): `/etc/nginx/sites-available/`
+- Official repository (1.26.0): `/etc/nginx/conf.d/`
+
+::alert{type="info"}
+With the default repository, you need to create a symbolic link to `sites-enabled` to activate the domain.
+
+```sh
+sudo ln -s /etc/nginx/sites-available/my-website /etc/nginx/sites-enabled
+```
+
+For the official repository, you don't need to create a symbolic link, just create a new file in `conf.d` directory.
+::
+
+Here we will see how to create a new domain with the official repository.
+
+```sh
+sudo vim /etc/nginx/conf.d/my-website.conf
+```
+
+```nginx [/etc/nginx/conf.d/my-website.conf]
+server {
+  listen 80;
+  server_name my-website.com www.my-website.com;
+
+  location / {
+    root /var/www/my-website;
+    index index.html;
+  }
+}
+```
+
+Create a new directory for the website
+
+```sh
+sudo mkdir /var/www/my-website
+sudo chown -R $USER:nginx /var/www/my-website
+sudo chmod -R 755 /var/www/my-website
+```
+
+Create a new HTML file
+
+```sh
+echo "<html><body><h1>Hello World</h1></body></html>" | sudo tee /var/www/my-website/index.html
+```
+
+Reload NGINX
+
+```sh
+sudo nginx -t
+sudo service nginx reload
+```
+
+If you have this output, everything is fine, otherwise you will have some infos to fix it:
+
+```sh [output]
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+```
+
+### Add SSL
+
+To use SSL, you need to have a certificate. You can use Let's Encrypt to have a free certificate, to install it you have a guide here: [SSL Certbot](/server/nginx/ssl-certbot).
+
+You will have some questions to answer, and after that, you will have a certificate. Certbot will update your configuration files to use HTTPS.
+
+<details>
+<summary>Automatic HTTP to HTTPS</summary>
+
+```nginx [/etc/nginx/conf.d/my-website.conf]
+server {
+  # ...
+  listen [::]:443 ssl ipv6only=on; # managed by Certbot
+  listen 443 ssl; # managed by Certbot
+  ssl_certificate /etc/letsencrypt/live/bookshelves.ink/fullchain.pem; # managed by Certbot
+  ssl_certificate_key /etc/letsencrypt/live/bookshelves.ink/privkey.pem; # managed by Certbot
+  include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+  ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+}
+server {
+  if ($host = bookshelves.ink) {
+    return 301 https://$host$request_uri;
+  } # managed by Certbot
+
+  listen 80;
+  listen [::]:80;
+  server_name bookshelves.ink;
+  return 404; # managed by Certbot
+}
+```
+
+</details>
+
+```sh
+sudo nginx -t
+sudo service nginx reload
+```
+
+If you have an error, you can see the logs in `/var/log/nginx/error.log`.
+
+### Host Node.js application
+
+To host PHP application or HTML files, you can use NGINX, but if you want to host a Node.js application, you can use PM2 to manage your application with NGINX as a reverse proxy.
+
+You can see a guide here: [Node.js with PM2](/server/nginx/nodejs-pm2).
+
+### Remove domain
+
+To remove a domain, you can delete the configuration file with official repository and remove the symbolic link with default repository.
+
+```sh
+sudo rm /etc/nginx/conf.d/my-website.conf
+```
+
+```sh
+sudo nginx -t
+sudo service nginx reload
+```
+
+## Features
+
+### Version
+
+```sh
+sudo nginx -V
+```
+
+You will see something like this a version like `nginx/1.22.4` for default repository or `nginx/1.26.0` for the official repository.
+
+### Restart service
+
+When you change the configuration, you need to restart the service.
+
+```sh
+sudo service nginx reload
+```
+
+### Update service
+
+To update NGINX, you can use this command
+
+```sh
+sudo apt update
+sudo apt upgrade -y nginx
+```
+
+### List all domains
+
+To see all domains in NGINX, you can use this command
+
+```sh
+sudo nginx -T | grep "server_name "
+```
+
+### Authentification
+
+Install package:
+
+::: code-group
+
+```sh [Debian]
+sudo apt install apache2-utils -y
+```
+
+```ts [CentOS]
+sudo yum install httpd-tools
+```
+
+:::
+
+Create a new user:
+
+```sh
+sudo htpasswd -c /etc/apache2/.htpasswd my-website-admin
+```
+
+You can add more users or update the password:
+
+```sh:/etc/apache2/.htpasswd
+my-website-admin:my-secret-password
+```
+
+Add the following to the location block in the nginx config:
+
+```conf:my-domain.com.conf
+server {
+  auth_basic "Administrator’s Area";
+  auth_basic_user_file /etc/apache2/.htpasswd;
+
+  # ...
+}
+```
+
+And reload NGINX:
+
+```sh
+sudo nginx -t
+sudo service nginx reload
+```
+
+You can only protect a part of the website:
+
+```conf:my-domain.com.conf
+server {
+  location /admin {
+    auth_basic "Administrator’s Area";
+    auth_basic_user_file /etc/apache2/.htpasswd;
+
+    # ...
+  }
+}
+```
