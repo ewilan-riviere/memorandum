@@ -58,7 +58,7 @@ PROJECTS_ROOT=/home/my-user/www/
 ```
 
 - `PORT`: port to deploy drone, 3000 by default
-- `WEBHOOK_PATH`: url where drone listen, when we will configure Nginx, we use `deploy.domain.com`, so listen url will be `deploy.domain.com/deploy`
+- `WEBHOOK_PATH`: url where drone listen, when we will configure Nginx, we use `drone.domain.com`, so listen url will be `drone.domain.com/deploy`
 - `PROJECTS_ROOT`: absolute path where repositories cloned
 
 Then create `repositories.json` into repo. It will useful only if remote have different name of cloned repo. But you need to have this file, even it's empty file.
@@ -70,12 +70,12 @@ Then create `repositories.json` into repo. It will useful only if remote have di
 ```
 
 ::: info
-Int his example, we use a domain `deploy.domain.com` to receive payloads. You have to buy a domain from any registrar, then configure it to point on your server.
+Int his example, we use a domain `drone.domain.com` to receive payloads. You have to buy a domain from any registrar, then configure it to point on your server.
 :::
 
 Then configure NGINX like it:
 
-- `server_name`: example url `deploy.domain.com`
+- `server_name`: example url `drone.domain.com`
 - `location /deploy`: like **WEBHOOK_PATH** define in `.env` file
 - `proxy_pass`: **3000** is the **PORT** define in `.env` file
 
@@ -83,11 +83,11 @@ Don't forget to enable this config.
 
 ::: details NGINX config
 
-```nginx:/etc/nginx/conf.d/deploy.domain.com.conf
+```nginx:/etc/nginx/conf.d/drone.domain.com.conf
 server {
     listen 80;
 
-    server_name deploy.domain.com;
+    server_name drone.domain.com;
 
     location / {
         try_files $uri $uri/ =404;
