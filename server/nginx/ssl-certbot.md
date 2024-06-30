@@ -66,6 +66,11 @@ Add this line
 sudo vim /usr/local/bin/clean
 ```
 
+- Remove logs
+- Remove docker images
+- Remove journalctl logs
+- Remove snap cache
+
 ```sh
 #!/bin/bash
 
