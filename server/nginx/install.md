@@ -15,7 +15,7 @@ description: How to use NGINX
 This guide is for Debian 10/11, if you have another distribution, you can see the official documentation.
 :::
 
-### From default SourcesList (deprecated)
+### From default SourcesList v1.22.4 (deprecated)
 
 ::: warning
 This method will install an old version of NGINX, you should use the official repository.
@@ -34,7 +34,7 @@ sudo apt install -y nginx
 - The default web root is `/var/www/html/`
 - Web server configuration is in `/etc/nginx/sites-available/` and `/etc/nginx/sites-enabled/`
 
-### From NGINX Repository
+### From NGINX Repository v1.26.0
 
 ::: info
 This method is recommended to have the latest version of NGINX, you will have access to the latest features like new syntax for `http2`.

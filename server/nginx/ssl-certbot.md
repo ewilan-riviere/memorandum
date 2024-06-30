@@ -17,7 +17,9 @@ Certbot will update NGINX configuration for all selected websites, it will add H
 
 You can install **snap** or use **Python** (personaly I dislike snap, so I install with Python).
 
-## Optional: install `snap` on Debian
+## Install certbot
+
+::: tip Install `snap` on Debian
 
 ```sh
 sudo apt update
@@ -25,9 +27,9 @@ sudo apt install snapd
 sudo snap install core
 ```
 
-## Install certbot
+:::
 
-::code-group
+::: code-group
 
 ```sh [snap]
 sudo snap install --classic certbot
@@ -40,27 +42,51 @@ sudo apt install python3-certbot-nginx
 sudo ufw status
 ```
 
-::
+:::
 
-## Execute `certbot`
+## Execute `certbot` for NGINX
 
 ```sh
 sudo certbot --nginx
 ```
 
-## Automatic renewal
+You will see this message
+
+```sh:output
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+
+Which names would you like to activate HTTPS for?
+We recommend selecting either all domains, or all domains in a VirtualHost/server block.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+1: mywebsite.com
+2: www.mywebsite.com
+3: mywebsite2.com
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Select the appropriate numbers separated by commas and/or spaces, or leave input
+blank to select all options shown (Enter 'c' to cancel):
+```
+
+I advice to create certificated one by one if they don't exist yet. After that, you can select all.
+
+## Tips
+
+### Automatic renewal
+
+Certificated have a lifetime, you have to renew it after some weeks. You can add a cron job to renew it automatically.
 
 ```sh
 sudo crontab -e
 ```
 
-Add this line
+Add this line to execute it every day at 3am
 
 ```sh
 0 3 * * * /usr/bin/certbot renew --quiet
 ```
 
 ### Clean script
+
+Create a script to clean logs, docker images, journalctl logs and snap cache.
 
 ```sh
 sudo vim /usr/local/bin/clean
@@ -99,67 +125,42 @@ Add this line to execute it every day at 1am
 0 1 * * * sh /usr/local/bin/clean
 ```
 
-## Misc
+### HTTP/2
 
-And follow the guide, I advice to choose **Redirect** when `certbot` ask about it, it's more secure.
+HTTP/2 is a new version of HTTP protocol, it's faster than HTTP/1.1. You can enable it with NGINX.
 
-::: info
-If you want to keep `/etc/nginx/sites-available/default`, update `server_name _` to `server_name your-domain.com`. It can generate some errors if you keep original config and `certbot` will skill this config.
+Some differences exist between v1.22.4 and v1.26.0.
 
-```diff[/etc/nginx/sites-available/default]
+::: code-group
+
+```nginx:website.com.conf [v1.26.0]
 server {
-  listen 80 default_server;
+  listen [::]:80;
+  listen 80;
+  http2 on;
+}
+```
 
-  root /var/www/html;
-
-  index index.html index.htm index.nginx-debian.html;
-
-- server_name _;
-+ server_name dev.ewilan-riviere.com;
-
-  # ...
+```nginx:website.com.conf [v1.22.4]
+server {
+  listen [::]:80 http2;
+  listen 80 http2;
 }
 ```
 
 :::
 
-### HTTP/2
-
-- <https://www.tecmint.com/enable-http-2-in-nginx/>
-- <https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-with-http-2-support-on-ubuntu-18-04>
-
-```nginx
-server {
-  listen [::]:80 http2;
-  listen 80 http2;
-  # ...
-}
-```
-
-If you use Certbot to enable HTTPS, you have to add manually `htpp2`
-
-```nginx
-server {
-  listen [::]:443 ssl http2;
-  listen 443 ssl http2;
-  # ...
-}
-```
-
 Check if a website use HTTP/2
 
 ```sh
-curl -I -L https://bookshelves.ink
+curl -I -L https://github.com
 ```
 
-If you use NGINX version 1.22.0 or higher.
+You will see this message
 
-```nginx
-server {
-  listen [::]:80;
-  listen 80;
-
-  http2 on;
-  # ...
-}
+```sh:output
+HTTP/2 200
+server: GitHub.com
+date: Sun, 30 Jun 2024 08:47:20 GMT
+content-type: text/html; charset=utf-8
 ```
