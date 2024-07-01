@@ -7,7 +7,7 @@ titleTemplate: Blog & documentation
 hero:
   name: Memorandum
   text: Blog & documentation
-  tagline: Some notes and thoughts
+  tagline: Whoa! It's markdown!
   actions:
     - theme: brand
       text: Notebook
