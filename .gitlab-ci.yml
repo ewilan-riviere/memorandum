@@ -40,6 +40,7 @@ deploy-job:
       docker exec $DOCKER_CONTAINER rm -rf /usr/share/nginx/html/node_modules &&
       docker exec $DOCKER_CONTAINER rm -rf /usr/share/nginx/html/.vitepress/dist &&
       docker cp .vitepress/dist-$CI_JOB_ID/dist $DOCKER_CONTAINER:/usr/share/nginx/html/.vitepress/dist &&
+      docker restart $DOCKER_CONTAINER &&
       rm -rf .vitepress/dist-$CI_JOB_ID &&
       notifier discord '$CI_PROJECT_TITLE deployed'"
   only:
