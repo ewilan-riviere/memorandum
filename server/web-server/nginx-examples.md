@@ -25,7 +25,7 @@ server {
 ### To HTTPS
 
 ::: info
-You need to have an SSL certificate installed on your server to redirect to HTTPS. You should use [Certbot](/server/nginx/ssl-certbot) to install a free SSL certificate.
+You need to have an SSL certificate installed on your server to redirect to HTTPS. You should use [Certbot](/server/web-server/ssl-certbot) to install a free SSL certificate.
 :::
 
 ```nginx
@@ -281,7 +281,7 @@ server {
 }
 ```
 
-You have to use a backend server like [PM2](https://pm2.keymetrics.io/) to run your Node.js application, a guide is available [here](/server/nginx/nodejs-pm2).
+You have to use a backend server like [PM2](https://pm2.keymetrics.io/) to run your Node.js application, a guide is available [here](/server/web-server/nodejs-pm2).
 
 ### Vitepress
 

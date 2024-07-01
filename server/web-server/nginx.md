@@ -276,7 +276,7 @@ sudo service nginx reload
 ### Firewall
 
 ::: info
-If you don't have a firewall, you can skip this step or install firewall with [this guide](/server/administration/prepare-server#firewall).
+If you don't have a firewall, you can skip this step or install firewall with [this guide](/server/administration/server-basics#firewall).
 :::
 
 Allow NGINX in firewall

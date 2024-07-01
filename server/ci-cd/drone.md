@@ -14,7 +14,7 @@ To use webhooks, you can use [**Drone**](https://github.com/ewilan-riviere/drone
 Drone will listen on a specific url, when it receive a payload, it will execute a `git pull` on your repository, and with a [**post-merge**](/server/ci-cd/git-hooks) hook, you can execute some commands like `npm install` or `composer install`.
 
 ::: info
-To install Drone, you need to have a server with [Node.js](/server/binaries/nodejs), [PM2](/server/nginx/nodejs-pm2) and [NGINX](/server/nginx/install) installed.
+To install Drone, you need to have a server with [Node.js](/server/binaries/nodejs), [PM2](/server/web-server/nodejs-pm2) and [NGINX](/server/web-server/nginx) installed.
 :::
 
 After that, you can follow [this documentation](https://github.com/ewilan-riviere/drone).

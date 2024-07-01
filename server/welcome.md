@@ -15,4 +15,4 @@ You can begin with:
 - [Server basics](/server/administration/server-basics)
 - [Vim](/server/administration/vim)
 - [ZSH & Oh my ZSH](/server/administration/zsh)
-- [SSH](/server/administration/ssh)
+- [SSH](/server/administration/ssh-scp-rsync)

@@ -121,7 +121,7 @@ If you have an error, you can see the logs in `/var/log/nginx/error.log`.
 
 To host PHP application or HTML files, you can use NGINX, but if you want to host a Node.js application, you can use PM2 to manage your application with NGINX as a reverse proxy.
 
-You can see a guide here: [Node.js with PM2](/server/nginx/nodejs-pm2).
+You can see a guide here: [Node.js with PM2](/server/web-server/nodejs-pm2).
 
 ## Remove domain
 
