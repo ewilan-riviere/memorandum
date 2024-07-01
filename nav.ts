@@ -105,6 +105,13 @@ function sidebarServer(): DefaultTheme.SidebarItem[] {
       ],
     },
     {
+      text: 'Sysadmin',
+      collapsed: false,
+      items: [
+        { text: 'Disk', link: 'sysadmin/disk' },
+      ],
+    },
+    {
       text: 'Web server',
       collapsed: false,
       items: [
@@ -113,13 +120,6 @@ function sidebarServer(): DefaultTheme.SidebarItem[] {
         { text: 'NGINX examples', link: 'web-server/nginx-examples' },
         { text: 'SSL & Certbot', link: 'web-server/ssl-certbot' },
         { text: 'Node.js & PM2', link: 'web-server/nodejs-pm2' },
-      ],
-    },
-    {
-      text: 'Sysadmin',
-      collapsed: false,
-      items: [
-        { text: 'Disk', link: 'sysadmin/disk' },
       ],
     },
   ]

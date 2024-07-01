@@ -7,20 +7,20 @@ description: How to manage Node.js applications
 
 {{ $frontmatter.description }}
 
-When you have a NodeJS app, you need to manage it on your server.
+When you have a Node.js app, you need to manage it on your server.
 
-Unlike PHP app, which just need to have Nginx/Apache configuration, a NodeJS app can have two production options : **generate static project** or **launch server**. With the first, you compile your project into _html_, _js_ and _css_ files, and you can host it with a basic Nginx/Apache config like PHP app.
+Unlike PHP app, which just need to have NGINX/Apache configuration, a Node.js app can have two production options : **generate static project** or **launch server**. With the first, you compile your project into _html_, _js_ and _css_ files, and you can host it with a basic NGINX/Apache config like PHP app.
 
-It's easy but if you want to update infos of your app with a back-office via an API, infos won't update on your app because it's static app (you will have to re generate your app each time...). The solution is the second option, build a server, it will update infos of your app if you change it with a back-office. To manage a NodeJS app like this, you need a manager to keep live your app and **PM2** is here for it.
+It's easy but if you want to update infos of your app with a back-office via an API, infos won't update on your app because it's static app (you will have to re generate your app each time...). The solution is the second option, **host a server**, it will update infos of your app if you change it with a back-office. To manage a Node.js app like this, you need a manager to keep live your app and [**PM2**](https://pm2.keymetrics.io/) is here for it.
 
 ::: info
 
-> **In this example, we take a repository called `portfolio`, a Nuxt app**
-> You can find it here [GitHub](https://github.com/ewilan-riviere/portfolio)
-> I choose to define Nginx directory to `/var/www/`
-> The domain used is `ewilan-riviere.com` with some differents subdomains
+> **In this example, we take a project works [Express](https://github.com/expressjs/express), an old but still used Node.js framework.**
+> You can find it here [ewilan-riviere/express-starter](https://gitlab.com/ewilan-riviere/express-starter).
 
-**Links**
+```sh
+git clone https://gitlab.com/ewilan-riviere/express-starter /var/www/express-starter
+```
 
 - [pm2 monitoring](https://pm2.keymetrics.io/docs/usage/monitoring/)
 - [pm2 ecosystem](https://pm2.keymetrics.io/docs/usage/application-declaration/)
@@ -28,13 +28,13 @@ It's easy but if you want to update infos of your app with a back-office via an 
 
 :::
 
-## Create Nginx configuration
+## Create NGINX configuration
 
-You need to have a **domain** and **Nginx**. The configuration of Nginx is light but necessary to allow **PM2** to serve it on this domain.
+You need to have a **domain** and [**NGINX**](/server/web-server/nginx). The configuration of Nginx is light but necessary to allow **PM2** to serve it on this domain with reverse proxy.
 
-```nginx{2,6}:/etc/nginx/conf.d/portfolio.conf
+```nginx{2,6}:/etc/nginx/conf.d/domain.com.conf
 server {
-  server_name ewilan-riviere.com;
+  server_name domain.com;
 
   location / {
     include proxy_params;
@@ -51,16 +51,22 @@ sudo nginx -t
 
 If you have this output, everything is fine, otherwise you will have some infos to fix it:
 
-> nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
-> nginx: configuration file /etc/nginx/nginx.conf test is successful
+```sh:output
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+```
 
-And reload Nginx to apply changes:
+And reload NGINX to apply changes:
 
 ```sh
 sudo service nginx reload
 ```
 
 ## Install PM2
+
+::: info
+You have to install Node.js before PM2, you can find a guide here: [Node.js](/server/binaries/Node.js)
+:::
 
 Use NPM globally:
 
@@ -70,7 +76,7 @@ npm install pm2@latest -g
 
 ### Ecosystem
 
-PM2 is now available on your server, you can use it on different ways but here, we use _ecosystem_ solution. With this, it's easy to maintain a lot of NodeJS app with just JSON. You have just to create `ecosystem.config.js` anywhere on your server:
+PM2 is now available on your server, you can use it on different ways but here, we use _ecosystem_ solution. With this, it's easy to maintain a lot of Node.js app with just JSON. You have just to create `ecosystem.config.js` anywhere on your server:
 
 ```sh
 vim ~/ecosystem.config.js
@@ -80,12 +86,12 @@ vim ~/ecosystem.config.js
 module.exports = {
   apps: [
     {
-      name: "portfolio",
+      name: "express-starter",
       script: "npm",
-      cwd: "/var/www/portfolio",
+      cwd: "/var/www/express-starter",
       args: "start",
       env: {
-        PORT: 3000,
+        PORT: 3000, // same port as in Nginx config
       },
     },
   ],
@@ -100,21 +106,19 @@ module.exports = {
 
 ::: info
 
-`star` script is `"start": "node .output/server/index.mjs"` in example of portfolio app.
+`start` script is `"start": "node app.js"` in example of express-starter app.
 
 :::
 
-In this example, portfolio is a NuxtJS app with theses scripts into package.json:
+In this example, express-starter is a Node.js app with theses scripts into package.json:
 
-```json:/var/www/portfolio/package.json
+```json:/var/www/express-starter/package.json
 {
   // ...
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
-  }
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
   // ...
 }
 ```
@@ -145,7 +149,7 @@ You have to see this output:
 ┌────┬────────────────────┬──────────┬──────┬───────────┬──────────┬──────────┐
 │ id │ name               │ mode     │ ↺    │ status    │ cpu      │ memory   │
 ├────┼────────────────────┼──────────┼──────┼───────────┼──────────┼──────────┤
-│ 0  │ portfolio          │ fork     │ 7    │ online    │ 0.3%     │ 47.2mb   │
+│ 0  │ express-starter    │ fork     │ 7    │ online    │ 0.3%     │ 47.2mb   │
 └────┴────────────────────┴──────────┴──────┴───────────┴──────────┴──────────┘
 ```
 
