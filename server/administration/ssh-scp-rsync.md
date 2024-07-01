@@ -1,9 +1,9 @@
 ---
-title: SSH
+title: SSH / SCP / rsync
 description: Usage of SSH, SCP and rsync
 ---
 
-# SSH
+# SSH / SCP / rsync
 
 {{ $frontmatter.description }}
 

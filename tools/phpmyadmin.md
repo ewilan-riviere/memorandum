@@ -1,9 +1,11 @@
 ---
 title: phpMyAdmin
-description: "How to setup phpMyAdmin with NGINX"
+description: phpMyAdmin is a free software tool written in PHP, intended to handle the administration of MySQL over the Web. phpMyAdmin supports a wide range of operations on MySQL and MariaDB. Frequently used operations (managing databases, tables, columns, relations, indexes, users, permissions, etc) can be performed via the user interface, while you still have the ability to directly execute any SQL statement.
 ---
 
 # phpMyAdmin
+
+{{ $frontmatter.description }}
 
 [Digital Ocean: phpMyAdmin with Apache](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04)
 [Digital Ocean: phpMyAdmin with NGINX](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-with-nginx-on-an-ubuntu-18-04-server)
@@ -39,12 +41,12 @@ INSTALL COMPONENT "file://component_validate_password";
 exit
 ```
 
-::alert{type="danger"}
+::: danger
 After installing, you will see dialog with choices about server, **don't select anything** because it's NGINX.
 Just press <kbd>&nbsp;&#8633;&nbsp;</kbd> to select `OK` with <kbd>&nbsp;Enter&nbsp;</kbd>
 
 Select **`Yes` for all questions** and **enter MySQL password** you defined for MySQL.
-::
+:::
 
 Link phpMyAdmin from it folder to NGINX folder
 
@@ -52,14 +54,14 @@ Link phpMyAdmin from it folder to NGINX folder
 sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
 ```
 
-::alert{type="info"}
+::: info
 If you want to change phpMyAdmin URL location:
 
 ```sh
 sudo mv /var/www/html/phpmyadmin /var/www/html/other-location
 ```
 
-::
+:::
 
 ## Configure NGINX
 
@@ -74,7 +76,7 @@ Replace content with this config:
 - `autoindex on` allow to display phpMyAdmin from `html` folder in `/var/www`
 - if you want to use different PHP version for phpMyAdmin, you can change this line `fastcgi_pass unix:/var/run/php/php8.2-fpm.sock`
 
-```nginx [/etc/nginx/sites-available/default]
+```nginx:/etc/nginx/sites-available/default
 server {
  listen 80 default_server;
  listen [::]:80 default_server;
@@ -115,7 +117,7 @@ sudo vim /usr/share/phpmyadmin/config.inc.php
 
 Find `$cfg['Servers'][$i]['auth_type'] = 'cookie';` line and add this line `$cfg['Servers'][$i]['AllowRoot'] = FALSE;`
 
-```php [/usr/share/phpmyadmin/config.inc.php]
+```php:/usr/share/phpmyadmin/config.inc.php
 if (!empty($dbname)) {
   /* Authentication type */
   $cfg['Servers'][$i]['auth_type'] = 'cookie';
@@ -137,7 +139,7 @@ sudo touch /etc/phpmyadmin/conf.d/pma_secure.php
 sudo vim /etc/phpmyadmin/conf.d/pma_secure.php
 ```
 
-```php [/etc/phpmyadmin/conf.d/pma_secure.php]
+```php:/etc/phpmyadmin/conf.d/pma_secure.php
 <?php
 
 # PhpMyAdmin Settings
@@ -209,7 +211,7 @@ Edit config and paste blowfish secret:
 sudo vim /usr/share/phpmyadmin/config.inc.php
 ```
 
-```php [/usr/share/phpmyadmin/config.inc.php]
+```php:/usr/share/phpmyadmin/config.inc.php
 <?php
 // ...
 $cfg['blowfish_secret'] = ''; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
@@ -224,10 +226,10 @@ sudo rm -rf /usr/share/phpmyadmin.bak ; sudo rm /usr/share/phpMyAdmin*.tar.gz
 If not exist, you have to configure a new file for this version.
 
 ```sh
-sudo nano /etc/phpmyadmin/conf.d/pma_secure.php
+sudo vim /etc/phpmyadmin/conf.d/pma_secure.php
 ```
 
-```php [/etc/phpmyadmin/conf.d/pma_secure.php]
+```php:/etc/phpmyadmin/conf.d/pma_secure.php
 <?php
 
 # PhpMyAdmin Settings
@@ -244,9 +246,9 @@ $cfg['Servers'][$i]['AllowRoot'] = false;
 ?>
 ```
 
-::alert{type="warning"}
+::: warning
 This configuration will disable root login, you have to create user
-::
+:::
 
 ---
 
@@ -260,7 +262,7 @@ sudo vim /etc/nginx/sites-available/default
 
 Content of `default` conf (if not, check _configure NGINX_)
 
-```nginx
+```nginx:/etc/nginx/sites-available/default
 server {
   listen 80;
   root /var/www/html;
@@ -289,9 +291,9 @@ We can see at line 14, `php8.2-fpm` which is PHP version used by phpMyAdmin caus
 sudo service nginx restart
 ```
 
-::alert{type="warning"}
+::: warning
 If you change PHP version, it can be missing some extensions, if phpMyAdmin display an error about extension check this part : _missing extension_
-::
+:::
 
 You can check phpMyAdmin infos on dashboard of phpMyAdmin, just after connection
 
@@ -303,7 +305,7 @@ vim /var/www/html/infos.php
 
 Insert these lines
 
-```php
+```php:/var/www/html/infos.php
 <?php
   phpinfo();
 ?>
@@ -354,7 +356,7 @@ sudo apt install php8.2-common php8.2-mysql php8.2-xml php8.2-xmlrpc php8.2-curl
 
 Cause by an error with php version, just check **default** config in `/etc/nginx/sites-available/default`:
 
-```sh
+```nginx:/etc/nginx/sites-available/default
 server {
   listen 80;
   root /var/www/html;
@@ -420,7 +422,7 @@ sudo vim /usr/share/phpmyadmin/config.inc.php
 sudo apt install -y pwgen ; pwgen -s 32 1
 ```
 
-```php title="/usr/share/phpmyadmin/config.inc.php"
+```php:/usr/share/phpmyadmin/config.inc.php
 // ...
 
 $cfg['blowfish_secret'] = 'STRINGOFTHIRTYTWORANDOMCHARACTERS'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */

@@ -63,10 +63,11 @@ function sidebarServer(): DefaultTheme.SidebarItem[] {
       text: 'Administration',
       collapsed: false,
       items: [
-        { text: 'SSH', link: 'administration/ssh' },
-        { text: 'Prepare server', link: 'administration/prepare-server' },
-        { text: 'Basic packages', link: 'administration/basic-packages' },
-        { text: 'git', link: 'administration/git' },
+        { text: 'Server basics', link: 'administration/server-basics' },
+        { text: 'Vim', link: 'administration/vim' },
+        { text: 'ZSH & Oh my ZSH', link: 'administration/zsh' },
+        { text: 'SSH / SCP / rsync', link: 'administration/ssh-scp-rsync' },
+        { text: 'Git', link: 'administration/git' },
         { text: 'Screen', link: 'administration/screen' },
         { text: 'fail2ban', link: 'administration/fail2ban' },
         { text: 'Message of the day (MOTD)', link: 'administration/motd' },
@@ -77,6 +78,8 @@ function sidebarServer(): DefaultTheme.SidebarItem[] {
       text: 'Binaries',
       collapsed: false,
       items: [
+        { text: 'PHP', link: 'binaries/php' },
+        { text: 'MySQL / MariaDB', link: 'binaries/mysql' },
         { text: 'Bun', link: 'binaries/bun' },
         { text: 'Go', link: 'binaries/golang' },
         { text: 'Node.js', link: 'binaries/nodejs' },
@@ -102,13 +105,14 @@ function sidebarServer(): DefaultTheme.SidebarItem[] {
       ],
     },
     {
-      text: 'NGINX',
+      text: 'Web server',
       collapsed: false,
       items: [
-        { text: 'Setup NGINX', link: 'nginx/install' },
-        { text: 'Examples', link: 'nginx/examples' },
-        { text: 'SSL & Certbot', link: 'nginx/ssl-certbot' },
-        { text: 'Node.js & PM2', link: 'nginx/nodejs-pm2' },
+        { text: 'NGINX', link: 'web-server/nginx' },
+        { text: 'NGINX usage', link: 'web-server/nginx-usage' },
+        { text: 'NGINX examples', link: 'web-server/nginx-examples' },
+        { text: 'SSL & Certbot', link: 'web-server/ssl-certbot' },
+        { text: 'Node.js & PM2', link: 'web-server/nodejs-pm2' },
       ],
     },
     {
@@ -133,13 +137,14 @@ function sidebarTools(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: 'TablePlus', link: 'tableplus' },
+        { text: 'phpMyAdmin', link: 'phpmyadmin' },
       ],
     },
     {
-      text: 'ffmpeg',
+      text: 'FFMPEG',
       collapsed: false,
       items: [
-        { text: 'Install', link: 'ffmpeg/install' },
+        { text: 'Setup FFMPEG', link: 'ffmpeg/install' },
         { text: 'Convert', link: 'ffmpeg/convert' },
         { text: 'Metadata', link: 'ffmpeg/metadata' },
         { text: 'HEVC H265', link: 'ffmpeg/hevc-h265' },

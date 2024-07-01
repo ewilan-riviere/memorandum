@@ -105,6 +105,30 @@ server {
 
 ## Frameworks
 
+### Handle PHP
+
+```nginx
+server {
+    listen 80;
+    listen [::]:80;
+    server_name example.com;
+    root /srv/example.com;
+
+    index index.php;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php8.2-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+        fastcgi_hide_header X-Powered-By;
+    }
+}
+```
+
 ### Laravel
 
 For [Laravel](https://laravel.com) applications, you can use the following configuration:

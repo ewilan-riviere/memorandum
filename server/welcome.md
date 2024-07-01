@@ -12,6 +12,7 @@ I advice to always verify the commands and adapt them to your needs.
 
 You can begin with:
 
+- [Server basics](/server/administration/server-basics)
+- [Vim](/server/administration/vim)
+- [ZSH & Oh my ZSH](/server/administration/zsh)
 - [SSH](/server/administration/ssh)
-- [Prepare server](/server/administration/prepare-server)
-- [Basic packages](/server/administration/basic-packages)

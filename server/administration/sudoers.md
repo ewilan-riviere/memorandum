@@ -9,13 +9,15 @@ description: Add user to sudoers
 
 From <https://linuxize.com/post/how-to-add-user-to-sudoers-in-ubuntu/>
 
+## Connect as root
+
 Log in as `root` with `root` password
 
 ```sh
 su -
 ```
 
-Add `my-user` to sudoers
+## Add `my-user` to sudoers
 
 ::: info
 Replace `my-user` with your username.

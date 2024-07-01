@@ -7,11 +7,13 @@ description: Git is a distributed version control system that tracks versions of
 
 {{ $frontmatter.description }}
 
-![elijahmanor.com](https://elijahmanor.com/images/git-branch/git-branch.png)
+## Installation
 
-> From elijahmanor.com
+```sh
+sudo apt install -y git
+```
 
-## New user
+## Configuration
 
 ```sh
 git config --global user.email "you@example.com"
@@ -21,33 +23,9 @@ git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 ```
 
-## Conflicts with end of file
+## Actions
 
-It's cause of Windows end of file (CRLF) conflict with Linux end of file (LF), just update global git core
-
-```sh
-git config --global core.autocrlf false
-```
-
-And re-clone repository
-
-## “Pulling without specifying...”
-
-> “Pulling without specifying how to reconcile divergent branches is discouraged”
-
-```sh
-git config --global pull.ff only
-```
-
-## Change default editor
-
-Example to change to vim editor
-
-```sh
-git config --global core.editor "vim"
-```
-
-## Erase a branch with another
+### Erase a branch with another
 
 Erase a branch with another
 
@@ -56,7 +34,7 @@ git checkout branch_to_erase
 git reset --hard branch_to_keep
 ```
 
-## Delete branch
+### Delete branch
 
 ```sh
 # local
@@ -65,7 +43,7 @@ git branch -d branch_to_delete
 git push origin --delete branch_to_delete
 ```
 
-## Commit changes on other branch
+### Commit changes on other branch
 
 ```sh
 git stash
@@ -73,19 +51,19 @@ git checkout other_branch
 git stash pop
 ```
 
-## Unstage all files
+### Unstage all files
 
 ```sh
 git reset
 ```
 
-## Add files and commit
+### Add files and commit
 
 ```sh
 git commit -am
 ```
 
-## Pull to overwrite local files
+### Pull to overwrite local files
 
 _Source : [stackoverflow.com](https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files)_
 
@@ -104,3 +82,37 @@ With another branch
 ```sh
 git reset --hard origin/branch_name
 ```
+
+## Troubles
+
+### Conflicts with end of file
+
+It's cause of Windows end of file (CRLF) conflict with Linux end of file (LF), just update global git core
+
+```sh
+git config --global core.autocrlf false
+```
+
+And re-clone repository
+
+### “Pulling without specifying...”
+
+> “Pulling without specifying how to reconcile divergent branches is discouraged”
+
+```sh
+git config --global pull.ff only
+```
+
+### Change default editor
+
+Example to change to vim editor
+
+```sh
+git config --global core.editor "vim"
+```
+
+## Cheatsheet
+
+![elijahmanor.com](https://elijahmanor.com/images/git-branch/git-branch.png)
+
+> From elijahmanor.com
