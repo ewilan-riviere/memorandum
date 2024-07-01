@@ -38,9 +38,23 @@ pnpm preview
 
 You can use Docker to build and run the project.
 
+Create a `.env` file:
+
+```sh
+cp .env.example .env
+```
+
+Build and run the project:
+
 ```sh
 docker compose up --build -d
 ```
+
+Website is available at `3000` port by default (you can change it in the `.env` file).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
