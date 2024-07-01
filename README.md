@@ -3,13 +3,12 @@
 [![vitepress][vitepress-version-src]][vitepress-version-href]
 [![node][node-src]][node-href]
 [![code style](https://antfu.me/badge-code-style.svg)](https://github.com/antfu/eslint-config)
+
 [![pipeline](https://gitlab.com/kiwilan/memorandum/badges/main/pipeline.svg)](https://gitlab.com/kiwilan/memorandum)
 
-> Personal documentation.
+Blog & documentatio, deploy on [memorandum.ewilan-riviere.com](https://memorandum.ewilan-riviere.com), built using [Vitepress](https://vitepress.dev/), a modern static website generator.
 
-Deploy on [memorandum.ewilan-riviere.com](https://memorandum.ewilan-riviere.com), built using [Vitepress](https://vitepress.dev/), a modern static website generator.
-
-## Setup
+## Installation
 
 ```
 pnpm i
