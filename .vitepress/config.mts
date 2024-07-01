@@ -1,8 +1,8 @@
 import { defineConfig } from 'vitepress'
 import { footnote } from '@mdit/plugin-footnote'
 import namedCodeBlocks from 'markdown-it-named-code-blocks'
-import { parseFiles } from '../init'
-import { navigation, sidebar } from '../nav'
+// import { parseFiles } from './init'
+import { navigation, sidebar } from './nav'
 
 // console.log('start config')
 // const files = await parseFiles('guides')
