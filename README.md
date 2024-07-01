@@ -3,6 +3,7 @@
 [![vitepress][vitepress-version-src]][vitepress-version-href]
 [![node][node-src]][node-href]
 [![code style](https://antfu.me/badge-code-style.svg)](https://github.com/antfu/eslint-config)
+[![pipeline](https://gitlab.com/kiwilan/memorandum/badges/main/pipeline.svg)](https://gitlab.com/kiwilan/memorandum)
 
 > Personal documentation.
 
