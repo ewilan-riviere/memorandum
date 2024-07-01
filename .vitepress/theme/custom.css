@@ -58,3 +58,7 @@
 .VPHome {
   width: 100%;
 }
+
+.bg-color {
+  fill: var(--vp-c-bg);
+}
