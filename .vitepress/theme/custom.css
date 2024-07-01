@@ -48,3 +48,13 @@
   color: var(--vp-code-lang-color);
   background-color: var(--vp-code-block-bg);
 }
+
+.VPContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.VPHome {
+  width: 100%;
+}
