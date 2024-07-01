@@ -52,6 +52,14 @@ docker compose up --build -d
 
 Website is available at `3000` port by default (you can change it in the `.env` file).
 
+You can see the logs with:
+
+```sh
+docker logs memorandum -f # docker compose logs -f
+```
+
+You can find NGINX configuration for your server in [.vitepress/nginx/example.conf](.vitepress/nginx/example.conf).
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
