@@ -2,6 +2,7 @@
   "name": "memorandum",
   "version": "4.0.0",
   "private": true,
+  "description": "Blog & documentation",
   "author": "Ewilan Rivière",
   "license": "MIT",
   "engines": {

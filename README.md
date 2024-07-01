@@ -6,7 +6,7 @@
 
 [![pipeline](https://gitlab.com/kiwilan/memorandum/badges/main/pipeline.svg)](https://gitlab.com/kiwilan/memorandum)
 
-Blog & documentatio, deploy on [memorandum.ewilan-riviere.com](https://memorandum.ewilan-riviere.com), built using [Vitepress](https://vitepress.dev/), a modern static website generator.
+Blog & documentation, deploy on [memorandum.ewilan-riviere.com](https://memorandum.ewilan-riviere.com), built using [Vitepress](https://vitepress.dev/), a modern static website generator.
 
 ## Installation
 
