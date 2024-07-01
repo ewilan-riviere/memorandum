@@ -26,7 +26,6 @@ deploy-job:
     - echo "Setup..."
     - git clone https://gitlab.com/kiwilan/memorandum.git
     - cd memorandum
-    - scp -P $SSH_PORT $SSH_USER@$SSH_IP:/home/$SSH_USER/www/$CI_PROJECT_NAME/.env .env
     - npm install -g pnpm
     - pnpm i
     - echo "Building..."
