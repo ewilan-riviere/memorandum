@@ -15,7 +15,6 @@ export function navigation(): DefaultTheme.NavItem[] {
     },
     {
       text: 'Server',
-      // link: '/server/',
       activeMatch: '/server/',
       items: [
         { text: 'Welcome', link: '/server/welcome' },
@@ -55,6 +54,7 @@ function sidebarNotebook(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: 'Notebook', link: 'cheatsheet' },
+        { text: 'MySQL / MariaDB', link: 'mysql' },
         { text: 'Vitepress', link: 'vitepress' },
       ],
     },

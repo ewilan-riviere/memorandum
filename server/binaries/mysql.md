@@ -40,12 +40,12 @@ sudo mysql_secure_installation
 
 ::: code-group
 
-```sh [Debian]
-sudo mariadb -u root -p
+```sh [MariaDB]
+mariadb -u root -p
 ```
 
-```sh [Ubuntu]
-sudo mysql -u root -p
+```sh [MySQL]
+mysql -u root -p
 ```
 
 :::

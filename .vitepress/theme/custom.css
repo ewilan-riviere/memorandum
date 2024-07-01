@@ -49,7 +49,7 @@
   background-color: var(--vp-code-block-bg);
 }
 
-.VPContent {
+.is-home {
   display: flex;
   justify-content: center;
   align-items: center;
