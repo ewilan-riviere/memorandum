@@ -40,6 +40,7 @@ deploy-job:
       rm -rf node_modules &&
       rm -rf .vitepress/dist &&
       mv .vitepress/dist-$CI_JOB_ID/dist .vitepress/dist &&
+      rm -rf .vitepress/dist-$CI_JOB_ID &&
       notifier discord '$CI_PROJECT_TITLE deployed'"
   only:
     - main
