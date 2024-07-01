@@ -26,7 +26,7 @@ deploy-job:
       cd ~/www/$CI_PROJECT_NAME &&
       git pull &&
       ~/.nvm/versions/node/v$NODE_VERSION/bin/pnpm i &&
-      ~/.nvm/versions/node/v$NODE_VERSION/bin/pnpm generate &&
+      ~/.nvm/versions/node/v$NODE_VERSION/bin/pnpm build &&
       notifier discord '$CI_PROJECT_TITLE deployed'"
   only:
     - main

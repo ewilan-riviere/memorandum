@@ -15,8 +15,17 @@ export function navigation(): DefaultTheme.NavItem[] {
     },
     {
       text: 'Server',
-      link: '/server/',
+      // link: '/server/',
       activeMatch: '/server/',
+      items: [
+        { text: 'Welcome', link: '/server/welcome' },
+        { text: 'Administration', link: '/server/administration' },
+        { text: 'Binaries', link: '/server/binaries' },
+        { text: 'CI/CD', link: '/server/ci-cd' },
+        { text: 'Docker', link: '/server/docker' },
+        { text: 'Sysadmin', link: '/server/sysadmin' },
+        { text: 'Web server', link: '/server/web-server' },
+      ],
     },
     {
       text: 'Tools',
