@@ -1,24 +1,4 @@
 ---
-# services:
-#   app:
-#     build:
-#       context: .
-#       dockerfile: Dockerfile
-#     container_name: memorandum
-#     env_file: .env
-#     # restart: always
-
-#   # nginx:
-#   #   image: nginx:latest
-#   #   container_name: memorandum-nginx
-#   #   ports:
-#   #     - "${APP_PORT}:80"
-#   #   volumes:
-#   #     - ./.vitepress/nginx/default.conf:/etc/nginx/conf.d/default.conf
-#   #   depends_on:
-#   #     - app
-
-version: "3"
 services:
   app:
     build:
