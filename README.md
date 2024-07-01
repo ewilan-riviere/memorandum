@@ -18,7 +18,7 @@ pnpm i
 pnpm dev
 ```
 
-## Deployment
+### Deployment
 
 Check the [VitePress Deployment Guide](https://vitepress.dev/guide/deploy) for more details.
 
@@ -32,6 +32,14 @@ Preview the project:
 
 ```sh
 pnpm preview
+```
+
+## Docker
+
+You can use Docker to build and run the project.
+
+```sh
+docker compose up --build -d
 ```
 
 ---
