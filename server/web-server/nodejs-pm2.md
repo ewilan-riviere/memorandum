@@ -19,7 +19,7 @@ It's easy but if you want to update infos of your app with a back-office via an 
 > You can find it here [ewilan-riviere/express-starter](https://gitlab.com/ewilan-riviere/express-starter).
 
 ```sh
-git clone https://gitlab.com/ewilan-riviere/express-starter /var/www/express-starter
+git clone https://gitlab.com/ewilan-riviere/express-starter.git /var/www/express-starter
 ```
 
 - [pm2 monitoring](https://pm2.keymetrics.io/docs/usage/monitoring/)
