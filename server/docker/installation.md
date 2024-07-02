@@ -9,16 +9,16 @@ description: Docker installation on Debian
 
 For Debian: <https://docs.docker.com/engine/install/debian/>
 
-## Install
+## Installation
 
-Dependencies
+Requirements
 
 ```sh
 sudo apt update
 sudo apt install -y ca-certificates curl gnupg
 ```
 
-Add key
+Add repository
 
 ```sh
 sudo install -m 0755 -d /etc/apt/keyrings
@@ -50,20 +50,9 @@ Check if docker is running
 sudo systemctl status docker
 ```
 
-## Allow non-root user to run docker
+## Cheatsheet
 
-```sh
-sudo gpasswd -a $USER docker
-newgrp docker
-```
-
-## Login to Docker Hub
-
-```sh
-sudo docker login
-```
-
-## Commands
+### Docker
 
 - `docker ps`: list containers
 - `docker ps -a`: list all containers
@@ -76,29 +65,7 @@ sudo docker login
 - `docker run -it --rm -v [HOST_PATH]:[CONTAINER_PATH] [IMAGE]`: run image and mount volume
 - `docker run -it --rm -v [HOST_PATH]:[CONTAINER_PATH] -p [HOST_PORT]:[CONTAINER_PORT] [IMAGE]`: run image and mount volume and expose port
 
-## Dockerfile
-
-```docker
-FROM [IMAGE]
-
-RUN [COMMAND]
-
-WORKDIR [PATH]
-
-COPY [HOST_PATH] [CONTAINER_PATH]
-
-CMD [COMMAND]
-```
-
-## Docker Compose
-
-- <https://docs.docker.com/compose/install>
-
-```sh
-sudo curl -L ""
-```
-
-## Commands
+### Docker Compose
 
 - `docker-compose up`: start containers
 - `docker-compose up -d`: start containers in background
@@ -111,30 +78,17 @@ sudo curl -L ""
 - `docker-compose exec [SERVICE] bash`: execute bash in service
 - `docker-compose exec [SERVICE] mysql -u [USER] -p`: execute mysql in service
 
-## Docker Compose file
+## Options
 
-```yaml
-version: "3.9"
-
-services:
-  [SERVICE]:
-    image: [IMAGE]
-    container_name: [NAME]
-    restart: [always|no|on-failure]
-    ports:
-      - "[HOST_PORT]:[CONTAINER_PORT]"
-    volumes:
-      - "[HOST_PATH]:[CONTAINER_PATH]"
-    environment:
-      - [KEY]=[VALUE]
-    depends_on:
-      - [SERVICE]
-```
-
-## Troubles
-
-You can try to reboot
+### Allow non-root user to run docker
 
 ```sh
-sudo reboot
+sudo gpasswd -a $USER docker
+newgrp docker
+```
+
+### Login to Docker Hub
+
+```sh
+sudo docker login
 ```

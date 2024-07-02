@@ -123,7 +123,8 @@ function sidebarServer(): DefaultTheme.SidebarItem[] {
       text: 'Docker',
       collapsed: false,
       items: [
-        { text: 'Setup Docker', link: 'docker/install' },
+        { text: 'Installation', link: 'docker/installation' },
+        { text: 'Ready-to-use', link: 'docker/ready-to-use' },
       ],
     },
     {
@@ -158,7 +159,6 @@ function sidebarSystems(): DefaultTheme.SidebarItem[] {
           items: [
             { text: 'Scoop', link: 'windows/scoop' },
             { text: 'Tips', link: 'windows/tips' },
-
             { text: 'Flutter', link: 'windows/flutter' },
             { text: 'Java', link: 'windows/java' },
             { text: 'MySQL', link: 'windows/mysql' },
