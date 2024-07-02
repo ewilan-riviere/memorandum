@@ -1,17 +1,19 @@
 ---
-title: Tips
-description: "Some tips for Windows"
+title: Tips for Windows
+description: Tips for Windows
 ---
+
+# Tips
+
+{{ $frontmatter.description }}
 
 ## Tabs into explorer
 
 From <https://github.com/thebookisclosed/ViVe> and <https://pureinfotech.com/enable-tabs-file-explorer-windows-11>
 
-::alert{type="warning"}
-Windows update
-
-> You have to use Windows 11 22H2 or later
-> ::
+::: warning Windows update
+You have to use Windows 11 22H2 or later
+:::
 
 ```sh
 scoop install vivetool

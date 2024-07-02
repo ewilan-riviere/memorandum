@@ -1,27 +1,27 @@
 ---
-title: PHP
+title: PHP for Windows
 description: How to setup PHP on Windows with multiple versions
 ---
 
-# PHP
+# PHP for Windows
 
-::alert{type="warning"}
-**scoop is necessary**
+{{ $frontmatter.description }}
 
-> You can manage multiple versions of PHP on same machine with **scoop**, if you don't install it, check this guide: [**scoop**](/os-server/windows/scoop/install)
-> ::
+::: warning Scoop is necessary
+This guide use `scoop` to install this binary, if you don't have it, check [this guide](/systems/windows/scoop)
+:::
 
 ## Install multiple PHP versions
 
 If you try to install directly PHP with **scoop** you will have the last version, if you want to manage multiple versions, you need to install _php bucket_
 
-```powershell [PowerShell]
+```ps1
 scoop bucket add php
 ```
 
 Try to search `php` with scoop
 
-```powershell [PowerShell]
+```ps1
 scoop search php
 ```
 
@@ -29,13 +29,13 @@ And you will find a lot of PHP versions, you can install any specific PHP versio
 
 Install current version.
 
-```powershell [PowerShell]
+```ps1
 scoop install php-nts
 ```
 
 Install specific version.
 
-```powershell [PowerShell]
+```ps1
 scoop install php8.1-nts
 ```
 
@@ -43,7 +43,7 @@ scoop install php8.1-nts
 
 By default, the last PHP installed is the current version, here I install PHP 8.1 at the last, so current version with `php -v` will be **8.1**. If I want to use PHP 8.2, I have just to use this command:
 
-```powershell [PowerShell]
+```ps1
 scoop reset php/php-nts
 ```
 
@@ -60,17 +60,13 @@ You will need to activate some extensions in `php.ini`, you will find it **for e
 - [**Example for PHP 8.1**](https://gist.github.com/ewilan-riviere/b2c89a7ed5acdc136a354d31349cf865)
 - [**Example for PHP 8.2**](https://gist.github.com/ewilan-riviere/9b8014f7a5941e34eda1524ae5d43096)
 
-::callout{type="info"}
-#summary
-`php.ini` config tips.
-#content
-::alert{type="warning"}
+::: info `php.ini` config tips.
 This is a configuration for PHP 8.2, you can have different options with another PHP version.
-::
+:::
 
 **At around line 400**
 
-```ini:C:/Users/USERNAME/scoop/apps/php*-nts/current/php.ini
+```ini:php.ini
 ; Maximum amount of memory a script may consume (128MB)
 ; <http://php.net/memory-limit>
 memory_limit = -1
@@ -78,7 +74,7 @@ memory_limit = -1
 
 **At around line 750**
 
-```ini:C:/Users/USERNAME/scoop/apps/php*-nts/current/php.ini
+```ini:php.ini
 ; Directory in which the loadable extensions (modules) reside.
 ; <http://php.net/extension-dir>
 ; extension_dir = "./"
@@ -88,7 +84,7 @@ extension_dir = "ext"
 
 **At around line 900**
 
-```ini:C:/Users/USERNAME/scoop/apps/php*-nts/current/php.ini
+```ini:php.ini
 ; Notes for Windows environments :
 ;
 ; - Many DLL files are located in the extensions/ (PHP 4) or ext/ (PHP 5+)
@@ -142,17 +138,15 @@ sudo scoop install cacert
 
 **At around line 1900**
 
-```ini:C:/Users/USERNAME/scoop/apps/php*-nts/current/php.ini
+```ini:php.ini
 curl.cainfo = "C:\Users\USERNAME\scoop\apps\cacert\current\cacert.pem"
 ```
-
-::
 
 ## Composer
 
 You can install `composer` if you want to use PHP packages:
 
-```powershell [PowerShell]
+```ps1
 scoop install composer
 ```
 
@@ -170,7 +164,7 @@ composer self-update --2 # composer v2
 
 If you want to create VHost with **NGINX** and **specific PHP version for each VHost**, you will need to create **Services**. To do this, you will need **NSSM** (Non-Stucking Service Manager):
 
-```powershell [PowerShell]
+```ps1
 sudo scoop install nssm
 ```
 
@@ -178,7 +172,7 @@ sudo scoop install nssm
 
 And install a new service, here for PHP 8.2
 
-```powershell [PowerShell]
+```ps1
 sudo nssm install php8.2
 ```
 
@@ -186,7 +180,7 @@ You will have a window to create new service, two input will be important: **Pat
 
 For **Path**, get **path** of **current** **php-nts**, in this example, change `USERNAME` and `php-nts` if you set a different PHP version in **Path**
 
-```[path]
+```
 C:\Users\USERNAME\scoop\apps\php-nts\current\php-cgi.exe
 ```
 
@@ -198,7 +192,7 @@ For **Parameter**, you will need to create specific port with path of **current*
 
 Save the new service.
 
-::alert{type="info"}
+::: info
 You can install another for PHP 8.1, for example:
 
 ```[path]
@@ -211,17 +205,17 @@ For the port, I choose `9081` (for PHP 8.1)
 -b 127.0.0.1:9081 -c C:\Users\USERNAME\scoop\apps\php8.1-nts\current\php.ini
 ```
 
-::
+:::
 
 ### Launch service
 
-```powershell [PowerShell]
+```ps1
 sudo nssm start php8.2
 ```
 
 If you change some data, like with **php.ini**, you will need to **restart Service**
 
-```powershell [PowerShell]
+```ps1
 sudo nssm restart php8.2
 ```
 
@@ -237,7 +231,7 @@ sudo scoop install cacert
 
 Open `C:/Users/USERNAME/scoop/apps/php*-nts/current/php.ini` to update this line, at ~1900 line
 
-```ini:C:/Users/USERNAME/scoop/apps/php*-nts/current/php.ini
+```ini:php.ini
 curl.cainfo = "C:\Users\USERNAME\scoop\apps\cacert\current\cacert.pem"
 ```
 
@@ -247,11 +241,11 @@ And restart PHP-FPM with NSSM
 sudo nssm restart php[INSERT-HERE-VERSION]
 ```
 
-::alert{type="warning"}
+::: warning
 You have to do this **FOR EACH** PHP version you use with you VHost. If you use `php artisan serve` with PHP 8.2 CLI, you have a VHost with PHP 8.1 and another VHost with PHP 8.0... You have to update all `php.ini` files which used by VHost or live serve with Laravel or Symfony.
 
 And you have to **RESTART EACH** version after `php.ini` file update.
-::
+:::
 
 ### PHP ini location problem
 

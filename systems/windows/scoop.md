@@ -1,17 +1,12 @@
 ---
-title: Install
-description: 'A command-line installer for Windows'
-position: 1
-category: 'Windows'
+title: Scoop
+description: scoop is a command-line install for Windows, it's very close to APT on Linux if you know it.
 ---
 
-# Install
+# Scoop
 
-**scoop** is a command-line install for Windows, it's very close to **APT** on Linux if you know it. With this tool, you can install easily many packages directly from your PowerShell terminal, check [**scoop.sh**](https://scoop.sh): to get more informations.
+{{ $frontmatter.description }} With this tool, you can install easily many packages directly from your PowerShell terminal, check [scoop.sh](https://scoop.sh) to get more informations.
 
-::alert{type="info"}
-**Why install packages with scoop ?**
->
 - Packages are installed in your **User** directory by default (but you can modify it): `C:\Users\username\scoop`
 - Find all applications directly in startup menu
 - If package need to have specific **path**, **scoop** will create it, for example if you install `mysql` with **scoop** you will can use `mysql` in PowerShell terminal to access to MySQL CLI (and same for NPM, Yarn, PHP, Python, Flutter, Rust...).
@@ -19,27 +14,43 @@ category: 'Windows'
 - Update all packages with one command
 - Get last versions of your favorites languages
 - Get multiple versions of same language (if **scoop** offer it): PHP, Java...
-::
 
-## Setup **scoop**
+## Installation
 
-Use `Windows` + `X` to open menu and select **Windows PowerShell (Admin)**, you will have blue window and you can install **scoop** now
+Use <kbd>Windows</kbd> + <kbd>X</kbd> to open menu and select **Windows PowerShell (Admin)**, you will have blue window and you can install **scoop** now
 
-```powershell[PowerShell-Admin]
+::: code-group
+
+```ps1 [Classic]
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+```
+
+```ps1 [Permissions error]
 Set-ExecutionPolicy RemoteSigned -scope CurrentUser ; Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
 ```
 
+:::
+
 Install `sudo` to have admin right with regular PowerShell
 
-```powershell[PowerShell-Admin]
+```ps1:PowerShell-Admin
 scoop install sudo
 ```
 
-Now, you can open regular PowerShell window (you cna find it with <kbd>Windows</kbd> + <kbd>X</kbd>) and try to install `curl`
+Now, you can open regular PowerShell window (you can find it with <kbd>Windows</kbd> + <kbd>X</kbd>) and try to install `curl`
 
-```powershell [PowerShell]
+::: code-group
+
+```ps1 [Classic]
+scoop install curl
+```
+
+```ps1 [Permissions error]
 sudo scoop install curl
 ```
+
+:::
 
 ## Usage
 
@@ -47,11 +58,11 @@ sudo scoop install curl
 
 **scoop** offers a wide range of packages, if you want to find one, just use `scoop search`
 
-```powershell [PowerShell]
+```ps1
 scoop search git
 ```
 
-And output give you some info about packages with this name, package version and *bucket*.
+And output give you some info about packages with this name, package version and _bucket_.
 
 ```[Output]
 'extras' bucket:
@@ -66,68 +77,74 @@ And output give you some info about packages with this name, package version and
     ...
 ```
 
-If I just want `git`, I will install *git (2.29.2.windows.1)* from *main* *bucket* with `sudo scoop install git`
+If I just want `git`, I will install _git (2.29.2.windows.1)_ from _main_ _bucket_ with `scoop install git`
 
 ### Bucket
 
-A *bucket* is a specific repository for some packages, when you install **scoop** you have by default *main bucket* but you can add more *buckets* to get more packages. With scoop search, you will see *bucket* of each package. For example, if you want to install `windows-terminal` package, you need to have *extras bucket*, you can add it with `scoop bucket add extras` and you will able to install `windows-terminal` with `sudo scoop install windows-terminal`. Try to search `scoop search windows-terminal` and you will see!
+A _bucket_ is a specific repository for some packages, when you install **scoop** you have by default _main bucket_ but you can add more _buckets_ to get more packages. With scoop search, you will see _bucket_ of each package. For example, if you want to install `windows-terminal` package, you need to have _extras bucket_, you can add it with `scoop bucket add extras` and you will able to install `windows-terminal` with `sudo scoop install windows-terminal`. Try to search `scoop search windows-terminal` and you will see!
 
-```powershell [Output]
+Search results:
+
+```ps1:output
 'extras' bucket:
     windows-terminal (1.3.2651.0)
 ```
 
-```powershell [PowerShell]
+Add _extras bucket_:
+
+```ps1
 scoop bucket add extras
 ```
 
-```powershell [PowerShell]
-sudo scoop install windows-terminal
+Install `windows-terminal`, a modern terminal for Windows:
+
+```ps1
+scoop install windows-terminal
 ```
 
 ### Uninstall
 
 You can easily uninstall any package
 
-```powershell [PowerShell]
+```ps1
 scoop uninstall curl
 ```
 
 ### List
 
-To list all installed packages with *bucket*
+To list all installed packages with _bucket_
 
-```powershell [PowerShell]
+```ps1
 scoop list
+```
+
+### Status
+
+To know **scoop** status
+
+```ps1
+scoop status
 ```
 
 ### Update
 
-To know **scoop** status
+::: code-group
 
-```powershell [PowerShell]
-scoop status
-```
-
-To update **scoop** **itself**
-
-```powershell [PowerShell]
+```ps1 [Itself]
 scoop update
 ```
 
-To update **all packages** installed
-
-```powershell [PowerShell]
+```ps1 [All packages]
 scoop update *
 ```
 
-To update **specific package**
-
-```powershell [PowerShell]
+```ps1 [Specific package]
 scoop update curl
 ```
 
-## Examples
+:::
+
+## Packages
 
 You can find many package with **scoop**, you can see below just some examples:
 
@@ -190,9 +207,9 @@ More informations about switch between versions and configurations: **documentat
 
 ### Softwares
 
-::alert{type="warning"}
-Install softwares with scoop: some software use internal auto-update which can create some conflicts. For example, with `vscode`, I stop to install it with scoop because update not work properly.
-::
+::: warning Install softwares with scoop
+Some software use internal auto-update which can create some conflicts. For example, with `vscode`, I stop to install it with scoop because update not work properly.
+:::
 
 | Package        | Bucket    | About | Link |
 | :------------- | :-------- | :---- | :--- |
@@ -216,3 +233,19 @@ Install softwares with scoop: some software use internal auto-update which can c
 | firacode      | nerd-fonts |       |      |
 | Meslo-NF      | nerd-fonts |       |      |
 | Victor-Mono   | nerd-fonts |       |      |
+
+## Troubles
+
+### scoop update: fast-forward not possible
+
+```ps1
+cd C:\Users\USERNAME\scoop\bucket\main
+```
+
+```ps1
+git reset --hard origin/master
+```
+
+```ps1
+scoop update
+```

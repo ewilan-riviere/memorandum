@@ -5,11 +5,9 @@ description: A command-line installer for Windows
 
 # Java
 
-::alert{type="warning"}
-**scoop is necessary**
-
-> You can manage multiple versions of PHP on same machine with **scoop**, if you don't install it, check this guide: [**scoop**](/os-server/windows/scoop/install)
-> ::
+::: warning Scoop is necessary
+This guide use `scoop` to install this binary, if you don't have it, check [this guide](/systems/windows/scoop)
+:::
 
 ## Add bucket
 

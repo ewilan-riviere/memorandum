@@ -62,3 +62,29 @@
 .bg-color {
   fill: var(--vp-c-bg);
 }
+
+kbd {
+  /* background-color: var(--vp-code-block-bg);
+  color: var(--vp-code-text-color);
+  border: 1px solid var(--vp-code-border-color);
+  border-radius: 4px;
+  padding: 0 4px; */
+  padding-bottom: 0.3rem;
+  padding-top: 0.3rem;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+  font-weight: 600;
+  font-size: 0.5rem;
+  line-height: 1rem;
+  border-width: 2px;
+  border-radius: 0.2rem;
+  border-color: var(--vp-c-border);
+  color: var(--vp-c-text-1);
+  background-color: var(--vp-c-divider);
+
+  font-feature-settings: normal;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    Liberation Mono, Courier New, monospace;
+  font-size: 1em;
+  font-variation-settings: normal;
+}

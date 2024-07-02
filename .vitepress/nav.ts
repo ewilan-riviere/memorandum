@@ -3,6 +3,7 @@ import type { DefaultTheme } from 'vitepress'
 export const sidebar = {
   '/notebook/': { base: '/notebook/', items: sidebarNotebook() },
   '/server/': { base: '/server/', items: sidebarServer() },
+  '/systems/': { base: '/systems/', items: sidebarSystems() },
   '/tools/': { base: '/tools/', items: sidebarTools() },
 }
 
@@ -24,6 +25,13 @@ export function navigation(): DefaultTheme.NavItem[] {
         { text: 'Docker', link: '/server/docker' },
         { text: 'Sysadmin', link: '/server/sysadmin' },
         { text: 'Web server', link: '/server/web-server' },
+      ],
+    },
+    {
+      text: 'Systems',
+      activeMatch: '/systems/',
+      items: [
+        { text: 'Windows', link: '/systems/windows' },
       ],
     },
     {
@@ -87,13 +95,18 @@ function sidebarServer(): DefaultTheme.SidebarItem[] {
       text: 'Binaries',
       collapsed: false,
       items: [
-        { text: 'PHP', link: 'binaries/php' },
-        { text: 'MySQL / MariaDB', link: 'binaries/mysql' },
         { text: 'Bun', link: 'binaries/bun' },
         { text: 'Go', link: 'binaries/golang' },
+        { text: 'ImageMagick', link: 'binaries/imagemagick' },
+        { text: 'MySQL / MariaDB', link: 'binaries/mysql' },
         { text: 'Node.js', link: 'binaries/nodejs' },
-        { text: 'Swoole', link: 'binaries/swoole' },
+        { text: 'PEAR / PECL', link: 'binaries/pear' },
+        { text: 'PHP', link: 'binaries/php' },
+        { text: 'PHP extensions', link: 'binaries/php-extensions' },
+        { text: 'Redis', link: 'binaries/redis' },
         { text: 'Rust', link: 'binaries/rust-lang' },
+        { text: 'Swoole', link: 'binaries/swoole' },
+        { text: 'WinRAR', link: 'binaries/rar' },
       ],
     },
     {
@@ -129,6 +142,44 @@ function sidebarServer(): DefaultTheme.SidebarItem[] {
         { text: 'NGINX examples', link: 'web-server/nginx-examples' },
         { text: 'SSL & Certbot', link: 'web-server/ssl-certbot' },
         { text: 'Node.js & PM2', link: 'web-server/nodejs-pm2' },
+      ],
+    },
+  ]
+}
+
+function sidebarSystems(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      items: [
+        { text: 'Welcome', link: 'welcome' },
+        {
+          text: 'Windows',
+          collapsed: false,
+          items: [
+            { text: 'Scoop', link: 'windows/scoop' },
+            { text: 'Tips', link: 'windows/tips' },
+
+            { text: 'Flutter', link: 'windows/flutter' },
+            { text: 'Java', link: 'windows/java' },
+            { text: 'MySQL', link: 'windows/mysql' },
+            { text: 'NGINX', link: 'windows/nginx' },
+            { text: 'Node.js', link: 'windows/nodejs' },
+            { text: 'PHP', link: 'windows/php' },
+            { text: 'PHP extensions', link: 'windows/php-extensions' },
+            { text: 'phpMyAdmin', link: 'windows/phpmyadmin' },
+          ],
+        },
+        {
+          text: 'Windows WSL',
+          collapsed: false,
+          items: [
+            { text: 'Installation', link: 'windows-wsl/installation' },
+            { text: 'Cheatsheet', link: 'windows-wsl/cheatsheet' },
+            { text: 'GUI', link: 'windows-wsl/gui' },
+            { text: 'WSL 2', link: 'windows-wsl/wsl-2' },
+            { text: 'Troubles', link: 'windows-wsl/troubles' },
+          ],
+        },
       ],
     },
   ]

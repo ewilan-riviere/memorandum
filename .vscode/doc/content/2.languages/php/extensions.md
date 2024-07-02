@@ -39,7 +39,7 @@ Extract the archive, find `php_imagick.dll` and put it into `ext` directory of y
 
 When DLL is in extensions, you can edit `php.ini` in `C:\Users\eriviere\scoop\apps\php7.4-nts\7.4.30` to add extension without `php_*.dll`.
 
-```ini:C:\Users\eriviere\scoop\apps\php7.4-nts\7.4.30\php.ini
+```ini:php.ini
 extension=imagick
 ```
 

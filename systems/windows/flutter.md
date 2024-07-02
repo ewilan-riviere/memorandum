@@ -7,6 +7,10 @@ category: "Flutter"
 
 # Flutter
 
+::: warning Scoop is necessary
+This guide use `scoop` to install this binary, if you don't have it, check [this guide](/systems/windows/scoop)
+:::
+
 [**flutter.dev/docs/windows**](https://flutter.dev/docs/get-started/install/windows) Official Flutter
 website
 

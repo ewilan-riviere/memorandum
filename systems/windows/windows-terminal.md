@@ -1,15 +1,13 @@
 ---
 title: Windows terminal
-description: "A nice terminal on Windows"
+description: A nice terminal on Windows
 ---
 
 # Windows terminal
 
-::alert{type="warning"}
-**scoop is necessary**
-
-> You will need to have **scoop** to install Windows terminal, if you don't install it, check this guide: **scoop**.
-> ::
+::: warning Scoop is necessary
+This guide use `scoop` to install this binary, if you don't have it, check [this guide](/systems/windows/scoop)
+:::
 
 Windows terminal is a recent terminal for Windows, by Microsoft.
 
@@ -30,7 +28,7 @@ Windows terminal is a recent terminal for Windows, by Microsoft.
 
 You can easily install it with **scoop** (from _bucket extras_). You can install it from **Windows Store** instead, if you like it.
 
-```powershell [PowerShell]
+```ps1
 scoop install windows-terminal
 ```
 
@@ -134,7 +132,7 @@ Terminal configuration example
 
 You can improve your current profile with some modules, so you need to find your current profile.
 
-```powershell [PowerShell]
+```ps1
 $PROFILE
 ```
 

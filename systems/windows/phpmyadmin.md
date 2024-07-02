@@ -5,11 +5,9 @@ description: "How to setup phpMyAdmin on Windows"
 
 # phpMyAdmin
 
-::alert{type="warning"}
-PHP is necessary
-
-> For this guide, you will need to have **PHP** installed, if you don't install it, check this guide: **PHP**
-> ::
+::: warning Scoop is necessary
+This guide use `scoop` to install this binary, if you don't have it, check [this guide](/systems/windows/scoop)
+:::
 
 ## Download
 
@@ -98,7 +96,7 @@ http {
 
 You have update **nginx.conf**, so you need to restart NGINX Service:
 
-```powershell [PowerShell]
+```ps1
 sudo nssm restart nginx
 ```
 

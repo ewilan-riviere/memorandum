@@ -1,10 +1,9 @@
 ---
-title: Install
-description: "WSL install from CLI"
-position: 2
+title: Installation
+description: WSL install from CLI
 ---
 
-# Install
+# Installation
 
 - [**Official doc**](https://docs.microsoft.com/en-us/windows/wsl/install-manual)
 

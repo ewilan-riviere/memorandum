@@ -1,15 +1,13 @@
 ---
 title: Node.js
-description: "Install Node.js and NPM on Windows"
+description: Install Node.js and NPM on Windows
 ---
 
 # Node.js
 
-::alert{type="warning"}
-**scoop is necessary**
-
-> You can manage multiple versions of PHP on same machine with **scoop**, if you don't install it, check this guide: [**scoop**](/os-server/windows/scoop/install)
-> ::
+::: warning Scoop is necessary
+This guide use `scoop` to install this binary, if you don't have it, check [this guide](/systems/windows/scoop)
+:::
 
 Install [**NVM**](https://github.com/coreybutler/nvm-windows)
 
