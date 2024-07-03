@@ -2,11 +2,18 @@
 title: Configs
 ---
 
+# Configs
+
 ## Laravel
 
 ### Pint
 
-```json title="pint.json"
+- For <https://laravel.com/docs/10.x/pint>
+- VSCode extension: <https://marketplace.visualstudio.com/items?itemName=open-southeners.laravel-pint>
+
+::: details Pint config
+
+```json [pint.json]
 {
   "preset": "laravel",
   "config": "https://mlocati.github.io/php-cs-fixer-configurator",
@@ -48,9 +55,16 @@ title: Configs
 }
 ```
 
+:::
+
 ### PHP CS Fixer
 
-```php title=".php-cs-fixer.dist.php"
+- For <https://github.com/PHP-CS-Fixer/PHP-CS-Fixer>
+- VSCode extension: <https://marketplace.visualstudio.com/items?itemName=junstyle.php-cs-fixer>
+
+::: details PHP CS Fixer config
+
+```php [.php-cs-fixer.dist.php]
 <?php
 
 /**
@@ -112,6 +126,8 @@ return $config->setFinder($finder)
 ;
 ```
 
+:::
+
 ### Composer scripts
 
 ```json title="composer.json"
@@ -119,22 +135,16 @@ return $config->setFinder($finder)
   "scripts": {
     "post-update-cmd": [
       "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
-      "@php artisan optimize:clear",
-      "@php artisan ide-helper:generate",
-      "@php artisan ide-helper:models --nowrite --reset",
-      "php artisan ide-helper:meta",
-      "@php artisan ide-helper:eloquent"
+      "@php artisan optimize:clear"
     ],
     "helper": [
-      "pint",
       "@php artisan ide-helper:generate",
       "@php artisan ide-helper:models --nowrite --reset",
       "php artisan ide-helper:meta",
       "@php artisan ide-helper:eloquent"
     ],
-    "format": [
-      "pint" // or "php-cs-fixer fix --ansi" with php-cs-fixer
-    ],
+    "format-pint": ["pint"],
+    "format-cs-fixer": ["php-cs-fixer fix --ansi"],
     "analyse": ["phpstan analyse --ansi --memory-limit=4G"],
     "serve": ["Composer\\Config::disableProcessTimeout", "php artisan serve"],
     "test": ["@php artisan test"],
@@ -158,139 +168,21 @@ return $config->setFinder($finder)
 #### @antfu
 
 ```sh
-pnpm add -D eslint @antfu/eslint-config
+pnpm add -D eslint @antfu/eslint-config typescript
 touch .eslintrc ; touch .eslintignore
 ```
 
-```json title=".eslintrc"
+```json [.eslintrc]
 {
   "extends": "@antfu"
 }
 ```
 
-```json title="package.json"
+```json [package.json]
 {
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   }
-}
-```
-
-#### Custom
-
-```json title=".eslintrc"
-{
-  "root": true,
-  "env": {
-    "browser": true,
-    "es2021": true,
-    "node": true
-  },
-  "extends": [
-    "plugin:vue/vue3-recommended",
-    "eslint:recommended",
-    "@vue/typescript/recommended"
-  ],
-  "parserOptions": {
-    "ecmaVersion": 2021
-  },
-  "plugins": [],
-  "rules": {
-    "no-undef": "off",
-    "prefer-const": "warn",
-    "no-console": [
-      "warn",
-      {
-        "allow": ["error", "warn"]
-      }
-    ],
-    "no-unused-vars": "warn",
-    "vue/multi-word-component-names": "off",
-    "vue/first-attribute-linebreak": "warn",
-    "vue/no-v-html": "off",
-    "@typescript-eslint/no-unused-vars": "warn",
-    "object-curly-spacing": ["error", "always"],
-    "no-multi-spaces": "warn",
-    "no-trailing-spaces": [
-      "error",
-      {
-        "skipBlankLines": true
-      }
-    ],
-    "indent": ["error", 2],
-    "quotes": [
-      2,
-      "single",
-      {
-        "avoidEscape": true
-      }
-    ],
-    "semi": ["error", "never"],
-    "comma-dangle": "off",
-    "vue/html-self-closing": "off",
-    "vue/max-attributes-per-line": "warn",
-    "vue/singleline-html-element-content-newline": "off",
-    "func-call-spacing": "off",
-    "space-before-function-paren": "off",
-    "comma-spacing": "warn",
-    "arrow-parens": "off",
-    "vue/html-closing-bracket-newline": "warn",
-    "object-property-newline": "warn",
-    "no-multiple-empty-lines": [
-      "error",
-      {
-        "max": 1
-      }
-    ],
-    "vue/padding-line-between-blocks": "warn",
-    "vue/no-template-target-blank": "warn",
-    "vue/no-empty-component-block": "warn",
-    "vue/no-multi-spaces": "warn",
-    "vue/no-irregular-whitespace": "warn",
-    "vue/no-empty-pattern": "warn",
-    "vue/block-spacing": "warn",
-    "padded-blocks": ["error", "never"]
-  }
-}
-```
-
-### .eslintignore
-
-```sh [.eslintignore]
-.nuxt
-build
-dist
-node_modules
-public/build
-public/dist
-vendor
-```
-
-## Visual Studio Code
-
-### settings.json
-
-```json title=".vscode/settings.json"
-{
-  "[javascript]": {
-    "editor.formatOnSave": false
-  },
-  "[vue]": {
-    "editor.defaultFormatter": "Vue.volar",
-    "editor.formatOnSave": false
-  },
-  "[ts]": {
-    "editor.formatOnSave": false
-  },
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  // "prettier.enable": false,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "eslint.validate": ["javascript", "js", "typescript", "vue"]
 }
 ```

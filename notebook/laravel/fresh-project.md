@@ -1,8 +1,11 @@
 ---
-title: Laravel
+title: Fresh project
+description: Fresh Laravel project
 ---
 
-# Initiliaze Laravel
+# Fresh project
+
+{{ $frontmatter.description }}
 
 ```sh
 composer create-project laravel/laravel example-app

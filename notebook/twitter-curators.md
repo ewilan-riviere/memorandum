@@ -1,15 +1,15 @@
 ---
-title: Tweets
+title: Twitter curators
 description: Some useful tweets
 ---
 
-# Tweets
+# Twitter curators
 
 ## Laravel
 
 ### Sanctum
 
-[@_abbas](https://twitter.com/_abbas/status/1312262037678907393) (3 oct. 2020)
+[@\_abbas](https://twitter.com/_abbas/status/1312262037678907393) (3 oct. 2020)
 
 > So we recently started a new project where we decided to keep our backend and frontend as complete separate codebases.
 > Here’s how we did the authentication in Laravel Jetstream/Fortify/Sanctum and Nuxt. Beginners might find this useful.

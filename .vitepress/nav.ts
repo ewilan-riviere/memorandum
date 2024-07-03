@@ -11,7 +11,7 @@ export function navigation(): DefaultTheme.NavItem[] {
   return [
     {
       text: 'Notebook',
-      link: '/notebook/cheatsheet',
+      link: '/notebook/notebook',
       activeMatch: '/notebook/',
     },
     {
@@ -39,31 +39,36 @@ export function navigation(): DefaultTheme.NavItem[] {
       link: '/tools/',
       activeMatch: '/tools/',
     },
-    // {
-    //   text: 'Reference',
-    //   link: '/reference/site-config',
-    //   activeMatch: '/reference/'
-    // },
-    // {
-    //   text: 'Dropdown Menu',
-    //   items: [
-    //     { text: 'Item A', link: '/item-1' },
-    //     { text: 'Item B', link: '/item-2' },
-    //     { text: 'Item C', link: '/item-3' }
-    //   ]
-    // }
   ]
 }
 
 function sidebarNotebook(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: 'Introduction',
       collapsed: false,
       items: [
-        { text: 'Notebook', link: 'cheatsheet' },
+        { text: 'Notebook', link: 'notebook' },
+        { text: 'Configs', link: 'configs' },
+        { text: 'ESLint', link: 'eslint' },
         { text: 'MySQL / MariaDB', link: 'mysql' },
+        { text: 'Twitter curators', link: 'twitter-curators' },
+        { text: 'Useful links', link: 'useful-links' },
         { text: 'Vitepress', link: 'vitepress' },
+      ],
+    },
+    {
+      text: 'Laravel',
+      collapsed: false,
+      items: [
+        { text: 'Production', link: 'laravel/production' },
+        { text: 'Fresh project', link: 'laravel/fresh-project' },
+        { text: 'Packages', link: 'laravel/packages' },
+        { text: 'Starter kits', link: 'laravel/starter-kits' },
+        { text: 'Filament', link: 'laravel/filament' },
+        { text: 'Tailwind CSS', link: 'laravel/tailwindcss' },
+        { text: 'Linters', link: 'laravel/linters' },
+        { text: 'Typescript', link: 'laravel/typescript' },
+        { text: 'Alpine.js', link: 'laravel/alpinejs' },
       ],
     },
   ]

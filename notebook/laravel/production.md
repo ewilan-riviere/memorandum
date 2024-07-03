@@ -1,15 +1,11 @@
 ---
-title: Notebook
-description: Notes on various topics
+title: Permissions
+description: Laravel permissions
 ---
 
-# Notebook
+# Permissions
 
 {{ $frontmatter.description }}
-
-## Laravel
-
-### Production rights
 
 ```sh
 sudo chown -R $USER:www-data laravel-app
@@ -29,7 +25,7 @@ And push to git.
 sudo chown -R $USER:www-data * ; sudo chmod -R ug+rwx storage bootstrap/cache
 ```
 
-### Reload `.env` in production
+## Reload `.env` in production
 
 ```sh
 rm bootstrap/cache/config.php

@@ -1,7 +1,9 @@
 ---
-title: Links
-description: ''
+title: Useful links
+description: ""
 ---
+
+# Useful links
 
 ## Cheatsheets
 
@@ -46,7 +48,7 @@ To find original pictures
 - [**Unsplash**](https://unsplash.com)
 - [**Appropriation culturelle : utiliser les collections des musées**](https://la-cascade.io/appropriation-culturelle-utiliser-les-collections-des-musees)
   - [**National Museum of Asian Art**](https://asia.si.edu/collections)
-  - [**New York:  Public Library**](https://digitalcollections.nypl.org) / [**Collections for designers**](https://digitalcollections.nypl.org/collections/lane/collections-for-designers)
+  - [**New York: Public Library**](https://digitalcollections.nypl.org) / [**Collections for designers**](https://digitalcollections.nypl.org/collections/lane/collections-for-designers)
   - [**The Metropolitan Museum**](https://www.metmuseum.org/art/collection) / [**FAQ: Image and Data Resources**](https://www.metmuseum.org/about-the-met/policies-and-documents/image-resources/frequently-asked-questions)
   - [**Victoria and Albert Museum**](http://collections.vam.ac.uk)
   - [**Museum of New Zealand**](https://collections.tepapa.govt.nz)
