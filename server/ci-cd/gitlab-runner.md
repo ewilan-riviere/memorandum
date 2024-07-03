@@ -7,11 +7,13 @@ description: GitLab Runner is a service that runs jobs in CI/CD pipeline on your
 
 {{ $frontmatter.description }}
 
-## Install GitLab Runner
+Documentation is available here: <https://docs.gitlab.com/runner>
+
+## Installation
 
 You have to install GitLab Runner on your server. Find your version in this [the list](https://gitlab-runner-downloads.s3.amazonaws.com/latest/index.html), and find your architecture.
 
-::alert{type="info"}
+::: info
 To find your architecture, you can use this command:
 
 ```sh
@@ -43,7 +45,7 @@ Codename:	bookworm
 ```
 
 My OS is `Debian`, so I will select `deb` packages.
-::
+:::
 
 In my example, link is `https://gitlab-runner-downloads.s3.amazonaws.com/latest/deb/gitlab-runner_amd64.deb`
 
@@ -57,9 +59,11 @@ Install GitLab Runner
 sudo dpkg -i gitlab-runner_${arch}.deb
 ```
 
-::alert{type="info"}
+::: info
 To update GitLab Runner, download again the package and install it.
-::
+:::
+
+## Configuration
 
 ```sh
 sudo gitlab-runner install --user root
@@ -77,9 +81,9 @@ After creating a new runner, you will see a token. You will need it to register 
 
 ![gitlab-runner](/docs/gitlab-runner-02.webp)
 
-### Register GitLab Runner
+## Register GitLab Runner
 
-#### Automatic
+### Automatic
 
 ```sh
 sudo gitlab-runner register  --url https://gitlab.com  --token TOKEN
@@ -90,7 +94,7 @@ sudo gitlab-runner register  --url https://gitlab.com  --token TOKEN
 - `Enter an executor: docker, parallels, shell, virtualbox, docker-autoscaler, docker+machine, custom, ssh, instance, kubernetes, docker-windows`: I select `docker`.
 - `Enter the default Docker image (for example, ruby:2.7)`: I choose `alpine:latest`.
 
-#### Manually
+### Manually
 
 ```sh
 sudo gitlab-runner register
@@ -126,27 +130,27 @@ Start GitLab Runner
 sudo gitlab-runner start my-runner
 ```
 
-### Commands
+## Commands
 
-#### Start GitLab Runner
+### Start
 
 ```sh
 sudo gitlab-runner start
 ```
 
-#### Check GitLab Runner status
+### Status
 
 ```sh
 sudo gitlab-runner status
 ```
 
-#### Stop GitLab Runner
+### Stop
 
 ```sh
 sudo gitlab-runner stop
 ```
 
-#### Unregister GitLab Runner
+### Unregister
 
 ```sh
 sudo gitlab-runner unregister --all-runners
