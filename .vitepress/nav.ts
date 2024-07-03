@@ -103,6 +103,7 @@ function sidebarServer(): DefaultTheme.SidebarItem[] {
         { text: 'Bun', link: 'binaries/bun' },
         { text: 'Go', link: 'binaries/golang' },
         { text: 'ImageMagick', link: 'binaries/imagemagick' },
+        { text: 'Meilisearch', link: 'binaries/meilisearch' },
         { text: 'MySQL / MariaDB', link: 'binaries/mysql' },
         { text: 'Node.js', link: 'binaries/nodejs' },
         { text: 'PEAR / PECL', link: 'binaries/pear' },

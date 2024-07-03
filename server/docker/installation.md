@@ -1,5 +1,5 @@
 ---
-title: Docker
+title: Installation of Docker
 description: Docker installation on Debian
 ---
 
