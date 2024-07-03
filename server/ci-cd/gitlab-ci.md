@@ -85,12 +85,41 @@ exit
 You can find variables in `Settings > CI/CD > Variables`.
 
 ::: info
-You have two ways to set variables:
+You have three ways to set variables:
 
+- **Local variables** are available only for this pipeline.
 - **Project variables** are available only for this project.
 - **Group variables** are available for all projects in this group.
 
 :::
+
+### Local variables
+
+You can define local variables in your `.gitlab-ci.yml` file.
+
+```yaml
+variables:
+  NODE_VERSION: 18.17.0
+```
+
+And use it in your jobs.
+
+```yaml
+script:
+  - echo $NODE_VERSION
+```
+
+### Project variables
+
+You can define project variables in `Settings > CI/CD > Variables`.
+
+In `https://gitlab.com/kiwilan/memorandum`, variables are available into `https://gitlab.com/kiwilan/memorandum/-/settings/ci_cd`.
+
+### Group variables
+
+You can define group variables in `Settings > CI/CD > Variables`. Group variables are available for all projects in this group.
+
+In `https://gitlab.com/kiwilan`, variables are available into `https://gitlab.com/groups/kiwilan/-/settings/ci_cd`.
 
 ![gitlab-ci](/docs/gitlab-ci.webp)
 
