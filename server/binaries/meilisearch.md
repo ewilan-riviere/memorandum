@@ -95,6 +95,13 @@ volumes:
 
 You can define a different port in the `.env` with `APP_PORT` variable.
 
+Start the container.
+
+```sh
+docker compose down -v
+docker-compose up -d --remove-orphans
+```
+
 ::: info
 You can find a repository with all this configuration on [kiwilan/meilisearch-docker](https://gitlab.com/kiwilan/meilisearch-docker).
 :::
