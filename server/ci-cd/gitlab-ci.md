@@ -80,7 +80,7 @@ If it works, you can exit.
 exit
 ```
 
-## GitLab CI/CD Variables
+## Variables
 
 You can find variables in `Settings > CI/CD > Variables`.
 
@@ -90,11 +90,11 @@ You have two ways to set variables:
 - **Project variables** are available only for this project.
 - **Group variables** are available for all projects in this group.
 
-::
+:::
 
 ![gitlab-ci](/docs/gitlab-ci.webp)
 
-## GitLab CI/CD Pipeline
+## Pipeline
 
 Now you can create a `.gitlab-ci.yml` file at the root of your project.
 
