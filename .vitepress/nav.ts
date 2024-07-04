@@ -49,8 +49,10 @@ function sidebarNotebook(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'Notebook', link: 'notebook' },
         { text: 'Configs', link: 'configs' },
+        { text: 'Docker', link: 'docker' },
         { text: 'ESLint', link: 'eslint' },
         { text: 'MySQL / MariaDB', link: 'mysql' },
+        { text: 'PHP', link: 'php' },
         { text: 'Twitter curators', link: 'twitter-curators' },
         { text: 'Useful links', link: 'useful-links' },
         { text: 'Vitepress', link: 'vitepress' },
