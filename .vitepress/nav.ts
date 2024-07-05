@@ -48,14 +48,14 @@ function sidebarNotebook(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: 'Notebook', link: 'notebook' },
-        { text: 'Configs', link: 'configs' },
-        { text: 'Docker', link: 'docker' },
-        { text: 'ESLint', link: 'eslint' },
-        { text: 'MySQL / MariaDB', link: 'mysql' },
-        { text: 'PHP', link: 'php' },
-        { text: 'Twitter curators', link: 'twitter-curators' },
-        { text: 'Useful links', link: 'useful-links' },
-        { text: 'Vitepress', link: 'vitepress' },
+      ],
+    },
+    {
+      text: 'Languages',
+      collapsed: false,
+      items: [
+        { text: 'MySQL / MariaDB', link: 'languages/mysql' },
+        { text: 'PHP', link: 'languages/php' },
       ],
     },
     {
@@ -71,6 +71,30 @@ function sidebarNotebook(): DefaultTheme.SidebarItem[] {
         { text: 'Linters', link: 'laravel/linters' },
         { text: 'Typescript', link: 'laravel/typescript' },
         { text: 'Alpine.js', link: 'laravel/alpinejs' },
+      ],
+    },
+    {
+      text: 'Linters',
+      collapsed: false,
+      items: [
+        { text: 'Configs', link: 'linters/configs' },
+        { text: 'ESLint', link: 'linters/eslint' },
+      ],
+    },
+    {
+      text: 'Misc',
+      collapsed: false,
+      items: [
+        { text: 'Twitter curators', link: 'misc/twitter-curators' },
+        { text: 'Useful links', link: 'misc/useful-links' },
+        { text: 'Vitepress', link: 'misc/vitepress' },
+      ],
+    },
+    {
+      text: 'Tools',
+      collapsed: false,
+      items: [
+        { text: 'Docker', link: 'tools/docker' },
       ],
     },
   ]
