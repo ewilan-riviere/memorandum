@@ -212,6 +212,13 @@ function sidebarSystems(): DefaultTheme.SidebarItem[] {
             { text: 'Troubles', link: 'windows-wsl/troubles' },
           ],
         },
+        {
+          text: 'macOS',
+          collapsed: false,
+          items: [
+            { text: 'Disk', link: 'macos/disk' },
+          ],
+        },
       ],
     },
   ]
