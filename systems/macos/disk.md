@@ -11,7 +11,37 @@ description: Disk management on macOS
 diskutil list
 ```
 
+## Mount disk
+
+::: info
+Replace `/dev/disk2` with the disk you want to mount.
+:::
+
+```sh
+diskutil mountDisk /dev/disk2
+```
+
+## Unmount disk
+
+::: info
+Replace `/dev/disk2` with the disk you want to unmount.
+:::
+
+```sh
+diskutil unmountDisk /dev/disk2
+```
+
 ## Verify disk
+
+::: info
+Replace `/dev/disk2` with the disk you want to verify.
+:::
+
+```sh
+diskutil verifyDisk /dev/disk2
+```
+
+## Repair disk
 
 ::: info
 Replace `/dev/disk2` with the disk you want to verify.

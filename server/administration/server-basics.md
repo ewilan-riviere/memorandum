@@ -195,6 +195,12 @@ sudo ufw allow 80
 sudo ufw allow 443
 ```
 
+Enable firewall
+
+```sh
+sudo ufw enable
+```
+
 Show rules
 
 ```sh
