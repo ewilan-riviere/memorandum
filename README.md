@@ -8,6 +8,8 @@
 
 Blog & documentation, deploy on [memorandum.ewilan-riviere.com](https://memorandum.ewilan-riviere.com), built using [Vitepress](https://vitepress.dev/), a modern static website generator.
 
+test
+
 ## Installation
 
 ```
