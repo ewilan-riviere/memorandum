@@ -64,7 +64,7 @@ To set up the apt repository.
 - **Stable**, doesn’t include all of the latest features, but has critical bug fixes that are always backported to the mainline version. We recommend the stable version for production servers.
 - **Mainline**, includes the latest features and bug fixes and is always up to date. It is reliable, but it may include some experimental modules, and it may also have some number of new bugs.
 
-::code-group
+:::code-group
 
 ```sh [Stable]
 echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \
@@ -78,7 +78,7 @@ http://nginx.org/packages/mainline/debian `lsb_release -cs` nginx" \
   | sudo tee /etc/apt/sources.list.d/nginx.list
 ```
 
-::
+:::
 
 Set up repository pinning to prefer our packages over distribution-provided ones
 
