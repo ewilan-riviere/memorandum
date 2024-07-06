@@ -7,8 +7,6 @@ description: Installation Vite
 
 {{ $frontmatter.description }}
 
-With `9.19` version, Laravel offer a new bundle for assets, `vite`. If you use a Laravel version under `9.19`, check [this guide](/frameworks/laravel/vite/before-9.19/1.install).
-
 - <https://laravel.com/docs/9.x/vite>
 - <https://github.com/laravel/vite-plugin/blob/main/UPGRADE.md>
 

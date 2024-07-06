@@ -42,7 +42,7 @@ ESLint will scan every directory in your project, so you can add `.eslintignore`
 touch .eslintignore
 ```
 
-You can check [Configs](/notebook/configs) for example.
+You can check [Configs](/notebook/linters/configs) for example.
 
 ## Format on save VSCode
 
@@ -74,4 +74,4 @@ Create configuration.
 touch .eslintrc
 ```
 
-You can check [Configs](/notebook/configs) for example.
+You can check [Configs](/notebook/linters/configs) for example.

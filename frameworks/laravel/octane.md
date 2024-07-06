@@ -9,7 +9,7 @@ description: Server on steroids
 
 From [https://laravel.com/docs/9.x/octane](https://laravel.com/docs/9.x/octane)
 
-After [`swoole`](/tools/swoole/install) and [`supervisor`](/frameworks/laravel/queue-jobs-schedule) installation on your server.
+After [`swoole`](/server/binaries/swoole) and [`supervisor`](/frameworks/laravel/queue-jobs-schedule) installation on your server.
 
 ```sh
 composer require laravel/octane

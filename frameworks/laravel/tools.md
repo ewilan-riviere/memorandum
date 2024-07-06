@@ -62,7 +62,7 @@ composer global require laravel/pint --dev
 touch pint.json
 ```
 
-Update this with your rules from <https://mlocati.github.io/php-cs-fixer-configurator>, you can check [Configs](/notebook/configs) for example.
+Update this with your rules from <https://mlocati.github.io/php-cs-fixer-configurator>, you can check [Configs](/notebook/linters/configs) for example.
 
 ### PHP CS Fixer
 
@@ -82,7 +82,7 @@ Create `.php-cs-fixer.dist.php`
 touch .php-cs-fixer.dist.php
 ```
 
-You can check [Configs](/notebook/configs) for example.
+You can check [Configs](/notebook/linters/configs) for example.
 
 Add this to `.gitignore`
 
@@ -96,7 +96,7 @@ Execute this command to fix all files
 ./vendor/bin/php-cs-fixer fix
 ```
 
-Check [Config](/notebook/configs/#composer-scripts) to add this to `composer.json` for automation.
+Check [Config](/notebook/linters/configs/#composer-scripts) to add this to `composer.json` for automation.
 
 ## Laravel IDE Helper
 
@@ -119,7 +119,7 @@ php artisan ide-helper:meta
 php artisan ide-helper:eloquent
 ```
 
-Check [Config](/notebook/configs/#composer-scripts) to add this to `composer.json` for automation.
+Check [Config](/notebook/linters/configs/#composer-scripts) to add this to `composer.json` for automation.
 
 ## artesaos/seotools
 
@@ -242,7 +242,7 @@ To update route check `'route_path' => 'log-viewer'`
 
 ## composer.json scripts
 
-You can check [Configs](/notebook/configs) for example.
+You can check [Configs](/notebook/linters/configs) for example.
 
 ## Blade Formatter
 

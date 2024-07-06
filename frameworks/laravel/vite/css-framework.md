@@ -89,8 +89,6 @@ module.exports = {
 
 ### Add TypeScript
 
-Check [Tailwind CSS: TypeScript](/frameworks/tailwind-windi-css/typescript) if you want TypeScript with Tailwind CSS below v3.1.
-
 ```js title="tailwind.config.js"
 /** @type {import('tailwindcss').Config} */
 module.exports = {
