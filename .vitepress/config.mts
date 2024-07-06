@@ -37,7 +37,7 @@ export default defineConfig({
   },
 
   sitemap: {
-    hostname: 'https://https://memorandum.ewilan-riviere.com',
+    hostname: 'https://memorandum.ewilan-riviere.com',
     transformItems(items) {
       return items.filter(item => !item.url.includes('migration'))
     },
