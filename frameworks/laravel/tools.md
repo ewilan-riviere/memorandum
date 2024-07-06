@@ -96,7 +96,7 @@ Execute this command to fix all files
 ./vendor/bin/php-cs-fixer fix
 ```
 
-Check [Config](/notebook/linters/configs/#composer-scripts) to add this to `composer.json` for automation.
+Check [Config](/notebook/linters/configs#composer-scripts) to add this to `composer.json` for automation.
 
 ## Laravel IDE Helper
 
@@ -119,7 +119,7 @@ php artisan ide-helper:meta
 php artisan ide-helper:eloquent
 ```
 
-Check [Config](/notebook/linters/configs/#composer-scripts) to add this to `composer.json` for automation.
+Check [Config](/notebook/linters/configs#composer-scripts) to add this to `composer.json` for automation.
 
 ## artesaos/seotools
 
