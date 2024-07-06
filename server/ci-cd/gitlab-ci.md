@@ -93,7 +93,7 @@ You have three ways to set variables:
 
 :::
 
-### Local variables
+### Local variables / CI/CD variables
 
 You can define local variables in your `.gitlab-ci.yml` file.
 
@@ -108,6 +108,8 @@ And use it in your jobs.
 script:
   - echo $NODE_VERSION
 ```
+
+And some predefined variables are available in GitLab CI/CD, like `$CI_PROJECT_NAME`. You can find a list here: <https://docs.gitlab.com/ee/ci/variables/>.
 
 ### Project variables
 
