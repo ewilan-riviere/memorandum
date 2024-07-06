@@ -59,6 +59,14 @@ sudo apt install -y php8.2-zip php8.2-bz2
 sudo apt install -y php8.2-intl
 ```
 
+### Fix PHP-FPM owner
+
+If you use NGINX, you need to change the PHP-FPM owner to `nginx`. You have to change the owner in the PHP-FPM configuration file for each PHP version you have installed.
+
+```sh
+sudo sed -i 's/www-data/nginx/' /etc/php/8.2/fpm/pool.d/www.conf
+```
+
 ## Usage
 
 ### Specific PHP version
