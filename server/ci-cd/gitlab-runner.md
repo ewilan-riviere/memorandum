@@ -174,6 +174,20 @@ Start GitLab Runner
 sudo gitlab-runner start my-runner
 ```
 
+## Enable Runner for project
+
+Now, you have to enable your runner for your project.
+
+Go to your project in GitLab, and go to `Settings` > `CI/CD` > `Runners`.
+
+You will see your runner in the **Project runners** list, click on `Enable for this project`.
+
+![gitlab-runner-enable](/docs/gitlab-runner-enable.jpg)
+
+::: info
+You can disable GitLab shared runners, to use only your runners. See right panel with **Instance runners** and uncheck `Enable instance runners for this project`.
+:::
+
 ## Commands
 
 ### Start
