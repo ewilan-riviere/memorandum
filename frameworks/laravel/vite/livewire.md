@@ -3,11 +3,13 @@ title: Livewire
 description: Add Livewire
 ---
 
+# Livewire
+
+{{ $frontmatter.description }}
+
 From [laravel-livewire.com](https://laravel-livewire.com/)
 
-## Livewire
-
-### Install
+## Install
 
 Install `livewire/livewire`.
 
@@ -36,7 +38,7 @@ Add blade directives into `app.blade.php`.
 </html>
 ```
 
-### Configuration
+## Configuration
 
 Restart `pnpm dev`.
 

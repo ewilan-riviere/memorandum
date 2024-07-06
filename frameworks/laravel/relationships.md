@@ -3,6 +3,10 @@ title: Relationships
 description: Manage relationships on Laravel
 ---
 
+# Relationships
+
+{{ $frontmatter.description }}
+
 ## ManyToMany
 
 ```php

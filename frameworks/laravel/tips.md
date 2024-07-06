@@ -3,6 +3,10 @@ title: Tips
 description: Some tips with Laravel
 ---
 
+# Tips
+
+{{ $frontmatter.description }}
+
 ## Shorcut Where relationships
 
 ```php

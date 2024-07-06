@@ -1,6 +1,11 @@
 ---
 title: Eloquent
+description: Eloquent ORM
 ---
+
+# Eloquent
+
+{{ $frontmatter.description }}
 
 ## Order by relationship
 

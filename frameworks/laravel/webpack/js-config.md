@@ -3,6 +3,10 @@ title: JS config
 description: Install ESLint, configure jsconfig.json or tsconfig.json.
 ---
 
+# JS config
+
+{{ $frontmatter.description }}
+
 ## CSS & JS compiled
 
 When you use `laravel-mix` to compile assets like `css` and `js`, this will create files into `public`. Add these files to `.gitignore` cause of differences between minified files on local and production.

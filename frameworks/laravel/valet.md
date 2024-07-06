@@ -1,7 +1,11 @@
 ---
 title: Valet
-description: "Install VHost easily on MacOS with Valet."
+description: Install VHost easily on MacOS with Valet
 ---
+
+# Valet
+
+{{ $frontmatter.description }}
 
 From [laravel.com/docs/9.x/valet](https://laravel.com/docs/9.x/valet)
 

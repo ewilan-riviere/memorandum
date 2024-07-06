@@ -3,6 +3,10 @@ title: Deployment
 description: Deploy Laravel
 ---
 
+# Deployment
+
+{{ $frontmatter.description }}
+
 - <https://stackoverflow.com/questions/30639174/how-to-set-up-file-permissions-for-laravel>
 - <https://www.tutsmake.com/laravel-8-how-to-set-up-file-permissions>
 - <https://laravel.com/docs/9.x/deployment>

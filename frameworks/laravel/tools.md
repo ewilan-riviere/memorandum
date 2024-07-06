@@ -3,6 +3,10 @@ title: Tools
 description: Setup useful dependencies like PHP CS fixer, IDE Helper...
 ---
 
+# Tools
+
+{{ $frontmatter.description }}
+
 ## .editorconfig
 
 ```sh title=".editorconfig"

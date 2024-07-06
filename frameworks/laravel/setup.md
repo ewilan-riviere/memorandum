@@ -3,6 +3,10 @@ title: Setup Laravel
 description: Install Laravel to create new application.
 ---
 
+# Setup Laravel
+
+{{ $frontmatter.description }}
+
 ## With curl
 
 ```sh

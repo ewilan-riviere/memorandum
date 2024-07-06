@@ -1,7 +1,11 @@
 ---
-title: API Documentation
-description: ""
+title: API documentation
+description: Laravel API documentation
 ---
+
+# API documentation
+
+{{ $frontmatter.description }}
 
 ## API doc: knuckleswtf/scribe
 

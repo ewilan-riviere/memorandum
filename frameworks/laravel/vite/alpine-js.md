@@ -3,6 +3,10 @@ title: Alpine JS
 description: Add Alpine JS with TypeScript
 ---
 
+# Alpine JS
+
+{{ $frontmatter.description }}
+
 From [alpinejs.dev](https://alpinejs.dev)
 
 ## Install `alpinejs`

@@ -3,6 +3,10 @@ title: Search
 description: Enable search
 ---
 
+# Search
+
+{{ $frontmatter.description }}
+
 ## `whereLike` with `AppServiceProvider`
 
 From [freek.dev](https://freek.dev/1182-searching-models-using-a-where-like-query-in-laravel)

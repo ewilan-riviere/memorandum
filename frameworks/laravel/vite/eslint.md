@@ -3,6 +3,10 @@ title: ESLint
 description: Add basics for Vite
 ---
 
+# ESLint
+
+{{ $frontmatter.description }}
+
 ## Configuration
 
 You can setup ESLint easily with preset, I offer the amazing `@antfu/eslint-config` from [github.com/antfu/eslint-config](https://github.com/antfu/eslint-config).

@@ -3,6 +3,10 @@ title: CSS Framework
 description: Add a CSS framework like Tailwind CSS or Windi CSS
 ---
 
+# CSS Framework
+
+{{ $frontmatter.description }}
+
 ## Tailwind CSS
 
 From [tailwindcss.com](https://tailwindcss.com/)

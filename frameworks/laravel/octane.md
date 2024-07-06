@@ -1,7 +1,11 @@
 ---
 title: Octane
-description: Server on steroids.
+description: Server on steroids
 ---
+
+# Octane
+
+{{ $frontmatter.description }}
 
 From [https://laravel.com/docs/9.x/octane](https://laravel.com/docs/9.x/octane)
 

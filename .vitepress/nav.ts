@@ -4,6 +4,7 @@ export const sidebar = {
   '/notebook/': { base: '/notebook/', items: sidebarNotebook() },
   '/server/': { base: '/server/', items: sidebarServer() },
   '/systems/': { base: '/systems/', items: sidebarSystems() },
+  '/frameworks/': { base: '/frameworks/', items: sidebarFrameworks() },
   '/tools/': { base: '/tools/', items: sidebarTools() },
 }
 
@@ -31,7 +32,18 @@ export function navigation(): DefaultTheme.NavItem[] {
       text: 'Systems',
       activeMatch: '/systems/',
       items: [
-        { text: 'Windows', link: '/systems/windows' },
+        { text: 'Windows', link: '/systems/windows/scoop' },
+        { text: 'Windows WSL', link: '/systems/windows-wsl/installation' },
+        { text: 'macOS', link: '/systems/macos/disk' },
+      ],
+    },
+    {
+      text: 'Frameworks',
+      activeMatch: '/frameworks/',
+      items: [
+        { text: 'Laravel', link: '/frameworks/laravel/setup' },
+        { text: 'Laravel Vite', link: '/frameworks/laravel/vite/installation' },
+        { text: 'Laravel Webpack', link: '/frameworks/laravel/webpack/js-config' },
       ],
     },
     {
@@ -217,6 +229,59 @@ function sidebarSystems(): DefaultTheme.SidebarItem[] {
           collapsed: false,
           items: [
             { text: 'Disk', link: 'macos/disk' },
+          ],
+        },
+      ],
+    },
+  ]
+}
+
+function sidebarFrameworks(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      items: [
+        {
+          text: 'Laravel',
+          collapsed: false,
+          items: [
+            { text: 'Setup', link: 'laravel/setup' },
+            { text: 'Tools', link: 'laravel/tools' },
+            { text: 'API documentation', link: 'laravel/api-documentation' },
+            { text: 'Queue: jobs & schedule', link: 'laravel/queue-jobs-schedule' },
+            { text: 'Valet', link: 'laravel/valet' },
+            { text: 'Deployment', link: 'laravel/deployment' },
+            { text: 'Search', link: 'laravel/search' },
+            { text: 'Tips', link: 'laravel/tips' },
+            { text: 'Relationships', link: 'laravel/relationships' },
+            { text: 'Octane', link: 'laravel/octane' },
+            { text: 'Eloquent', link: 'laravel/eloquent' },
+          ],
+        },
+      ],
+    },
+    {
+      items: [
+        {
+          text: 'Laravel Vite',
+          collapsed: false,
+          items: [
+            { text: 'Installation', link: 'laravel/vite/installation' },
+            { text: 'ESLint', link: 'laravel/vite/eslint' },
+            { text: 'CSS framework', link: 'laravel/vite/css-framework' },
+            { text: 'Alpine JS', link: 'laravel/vite/alpine-js' },
+            { text: 'Livewire', link: 'laravel/vite/livewire' },
+            { text: 'Inertia', link: 'laravel/vite/inertia' },
+          ],
+        },
+      ],
+    },
+    {
+      items: [
+        {
+          text: 'Laravel Webpack',
+          collapsed: false,
+          items: [
+            { text: 'JS config', link: 'laravel/webpack/js-config' },
           ],
         },
       ],
