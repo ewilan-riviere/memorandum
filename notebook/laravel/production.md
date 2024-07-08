@@ -1,29 +1,40 @@
 ---
-title: Permissions
-description: Laravel permissions
+title: Production
+description: Notes on deploying Laravel applications
 ---
 
-# Permissions
+# Production
 
 {{ $frontmatter.description }}
 
-```sh
-sudo chown -R $USER:www-data laravel-app
+## User and Group
 
-sudo chmod -R 775 laravel-app/storage laravel-app/bootstrap/cache
-
-find laravel-app -type d -exec chmod 755 {} \;
-find laravel-app -type f -exec chmod 644 {} \;
-
-cd laravel-app
-php artisan cache:clear
-```
-
-And push to git.
+Add current user to NGINX group
 
 ```sh
-sudo chown -R $USER:www-data * ; sudo chmod -R ug+rwx storage bootstrap/cache
+sudo usermod -a -G nginx $USER
 ```
+
+## Permissions
+
+Set permissions for Laravel application
+
+```sh
+sudo chown -R $USER:nginx storage
+sudo chown -R $USER:nginx bootstrap/cache
+chmod -R 775 storage
+chmod -R 755 bootstrap/cache
+```
+
+::: info Optional
+You can install Composer dependencies with only needed packages for production by running:
+
+```sh
+composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+```
+
+This will install only the packages needed for production and will optimize the autoloader.
+:::
 
 ## Reload `.env` in production
 
