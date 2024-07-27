@@ -132,6 +132,7 @@ function sidebarServer(): DefaultTheme.SidebarItem[] {
         { text: 'fail2ban', link: 'administration/fail2ban' },
         { text: 'Message of the day (MOTD)', link: 'administration/motd' },
         { text: 'Sudoers', link: 'administration/sudoers' },
+        { text: 'Supervisor', link: 'administration/supervisor' },
       ],
     },
     {
