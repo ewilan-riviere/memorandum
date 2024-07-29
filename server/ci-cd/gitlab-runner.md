@@ -235,7 +235,7 @@ stages:
 
 deploy-job:
   stage: deploy
-  image: node:20.15.0
+  image: node:20.16.0
   before_script:
   script:
   only:
@@ -322,7 +322,7 @@ stages:
 
 deploy-job:
   stage: deploy
-  image: node:20.15.0
+  image: node:20.16.0
   before_script:
     - "command -v ssh-agent >/dev/null || ( apk add --update openssh )"
     - eval $(ssh-agent -s)
