@@ -107,6 +107,70 @@ sudo apt install -y nginx
 - The default web root is `/var/www/html/`
 - Web server configuration is in `/etc/nginx/sites-available/` and `/etc/nginx/sites-enabled/`
 
+## First steps
+
+### Start service
+
+To start NGINX, you can use this command
+
+```sh
+sudo service nginx start
+```
+
+### Create basic configuration
+
+Create a new configuration file for your website
+
+```sh
+sudo vim /etc/nginx/conf.d/example.conf
+```
+
+Add the following configuration
+
+```nginx [/etc/nginx/conf.d/example.conf]
+server {
+    listen 80;
+    listen [::]:80;
+    http2 on;
+    server_name localhost;
+
+    root /var/www/html;
+    index index.html;
+
+    access_log  /var/log/nginx/example.log  main;
+    error_log   /var/log/nginx/example.error.log;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+```
+
+Add a new file in `/var/www/html/index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example</title>
+  </head>
+  <body>
+    <h1>Hello World</h1>
+  </body>
+</html>
+```
+
+### Test configuration
+
+To test the configuration, you can use this command IN ANOTHER MACHINE
+
+```sh
+curl -I http://YOUR.IP.ADDRESS.HERE
+```
+
 ## Configuration
 
 ### `nginx.conf`
