@@ -15,25 +15,6 @@ description: NGINX is a web server that can also be used as a reverse proxy, loa
 This guide is for Debian 10/11, if you have another distribution, you can see the official documentation.
 :::
 
-### From default SourcesList v1.22.4 (deprecated)
-
-::: warning
-This method will install an old version of NGINX, you should use the official repository.
-:::
-
-Install standard version
-
-```sh
-sudo apt update
-sudo apt install -y nginx
-```
-
-- The default user of NGINX with this method is `www-data`
-- The configuration files are in `/etc/nginx/`
-- The logs are in `/var/log/nginx/`
-- The default web root is `/var/www/html/`
-- Web server configuration is in `/etc/nginx/sites-available/` and `/etc/nginx/sites-enabled/`
-
 ### From NGINX Repository v1.26.0
 
 ::: info
@@ -99,6 +80,25 @@ sudo apt install nginx
 - The logs are in `/var/log/nginx/`
 - The default web root is `/usr/share/nginx/html/`
 - Web server configuration is in `/etc/nginx/conf.d/`
+
+### From default SourcesList v1.22.4 (deprecated)
+
+::: warning
+This method will install an old version of NGINX, you should use the official repository.
+:::
+
+Install standard version
+
+```sh
+sudo apt update
+sudo apt install -y nginx
+```
+
+- The default user of NGINX with this method is `www-data`
+- The configuration files are in `/etc/nginx/`
+- The logs are in `/var/log/nginx/`
+- The default web root is `/var/www/html/`
+- Web server configuration is in `/etc/nginx/sites-available/` and `/etc/nginx/sites-enabled/`
 
 ## Configuration
 
