@@ -163,6 +163,15 @@ Add a new file in `/var/www/html/index.html`
 </html>
 ```
 
+### Allow NGINX in firewall
+
+If you have a firewall, you need to allow NGINX in the firewall.
+
+```sh
+sudo ufw allow 80
+sudo ufw allow 443
+```
+
 ### Test configuration
 
 To test the configuration, you can use this command IN ANOTHER MACHINE
