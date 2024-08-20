@@ -127,28 +127,69 @@ sudo vim /etc/nginx/conf.d/example.conf
 
 Add the following configuration
 
+:::details /etc/nginx/conf.d/example.conf
+
 ```nginx [/etc/nginx/conf.d/example.conf]
 server {
-    listen 80;
-    listen [::]:80;
-    http2 on;
-    server_name localhost;
+  listen 80;
+  listen [::]:80;
+  http2 on;
+  server_name localhost;
 
-    root /var/www/html;
-    index index.html;
+  root /var/www/html;
+  index index.html;
 
-    access_log  /var/log/nginx/example.log  main;
-    error_log   /var/log/nginx/example.error.log;
+  access_log  /var/log/nginx/example.log  main;
+  error_log   /var/log/nginx/example.error.log;
 
-    location / {
-        try_files $uri $uri/ =404;
-    }
+  location / {
+    try_files $uri $uri/ =404;
+  }
 }
 ```
 
+:::
+
+Or you can create a configuration for PHP
+
+:::details /etc/nginx/conf.d/example.conf
+
+```nginx [/etc/nginx/conf.d/example.conf]
+server {
+  listen 80;
+  listen [::]:80;
+  http2 on;
+  server_name localhost;
+
+  root /var/www/html;
+  index index.php index.html index.htm;
+
+  access_log  /var/log/nginx/example.log  main;
+  error_log   /var/log/nginx/example.error.log;
+
+  location / {
+    try_files $uri $uri/ =404;
+  }
+
+  location ~ \.php$ {
+    fastcgi_pass unix:/run/php/php-fpm.sock;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    include fastcgi_params;
+  }
+
+  location ~ /\.ht {
+    deny all;
+  }
+}
+```
+
+:::
+
 Add a new file in `/var/www/html/index.html`
 
-```html
+:::details /var/www/html/index.html
+
+```html [/var/www/html/index.html]
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -162,6 +203,8 @@ Add a new file in `/var/www/html/index.html`
   </body>
 </html>
 ```
+
+:::
 
 ### Allow NGINX in firewall
 
