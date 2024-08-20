@@ -15,16 +15,18 @@ description: NGINX is a web server that can also be used as a reverse proxy, loa
 This guide is for Debian 10/11, if you have another distribution, you can see the official documentation.
 :::
 
-### From NGINX Repository v1.26.0
+### For Ubuntu: NGINX v1.26.0
 
 ::: info
 This method is recommended to have the latest version of NGINX, you will have access to the latest features like new syntax for `http2`.
 :::
 
-From <http://nginx.org/en/linux_packages.html#Debian>
+::: details Ubuntu: NGINX v1.26.0
+
+From <http://nginx.org/en/linux_packages.html#Ubuntu>
 
 ```sh
-sudo apt install curl gnupg2 ca-certificates lsb-release debian-archive-keyring
+sudo apt install -y curl gnupg2 ca-certificates lsb-release ubuntu-keyring
 ```
 
 Import an official nginx signing key so apt could verify the packages authenticity.
@@ -40,26 +42,74 @@ Verify that the downloaded file contains the proper key.
 gpg --dry-run --quiet --no-keyring --import --import-options import-show /usr/share/keyrings/nginx-archive-keyring.gpg
 ```
 
-To set up the apt repository.
+To set up the apt repository. Here, you can find **Stable**, doesn’t include all of the latest features, but has critical bug fixes that are always backported to the mainline version. We recommend the stable version for production servers.
 
-- **Stable**, doesn’t include all of the latest features, but has critical bug fixes that are always backported to the mainline version. We recommend the stable version for production servers.
-- **Mainline**, includes the latest features and bug fixes and is always up to date. It is reliable, but it may include some experimental modules, and it may also have some number of new bugs.
+```sh
+echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \
+http://nginx.org/packages/mainline/ubuntu `lsb_release -cs` nginx" \
+  | sudo tee /etc/apt/sources.list.d/nginx.list
+```
 
-:::code-group
+You can find [**Mainline** here](http://nginx.org/en/linux_packages.html#Ubuntu), includes the latest features and bug fixes and is always up to date. It is reliable, but it may include some experimental modules, and it may also have some number of new bugs.
 
-```sh [Stable]
+Set up repository pinning to prefer our packages over distribution-provided ones
+
+```sh
+echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 900\n" \
+  | sudo tee /etc/apt/preferences.d/99nginx
+```
+
+Now, NGINX repository replace default APT `nginx` package, so you can install NGINX
+
+```sh
+sudo apt update -y
+sudo apt install -y nginx
+```
+
+- The default user of NGINX with this method is `nginx`
+- The configuration files are in `/etc/nginx/`
+- The logs are in `/var/log/nginx/`
+- The default web root is `/usr/share/nginx/html/`
+- Web server configuration is in `/etc/nginx/conf.d/`
+
+:::
+
+### For Debian: NGINX v1.26.0
+
+::: info
+This method is recommended to have the latest version of NGINX, you will have access to the latest features like new syntax for `http2`.
+:::
+
+::: details Debian: NGINX v1.26.0
+
+From <http://nginx.org/en/linux_packages.html#Debian>
+
+```sh
+sudo apt install -y curl gnupg2 ca-certificates lsb-release debian-archive-keyring
+```
+
+Import an official nginx signing key so apt could verify the packages authenticity.
+
+```sh
+curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor \
+    | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
+```
+
+Verify that the downloaded file contains the proper key.
+
+```sh
+gpg --dry-run --quiet --no-keyring --import --import-options import-show /usr/share/keyrings/nginx-archive-keyring.gpg
+```
+
+To set up the apt repository. Here, you can find **Stable**, doesn’t include all of the latest features, but has critical bug fixes that are always backported to the mainline version. We recommend the stable version for production servers.
+
+```sh
 echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \
 http://nginx.org/packages/debian `lsb_release -cs` nginx" \
   | sudo tee /etc/apt/sources.list.d/nginx.list
 ```
 
-```sh [Mainline]
-echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \
-http://nginx.org/packages/mainline/debian `lsb_release -cs` nginx" \
-  | sudo tee /etc/apt/sources.list.d/nginx.list
-```
-
-:::
+You can find [**Mainline** here](http://nginx.org/en/linux_packages.html#Debian), includes the latest features and bug fixes and is always up to date. It is reliable, but it may include some experimental modules, and it may also have some number of new bugs.
 
 Set up repository pinning to prefer our packages over distribution-provided ones
 
@@ -71,8 +121,8 @@ echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 
 Now, NGINX repository replace default APT `nginx` package, so you can install NGINX
 
 ```sh
-sudo apt update
-sudo apt install nginx
+sudo apt update -y
+sudo apt install -y nginx
 ```
 
 - The default user of NGINX with this method is `nginx`
@@ -81,16 +131,20 @@ sudo apt install nginx
 - The default web root is `/usr/share/nginx/html/`
 - Web server configuration is in `/etc/nginx/conf.d/`
 
-### From default SourcesList v1.22.4 (deprecated)
+:::
+
+### For Debian: NGINX v1.22.4 (deprecated) by SourcesList
 
 ::: warning
 This method will install an old version of NGINX, you should use the official repository.
 :::
 
+::: details Debian: NGINX v1.26.0
+
 Install standard version
 
 ```sh
-sudo apt update
+sudo apt update -y
 sudo apt install -y nginx
 ```
 
@@ -99,6 +153,8 @@ sudo apt install -y nginx
 - The logs are in `/var/log/nginx/`
 - The default web root is `/var/www/html/`
 - Web server configuration is in `/etc/nginx/sites-available/` and `/etc/nginx/sites-enabled/`
+
+:::
 
 ## Configuration
 
