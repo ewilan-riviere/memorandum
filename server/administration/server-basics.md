@@ -27,6 +27,37 @@ ssh root@xxx.xx.xx.xxx
 ip addr show eth0 | grep inet | awk '{ print $2; }' | sed 's/\/.*$//'
 ```
 
+### Add sudo (Debian)
+
+If `sudo` is not installed, you have to install it. To execute this, you have to be connected with `root`.
+
+```sh
+su - root
+```
+
+```sh
+apt install -y sudo
+```
+
+After that, you can add new user and add it to `sudo` group.
+
+```sh
+adduser jack
+usermod -aG sudo jack
+```
+
+Now you can exit SSH session and connect with new user.
+
+::: info
+You have to kill current session with `exit` command to reload groups.
+:::
+
+```sh
+exit
+```
+
+You can now connect with new user and use `sudo` command.
+
 ### Update system and add new user
 
 Execute some updates and install `vim` editor
