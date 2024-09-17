@@ -77,6 +77,7 @@ To use `cargo`, you need to install `rust` first, check [Rust](/server/binaries/
 :::
 
 ```sh
+sudo apt install -y build-essential
 git clone https://github.com/eza-community/eza.git
 cd eza
 cargo install --path .
