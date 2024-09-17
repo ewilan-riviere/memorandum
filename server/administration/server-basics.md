@@ -63,16 +63,16 @@ You can now connect with new user and use `sudo` command.
 Execute some updates and install `vim` editor
 
 ```sh
-apt update
-apt upgrade -y
-apt install vim -y
+sudo apt update
+sudo apt upgrade -y
+sudo apt install vim -y
 ```
 
 Add new user (you can use any other name)
 
 ```sh
-adduser jack
-usermod -aG sudo jack
+sudo adduser jack
+sudo usermod -aG sudo jack
 ```
 
 ### Fix locales
@@ -80,7 +80,7 @@ usermod -aG sudo jack
 Fix locales for new user
 
 ```sh
-vim /etc/default/locale
+sudo vim /etc/default/locale
 ```
 
 ```sh [/etc/default/locale]
@@ -102,10 +102,10 @@ dpkg-reconfigure locales
 Copy SSH keys from _root_ to new user
 
 ```sh
-mkdir /home/jack/.ssh/
-cp /root/.ssh/authorized_keys /home/jack/.ssh/
-chown -R jack:jack /home/jack/.ssh/
-chmod -R 700 /home/jack/.ssh/
+sudo mkdir /home/jack/.ssh/
+sudo cp /root/.ssh/authorized_keys /home/jack/.ssh/
+sudo chown -R jack:jack /home/jack/.ssh/
+sudo chmod -R 700 /home/jack/.ssh/
 ```
 
 Exit SSH connection
@@ -167,7 +167,7 @@ Base packages
 - `numactl` : `numastat` for NUMA stats
 
 ```sh
-sudo apt install procps util-linux sysstat iproute2 numactl
+sudo apt install -y procps util-linux sysstat iproute2 numactl
 ```
 
 Network tools
@@ -177,7 +177,7 @@ Network tools
 - `ethtool` : interface info
 
 ```sh
-sudo apt install tcpdump nicstat ethtool
+sudo apt install -y tcpdump nicstat ethtool
 ```
 
 Profiling and tracing tools
@@ -188,7 +188,7 @@ Profiling and tracing tools
 - `trace-cmd` : command line tool for `ftrace`
 
 ```sh
-sudo apt install linux-tools-common linux-tools-$(uname -r) bpfcc-tools bpftrace trace-cmd
+sudo apt install -y linux-tools-common linux-tools-$(uname -r) bpfcc-tools bpftrace trace-cmd
 ```
 
 Equipment-specific tools
