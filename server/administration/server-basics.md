@@ -137,7 +137,7 @@ sudo apt update && sudo apt -y upgrade
 - `software-properties-common` to manage software
 
 ```sh
-sudo apt install -y zip unzip curl git vim ssh lsb-release ca-certificates apt-transport-https software-properties-common
+sudo apt install -y zip unzip curl git vim ssh lsb-release ca-certificates apt-transport-https software-properties-common htop
 ```
 
 ### Handle images
