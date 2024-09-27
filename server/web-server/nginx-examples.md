@@ -56,7 +56,7 @@ server {
     listen [::]:80;
     server_name www.example.com;
 
-    root /var/www/example.com;
+    root /var/www/my-app;
     index index.html index.htm;
 
     # Other configurations for www.example.com
@@ -105,6 +105,23 @@ server {
 
 ## Frameworks
 
+### HTML files
+
+```nginx
+server {
+    listen 80;
+    listen [::]:80;
+    server_name example.com;
+
+    root /var/www/html;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+```
+
 ### Handle PHP
 
 ```nginx
@@ -112,7 +129,7 @@ server {
     listen 80;
     listen [::]:80;
     server_name example.com;
-    root /srv/example.com;
+    root /srv/my-app;
 
     index index.php;
 
@@ -138,7 +155,7 @@ server {
     listen 80;
     listen [::]:80;
     server_name example.com;
-    root /srv/example.com/public;
+    root /srv/my-app/public;
 
     add_header X-Frame-Options "SAMEORIGIN";
     add_header X-Content-Type-Options "nosniff";
@@ -178,7 +195,7 @@ server {
   listen 80;
   listen [::]:80;
   server_name example.com;
-  root /srv/example.com/public;
+  root /srv/my-app/public;
 
   add_header X-Frame-Options "SAMEORIGIN";
   add_header X-Content-Type-Options "nosniff";
