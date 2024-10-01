@@ -9,7 +9,7 @@ description: Install Go on Linux
 
 ## Install
 
-Check latest version on [**GoLang**](https://golang.org/dl/) and change it if you want latest. Here, the **Go** version is **`1.22.4`**.
+Check latest version on [**GoLang**](https://golang.org/dl/) and change it if you want latest. Here, the **Go** version is **`1.23.1`**.
 
 You have to know CPU architecture, you can check it with this command:
 
@@ -30,11 +30,11 @@ You can have another architecture, check it on [**GoLang**](https://golang.org/d
 ::: code-group
 
 ```sh [AMD]
-wget -c https://golang.org/dl/go1.22.4.linux-amd64.tar.gz -O go.tar.gz
+wget -c https://golang.org/dl/go1.23.1.linux-amd64.tar.gz -O go.tar.gz
 ```
 
 ```sh [ARM]
-wget -c https://golang.org/dl/go1.22.4.linux-arm64.tar.gz -O go.tar.gz
+wget -c https://golang.org/dl/go1.23.1.linux-arm64.tar.gz -O go.tar.gz
 ```
 
 :::
@@ -83,7 +83,7 @@ go version
 Download new version of **Go**.
 
 ```sh
-wget -c https://golang.org/dl/go1.22.4.linux-amd64.tar.gz -O go.tar.gz
+wget -c https://golang.org/dl/go1.23.1.linux-amd64.tar.gz -O go.tar.gz
 ```
 
 Delete old **Go** installation and extract new one.
