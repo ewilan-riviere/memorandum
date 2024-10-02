@@ -137,7 +137,18 @@ sudo apt update && sudo apt -y upgrade
 - `software-properties-common` to manage software
 
 ```sh
-sudo apt install -y zip unzip curl git vim ssh lsb-release ca-certificates apt-transport-https software-properties-common htop
+sudo apt install -y zip \
+  unzip \
+  curl \
+  git \
+  vim \
+  ssh \
+  lsb-release \
+  ca-certificates \
+  apt-transport-https \
+  software-properties-common \
+  htop \
+  p7zip-full
 ```
 
 ### Handle images
@@ -149,7 +160,12 @@ If your server is not used to host images, you can skip this step.
 :::
 
 ```sh
-sudo apt install -y jpegoptim optipng pngquant optipng gifsicle webp
+sudo apt install -y jpegoptim \
+  optipng \
+  pngquant \
+  optipng \
+  gifsicle \
+  webp
 ```
 
 ### Server monitoring
