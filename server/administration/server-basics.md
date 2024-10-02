@@ -148,7 +148,8 @@ sudo apt install -y zip \
   apt-transport-https \
   software-properties-common \
   htop \
-  p7zip-full
+  p7zip-full \
+  neofetch
 ```
 
 ### Handle images
