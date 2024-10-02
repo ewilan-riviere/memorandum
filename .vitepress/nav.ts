@@ -133,6 +133,7 @@ function sidebarServer(): DefaultTheme.SidebarItem[] {
         { text: 'Message of the day (MOTD)', link: 'administration/motd' },
         { text: 'Sudoers', link: 'administration/sudoers' },
         { text: 'Supervisor', link: 'administration/supervisor' },
+        { text: 'WiFi and Bluetooth', link: 'administration/wifi-bluetooth' },
       ],
     },
     {
