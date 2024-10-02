@@ -18,3 +18,7 @@ sudo vim /boot/firmware/config.txt
 + dtoverlay=disable-wifi
 + dtoverlay=disable-bt
 ```
+
+```sh
+sudo reboot now
+```
