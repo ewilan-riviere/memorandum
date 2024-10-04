@@ -63,9 +63,13 @@ You can now connect with new user and use `sudo` command.
 Execute some updates and install `vim` editor
 
 ```sh
-sudo apt update
-sudo apt upgrade -y
-sudo apt install vim -y
+sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
+```
+
+Install `vim` editor
+
+```sh
+sudo apt install -y vim
 ```
 
 Add new user (you can use any other name)
