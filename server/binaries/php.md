@@ -46,17 +46,21 @@ sudo apt -y install php8.2-fpm
 Here are some common PHP extensions:
 
 ```sh
-sudo apt install -y php8.2-mbstring
-sudo apt install -y php8.2-mysql
-sudo apt install -y php8.2-common php8.2-cli php8.2-dev
-sudo apt install -y php8.2-xml
-sudo apt install -y php8.2-curl
-sudo apt install -y php8.2-gd php8.2-imagick
-sudo apt install -y php8.2-imap
-sudo apt install -y php8.2-opcache
-sudo apt install -y php8.2-soap
-sudo apt install -y php8.2-zip php8.2-bz2
-sudo apt install -y php8.2-intl
+sudo apt install -y php8.2-mbstring \
+  php8.2-mysql \
+  php8.2-common \
+  php8.2-cli \
+  php8.2-dev \
+  php8.2-xml \
+  php8.2-curl \
+  php8.2-gd \
+  php8.2-imagick \
+  php8.2-imap \
+  php8.2-opcache \
+  php8.2-soap \
+  php8.2-zip \
+  php8.2-bz2 \
+  php8.2-intl
 ```
 
 ### Fix PHP-FPM owner
