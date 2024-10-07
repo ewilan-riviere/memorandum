@@ -72,6 +72,10 @@ Install `vim` editor
 sudo apt install -y vim
 ```
 
+::: tip
+Update vim config with [this guide](/server/administration/vim)
+:::
+
 Add new user (you can use any other name)
 
 ```sh
@@ -236,7 +240,7 @@ sudo reboot
 Install firewall
 
 ```sh
-sudo apt install ufw
+sudo apt install ufw -y
 ```
 
 Set default rules

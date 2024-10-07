@@ -81,7 +81,7 @@ Replace `USER` with your username, and `nginx` with the group that runs the appl
 
 ```sh:/etc/supervisor/supervisord.conf
 [unix_http_server]
-chown = USER:nginx # [!code ++]
+chown=YOUR_USER:nginx # [!code ++]
 ```
 
 Restart supervisor.
