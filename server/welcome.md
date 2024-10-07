@@ -12,7 +12,8 @@ I advice to always verify the commands and adapt them to your needs.
 
 You can begin with:
 
-- [Server basics](/server/administration/server-basics)
+- [Connection & user](/server/administration/connection-user)
 - [Vim](/server/administration/vim)
 - [ZSH & Oh my ZSH](/server/administration/zsh)
+- [Basic packages](/server/administration/basic-packages)
 - [SSH](/server/administration/ssh-scp-rsync)
