@@ -15,17 +15,7 @@ Execute some updates and install `vim` editor
 sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
 ```
 
-## Packages
-
-### Update system
-
-Update `apt` and `upgrade` packages
-
-```sh
-sudo apt update && sudo apt -y upgrade
-```
-
-### Tools
+## Useful packages
 
 - `zip` and `unzip` to compress and decompress files
 - `curl` to download files
@@ -53,7 +43,7 @@ sudo apt install -y zip \
   neofetch
 ```
 
-### Handle images
+## Handle images
 
 These tools are used to optimize images.
 
@@ -70,7 +60,7 @@ sudo apt install -y jpegoptim \
   webp
 ```
 
-### Server monitoring
+## Server monitoring
 
 ::: info
 You can install all packages or only some of them.
@@ -114,21 +104,7 @@ Equipment-specific tools
 - GPU Intel : `intel-gpu-tools`
 - GPU NVIDIA : `nvidia-smi`
 
-## Connect with new user
-
-Connect to server with new user
-
-```sh
-ssh jack@xxx.xx.xx.xxx
-```
-
-Than now you can reboot server
-
-```sh
-sudo reboot
-```
-
-### Firewall
+## Firewall
 
 Install firewall
 
@@ -181,21 +157,7 @@ sudo systemctl restart sshd.service
 sudo ufw enable
 ```
 
-### Change root password
-
-```sh
-sudo -i
-```
-
-```sh
-passwd
-```
-
-```sh
-exit
-```
-
-### Change SSH port
+## Change SSH port
 
 Change port in sshd config
 

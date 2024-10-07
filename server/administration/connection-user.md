@@ -105,3 +105,31 @@ Exit SSH connection
 ```sh
 exit
 ```
+
+## Connect with new user
+
+Connect to server with new user
+
+```sh
+ssh jack@xxx.xx.xx.xxx
+```
+
+Than now you can reboot server
+
+```sh
+sudo reboot
+```
+
+## Change root password
+
+```sh
+sudo -i
+```
+
+```sh
+passwd
+```
+
+```sh
+exit
+```
