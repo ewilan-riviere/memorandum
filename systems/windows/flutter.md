@@ -14,11 +14,9 @@ This guide use `scoop` to install this binary, if you don't have it, check [this
 [**flutter.dev/docs/windows**](https://flutter.dev/docs/get-started/install/windows) Official Flutter
 website
 
-::alert{type="warning"}
-
+::: warning
 This guide will install **Android Studio** with Flutter
-
-::
+:::
 
 ## 1. Installation
 

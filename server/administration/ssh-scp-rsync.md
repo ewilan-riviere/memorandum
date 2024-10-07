@@ -104,7 +104,7 @@ Restart the SSH service:
 systemctl restart sshd
 ```
 
-::: warning
+::: warning Firewall
 Don't forget to open the port in your server firewall. If you use UFW, you can use:
 
 ```sh
@@ -121,6 +121,26 @@ You can delete old port:
 
 ```sh
 ufw delete allow <old port>
+```
+
+:::
+
+::: warning fail2ban
+If you use fail2ban, you need to add the new port to the configuration.
+
+```sh
+vim /etc/fail2ban/jail.local
+```
+
+```sh:/etc/fail2ban/jail.local
+[sshd]
+port = <port>
+```
+
+And restart the service:
+
+```sh
+systemctl restart fail2ban
 ```
 
 :::
