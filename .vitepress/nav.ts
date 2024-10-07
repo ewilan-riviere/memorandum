@@ -123,8 +123,9 @@ function sidebarServer(): DefaultTheme.SidebarItem[] {
       text: 'Administration',
       collapsed: false,
       items: [
-        { text: 'Server basics', link: 'administration/server-basics' },
+        { text: 'Connection & user', link: 'administration/connection-user' },
         { text: 'Vim', link: 'administration/vim' },
+        { text: 'Basic packages', link: 'administration/basic-packages' },
         { text: 'ZSH & Oh my ZSH', link: 'administration/zsh' },
         { text: 'SSH / SCP / rsync', link: 'administration/ssh-scp-rsync' },
         { text: 'Git', link: 'administration/git' },
