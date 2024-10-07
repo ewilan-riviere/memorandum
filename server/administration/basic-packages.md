@@ -15,16 +15,6 @@ Execute some updates and install `vim` editor
 sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
 ```
 
-Install `vim` editor
-
-```sh
-sudo apt install -y vim
-```
-
-::: tip
-Update vim config with [this guide](/server/administration/vim)
-:::
-
 ## Packages
 
 ### Update system
