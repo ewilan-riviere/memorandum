@@ -77,54 +77,6 @@ Restart PHP-FPM:
 sudo systemctl restart php8.2-fpm
 ```
 
-## Usage
-
-### Specific PHP version
-
-If you installed multiple PHP versions, you can use a specific version by specifying the version number.
-
-```sh
-php8.2 -v
-```
-
-### PHP version
-
-To see the current PHP version, run the following command:
-
-```sh
-php -v
-```
-
-You can change current version with [Switch PHP](/server/binaries/php#switch-php)
-
-### PHP modules
-
-```sh
-php -m
-```
-
-#### Specific module
-
-```sh
-php -m | grep <module>
-```
-
-Example:
-
-```sh
-php -m | grep curl
-```
-
-If you see `curl` in the output, it means the `curl` module is installed.
-
-## Switch PHP
-
-To switch PHP versions, use the following command:
-
-```sh
-sudo update-alternatives --config php
-```
-
 ## Composer
 
 Use command line instructions of [**Composer website**](https://getcomposer.org/download/) to download and install latest version of Composer
@@ -171,3 +123,51 @@ source ~/.zshrc
 ```
 
 Now you can use `composer`.
+
+## Switch PHP
+
+To switch PHP versions, use the following command:
+
+```sh
+sudo update-alternatives --config php
+```
+
+## Usage
+
+### Specific PHP version
+
+If you installed multiple PHP versions, you can use a specific version by specifying the version number.
+
+```sh
+php8.2 -v
+```
+
+### PHP version
+
+To see the current PHP version, run the following command:
+
+```sh
+php -v
+```
+
+You can change current version with [Switch PHP](/server/binaries/php#switch-php)
+
+### PHP modules
+
+```sh
+php -m
+```
+
+#### Specific module
+
+```sh
+php -m | grep <module>
+```
+
+Example:
+
+```sh
+php -m | grep curl
+```
+
+If you see `curl` in the output, it means the `curl` module is installed.
