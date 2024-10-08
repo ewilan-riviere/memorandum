@@ -15,5 +15,5 @@ You can begin with:
 - [Connection & user](/server/administration/connection-user)
 - [Vim](/server/administration/vim)
 - [ZSH & Oh my ZSH](/server/administration/zsh)
-- [Basic packages](/server/administration/basic-packages)
+- [Basics & UFW](/server/administration/basics-ufw)
 - [SSH](/server/administration/ssh-scp-rsync)

@@ -23,7 +23,7 @@ You can install **snap** or use **Python** (personaly I dislike snap, so I insta
 
 ```sh
 sudo apt update
-sudo apt install snapd
+sudo apt install -y snapd
 sudo snap install core
 ```
 

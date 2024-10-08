@@ -13,15 +13,24 @@ ZSH is a powerful command interpreter, better than bash. If you use it, you can 
 sudo apt install -y zsh
 ```
 
-## Install `oh-my-zsh`
+## Install [`oh-my-zsh`](https://github.com/ohmyzsh/ohmyzsh)
 
 ::: info
 If you want to use ZSH, you need to logout to enable it, you can exit SSH session and reconnect if you are on a server.
 :::
 
-```sh
+::: code-group
+
+```sh [Manual]
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
+
+```sh [Inline]
+yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+echo 'exec zsh' >> ~/.bashrc
+```
+
+:::
 
 ::: info
 If your shell don't persist you can add this line to `~/.bashrc` to enable it.
@@ -40,9 +49,18 @@ You can find other themes on <https://github.com/ohmyzsh/ohmyzsh/wiki/Themes>
 
 To install a new theme, just edit `~/.zshrc`
 
-```sh
+::: code-group
+
+```sh [Manual]
 vim ~/.zshrc
 ```
+
+```sh [Inline]
+sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="pmcgee"/' ~/.zshrc
+source ~/.zshrc
+```
+
+:::
 
 Search `ZSH_THEME` at the top of file and update value
 

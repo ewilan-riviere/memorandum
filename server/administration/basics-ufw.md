@@ -1,9 +1,9 @@
 ---
-title: Basic packages
-description: Install basic packages on server
+title: Basics & UFW
+description: Install basic packages and UFW on server
 ---
 
-# Basic packages
+# Basics & UFW
 
 {{ $frontmatter.description }}
 
@@ -15,7 +15,9 @@ Execute some updates and install `vim` editor
 sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
 ```
 
-## Useful packages
+## Packages
+
+### Common
 
 - `zip` and `unzip` to compress and decompress files
 - `curl` to download files
@@ -28,7 +30,8 @@ sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
 - `software-properties-common` to manage software
 
 ```sh
-sudo apt install -y zip \
+sudo apt install -y \
+  zip \
   unzip \
   curl \
   git \
@@ -43,7 +46,7 @@ sudo apt install -y zip \
   neofetch
 ```
 
-## Handle images
+### Handle images
 
 These tools are used to optimize images.
 
@@ -52,7 +55,8 @@ If your server is not used to host images, you can skip this step.
 :::
 
 ```sh
-sudo apt install -y jpegoptim \
+sudo apt install -y \
+  jpegoptim \
   optipng \
   pngquant \
   optipng \
@@ -60,7 +64,20 @@ sudo apt install -y jpegoptim \
   webp
 ```
 
-## Server monitoring
+### Conversion
+
+These tools are used to convert images and videos.
+
+- `ffmpeg` to convert videos
+- `imagemagick` to convert images
+
+```sh
+sudo apt install -y \
+  ffmpeg \
+  imagemagick
+```
+
+### Server monitoring
 
 ::: info
 You can install all packages or only some of them.
@@ -104,7 +121,7 @@ Equipment-specific tools
 - GPU Intel : `intel-gpu-tools`
 - GPU NVIDIA : `nvidia-smi`
 
-## Firewall
+## UFW (Firewall)
 
 Install firewall
 
@@ -142,22 +159,24 @@ sudo vim /etc/ssh/sshd_config
 Find `PermitRootLogin` line and replace `yes` to `no` and restart sshd daemon. Disconnect yourself with `exit` and you won't able to connect with `root`, connect with custom user now.
 
 ```diff[/etc/ssh/sshd_config]
--PermitRootLogin yes
-+PermitRootLogin no
+-#Port 22
++Port 22 # l. 14 to change port
 
--ChallengeResponseAuthentication yes
-+ChallengeResponseAuthentication no
+-PermitRootLogin yes
++PermitRootLogin no # l. 33 to disable root login
 
 -PasswordAuthentication yes
-+PasswordAuthentication no
++PasswordAuthentication no # l. 57 to disable password auth
+
+-KbdInteractiveAuthentication yes
++KbdInteractiveAuthentication no # l. 62 to disable password auth
 ```
 
 ```sh
 sudo systemctl restart sshd.service
-sudo ufw enable
 ```
 
-## Change SSH port
+### Change SSH port
 
 Change port in sshd config
 

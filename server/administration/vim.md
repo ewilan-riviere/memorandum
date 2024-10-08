@@ -17,9 +17,29 @@ sudo apt install -y vim
 
 Edit system configuration
 
-```sh
+::: code-group
+
+```sh [Manual]
 sudo vim /etc/vim/vimrc
 ```
+
+```sh [Inline]
+sudo tee -a /etc/vim/vimrc > /dev/null <<EOT
+set nocompatible
+set number
+set background=dark
+set tabstop=4
+set smartindent
+set autoindent
+set backspace=indent,eol,start
+set ignorecase
+set ruler
+set showcmd
+set mouse=a
+EOT
+```
+
+:::
 
 - `nocompatible` to use Vim instead of Vi
 - `number` to display line numbers
