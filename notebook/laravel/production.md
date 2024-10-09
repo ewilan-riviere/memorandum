@@ -20,10 +20,9 @@ sudo usermod -a -G nginx $USER
 Set permissions for Laravel application
 
 ```sh
-sudo chown -R $USER:nginx storage
-sudo chown -R $USER:nginx bootstrap/cache
-chmod -R 775 storage
-chmod -R 755 bootstrap/cache
+sudo chown -R $USER:nginx /var/www/html # Change to your project path
+sudo chgrp -R nginx storage bootstrap/cache
+sudo chmod -R ug+rwx storage bootstrap/cache
 ```
 
 ::: info Optional
