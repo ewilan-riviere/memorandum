@@ -317,5 +317,12 @@ function sidebarTools(): DefaultTheme.SidebarItem[] {
         { text: 'HEVC H265', link: 'ffmpeg/hevc-h265' },
       ],
     },
+    {
+      text: 'Hardware',
+      collapsed: false,
+      items: [
+        { text: 'NVME', link: 'hardware/nvme' },
+      ],
+    },
   ]
 }
