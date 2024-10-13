@@ -1,5 +1,5 @@
 ---
-title: JS config
+title: "Webpack: JS config"
 description: Install ESLint, configure jsconfig.json or tsconfig.json.
 ---
 

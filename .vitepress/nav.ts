@@ -143,6 +143,7 @@ function sidebarServer(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'Bun', link: 'binaries/bun' },
         { text: 'Go', link: 'binaries/golang' },
+        { text: 'Flutter', link: 'binaries/flutter' },
         { text: 'ImageMagick', link: 'binaries/imagemagick' },
         { text: 'Meilisearch', link: 'binaries/meilisearch' },
         { text: 'MySQL / MariaDB', link: 'binaries/mysql' },
@@ -258,6 +259,12 @@ function sidebarFrameworks(): DefaultTheme.SidebarItem[] {
             { text: 'Relationships', link: 'laravel/relationships' },
             { text: 'Octane', link: 'laravel/octane' },
             { text: 'Eloquent', link: 'laravel/eloquent' },
+            { text: 'Vite', link: 'laravel/vite' },
+            { text: 'Vite: ESLint', link: 'laravel/vite-eslint' },
+            { text: 'Vite: CSS framework', link: 'laravel/vite-css-framework' },
+            { text: 'Vite: Alpine JS', link: 'laravel/vite-alpine-js' },
+            { text: 'Vite: Livewire', link: 'laravel/vite-livewire' },
+            { text: 'Webpack: JS config', link: 'laravel/webpack-js-config' },
           ],
         },
       ],
@@ -265,26 +272,10 @@ function sidebarFrameworks(): DefaultTheme.SidebarItem[] {
     {
       items: [
         {
-          text: 'Laravel Vite',
+          text: 'Flutter',
           collapsed: false,
           items: [
-            { text: 'Installation', link: 'laravel/vite/installation' },
-            { text: 'ESLint', link: 'laravel/vite/eslint' },
-            { text: 'CSS framework', link: 'laravel/vite/css-framework' },
-            { text: 'Alpine JS', link: 'laravel/vite/alpine-js' },
-            { text: 'Livewire', link: 'laravel/vite/livewire' },
-            { text: 'Inertia', link: 'laravel/vite/inertia' },
-          ],
-        },
-      ],
-    },
-    {
-      items: [
-        {
-          text: 'Laravel Webpack',
-          collapsed: false,
-          items: [
-            { text: 'JS config', link: 'laravel/webpack/js-config' },
+            { text: 'Install', link: 'flutter/install' },
           ],
         },
       ],

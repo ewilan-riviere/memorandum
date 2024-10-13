@@ -1,5 +1,5 @@
 ---
-title: Alpine JS
+title: "Vite: Alpine JS"
 description: Add Alpine JS with TypeScript
 ---
 

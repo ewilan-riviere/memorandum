@@ -1,5 +1,5 @@
 ---
-title: Livewire
+title: "Vite: Livewire"
 description: Add Livewire
 ---
 

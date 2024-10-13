@@ -1,5 +1,5 @@
 ---
-title: Installation
+title: Vite
 description: Installation Vite
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: ESLint
+title: "Vite: ESLint"
 description: Add basics for Vite
 ---
 

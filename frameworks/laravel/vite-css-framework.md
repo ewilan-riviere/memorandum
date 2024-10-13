@@ -1,5 +1,5 @@
 ---
-title: CSS Framework
+title: "Vite: CSS Framework"
 description: Add a CSS framework like Tailwind CSS or Windi CSS
 ---
 
