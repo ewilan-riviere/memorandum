@@ -93,7 +93,7 @@ To display system information in your MOTD, create a file with the system inform
 sudo vim /etc/update-motd.d/20-sysinfo
 ```
 
-```sh:[/etc/update-motd.d/20-sysinfo
+```sh:[/etc/update-motd.d/20-sysinfo]
 #!/bin/sh
 
 # Simple system performance counter retriever
@@ -114,7 +114,7 @@ cpu_vendor_id=$(cat /proc/cpuinfo | grep 'vendor_id' | uniq | awk {'print $3'})
 host=$(hostname)
 current_auth="${USER}@${host}"
 
-memory_usage=$(free | awk '/Mem/{printf("%.0f%"), $3/$2*100}')
+# memory_usage=$(free | awk '/Mem/{printf("%.0f%"), $3/$2*100}')
 memory_info=$(free -m | grep Mem)
 memory_used=$(free -m | awk 'NR==2 { printf "%.2f GB\n", $3/1024 }')   # 3182
 memory_total=$(free -m | awk 'NR==2 { printf "%.2f GB\n", $2/1024 }')  # 4072
@@ -123,7 +123,7 @@ available_ram=$(echo $memory_info | awk '{print $7}') # 7767
 uptime_days=$(uptime | awk '{print $3 " " $4}' | sed s'/.$//')
 uptime=$(uptime -p)
 packages=$(dpkg -l | wc -l)
-cpu=$(lscpu | grep 'Model name' | awk {'print $3" "$4" "$5" "$6" "$7" "$8" "$9'})
+cpu_name=$(lscpu | grep 'Model name' | awk {'print $3" "$4" "$5" "$6" "$7" "$8" "$9'})
 cpu_speed=$(fgrep MHz /proc/cpuinfo | awk '{ print $4 }' | head -1)
 
 # current cpu load
@@ -161,10 +161,10 @@ printf "${COLOR_INFO}OS distribution........${LIGHT_GREEN} %s\n" "${os_id} ${os_
 printf "${COLOR_INFO}OS architecture........${LIGHT_GREEN} %s\n" "${bits}-bit (${os_architecture}) ${cpu_vendor_id}"
 printf "\n"
 printf "${COLOR_INFO}CPU usage..............${LIGHT_GREEN} %s\n" "${cpu_load}"
-printf "${COLOR_INFO}CPU type...............${LIGHT_GREEN} %s\n" "${cpu}"
+# printf "${COLOR_INFO}CPU type...............${LIGHT_GREEN} %s\n" "${cpu_name}"
 printf "${COLOR_INFO}CPU speed..............${LIGHT_GREEN} %s\n" "${cpu_speed} MHz"
 printf "\n"
-printf "${COLOR_INFO}Memory usage...........${LIGHT_GREEN} %s\n" "${memory_usage}"
+# printf "${COLOR_INFO}Memory usage...........${LIGHT_GREEN} %s\n" "${memory_usage}"
 printf "${COLOR_INFO}Memory.................${LIGHT_GREEN} %s\n" "${memory_used} / ${memory_total}"
 # printf "${COLOR_INFO}Memory free............${GREEN} %s\n" "$(($memfree/1024)) MB"
 printf "\n"
@@ -207,7 +207,7 @@ sudo systemctl restart sshd.service
 You can disconnect SSH session and reconnect to show your `motd`, or use command:
 
 ```sh
-run-parts /etc/update-motd.d
+sudo run-parts /etc/update-motd.d
 ```
 
 ## Update original MOTD

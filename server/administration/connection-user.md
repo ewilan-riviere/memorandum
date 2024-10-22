@@ -67,6 +67,12 @@ sudo adduser jack
 sudo usermod -aG sudo jack
 ```
 
+Exit SSH connection to reload groups
+
+```sh
+exit
+```
+
 ## Fix locales
 
 Fix locales for new user
