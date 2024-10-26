@@ -25,6 +25,10 @@ sudo chgrp -R nginx storage bootstrap/cache
 sudo chmod -R ug+rwx storage bootstrap/cache
 ```
 
+```sh
+sudo chown -R $USER:nginx storage && sudo chown -R $USER:nginx bootstrap/cache && sudo chmod -R 775 storage && sudo chmod -R 755 bootstrap/cache
+```
+
 ::: info Optional
 You can install Composer dependencies with only needed packages for production by running:
 
