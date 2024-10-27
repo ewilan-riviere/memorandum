@@ -186,3 +186,49 @@ If the dump file contains all databases (created with `--all-databases`), you do
 ```sh
 mysql -u USERNAME -pPASSWORD < INPUT_FILE.sql
 ```
+
+## Remote access
+
+To allow remote access to your MySQL / MariaDB server, you need to modify the configuration file.
+
+::: code-group
+
+```sh [MariaDB]
+sudo vim /etc/mysql/my.cnf
+```
+
+:::
+
+```sh:/etc/mysql/my.cnf
+[mysqld]
+bind-address = 0.0.0.0
+```
+
+And you have to allow the user to connect from any host:
+
+::: code-group
+
+```sql [MariaDB]
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'super_secret_password' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+```
+
+:::
+
+::: warning
+This is not recommended for production environments. It's better to allow only specific IP addresses.
+:::
+
+And restart the MySQL / MariaDB service:
+
+::: code-group
+
+```sh [MariaDB]
+sudo systemctl restart mariadb
+```
+
+```sh [MySQL]
+sudo systemctl restart mysql
+```
+
+:::
