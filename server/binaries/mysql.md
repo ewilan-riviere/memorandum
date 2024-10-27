@@ -232,3 +232,9 @@ sudo systemctl restart mysql
 ```
 
 :::
+
+You can test the connection from another machine:
+
+```sh
+mysql -h IP.ADDRESS.OF.DATABASE -P 3306 -u your_username -p
+```
