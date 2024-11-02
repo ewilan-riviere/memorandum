@@ -1,6 +1,6 @@
-import { defineConfig } from 'vitepress'
 import { footnote } from '@mdit/plugin-footnote'
 import namedCodeBlocks from 'markdown-it-named-code-blocks'
+import { defineConfig } from 'vitepress'
 // import { parseFiles } from './init'
 import { navigation, sidebar } from './nav'
 
