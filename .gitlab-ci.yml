@@ -6,9 +6,6 @@
 stages:
   - deploy
 
-variables:
-  NODE_VERSION: 20.15.0
-
 deploy-job:
   stage: deploy
   image: node:20.15.0

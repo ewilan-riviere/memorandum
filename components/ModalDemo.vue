@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+
 const showModal = ref(false)
 </script>
 
 <template>
-  <button class="modal-button" @click="showModal = true">Show Modal</button>
+  <button class="modal-button" @click="showModal = true">
+    Show Modal
+  </button>
 
   <Teleport to="body">
     <Transition name="modal">
