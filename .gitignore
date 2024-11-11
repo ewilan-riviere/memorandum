@@ -1,7 +1,5 @@
-node_modules/
-.vitepress/cache
-.vitepress/dist
-.vitepress/examples
+docs/.vitepress/cache
+docs/.vitepress/dist
+node_modules
 .DS_Store
-.vscode/temp
 .env

@@ -1,6 +1,6 @@
 import type { DefaultTheme } from 'vitepress'
 
-export const sidebar = {
+export const sidebar: DefaultTheme.Sidebar = {
   '/notebook/': { base: '/notebook/', items: sidebarNotebook() },
   '/server/': { base: '/server/', items: sidebarServer() },
   '/systems/': { base: '/systems/', items: sidebarSystems() },
@@ -8,7 +8,7 @@ export const sidebar = {
   '/tools/': { base: '/tools/', items: sidebarTools() },
 }
 
-export function navigation(): DefaultTheme.NavItem[] {
+export function nav(): DefaultTheme.NavItem[] {
   return [
     {
       text: 'Notebook',
@@ -42,8 +42,6 @@ export function navigation(): DefaultTheme.NavItem[] {
       activeMatch: '/frameworks/',
       items: [
         { text: 'Laravel', link: '/frameworks/laravel/setup' },
-        { text: 'Laravel Vite', link: '/frameworks/laravel/vite/installation' },
-        { text: 'Laravel Webpack', link: '/frameworks/laravel/webpack/js-config' },
       ],
     },
     {

@@ -4,42 +4,68 @@
 # For more information, see: https://docs.gitlab.com/ee/ci/
 
 stages:
-  - deploy
+  - test
 
-deploy-job:
-  stage: deploy
+test-job:
+  stage: test
   image: node:20.15.0
   before_script:
     - "command -v ssh-agent >/dev/null || ( apk add --update openssh )"
     - eval $(ssh-agent -s)
-    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - echo "$SSH_PRIVATE_KEY_GITLAB" | tr -d '\r' | ssh-add -
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
-    - ssh-keyscan -p $SSH_PORT $SSH_IP >> ~/.ssh/known_hosts
+    - ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
     - echo "Installing dependencies..."
     - apt-get update -qq && apt-get install -y -qq sshpass
-    - apt-get install -y -qq rsync
     - echo "Setup..."
-    - git clone https://gitlab.com/kiwilan/memorandum.git
-    - cd memorandum
+    - git clone git@gitlab.com:kiwilan/la-mediatheque-docs.git
+    - cd la-mediatheque-docs
     - npm install -g pnpm
+  script:
     - pnpm i
     - echo "Building..."
     - pnpm build
-    - echo "Deploying..."
-  script:
-    - rsync -azPhhr -e "ssh -p $SSH_PORT" .vitepress/dist $SSH_USER@$SSH_IP:/home/$SSH_USER/www/$CI_PROJECT_NAME/.vitepress/dist-$CI_JOB_ID
-    - ssh -p $SSH_PORT $SSH_USER@$SSH_IP "
-      . ~/.zshrc &&
-      cd /var/www/$CI_PROJECT_NAME &&
-      git pull &&
-      docker exec $DOCKER_CONTAINER rm -rf /usr/share/nginx/html/node_modules &&
-      docker exec $DOCKER_CONTAINER rm -rf /usr/share/nginx/html/.vitepress/dist &&
-      docker cp .vitepress/dist-$CI_JOB_ID/dist $DOCKER_CONTAINER:/usr/share/nginx/html/.vitepress/dist &&
-      docker restart $DOCKER_CONTAINER &&
-      rm -rf .vitepress/dist-$CI_JOB_ID &&
-      docker logs $DOCKER_CONTAINER &&
-      notifier discord '$CI_PROJECT_TITLE deployed'"
   only:
     - main
+# stages:
+#   - deploy
+
+# deploy-job:
+#   stage: deploy
+#   image: node:20.15.0
+#   before_script:
+#     - "command -v ssh-agent >/dev/null || ( apk add --update openssh )"
+#     - eval $(ssh-agent -s)
+#     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+#     - mkdir -p ~/.ssh
+#     - chmod 700 ~/.ssh
+#     - ssh-keyscan -p $SSH_PORT $SSH_IP >> ~/.ssh/known_hosts
+#     - chmod 644 ~/.ssh/known_hosts
+#     - echo "Installing dependencies..."
+#     - apt-get update -qq && apt-get install -y -qq sshpass
+#     - apt-get install -y -qq rsync
+#     - echo "Setup..."
+#     - git clone https://gitlab.com/kiwilan/memorandum.git
+#     - cd memorandum
+#     - npm install -g pnpm
+#     - pnpm i
+#     - echo "Building..."
+#     - pnpm build
+#     - echo "Deploying..."
+#   script:
+#     - rsync -azPhhr -e "ssh -p $SSH_PORT" .vitepress/dist $SSH_USER@$SSH_IP:/home/$SSH_USER/www/$CI_PROJECT_NAME/.vitepress/dist-$CI_JOB_ID
+#     - ssh -p $SSH_PORT $SSH_USER@$SSH_IP "
+#       . ~/.zshrc &&
+#       cd /var/www/$CI_PROJECT_NAME &&
+#       git pull &&
+#       docker exec $DOCKER_CONTAINER rm -rf /usr/share/nginx/html/node_modules &&
+#       docker exec $DOCKER_CONTAINER rm -rf /usr/share/nginx/html/.vitepress/dist &&
+#       docker cp .vitepress/dist-$CI_JOB_ID/dist $DOCKER_CONTAINER:/usr/share/nginx/html/.vitepress/dist &&
+#       docker restart $DOCKER_CONTAINER &&
+#       rm -rf .vitepress/dist-$CI_JOB_ID &&
+#       docker logs $DOCKER_CONTAINER &&
+#       notifier discord '$CI_PROJECT_TITLE deployed'"
+#   only:
+#     - main

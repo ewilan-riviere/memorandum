@@ -6,7 +6,7 @@
 
 [![pipeline](https://gitlab.com/kiwilan/memorandum/badges/main/pipeline.svg)](https://gitlab.com/kiwilan/memorandum)
 
-Blog & documentation, deploy on [memorandum.ewilan-riviere.com](https://memorandum.ewilan-riviere.com), built using [Vitepress](https://vitepress.dev/), a modern static website generator.
+Personal documentation, deploy on [memorandum.kiwilan.app](https://memorandum.kiwilan.app), built using [Vitepress](https://vitepress.dev/), a modern static website generator.
 
 ## Installation
 
@@ -47,6 +47,7 @@ cp .env.example .env
 Build and run the project:
 
 ```sh
+docker compose down
 docker compose up --build -d
 ```
 

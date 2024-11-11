@@ -1,9 +1,9 @@
-FROM node:20.15.0
+FROM node:20.15.0-alpine
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-# RUN apt update && apt upgrade -y
+RUN apk add --no-cache git
 
 COPY . /usr/src/app/
 RUN rm -rf node_modules
@@ -11,11 +11,6 @@ RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.shrc" SHELL="$(which 
 RUN /root/.local/share/pnpm/pnpm install
 RUN /root/.local/share/pnpm/pnpm build
 
-# keep running container
-# CMD ["tail", "-f", "/dev/null"]
+EXPOSE 3000
 
-FROM nginx:latest
-
-COPY --from=0 /usr/src/app/. /usr/share/nginx/html
-
-COPY .vitepress/nginx/default.conf /etc/nginx/conf.d/default.conf
+CMD ["/root/.local/share/pnpm/pnpm", "run", "start"]

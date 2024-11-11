@@ -1,27 +1,28 @@
 {
   "name": "memorandum",
-  "version": "4.0.0",
+  "version": "1.0.0",
   "private": true,
-  "description": "Blog & documentation",
+  "description": "Personal documentation",
   "author": "Ewilan Rivière",
   "license": "MIT",
   "engines": {
     "node": ">=20.0.0"
   },
   "scripts": {
-    "dev": "vitepress dev",
-    "build": "vitepress build",
-    "preview": "vitepress preview",
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
+    "start": "vitepress preview docs --port 3000",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^3.7.3",
+    "@antfu/eslint-config": "^3.8.0",
     "@mdit/plugin-footnote": "^0.13.1",
-    "@types/node": "^22.7.5",
-    "eslint": "^9.12.0",
+    "@types/node": "^22.8.6",
+    "eslint": "^9.14.0",
     "markdown-it-named-code-blocks": "^1.0.5",
     "typescript": "^5.6.3",
-    "vitepress": "^1.4.0"
+    "vitepress": "^1.4.3"
   }
 }

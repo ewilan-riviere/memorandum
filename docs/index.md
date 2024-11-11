@@ -2,11 +2,11 @@
 layout: home
 
 title: Memorandum
-titleTemplate: Blog & documentation
+titleTemplate: Documentation
 
 hero:
   name: Memorandum
-  text: Blog & documentation
+  text: Documentation
   tagline: Whoa! It's markdown!
   actions:
     - theme: brand

@@ -19,7 +19,22 @@
     #014fe8 80%,
     #9110a1 100%
   );
-  --vp-home-hero-image-filter: blur(44px);
+}
+
+.VPHero {
+  margin-top: 1rem !important;
+}
+
+figcaption {
+  text-align: center;
+  margin-top: 0.8rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+figure img {
+  display: flex;
+  margin: auto;
 }
 
 @media (min-width: 640px) {
