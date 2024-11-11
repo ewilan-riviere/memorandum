@@ -1,6 +1,6 @@
 ---
 services:
-  memorandum:
+  app:
     build:
       context: .
       dockerfile: Dockerfile
