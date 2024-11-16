@@ -27,7 +27,8 @@ Add the following to your `.zshrc`:
 
 ```sh
 <<EOF>> ~/.zshrc cat
-alias py="source ~/bin/venv/bin/activate"
+alias py-pip="source ~/bin/venv/bin/activate"
+alias py="source ~/bin/venv/bin/activate && python3"
 EOF
 ```
 
@@ -37,12 +38,26 @@ And now you can activate the virtual environment by running:
 py
 ```
 
+## Use scripts
+
+Create a script file, like `hello.py`:
+
+```python
+print("Hello, World!")
+```
+
+Run the script:
+
+```sh
+py hello.py
+```
+
 ## Install Python packages
 
 Assure you are in the virtual environment:
 
 ```sh
-py
+py-pip
 ```
 
 Install packages using `pip`:
