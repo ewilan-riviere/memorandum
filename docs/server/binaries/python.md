@@ -50,3 +50,7 @@ Install packages using `pip`:
 ```sh
 pip install <package>
 ```
+
+## VSCode environment
+
+For VSCode users, use `Shift+Ctrl+P` / `Shift+Cmd+P` and select `Python: Select Interpreter` to select local virtual environment, like `/Users/$USER/bin/venv/bin`.
