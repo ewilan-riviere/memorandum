@@ -36,3 +36,17 @@ And now you can activate the virtual environment by running:
 ```sh
 py
 ```
+
+## Install Python packages
+
+Assure you are in the virtual environment:
+
+```sh
+py
+```
+
+Install packages using `pip`:
+
+```sh
+pip install <package>
+```

@@ -149,6 +149,7 @@ function sidebarServer(): DefaultTheme.SidebarItem[] {
         { text: 'PEAR / PECL', link: 'binaries/pear' },
         { text: 'PHP', link: 'binaries/php' },
         { text: 'PHP extensions', link: 'binaries/php-extensions' },
+        { text: 'Python', link: 'binaries/python' },
         { text: 'Redis', link: 'binaries/redis' },
         { text: 'Rust', link: 'binaries/rust-lang' },
         { text: 'Swoole', link: 'binaries/swoole' },
