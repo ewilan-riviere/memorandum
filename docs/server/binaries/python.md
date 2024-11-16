@@ -32,6 +32,12 @@ alias py="source ~/bin/venv/bin/activate && python3"
 EOF
 ```
 
+Source the `.zshrc`:
+
+```sh
+source ~/.zshrc
+```
+
 And now you can activate the virtual environment by running:
 
 ```sh
