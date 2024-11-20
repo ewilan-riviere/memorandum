@@ -37,20 +37,20 @@ deploy-job:
     - chmod 700 ~/.ssh
     - ssh-keyscan -p $BEE_SSH_PORT $BEE_IP >> ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
-    - echo "Installing dependencies..."
-    - apt-get update -qq && apt-get install -y -qq sshpass
-    - apt-get install -y -qq rsync
-    - echo "Setup..."
-    - git clone https://gitlab.com/kiwilan/memorandum.git
-    - cd memorandum
-    - npm install -g pnpm
-    - pnpm i
-    - echo "Building..."
-    - pnpm build
-    - echo "Deploying..."
+    - ssh -p $BEE_SSH_PORT $BEE_USER@$BEE_IP
+    # - echo "Installing dependencies..."
+    # - apt-get update -qq && apt-get install -y -qq sshpass
+    # - apt-get install -y -qq rsync
+    # - echo "Setup..."
+    # - git clone https://gitlab.com/kiwilan/memorandum.git
+    # - cd memorandum
+    # - npm install -g pnpm
+    # - pnpm i
+    # - echo "Building..."
+    # - pnpm build
+    # - echo "Deploying..."
   script:
     - echo "hello"
-    - ssh -p $BEE_SSH_PORT $BEE_USER@$BEE_IP
     # - rsync -azPhhr -e "ssh -p $BEE_SSH_PORT" .vitepress/dist $BEE_USER@$BEE_IP:/home/$BEE_USER/www/$CI_PROJECT_NAME/.vitepress/dist-$CI_JOB_ID
     # - ssh -p $SSH_PORT $SSH_USER@$SSH_IP "
     #   . ~/.zshrc &&
