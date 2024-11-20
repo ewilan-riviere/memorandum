@@ -50,9 +50,16 @@ deploy-job:
     - echo "Deploying..."
   script:
     - rsync -azPhhr -e "ssh -p $BEE_SSH_PORT" docs/.vitepress/dist $BEE_USER@$BEE_IP:/home/$BEE_USER/www/$CI_PROJECT_NAME/dist-$CI_JOB_ID
-    - ssh -p $SSH_PORT $SSH_USER@$SSH_IP "
+    - ssh -p $BEE_SSH_PORT $SSH_USER@$SSH_IP "
       . ~/.zshrc &&
       cd /var/www/$CI_PROJECT_NAME &&
-      git pull"
+      git pull &&
+      docker exec $DOCKER_CONTAINER rm -rf /usr/share/nginx/html/node_modules &&
+      docker exec $DOCKER_CONTAINER rm -rf /usr/share/nginx/html/docs/.vitepress/dist &&
+      docker cp dist-$CI_JOB_ID/dist $DOCKER_CONTAINER:/usr/share/nginx/html/docs/.vitepress/dist &&
+      docker restart $DOCKER_CONTAINER &&
+      rm -rf dist-$CI_JOB_ID &&
+      docker logs $DOCKER_CONTAINER &&
+      notifier discord '$CI_PROJECT_TITLE deployed'"
   only:
     - main
