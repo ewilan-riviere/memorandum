@@ -246,7 +246,31 @@ deploy-job:
 
 In this part, you have to add your SSH key to your GitLab project. You have to add three variables:
 
-- `SSH_PRIVATE_KEY`: Your SSH **private** key,
+::: tip
+Create a dedicated SSH key for your runner, don't use your personal SSH key. Keep your current SSH key in a safe place, and create a new one for your runner.
+
+```sh
+ssh-keygen -t ed25519
+```
+
+Rename it
+
+```sh
+mv ~/.ssh/id_ed25519 ~/.ssh/id_ed25519_gitlab
+mv ~/.ssh/id_ed25519.pub ~/.ssh/id_ed25519_gitlab.pub
+```
+
+Allow public key `~/.ssh/id_ed25519_gitlab.pub` on your runner server
+
+```sh
+echo "ssh-ed25519 YoUr-PuBliC-KeY gitlab@your-device" >> ~/.ssh/authorized_keys
+```
+
+And add private key `~/.ssh/id_ed25519_gitlab` to your GitLab CI/CD Variables (with prefix and suffix).
+
+:::
+
+- `SSH_PRIVATE_KEY`: Your SSH **private** key
 - `SSH_PORT`: Your SSH port, like `22`
 - `SSH_IP`: Your SSH IP, like `123.456.789.0`
 
