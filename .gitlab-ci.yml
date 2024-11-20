@@ -32,13 +32,9 @@ deploy-job:
   before_script:
     - "command -v ssh-agent >/dev/null || ( apk add --update openssh )"
     - eval $(ssh-agent -s)
-    - ssh-add "$BEE_SSH_PRIVATE_KEY"
+    - echo "$BEE_SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
-    # - eval $(ssh-agent -s)
-    # - echo "$BEE_SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
-    # - mkdir -p ~/.ssh
-    # - chmod 700 ~/.ssh
     # - ssh-keyscan -p $BEE_SSH_PORT $BEE_IP >> ~/.ssh/known_hosts
     # - chmod 644 ~/.ssh/known_hosts
     # - echo "Installing dependencies..."
