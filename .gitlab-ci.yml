@@ -54,9 +54,9 @@ deploy-job:
       . ~/.zshrc &&
       cd /var/www/$CI_PROJECT_NAME &&
       git pull &&
-      docker exec $DOCKER_CONTAINER rm -rf /usr/share/nginx/html/node_modules &&
-      docker exec $DOCKER_CONTAINER rm -rf /usr/share/nginx/html/docs/.vitepress/dist &&
-      docker cp dist-$CI_JOB_ID/dist $DOCKER_CONTAINER:/usr/share/nginx/html/docs/.vitepress/dist &&
+      docker exec $DOCKER_CONTAINER rm -rf node_modules &&
+      docker exec $DOCKER_CONTAINER rm -rf docs/.vitepress/dist &&
+      docker cp dist-$CI_JOB_ID/dist $DOCKER_CONTAINER:docs/.vitepress/dist &&
       docker restart $DOCKER_CONTAINER &&
       rm -rf dist-$CI_JOB_ID &&
       docker logs $DOCKER_CONTAINER &&
