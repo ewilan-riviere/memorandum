@@ -38,6 +38,7 @@ deploy-job:
     - ssh-keyscan -p $BEE_SSH_PORT $BEE_IP >> ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
     - echo "Installing dependencies..."
+    - apt-get update -qq && apt-get install -y -qq sshpass
     - apt-get install -y -qq rsync
     - echo "Setup..."
     - git clone https://gitlab.com/kiwilan/memorandum.git
