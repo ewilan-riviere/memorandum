@@ -35,7 +35,7 @@ deploy-job:
     - echo "$BEE_SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
-    - ssh-keyscan -p $BEE_SSH_PORT $BEE_SSH_IP >> ~/.ssh/known_hosts
+    - ssh-keyscan -p $BEE_SSH_PORT $BEE_IP >> ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
     - echo "Installing dependencies..."
     - apt-get update -qq && apt-get install -y -qq sshpass
@@ -49,8 +49,7 @@ deploy-job:
     - pnpm build
     - echo "Deploying..."
   script:
-    - echo "Deploying..."
-    # - rsync -azPhhr -e "ssh -p $SSH_PORT" .vitepress/dist $SSH_USER@$SSH_IP:/home/$SSH_USER/www/$CI_PROJECT_NAME/.vitepress/dist-$CI_JOB_ID
+    - rsync -azPhhr -e "ssh -p $BEE_SSH_PORT" .vitepress/dist $BEE_USER@$BEE_IP:/home/$BEE_USER/www/$CI_PROJECT_NAME/.vitepress/dist-$CI_JOB_ID
     # - ssh -p $SSH_PORT $SSH_USER@$SSH_IP "
     #   . ~/.zshrc &&
     #   cd /var/www/$CI_PROJECT_NAME &&
