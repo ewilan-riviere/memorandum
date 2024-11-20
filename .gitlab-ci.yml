@@ -7,14 +7,11 @@ test-job:
   before_script:
     - "command -v ssh-agent >/dev/null || ( apk add --update openssh )"
     - eval $(ssh-agent -s)
-    - echo "$SSH_PRIVATE_KEY_GITLAB" | tr -d '\r' | ssh-add -
+    - echo "$SSH_CLONE_TESTING_KEY" | tr -d '\r' | ssh-add -
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
     - ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
-    - echo "Installing dependencies..."
-    - apt-get update -qq && apt-get install -y -qq sshpass
-    - echo "Setup..."
     - git clone git@gitlab.com:kiwilan/memorandum.git
     - cd memorandum
     - npm install -g pnpm
