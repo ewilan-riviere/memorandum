@@ -30,14 +30,19 @@ deploy-job:
   stage: deploy
   image: $DOCKER_IMAGE
   before_script:
-    - "command -v ssh-agent >/dev/null || ( apk add --update openssh )"
+    - "command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )"
     - eval $(ssh-agent -s)
-    - echo "$BEE_SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - chmod 400 "$BEE_SSH_PRIVATE_KEY"
+    - ssh-add "$BEE_SSH_PRIVATE_KEY"
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
-    - ssh-keyscan -p $BEE_SSH_PORT $BEE_IP >> ~/.ssh/known_hosts
-    - chmod 644 ~/.ssh/known_hosts
-    - ssh -p $BEE_SSH_PORT $BEE_USER@$BEE_IP
+    # - "command -v ssh-agent >/dev/null || ( apk add --update openssh )"
+    # - eval $(ssh-agent -s)
+    # - echo "$BEE_SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    # - mkdir -p ~/.ssh
+    # - chmod 700 ~/.ssh
+    # - ssh-keyscan -p $BEE_SSH_PORT $BEE_IP >> ~/.ssh/known_hosts
+    # - chmod 644 ~/.ssh/known_hosts
     # - echo "Installing dependencies..."
     # - apt-get update -qq && apt-get install -y -qq sshpass
     # - apt-get install -y -qq rsync
@@ -50,7 +55,7 @@ deploy-job:
     # - pnpm build
     # - echo "Deploying..."
   script:
-    - echo "hello"
+    - ssh -p $BEE_SSH_PORT $BEE_USER@$BEE_IP
     # - rsync -azPhhr -e "ssh -p $BEE_SSH_PORT" .vitepress/dist $BEE_USER@$BEE_IP:/home/$BEE_USER/www/$CI_PROJECT_NAME/.vitepress/dist-$CI_JOB_ID
     # - ssh -p $SSH_PORT $SSH_USER@$SSH_IP "
     #   . ~/.zshrc &&
