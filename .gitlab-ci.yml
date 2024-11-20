@@ -35,8 +35,8 @@ deploy-job:
     - echo "$BEE_SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
-    # - ssh-keyscan -p $BEE_SSH_PORT $BEE_IP >> ~/.ssh/known_hosts
-    # - chmod 644 ~/.ssh/known_hosts
+    - ssh-keyscan -p $BEE_SSH_PORT $BEE_IP >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
     # - echo "Installing dependencies..."
     # - apt-get update -qq && apt-get install -y -qq sshpass
     # - apt-get install -y -qq rsync
