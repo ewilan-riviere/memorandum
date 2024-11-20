@@ -49,6 +49,7 @@ deploy-job:
     - pnpm build
     - echo "Deploying..."
     - pwd
+    - ls -al
     - ls -al .vitepress
   script:
     - rsync -azPhhr -e "ssh -p $BEE_SSH_PORT" .vitepress/dist $BEE_USER@$BEE_IP:/home/$BEE_USER/www/$CI_PROJECT_NAME/dist-$CI_JOB_ID
