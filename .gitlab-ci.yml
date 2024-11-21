@@ -54,7 +54,6 @@ deploy-job:
       . ~/.zshrc &&
       cd /var/www/$CI_PROJECT_NAME &&
       git pull &&
-      docker exec $DOCKER_CONTAINER rm -rf node_modules &&
       docker exec $DOCKER_CONTAINER rm -rf /usr/src/app/docs/.vitepress/dist &&
       docker cp dist-$CI_JOB_ID/dist $DOCKER_CONTAINER:/usr/src/app/docs/.vitepress/dist &&
       docker exec $DOCKER_CONTAINER pnpm install &&
