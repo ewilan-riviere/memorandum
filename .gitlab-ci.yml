@@ -57,6 +57,7 @@ deploy-job:
       docker exec $DOCKER_CONTAINER rm -rf node_modules &&
       docker exec $DOCKER_CONTAINER rm -rf /usr/src/app/docs/.vitepress/dist &&
       docker cp dist-$CI_JOB_ID/dist $DOCKER_CONTAINER:/usr/src/app/docs/.vitepress/dist &&
+      docker exec $DOCKER_CONTAINER pnpm install &&
       docker restart $DOCKER_CONTAINER &&
       rm -rf dist-$CI_JOB_ID &&
       docker logs $DOCKER_CONTAINER &&
