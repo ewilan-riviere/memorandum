@@ -57,7 +57,224 @@ If you see `extension`, extension is ready.
 
 If you use Windows, installation guide is available in [seperate guide](/systems/windows/php-extensions).
 
-## Swoole
+## Extensions
+
+### ImageMagick
+
+::: info
+ImageMagick, invoked from the command line as magick, is a free and open-source cross-platform software suite for displaying, creating, converting, modifying, and editing raster images. Created in 1987 by John Cristy, it can read and write over 200 image file formats. It is widely used in open-source applications.
+:::
+
+- GitHub: <https://github.com/Imagick/imagick>
+- PECL: <http://pecl.php.net/package/imagick> with `imagick`
+- PHP docs: <https://www.php.net/manual/en/book.imagick.php>
+- Official website: <https://imagemagick.org/index.php>
+
+::: warning
+You have to install ImageMagick before you install PHP extension. You can check [this guide](/server/binaries/imagemagick).
+:::
+
+Clone the repository
+
+```sh
+git clone https://github.com/Imagick/imagick
+cd imagick
+```
+
+Compile from source
+
+```sh
+phpize
+./configure
+make
+```
+
+Install
+
+```sh
+sudo make install
+```
+
+- [Add manually extension](#add-manually-extension)
+- [Verify extension](#verify-extension)
+- You have an error like `attempt to perform an operation not allowed`, check [here](#attempt-to-perform-an-operation-not-allowed)
+
+### MongoDB
+
+::: info
+MongoDB is a source-available cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas.
+:::
+
+- GitHub: <https://github.com/mongodb/mongo-php-driver>
+- PECL: <http://pecl.php.net/package/mongodb> with `mongodb`
+- PHP docs: <https://www.php.net/manual/en/book.mongodb.php>
+- Official website: <https://www.mongodb.com/>
+
+::: warning
+You have to install MongoDB before you install PHP extension.
+:::
+
+Install from PECL
+
+```sh
+sudo pecl install mongodb
+```
+
+Choose default values when you have questions.
+
+- [Verify extension](#verify-extension)
+
+### PCOV
+
+::: info
+CodeCoverage compatible driver for PHP
+:::
+
+- GitHub: <https://github.com/krakjoe/pcov>
+- PECL: <https://pecl.php.net/package/pcov> with `pcov`
+- Compile from source: <https://github.com/krakjoe/pcov/blob/develop/INSTALL.md>
+
+::: warning macOS
+Make sure you have `pcre2` installed on macOS, you can check ['pcre2.h' file not found](#pcre2-h-file-not-found) if you have errors.
+:::
+
+Clone the repository
+
+```sh
+git clone https://github.com/krakjoe/pcov.git
+cd pcov
+```
+
+Compile from source
+
+```sh
+phpize
+./configure --enable-pcov
+make
+make test
+```
+
+Install
+
+```sh
+sudo make install
+```
+
+- [Add manually extension](#add-manually-extension)
+- [Verify extension](#verify-extension)
+
+### Redis
+
+::: info
+The open source, in-memory data store used by millions of developers as a database, cache, streaming engine, and message broker.
+:::
+
+- GitHub PECL: <https://github.com/phpredis/phpredis>
+- PECL: <http://pecl.php.net/package/redis> with `redis`
+- GitHub `predis/predis`: <https://github.com/predis/predis>
+- Official website: <https://redis.io/>
+
+::: warning
+You have to install Redis before you install PHP extension. You can check [this guide](/server/binaries/redis).
+:::
+
+To install this extension, you can install **extension** OR **composer package**.
+
+#### Install from source
+
+Clone the repository
+
+```sh
+git clone https://github.com/phpredis/phpredis.git
+cd phpredis
+```
+
+Compile from source
+
+```sh
+phpize
+./configure [--enable-redis-igbinary] [--enable-redis-msgpack] [--enable-redis-lzf [--with-liblzf[=DIR]]] [--enable-redis-zstd]
+make
+```
+
+Install
+
+```sh
+sudo make install
+```
+
+- [Add manually extension](#add-manually-extension)
+- [Verify extension](#verify-extension)
+
+#### Install from composer
+
+::: info
+Predis is a Redis client written entirely in PHP and does not require any additional extensions.
+:::
+
+```sh
+composer require predis/predis
+```
+
+### SQL Server
+
+::: info
+Microsoft SQL Server is a relational database management system developed by Microsoft. As a database server, it is a software product with the primary function of storing and retrieving data as requested by other software applications—which may run either on the same computer or on another computer across a network.
+:::
+
+- GitHub: <https://github.com/Microsoft/msphpsql>
+- PECL: <https://pecl.php.net/package/sqlsrv> with `sqlsrv`
+- PHP docs: <https://www.php.net/manual/en/book.sqlsrv.php>
+- Official website: <https://www.microsoft.com/en-us/sql-server/sql-server-downloads>
+
+::: warning
+For SQL Server, Microsoft offers only installation with PECL. You can check [this guide](/server/binaries/pear) to install PECL.
+:::
+
+::: code-group
+
+```sh [Debian]
+sudo pecl install sqlsrv pdo_sqlsrv
+```
+
+```sh [macOS Intel]
+brew install autoconf automake libtool
+brew tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release
+brew update
+HOMEBREW_ACCEPT_EULA=Y brew install msodbcsql18 mssql-tools
+sudo pecl install sqlsrv pdo_sqlsrv
+```
+
+```sh [macOS Silicon]
+brew install autoconf automake libtool
+brew tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release
+brew update
+HOMEBREW_ACCEPT_EULA=Y brew install msodbcsql18 mssql-tools
+sudo CXXFLAGS="-I/opt/homebrew/opt/unixodbc/include/" LDFLAGS="-L/opt/homebrew/lib/" pecl install sqlsrv
+sudo CXXFLAGS="-I/opt/homebrew/opt/unixodbc/include/" LDFLAGS="-L/opt/homebrew/lib/" pecl install pdo_sqlsrv
+```
+
+:::
+
+#### To upgrade
+
+::: code-group
+
+```sh [Debian / macOS Intel]
+sudo pecl upgrade sqlsrv
+sudo pecl upgrade pdo_sqlsrv
+```
+
+```sh [macOS Silicon]
+sudo CXXFLAGS="-I/opt/homebrew/opt/unixodbc/include/" LDFLAGS="-L/opt/homebrew/lib/" pecl upgrade sqlsrv
+sudo CXXFLAGS="-I/opt/homebrew/opt/unixodbc/include/" LDFLAGS="-L/opt/homebrew/lib/" pecl upgrade pdo_sqlsrv
+```
+
+:::
+
+- [Verify extension](#verify-extension)
+
+### Swoole
 
 ::: info
 Swoole is an event-driven, asynchronous, coroutine-based concurrency library with high performance for PHP.
@@ -99,139 +316,7 @@ sudo make install
 - [Add manually extension](#add-manually-extension)
 - [Verify extension](#verify-extension)
 
-## PCOV
-
-::: info
-CodeCoverage compatible driver for PHP
-:::
-
-- GitHub: <https://github.com/krakjoe/pcov>
-- PECL: <https://pecl.php.net/package/pcov> with `pcov`
-- Compile from source: <https://github.com/krakjoe/pcov/blob/develop/INSTALL.md>
-
-::: warning macOS
-Make sure you have `pcre2` installed on macOS, you can check ['pcre2.h' file not found](#pcre2-h-file-not-found) if you have errors.
-:::
-
-Clone the repository
-
-```sh
-git clone https://github.com/krakjoe/pcov.git
-cd pcov
-```
-
-Compile from source
-
-```sh
-phpize
-./configure --enable-pcov
-make
-make test
-```
-
-Install
-
-```sh
-sudo make install
-```
-
-- [Add manually extension](#add-manually-extension)
-- [Verify extension](#verify-extension)
-
-## Redis
-
-::: info
-The open source, in-memory data store used by millions of developers as a database, cache, streaming engine, and message broker.
-:::
-
-- GitHub PECL: <https://github.com/phpredis/phpredis>
-- PECL: <http://pecl.php.net/package/redis> with `redis`
-- GitHub `predis/predis`: <https://github.com/predis/predis>
-- Official website: <https://redis.io/>
-
-::: warning
-You have to install Redis before you install PHP extension. You can check [this guide](/server/binaries/redis).
-:::
-
-To install this extension, you can install **extension** OR **composer package**.
-
-### Install from source
-
-Clone the repository
-
-```sh
-git clone https://github.com/phpredis/phpredis.git
-cd phpredis
-```
-
-Compile from source
-
-```sh
-phpize
-./configure [--enable-redis-igbinary] [--enable-redis-msgpack] [--enable-redis-lzf [--with-liblzf[=DIR]]] [--enable-redis-zstd]
-make
-```
-
-Install
-
-```sh
-sudo make install
-```
-
-- [Add manually extension](#add-manually-extension)
-- [Verify extension](#verify-extension)
-
-### Install from composer
-
-::: info
-Predis is a Redis client written entirely in PHP and does not require any additional extensions.
-:::
-
-```sh
-composer require predis/predis
-```
-
-## ImageMagick
-
-::: info
-ImageMagick, invoked from the command line as magick, is a free and open-source cross-platform software suite for displaying, creating, converting, modifying, and editing raster images. Created in 1987 by John Cristy, it can read and write over 200 image file formats. It is widely used in open-source applications.
-:::
-
-- GitHub: <https://github.com/Imagick/imagick>
-- PECL: <http://pecl.php.net/package/imagick> with `imagick`
-- PHP docs: <https://www.php.net/manual/en/book.imagick.php>
-- Official website: <https://imagemagick.org/index.php>
-
-::: warning
-You have to install ImageMagick before you install PHP extension. You can check [this guide](/server/binaries/imagemagick).
-:::
-
-Clone the repository
-
-```sh
-git clone https://github.com/Imagick/imagick
-cd imagick
-```
-
-Compile from source
-
-```sh
-phpize
-./configure
-make
-```
-
-Install
-
-```sh
-sudo make install
-```
-
-- [Add manually extension](#add-manually-extension)
-- [Verify extension](#verify-extension)
-- You have an error like `attempt to perform an operation not allowed`, check [here](#attempt-to-perform-an-operation-not-allowed)
-
-## WinRAR
+### WinRAR
 
 ::: info
 WinRAR is a trialware file archiver utility for Windows, developed by Eugene Roshal of win.rar GmbH. It can create and view archives in RAR or ZIP file formats, and unpack numerous archive file formats.
@@ -273,64 +358,6 @@ sudo make install
 ```
 
 - [Add manually extension](#add-manually-extension)
-- [Verify extension](#verify-extension)
-
-## SQL Server
-
-::: info
-Microsoft SQL Server is a relational database management system developed by Microsoft. As a database server, it is a software product with the primary function of storing and retrieving data as requested by other software applications—which may run either on the same computer or on another computer across a network.
-:::
-
-- GitHub: <https://github.com/Microsoft/msphpsql>
-- PECL: <https://pecl.php.net/package/sqlsrv> with `sqlsrv`
-- PHP docs: <https://www.php.net/manual/en/book.sqlsrv.php>
-- Official website: <https://www.microsoft.com/en-us/sql-server/sql-server-downloads>
-
-::: warning
-For SQL Server, Microsoft offers only installation with PECL. You can check [this guide](/server/binaries/pear) to install PECL.
-:::
-
-::: code-group
-
-```sh [Debian]
-sudo pecl install sqlsrv pdo_sqlsrv
-```
-
-```sh [macOS Intel]
-brew install autoconf automake libtool
-brew tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release
-brew update
-HOMEBREW_ACCEPT_EULA=Y brew install msodbcsql18 mssql-tools
-sudo pecl install sqlsrv pdo_sqlsrv
-```
-
-```sh [macOS Silicon]
-brew install autoconf automake libtool
-brew tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release
-brew update
-HOMEBREW_ACCEPT_EULA=Y brew install msodbcsql18 mssql-tools
-sudo CXXFLAGS="-I/opt/homebrew/opt/unixodbc/include/" LDFLAGS="-L/opt/homebrew/lib/" pecl install sqlsrv
-sudo CXXFLAGS="-I/opt/homebrew/opt/unixodbc/include/" LDFLAGS="-L/opt/homebrew/lib/" pecl install pdo_sqlsrv
-```
-
-:::
-
-### To upgrade
-
-::: code-group
-
-```sh [Debian / macOS Intel]
-sudo pecl upgrade sqlsrv
-sudo pecl upgrade pdo_sqlsrv
-```
-
-```sh [macOS Silicon]
-sudo CXXFLAGS="-I/opt/homebrew/opt/unixodbc/include/" LDFLAGS="-L/opt/homebrew/lib/" pecl upgrade sqlsrv
-sudo CXXFLAGS="-I/opt/homebrew/opt/unixodbc/include/" LDFLAGS="-L/opt/homebrew/lib/" pecl upgrade pdo_sqlsrv
-```
-
-:::
-
 - [Verify extension](#verify-extension)
 
 ## Troubles
