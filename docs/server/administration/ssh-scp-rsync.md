@@ -83,7 +83,7 @@ Restart the SSH service:
 systemctl restart sshd
 ```
 
-### Use different port
+### Use different port with configuration
 
 By default, SSH uses port 22. You can change it by editing the `/etc/ssh/sshd_config` file on your server.
 
@@ -145,6 +145,8 @@ systemctl restart fail2ban
 
 :::
 
+### Use different port with CLI
+
 To use SSH on a different port, you need to specify the port number when connecting.
 
 ```sh
@@ -197,6 +199,8 @@ ssh <myserver>
 
 ::: details SSH config example
 
+Add your servers to `~/.ssh/config`.
+
 ```sh:~/.ssh/config
 Host my-wonderful-server
   HostName 123.456.789.0
@@ -212,6 +216,8 @@ Host my-other-wonderful-server
   IdentityFile ~/.ssh/id_rsa
   IdentitiesOnly yes
 ```
+
+Now you can connect to your servers using the aliases, without specifying the username, IP address, port, or private key.
 
 ```sh
 ssh my-wonderful-server
