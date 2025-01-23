@@ -14,11 +14,11 @@ From [Create ed25519 key](https://github.com/kirkmicz/Cheat-Sheet/blob/master/Li
 ::: code-group
 
 ```sh [ed25519]
-ssh-keygen -t ed25519 -b 4096 -C "user@mail"
+ssh-keygen -t ed25519
 ```
 
-```sh [ed25519 (no mail)]
-ssh-keygen -t ed25519
+```sh [ed25519 (with mail)]
+ssh-keygen -t ed25519 -b 4096 -C "user@mail"
 ```
 
 ```sh [rsa]
