@@ -17,12 +17,12 @@
     "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^3.8.0",
-    "@mdit/plugin-footnote": "^0.13.1",
-    "@types/node": "^22.8.6",
-    "eslint": "^9.14.0",
-    "markdown-it-named-code-blocks": "^1.0.5",
-    "typescript": "^5.6.3",
-    "vitepress": "^1.4.3"
+    "@antfu/eslint-config": "^4.1.1",
+    "@mdit/plugin-footnote": "^0.16.0",
+    "@types/node": "^22.13.0",
+    "eslint": "^9.19.0",
+    "markdown-it-named-code-blocks": "^1.0.6",
+    "typescript": "^5.7.3",
+    "vitepress": "^1.6.3"
   }
 }
