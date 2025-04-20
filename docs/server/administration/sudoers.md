@@ -71,6 +71,21 @@ If you see `ALL=(ALL) NOPASSWD:ALL`, replace it:
 +my-user  ALL=(ALL) ALL
 ```
 
+::: info For a Raspberry Pi
+The file is `/etc/sudoers.d/010_pi-nopasswd`
+
+```sh
+sudo visudo -f /etc/sudoers.d/010_pi-nopasswd
+```
+
+If you see `ALL=(ALL) NOPASSWD:ALL`, replace it:
+
+```diff:/etc/sudoers.d/010_pi-nopasswd
+-my-user  ALL=(ALL) NOPASSWD:ALL
++my-user  ALL=(ALL) ALL
+```
+:::
+
 ### Check `sudo` command
 
 ```sh
