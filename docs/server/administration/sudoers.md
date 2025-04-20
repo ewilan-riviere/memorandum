@@ -44,3 +44,36 @@ Now you can use sudo with `my-user`
 ```sh
 sudo apt update
 ```
+
+## If `sudo` don't ask for password
+
+### From `/etc/sudoers`
+
+If you see `ALL=(ALL) NOPASSWD:ALL`, replace it:
+
+```diff:/etc/sudoers
+-my-user  ALL=(ALL) NOPASSWD:ALL
++my-user  ALL=(ALL) ALL
+```
+
+If you see `@includedir /etc/sudoers.d` at the end of the file, check the files in `/etc/sudoers.d/` directory.
+
+### From `/etc/sudoers.d/`
+
+```sh
+sudo visudo -f /etc/sudoers.d/90-cloud-init-users
+```
+
+If you see `ALL=(ALL) NOPASSWD:ALL`, replace it:
+
+```diff:/etc/sudoers.d/90-cloud-init-users
+-my-user  ALL=(ALL) NOPASSWD:ALL
++my-user  ALL=(ALL) ALL
+```
+
+### Check `sudo` command
+
+```sh
+sudo -k     # Force sudo to ask for password
+sudo ls     # Run a command with sudo
+```
