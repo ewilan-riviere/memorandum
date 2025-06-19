@@ -171,6 +171,7 @@ function sidebarServer(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: 'Installation', link: 'docker/installation' },
+        { text: 'Examples', link: 'docker/examples' },
         { text: 'Ready-to-use', link: 'docker/ready-to-use' },
       ],
     },
