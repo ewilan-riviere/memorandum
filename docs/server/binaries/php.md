@@ -69,6 +69,7 @@ If you use NGINX, you need to change the PHP-FPM owner to `nginx`. You have to c
 
 ```sh
 sudo sed -i 's/www-data/nginx/' /etc/php/8.2/fpm/pool.d/www.conf
+sudo sed -i 's/www-data/nginx/' /var/run/php/php8.2-fpm.sock
 ```
 
 Restart PHP-FPM:
