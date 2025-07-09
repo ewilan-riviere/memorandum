@@ -15,11 +15,11 @@ Original article: [linuxize.com/post/how-to-use-linux-screen](https://linuxize.c
 
 ::: code-group
 
-```js [Ubuntu/Debian]
+```sh [Ubuntu/Debian]
 sudo apt update -y ; sudo apt -y install screen
 ```
 
-```ts [CentOS/Fedora]
+```sh [CentOS/Fedora]
 sudo yum install screen
 ```
 
