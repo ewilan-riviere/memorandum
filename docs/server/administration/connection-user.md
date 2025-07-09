@@ -58,6 +58,18 @@ exit
 
 You can now connect with new user and use `sudo` command.
 
+## `sudo` timeout
+
+You can set `sudo` timeout to 10 minutes, so you don't have to type password every time you use `sudo` command. And it's more secure than 15 minutes, which is default.
+
+```sh
+sudo visudo
+```
+
+```sh [/etc/sudoers]
+Defaults        timestamp_timeout=10
+```
+
 ## Add new user
 
 Add new user (you can use any other name)
