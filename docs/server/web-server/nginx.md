@@ -341,7 +341,7 @@ user  nginx; # this is the default user, can be www-data too
 :::
 
 ```sh
-sudo usermod -a -G $USER nginx # or www-data
+sudo usermod -aG nginx $USER # or www-data
 ```
 
 Create `/var/www` directory if it doesn't exist
@@ -358,7 +358,8 @@ If you use the default repository, you need to change the owner to `www-data`.
 
 ```sh
 sudo chown -R $USER:nginx /var/www
-sudo chmod -R 755 /var/www
+sudo chmod -R 775 /var/www
+ln -s /var/www ~/
 ```
 
 ### Big files uploading
