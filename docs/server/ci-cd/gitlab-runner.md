@@ -7,77 +7,41 @@ description: GitLab Runner is a service that runs jobs in CI/CD pipeline on your
 
 {{ $frontmatter.description }}
 
-Documentation is available here: <https://docs.gitlab.com/runner>
+Documentation is [available here](https://docs.gitlab.com/runner) and [GitLab Runner binaries](https://gitlab-runner-downloads.s3.amazonaws.com/latest/index.html).
 
-## Download
+::: tip
+You have repository runner and group runner. Repository runner is available only for this repository, group runner is available for all repositories in this group.
 
-You have to install GitLab Runner on your server.
+You can find your runners in `Settings > CI/CD > Runners` or in `Settings > Build > Runners`.
 
-- GitLab Runner: <https://gitlab-runner-downloads.s3.amazonaws.com/latest/index.html>
-
-::: warning Note
-You have to select the correct package for your OS and architecture. And you know to find your OS and architecture.
+- Example for group: <https://gitlab.com/groups/GROUP/-/runners>
+- Example for repository: <https://gitlab.com/GROUP/REPOSITORY/-/settings/ci_cd>
 :::
 
-```sh
-curl -LJO "https://gitlab-runner-downloads.s3.amazonaws.com/latest/deb/gitlab-runner_${arch}.deb"
-```
+## Install GitLab Runner
 
-### Find architecture
+Documentation is [available here](https://docs.gitlab.com/runner/install/linux-repository/).
 
-To find your architecture, you can use this command:
+Add the official GitLab repository to your system.
 
 ```sh
-uname -a
+curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash
 ```
 
-::: info Example
-
-```sh:output
-Linux xxxxx 6.1.0-10-amd64 xxxxx x86_64 GNU/Linux
-```
-
-Here architecture is `amd64`.
-:::
-
-### Find distribution
+Install GitLab Runner.
 
 ```sh
-lsb_release -a
+sudo apt udpate
+sudo apt install -y gitlab-runner-helper-images gitlab-runner
 ```
 
-::: info Example
-
-```sh:output
-No LSB modules are available.
-Distributor ID:	Debian
-Description:	Debian GNU/Linux 12 (bookworm)
-Release:	12
-Codename:	bookworm
-```
-
-Here OS is `Debian`, so I will select `deb` packages. So, **in this example**, link is `https://gitlab-runner-downloads.s3.amazonaws.com/latest/deb/gitlab-runner_amd64.deb`
-:::
-
-## Installation
-
-Install GitLab Runner
+Now service is installed and running.
 
 ```sh
-sudo dpkg -i gitlab-runner_${arch}.deb
+sudo systemctl status gitlab-runner
 ```
 
-::: info
-To update GitLab Runner, download again the package and install it.
-:::
-
-Install service
-
-```sh
-sudo gitlab-runner install
-```
-
-### Configuration on GitLab
+## GitLab Runner registration
 
 Now go to your GitLab instance and choose any project. Go to `Settings` > `CI/CD` and expand `Runners` section.
 
@@ -112,12 +76,14 @@ On new screen, keep `Linux` for the Operating systems and pay attention to the t
 
 ![gitlab-runner-register](/docs/gitlab-runner-register.jpg)
 
-### Configuration on server
+## Configuration on server
 
 Now, you have to register your runner on your server.
 
+Copy `Step 1` from GitLab website command to register your runner on your server.
+
 ```sh
-sudo gitlab-runner register
+gitlab-runner register  --url https://gitlab.com  --token TOKEN
 ```
 
 ```sh:output
@@ -125,12 +91,6 @@ Enter the GitLab instance URL (for example, https://gitlab.com/):
 ```
 
 I choose `https://gitlab.com/` because I use GitLab SaaS. If you use your own GitLab instance, you have to enter your URL.
-
-```sh:output
-Enter the registration token:
-```
-
-Enter the token you got from the previous step.
 
 ```sh:output
 Enter a name for the runner. This is stored only in the local config.toml file:
@@ -153,25 +113,7 @@ If you choose `docker` executor, you have to enter a default Docker image. I cho
 ```sh:output
 Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded!
 
-Configuration (with the authentication token) was saved in "/path/to/.gitlab-runner/config.toml"
-```
-
-Now, your runner is registered and you can start it.
-
-```sh
-sudo gitlab-runner start
-```
-
-You can check the status of your runner.
-
-```sh
-sudo gitlab-runner status
-```
-
-Start GitLab Runner
-
-```sh
-sudo gitlab-runner start my-runner
+Configuration (with the authentication token) was saved in "/home/$USER/.gitlab-runner/config.toml"
 ```
 
 ## Enable Runner for project
