@@ -130,6 +130,57 @@ You will see your runner in the **Project runners** list, click on `Enable for t
 You can disable GitLab shared runners, to use only your runners. See right panel with **Instance runners** and uncheck `Enable instance runners for this project`.
 :::
 
+## Runner `stuck` or `pending`
+
+If your runner is `stuck` or `pending`, you can check the following:
+
+```sh
+sudo gitlab-runner list
+```
+
+You have to see your runner in the list. But if you see this:
+
+```sh:output
+# here no runners, it your runner is not executing jobs
+Runtime platform                                    arch=amd64 os=linux pid=162711 revision=2b813ade version=18.1.1
+Listing configured runners                          ConfigFile=/etc/gitlab-runner/config.toml
+```
+
+You can check your runner configuration file in `/etc/gitlab-runner/config.toml`, if you don't see your runner, it could be registered with current user.
+
+```sh
+sudo cat /etc/gitlab-runner/config.toml
+```
+
+If you see your runner into this file, you have to replace original configuration file with current user configuration file.
+
+```
+cat ~/.gitlab-runner/config.toml
+```
+
+### Replace configuration file
+
+```sh
+sudo mkdir -p /etc/gitlab-runner
+sudo cp /home/$USER/.gitlab-runner/config.toml /etc/gitlab-runner/config.toml
+sudo chown -R root:root /etc/gitlab-runner
+sudo systemctl restart gitlab-runner
+```
+
+Now, you can check your runner status.
+
+```sh
+sudo gitlab-runner status
+```
+
+You have to see your runner in the list.
+
+```sh:output
+Runtime platform                                    arch=amd64 os=linux pid=175244 revision=2b813ade version=18.1.1
+Listing configured runners                          ConfigFile=/etc/gitlab-runner/config.toml
+RUNNER_NAME                                         Executor=docker Token=TOKEN URL=https://gitlab.com
+```
+
 ## Commands
 
 ### Start
