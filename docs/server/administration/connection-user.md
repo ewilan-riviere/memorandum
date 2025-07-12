@@ -151,3 +151,37 @@ passwd
 ```sh
 exit
 ```
+
+## GRUB
+
+### Change GRUB timeout
+
+```sh
+sudo nano /etc/default/grub
+```
+
+Setting it to 0 means GRUB will boot immediately without showing the menu unless you press a key.
+
+```diff:/etc/default/grub
+-GRUB_TIMEOUT=5
++GRUB_TIMEOUT=0
+```
+
+If you want the menu hidden by default but accessible if you hold `Shift` or `Esc` during boot, you can set it to `hidden`:
+
+```diff:/etc/default/grub
+-GRUB_TIMEOUT=5
++GRUB_TIMEOUT=hidden
+```
+
+Update GRUB configuration after making changes:
+
+```sh
+sudo update-grub
+```
+
+And reboot the server to apply the changes:
+
+```sh
+sudo reboot now
+```
