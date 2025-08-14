@@ -143,9 +143,18 @@ php artisan queue:work
 
 Laravel Horizon is a dashboard and configuration tool for managing Redis queues in Laravel applications. It provides a beautiful interface to monitor your queues, jobs, and more.
 
-Official documentation: [Laravel Horizon](https://laravel.com/docs/master/horizon)
+- Official documentation: [Laravel Horizon](https://laravel.com/docs/master/horizon)
+- Dashboard URL: `/horizon`
 
-Dashboard URL: `/horizon`
+```sh
+composer require laravel/horizon
+```
+
+Then publish the Horizon assets:
+
+```sh
+php artisan horizon:install
+```
 
 :::warning Valet
 If you are using Laravel Valet, check your Valet configuration use same PHP version with Redis extension installed.
@@ -162,3 +171,29 @@ And check Valet links
 valet links
 ```
 :::
+
+### Error: `Class "Redis" not found`
+
+If you encounter the error `Class "Redis" not found`, it means that the `phpredis` extension is not installed or not enabled in your PHP configuration.
+
+To resolve it temporarily, you can run the following command to install the `predis/predis`:
+
+```sh
+composer require predis/predis
+```
+
+And enable it in your `.env` file:
+
+```bash:.env
+REDIS_CLIENT=predis
+```
+
+If Laravel Horizon works with `predis/predis`, you can keep using it, but for better performance, it's recommended to install the `phpredis` extension.
+
+Check now if the `phpredis` extension is installed:
+
+```sh
+php -m | grep redis
+```
+
+If it works, Laravel Horizon should be able to connect to Redis without any issues, but if you still encounter the error, you may need to restart your web server or PHP-FPM service (or check if service like Valet is using the correct PHP version with the `phpredis` extension installed).

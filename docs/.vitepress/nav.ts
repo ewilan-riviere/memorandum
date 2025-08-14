@@ -252,6 +252,7 @@ function sidebarFrameworks(): DefaultTheme.SidebarItem[] {
             { text: 'Tools', link: 'laravel/tools' },
             { text: 'API documentation', link: 'laravel/api-documentation' },
             { text: 'Queue: jobs & schedule', link: 'laravel/queue-jobs-schedule' },
+            { text: 'Queue: Redis', link: 'laravel/queue-redis' },
             { text: 'Valet', link: 'laravel/valet' },
             { text: 'Deployment', link: 'laravel/deployment' },
             { text: 'Search', link: 'laravel/search' },
