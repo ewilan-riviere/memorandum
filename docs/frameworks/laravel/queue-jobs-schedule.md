@@ -17,7 +17,7 @@ In this guide, the queue driver will be database, you have to config your applic
 php artisan queue:table
 ```
 
-```yaml title=".env"
+```yaml:.env
 QUEUE_CONNECTION=database
 ```
 

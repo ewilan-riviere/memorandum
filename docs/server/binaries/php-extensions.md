@@ -216,6 +216,10 @@ Predis is a Redis client written entirely in PHP and does not require any additi
 composer require predis/predis
 ```
 
+::: warning
+If you use `predis/predis`, you don't need to install `phpredis` extension but `predis/predis` is not as fast as `phpredis` extension.
+:::
+
 ### SQL Server
 
 ::: info

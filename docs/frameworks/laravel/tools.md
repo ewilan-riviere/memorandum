@@ -206,7 +206,7 @@ composer global require spatie/phpunit-watcher
 touch .phpunit-watcher.yml
 ```
 
-```yaml title=".phpunit-watcher.yml"
+```yaml:.phpunit-watcher.yml
 watch:
   directories:
     - app
