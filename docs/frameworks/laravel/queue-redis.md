@@ -197,3 +197,47 @@ php -m | grep redis
 ```
 
 If it works, Laravel Horizon should be able to connect to Redis without any issues, but if you still encounter the error, you may need to restart your web server or PHP-FPM service (or check if service like Valet is using the correct PHP version with the `phpredis` extension installed).
+
+## Handle jobs with `redis-cli`
+
+You can also handle jobs directly using the `redis-cli` command-line tool. This is useful for debugging or manual job processing.
+
+### Connect to Redis
+
+To connect to your Redis server, you can use the `redis-cli` command:
+
+```sh
+redis-cli -h 127.0.0.1 -p 6379 -n 0
+```
+
+### View the queue
+
+To view the jobs in the queue, you can use the following command:
+
+```sh
+redis-cli LRANGE queues:default 0 -1
+```
+
+### Delete a job
+
+To delete a specific job from the queue, you can use the `LREM` command:
+
+```sh
+redis-cli LREM queues:default 0 "job_id"
+```
+
+### Delete all jobs of a queue
+
+To delete all jobs from the `default` queue, you can use the `DEL` command:
+
+```sh
+redis-cli DEL queues:default
+```
+
+### Clear all queues
+
+To clear all queues, you can use the `FLUSHDB` command, but be cautious as this will remove all data from the current Redis database:
+
+```sh
+redis-cli FLUSHALL
+```
