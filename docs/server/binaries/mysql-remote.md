@@ -7,6 +7,8 @@ description: How to enable remote access for MySQL / MariaDB
 
 {{ $frontmatter.description }}
 
+## Configuration
+
 To allow remote access to your MySQL / MariaDB server, you need to modify the configuration file.
 
 ::: code-group
@@ -25,6 +27,8 @@ sudo vim /etc/mysql/my.cnf
 [mysqld]
 bind-address = 0.0.0.0
 ```
+
+## Create a new user
 
 And you have to allow the user to connect from any host:
 
@@ -54,6 +58,17 @@ sudo systemctl restart mysql
 ```
 
 :::
+
+## UFW
+
+If you use `ufw`, you need to allow incoming connections to the MySQL / MariaDB port (default is 3306):
+
+```sh
+sudo ufw allow 3306
+sudo ufw allow from IP.ADDRESS.OF.REMOTE_DEVICE to any port 3306
+```
+
+## Access to remote MySQL / MariaDB
 
 You can test the connection from another machine:
 
