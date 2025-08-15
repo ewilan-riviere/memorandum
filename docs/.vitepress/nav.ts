@@ -145,6 +145,7 @@ function sidebarServer(): DefaultTheme.SidebarItem[] {
         { text: 'ImageMagick', link: 'binaries/imagemagick' },
         { text: 'Meilisearch', link: 'binaries/meilisearch' },
         { text: 'MySQL / MariaDB', link: 'binaries/mysql' },
+        { text: 'MySQL / MariaDB Remote Access', link: 'binaries/mysql-remote' },
         { text: 'Node.js', link: 'binaries/nodejs' },
         { text: 'PEAR / PECL', link: 'binaries/pear' },
         { text: 'PHP', link: 'binaries/php' },
