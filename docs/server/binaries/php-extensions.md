@@ -178,6 +178,10 @@ To install this extension, you can install **PHP extension** OR **composer packa
 
 #### Install PHP extension
 
+::: info
+It's recommended to use `phpredis` extension for production because it's faster than `predis/predis`.
+:::
+
 Clone the repository
 
 ```sh
