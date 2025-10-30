@@ -61,9 +61,7 @@ If you use Windows, installation guide is available in [seperate guide](/systems
 
 ### ImageMagick
 
-::: info
-ImageMagick, invoked from the command line as magick, is a free and open-source cross-platform software suite for displaying, creating, converting, modifying, and editing raster images. Created in 1987 by John Cristy, it can read and write over 200 image file formats. It is widely used in open-source applications.
-:::
+_ImageMagick, invoked from the command line as magick, is a free and open-source cross-platform software suite for displaying, creating, converting, modifying, and editing raster images. Created in 1987 by John Cristy, it can read and write over 200 image file formats. It is widely used in open-source applications._
 
 - GitHub: <https://github.com/Imagick/imagick>
 - PECL: <http://pecl.php.net/package/imagick> with `imagick`
@@ -101,9 +99,7 @@ sudo make install
 
 ### MongoDB
 
-::: info
-MongoDB is a source-available cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas.
-:::
+_MongoDB is a source-available cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas._
 
 - GitHub: <https://github.com/mongodb/mongo-php-driver>
 - PECL: <http://pecl.php.net/package/mongodb> with `mongodb`
@@ -126,9 +122,7 @@ Choose default values when you have questions.
 
 ### PCOV
 
-::: info
-CodeCoverage compatible driver for PHP
-:::
+_CodeCoverage compatible driver for PHP._
 
 - GitHub: <https://github.com/krakjoe/pcov>
 - PECL: <https://pecl.php.net/package/pcov> with `pcov`
@@ -165,22 +159,24 @@ sudo make install
 
 ### Redis
 
+_The open source, in-memory data store used by millions of developers as a database, cache, streaming engine, and message broker._
+
 ::: info
-The open source, in-memory data store used by millions of developers as a database, cache, streaming engine, and message broker.
+To use Redis with PHP, you can use `phpredis` extension OR `predis/predis` composer package. `phpredis` is a C extension and is faster than `predis/predis` which is written in PHP. So, for production, it's recommended to use `phpredis` extension.
 :::
 
-- GitHub PECL: <https://github.com/phpredis/phpredis>
-- PECL: <http://pecl.php.net/package/redis> with `redis`
-- GitHub `predis/predis`: <https://github.com/predis/predis>
+- GitHub PECL (PHP extension): <https://github.com/phpredis/phpredis>
+- PECL (PHP extension): <http://pecl.php.net/package/redis> with `redis`
+- GitHub `predis/predis` (Composer package): <https://github.com/predis/predis>
 - Official website: <https://redis.io/>
 
 ::: warning
 You have to install Redis before you install PHP extension. You can check [this guide](/server/binaries/redis).
 :::
 
-To install this extension, you can install **extension** OR **composer package**.
+To install this extension, you can install **PHP extension** OR **composer package**.
 
-#### Install from source
+#### Install PHP extension
 
 Clone the repository
 
@@ -206,10 +202,10 @@ sudo make install
 - [Add manually extension](#add-manually-extension)
 - [Verify extension](#verify-extension)
 
-#### Install from composer
+#### Install `predis/predis` composer package
 
 ::: info
-Predis is a Redis client written entirely in PHP and does not require any additional extensions.
+Predis is a Redis client written entirely in PHP and does not require any additional extensions. It's not as fast as `phpredis` extension but is easier to install.
 :::
 
 ```sh
@@ -222,9 +218,7 @@ If you use `predis/predis`, you don't need to install `phpredis` extension but `
 
 ### SQL Server
 
-::: info
-Microsoft SQL Server is a relational database management system developed by Microsoft. As a database server, it is a software product with the primary function of storing and retrieving data as requested by other software applications—which may run either on the same computer or on another computer across a network.
-:::
+_Microsoft SQL Server is a relational database management system developed by Microsoft. As a database server, it is a software product with the primary function of storing and retrieving data as requested by other software applications—which may run either on the same computer or on another computer across a network._
 
 - GitHub: <https://github.com/Microsoft/msphpsql>
 - PECL: <https://pecl.php.net/package/sqlsrv> with `sqlsrv`
@@ -280,9 +274,7 @@ sudo CXXFLAGS="-I/opt/homebrew/opt/unixodbc/include/" LDFLAGS="-L/opt/homebrew/l
 
 ### Swoole
 
-::: info
-Swoole is an event-driven, asynchronous, coroutine-based concurrency library with high performance for PHP.
-:::
+_Swoole is an event-driven, asynchronous, coroutine-based concurrency library with high performance for PHP._
 
 - Official website: <https://www.swoole.com/>
 - GitHub: <https://github.com/swoole/swoole-src>
@@ -322,9 +314,7 @@ sudo make install
 
 ### WinRAR
 
-::: info
-WinRAR is a trialware file archiver utility for Windows, developed by Eugene Roshal of win.rar GmbH. It can create and view archives in RAR or ZIP file formats, and unpack numerous archive file formats.
-:::
+_WinRAR is a trialware file archiver utility for Windows, developed by Eugene Roshal of win.rar GmbH. It can create and view archives in RAR or ZIP file formats, and unpack numerous archive file formats._
 
 - GitHub: <https://github.com/cataphract/php-rar>
 - PECL: <https://pecl.php.net/package/rar> with `rar`
