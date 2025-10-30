@@ -176,7 +176,7 @@ You have to install Redis before you install PHP extension. You can check [this 
 
 To install this extension, you can install **PHP extension** OR **composer package**.
 
-#### Install PHP extension
+#### PHP extension
 
 ::: info
 It's recommended to use `phpredis` extension for production because it's faster than `predis/predis`.
@@ -206,7 +206,7 @@ sudo make install
 - [Add manually extension](#add-manually-extension)
 - [Verify extension](#verify-extension)
 
-#### Install `predis/predis` composer package
+#### `predis/predis` composer package
 
 ::: info
 Predis is a Redis client written entirely in PHP and does not require any additional extensions. It's not as fast as `phpredis` extension but is easier to install.
