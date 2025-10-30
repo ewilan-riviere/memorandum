@@ -220,6 +220,58 @@ composer require predis/predis
 If you use `predis/predis`, you don't need to install `phpredis` extension but `predis/predis` is not as fast as `phpredis` extension.
 :::
 
+#### Usage
+
+##### Laravel
+
+To use Redis with Laravel, you have to set your Redis client in your `.env` file.
+
+```env:.env
+# for phpredis
+REDIS_CLIENT=phpredis
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+```
+
+```env:.env
+# for predis/predis
+REDIS_CLIENT=predis
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+```
+
+###### RedisException : Connection refused
+
+Check if Redis server is running.
+
+```sh
+sudo systemctl status redis
+```
+
+If it's not running, start Redis server.
+
+```sh
+sudo systemctl start redis
+```
+
+###### Class 'Redis' not found
+
+If you use `phpredis` extension and you have this error, check if extension is enabled.
+
+```sh
+php -m | grep redis
+```
+
+If it's not enabled, enable it with [Add manually extension](#add-manually-extension) guide.
+
+If you use [Laravel Valet](https://laravel.com/docs/master/valet), reinstall Valet.
+
+```sh
+valet install
+```
+
 ### SQL Server
 
 _Microsoft SQL Server is a relational database management system developed by Microsoft. As a database server, it is a software product with the primary function of storing and retrieving data as requested by other software applications—which may run either on the same computer or on another computer across a network._
