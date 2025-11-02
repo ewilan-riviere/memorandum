@@ -280,5 +280,5 @@ rsync -Phhr -e 'ssh -p <port>' username@server:/home/path/to/dir ./
 `sshfs` is a filesystem client based on SSH File Transfer Protocol. It allows you to mount a remote filesystem over SSH.
 
 ```sh
-sshfs -p 22 climb@YOUR.IP.ADDRESS:/path/to/remote/folder /path/to/local/mountpoint
+sshfs -p 22 MY_USER@YOUR.IP.ADDRESS:/path/to/remote/folder /path/to/local/mountpoint
 ```
