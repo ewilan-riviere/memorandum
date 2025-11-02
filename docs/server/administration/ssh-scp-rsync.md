@@ -275,7 +275,7 @@ rsync -Phhr username@server:/home/path/to/dir ./
 rsync -Phhr -e 'ssh -p <port>' username@server:/home/path/to/dir ./
 ```
 
-# SSH FileSystem
+## SSH FileSystem
 
 `sshfs` is a filesystem client based on SSH File Transfer Protocol. It allows you to mount a remote filesystem over SSH.
 
