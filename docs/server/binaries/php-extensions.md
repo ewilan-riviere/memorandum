@@ -226,7 +226,7 @@ If you use `predis/predis`, you don't need to install `phpredis` extension but `
 
 To use Redis with Laravel, you have to set your Redis client in your `.env` file.
 
-```env:.env
+```txt:.env
 # for phpredis
 REDIS_CLIENT=phpredis
 REDIS_HOST=127.0.0.1
@@ -234,7 +234,7 @@ REDIS_PASSWORD=null
 REDIS_PORT=6379
 ```
 
-```env:.env
+```txt:.env
 # for predis/predis
 REDIS_CLIENT=predis
 REDIS_HOST=127.0.0.1

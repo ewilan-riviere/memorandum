@@ -48,7 +48,7 @@ Build and run the project:
 
 ```sh
 docker compose down
-docker compose up --build -d
+docker compose up -d
 ```
 
 Website is available at `3000` port by default (you can change it in the `.env` file).
