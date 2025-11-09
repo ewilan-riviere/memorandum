@@ -82,10 +82,27 @@ sudo systemctl status docker
 
 ### Allow non-root user to run docker
 
-```sh
+::: code-group
+
+```sh [with gpasswd]
 sudo gpasswd -a $USER docker
 newgrp docker
 ```
+
+```sh [with groupadd]
+sudo groupadd docker
+sudo usermod -aG docker $USER
+```
+
+```sh [with synology]
+sudo synogroup --add docker
+sudo chown root:docker /var/run/docker.sock
+sudo synogroup --member docker $USER
+```
+
+:::
+
+After this, you may need to log out and back in, or even restart your machine before the permissions take effect.
 
 ### Login to Docker Hub
 
