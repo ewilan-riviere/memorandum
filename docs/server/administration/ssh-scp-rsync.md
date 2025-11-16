@@ -257,6 +257,22 @@ From personal computer to server
 scp -P <port> file.txt username@to_host:/remote/directory/
 ```
 
+### With SSH config
+
+Using the previous `~/.ssh/config` example, you can use SCP with the alias.
+
+Copy file to server
+
+```sh
+scp file.txt my-wonderful-server:/home/unicorn_admin
+```
+
+Copy file from server
+
+```sh
+scp my-wonderful-server:/home/unicorn_admin/file.txt ./
+```
+
 ## rsync
 
 Good alternative to SCP, [rsync](https://www.digitalocean.com/community/tutorials/how-to-use-rsync-to-sync-local-and-remote-directories-on-a-vps) is a fast and versatile command-line utility for synchronizing files and directories between two locations over a remote shell, or from/to a remote rsync daemon. It uses an algorithm that minimizes the amount of data copied by only moving the portions of files that have changed.

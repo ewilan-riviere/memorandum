@@ -180,6 +180,7 @@ function sidebarServer(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: 'Disk', link: 'sysadmin/disk' },
+        { text: 'Network', link: 'sysadmin/network' },
       ],
     },
     {

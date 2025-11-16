@@ -142,6 +142,7 @@ running_processes=$(ps aux | wc -l)
 
 ip_address_v4=$(ip a | grep glo | awk '{print $2}' | head -1 | cut -f1 -d/)
 ip_address_v6=$(wget -q -O - http://icanhazip.com/ | tail)
+mac_address=$(ip link show | awk '/ether/ {print $2; exit}')
 
 COLOR_DEFAULT="\033[0m"
 COLOR_INFO="\033[0;37m"
@@ -173,6 +174,7 @@ printf "${COLOR_INFO}Disk...................${LIGHT_GREEN} %s\n" "${disk_used} /
 printf "\n"
 printf "${COLOR_INFO}IP address v4..........${LIGHT_GREEN} %s\n" "${ip_address_v4}"
 printf "${COLOR_INFO}IP address v6..........${LIGHT_GREEN} %s\n" "${ip_address_v6}"
+printf "${COLOR_INFO}MAC address............${LIGHT_GREEN} %s\n" "${mac_address}"
 printf "${COLOR_DEFAULT}"
 ```
 
@@ -216,6 +218,16 @@ You can update original MOTD with:
 
 ```sh
 sudo vim /etc/motd
+```
+
+Or remove other files that generate motd at login:
+
+```sh
+find . -maxdepth 1 -type f ! -name '00-hostname' \
+  ! -name '10-banner' \
+  ! -name '20-sysinfo' \
+  ! -name 'colors' \
+  -exec rm -f {} +
 ```
 
 ## Errors
