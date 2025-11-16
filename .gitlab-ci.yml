@@ -2,29 +2,7 @@ variables:
   DOCKER_IMAGE: "node:20.15.0"
 
 stages:
-  # - test
   - deploy
-
-# test-job:
-#   stage: test
-#   image: $DOCKER_IMAGE
-#   before_script:
-#     - "command -v ssh-agent >/dev/null || ( apk add --update openssh )"
-#     - eval $(ssh-agent -s)
-#     - echo "$SSH_CLONE_TESTING_KEY" | tr -d '\r' | ssh-add -
-#     - mkdir -p ~/.ssh
-#     - chmod 700 ~/.ssh
-#     - ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
-#     - chmod 644 ~/.ssh/known_hosts
-#     - git clone git@gitlab.com:kiwilan/memorandum.git
-#     - cd memorandum
-#     - npm install -g pnpm
-#   script:
-#     - pnpm i
-#     - echo "Building..."
-#     - pnpm build
-#   only:
-#     - main
 
 deploy-job:
   stage: deploy
