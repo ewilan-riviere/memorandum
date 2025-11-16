@@ -205,6 +205,17 @@ default via 192.168.1.254
 
 You can set static DHCP leases by update settings in your DHCP server configuration.
 
+```sh
+sudo vim /etc/network/interfaces
+```
+
+Add the following lines to configure your network interface to use DHCP, here `eno1` is the name of your network interface:
+
+```conf:/etc/network/interfaces
+auto eno1
+iface eno1 inet dhcp
+```
+
 Choose DHCP menu in your router administration panel.
 
 ![](/docs/router/static-dhcp-lease-1.jpg)
