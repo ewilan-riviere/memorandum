@@ -5,6 +5,19 @@ description: Network management
 
 # Network
 
+## Physical network devices
+
+List all physical network devices
+
+```sh
+lspci -nn | grep -i eth
+```
+
+```bash:output
+27:00.0 Ethernet controller [0200]: Realtek Semiconductor Co., Ltd. RTL8111/8168/8211/8411 PCI Express Gigabit Ethernet Controller [10ec:8168] (rev 15)
+28:00.0 Ethernet controller [0200]: Realtek Semiconductor Co., Ltd. RTL8125 2.5GbE Controller [10ec:8125] (rev 05)
+```
+
 ## MAC address
 
 List all MAC addresses
