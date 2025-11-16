@@ -227,3 +227,52 @@ Add a new static lease by entering MAC address, IP address, and description.
 ![](/docs/router/static-dhcp-lease-3.jpg)
 
 And now, device associated with the MAC address will always get the same IP address from DHCP server.
+
+## Ubuntu disable Cloud-init network configuration
+
+If you are using Ubuntu with Cloud-init, you may need to disable Cloud-init network configuration to manage network settings manually.
+
+Create or edit the Cloud-init configuration file:
+
+```sh
+sudo vim /etc/cloud/cloud.cfg.d/99-disable-cloud-init.cfg
+```
+
+Add the following lines to disable Cloud-init network configuration:
+
+```yaml:/etc/cloud/cloud.cfg.d/99-disable-cloud-init.cfg
+network: {config: disabled}
+```
+
+Save the file and exit the editor.
+
+```sh
+sudo vim /etc/netplan/01-main.yaml
+```
+
+Here, `eno1` is the name of your network interface. Adjust it according to your system.
+
+```yaml:/etc/netplan/01-main.yaml
+network:
+  version: 2
+  ethernets:
+    eno1:
+      dhcp4: true
+```
+
+```sh
+sudo mv /etc/netplan/50-cloud-init.yaml /root/
+```
+
+Then, regenerate the network configuration files:
+
+```sh
+sudo netplan generate
+sudo netplan apply
+```
+
+Reboot the system to apply the changes:
+
+```sh
+sudo reboot
+```
