@@ -192,7 +192,7 @@ cd phpredis
 Compile from source
 
 ```sh
-phpize
+sudo phpize
 ./configure [--enable-redis-igbinary] [--enable-redis-msgpack] [--enable-redis-lzf [--with-liblzf[=DIR]]] [--enable-redis-zstd]
 make
 ```
