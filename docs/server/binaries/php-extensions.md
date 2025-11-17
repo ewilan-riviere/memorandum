@@ -430,7 +430,7 @@ ls /opt/homebrew/Cellar/php/
 Link `pcre2` to current `php`.
 
 ```sh
-ln -s /opt/homebrew/Cellar/pcre2/YOU_VERSION/include/pcre2.h /opt/homebrew/Cellar/php/YOU_VERSION/include/php/ext/pcre/pcre2.h
+ln -s /opt/homebrew/Cellar/pcre2/<PCRE2_VERSION>/include/pcre2.h /opt/homebrew/Cellar/php/<PHP_VERSION>/include/php/ext/pcre/pcre2.h
 ```
 
 ::: info Script
