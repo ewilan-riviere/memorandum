@@ -142,7 +142,7 @@ cd pcov
 Compile from source
 
 ```sh
-phpize
+sudo phpize
 ./configure --enable-pcov
 make
 make test
@@ -418,7 +418,11 @@ On macOS you need to install `pcre2` and link it to current PHP version.
 
 ```sh
 brew install pcre2
+# OR
+brew reinstall pcre2
 ```
+
+File `/opt/homebrew/opt/pcre2/include/pcre2.h` have to be present.
 
 Check current versions
 
@@ -431,6 +435,8 @@ Link `pcre2` to current `php`.
 
 ```sh
 ln -s /opt/homebrew/Cellar/pcre2/<PCRE2_VERSION>/include/pcre2.h /opt/homebrew/Cellar/php/<PHP_VERSION>/include/php/ext/pcre/pcre2.h
+# OR
+ln -s /opt/homebrew/opt/pcre2/include/pcre2.h /opt/homebrew/opt/php@8.4/include/php/ext/pcre/pcre2.h
 ```
 
 ::: info Script
