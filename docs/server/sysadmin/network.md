@@ -203,8 +203,6 @@ default via 192.168.1.254
 
 ## Static DHCP leases
 
-### Via router
-
 You can set static DHCP leases by update settings in your DHCP server configuration.
 
 ```sh
