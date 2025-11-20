@@ -203,6 +203,8 @@ default via 192.168.1.254
 
 ## Static DHCP leases
 
+### Via router
+
 You can set static DHCP leases by update settings in your DHCP server configuration.
 
 ```sh
@@ -228,6 +230,15 @@ Add a new static lease by entering MAC address, IP address, and description.
 
 And now, device associated with the MAC address will always get the same IP address from DHCP server.
 
+You can now claim the new IP address by renewing the DHCP lease on your server:
+
+_Here, `eno1` is the name of your network interface. Adjust it according to your system._
+
+```sh
+sudo dhclient -r eno1
+sudo dhclient eno1
+```
+
 ## Ubuntu disable Cloud-init network configuration
 
 If you are using Ubuntu with Cloud-init, you may need to disable Cloud-init network configuration to manage network settings manually.
@@ -244,6 +255,14 @@ Add the following lines to disable Cloud-init network configuration:
 network: {config: disabled}
 ```
 
+Find your MAC address of the main network interface:
+
+Here, `eno1` is the name of your network interface. Adjust it according to your system.
+
+```sh
+ip link show eno1
+```
+
 Save the file and exit the editor.
 
 ```sh
@@ -257,6 +276,7 @@ network:
   version: 2
   ethernets:
     eno1:
+      macaddress: cc:64:1a:f1:bb:19
       dhcp4: true
 ```
 
@@ -269,6 +289,13 @@ Then, regenerate the network configuration files:
 ```sh
 sudo netplan generate
 sudo netplan apply
+```
+
+Restart networking service:
+
+```sh
+sudo systemctl restart networking.service
+sudo systemctl status networking.service
 ```
 
 Reboot the system to apply the changes:
