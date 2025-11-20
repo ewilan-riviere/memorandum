@@ -298,3 +298,9 @@ rsync -Phhr -e 'ssh -p <port>' username@server:/home/path/to/dir ./
 ```sh
 sshfs -p 22 MY_USER@YOUR.IP.ADDRESS:/path/to/remote/folder /path/to/local/mountpoint
 ```
+
+To umount the filesystem:
+
+```sh
+sudo umount -f /path/to/local/mountpoint
+```
