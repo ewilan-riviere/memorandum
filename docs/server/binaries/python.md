@@ -17,7 +17,11 @@ sudo apt -y install python3
 ## Create a virtual environment
 
 ```sh
+# For Ubuntu/Debian systems
 sudo apt -y install python3-venv
+```
+
+```sh
 mkdir -p ~/bin/venv
 python3 -m venv ~/bin/venv
 source ~/bin/venv/bin/activate
@@ -26,10 +30,8 @@ source ~/bin/venv/bin/activate
 Add the following to your `.zshrc`:
 
 ```sh
-<<EOF>> ~/.zshrc cat
-alias py-env="source ~/bin/venv/bin/activate"
+alias python="python3"
 alias py="source ~/bin/venv/bin/activate && python3"
-EOF
 ```
 
 Source the `.zshrc`:
@@ -50,11 +52,17 @@ Or run Python directly:
 py
 ```
 
+## Upgrade pip
+
+```sh
+pip install --upgrade pip
+```
+
 ## Use scripts
 
 Create a script file, like `hello.py`:
 
-```python
+```py:hello.py
 print("Hello, World!")
 ```
 

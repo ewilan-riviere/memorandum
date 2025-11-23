@@ -115,8 +115,8 @@ Add this to `.zshrc`
 vim ~/.zshrc
 ```
 
-```sh[~/.zshrc]
-export PATH=~/.config/composer/vendor/bin:$PATH
+```bash:~/.zshrc
+export PATH="$HOME/.composer/vendor/bin:$PATH"
 ```
 
 ```sh

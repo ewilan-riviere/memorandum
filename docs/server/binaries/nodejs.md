@@ -33,9 +33,9 @@ If NVM is already in `~/.zshrc`, you can skip this step.
 vim ~/.zshrc
 ```
 
-```sh[.zshrc]
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+```bash:~/.zshrc
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 ```
 
 Reload `~/.zshrc`
@@ -126,4 +126,34 @@ If it's not there, you can add it.
 ```sh
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+```
+
+## PNPM
+
+You can also install `pnpm` package manager for Node.js.
+
+```sh
+npm install -g pnpm
+```
+
+Check `pnpm` version
+
+```sh
+pnpm -v
+```
+
+Add `pnpm` to PATH
+
+```bash:~/.zshrc
+export PNPM_HOME="/Users/$USER/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+```
+
+Reload shell
+
+```sh
+source ~/.zshrc
 ```

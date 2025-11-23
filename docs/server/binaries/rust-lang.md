@@ -84,8 +84,8 @@ If it's not there, you can add it.
 vim ~/.zshrc
 ```
 
-```sh [~/.zshrc]
-export PATH=$HOME/.cargo/bin:$PATH
+```bash:~/.zshrc
+export PATH="$HOME/.cargo/bin:$PATH"
 ```
 
 ```sh

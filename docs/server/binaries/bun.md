@@ -21,6 +21,12 @@ powershell -c "irm bun.sh/install.ps1 | iex"
 
 :::
 
+```bash:~/.zshrc
+[ -s "/Users/ewilan/.bun/_bun" ] && source "/Users/ewilan/.bun/_bun"
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+```
+
 Reload shell
 
 ```sh

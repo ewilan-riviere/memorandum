@@ -139,3 +139,20 @@ After this, you may need to log out and back in, or even restart your machine be
 ```sh
 sudo docker login
 ```
+
+## Shortcuts
+
+You can create shortcuts for docker commands by adding aliases to your `~/.zshrc` or `~/.bashrc`.
+
+```sh
+vim ~/.zshrc
+```
+
+```bash:~/.zshrc
+alias d-clean='docker image prune -f -a && docker volume prune -f -a'
+alias d-clean-network='docker network prune -f'
+alias d-clean-container='docker container prune -f -a'
+alias d-ps='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}"'
+alias d-stats='docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.NetIO}}"'
+alias dc='docker compose'
+```

@@ -211,7 +211,7 @@ sudo vim /etc/network/interfaces
 
 Add the following lines to configure your network interface to use DHCP, here `eno1` is the name of your network interface:
 
-```conf:/etc/network/interfaces
+```txt:/etc/network/interfaces
 auto eno1
 iface eno1 inet dhcp
 ```
