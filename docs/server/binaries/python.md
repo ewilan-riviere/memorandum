@@ -22,16 +22,18 @@ sudo apt -y install python3-venv
 ```
 
 ```sh
-mkdir -p ~/bin/venv
-python3 -m venv ~/bin/venv
-source ~/bin/venv/bin/activate
+# Create a virtual environment in your home directory
+python3 -m venv ~/venv_python
+# Activate the virtual environment
+source ~/venv_python/bin/activate
 ```
 
 Add the following to your `.zshrc`:
 
 ```sh
 alias python="python3"
-alias py="source ~/bin/venv/bin/activate && python3"
+alias py-env="source ~/venv_python/bin/activate"
+alias py="source ~/venv_python/bin/activate && python3"
 ```
 
 Source the `.zshrc`:
@@ -88,4 +90,4 @@ pip install <package>
 
 ## VSCode environment
 
-For VSCode users, use `Shift+Ctrl+P` / `Shift+Cmd+P` and select `Python: Select Interpreter` to select local virtual environment, like `/Users/$USER/bin/venv/bin`.
+For VSCode users, use `Shift+Ctrl+P` / `Shift+Cmd+P` and select `Python: Select Interpreter` to select local virtual environment, like `/Users/$USER/venv_python/bin/python`.

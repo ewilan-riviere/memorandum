@@ -20,7 +20,7 @@ Edit system configuration
 ::: code-group
 
 ```sh [Manual]
-sudo vim /etc/vim/vimrc
+sudo vim /etc/vim/vimrc # ~/.vimrc for macOS
 ```
 
 ```sh [Inline]
@@ -36,6 +36,7 @@ set ignorecase
 set ruler
 set showcmd
 set mouse=a
+syntax on
 EOT
 ```
 
@@ -65,6 +66,7 @@ set ignorecase
 set ruler
 set showcmd
 set mouse=a
+syntax on
 ```
 
 ## Commands
