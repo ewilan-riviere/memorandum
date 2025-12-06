@@ -301,3 +301,21 @@ Reboot the system to apply the changes:
 ```sh
 sudo reboot
 ```
+
+## Raspberry Pi
+
+### Disable Wi-Fi and Bluetooth
+
+To disable Wi-Fi and Bluetooth on a Raspberry Pi, you can modify the `/boot/firmware/config.txt` file.
+
+```ini:/boot/firmware/config.txt
+[all]
+dtoverlay=disable-wifi
+dtoverlay=disable-bt
+```
+
+After making these changes, save the file and reboot your Raspberry Pi for the changes to take effect.
+
+```sh
+sudo reboot
+```
