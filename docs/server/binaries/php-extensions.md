@@ -524,3 +524,41 @@ Now you remove local `php-rar`.
 ```sh
 rm -r ~/php-rar
 ```
+
+### Failed loading `/opt/homebrew/opt/php/.../opcache.so`
+
+For this macOS error, you have to bind `opcache` extension to current PHP version.
+
+```sh
+php --ini
+```
+
+```sh:output
+Failed loading /opt/homebrew/opt/php/lib/php/20240924/opcache.so [...]
+Configuration File (php.ini) Path: /opt/homebrew/etc/php/8.4
+Loaded Configuration File:         /opt/homebrew/etc/php/8.4/php.ini
+Scan for additional .ini files in: /opt/homebrew/etc/php/8.4/conf.d
+Additional .ini files parsed:      /opt/homebrew/etc/php/8.4/conf.d/error_log.ini,
+/opt/homebrew/etc/php/8.4/conf.d/ext-opcache.ini,
+/opt/homebrew/etc/php/8.4/conf.d/php-memory-limits.ini
+```
+
+You have to check configuration file path and edit `ext-opcache.ini`.
+
+```sh
+cat /opt/homebrew/etc/php/8.4/conf.d/ext-opcache.ini
+```
+
+Check if path is correct.
+
+```ini
+[opcache]
+zend_extension=/opt/homebrew/opt/php/lib/php/20240924/opcache.so # path could be different
+```
+
+If this path doesn't exist, you have to find correct path, for example:
+
+```ini
+# example here, path is for PHP 8.4 on Apple Silicon
+zend_extension=/opt/homebrew/opt/php@8.4/lib/php/20240924/opcache.so
+```
