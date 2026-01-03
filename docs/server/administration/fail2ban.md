@@ -136,7 +136,7 @@ sudo systemctl enable fail2ban
 sudo systemctl start fail2ban
 ```
 
-## Disable
+### Disable
 
 Stop and disable the service.
 
