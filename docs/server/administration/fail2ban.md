@@ -102,7 +102,7 @@ You have to get an output like this:
 DATETIME HOSTNAME systemd[1]: Started fail2ban.service - Fail2Ban Service.
 ```
 
-### Add filter: Plex
+### Add jail example: Plex
 
 If you use some service, like [Plex](https://www.plex.tv/), you can add jail.
 
