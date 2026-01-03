@@ -3,124 +3,129 @@ title: fail2ban
 description: Protect SSH with fail2ban on Debian
 ---
 
-# fail2ban
-
 {{ $frontmatter.description }}
 
 ::: info
 
 - Official: <https://www.fail2ban.org/wiki/index.php/Main_Page>
-- Digital Ocean: <https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-debian-11>
-- LinuxCapable: <https://www.linuxcapable.com/how-to-install-fail2ban-on-debian-linux/>
 
 :::
 
 ## Installation
 
-Install the package.
+Install `fail2ban` via `apt`:
 
 ```sh
 sudo apt update
-sudo apt install -y fail2ban
+sudo apt install fail2ban -y
 ```
 
 ## Configuration
 
-Create a copy of the default configuration file.
+Create local configuration for `fail2ban`:
+
+```sh
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+```
+
+Create log files:
+
+```sh
+sudo rm /var/log/fail2ban.log && \
+  sudo touch /var/log/fail2ban.log && \
+  sudo mkdir -p /var/log/fail2ban && \
+  sudo touch /var/log/fail2ban/sshd.log && \
+  sudo touch /var/log/fail2ban/nginx-http-auth.log && \
+  sudo touch /var/log/fail2ban/nginx-botsearch.log && \
+  sudo touch /var/log/fail2ban/plex.log
+```
+
+Edit `fail2ban` config:
 
 ```sh
 sudo vim /etc/fail2ban/jail.local
 ```
 
-::: warning
-If you change SSH port, you need to update the configuration file in the `[sshd]` section.
+```ini:/etc/fail2ban/jail.local
+[DEFAULT] # l.41
+# Add any IP address to whitelist it
+ignoreip = 127.0.0.1/8 ::1 PUBLIC_IP_ADDRESS # l.92
+bantime  = 1h # l.101
+findtime  = 10m # l.105
+maxretry = 5 # l.108
 
-```sh:/etc/fail2ban/jail.local
-[sshd]
-port = <port>
-```
-
-:::
-
-```sh:/etc/fail2ban/jail.local
-[DEFAULT]
-maxretry = 5 # maximum number of retries before a host gets banned
-bantime = 3600 # in seconds, 1 hour
-findtime = 10m # 10 minutes
-
-; destemail = votre.email@example.com
-; sender = fail2ban@example.com
-; mta = sendmail
-; action = %(action_mwl)s
-
-[sshd]
+# --- SSH PROTECTION ---
+[sshd] # l.274
 enabled = true
-port = ssh
-filter = sshd
-logpath = /var/log/fail2ban.log
+# Here change your SSH port if you custom it like `2222`
+port    = 22 # l.280
+filter  = sshd
+logpath  = /var/log/fail2ban/sshd.log
+backend = systemd
 
-[nginx-http-auth]
-enabled = true
-filter = nginx-http-auth
-action = iptables[name=HTTPAuth, port=http, protocol=tcp]
-logpath = /var/log/nginx/error.log
-maxretry = 3
+# --- NGINX PROTECTION (HTPASSWD) ---
+[nginx-http-auth] # l.376
+enabled  = true
+port     = http,https # l.378
+# %(nginx_error_log)s is variable to /var/log/nginx/error.log
+logpath  = /var/log/fail2ban/nginx-http-auth.log
 
-[nginx-botsearch]
-enabled = true
-filter = nginx-botsearch
-action = iptables[name=BotSearch, port=http, protocol=tcp]
-logpath = /var/log/nginx/access.log
+# --- BOT PROTECTION ---
+[nginx-botsearch] # l.389
+enabled  = true
+port     = http,https # l.395
+logpath  = /var/log/fail2ban/nginx-botsearch.log
 maxretry = 2
+
+# Add this if useful
+# --- PLEX PROTECTION ---
+[plex]
+enabled  = true
+filter   = plex
+port     = 32400
+logpath  = /var/log/fail2ban/plex.log
+maxretry = 3
 ```
 
-Check if `/var/log/fail2ban.log` exists.
-
-```sh
-sudo rm /var/log/fail2ban.log
-sudo touch /var/log/fail2ban.log
-```
-
-Remove optional IPv6 support.
-
-```sh
-sudo vim /etc/fail2ban/fail2ban.local
-```
-
-```sh [/etc/fail2ban/fail2ban.local]
-[Definition]
-allowipv6 = no
-```
-
-### Plex
-
-If you use Plex, you need to add the following configuration.
+If you add `[plex]` section, add Plex filter:
 
 ```sh
 sudo vim /etc/fail2ban/filter.d/plex.conf
 ```
 
-```sh:/etc/fail2ban/filter.d/plex.conf
+```ini:/etc/fail2ban/filter.d/plex.conf
 [Definition]
-failregex = Plex Login failed for user .* from <HOST>
+# Détection des échecs de connexion dans les logs Plex
+failregex = ^.*WARN - (?:.*) IP:<HOST>.*auth\.failed.*$
 ignoreregex =
 ```
 
+Reset `fail2ban` and check status:
+
 ```sh
-sudo vim /etc/fail2ban/jail.local
+sudo service fail2ban stop && sudo service fail2ban start && sudo service fail2ban status
 ```
 
-```sh:/etc/fail2ban/jail.local
-[plex]
-enabled = true
-port = 32400
-filter = plex
-logpath = /var/log/plex.log
-maxretry = 5
-bantime = 600
+You have to get an output like this:
+
+```sh:output
+● fail2ban.service - Fail2Ban Service
+     Loaded: loaded (/lib/systemd/system/fail2ban.service; enabled; preset: enabled)
+     Active: active (running) since DATETIME CET; ms ago
+       Docs: man:fail2ban(1)
+   Main PID: X (fail2ban-server)
+      Tasks: 1 (limit: X)
+     Memory: 4.5M
+        CPU: 21ms
+     CGroup: /system.slice/fail2ban.service
+             X /usr/bin/python3 /usr/bin/fail2ban-server -xf start
+
+DATETIME HOSTNAME systemd[1]: Started fail2ban.service - Fail2Ban Service.
 ```
 
-## Enable
+## Commands
+
+### Enable
 
 Enable and start the service.
 
@@ -129,51 +134,7 @@ sudo systemctl enable fail2ban
 sudo systemctl start fail2ban
 ```
 
-Check the status.
-
-```sh
-sudo systemctl status fail2ban
-```
-
-## Commands
-
-### Restart
-
-```sh
-sudo systemctl restart fail2ban
-```
-
-### Status
-
-```sh
-sudo systemctl status fail2ban
-```
-
-### Check
-
-```sh
-sudo fail2ban-client status
-```
-
-### Logs
-
-```sh
-sudo tail -f /var/log/fail2ban.log
-```
-
-### Unban
-
-```sh
-sudo fail2ban-client set sshd unbanip
-```
-
-### Check banned IPs
-
-```sh
-sudo fail2ban-client status sshd
-```
-
-## Uninstall
+## Disable
 
 Stop and disable the service.
 
@@ -193,4 +154,110 @@ Remove the configuration files.
 ```sh
 sudo rm -rf /etc/fail2ban
 sudo rm -rf /var/log/fail2ban.log
+```
+
+### Status
+
+Check the status from `systemctl`:
+
+```sh
+sudo systemctl status fail2ban
+```
+
+Check status from `fail2ban` to get jails:
+
+```sh
+sudo fail2ban-client status
+```
+
+### Restart
+
+```sh
+sudo systemctl restart fail2ban
+```
+
+### Logs
+
+```sh
+sudo tail -f /var/log/fail2ban.log
+```
+
+### Unban
+
+Unban specific IP
+
+```sh
+sudo fail2ban-client set sshd unbanip IP_ADDRESS
+```
+
+Unban all IP
+
+```sh
+sudo fail2ban-client unban --all
+```
+
+### Check banned IPs
+
+Replace `JAIL` with `nginx-botsearch`, `nginx-http-auth`, `plex`, `sshd`
+
+```sh
+sudo fail2ban-client status JAIL
+```
+
+## Test
+
+### Configuration
+
+Test configuration:
+
+```sh
+sudo fail2ban-server -t
+```
+
+Check whether your Regex (regular expressions) correctly detect the lines in your logs:
+
+```sh
+echo '2026/01/03 10:05:00 [error] 1234#0: *5 user "admin": password mismatch, client: 1.2.3.4, server: localhost, request: "GET /admin HTTP/1.1"' | sudo tee /var/log/fail2ban/nginx-http-auth.log
+sudo fail2ban-regex /var/log/fail2ban/nginx-http-auth.log /etc/fail2ban/filter.d/nginx-http-auth.conf
+```
+
+### Simulate ban
+
+Simulate ban of `1.2.3.4`
+
+```sh
+sudo fail2ban-client set nginx-http-auth banip 1.2.3.4
+```
+
+IP should be in prison:
+
+```sh
+sudo fail2ban-client status nginx-http-auth
+```
+
+And reject by firewall:
+
+```sh
+sudo iptables -L -n | grep 1.2.3.4
+```
+
+You can now unban IP:
+
+```sh
+sudo fail2ban-client set nginx-http-auth unbanip 1.2.3.4
+```
+
+### Real ban
+
+If you really want to test under real conditions (for example, for NGINX `htpasswd` authentication):
+
+- Use another device (smartphone with 4G, not Wi-Fi on the same network)
+- Go to your protected page
+- Enter incorrect credentials several times (depending on your maxretry)
+- Your smartphone should eventually receive a “Timeout” or “Connection refused” error
+
+You can now unban all IP:
+
+```sh
+sudo fail2ban-client unban --all
 ```
