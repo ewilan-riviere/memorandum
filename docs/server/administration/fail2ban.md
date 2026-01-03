@@ -125,6 +125,64 @@ You have to get an output like this:
 DATETIME HOSTNAME systemd[1]: Started fail2ban.service - Fail2Ban Service.
 ```
 
+## Test
+
+### Configuration
+
+Test configuration:
+
+```sh
+sudo fail2ban-server -t
+```
+
+Check whether your Regex (regular expressions) correctly detect the lines in your logs:
+
+```sh
+echo '2026/01/03 10:05:00 [error] 1234#0: *5 user "admin": password mismatch, client: 1.2.3.4, server: localhost, request: "GET /admin HTTP/1.1"' | sudo tee /var/log/fail2ban/nginx-http-auth.log
+sudo fail2ban-regex /var/log/fail2ban/nginx-http-auth.log /etc/fail2ban/filter.d/nginx-http-auth.conf
+```
+
+### Simulate ban
+
+Simulate ban of `1.2.3.4`
+
+```sh
+sudo fail2ban-client set nginx-http-auth banip 1.2.3.4
+```
+
+IP should be in prison:
+
+```sh
+sudo fail2ban-client status nginx-http-auth
+```
+
+And reject by firewall:
+
+```sh
+sudo iptables -L -n | grep 1.2.3.4
+```
+
+You can now unban IP:
+
+```sh
+sudo fail2ban-client set nginx-http-auth unbanip 1.2.3.4
+```
+
+### Real ban
+
+If you really want to test under real conditions (for example, for NGINX `htpasswd` authentication):
+
+- Use another device (smartphone with 4G, not Wi-Fi on the same network)
+- Go to your protected page
+- Enter incorrect credentials several times (depending on your maxretry)
+- Your smartphone should eventually receive a “Timeout” or “Connection refused” error
+
+You can now unban all IP:
+
+```sh
+sudo fail2ban-client unban --all
+```
+
 ## Commands
 
 ### Enable
@@ -204,62 +262,4 @@ Replace `JAIL` with `nginx-botsearch`, `nginx-http-auth`, `plex`, `sshd`
 
 ```sh
 sudo fail2ban-client status JAIL
-```
-
-## Test
-
-### Configuration
-
-Test configuration:
-
-```sh
-sudo fail2ban-server -t
-```
-
-Check whether your Regex (regular expressions) correctly detect the lines in your logs:
-
-```sh
-echo '2026/01/03 10:05:00 [error] 1234#0: *5 user "admin": password mismatch, client: 1.2.3.4, server: localhost, request: "GET /admin HTTP/1.1"' | sudo tee /var/log/fail2ban/nginx-http-auth.log
-sudo fail2ban-regex /var/log/fail2ban/nginx-http-auth.log /etc/fail2ban/filter.d/nginx-http-auth.conf
-```
-
-### Simulate ban
-
-Simulate ban of `1.2.3.4`
-
-```sh
-sudo fail2ban-client set nginx-http-auth banip 1.2.3.4
-```
-
-IP should be in prison:
-
-```sh
-sudo fail2ban-client status nginx-http-auth
-```
-
-And reject by firewall:
-
-```sh
-sudo iptables -L -n | grep 1.2.3.4
-```
-
-You can now unban IP:
-
-```sh
-sudo fail2ban-client set nginx-http-auth unbanip 1.2.3.4
-```
-
-### Real ban
-
-If you really want to test under real conditions (for example, for NGINX `htpasswd` authentication):
-
-- Use another device (smartphone with 4G, not Wi-Fi on the same network)
-- Go to your protected page
-- Enter incorrect credentials several times (depending on your maxretry)
-- Your smartphone should eventually receive a “Timeout” or “Connection refused” error
-
-You can now unban all IP:
-
-```sh
-sudo fail2ban-client unban --all
 ```
