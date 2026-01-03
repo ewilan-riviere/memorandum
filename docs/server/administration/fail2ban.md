@@ -3,6 +3,8 @@ title: fail2ban
 description: Protect SSH with fail2ban on Debian
 ---
 
+# fail2ban
+
 {{ $frontmatter.description }}
 
 ::: info
