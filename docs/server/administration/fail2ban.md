@@ -38,8 +38,7 @@ sudo rm /var/log/fail2ban.log && \
   sudo mkdir -p /var/log/fail2ban && \
   sudo touch /var/log/fail2ban/sshd.log && \
   sudo touch /var/log/fail2ban/nginx-http-auth.log && \
-  sudo touch /var/log/fail2ban/nginx-botsearch.log && \
-  sudo touch /var/log/fail2ban/plex.log
+  sudo touch /var/log/fail2ban/nginx-botsearch.log
 ```
 
 Edit `fail2ban` config:
@@ -78,28 +77,6 @@ enabled  = true
 port     = http,https # l.395
 logpath  = /var/log/fail2ban/nginx-botsearch.log
 maxretry = 2
-
-# Add this if useful
-# --- PLEX PROTECTION ---
-[plex]
-enabled  = true
-filter   = plex
-port     = 32400
-logpath  = /var/log/fail2ban/plex.log
-maxretry = 3
-```
-
-If you add `[plex]` section, add Plex filter:
-
-```sh
-sudo vim /etc/fail2ban/filter.d/plex.conf
-```
-
-```ini:/etc/fail2ban/filter.d/plex.conf
-[Definition]
-# Détection des échecs de connexion dans les logs Plex
-failregex = ^.*WARN - (?:.*) IP:<HOST>.*auth\.failed.*$
-ignoreregex =
 ```
 
 Reset `fail2ban` and check status:
@@ -123,6 +100,46 @@ You have to get an output like this:
              X /usr/bin/python3 /usr/bin/fail2ban-server -xf start
 
 DATETIME HOSTNAME systemd[1]: Started fail2ban.service - Fail2Ban Service.
+```
+
+### Add filter: Plex
+
+If you use some service, like [Plex](https://www.plex.tv/), you can add jail.
+
+Create log file:
+
+```sh
+sudo touch /var/log/fail2ban/plex.log
+```
+
+Add Plex filter:
+
+```sh
+sudo vim /etc/fail2ban/filter.d/plex.conf
+```
+
+```ini:/etc/fail2ban/filter.d/plex.conf
+[Definition]
+# Détection des échecs de connexion dans les logs Plex
+failregex = ^.*WARN - (?:.*) IP:<HOST>.*auth\.failed.*$
+ignoreregex =
+```
+
+And edit main config to add `[plex]` section:
+
+```sh
+sudo vim /etc/fail2ban/jail.local
+```
+
+```ini:/etc/fail2ban/jail.local
+# Add this at the end
+# --- PLEX PROTECTION ---
+[plex]
+enabled  = true
+filter   = plex
+port     = 32400
+logpath  = /var/log/fail2ban/plex.log
+maxretry = 3
 ```
 
 ## Test
