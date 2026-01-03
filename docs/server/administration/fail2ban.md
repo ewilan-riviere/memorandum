@@ -142,6 +142,12 @@ logpath  = /var/log/fail2ban/plex.log
 maxretry = 3
 ```
 
+And restart `fail2ban`:
+
+```sh
+sudo service fail2ban restart
+```
+
 ## Test
 
 ### Configuration
