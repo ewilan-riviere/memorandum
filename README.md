@@ -8,7 +8,7 @@
 
 Personal documentation, deploy on [memorandum.kiwilan.app](https://memorandum.kiwilan.app), built using [Vitepress](https://vitepress.dev/), a modern static website generator.
 
-## Installation
+## Local
 
 ```
 pnpm i
@@ -16,22 +16,6 @@ pnpm i
 
 ```
 pnpm dev
-```
-
-### Deployment
-
-Check the [VitePress Deployment Guide](https://vitepress.dev/guide/deploy) for more details.
-
-Build the project:
-
-```sh
-pnpm build
-```
-
-Preview the project:
-
-```sh
-pnpm preview
 ```
 
 ## Docker
