@@ -467,6 +467,29 @@ sudo rm -rf /opt/homebrew/Cellar/php@8.4/8.4.16_1/pecl
 sudo mkdir -p /opt/homebrew/Cellar/php@8.4/8.4.16_1/pecl
 ```
 
+### Not work after installation
+
+```sh
+# sudo make install
+Installing shared extensions:     /opt/homebrew/Cellar/php@8.4/8.4.16_1/pecl/20240924/
+Installing header files:          /opt/homebrew/Cellar/php@8.4/8.4.16_1/include/php/
+```
+
+```sh
+# php --ini
+Warning: PHP Startup: Unable to load dynamic library 'imagick.so' (tried: /opt/homebrew/lib/php/pecl/20240924/imagick.so (dlopen(/opt/homebrew/lib/php/pecl/20240924/imagick.so, 0x0009): tried: '/opt/homebrew/lib/php/pecl/20240924/imagick.so' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/opt/homebrew/lib/php/pecl/20240924/imagick.so' (no such file), '/opt/homebrew/lib/php/pecl/20240924/imagick.so' (no such file)), /opt/homebrew/lib/php/pecl/20240924/imagick.so.so (dlopen(/opt/homebrew/lib/php/pecl/20240924/imagick.so.so, 0x0009): tried: '/opt/homebrew/lib/php/pecl/20240924/imagick.so.so' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/opt/homebrew/lib/php/pecl/20240924/imagick.so.so' (no such file), '/opt/homebrew/lib/php/pecl/20240924/imagick.so.so' (no such file))) in Unknown on line 0
+Configuration File (php.ini) Path: /opt/homebrew/etc/php/8.4
+Loaded Configuration File:         /opt/homebrew/etc/php/8.4/php.ini
+Scan for additional .ini files in: /opt/homebrew/etc/php/8.4/conf.d
+Additional .ini files parsed:      /opt/homebrew/etc/php/8.4/conf.d/error_log.ini,
+/opt/homebrew/etc/php/8.4/conf.d/ext-opcache.ini,
+/opt/homebrew/etc/php/8.4/conf.d/php-memory-limits.ini
+```
+
+```sh
+sudo cp /opt/homebrew/Cellar/php@8.4/8.4.16_1/pecl/20240924/* /opt/homebrew/lib/php/pecl/20240924
+```
+
 ### Attempt to perform an operation not allowed
 
 If you have an error like this
