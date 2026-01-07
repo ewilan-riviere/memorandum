@@ -453,6 +453,20 @@ sudo ln -s /opt/homebrew/Cellar/pcre2/$pcre2_version/include/pcre2.h /opt/homebr
 
 :::
 
+### `make install`: `pecl: File exists`
+
+```sh
+# sudo make install
+mkdir: /opt/homebrew/Cellar/php@8.4/8.4.16_1/pecl: File exists
+mkdir: /opt/homebrew/Cellar/php@8.4/8.4.16_1/pecl: No such file or directory
+make: *** [install-modules] Error 1
+```
+
+```sh
+sudo rm -rf /opt/homebrew/Cellar/php@8.4/8.4.16_1/pecl
+sudo mkdir -p /opt/homebrew/Cellar/php@8.4/8.4.16_1/pecl
+```
+
 ### Attempt to perform an operation not allowed
 
 If you have an error like this
