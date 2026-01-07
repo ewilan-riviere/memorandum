@@ -193,7 +193,7 @@ Compile from source
 
 ```sh
 sudo phpize
-./configure [--enable-redis-igbinary] [--enable-redis-msgpack] [--enable-redis-lzf [--with-liblzf[=DIR]]] [--enable-redis-zstd]
+./configure
 make
 ```
 
@@ -434,12 +434,14 @@ ls /opt/homebrew/Cellar/php/
 Link `pcre2` to current `php`.
 
 ```sh
-ln -s /opt/homebrew/Cellar/pcre2/<PCRE2_VERSION>/include/pcre2.h /opt/homebrew/Cellar/php/<PHP_VERSION>/include/php/ext/pcre/pcre2.h
-# OR
 ln -s /opt/homebrew/opt/pcre2/include/pcre2.h /opt/homebrew/opt/php@8.4/include/php/ext/pcre/pcre2.h
 ```
 
-::: info Script
+::: info If not works
+
+```sh
+ln -s /opt/homebrew/Cellar/pcre2/<PCRE2_VERSION>/include/pcre2.h /opt/homebrew/Cellar/php/<PHP_VERSION>/include/php/ext/pcre/pcre2.h
+```
 
 You can use this script to execute all steps.
 
