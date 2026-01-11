@@ -1,5 +1,5 @@
 services:
-  app:
+  memorandum:
     build:
       context: .
       dockerfile: Dockerfile
