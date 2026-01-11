@@ -1,6 +1,17 @@
-FROM ewilanriviere/alpine-nodejs:v0.3
+FROM ewilanriviere/alpine-nodejs:v0.3 AS build-stage
 
-COPY . /app
-RUN pnpm install --force && pnpm build
+WORKDIR /app
 
-CMD ["pnpm", "run", "start"]
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --force --frozen-lockfile
+
+COPY . .
+RUN pnpm build
+
+FROM nginx:stable-alpine AS production-stage
+
+COPY --from=build-stage /app/docs/.vitepress/dist /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
