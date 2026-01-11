@@ -23,6 +23,6 @@
     "eslint": "^9.19.0",
     "markdown-it-named-code-blocks": "^1.0.6",
     "typescript": "^5.7.3",
-    "vitepress": "^1.6.3"
+    "vitepress": "2.0.0-alpha.15"
   }
 }
