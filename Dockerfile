@@ -7,7 +7,7 @@ RUN pnpm install --force --frozen-lockfile
 COPY . .
 RUN pnpm build
 
-FROM ewilanriviere/nginx-vitepress:v0.2 AS production-stage
+FROM ewilanriviere/nginx-vitepress:v0.3 AS production-stage
 
 COPY --from=build-stage /app/docs/.vitepress/dist /usr/share/nginx/html
 
