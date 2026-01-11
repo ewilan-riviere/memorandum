@@ -7,43 +7,6 @@ description: GitLab CI/CD Examples
 
 {{ $frontmatter.description }}
 
-## Build inside
-
-```yaml
-variables:
-  DOCKER_IMAGE: "node:20.15.0"
-
-stages:
-  - deploy
-
-deploy-job:
-  stage: deploy
-  image: $DOCKER_IMAGE
-  before_script:
-    - "command -v ssh-agent >/dev/null || ( apk add --update openssh )"
-    - eval $(ssh-agent -s)
-    - echo "$GITLAB_SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
-    - mkdir -p ~/.ssh
-    - chmod 700 ~/.ssh
-    - ssh-keyscan -p $MAIN_SSH_PORT $MAIN_IP >> ~/.ssh/known_hosts
-    - chmod 644 ~/.ssh/known_hosts
-    - apt-get update -qq && apt-get install -y -qq sshpass
-  script:
-    - ssh -p $MAIN_SSH_PORT $MAIN_USER@$MAIN_IP "
-      . ~/.zshrc &&
-      cd /var/www/$CI_PROJECT_NAME &&
-      git pull &&
-      docker compose down &&
-      docker compose up -d --build &&
-      notifier discord '$CI_PROJECT_TITLE deployed'"
-  only:
-    - main
-```
-
-## Build outside
-
-Setup `ssh` with `rsync`, external build of project and replace static files inside container.
-
 **GitLab variables**
 
 - `CI_PROJECT_NAME`: project's name, like `memorandum` in `https://gitlab.com/kiwilan/memorandum.git`
@@ -59,6 +22,41 @@ Setup `ssh` with `rsync`, external build of project and replace static files ins
 **Project variables**
 
 - `DOCKER_CONTAINER`: name of Docker container to deploy
+
+## Build inside
+
+```yaml
+variables:
+  DOCKER_IMAGE: "alpine:3.23.0"
+
+stages:
+  - deploy
+
+deploy-job:
+  stage: deploy
+  image: $DOCKER_IMAGE
+  before_script:
+    - apk add --no-cache openssh-client sshpass
+    - eval $(ssh-agent -s)
+    - echo "$GITLAB_SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh && chmod 700 ~/.ssh
+    - ssh-keyscan -p $MAIN_SSH_PORT $MAIN_IP >> ~/.ssh/known_hosts && chmod 644 ~/.ssh/known_hosts
+
+  script:
+    - ssh -p $MAIN_SSH_PORT $MAIN_USER@$MAIN_IP "
+      . ~/.zshrc &&
+      cd /var/www/$CI_PROJECT_NAME &&
+      git pull &&
+      docker compose down &&
+      docker compose up -d --build &&
+      notifier discord '$CI_PROJECT_TITLE deployed'"
+  only:
+    - main
+```
+
+## Build outside
+
+Setup `ssh` with `rsync`, external build of project and replace static files inside container.
 
 ```yml
 variables:
