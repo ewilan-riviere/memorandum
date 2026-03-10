@@ -31,6 +31,7 @@ cp .env.example .env
 Build and run the project:
 
 ```sh
+docker network create documentation
 docker compose down
 docker compose up -d
 ```

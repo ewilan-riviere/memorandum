@@ -7,7 +7,15 @@ services:
     restart: unless-stopped
     ports:
       - "${APP_PORT:-3000}:80"
+    networks:
+      - documentation
     deploy:
       resources:
         limits:
           memory: 512m
+
+# docker network create documentation
+networks:
+  documentation:
+    external:
+      name: documentation
