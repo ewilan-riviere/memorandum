@@ -17,5 +17,5 @@ services:
 # docker network create documentation
 networks:
   documentation:
-    external:
-      name: documentation
+    name: documentation
+    external: true
