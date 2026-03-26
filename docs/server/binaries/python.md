@@ -389,10 +389,10 @@ uv pip install -e .
 
 For VSCode users, use `Shift+Ctrl+P` / `Shift+Cmd+P` and select `Python: Select Interpreter` to select local virtual environment, like `/Workspace/project/.venv/bin/python`.
 
+Best way:
+
 ```json:.vscode/settings.json
 {
-  "python.venvFolders": [".venv", "venv", "env"],
-  "pylint.importStrategy": "fromEnvironment",
-  "python.analysis.typeCheckingMode": "basic",
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python"
 }
 ```
