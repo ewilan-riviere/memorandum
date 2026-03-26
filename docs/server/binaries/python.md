@@ -352,6 +352,11 @@ which python3
 
 [`deptry`](https://deptry.com/) is a command line tool to check for issues with dependencies in a Python project, such as unused or missing dependencies. It supports projects using Poetry, pip, PDM, uv, and more generally any project supporting PEP 621 specification.
 
+```sh
+uv add --dev deptry
+uv run deptry .
+```
+
 ### `deactivate`
 
 You can disable a virtual environment with:
