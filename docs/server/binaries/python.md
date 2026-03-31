@@ -279,6 +279,32 @@ ur pytest
 uv run python main.py
 ```
 
+## `uv` and CLI
+
+Install in edit mode (useful if you're modifying the code)
+
+```sh
+uv tool install --editable .
+```
+
+Update after a git pull
+
+```sh
+uv tool upgrade <cli-name>
+```
+
+View installed tools
+
+```sh
+uv tool list
+```
+
+Uninstall
+
+```sh
+uv tool uninstall <cli-name>
+```
+
 ## Tests
 
 ```sh
@@ -363,20 +389,6 @@ You can disable a virtual environment with:
 
 ```sh
 deactivate
-```
-
-### Global CLI
-
-You can install CLI globally:
-
-```sh
-uv pip install .
-```
-
-And you can allow editable mode:
-
-```sh
-uv pip install -e .
 ```
 
 ### direnv
