@@ -412,7 +412,26 @@ sudo make install
 
 ## Troubles
 
-### `pcre2.h` file not found
+### `pecl`: No such file or directory (macOS)
+
+After `sudo make install`
+
+```sh:output
+mkdir: /opt/homebrew/Cellar/php/8.5.4/pecl: File exists
+mkdir: /opt/homebrew/Cellar/php/8.5.4/pecl: No such file or directory
+make: *** [install-modules] Error 1
+```
+
+```sh
+sudo rm /opt/homebrew/Cellar/php/8.5.4/pecl
+```
+
+```sh
+sudo mkdir -p /opt/homebrew/Cellar/php/8.5.4/lib/php/extensions
+sudo ln -s /opt/homebrew/Cellar/php/8.5.4/lib/php/extensions /opt/homebrew/Cellar/php/8.5.4/pecl
+```
+
+### `pcre2.h` file not found (macOS)
 
 On macOS you need to install `pcre2` and link it to current PHP version.
 
